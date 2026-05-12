@@ -1,0 +1,438 @@
+package com.oracle.aidataplatform.dp.model;
+
+
+/**
+ * The information about the notebook task.
+**/
+@javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=NotebookTask.Builder.class)
+@com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="type")
+
+public final class NotebookTask extends Task {
+    @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+    public static class Builder {
+        @com.fasterxml.jackson.annotation.JsonProperty("taskKey")
+        private String taskKey;
+
+            public Builder taskKey(String taskKey) {
+            this.taskKey = taskKey;
+            return this;
+            }
+        @com.fasterxml.jackson.annotation.JsonProperty("dependsOn")
+        private java.util.List<DependsOn> dependsOn;
+
+            public Builder dependsOn(java.util.List<DependsOn> dependsOn) {
+            this.dependsOn = dependsOn;
+            return this;
+            }
+        @com.fasterxml.jackson.annotation.JsonProperty("runIf")
+        private RunIf runIf;
+
+            public Builder runIf(RunIf runIf) {
+            this.runIf = runIf;
+            return this;
+            }
+        @com.fasterxml.jackson.annotation.JsonProperty("maxRetries")
+        private Integer maxRetries;
+
+            public Builder maxRetries(Integer maxRetries) {
+            this.maxRetries = maxRetries;
+            return this;
+            }
+        @com.fasterxml.jackson.annotation.JsonProperty("minRetryIntervalMillis")
+        private Integer minRetryIntervalMillis;
+
+            public Builder minRetryIntervalMillis(Integer minRetryIntervalMillis) {
+            this.minRetryIntervalMillis = minRetryIntervalMillis;
+            return this;
+            }
+        @com.fasterxml.jackson.annotation.JsonProperty("isRetryOnTimeout")
+        private Boolean isRetryOnTimeout;
+
+            public Builder isRetryOnTimeout(Boolean isRetryOnTimeout) {
+            this.isRetryOnTimeout = isRetryOnTimeout;
+            return this;
+            }
+            /**
+     * The path where the notebook exists.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("notebookPath")
+        private String notebookPath;
+
+                /**
+         * The path where the notebook exists.
+         * @param notebookPath the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder notebookPath(String notebookPath) {
+        this.notebookPath = notebookPath;
+        return this;
+        }
+            /**
+     * Source selected for a task. Either workspace or Git provider.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("source")
+        private Source source;
+
+                /**
+         * Source selected for a task. Either workspace or Git provider.
+         * @param source the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder source(Source source) {
+        this.source = source;
+        return this;
+        }
+        
+        @com.fasterxml.jackson.annotation.JsonProperty("gitConfig")
+        private GitConfig gitConfig;
+
+        
+
+        public Builder gitConfig(GitConfig gitConfig) {
+        this.gitConfig = gitConfig;
+        return this;
+        }
+        
+        @com.fasterxml.jackson.annotation.JsonProperty("cluster")
+        private JobCluster cluster;
+
+        
+
+        public Builder cluster(JobCluster cluster) {
+        this.cluster = cluster;
+        return this;
+        }
+            /**
+     * An optional list of parameters.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("parameters")
+        private java.util.List<Parameter> parameters;
+
+                /**
+         * An optional list of parameters.
+         * @param parameters the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder parameters(java.util.List<Parameter> parameters) {
+        this.parameters = parameters;
+        return this;
+        }
+            /**
+     * An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("timeoutSeconds")
+        private Integer timeoutSeconds;
+
+                /**
+         * An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
+         * @param timeoutSeconds the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder timeoutSeconds(Integer timeoutSeconds) {
+        this.timeoutSeconds = timeoutSeconds;
+        return this;
+        }
+            /**
+     * An optional property to enable or disable the streaming capability for a task.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("isStreaming")
+        private Boolean isStreaming;
+
+                /**
+         * An optional property to enable or disable the streaming capability for a task.
+         * @param isStreaming the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder isStreaming(Boolean isStreaming) {
+        this.isStreaming = isStreaming;
+        return this;
+        }
+
+
+        public NotebookTask build() {
+            NotebookTask model = new NotebookTask(this.taskKey
+                    , this.dependsOn
+                    , this.runIf
+                    , this.maxRetries
+                    , this.minRetryIntervalMillis
+                    , this.isRetryOnTimeout
+                    , this.notebookPath
+                    , this.source
+                    , this.gitConfig
+                    , this.cluster
+                    , this.parameters
+                    , this.timeoutSeconds
+                    , this.isStreaming);            return model;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonIgnore
+        public Builder copy(NotebookTask model) {
+                this.taskKey(model.getTaskKey());
+    this.dependsOn(model.getDependsOn());
+    this.runIf(model.getRunIf());
+    this.maxRetries(model.getMaxRetries());
+    this.minRetryIntervalMillis(model.getMinRetryIntervalMillis());
+    this.isRetryOnTimeout(model.getIsRetryOnTimeout());
+    this.notebookPath(model.getNotebookPath());
+    this.source(model.getSource());
+    this.gitConfig(model.getGitConfig());
+    this.cluster(model.getCluster());
+    this.parameters(model.getParameters());
+    this.timeoutSeconds(model.getTimeoutSeconds());
+    this.isStreaming(model.getIsStreaming());
+return this;
+        }
+    }
+
+    /**
+     * Create a new builder.
+     */
+    public static Builder builder() {
+        return new Builder();
+    }
+
+
+    public Builder toBuilder() {
+        return new Builder().copy(this);
+    }
+
+    
+    @Deprecated
+    public NotebookTask(String taskKey, java.util.List<DependsOn> dependsOn, RunIf runIf, Integer maxRetries, Integer minRetryIntervalMillis, Boolean isRetryOnTimeout, String notebookPath, Source source, GitConfig gitConfig, JobCluster cluster, java.util.List<Parameter> parameters, Integer timeoutSeconds, Boolean isStreaming) {
+        super(taskKey, dependsOn, runIf, maxRetries, minRetryIntervalMillis, isRetryOnTimeout);
+        this.notebookPath = notebookPath;
+        this.source = source;
+        this.gitConfig = gitConfig;
+        this.cluster = cluster;
+        this.parameters = parameters;
+        this.timeoutSeconds = timeoutSeconds;
+        this.isStreaming = isStreaming;
+    }
+
+
+        /**
+     * The path where the notebook exists.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("notebookPath")
+    private final String notebookPath;
+
+        /**
+     * The path where the notebook exists.
+     * @return the value
+     **/
+    
+    public String getNotebookPath() {
+        return notebookPath;
+    }
+
+    /**
+     * Source selected for a task. Either workspace or Git provider.
+     **/
+    public enum Source {
+        Workspace("WORKSPACE"),
+        GitProvider("GIT_PROVIDER"),
+        
+
+        /**
+         * This value is used if a service returns a value for this enum that is not recognized by this
+         * version of the SDK.
+         */
+        UnknownEnumValue(null);
+
+        private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(Source.class);
+
+        private final String value;
+        private static java.util.Map<String, Source> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (Source v : Source.values()) {
+                if (v != UnknownEnumValue) {
+                    map.put(v.getValue(), v);
+                }
+            }
+        }
+
+        Source(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static Source create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            LOG.warn("Received unknown value '{}' for enum 'Source', returning UnknownEnumValue", key);
+            return UnknownEnumValue;
+        }
+    };
+        /**
+     * Source selected for a task. Either workspace or Git provider.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("source")
+    private final Source source;
+
+        /**
+     * Source selected for a task. Either workspace or Git provider.
+     * @return the value
+     **/
+    
+    public Source getSource() {
+        return source;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("gitConfig")
+    private final GitConfig gitConfig;
+
+    
+    public GitConfig getGitConfig() {
+        return gitConfig;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("cluster")
+    private final JobCluster cluster;
+
+    
+    public JobCluster getCluster() {
+        return cluster;
+    }
+
+
+        /**
+     * An optional list of parameters.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("parameters")
+    private final java.util.List<Parameter> parameters;
+
+        /**
+     * An optional list of parameters.
+     * @return the value
+     **/
+    
+    public java.util.List<Parameter> getParameters() {
+        return parameters;
+    }
+
+
+        /**
+     * An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("timeoutSeconds")
+    private final Integer timeoutSeconds;
+
+        /**
+     * An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
+     * @return the value
+     **/
+    
+    public Integer getTimeoutSeconds() {
+        return timeoutSeconds;
+    }
+
+
+        /**
+     * An optional property to enable or disable the streaming capability for a task.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("isStreaming")
+    private final Boolean isStreaming;
+
+        /**
+     * An optional property to enable or disable the streaming capability for a task.
+     * @return the value
+     **/
+    
+    public Boolean getIsStreaming() {
+        return isStreaming;
+    }
+
+    @Override
+    public String toString() {
+        return this.toString(true);
+    }
+
+    /**
+     * Return a string representation of the object.
+     * @param includeByteArrayContents true to include the full contents of byte arrays
+     * @return string representation
+     */
+    public String toString(boolean includeByteArrayContents) {
+        java.lang.StringBuilder sb = new java.lang.StringBuilder();
+        sb.append("NotebookTask(");
+        sb.append("super=").append(super.toString(includeByteArrayContents));
+        sb.append(", notebookPath=").append(String.valueOf(this.notebookPath));
+        sb.append(", source=").append(String.valueOf(this.source));
+        sb.append(", gitConfig=").append(String.valueOf(this.gitConfig));
+        sb.append(", cluster=").append(String.valueOf(this.cluster));
+        sb.append(", parameters=").append(String.valueOf(this.parameters));
+        sb.append(", timeoutSeconds=").append(String.valueOf(this.timeoutSeconds));
+        sb.append(", isStreaming=").append(String.valueOf(this.isStreaming));
+        sb.append(")");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof NotebookTask)) {
+            return false;
+        }
+
+        NotebookTask other = (NotebookTask) o;
+        return java.util.Objects.equals(this.notebookPath, other.notebookPath) &&
+            java.util.Objects.equals(this.source, other.source) &&
+            java.util.Objects.equals(this.gitConfig, other.gitConfig) &&
+            java.util.Objects.equals(this.cluster, other.cluster) &&
+            java.util.Objects.equals(this.parameters, other.parameters) &&
+            java.util.Objects.equals(this.timeoutSeconds, other.timeoutSeconds) &&
+            java.util.Objects.equals(this.isStreaming, other.isStreaming) &&
+            super.equals(other);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = super.hashCode();
+        result = (result * PRIME) + (this.notebookPath == null ? 43 : this.notebookPath.hashCode());
+        result = (result * PRIME) + (this.source == null ? 43 : this.source.hashCode());
+        result = (result * PRIME) + (this.gitConfig == null ? 43 : this.gitConfig.hashCode());
+        result = (result * PRIME) + (this.cluster == null ? 43 : this.cluster.hashCode());
+        result = (result * PRIME) + (this.parameters == null ? 43 : this.parameters.hashCode());
+        result = (result * PRIME) + (this.timeoutSeconds == null ? 43 : this.timeoutSeconds.hashCode());
+        result = (result * PRIME) + (this.isStreaming == null ? 43 : this.isStreaming.hashCode());
+        return result;
+    }
+
+
+}

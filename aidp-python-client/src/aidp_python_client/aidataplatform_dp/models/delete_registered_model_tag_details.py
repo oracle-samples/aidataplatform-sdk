@@ -1,0 +1,101 @@
+# coding: utf-8
+# Copyright (c) 2016, 2026, Oracle and/or its affiliates.  All rights reserved.
+# This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
+
+
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.decorators import init_model_state_from_kwargs
+
+
+@init_model_state_from_kwargs
+class DeleteRegisteredModelTagDetails(object):
+    """
+    Details of the RegisteredModel tag.
+    """
+
+    def __init__(self, **kwargs):
+        """
+        Initializes a new DeleteRegisteredModelTagDetails object with values from keyword arguments.
+        The following keyword arguments are supported (corresponding to the getters/setters of this class):
+
+        :param name:
+            The value to assign to the name property of this DeleteRegisteredModelTagDetails.
+        :type name: str
+
+        :param key:
+            The value to assign to the key property of this DeleteRegisteredModelTagDetails.
+        :type key: str
+
+        """
+        self.swagger_types = {
+            'name': 'str',
+            'key': 'str'
+        }
+
+        self.attribute_map = {
+            'name': 'name',
+            'key': 'key'
+        }
+
+        self._name = None
+        self._key = None
+
+    @property
+    def name(self):
+        """
+        **[Required]** Gets the name of this DeleteRegisteredModelTagDetails.
+        Name of the registered model.
+
+
+        :return: The name of this DeleteRegisteredModelTagDetails.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this DeleteRegisteredModelTagDetails.
+        Name of the registered model.
+
+
+        :param name: The name of this DeleteRegisteredModelTagDetails.
+        :type: str
+        """
+        self._name = name
+
+    @property
+    def key(self):
+        """
+        **[Required]** Gets the key of this DeleteRegisteredModelTagDetails.
+        Tag key.
+
+
+        :return: The key of this DeleteRegisteredModelTagDetails.
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """
+        Sets the key of this DeleteRegisteredModelTagDetails.
+        Tag key.
+
+
+        :param key: The key of this DeleteRegisteredModelTagDetails.
+        :type: str
+        """
+        self._key = key
+
+    def __repr__(self):
+        return formatted_flat_dict(self)
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not self == other

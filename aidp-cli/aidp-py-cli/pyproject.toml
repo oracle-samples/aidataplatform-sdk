@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aidp-cli"
+dynamic = ["version"]
+requires-python = ">=3.9"
+description = "Command line interface for AI Data Platform data plane public APIs."
+dependencies = [
+    "aidp-python-client>=0.1.0",
+    "oci>=2.122.0"
+]
+
+[project.scripts]
+aidp = "aidp_cli.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["aidp_cli*"]
+
+[tool.setuptools.dynamic]
+version = { file = ["VERSION"] }
