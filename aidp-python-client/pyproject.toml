@@ -1,3 +1,5 @@
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
 [build-system]
 requires = ["setuptools>=67.0"]
 build-backend = "setuptools.build_meta"
@@ -5,7 +7,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aidp-python-client"
 dynamic = ["version"]
-dependencies = ["oci>=2.165.0,<3"]
+dependencies = ["oci>=2.174.0,<3"]
 requires-python = ">=3.9"
 description = "Python SDK for the AI Data Platform Data Plane APIs."
 

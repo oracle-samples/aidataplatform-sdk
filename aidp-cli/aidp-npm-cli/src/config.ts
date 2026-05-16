@@ -1,12 +1,14 @@
-import { readFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { dirname } from "path";
 import { randomUUID } from "crypto";
 import common = require("oci-common");
 
 import { CliError } from "./errors";
 
 export const DEFAULT_PROFILE = "DEFAULT";
-export const DEFAULT_AUTH = "api_key";
+export const DEFAULT_AUTH = "security_token";
 export const DEFAULT_CONFIG_FILE = "~/.oci/config";
+export const DEFAULT_AIDP_CONFIG_FILE = "~/.aidp/config";
 export const DEFAULT_ENVIRONMENT_PREFIX = "aidp";
 export const DEFAULT_ENVIRONMENT_DOMAIN = "oraclecloud.com";
 export const AUTH_CHOICES = [
@@ -23,7 +25,6 @@ export interface ParsedProfile {
 }
 
 export interface GlobalOptions {
-  aiDataPlatformId?: string;
   auth: AuthMode;
   configFile: string;
   debug: boolean;
@@ -31,6 +32,7 @@ export interface GlobalOptions {
   environmentDomain: string;
   environmentHost?: string;
   environmentPrefix: string;
+  instanceId?: string;
   profile: string;
   region?: string;
   timeout?: number;
@@ -57,6 +59,7 @@ export function defaultGlobalOptions(): GlobalOptions {
     endpoint: process.env.OCI_CLI_ENDPOINT,
     environmentDomain: DEFAULT_ENVIRONMENT_DOMAIN,
     environmentPrefix: DEFAULT_ENVIRONMENT_PREFIX,
+    instanceId: configuredInstanceId(),
     profile: process.env.OCI_CLI_PROFILE || DEFAULT_PROFILE,
     region: process.env.OCI_CLI_REGION
   };
@@ -78,6 +81,45 @@ export function expandHome(value: string): string {
     return `${process.env.HOME || ""}/${value.slice(2)}`;
   }
   return value;
+}
+
+export function aidpConfigPath(): string {
+  return expandHome(process.env.AIDP_CLI_CONFIG_FILE || DEFAULT_AIDP_CONFIG_FILE);
+}
+
+export function readAidpConfig(): Record<string, string> {
+  const path = aidpConfigPath();
+  if (!existsSync(path)) {
+    return {};
+  }
+  const raw = readFileSync(path, "utf8");
+  if (!raw.trim()) {
+    return {};
+  }
+  const value = JSON.parse(raw) as unknown;
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new CliError(`${path} must contain a JSON object.`);
+  }
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>).map(([key, item]) => [String(key), String(item)])
+  );
+}
+
+export function writeAidpConfig(config: Record<string, string>): void {
+  const path = aidpConfigPath();
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, `${JSON.stringify(config, null, 2)}\n`, "utf8");
+}
+
+export function configuredInstanceId(): string | undefined {
+  if (process.env.INSTANCE_ID) {
+    return process.env.INSTANCE_ID;
+  }
+  try {
+    return readAidpConfig()["instance-id"] || undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 export function parseProfile(configFilePath: string, profileName: string): ParsedProfile {
@@ -138,8 +180,7 @@ export function resolveRegion(
   }
 
   if (options.auth !== "instance_principal" && options.auth !== "resource_principal") {
-    const profile = parseProfile(options.configFile, options.profile);
-    return profile.region;
+    return parseProfile(options.configFile, options.profile).region;
   }
 
   return undefined;
@@ -187,6 +228,11 @@ export function resolveEndpoint(
       "Set --region, --endpoint, --environment-host, or region in the OCI config profile."
     );
   }
+  if (/^https?:\/\//.test(region)) {
+    throw new CliError(
+      "Region must be an OCI region identifier. For a full service URL, use --endpoint or OCI_CLI_ENDPOINT."
+    );
+  }
 
   return `https://${options.environmentPrefix}.${region}.oci.${options.environmentDomain}`.replace(
     /\/+$/,
@@ -232,8 +278,7 @@ function getProviderRegion(
   const provider = authProvider as unknown as Record<string, unknown>;
   const getRegion = provider.getRegion;
   if (typeof getRegion === "function") {
-    const region = getRegion.call(authProvider);
-    return normalizeRegionValue(region);
+    return normalizeRegionValue(getRegion.call(authProvider));
   }
 
   return normalizeRegionValue(provider.region) ?? normalizeRegionValue(provider.regionId);

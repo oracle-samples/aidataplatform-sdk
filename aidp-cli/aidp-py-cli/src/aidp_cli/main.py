@@ -1,15 +1,20 @@
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
 from __future__ import annotations
 
-import argparse
+import difflib
 import inspect
 import json
 import os
 import re
 import sys
+import textwrap
 import uuid
-from json import JSONDecodeError
+import warnings
 from importlib.metadata import PackageNotFoundError, version as package_version
+from json import JSONDecodeError
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any, Callable
 from urllib.parse import quote
 
@@ -18,20 +23,64 @@ from oci.auth.signers import SecurityTokenSigner
 from oci.exceptions import ConfigFileNotFound, InvalidConfig, RequestException, ServiceError
 from oci.signer import Signer, load_private_key_from_file
 from oci.util import to_dict
+from oci._vendor.requests.exceptions import RequestException as VendorRequestException
 
 from aidp_cli.discovery import discover_clients
-from aidp_python_client import aidataplatform_dp
-from aidp_python_client.aidataplatform_dp import models
+from aidp_cli.manifest import (
+    BodyField,
+    BodyModel,
+    CommandDefinition,
+    CommandField,
+    CommandGroup,
+    CommandManifest,
+    find_command,
+    find_command_group,
+    load_command_manifest,
+)
 
+
+warnings.filterwarnings(
+    "ignore",
+    message=r"The 'strict' parameter is no longer needed on Python 3\+.",
+    category=FutureWarning,
+)
 
 DEFAULT_PROFILE = "DEFAULT"
-DEFAULT_AUTH = "api_key"
+DEFAULT_AUTH = "security_token"
 PACKAGE_NAME = "aidp-cli"
 DEFAULT_ENVIRONMENT_PREFIX = "aidp"
 DEFAULT_ENVIRONMENT_DOMAIN = "oraclecloud.com"
-ANSI_BOLD_GREEN = "\033[1;32m"
-ANSI_RESET = "\033[0m"
+DEFAULT_AIDP_CONFIG_FILE = "~/.aidp/config"
+MAX_BODY_EXAMPLE_DEPTH = 12
 AUTH_CHOICES = ("api_key", "security_token", "instance_principal", "resource_principal")
+SEARCH_ACTION_PREFIXES = (
+    "checkout",
+    "commit",
+    "create",
+    "delete",
+    "deploy",
+    "download",
+    "export",
+    "generate",
+    "head",
+    "list",
+    "manage",
+    "merge",
+    "patch",
+    "pull",
+    "push",
+    "rebase",
+    "remove",
+    "restart",
+    "restore",
+    "search",
+    "start",
+    "stop",
+    "summarize",
+    "update",
+    "upload",
+    "get",
+)
 CONFIG_ENV_OVERRIDES = {
     "OCI_CLI_USER": "user",
     "OCI_CLI_FINGERPRINT": "fingerprint",
@@ -41,51 +90,34 @@ CONFIG_ENV_OVERRIDES = {
     "OCI_CLI_PASSPHRASE": "pass_phrase",
     "OCI_CLI_SECURITY_TOKEN_FILE": "security_token_file",
 }
-CLIENTS: dict[str, type] = discover_clients(aidataplatform_dp)
-SERVICE_DESCRIPTIONS: dict[str, str] = {
-    "audit": "Search and manage AIDP audit logs.",
-    "bundle": "Create, deploy, inspect deployment status, and purge AIDP bundles.",
-    "catalog": "Create, list, refresh, update, delete, test, and manage permissions for catalogs.",
-    "cluster": "Create, list, inspect, start, stop, restart, update, delete, and manage Spark clusters.",
-    "credential-store": "Create, list, inspect, update, and delete data lake credentials.",
-    "delta-share": "Manage delta sharing recipients, shares, permissions, recipients, and shared data assets.",
-    "git-service": "Manage workspace Git repositories, branches, diffs, pull, merge, rebase, reset, and conflict resolution.",
-    "ml-ops": "Manage experiments, experiment runs, registered models, model versions, metrics, parameters, tags, and artifacts.",
-    "notebook": "Manage notebook content and interactive sessions inside a workspace.",
-    "role": "Create, list, inspect, update, delete roles and manage role members and permissions.",
-    "schema": "Manage catalogs' schemas, tables, views, permissions, refresh, inference, and PAR access.",
-    "user-setting": "Create, list, inspect, update, and delete user settings.",
-    "volume": "Manage volumes, directories, files, uploads, downloads, and volume permissions.",
-    "workflow": "Manage jobs, job runs, task runs, output export, repair, cancel, and job permissions.",
-    "workspace": "Create, list, inspect, update, delete workspaces and manage workspace permissions.",
-    "workspace-object": "Manage workspace objects, object movement, upload/download PAR, listing, and permissions.",
-    "wrapper": "Search and download cluster logs and summarize cluster metrics.",
+GLOBAL_VALUE_OPTIONS = {
+    "--config-file": "config_file",
+    "--profile": "profile",
+    "-p": "profile",
+    "--auth": "auth",
+    "--region": "region",
+    "--endpoint": "endpoint",
+    "--environment-prefix": "environment_prefix",
+    "--environmentprefix": "environment_prefix",
+    "--environment-domain": "environment_domain",
+    "--environment-host": "environment_host",
+    "--timeout": "timeout",
+    "--instance-id": "ai_data_platform_id",
 }
-GLOBAL_OPTIONS_REQUIRING_VALUE = {
-    "--config-file",
-    "--profile",
-    "--auth",
-    "--region",
-    "--endpoint",
-    "--environment-prefix",
-    "--environmentprefix",
-    "--environment-domain",
-    "--environment-host",
-    "--timeout",
-    "--ai-data-platform-id",
+GLOBAL_BOOLEAN_OPTIONS = {
+    "--debug": "debug",
 }
-
-
-class AidpHelpFormatter(argparse.RawDescriptionHelpFormatter):
-    pass
-
-
-class AidpArgumentParser(argparse.ArgumentParser):
-    def error(self, message: str) -> None:
-        if "expected one argument" in message and help_requested_after_option_value(sys.argv[1:]):
-            self.print_help(sys.stdout)
-            raise SystemExit(0)
-        super().error(message)
+SKIPPED_COMMAND_FIELDS = {"opc_request_id"}
+UTILITY_COMMANDS = (
+    ("command-groups", "List API command groups."),
+    ("search", "Search command groups and command names."),
+    ("configure", "Configure local AIDP CLI defaults."),
+    ("help", "Help about any command."),
+    ("version", "Show CLI version."),
+)
+CLIENTS: dict[str, type] = {}
+MANIFEST: CommandManifest | None = None
+AIDP_DP_MODULE: Any = None
 
 
 class CliError(Exception):
@@ -93,19 +125,17 @@ class CliError(Exception):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = build_parser()
     raw_argv = sys.argv[1:] if argv is None else argv
-    if help_requested_after_option_value(raw_argv):
-        parser.print_help(sys.stdout)
-        return 0
-    args = parser.parse_args(raw_argv)
-    if args.auth not in AUTH_CHOICES:
-        parser.error(
-            f"argument --auth: invalid choice: {args.auth!r} "
-            f"(choose from {', '.join(AUTH_CHOICES)})"
-        )
     try:
-        return args.handler(args)
+        globals_ns, args, help_requested, version_requested = parse_global_options(raw_argv)
+        if version_requested:
+            print_version()
+            return 0
+        ensure_manifest_loaded()
+        if not args:
+            print_root_help()
+            return 0
+        return dispatch(args, globals_ns, help_requested)
     except CliError as exc:
         print(f"aidp: error: {exc}", file=sys.stderr)
         return 2
@@ -121,623 +151,767 @@ def main(argv: list[str] | None = None) -> int:
     except JSONDecodeError as exc:
         print(f"aidp: error: invalid JSON: {exc}", file=sys.stderr)
         return 2
+    except VendorRequestException as exc:
+        print(f"aidp: error: request failed: {exc}", file=sys.stderr)
+        return 1
     except RequestException as exc:
         print(f"aidp: error: request failed: {exc}", file=sys.stderr)
         return 1
+    except OSError as exc:
+        print(f"aidp: error: file error: {exc}", file=sys.stderr)
+        return 2
     except ValueError as exc:
         print(f"aidp: error: {exc}", file=sys.stderr)
         return 2
     except ServiceError as exc:
-        print(
-            json.dumps(
-                {
-                    "status": exc.status,
-                    "code": exc.code,
-                    "message": exc.message,
-                    "opc-request-id": exc.request_id,
-                },
-                indent=2,
-                sort_keys=True,
-            ),
-            file=sys.stderr,
+        print_error_response(
+            {
+                "status": exc.status,
+                "code": exc.code,
+                "message": exc.message,
+                "opc-request-id": exc.request_id,
+            }
         )
         return int(exc.status or 1)
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = AidpArgumentParser(
-        prog="aidp",
-        description="Call AI Data Platform data plane public APIs.",
-        usage="aidp [global options] <command> [command options]",
-        formatter_class=AidpHelpFormatter,
-        epilog="""Examples:
-  aidp services
-  aidp operations workspace
-  aidp --auth security_token --profile DEFAULT --region us-phoenix-1 \\
-    --ai-data-platform-id <ai_data_platform_ocid> \\
-    invoke workspace get_ai_data_platform_workspace \\
-    --param workspace_key=<workspace_key>
-
-Use 'aidp <command> --help' for command-specific options.""",
-    )
-    parser.set_defaults(handler=handle_root_help)
-    parser.add_argument("--config-file", metavar="FILE", default=os.getenv("OCI_CLI_CONFIG_FILE", "~/.oci/config"), help="OCI config file path.")
-    parser.add_argument("--profile", metavar="PROFILE", default=os.getenv("OCI_CLI_PROFILE", DEFAULT_PROFILE), help="OCI config profile.")
-    parser.add_argument("--auth", metavar="MODE", choices=AUTH_CHOICES, default=os.getenv("OCI_CLI_AUTH", DEFAULT_AUTH), help="OCI authentication mode. Choices: api_key, security_token, instance_principal, resource_principal. Defaults to api_key.")
-    parser.add_argument("--region", metavar="REGION", default=os.getenv("OCI_CLI_REGION"), help="OCI region. Defaults to the OCI config region.")
-    parser.add_argument("--endpoint", metavar="URL", default=os.getenv("OCI_CLI_ENDPOINT"), help="AIDP data plane endpoint override. If scheme is omitted, https:// is used. Takes precedence over environment options.")
-    parser.add_argument(
-        "--environment-prefix",
-        "--environmentprefix",
-        metavar="PREFIX",
-        default=DEFAULT_ENVIRONMENT_PREFIX,
-        help=argparse.SUPPRESS,
-    )
-    parser.add_argument(
-        "--environment-domain",
-        metavar="DOMAIN",
-        default=DEFAULT_ENVIRONMENT_DOMAIN,
-        help=argparse.SUPPRESS,
-    )
-    parser.add_argument(
-        "--environment-host",
-        metavar="HOST",
-        help=argparse.SUPPRESS,
-    )
-    parser.add_argument("--timeout", metavar="SECONDS", type=float, help="Connection/read timeout in seconds.")
-    parser.add_argument("--ai-data-platform-id", metavar="OCID", help="Default value for operation parameter ai_data_platform_id.")
-    parser.add_argument("--debug", action="store_true", help="Print request debug details to stderr before invoking the API.")
-    parser.add_argument("-v", "--version", action="version", version=f"%(prog)s {cli_version()}")
-
-    subparsers = parser.add_subparsers(dest="command", title="commands", metavar="<command>")
-
-    services = subparsers.add_parser(
-        "services",
-        help="List available API services.",
-        description="List available AIDP API services.",
-        usage="aidp services",
-    )
-    services.set_defaults(handler=handle_services)
-
-    operations = subparsers.add_parser(
-        "operations",
-        add_help=False,
-        help="List operations for a service.",
-        description="List callable operations for an AIDP service.",
-        usage="aidp operations <service> [operation]",
-        epilog="""Examples:
-  aidp operations workspace
-  aidp operations workspace get_ai_data_platform_workspace
-  aidp operations workspace get_ai_data_platform_workspace --help""",
-        formatter_class=AidpHelpFormatter,
-    )
-    operations.add_argument("service", metavar="SERVICE", nargs="?", choices=sorted(CLIENTS), help="Service name. Run 'aidp services' to list available services.")
-    operations.add_argument("operation", metavar="OPERATION", nargs="?", help="Generated SDK method name.")
-    operations.add_argument("-h", "--help", action="store_true", dest="operation_help", help="Show help for the service or specified operation.")
-    operations.set_defaults(handler=handle_operations, parser=operations)
-
-    invoke = subparsers.add_parser(
-        "invoke",
-        help="Invoke an API operation.",
-        description="Invoke a generated AIDP SDK operation.",
-        usage="aidp [global options] invoke <service> <operation> [operation options]",
-        epilog="""Example:
-  aidp --auth security_token --profile DEFAULT --region us-phoenix-1 \\
-    --ai-data-platform-id <ai_data_platform_ocid> \\
-    invoke workspace get_ai_data_platform_workspace \\
-    --param workspace_key=<workspace_key>""",
-        formatter_class=AidpHelpFormatter,
-    )
-    invoke.add_argument("service", metavar="SERVICE", choices=sorted(CLIENTS), help="Service name. Run 'aidp services' to list available services.")
-    invoke.add_argument("operation", metavar="OPERATION", help="Generated SDK method name, for example list_ai_data_platform_workspaces.")
-    invoke.add_argument(
-        "--param",
-        action="append",
-        default=[],
-        metavar="NAME=VALUE",
-        help="Operation argument or optional SDK kwarg. May be repeated.",
-    )
-    invoke.add_argument("--body", help="JSON object used for the operation body/details parameter.")
-    invoke.add_argument("--body-file", help="Path to a JSON file used for the operation body/details parameter. Use '-' for stdin.")
-    invoke.add_argument("--from-json", dest="from_json", help="JSON input or file:// path containing operation parameters.")
-    invoke.add_argument("--opc-request-id", help="Request ID. Generated automatically when omitted.")
-    invoke.add_argument("--no-request-id", action="store_true", help="Do not add an opc_request_id kwarg automatically.")
-    invoke.add_argument("--output", choices=["json", "data", "headers"], default="json")
-    invoke.set_defaults(handler=handle_invoke)
-
-    return parser
+def ensure_manifest_loaded() -> None:
+    global MANIFEST
+    if MANIFEST is not None:
+        return
+    try:
+        MANIFEST = load_command_manifest()
+    except RuntimeError as exc:
+        raise CliError(str(exc)) from exc
 
 
-def help_requested_after_option_value(argv: list[str]) -> bool:
-    for index, token in enumerate(argv):
-        if token not in {"-h", "--help"} or index == 0:
+def ensure_clients_loaded() -> None:
+    global AIDP_DP_MODULE, CLIENTS
+    if AIDP_DP_MODULE is not None:
+        return
+    try:
+        from aidp_python_client import aidataplatform_dp as sdk_module
+    except ImportError as exc:
+        raise CliError(
+            f"Unable to import aidp-python-client SDK: {exc}. Install the generated SDK wheel with aidp-cli."
+        ) from exc
+    AIDP_DP_MODULE = sdk_module
+    CLIENTS = discover_clients(sdk_module)
+
+
+def command_manifest() -> CommandManifest:
+    if MANIFEST is None:
+        raise CliError("AIDP command manifest is not loaded.")
+    return MANIFEST
+
+
+def dispatch(args: list[str], globals_ns: SimpleNamespace, help_requested: bool) -> int:
+    command = args[0]
+    tail = args[1:]
+
+    if command == "help":
+        return handle_help(tail, globals_ns)
+    if command == "version":
+        print_version()
+        return 0
+    if command == "command-groups":
+        if help_requested:
+            print_command_groups_help()
+        else:
+            print_command_groups()
+        return 0
+    if command == "search":
+        if help_requested or not tail:
+            print_search_help()
+        else:
+            handle_search(tail)
+        return 0
+    if command == "configure":
+        if help_requested or not tail:
+            print_configure_help()
+        else:
+            handle_configure(tail)
+        return 0
+
+    group = find_command_group(command_manifest(), command)
+    if group is None:
+        raise unknown_command_group(command)
+    globals_ns, tail = consume_leading_global_options(tail, globals_ns)
+    if not tail:
+        print_group_help(group)
+        return 0
+
+    command_name = tail[0]
+    command_def = find_command(group, command_name)
+    if command_def is None:
+        raise unknown_command_name(group, command_name)
+    if help_requested:
+        print_command_help(group, command_def)
+        return 0
+    return handle_command(group, command_def, tail[1:], globals_ns)
+
+
+def handle_help(args: list[str], globals_ns: SimpleNamespace) -> int:
+    if not args:
+        print_root_help()
+        return 0
+    group = find_command_group(command_manifest(), args[0])
+    if group is None:
+        if args[0] == "command-groups":
+            print_command_groups_help()
+            return 0
+        if args[0] == "search":
+            print_search_help()
+            return 0
+        if args[0] == "configure":
+            print_configure_help()
+            return 0
+        if args[0] == "version":
+            print_version()
+            return 0
+        raise unknown_command_group(args[0])
+    if len(args) == 1:
+        print_group_help(group)
+        return 0
+    command_def = find_command(group, args[1])
+    if command_def is None:
+        raise unknown_command_name(group, args[1])
+    print_command_help(group, command_def)
+    return 0
+
+
+def parse_global_options(argv: list[str]) -> tuple[SimpleNamespace, list[str], bool, bool]:
+    values = global_defaults()
+    remaining: list[str] = []
+    help_requested = False
+    version_requested = False
+    index = 0
+    command_seen = False
+
+    while index < len(argv):
+        token = argv[index]
+        if token in {"-h", "--help"}:
+            help_requested = True
+            index += 1
             continue
-        if argv[index - 1] in GLOBAL_OPTIONS_REQUIRING_VALUE:
-            return True
-    return False
+        if token in {"-v", "--version"}:
+            version_requested = True
+            index += 1
+            continue
+        if not command_seen and token in GLOBAL_BOOLEAN_OPTIONS:
+            values[GLOBAL_BOOLEAN_OPTIONS[token]] = True
+            index += 1
+            continue
+
+        option_name, inline_value = split_inline_option(token)
+        if not command_seen and option_name in GLOBAL_VALUE_OPTIONS:
+            value = inline_value
+            if value is None:
+                if index + 1 >= len(argv):
+                    raise CliError(f"{option_name} requires a value.")
+                value = argv[index + 1]
+                index += 1
+            apply_global_option(values, option_name, value)
+            index += 1
+            continue
+        if not command_seen and token.startswith("-"):
+            raise CliError(f"Unknown option {option_name!r}.")
+
+        remaining.append(token)
+        if not token.startswith("-"):
+            command_seen = True
+        index += 1
+
+    validate_global_options(values)
+    return SimpleNamespace(**values), remaining, help_requested, version_requested
 
 
-def handle_root_help(args: argparse.Namespace) -> int:
-    parser = build_parser()
-    parser.print_help(sys.stdout)
-    return 0
+def validate_global_options(values: dict[str, Any]) -> None:
+    if values["auth"] not in AUTH_CHOICES:
+        raise CliError(
+            f"argument --auth: invalid choice: {values['auth']!r} "
+            f"(choose from {', '.join(AUTH_CHOICES)})"
+        )
 
 
-def cli_version() -> str:
-    try:
-        return package_version(PACKAGE_NAME)
-    except PackageNotFoundError:
-        return "unknown"
+def consume_leading_global_options(
+    tokens: list[str],
+    globals_ns: SimpleNamespace,
+) -> tuple[SimpleNamespace, list[str]]:
+    values = vars(globals_ns).copy()
+    remaining: list[str] = []
+    index = 0
+
+    while index < len(tokens):
+        token = tokens[index]
+        if token in GLOBAL_BOOLEAN_OPTIONS:
+            values[GLOBAL_BOOLEAN_OPTIONS[token]] = True
+            index += 1
+            continue
+
+        option_name, inline_value = split_inline_option(token)
+        if option_name in GLOBAL_VALUE_OPTIONS:
+            value = inline_value
+            if value is None:
+                if index + 1 >= len(tokens):
+                    raise CliError(f"{option_name} requires a value.")
+                value = tokens[index + 1]
+                index += 1
+            apply_global_option(values, option_name, value)
+            index += 1
+            continue
+
+        remaining.extend(tokens[index:])
+        break
+
+    validate_global_options(values)
+    return SimpleNamespace(**values), remaining
 
 
-def handle_services(_args: argparse.Namespace) -> int:
-    print("Available services:")
-    for index, (service, client_cls) in enumerate(sorted(CLIENTS.items()), start=1):
-        print(f"{index}. service: {format_service_name(service)} - {SERVICE_DESCRIPTIONS.get(service, class_description(client_cls))}")
+def global_defaults() -> dict[str, Any]:
+    return {
+        "config_file": os.getenv("OCI_CLI_CONFIG_FILE", "~/.oci/config"),
+        "profile": os.getenv("OCI_CLI_PROFILE", DEFAULT_PROFILE),
+        "auth": os.getenv("OCI_CLI_AUTH", DEFAULT_AUTH),
+        "region": os.getenv("OCI_CLI_REGION"),
+        "endpoint": os.getenv("OCI_CLI_ENDPOINT"),
+        "environment_prefix": DEFAULT_ENVIRONMENT_PREFIX,
+        "environment_domain": DEFAULT_ENVIRONMENT_DOMAIN,
+        "environment_host": None,
+        "timeout": None,
+        "ai_data_platform_id": configured_instance_id(),
+        "debug": False,
+    }
+
+
+def apply_global_option(values: dict[str, Any], option_name: str, value: str) -> None:
+    key = GLOBAL_VALUE_OPTIONS[option_name]
+    if key == "timeout":
+        try:
+            timeout = float(value)
+        except ValueError as exc:
+            raise CliError("--timeout must be a positive number of seconds.") from exc
+        if timeout <= 0:
+            raise CliError("--timeout must be a positive number of seconds.")
+        values[key] = timeout
+        return
+    values[key] = value
+
+
+def split_inline_option(token: str) -> tuple[str, str | None]:
+    if "=" not in token:
+        return token, None
+    name, value = token.split("=", 1)
+    return name, value
+
+
+def print_root_help() -> None:
+    lines = [
+        "AIDP CLI",
+        "",
+        "Usage:",
+        "  aidp <command-group> <command-name> [flags]",
+        "",
+        "API Command Groups:",
+        *format_table((group.name, group.description) for group in command_manifest().command_groups),
+        "",
+        "Utility Commands:",
+        *format_table(UTILITY_COMMANDS),
+        "",
+        "Flags:",
+        *format_flags(root_flag_rows()),
+        "",
+        'Use "aidp <command-group> --help" for more information about a command group.',
+    ]
+    print("\n".join(lines))
+
+
+def print_command_groups_help() -> None:
+    lines = [
+        "List AIDP API command groups.",
+        "",
+        "Usage:",
+        "  aidp command-groups [flags]",
+        "",
+        "Flags:",
+        *format_flags([("-h, --help", "help for command-groups")]),
+        "",
+        "Global Flags:",
+        *format_flags(global_flag_rows()),
+    ]
+    print("\n".join(lines))
+
+
+def print_command_groups() -> None:
+    rows = [
+        (group.name, group.description)
+        for group in command_manifest().command_groups
+    ]
+    print("Command Groups:")
+    print("\n".join(format_table(rows)))
     print()
-    print("Hint: Start by listing generated workspace operations:")
-    print("  aidp operations workspace")
-    return 0
-
-
-def handle_operations(args: argparse.Namespace) -> int:
-    if not args.service:
-        args.parser.print_help(sys.stdout)
-        return 0
-    client_cls = CLIENTS[args.service]
-    operations = public_operations(client_cls)
-    if args.operation:
-        print_operation_help(args.service, args.operation)
-        return 0
-    if args.operation_help:
-        args.parser.print_help(sys.stdout)
-        return 0
-
-    print(f"Available operations for {args.service}:")
-    for index, (name, method) in enumerate(operations.items(), start=1):
-        print(f"{index}. operation: {format_operation_name(name)} - {operation_description(method)}")
-        parameters = operation_parameters(method)
-        if parameters:
-            print(f"   Params: {', '.join(parameters)}")
+    print('Use "aidp <command-group> --help" for command names and examples.')
+    example = runnable_command_groups_example()
+    if example:
         print()
-    print()
-    print("Hint: Invoke an operation with required parameters:")
-    print(invoke_example(args.service, operations))
-    print()
-    print("For operation-specific help and a sample command:")
-    print(f"  aidp operations {args.service} {example_operation_name(operations)} --help")
-    return 0
+        print("Example:")
+        print(example)
 
 
-def print_operation_help(service: str, operation_name: str) -> None:
-    client_cls = CLIENTS.get(service)
-    if client_cls is None:
-        raise CliError(f"Unknown service {service!r}. Run 'aidp services' to list available services.")
-    operation = public_operations(client_cls).get(operation_name)
-    if operation is None:
-        raise CliError(f"{service} has no operation {operation_name!r}. Run 'aidp operations {service}'.")
+def print_group_help(group: CommandGroup) -> None:
+    lines = [
+        group.description,
+        "",
+        "Usage:",
+        f"  aidp {group.name} [flags]",
+        f"  aidp {group.name} <command-name> [arguments] [flags]",
+        "",
+    ]
+    for section, commands in grouped_commands(group).items():
+        lines.append(section + ":")
+        lines.extend(
+            format_table((command.name, command_summary(command)) for command in commands)
+        )
+        lines.append("")
+    lines.extend(
+        [
+            "Flags:",
+            *format_flags([("-h, --help", f"help for {group.name}")]),
+            "",
+            "Global Flags:",
+            *format_flags(global_flag_rows()),
+            "",
+            f'Use "aidp {group.name} <command-name> --help" for more information about a command.',
+        ]
+    )
+    print("\n".join(lines))
 
-    description = operation_description(operation)
-    print(f"Operation: {service}.{operation_name}")
+
+def print_command_help(group: CommandGroup, command: CommandDefinition) -> None:
+    description = command_description(command)
+    lines = []
     if description:
-        print(f"Description: {description}")
-    print()
-    print("Parameters:")
-    parameters = operation_parameters(operation)
-    if parameters:
-        for parameter in parameters:
-            print(f"  {parameter}")
-    else:
-        print("  none")
-    print()
-    print("Example:")
-    print(invoke_example_for_operation(service, operation_name, operation))
-    body_sample = operation_body_sample(operation)
+        lines.extend(wrap_paragraph(description))
+        lines.append("")
+
+    argument_fields = command_argument_fields(command)
+    usage_args = " ".join(argument_metavar(field) for field in argument_fields)
+    usage_args = f" {usage_args}" if usage_args else ""
+    lines.extend(
+        [
+            "Usage:",
+            f"  aidp {group.name} {command.name}{usage_args} [flags]",
+            "",
+        ]
+    )
+
+    if argument_fields:
+        lines.append("Arguments:")
+        for field in argument_fields:
+            lines.extend(format_argument(field))
+        lines.append("")
+
+    lines.append("Flags:")
+    lines.extend(format_flags(command_flag_rows(command)))
+    lines.append("")
+    lines.append("Global Flags:")
+    lines.extend(format_flags(global_flag_rows()))
+    lines.append("")
+    lines.append("Examples:")
+    lines.extend(format_examples(group, command))
+
+    body_sample = example_body(command)
     if body_sample is not None:
-        print()
-        print("Example body:")
-        print(json.dumps(body_sample, indent=2))
-        required_fields = operation_body_required_fields(operation)
-        if required_fields:
-            print()
-            print("Required body fields:")
-            for field in required_fields:
-                print(f"  {field}")
-        enum_fields = operation_body_enum_fields(operation)
-        if enum_fields:
-            print()
-            print("Allowed body values:")
-            for field, values in enum_fields.items():
-                print(f"  {field}: {', '.join(str(value) for value in values)}")
+        lines.extend(["", "Example JSON:", json.dumps(body_sample, indent=2)])
+    body_variants = root_body_variant_examples(command)
+    if body_variants:
+        lines.extend(["", "Body variants:"])
+        for label, sample in body_variants:
+            lines.extend(["", f"Example JSON - {label}:", json.dumps(sample, indent=2)])
+    nested_variants = nested_body_variant_examples(command)
+    if nested_variants:
+        lines.extend(["", "Nested body variants:"])
+        for path, label, sample in nested_variants:
+            lines.extend(["", f"Example JSON for {path} - {label}:", json.dumps(sample, indent=2)])
+    required_fields = body_required_fields(command)
+    if required_fields:
+        lines.extend(["", "Required JSON fields:"])
+        lines.extend(f"  {field}" for field in required_fields)
+    enum_fields = body_enum_fields(command)
+    if enum_fields:
+        lines.extend(["", "Allowed JSON values:"])
+        for field, values in sorted(enum_fields.items()):
+            lines.append(f"  {field}: {', '.join(str(value) for value in values)}")
+    print("\n".join(lines))
 
 
-def handle_invoke(args: argparse.Namespace) -> int:
-    client_cls = CLIENTS[args.service]
-    operation = public_operations(client_cls).get(args.operation)
-    if operation is None:
-        raise CliError(f"{args.service} has no operation {args.operation!r}")
+def grouped_commands(group: CommandGroup) -> dict[str, list[CommandDefinition]]:
+    sections: dict[str, list[CommandDefinition]] = {}
+    for command in group.commands:
+        sections.setdefault(command.section or "Available Commands", []).append(command)
+    if "Available Commands" in sections:
+        ordered = {"Available Commands": sections.pop("Available Commands")}
+        ordered.update(dict(sorted(sections.items())))
+        return ordered
+    return dict(sorted(sections.items()))
 
-    params = load_from_json_params(args.from_json)
-    params.update(parse_params(args.param))
-    if args.ai_data_platform_id and "ai_data_platform_id" not in params:
-        params["ai_data_platform_id"] = args.ai_data_platform_id
 
-    body = load_body(args.body, args.body_file)
-    body = extract_body_from_params(operation, params, body)
-    call_args, call_kwargs = bind_operation_args(operation, params, body)
-    add_request_id(operation, args.operation, call_kwargs, args)
-    client = build_client(client_cls, args)
-    if args.debug:
-        enable_request_debug(client, args.service, args.operation)
+def command_summary(command: CommandDefinition) -> str:
+    summary = command.summary or command.description
+    return first_sentence(summary)
+
+
+def command_description(command: CommandDefinition) -> str:
+    description = command.description or command.summary
+    if not description:
+        return ""
+    description = description if description.endswith((".", "!", "?")) else f"{description}."
+    if command.deprecated and not description.lower().startswith("deprecated"):
+        description = f"Deprecated. {description}"
+    return description
+
+
+def first_sentence(value: str) -> str:
+    cleaned = " ".join(str(value or "").split())
+    if not cleaned:
+        return ""
+    for delimiter in (". ", "! ", "? "):
+        if delimiter in cleaned:
+            return cleaned.split(delimiter, 1)[0].rstrip(".!?") + "."
+    return cleaned if cleaned.endswith((".", "!", "?")) else f"{cleaned}."
+
+
+def command_argument_fields(command: CommandDefinition) -> list[CommandField]:
+    return [
+        field
+        for field in command.fields
+        if field.location == "path" and field.required and field.name != "ai_data_platform_id"
+    ]
+
+
+def command_option_fields(command: CommandDefinition) -> list[CommandField]:
+    argument_names = {field.name for field in command_argument_fields(command)}
+    return [
+        field
+        for field in command.fields
+        if field.location != "body"
+        and field.name not in SKIPPED_COMMAND_FIELDS
+        and field.name != "ai_data_platform_id"
+        and field.name not in argument_names
+    ]
+
+
+def command_flag_rows(command: CommandDefinition) -> list[tuple[str, str]]:
+    rows = [("-h, --help", f"help for {command.name}")]
+    for field in command_option_fields(command):
+        rows.append((f"--{field.cli_name}", field_help(field)))
+    if command.body_field is not None:
+        rows.append(("--body", "inline JSON string, @path/to/file.json, or - for stdin"))
+    rows.extend(
+        [
+            ("--opc-request-id", "request ID; generated automatically when omitted"),
+            ("--no-request-id", "do not add opc_request_id automatically"),
+        ]
+    )
+    return rows
+
+
+def root_flag_rows() -> list[tuple[str, str]]:
+    return [
+        ("--debug", "enable debug logging"),
+        ("-h, --help", "help for aidp"),
+        ("-p, --profile", "OCI config profile; the default profile: DEFAULT"),
+        ("--auth", "OCI authentication mode; options: api_key, security_token, instance_principal, resource_principal; default: security_token"),
+        ("--config-file", "OCI config file path"),
+        ("--region", "OCI region"),
+        ("--endpoint", "AIDP data plane endpoint override; default endpoint points to https://aidp.<region>.oci.oraclecloud.com"),
+        ("--instance-id", "AIDP instance OCID"),
+        ("--timeout", "connection/read timeout in seconds"),
+        ("-v, --version", "version for aidp"),
+    ]
+
+
+def global_flag_rows() -> list[tuple[str, str]]:
+    return [
+        ("--debug", "enable debug logging"),
+        ("-p, --profile", "OCI config profile; the default profile: DEFAULT"),
+        ("--auth", "OCI authentication mode; options: api_key, security_token, instance_principal, resource_principal; default: security_token"),
+        ("--config-file", "OCI config file path"),
+        ("--region", "OCI region"),
+        ("--endpoint", "AIDP data plane endpoint override; default endpoint points to https://aidp.<region>.oci.oraclecloud.com"),
+        ("--instance-id", "AIDP instance OCID"),
+        ("--timeout", "connection/read timeout in seconds"),
+    ]
+
+
+def format_table(rows: Any, indent: int = 2, gap: int = 2) -> list[str]:
+    rows = [(name, description) for name, description in rows]
+    if not rows:
+        return []
+    width = max(len(name) for name, _description in rows)
+    formatted = []
+    for name, description in rows:
+        padding = " " * max(gap, width - len(name) + gap)
+        formatted.append(f"{' ' * indent}{name}{padding}{description}")
+    return formatted
+
+
+def format_flags(rows: list[tuple[str, str]]) -> list[str]:
+    return format_table(rows, indent=2, gap=2)
+
+
+def wrap_paragraph(value: str, indent: int = 0) -> list[str]:
+    prefix = " " * indent
+    return textwrap.wrap(value, width=88, initial_indent=prefix, subsequent_indent=prefix) or [prefix]
+
+
+def format_argument(field: CommandField) -> list[str]:
+    label = f"  {argument_metavar(field)}:"
+    description = field.description or "Required command argument."
+    wrapped = textwrap.wrap(description, width=78, initial_indent=label + " ", subsequent_indent=" " * len(label) + " ")
+    return wrapped or [label]
+
+
+def field_help(field: CommandField) -> str:
+    parts = []
+    description = field.description
+    if field.enum_values:
+        description = strip_allowed_values_description(description)
+    if description:
+        parts.append(description.rstrip(".") + ".")
+    if field.required:
+        parts.append("Required.")
+    if field.enum_values:
+        parts.append("Allowed values: " + ", ".join(str(value) for value in field.enum_values) + ".")
+    return " ".join(parts) if parts else ("Required." if field.required else "")
+
+
+def strip_allowed_values_description(value: str) -> str:
+    return re.sub(
+        r"\s*Allowed values(?:\s+are)?:\s*[^.]+\.?$",
+        "",
+        value.strip(),
+        flags=re.IGNORECASE,
+    ).strip()
+
+
+def argument_metavar(field: CommandField) -> str:
+    return field.cli_name.replace("-", "_").upper()
+
+
+def format_examples(group: CommandGroup, command: CommandDefinition) -> list[str]:
+    base = f"  aidp {group.name} {command.name}"
+    for field in command_argument_fields(command):
+        base += f" <{field.cli_name.replace('-', '_')}>"
+    if command_requires_instance_id(command):
+        base += " --instance-id <ocid>"
+    if command.body_field is not None:
+        base += " --body @request.json"
+    return [base]
+
+
+def runnable_command_groups_example() -> str:
+    candidates: list[tuple[tuple[int, int, int, str, str], CommandGroup, CommandDefinition]] = []
+    for group in command_manifest().command_groups:
+        for command in group.commands:
+            argument_count = len(command_argument_fields(command))
+            body_count = 1 if command.body_field is not None else 0
+            action_rank = 0 if command.name.startswith("list-") else 1
+            candidates.append(
+                (
+                    (body_count, argument_count, action_rank, group.name, command.name),
+                    group,
+                    command,
+                )
+            )
+
+    if not candidates:
+        return ""
+    _rank, group, command = min(candidates, key=lambda candidate: candidate[0])
+    return format_examples(group, command)[0]
+
+
+def command_requires_instance_id(command: CommandDefinition) -> bool:
+    return any(field.name == "ai_data_platform_id" and field.required for field in command.fields)
+
+
+def handle_command(
+    group: CommandGroup,
+    command: CommandDefinition,
+    tokens: list[str],
+    globals_ns: SimpleNamespace,
+) -> int:
     try:
-        response = operation(client, *call_args, **call_kwargs)
-        print_response(response, args.output)
+        invocation = parse_command_options(group, command, tokens, globals_ns)
+    except CliError as exc:
+        raise with_command_usage_hint(group, command, exc) from exc
+
+    ensure_clients_loaded()
+    client_cls = CLIENTS.get(group.name)
+    if client_cls is None:
+        client_cls = getattr(AIDP_DP_MODULE, group.client_class_name, None)
+    if client_cls is None:
+        raise CliError(f"Unknown command group {group.name!r}. Run 'aidp command-groups'.")
+    sdk_method = getattr(client_cls, command.sdk_method_name, None)
+    if sdk_method is None:
+        raise CliError(f"{group.name} has no command-name {command.name!r}.")
+
+    try:
+        call_args, call_kwargs = bind_command_args(
+            sdk_method=sdk_method,
+            params=invocation.params,
+            body=invocation.body,
+            body_param_name=command.body_field.name if command.body_field else None,
+        )
+    except CliError as exc:
+        raise with_command_usage_hint(group, command, exc) from exc
+    add_request_id(sdk_method, command.name, call_kwargs, invocation)
+    client = build_client(client_cls, invocation)
+    if invocation.debug:
+        enable_request_debug(client, group.name, command.name)
+    try:
+        response = sdk_method(client, *call_args, **call_kwargs)
+        print_response(response)
     finally:
         close_client(client)
     return 0
 
 
-def add_request_id(
-    operation: Callable[..., Any],
-    operation_name: str,
-    call_kwargs: dict[str, Any],
-    args: argparse.Namespace,
-) -> None:
-    if args.opc_request_id and not operation_accepts_kwarg(operation, "opc_request_id"):
-        raise CliError(f"{operation_name} does not accept opc_request_id.")
-    if (
-        not args.no_request_id
-        and "opc_request_id" not in call_kwargs
-        and operation_accepts_kwarg(operation, "opc_request_id")
-    ):
-        call_kwargs["opc_request_id"] = args.opc_request_id or f"aidp-cli-{uuid.uuid4()}"
-
-
-def public_operations(client_cls: type) -> dict[str, Callable[..., Any]]:
-    return {
-        name: method
-        for name, method in inspect.getmembers(client_cls, inspect.isfunction)
-        if not name.startswith("_") and name != "__init__"
-    }
-
-
-def operation_description(operation: Callable[..., Any]) -> str:
-    doc = inspect.getdoc(operation) or ""
-    for line in doc.splitlines():
-        stripped = line.strip()
-        if not stripped:
-            continue
-        if stripped.startswith(":"):
-            break
-        return stripped.rstrip(".") + "."
-    return ""
-
-
-def class_description(client_cls: type) -> str:
-    doc = inspect.getdoc(client_cls) or ""
-    for line in doc.splitlines():
-        stripped = line.strip()
-        if stripped:
-            return stripped.rstrip(".") + "."
-    return ""
-
-
-def format_service_name(service: str) -> str:
-    if not sys.stdout.isatty():
-        return service
-    return f"{ANSI_BOLD_GREEN}{service}{ANSI_RESET}"
-
-
-def format_operation_name(operation: str) -> str:
-    if not sys.stdout.isatty():
-        return operation
-    return f"{ANSI_BOLD_GREEN}{operation}{ANSI_RESET}"
-
-
-def operation_parameters(operation: Callable[..., Any]) -> list[str]:
-    parameters = []
-    for parameter in inspect.signature(operation).parameters.values():
-        if parameter.name == "self" or parameter.kind == inspect.Parameter.VAR_KEYWORD:
-            continue
-        prefix = "*" if parameter.default is inspect.Parameter.empty else ""
-        parameters.append(f"{prefix}{parameter.name}")
-    return parameters
-
-
-def invoke_example(service: str, operations: dict[str, Callable[..., Any]]) -> str:
-    if not operations:
-        return f"  aidp invoke {service} <operation>"
-
-    operation_name = example_operation_name(operations)
-    operation = operations[operation_name]
-    lines = [
-        "  aidp \\",
-        "    --auth security_token \\",
-        "    --profile DEFAULT \\",
-        "    --region us-phoenix-1 \\",
-        "    --ai-data-platform-id <ai_data_platform_ocid> \\",
-        f"    invoke {service} {operation_name}",
-    ]
-    append_required_params(lines, operation)
-    return "\n".join(lines)
-
-
-def example_operation_name(operations: dict[str, Callable[..., Any]]) -> str:
-    return next((name for name in operations if name.startswith("list_")), next(iter(operations)))
-
-
-def invoke_example_for_operation(service: str, operation_name: str, operation: Callable[..., Any]) -> str:
-    lines = [
-        "  aidp \\",
-        "    --auth security_token \\",
-        "    --profile DEFAULT \\",
-        "    --region us-phoenix-1 \\",
-        "    --ai-data-platform-id <ai_data_platform_ocid> \\",
-        f"    invoke {service} {operation_name}",
-    ]
-    append_required_params(lines, operation)
-    return "\n".join(lines)
-
-
-def append_required_params(lines: list[str], operation: Callable[..., Any]) -> None:
-    for parameter_name in required_operation_parameters(operation):
-        if parameter_name == "ai_data_platform_id":
-            continue
-        if is_body_parameter(parameter_name):
-            lines[-1] += " \\"
-            lines.append("    --body-file request.json")
-            continue
-        lines[-1] += " \\"
-        lines.append(f"    --param {parameter_name}=<{parameter_name}>")
-
-
-def operation_body_sample(operation: Callable[..., Any]) -> dict[str, Any] | list[Any] | None:
-    body_parameter = operation_body_parameter(operation)
-    if body_parameter is None:
-        return None
-    model_cls_name = body_parameter_model_name(body_parameter.name)
-    return sample_for_model_name(model_cls_name)
-
-
-def operation_body_required_fields(operation: Callable[..., Any]) -> list[str]:
-    body_parameter = operation_body_parameter(operation)
-    if body_parameter is None:
-        return []
-    model_cls = getattr(models, body_parameter_model_name(body_parameter.name), None)
-    if model_cls is None:
-        return []
-    try:
-        instance = model_cls()
-    except Exception:
-        return []
-    swagger_types = getattr(instance, "swagger_types", {})
-    attribute_map = getattr(instance, "attribute_map", {})
-    required_attrs = required_model_attributes(model_cls, swagger_types)
-    return [attribute_map.get(attr_name, attr_name) for attr_name in swagger_types if attr_name in required_attrs]
-
-
-def operation_body_enum_fields(operation: Callable[..., Any]) -> dict[str, list[Any]]:
-    body_parameter = operation_body_parameter(operation)
-    if body_parameter is None:
-        return {}
-    model_cls = getattr(models, body_parameter_model_name(body_parameter.name), None)
-    if model_cls is None:
-        return {}
-    try:
-        instance = model_cls()
-    except Exception:
-        return {}
-    attribute_map = getattr(instance, "attribute_map", {})
-    enum_values = model_enum_values(model_cls)
-    return {
-        attribute_map.get(attr_name, attr_name): values
-        for attr_name, values in enum_values.items()
-    }
-
-
-def operation_body_parameter(operation: Callable[..., Any]) -> inspect.Parameter | None:
-    body_parameter = next(
-        (
-            parameter
-            for parameter in inspect.signature(operation).parameters.values()
-            if parameter.name != "self" and is_body_parameter(parameter.name)
-        ),
-        None,
-    )
-    return body_parameter
-
-
-def body_parameter_model_name(parameter_name: str) -> str:
-    model_name = parameter_name.removesuffix("_details")
-    return snake_to_pascal(model_name) + "Details"
-
-
-def sample_for_model_name(model_name: str, depth: int = 0, seen: set[str] | None = None) -> Any:
-    if depth > 6:
-        return {}
-    seen = seen or set()
-    if model_name in seen:
-        return {}
-    model_cls = getattr(models, model_name, None)
-    if model_cls is None:
-        return sample_for_type(model_name, depth, seen)
-
-    try:
-        instance = model_cls()
-    except Exception:
-        return {}
-
-    seen.add(model_name)
-    sample: dict[str, Any] = {}
-    swagger_types = getattr(instance, "swagger_types", {})
-    attribute_map = getattr(instance, "attribute_map", {})
-    enum_values = model_enum_values(model_cls)
-    for attr_name, attr_type in swagger_types.items():
-        json_name = attribute_map.get(attr_name, attr_name)
-        sample[json_name] = sample_for_type(
-            attr_type,
-            depth + 1,
-            seen.copy(),
-            enum_values.get(attr_name),
-        )
-    return sample
-
-
-def sample_for_type(
-    type_name: str,
-    depth: int,
-    seen: set[str],
-    enum_values: list[Any] | None = None,
-) -> Any:
-    if enum_values:
-        return enum_values[0]
-    normalized = type_name.strip()
-    if normalized.startswith("list[") and normalized.endswith("]"):
-        inner_type = normalized[5:-1]
-        return [sample_for_type(inner_type, depth + 1, seen)]
-    if normalized.startswith("dict(") or normalized.startswith("dict["):
-        return {"key": "value"}
-    if normalized in {"str", "datetime"}:
-        return "<string>"
-    if normalized in {"int", "float"}:
-        return 0
-    if normalized == "bool":
-        return True
-    if normalized in {"object", "Any"}:
-        return {}
-    return sample_for_model_name(normalized, depth + 1, seen)
-
-
-def required_model_attributes(model_cls: type, swagger_types: dict[str, str]) -> set[str]:
-    required = set()
-    for attr_name in swagger_types:
-        property_obj = getattr(model_cls, attr_name, None)
-        doc = inspect.getdoc(property_obj.fget) if isinstance(property_obj, property) else ""
-        if "**[Required]**" in doc:
-            required.add(attr_name)
-    return required
-
-
-def model_enum_values(model_cls: type) -> dict[str, list[Any]]:
-    values_by_attr: dict[str, list[Any]] = {}
-    for attr_name in dir(model_cls):
-        property_obj = getattr(model_cls, attr_name, None)
-        if not isinstance(property_obj, property) or property_obj.fset is None:
-            continue
-        try:
-            source = inspect.getsource(property_obj.fset)
-        except OSError:
-            continue
-        match = re.search(r"allowed_values\s*=\s*(\[[^\]]*\])", source)
-        if not match:
-            continue
-        try:
-            values = json.loads(match.group(1).replace("'", '"'))
-        except json.JSONDecodeError:
-            continue
-        if isinstance(values, list) and values:
-            values_by_attr[attr_name] = values
-    return values_by_attr
-
-
-def snake_to_pascal(value: str) -> str:
-    return "".join(part.capitalize() for part in value.split("_") if part)
-
-
-def required_operation_parameters(operation: Callable[..., Any]) -> list[str]:
-    required = []
-    for parameter in inspect.signature(operation).parameters.values():
-        if parameter.name == "self" or parameter.kind == inspect.Parameter.VAR_KEYWORD:
-            continue
-        if parameter.default is inspect.Parameter.empty:
-            required.append(parameter.name)
-    return required
-
-
-def parse_params(raw_params: list[str]) -> dict[str, Any]:
+def parse_command_options(
+    group: CommandGroup,
+    command: CommandDefinition,
+    tokens: list[str],
+    globals_ns: SimpleNamespace,
+) -> SimpleNamespace:
     params: dict[str, Any] = {}
-    for raw in raw_params:
-        if "=" not in raw:
-            raise CliError(f"--param must be NAME=VALUE, got {raw!r}")
-        name, value = raw.split("=", 1)
-        name = name.strip().replace("-", "_")
-        if not name:
-            raise CliError(f"--param has an empty name: {raw!r}")
-        params[name] = parse_value(value)
-    return params
+    body = None
+    opc_request_id = None
+    no_request_id = False
+    positionals: list[str] = []
+    option_fields = {f"--{field.cli_name}": field for field in command_option_fields(command)}
+    global_values = vars(globals_ns).copy()
+    index = 0
 
-
-def parse_value(value: str) -> Any:
-    stripped = value.strip()
-    if stripped == "":
-        return ""
-    try:
-        return json.loads(stripped)
-    except json.JSONDecodeError:
-        return value
-
-
-def load_body(body: str | None, body_file: str | None) -> Any:
-    if body and body_file:
-        raise CliError("Use either --body or --body-file, not both.")
-    if body_file:
-        raw = sys.stdin.read() if body_file == "-" else Path(body_file).read_text(encoding="utf-8")
-    elif body:
-        raw = body
-    else:
-        return None
-    try:
-        return json.loads(raw)
-    except json.JSONDecodeError as exc:
-        raise CliError(f"Body is not valid JSON: {exc}") from exc
-
-
-def load_from_json_params(from_json: str | None) -> dict[str, Any]:
-    if not from_json:
-        return {}
-    raw = read_json_argument(from_json)
-    try:
-        value = json.loads(raw)
-    except json.JSONDecodeError as exc:
-        raise CliError(f"--from-json is not valid JSON: {exc}") from exc
-    if not isinstance(value, dict):
-        raise CliError("--from-json must contain a JSON object.")
-    return {str(key).replace("-", "_"): item for key, item in value.items()}
-
-
-def read_json_argument(value: str) -> str:
-    if value == "-":
-        return sys.stdin.read()
-    if value.startswith("file://"):
-        return Path(value.removeprefix("file://")).expanduser().read_text(encoding="utf-8")
-    return value
-
-
-def extract_body_from_params(operation: Callable[..., Any], params: dict[str, Any], body: Any) -> Any:
-    body_param_names = [
-        parameter.name
-        for parameter in inspect.signature(operation).parameters.values()
-        if is_body_parameter(parameter.name)
-    ]
-    for name in body_param_names:
-        if name not in params:
+    while index < len(tokens):
+        token = tokens[index]
+        option_name, inline_value = split_inline_option(token)
+        if option_name == "--body":
+            if command.body_field is None:
+                raise command_usage_error(group, command, f"{command.name} does not accept --body.")
+            value, index = command_option_value(tokens, index, option_name, inline_value)
+            body = load_json_input(value)
             continue
-        if body is not None:
-            raise CliError(f"Use either --body/--body-file or --{name.replace('_', '-')}, not both.")
-        return params.pop(name)
-    if "body" in params:
-        if body is not None:
-            raise CliError("Use either --body/--body-file or body in --from-json, not both.")
-        return params.pop("body")
-    return body
+        if option_name == "--opc-request-id":
+            opc_request_id, index = command_option_value(tokens, index, option_name, inline_value)
+            continue
+        if option_name == "--no-request-id":
+            no_request_id = True
+            index += 1
+            continue
+        if option_name in option_fields:
+            field = option_fields[option_name]
+            value, index = field_option_value(tokens, index, option_name, inline_value, field)
+            params[field.name] = parse_value(str(value))
+            continue
+        if option_name in GLOBAL_VALUE_OPTIONS:
+            value, index = command_option_value(tokens, index, option_name, inline_value)
+            apply_global_option(global_values, option_name, value)
+            continue
+        if option_name in GLOBAL_BOOLEAN_OPTIONS:
+            global_values[GLOBAL_BOOLEAN_OPTIONS[option_name]] = True
+            index += 1
+            continue
+        if token.startswith("-"):
+            raise unknown_option(group, command, option_name, option_fields)
+        positionals.append(token)
+        index += 1
+
+    validate_global_options(global_values)
+
+    argument_fields = command_argument_fields(command)
+    if len(positionals) < len(argument_fields):
+        missing = argument_metavar(argument_fields[len(positionals)])
+        raise command_usage_error(group, command, f"Missing required argument {missing}.")
+    if len(positionals) > len(argument_fields):
+        raise command_usage_error(group, command, f"Unexpected argument {positionals[len(argument_fields)]!r}.")
+    for field, value in zip(argument_fields, positionals):
+        params[field.name] = parse_value(value)
+
+    for field in command_option_fields(command):
+        if field.required and field.name not in params:
+            raise command_usage_error(group, command, f"Missing required flag --{field.cli_name}.")
+    if command.body_field is not None and command.body_field.required and body is None:
+        raise command_usage_error(group, command, "Missing required flag --body.")
+    if command_requires_instance_id(command):
+        if not global_values["ai_data_platform_id"]:
+            raise command_usage_error(
+                group,
+                command,
+                "Missing AIDP instance OCID. Set --instance-id, "
+                "INSTANCE_ID, or run 'aidp configure set instance-id <ocid>'.",
+            )
+        params["ai_data_platform_id"] = global_values["ai_data_platform_id"]
+
+    values = global_values.copy()
+    values.update(
+        {
+            "params": params,
+            "body": body,
+            "opc_request_id": opc_request_id,
+            "no_request_id": no_request_id,
+        }
+    )
+    return SimpleNamespace(**values)
 
 
-def bind_operation_args(
-    operation: Callable[..., Any],
+def command_usage_error(group: CommandGroup, command: CommandDefinition, message: str) -> CliError:
+    return CliError(
+        f'{message}\n\nUse "aidp {group.name} {command.name} -h" '
+        f'or "aidp {group.name} {command.name} --help" for command help.'
+    )
+
+
+def with_command_usage_hint(group: CommandGroup, command: CommandDefinition, error: CliError) -> CliError:
+    message = str(error)
+    if "\n\nUse " in message:
+        return error
+    return command_usage_error(group, command, message)
+
+
+def command_option_value(
+    tokens: list[str],
+    index: int,
+    option_name: str,
+    inline_value: str | None,
+) -> tuple[str, int]:
+    if inline_value is not None:
+        return inline_value, index + 1
+    if index + 1 >= len(tokens):
+        raise CliError(f"{option_name} requires a value.")
+    return tokens[index + 1], index + 2
+
+
+def field_option_value(
+    tokens: list[str],
+    index: int,
+    option_name: str,
+    inline_value: str | None,
+    field: CommandField,
+) -> tuple[Any, int]:
+    if inline_value is not None:
+        return inline_value, index + 1
+    if field.type_name in {"boolean", "bool"}:
+        return True, index + 1
+    return command_option_value(tokens, index, option_name, inline_value)
+
+
+def bind_command_args(
+    sdk_method: Callable[..., Any],
     params: dict[str, Any],
     body: Any,
+    body_param_name: str | None,
 ) -> tuple[list[Any], dict[str, Any]]:
-    signature = inspect.signature(operation)
+    signature = inspect.signature(sdk_method)
     positional: list[Any] = []
     kwargs: dict[str, Any] = {}
     body_consumed = False
@@ -753,11 +927,11 @@ def bind_operation_args(
         value_present = parameter.name in params
         if value_present:
             value = params.pop(parameter.name)
-        elif body is not None and not body_consumed and is_body_parameter(parameter.name):
+        elif body is not None and not body_consumed and parameter.name == body_param_name:
             value = body
             body_consumed = True
         elif parameter.default is inspect.Parameter.empty:
-            raise CliError(f"Missing required parameter --{parameter.name.replace('_', '-')}")
+            raise CliError(f"Missing required parameter {parameter_option_name(parameter.name, body_param_name)}.")
         else:
             continue
 
@@ -767,25 +941,785 @@ def bind_operation_args(
             kwargs[parameter.name] = value
 
     if body is not None and not body_consumed:
-        raise CliError("A body was provided, but this operation has no details/body parameter.")
+        raise CliError("A request body was provided, but this command has no body parameter.")
     if params:
         kwargs.update(params)
     return positional, kwargs
 
 
-def is_body_parameter(name: str) -> bool:
-    return name.endswith("_details") or name in {"upload_file_details", "patch_session_details"}
+def parameter_option_name(parameter_name: str, body_param_name: str | None) -> str:
+    if parameter_name == body_param_name:
+        return "--body"
+    return f"--{parameter_name.replace('_', '-')}"
 
 
-def operation_accepts_kwarg(operation: Callable[..., Any], name: str) -> bool:
+def add_request_id(
+    sdk_method: Callable[..., Any],
+    command_name: str,
+    call_kwargs: dict[str, Any],
+    args: SimpleNamespace,
+) -> None:
+    if args.opc_request_id and not sdk_method_accepts_kwarg(sdk_method, "opc_request_id"):
+        raise CliError(f"{command_name} does not accept opc_request_id.")
+    if (
+        not args.no_request_id
+        and "opc_request_id" not in call_kwargs
+        and sdk_method_accepts_kwarg(sdk_method, "opc_request_id")
+    ):
+        call_kwargs["opc_request_id"] = args.opc_request_id or f"aidp-cli-{uuid.uuid4()}"
+
+
+def sdk_method_accepts_kwarg(sdk_method: Callable[..., Any], name: str) -> bool:
     try:
-        source = inspect.getsource(operation)
+        source = inspect.getsource(sdk_method)
     except OSError:
         return False
     return f'"{name}"' in source or f"'{name}'" in source
 
 
-def load_config(args: argparse.Namespace) -> dict[str, Any]:
+def parse_value(value: str) -> Any:
+    stripped = value.strip()
+    if stripped == "":
+        return ""
+    try:
+        return json.loads(stripped)
+    except json.JSONDecodeError:
+        return value
+
+
+def load_json_input(value: str | None) -> Any:
+    if value is None:
+        return None
+    raw = read_json_argument(value)
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise CliError(f"--body is not valid JSON: {exc}") from exc
+    if not isinstance(parsed, (dict, list)):
+        raise CliError("--body must contain a JSON object or array.")
+    return parsed
+
+
+def read_json_argument(value: str) -> str:
+    if value == "-":
+        return sys.stdin.read()
+    if value.startswith("@"):
+        return Path(value[1:]).expanduser().read_text(encoding="utf-8")
+    if value.startswith("file://"):
+        return Path(value.removeprefix("file://")).expanduser().read_text(encoding="utf-8")
+    return value
+
+
+def handle_search(args: list[str]) -> None:
+    query = " ".join(args).strip()
+    if not query:
+        print_search_help()
+        return
+    results: list[tuple[int, str, str, str]] = []
+    for group in command_manifest().command_groups:
+        group_score = search_score(query, [group.name, group.description], [], group.name)
+        if group_score:
+            results.append((group_score, group.name, "", group.description))
+        for command in group.commands:
+            fields = " ".join(field.cli_name for field in command.fields)
+            command_score = search_score(
+                query,
+                [group.name, command.name],
+                [command.summary, command.description, fields],
+                f"{group.name} {command.name}",
+            )
+            if command_score:
+                results.append((command_score, group.name, command.name, command_summary(command)))
+
+    if not results:
+        print(f"No results for {query!r}.")
+        return
+    results = filter_search_results(results)
+    print(f"Search results for {query!r}:")
+    rows = []
+    for _score, group_name, command_name, description in sorted(results, key=search_result_sort_key)[:30]:
+        name = f"{group_name} {command_name}".strip()
+        rows.append((name, description))
+    print("\n".join(format_table(rows)))
+    if len(results) > 30:
+        print(f"\nShowing 30 of {len(results)} results.")
+
+
+def filter_search_results(results: list[tuple[int, str, str, str]]) -> list[tuple[int, str, str, str]]:
+    top_score = max(score for score, _group_name, _command_name, _description in results)
+    if top_score < 850:
+        return results
+    cutoff = int(top_score * 0.5)
+    return [
+        result
+        for result in results
+        if result[0] >= cutoff
+    ]
+
+
+def search_result_sort_key(result: tuple[int, str, str, str]) -> tuple[int, str, str]:
+    score, group_name, command_name, _description = result
+    return (-score, group_name, command_name)
+
+
+def search_score(
+    query: str,
+    primary_values: list[str],
+    secondary_values: list[str],
+    sort_value: str,
+) -> int:
+    query_tokens = search_tokens(query)
+    if not query_tokens:
+        return 0
+
+    primary_value = " ".join(item for item in primary_values if item)
+    secondary_value = " ".join(item for item in secondary_values if item)
+    primary_tokens = search_tokens(primary_value)
+    secondary_tokens = search_tokens(secondary_value)
+    if not primary_tokens and not secondary_tokens:
+        return 0
+
+    compact_query = compact_search_text(query)
+    compact_primary = compact_search_text(primary_value)
+    compact_secondary = compact_search_text(secondary_value)
+    compact_sort = compact_search_text(sort_value)
+    compact_sort_variants = compact_sort_value_variants(sort_value)
+    expanded_primary_tokens = expand_search_tokens(primary_tokens)
+    expanded_secondary_tokens = expand_search_tokens(secondary_tokens)
+
+    if is_compact_action_query(query_tokens, compact_query):
+        return max(
+            compact_identity_search_score(compact_query, sort_variant)
+            for sort_variant in compact_sort_variants
+        )
+
+    score = 0
+    matched = False
+
+    sort_identity_score = max(
+        compact_identity_search_score(compact_query, sort_variant)
+        for sort_variant in compact_sort_variants
+    )
+    if sort_identity_score >= 850:
+        score += sort_identity_score
+        matched = True
+    elif compact_query == compact_sort:
+        score += 1000
+        matched = True
+    elif compact_sort.startswith(compact_query):
+        score += 900
+        matched = True
+    elif compact_query in compact_sort:
+        score += 850
+        matched = True
+    elif compact_query in compact_primary:
+        score += 700
+        matched = True
+    elif compact_query in compact_secondary:
+        score += 350
+        matched = True
+
+    if all(query_token_matches(token, expanded_primary_tokens) for token in query_tokens):
+        score += 500
+        matched = True
+        if search_tokens_in_order(query_tokens, primary_tokens):
+            score += 150
+    elif len(query_tokens) == 1 and query_token_matches(query_tokens[0], expanded_secondary_tokens):
+        score += 150
+        matched = True
+
+    for token in query_tokens:
+        if token in expanded_primary_tokens:
+            score += 25
+        elif len(query_tokens) == 1 and token in expanded_secondary_tokens:
+            score += 10
+
+    fuzzy_ratio = max(
+        difflib.SequenceMatcher(None, compact_query, sort_variant).ratio()
+        for sort_variant in compact_sort_variants
+    )
+    if fuzzy_ratio >= 0.72 and compact_length_ratio(compact_query, compact_sort) >= 0.8:
+        score += int(fuzzy_ratio * 250)
+        matched = True
+
+    return score if matched else 0
+
+
+def is_compact_action_query(query_tokens: list[str], compact_query: str) -> bool:
+    if len(query_tokens) != 1:
+        return False
+    return any(
+        compact_query.startswith(action) and len(compact_query) > len(action) + 2
+        for action in SEARCH_ACTION_PREFIXES
+    )
+
+
+def compact_identity_search_score(compact_query: str, compact_sort: str) -> int:
+    for query_variant in compact_search_variants(compact_query):
+        if query_variant == compact_sort:
+            return 1000
+        if compact_sort.startswith(query_variant):
+            return 900
+        if query_variant in compact_sort:
+            return 850
+    return 0
+
+
+def compact_search_variants(value: str) -> tuple[str, ...]:
+    variants = [value]
+    if len(value) > 4 and value.endswith("ies"):
+        variants.append(value[:-3] + "y")
+    if len(value) > 3 and value.endswith("s"):
+        variants.append(value[:-1])
+    return tuple(dict.fromkeys(variants))
+
+
+def compact_sort_value_variants(value: str) -> tuple[str, ...]:
+    tokens = search_tokens(value)
+    variants = [compact_search_text(value)]
+    if len(tokens) >= 2 and tokens[-1] in SEARCH_ACTION_PREFIXES:
+        variants.append("".join([tokens[-1], *tokens[:-1]]))
+    return tuple(dict.fromkeys(variants))
+
+
+def compact_length_ratio(left: str, right: str) -> float:
+    if not left or not right:
+        return 0
+    return min(len(left), len(right)) / max(len(left), len(right))
+
+
+def search_tokens(value: str) -> list[str]:
+    return re.findall(r"[a-z0-9]+", value.lower())
+
+
+def compact_search_text(value: str) -> str:
+    return "".join(search_tokens(value))
+
+
+def expand_search_tokens(tokens: list[str]) -> set[str]:
+    expanded: set[str] = set()
+    for token in tokens:
+        expanded.update(search_token_variants(token))
+    return expanded
+
+
+def search_token_variants(token: str) -> set[str]:
+    variants = {token}
+    if len(token) > 4 and token.endswith("ies"):
+        variants.add(token[:-3] + "y")
+    if len(token) > 3 and token.endswith("s"):
+        variants.add(token[:-1])
+    return variants
+
+
+def query_token_matches(query_token: str, value_tokens: set[str]) -> bool:
+    if search_token_variants(query_token) & value_tokens:
+        return True
+    if len(query_token) < 5:
+        return False
+    return bool(difflib.get_close_matches(query_token, value_tokens, n=1, cutoff=0.82))
+
+
+def search_tokens_in_order(query_tokens: list[str], value_tokens: list[str]) -> bool:
+    value_index = 0
+    expanded_values = [search_token_variants(token) for token in value_tokens]
+    for query_token in query_tokens:
+        query_variants = search_token_variants(query_token)
+        while value_index < len(expanded_values):
+            if query_variants & expanded_values[value_index]:
+                value_index += 1
+                break
+            value_index += 1
+        else:
+            return False
+    return True
+
+
+def print_search_help() -> None:
+    lines = [
+        "Search AIDP command groups, command names, descriptions, and flags.",
+        "",
+        "Usage:",
+        "  aidp search QUERY [flags]",
+        "",
+        "Examples:",
+        "  aidp search workspace",
+        "  aidp search list workspaces",
+        "  aidp search permission",
+        "",
+        "Flags:",
+        *format_flags([("-h, --help", "help for search")]),
+        "",
+        "Global Flags:",
+        *format_flags(global_flag_rows()),
+    ]
+    print("\n".join(lines))
+
+
+def handle_configure(args: list[str]) -> None:
+    action = args[0]
+    if action == "get":
+        config = read_aidp_config()
+        print("AIDP CLI configuration:")
+        print(f"  file: {aidp_config_path()}")
+        print(f"  instance-id: {config.get('instance-id') or '(not set)'}")
+        return
+    if action == "set":
+        if len(args) != 3:
+            raise CliError("Usage: aidp configure set instance-id <ocid>")
+        key, value = args[1], args[2]
+        if key != "instance-id":
+            raise CliError("Only instance-id can be configured.")
+        config = read_aidp_config()
+        config["instance-id"] = value
+        write_aidp_config(config)
+        print(f"Set instance-id in {aidp_config_path()}")
+        return
+    raise CliError(f"Unknown configure command {action!r}. Run 'aidp configure --help'.")
+
+
+def print_configure_help() -> None:
+    lines = [
+        "Configure local AIDP CLI defaults.",
+        "",
+        "Usage:",
+        "  aidp configure get",
+        "  aidp configure set instance-id <ocid>",
+        "",
+        "Flags:",
+        *format_flags([("-h, --help", "help for configure")]),
+    ]
+    print("\n".join(lines))
+
+
+def configured_instance_id() -> str | None:
+    env_value = os.getenv("INSTANCE_ID")
+    if env_value:
+        return env_value
+    try:
+        return read_aidp_config().get("instance-id")
+    except (OSError, JSONDecodeError):
+        return None
+
+
+def aidp_config_path() -> Path:
+    return Path(os.getenv("AIDP_CLI_CONFIG_FILE", DEFAULT_AIDP_CONFIG_FILE)).expanduser()
+
+
+def read_aidp_config() -> dict[str, Any]:
+    path = aidp_config_path()
+    if not path.exists():
+        return {}
+    raw = path.read_text(encoding="utf-8")
+    if not raw.strip():
+        return {}
+    value = json.loads(raw)
+    if not isinstance(value, dict):
+        raise CliError(f"{path} must contain a JSON object.")
+    return {str(key): item for key, item in value.items()}
+
+
+def write_aidp_config(config: dict[str, Any]) -> None:
+    path = aidp_config_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(config, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def unknown_command_group(name: str) -> CliError:
+    candidates = ["command-groups", "search", "configure", "help", "version"] + [
+        group.name for group in command_manifest().command_groups
+    ]
+    return CliError(unknown_message("command group", name, candidates, "aidp command-groups"))
+
+
+def unknown_command_name(group: CommandGroup, name: str) -> CliError:
+    candidates = [command.name for command in group.commands]
+    matches = command_name_suggestions(group, name, candidates)
+    return CliError(unknown_message("command name", name, candidates, f"aidp {group.name} --help", matches))
+
+
+def command_name_suggestions(group: CommandGroup, name: str, candidates: list[str]) -> list[str]:
+    matches = difflib.get_close_matches(name, candidates, n=3)
+    if matches:
+        return matches
+
+    normalized = compact_search_text(name)
+    alias_matches = []
+    for command in group.commands:
+        aliases = {
+            command.sdk_method_name.replace("_", "-"),
+            command.operation_id,
+        }
+        if any(normalized == compact_search_text(alias) for alias in aliases):
+            alias_matches.append(command.name)
+    if alias_matches:
+        return list(dict.fromkeys(alias_matches))[:3]
+
+    scored = [
+        (search_score(name, [group.name, command.name, command.sdk_method_name], [command.summary], command.name), command.name)
+        for command in group.commands
+    ]
+    best_score = max((score for score, _command_name in scored), default=0)
+    if best_score < 500:
+        return []
+    cutoff = max(500, int(best_score * 0.75))
+    return [
+        command_name
+        for score, command_name in sorted(scored, key=lambda item: (-item[0], item[1]))
+        if score >= cutoff
+    ][:3]
+
+
+def unknown_option(
+    group: CommandGroup,
+    command: CommandDefinition,
+    name: str,
+    option_fields: dict[str, CommandField],
+) -> CliError:
+    candidates = (
+        ["--body", "--opc-request-id", "--no-request-id"]
+        + list(option_fields)
+        + list(GLOBAL_VALUE_OPTIONS)
+        + list(GLOBAL_BOOLEAN_OPTIONS)
+    )
+    return CliError(
+        unknown_message("option", name, candidates, f"aidp help {group.name} {command.name}")
+    )
+
+
+def unknown_message(
+    kind: str,
+    name: str,
+    candidates: list[str],
+    help_command: str,
+    matches: list[str] | None = None,
+) -> str:
+    message = f"Unknown {kind} {name!r}."
+    matches = matches if matches is not None else difflib.get_close_matches(name, candidates, n=3)
+    if matches:
+        message += "\n\nDid you mean this?\n"
+        message += "\n".join(f"  {match}" for match in matches)
+    message += f'\n\nUse "{help_command}" for more information.'
+    return message
+
+
+def print_version() -> None:
+    print(f"aidp python cli version-{cli_version()}")
+
+
+def cli_version() -> str:
+    try:
+        return package_version(PACKAGE_NAME)
+    except PackageNotFoundError:
+        return "unknown"
+
+
+def example_body(command: CommandDefinition) -> dict[str, Any] | None:
+    if command.body_field is None:
+        return None
+    model = root_body_model(command)
+    fields = model.fields if model is not None else command.body_fields
+    return sample_object_for_fields(fields, command, seen_models=set(), depth=0)
+
+
+def root_body_variant_examples(command: CommandDefinition) -> list[tuple[str, dict[str, Any]]]:
+    root_model = root_body_model(command)
+    if root_model is None or not root_model.variants:
+        return []
+    examples = []
+    for variant in root_model.variants:
+        if variant.model_name not in command.body_models:
+            continue
+        label = (
+            f"{variant.model_name} "
+            f"({variant.discriminator_field}={variant.discriminator_value})"
+        )
+        examples.append((label, variant_body_sample(command, command.body_model, variant)))
+    return examples
+
+
+def nested_body_variant_examples(command: CommandDefinition) -> list[tuple[str, str, dict[str, Any]]]:
+    root_model = root_body_model(command)
+    if root_model is None:
+        return []
+    examples = collect_nested_body_variant_examples(
+        root_model.fields,
+        command,
+        parent_path="",
+        seen_models={command.body_model},
+        depth=0,
+    )
+    for variant in root_model.variants:
+        variant_model = command.body_models.get(variant.model_name)
+        if variant_model is None:
+            continue
+        examples.extend(
+            collect_nested_body_variant_examples(
+                variant_model.fields,
+                command,
+                parent_path="",
+                seen_models={command.body_model, variant.model_name},
+                depth=0,
+            )
+        )
+
+    unique_examples = []
+    seen = set()
+    for path, label, sample in examples:
+        key = (path, label)
+        if key in seen:
+            continue
+        seen.add(key)
+        unique_examples.append((path, label, sample))
+    return unique_examples
+
+
+def collect_nested_body_variant_examples(
+    fields: tuple[BodyField, ...],
+    command: CommandDefinition,
+    parent_path: str,
+    seen_models: set[str],
+    depth: int,
+) -> list[tuple[str, str, dict[str, Any]]]:
+    if depth >= MAX_BODY_EXAMPLE_DEPTH:
+        return []
+
+    examples = []
+    for field in fields:
+        if not field.model_name:
+            continue
+        model = command.body_models.get(field.model_name)
+        if model is None:
+            continue
+
+        path = f"{parent_path}.{field.name}" if parent_path else field.name
+        model_path = f"{path}[]" if field.type_name == "array" else path
+        for variant in model.variants:
+            if variant.model_name not in command.body_models:
+                continue
+            label = (
+                f"{variant.model_name} "
+                f"({variant.discriminator_field}={variant.discriminator_value})"
+            )
+            examples.append((model_path, label, variant_body_sample(command, field.model_name, variant)))
+
+        if field.model_name not in seen_models:
+            next_seen_models = set(seen_models)
+            next_seen_models.add(field.model_name)
+            examples.extend(
+                collect_nested_body_variant_examples(
+                    model.fields,
+                    command,
+                    parent_path=model_path,
+                    seen_models=next_seen_models,
+                    depth=depth + 1,
+                )
+            )
+    return examples
+
+
+def variant_body_sample(
+    command: CommandDefinition,
+    base_model_name: str,
+    variant: Any,
+) -> dict[str, Any]:
+    base_model = command.body_models[base_model_name]
+    variant_model = command.body_models[variant.model_name]
+    sample = sample_object_for_fields(base_model.fields, command, seen_models=set(), depth=0)
+    variant_sample = sample_object_for_fields(
+        variant_model.fields,
+        command,
+        seen_models={base_model_name},
+        depth=0,
+    )
+    for name, value in variant_sample.items():
+        if name not in sample:
+            sample[name] = value
+    sample[variant.discriminator_field] = variant.discriminator_value
+    return sample
+
+
+def sample_object_for_fields(
+    fields: tuple[BodyField, ...],
+    command: CommandDefinition,
+    seen_models: set[str],
+    depth: int,
+) -> dict[str, Any]:
+    return {
+        field.name: sample_body_value(field, command, seen_models=seen_models, depth=depth)
+        for field in fields
+    }
+
+
+def root_body_fields(command: CommandDefinition) -> tuple[BodyField, ...]:
+    model = root_body_model(command)
+    return model.fields if model is not None else command.body_fields
+
+
+def root_body_model(command: CommandDefinition) -> BodyModel | None:
+    if command.body_model and command.body_model in command.body_models:
+        return command.body_models[command.body_model]
+    return None
+
+
+def sample_body_value(
+    field: BodyField,
+    command: CommandDefinition,
+    seen_models: set[str],
+    depth: int,
+) -> Any:
+    if field.type_name == "array":
+        return [sample_array_item(field, command, seen_models, depth)]
+    if field.model_name:
+        return sample_model_value(field.model_name, command, seen_models, depth)
+    return sample_scalar_value(field.type_name, field.enum_values)
+
+
+def sample_array_item(
+    field: BodyField,
+    command: CommandDefinition,
+    seen_models: set[str],
+    depth: int,
+) -> Any:
+    if field.model_name:
+        return sample_model_value(field.model_name, command, seen_models, depth)
+    return sample_scalar_value(field.item_type or "string", field.enum_values)
+
+
+def sample_model_value(
+    model_name: str,
+    command: CommandDefinition,
+    seen_models: set[str],
+    depth: int,
+) -> dict[str, Any]:
+    if depth >= MAX_BODY_EXAMPLE_DEPTH or model_name in seen_models:
+        return {}
+    model = command.body_models.get(model_name)
+    if model is None:
+        return {}
+    next_seen_models = set(seen_models)
+    next_seen_models.add(model_name)
+    return {
+        field.name: sample_body_value(field, command, next_seen_models, depth + 1)
+        for field in model.fields
+    }
+
+
+def sample_scalar_value(type_name: str, enum_values: tuple[Any, ...]) -> Any:
+    if enum_values:
+        return enum_values[0]
+    if type_name in {"boolean", "bool"}:
+        return False
+    if type_name in {"integer", "number", "int", "float"}:
+        return 0
+    if type_name == "array":
+        return []
+    if type_name == "object":
+        return {}
+    return "<string>"
+
+
+def body_required_fields(command: CommandDefinition) -> tuple[str, ...]:
+    if not command.body_models:
+        return command.body_required_fields
+    return tuple(
+        collect_required_body_paths(
+            root_body_fields(command),
+            command,
+            parent_path="",
+            parent_required=True,
+            seen_models=set(),
+            depth=0,
+        )
+    )
+
+
+def collect_required_body_paths(
+    fields: tuple[BodyField, ...],
+    command: CommandDefinition,
+    parent_path: str,
+    parent_required: bool,
+    seen_models: set[str],
+    depth: int,
+) -> list[str]:
+    if depth >= MAX_BODY_EXAMPLE_DEPTH:
+        return []
+
+    required_paths = []
+    for field in fields:
+        path = f"{parent_path}.{field.name}" if parent_path else field.name
+        is_unconditionally_required = parent_required and field.required
+        if is_unconditionally_required:
+            required_paths.append(path)
+
+        nested_path = f"{path}[]" if field.type_name == "array" else path
+        if field.model_name and field.model_name not in seen_models:
+            model = command.body_models.get(field.model_name)
+            if model is None:
+                continue
+            next_seen_models = set(seen_models)
+            next_seen_models.add(field.model_name)
+            required_paths.extend(
+                collect_required_body_paths(
+                    model.fields,
+                    command,
+                    nested_path,
+                    is_unconditionally_required,
+                    next_seen_models,
+                    depth + 1,
+                )
+            )
+    return required_paths
+
+
+def body_enum_fields(command: CommandDefinition) -> dict[str, tuple[Any, ...]]:
+    if not command.body_models:
+        return command.body_enum_fields
+    return collect_body_enum_paths(
+        root_body_fields(command),
+        command,
+        parent_path="",
+        seen_models=set(),
+        depth=0,
+    )
+
+
+def collect_body_enum_paths(
+    fields: tuple[BodyField, ...],
+    command: CommandDefinition,
+    parent_path: str,
+    seen_models: set[str],
+    depth: int,
+) -> dict[str, tuple[Any, ...]]:
+    if depth >= MAX_BODY_EXAMPLE_DEPTH:
+        return {}
+
+    enum_paths: dict[str, tuple[Any, ...]] = {}
+    for field in fields:
+        path = f"{parent_path}.{field.name}" if parent_path else field.name
+        if field.enum_values:
+            enum_paths[path] = field.enum_values
+
+        nested_path = f"{path}[]" if field.type_name == "array" else path
+        if field.model_name and field.model_name not in seen_models:
+            model = command.body_models.get(field.model_name)
+            if model is None:
+                continue
+            next_seen_models = set(seen_models)
+            next_seen_models.add(field.model_name)
+            enum_paths.update(
+                collect_body_enum_paths(
+                    model.fields,
+                    command,
+                    nested_path,
+                    next_seen_models,
+                    depth + 1,
+                )
+            )
+    return enum_paths
+
+
+def load_config(args: SimpleNamespace) -> dict[str, Any]:
     if args.auth in {"instance_principal", "resource_principal"}:
         return {"region": args.region} if args.region else {}
     config = oci.config.from_file(
@@ -796,7 +1730,7 @@ def load_config(args: argparse.Namespace) -> dict[str, Any]:
     return config
 
 
-def build_signer(config: dict[str, Any], args: argparse.Namespace) -> Any:
+def build_signer(config: dict[str, Any], args: SimpleNamespace) -> Any:
     if args.auth == "instance_principal":
         return oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
     if args.auth == "resource_principal":
@@ -805,8 +1739,11 @@ def build_signer(config: dict[str, Any], args: argparse.Namespace) -> Any:
         token_file = expand_path(config.get("security_token_file"))
         if not token_file:
             raise CliError("security_token auth requires security_token_file in the OCI config profile.")
+        key_file = expand_path(config.get("key_file"))
+        if not key_file:
+            raise CliError("security_token auth requires key_file in the OCI config profile.")
         token = Path(token_file).read_text(encoding="utf-8").strip()
-        private_key = load_private_key_from_file(expand_path(config.get("key_file")), config.get("pass_phrase"))
+        private_key = load_private_key_from_file(key_file, config.get("pass_phrase"))
         return SecurityTokenSigner(token=token, private_key=private_key)
     require_config_keys(config, ["tenancy", "user", "fingerprint", "key_file"], "api_key")
     return Signer(
@@ -839,7 +1776,7 @@ def apply_config_env_overrides(config: dict[str, Any]) -> None:
             config[config_key] = value
 
 
-def build_client(client_cls: type, args: argparse.Namespace) -> Any:
+def build_client(client_cls: type, args: SimpleNamespace) -> Any:
     config = load_config(args)
     signer = build_signer(config, args)
     region = args.region or getattr(signer, "region", None) or config.get("region")
@@ -871,6 +1808,10 @@ def resolve_endpoint(
         raise CliError(
             "Set --region, --endpoint, --environment-host, or region in the OCI config profile."
         )
+    if str(region).startswith(("https://", "http://")):
+        raise CliError(
+            "Region must be an OCI region identifier. For a full service URL, use --endpoint or OCI_CLI_ENDPOINT."
+        )
     return f"https://{environment_prefix}.{region}.oci.{environment_domain}".rstrip("/")
 
 
@@ -899,7 +1840,7 @@ def close_client(client: Any) -> None:
         session_close()
 
 
-def enable_request_debug(client: Any, service: str, operation: str) -> None:
+def enable_request_debug(client: Any, command_group: str, command_name: str) -> None:
     base_client = getattr(client, "base_client", None)
     if base_client is None:
         return
@@ -907,28 +1848,27 @@ def enable_request_debug(client: Any, service: str, operation: str) -> None:
     original_call_api = base_client.call_api
 
     def debug_call_api(*args: Any, **kwargs: Any) -> Any:
-        debug_request(base_client, service, operation, *args, **kwargs)
+        debug_request(base_client, command_group, command_name, *args, **kwargs)
         return original_call_api(*args, **kwargs)
 
     base_client.call_api = debug_call_api
 
 
-def debug_request(base_client: Any, service: str, operation: str, *args: Any, **kwargs: Any) -> None:
+def debug_request(base_client: Any, command_group: str, command_name: str, *args: Any, **kwargs: Any) -> None:
     resource_path = get_call_value("resource_path", 0, args, kwargs) or ""
     method = get_call_value("method", 1, args, kwargs) or ""
     path_params = get_call_value("path_params", 2, args, kwargs) or {}
     query_params = get_call_value("query_params", 3, args, kwargs) or {}
     header_params = get_call_value("header_params", 4, args, kwargs) or {}
     body = get_call_value("body", 5, args, kwargs)
-
+    base_path = getattr(base_client, "base_path", "") or ""
     endpoint = getattr(base_client, "endpoint", "") or ""
-    base_path = getattr(base_client, "_base_path", "") or ""
     rendered_path = render_resource_path(resource_path, path_params)
     url = build_debug_url(endpoint, base_path, rendered_path)
 
     print("AIDP CLI debug request:", file=sys.stderr)
-    print(f"  service: {service}", file=sys.stderr)
-    print(f"  operation: {operation}", file=sys.stderr)
+    print(f"  command_group: {command_group}", file=sys.stderr)
+    print(f"  command_name: {command_name}", file=sys.stderr)
     print(f"  method: {method}", file=sys.stderr)
     print(f"  endpoint: {endpoint}", file=sys.stderr)
     print(f"  base_path: {base_path}", file=sys.stderr)
@@ -978,23 +1918,20 @@ def body_debug_summary(body: Any) -> str:
     return type(body).__name__
 
 
-def print_response(response: Any, output: str) -> None:
-    print("Response:")
-    if output == "headers":
-        print(json.dumps(dict(getattr(response, "headers", {}) or {}), indent=2, sort_keys=True, default=str))
-        return
-
+def print_response(response: Any) -> None:
     data = getattr(response, "data", response)
-    if output == "data":
-        print(json.dumps(to_dict(data), indent=2, sort_keys=True, default=str))
-        return
-
     payload = {
         "data": to_dict(data),
         "headers": dict(getattr(response, "headers", {}) or {}),
         "status": getattr(response, "status", None),
     }
-    print(json.dumps(payload, indent=2, sort_keys=True, default=str))
+    print("Response:")
+    print(json.dumps(payload, indent=2, default=str))
+
+
+def print_error_response(payload: dict[str, Any]) -> None:
+    print("Response:", file=sys.stderr)
+    print(json.dumps(payload, indent=2, default=str), file=sys.stderr)
 
 
 if __name__ == "__main__":

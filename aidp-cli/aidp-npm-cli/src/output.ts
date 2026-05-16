@@ -1,17 +1,18 @@
-export function printResponse(response: unknown, output: "json" | "data" | "headers"): void {
+export interface CapturedHttpResponse {
+  data: unknown;
+  headers: Record<string, string>;
+  status: number | null;
+}
+
+export function printResponse(response: unknown, captured?: CapturedHttpResponse): void {
+  const payload = captured ?? responseEnvelope(response);
   console.log("Response:");
+  console.log(stringify(payload));
+}
 
-  if (output === "headers") {
-    console.log(stringify(extractHeaders(response)));
-    return;
-  }
-
-  if (output === "data") {
-    console.log(stringify(extractData(response)));
-    return;
-  }
-
-  console.log(stringify(response));
+export function printErrorResponse(payload: unknown): void {
+  console.error("Response:");
+  console.error(stringify(payload));
 }
 
 export function stringify(value: unknown): string {
@@ -30,52 +31,34 @@ export function stringify(value: unknown): string {
   );
 }
 
-function extractData(response: unknown): unknown {
+function responseEnvelope(response: unknown): CapturedHttpResponse {
   if (!isRecord(response)) {
-    return response;
+    return { data: response, headers: {}, status: null };
   }
 
+  const headers: Record<string, string> = {};
   const data: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(response)) {
     if (isHeaderLikeKey(key)) {
-      continue;
-    }
-    data[key] = value;
-  }
-
-  const entries = Object.entries(data);
-  if (entries.length === 1) {
-    return entries[0][1];
-  }
-  return data;
-}
-
-function extractHeaders(response: unknown): Record<string, unknown> {
-  if (!isRecord(response)) {
-    return {};
-  }
-
-  if (isRecord(response.headers)) {
-    return response.headers;
-  }
-
-  const headers: Record<string, unknown> = {};
-  for (const [key, value] of Object.entries(response)) {
-    if (isHeaderLikeKey(key)) {
-      headers[key] = value;
+      if (value !== undefined && value !== null) {
+        headers[key] = String(value);
+      }
+    } else {
+      data[key] = value;
     }
   }
-  return headers;
+
+  const dataEntries = Object.entries(data);
+  return {
+    data: dataEntries.length === 1 ? dataEntries[0][1] : data,
+    headers,
+    status: null
+  };
 }
 
 function isHeaderLikeKey(key: string): boolean {
   const normalized = key.toLowerCase();
-  return (
-    normalized === "etag" ||
-    normalized === "lastmodified" ||
-    normalized === "headers" ||
-    normalized.startsWith("opc")
-  );
+  return normalized === "etag" || normalized === "lastmodified" || normalized.startsWith("opc");
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

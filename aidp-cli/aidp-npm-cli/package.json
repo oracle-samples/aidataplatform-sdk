@@ -1,6 +1,6 @@
 {
   "name": "aidp-cli",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Command line interface for AI Data Platform data plane public APIs.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,9 +20,10 @@
   ],
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json",
-    "prepack": "npm run build && npm run stage-local-deps",
+    "generate-manifest": "node scripts/generate_manifest.js",
+    "prepack": "npm run build && npm run generate-manifest && npm run stage-local-deps",
     "stage-local-deps": "node scripts/stage_local_dependencies.js",
-    "test": "npm run build && node test/run_tests.js",
+    "test": "npm run build && npm run generate-manifest && node test/run_tests.js",
     "write-version": "node scripts/write_version.js"
   },
   "author": {
@@ -41,7 +42,6 @@
   "devDependencies": {
     "@types/node": "^22.15.30",
     "@types/node-fetch": "^2.6.12",
-    "typescript": "^5.8.3",
-    "yaml": "^2.8.4"
+    "typescript": "^5.8.3"
   }
 }

@@ -1,3 +1,5 @@
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
 from __future__ import annotations
 
 import inspect

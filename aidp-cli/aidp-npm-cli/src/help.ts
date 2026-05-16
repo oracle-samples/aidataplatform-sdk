@@ -1,199 +1,628 @@
-import { AUTH_CHOICES, DEFAULT_AUTH } from "./config";
-import { OperationDefinition, ServiceDefinition } from "./discovery";
+import { BodyField, BodyModel, CommandDefinition, CommandField, CommandGroup, CommandManifest } from "./discovery";
+import {
+  argumentMetavar,
+  commandArgumentFields,
+  commandOptionFields,
+  commandRequiresInstanceId
+} from "./commandArgs";
 
-export function rootHelp(): string {
-  return `usage: aidp [global options] <command> [command options]
+const MAX_BODY_EXAMPLE_DEPTH = 12;
 
-Call AI Data Platform data plane public APIs.
+export const UTILITY_COMMANDS: Array<[string, string]> = [
+  ["command-groups", "List API command groups."],
+  ["search", "Search command groups and command names."],
+  ["configure", "Configure local AIDP CLI defaults."],
+  ["help", "Help about any command."],
+  ["version", "Show CLI version."]
+];
 
-options:
-  -h, --help                            show this help message and exit
-  -v, --version                         show version and exit
-  --config-file FILE                    OCI config file path.
-  --profile PROFILE                     OCI config profile.
-  --auth MODE                           OCI authentication mode. Choices: ${AUTH_CHOICES.join(", ")}.
-                                        Defaults to ${DEFAULT_AUTH}.
-  --region REGION                       OCI region. Defaults to the OCI config region.
-  --endpoint URL                        AIDP data plane endpoint override. If scheme is omitted,
-                                        https:// is used. Takes precedence over environment options.
-  --timeout SECONDS                     Connection/read timeout in seconds.
-  --ai-data-platform-id OCID            Default value for operation parameter ai_data_platform_id.
-  --debug                               Print request debug details to stderr before invoking the API.
-
-commands:
-  <command>
-    services                            List available API services.
-    operations                          List operations for a service.
-    invoke                              Invoke an API operation.
-
-Examples:
-  aidp services
-  aidp operations workspace
-  aidp --auth security_token --profile DEFAULT --region us-phoenix-1 \\
-    --ai-data-platform-id <ai_data_platform_ocid> \\
-    invoke workspace get_ai_data_platform_workspace \\
-    --param workspace_key=<workspace_key>
-
-Use 'aidp <command> --help' for command-specific options.
-`;
+export function rootHelp(manifest: CommandManifest): string {
+  return [
+    "AIDP CLI",
+    "",
+    "Usage:",
+    "  aidp <command-group> <command-name> [flags]",
+    "",
+    "API Command Groups:",
+    ...formatTable(manifest.commandGroups.map((group) => [group.name, group.description])),
+    "",
+    "Utility Commands:",
+    ...formatTable(UTILITY_COMMANDS),
+    "",
+    "Flags:",
+    ...formatFlags(rootFlagRows()),
+    "",
+    'Use "aidp <command-group> --help" for more information about a command group.'
+  ].join("\n");
 }
 
-export function operationsHelp(): string {
-  return `Usage: aidp operations <service> [operation]
-
-Examples:
-  aidp operations workspace
-  aidp operations workspace get_ai_data_platform_workspace
-  aidp operations workspace get_ai_data_platform_workspace --help
-`;
+export function commandGroupsHelp(): string {
+  return [
+    "List AIDP API command groups.",
+    "",
+    "Usage:",
+    "  aidp command-groups [flags]",
+    "",
+    "Flags:",
+    ...formatFlags([["-h, --help", "help for command-groups"]]),
+    "",
+    "Global Flags:",
+    ...formatFlags(globalFlagRows())
+  ].join("\n");
 }
 
-export function invokeHelp(): string {
-  return `Usage: aidp [global options] invoke <service> <operation> [operation options]
-
-Operation options:
-  --param NAME=VALUE                    Operation request field. May be repeated.
-  --body JSON                           JSON object for the operation body/details field.
-  --body-file FILE                      JSON file for the operation body/details field. Use '-' for stdin.
-  --body-field NAME                     Request field to receive --body/--body-file when inference is ambiguous.
-  --from-json JSON|file://PATH|-        JSON object containing operation request fields.
-  --opc-request-id ID                   Request ID. Generated automatically when omitted.
-  --no-request-id                       Do not add opcRequestId automatically.
-  --output json|data|headers            Output format. Defaults to json.
-  -h, --help                            Show help.
-
-Example:
-  aidp --auth security_token --profile DEFAULT --region us-phoenix-1 \\
-    --ai-data-platform-id <ai_data_platform_ocid> \\
-    invoke workspace get_ai_data_platform_workspace \\
-    --param workspace_key=<workspace_key>
-`;
-}
-
-export function operationHelp(service: ServiceDefinition, operation: OperationDefinition): string {
-  const lines = [`Operation: ${service.name}.${operation.displayName}`];
-  const description = operationDescription(operation);
-  if (description) {
-    lines.push(`Description: ${description}`);
+export function commandGroupsOutput(manifest: CommandManifest): string {
+  const lines = [
+    "Command Groups:",
+    ...formatTable(manifest.commandGroups.map((group) => [group.name, group.description])),
+    "",
+    'Use "aidp <command-group> --help" for command names and examples.'
+  ];
+  const example = runnableCommandGroupsExample(manifest);
+  if (example) {
+    lines.push("", "Example:", example);
   }
+  return lines.join("\n");
+}
 
-  lines.push("", "Parameters:");
-  const parameters = operationRequiredFields(operation);
-  if (parameters.length === 0) {
-    lines.push("  none");
-  } else {
-    for (const parameter of parameters) {
-      lines.push(`  *${lowerCamelToSnake(parameter.name)}`);
-    }
+export function groupHelp(group: CommandGroup): string {
+  const lines = [
+    group.description,
+    "",
+    "Usage:",
+    `  aidp ${group.name} [flags]`,
+    `  aidp ${group.name} <command-name> [arguments] [flags]`,
+    ""
+  ];
+
+  for (const [section, commands] of Object.entries(groupedCommands(group))) {
+    lines.push(`${section}:`);
+    lines.push(...formatTable(commands.map((command) => [command.name, commandSummary(command)])));
+    lines.push("");
   }
 
   lines.push(
+    "Flags:",
+    ...formatFlags([["-h, --help", `help for ${group.name}`]]),
     "",
-    "Example:",
-    exampleForOperation(service, operation)
+    "Global Flags:",
+    ...formatFlags(globalFlagRows()),
+    "",
+    `Use "aidp ${group.name} <command-name> --help" for more information about a command.`
   );
-
-  const bodySample = exampleBody(operation);
-  if (bodySample !== undefined) {
-    lines.push("", "Example body:", JSON.stringify(bodySample, null, 2));
-  }
-
-  if (operation.bodyRequiredFields.length > 0) {
-    lines.push("", "Required body fields:");
-    for (const field of operation.bodyRequiredFields) {
-      lines.push(`  ${field}`);
-    }
-  }
-
-  const bodyAllowedValues = formatAllowedBodyValues(operation.bodyEnumFields);
-  if (bodyAllowedValues.length > 0) {
-    lines.push("", "Allowed body values:", ...bodyAllowedValues);
-  }
-
-  return `${lines.join("\n")}\n`;
+  return lines.join("\n");
 }
 
-function exampleForOperation(service: ServiceDefinition, operation: OperationDefinition): string {
-  const lines = [
-    "  aidp \\",
-    "    --auth security_token \\",
-    "    --profile DEFAULT \\",
-    "    --region us-phoenix-1 \\",
-    "    --ai-data-platform-id <ai_data_platform_ocid> \\",
-    `    invoke ${service.name} ${operation.displayName}`
-  ];
+export function commandHelp(group: CommandGroup, command: CommandDefinition): string {
+  const lines: string[] = [];
+  const description = commandDescription(command);
+  if (description) {
+    lines.push(...wrapParagraph(description), "");
+  }
 
-  for (const field of operationRequiredFields(operation)) {
-    if (field.name === "aiDataPlatformId") {
-      continue;
+  const argumentFields = commandArgumentFields(command);
+  const usageArgs = argumentFields.map(argumentMetavar).join(" ");
+  lines.push(
+    "Usage:",
+    `  aidp ${group.name} ${command.name}${usageArgs ? ` ${usageArgs}` : ""} [flags]`,
+    ""
+  );
+
+  if (argumentFields.length > 0) {
+    lines.push("Arguments:");
+    for (const field of argumentFields) {
+      lines.push(...formatArgument(field));
     }
-    lines[lines.length - 1] += " \\";
-    if (field.name === operation.bodyField) {
-      lines.push("    --body-file request.json");
-      continue;
+    lines.push("");
+  }
+
+  lines.push("Flags:", ...formatFlags(commandFlagRows(command)), "", "Global Flags:", ...formatFlags(globalFlagRows()), "", "Examples:", ...formatExamples(group, command));
+
+  const bodySample = exampleBody(command);
+  if (bodySample !== undefined) {
+    lines.push("", "Example JSON:", JSON.stringify(bodySample, null, 2));
+  }
+
+  const variants = rootBodyVariantExamples(command);
+  if (variants.length > 0) {
+    lines.push("", "Body variants:");
+    for (const variant of variants) {
+      lines.push("", `Example JSON - ${variant.label}:`, JSON.stringify(variant.sample, null, 2));
     }
-    const cliName = lowerCamelToSnake(field.name);
-    lines.push(`    --param ${cliName}=<${cliName}>`);
+  }
+
+  const nestedVariants = nestedBodyVariantExamples(command);
+  if (nestedVariants.length > 0) {
+    lines.push("", "Nested body variants:");
+    for (const variant of nestedVariants) {
+      lines.push("", `Example JSON for ${variant.path} - ${variant.label}:`, JSON.stringify(variant.sample, null, 2));
+    }
+  }
+
+  const requiredFields = bodyRequiredFields(command);
+  if (requiredFields.length > 0) {
+    lines.push("", "Required JSON fields:", ...requiredFields.map((field) => `  ${field}`));
+  }
+
+  const enumFields = bodyEnumFields(command);
+  if (Object.keys(enumFields).length > 0) {
+    lines.push("", "Allowed JSON values:");
+    for (const [field, values] of Object.entries(enumFields).sort(([left], [right]) =>
+      left.localeCompare(right)
+    )) {
+      lines.push(`  ${field}: ${values.map(String).join(", ")}`);
+    }
   }
 
   return lines.join("\n");
 }
 
-function operationDescription(operation: OperationDefinition): string {
-  const description = operation.description || operation.summary || "";
+export function searchHelp(): string {
+  return [
+    "Search AIDP command groups, command names, descriptions, and flags.",
+    "",
+    "Usage:",
+    "  aidp search QUERY [flags]",
+    "",
+    "Examples:",
+    "  aidp search workspace",
+    "  aidp search list workspaces",
+    "  aidp search permission",
+    "",
+    "Flags:",
+    ...formatFlags([["-h, --help", "help for search"]]),
+    "",
+    "Global Flags:",
+    ...formatFlags(globalFlagRows())
+  ].join("\n");
+}
+
+export function configureHelp(): string {
+  return [
+    "Configure local AIDP CLI defaults.",
+    "",
+    "Usage:",
+    "  aidp configure get",
+    "  aidp configure set instance-id <ocid>",
+    "",
+    "Flags:",
+    ...formatFlags([["-h, --help", "help for configure"]])
+  ].join("\n");
+}
+
+export function rootFlagRows(): Array<[string, string]> {
+  return [
+    ["--debug", "enable debug logging"],
+    ["-h, --help", "help for aidp"],
+    ["-p, --profile", "OCI config profile; the default profile: DEFAULT"],
+    ["--auth", "OCI authentication mode; options: api_key, security_token, instance_principal, resource_principal; default: security_token"],
+    ["--config-file", "OCI config file path"],
+    ["--region", "OCI region"],
+    ["--endpoint", "AIDP data plane endpoint override; default endpoint points to https://aidp.<region>.oci.oraclecloud.com"],
+    ["--instance-id", "AIDP instance OCID"],
+    ["--timeout", "connection/read timeout in seconds"],
+    ["-v, --version", "version for aidp"]
+  ];
+}
+
+export function globalFlagRows(): Array<[string, string]> {
+  return rootFlagRows().filter(([flag]) => flag !== "-h, --help" && flag !== "-v, --version");
+}
+
+export function formatTable(rows: Array<[string, string]>, indent = 2, gap = 2): string[] {
+  if (rows.length === 0) {
+    return [];
+  }
+  const width = Math.max(...rows.map(([name]) => name.length));
+  return rows.map(([name, description]) => {
+    const padding = " ".repeat(Math.max(gap, width - name.length + gap));
+    return `${" ".repeat(indent)}${name}${padding}${description}`;
+  });
+}
+
+export function formatFlags(rows: Array<[string, string]>): string[] {
+  return formatTable(rows, 2, 2);
+}
+
+export function commandSummary(command: CommandDefinition): string {
+  return firstSentence(command.summary || command.description);
+}
+
+function groupedCommands(group: CommandGroup): Record<string, CommandDefinition[]> {
+  const sections: Record<string, CommandDefinition[]> = {};
+  for (const command of group.commands) {
+    const section = command.section || "Available Commands";
+    sections[section] = sections[section] ?? [];
+    sections[section].push(command);
+  }
+  if (sections["Available Commands"]) {
+    const available = sections["Available Commands"];
+    delete sections["Available Commands"];
+    return {
+      "Available Commands": available,
+      ...Object.fromEntries(Object.entries(sections).sort(([left], [right]) => left.localeCompare(right)))
+    };
+  }
+  return Object.fromEntries(Object.entries(sections).sort(([left], [right]) => left.localeCompare(right)));
+}
+
+function commandDescription(command: CommandDefinition): string {
+  let description = command.description || command.summary;
   if (!description) {
     return "";
   }
-  return /[.!?]$/.test(description) ? description : `${description}.`;
-}
-
-function operationRequiredFields(operation: OperationDefinition): Array<{ name: string }> {
-  if (operation.fields.length > 0) {
-    return operation.fields.filter((field) => field.required);
+  if (!/[.!?]$/.test(description)) {
+    description += ".";
   }
-  return operation.requiredFields.map((field) => ({ name: field }));
+  if (command.deprecated && !description.toLowerCase().startsWith("deprecated")) {
+    description = `Deprecated. ${description}`;
+  }
+  return description;
 }
 
-function exampleBody(operation: OperationDefinition): Record<string, unknown> | undefined {
-  if (!operation.bodyField) {
+function firstSentence(value: string): string {
+  const cleaned = String(value || "").trim().replace(/\s+/g, " ");
+  if (!cleaned) {
+    return "";
+  }
+  for (const delimiter of [". ", "! ", "? "]) {
+    if (cleaned.includes(delimiter)) {
+      return `${cleaned.split(delimiter, 1)[0].replace(/[.!?]+$/, "")}.`;
+    }
+  }
+  return /[.!?]$/.test(cleaned) ? cleaned : `${cleaned}.`;
+}
+
+function commandFlagRows(command: CommandDefinition): Array<[string, string]> {
+  const rows: Array<[string, string]> = [["-h, --help", `help for ${command.name}`]];
+  for (const field of commandOptionFields(command)) {
+    rows.push([`--${field.cliName}`, fieldHelp(field)]);
+  }
+  if (command.bodyField) {
+    rows.push(["--body", "inline JSON string, @path/to/file.json, or - for stdin"]);
+  }
+  rows.push(
+    ["--opc-request-id", "request ID; generated automatically when omitted"],
+    ["--no-request-id", "do not add opc_request_id automatically"]
+  );
+  return rows;
+}
+
+function fieldHelp(field: CommandField): string {
+  const parts: string[] = [];
+  let description = field.description;
+  if (field.enumValues.length > 0) {
+    description = description.replace(/\s*Allowed values(?:\s+are)?:\s*[^.]+\.?$/i, "").trim();
+  }
+  if (description) {
+    parts.push(`${description.replace(/\.+$/, "")}.`);
+  }
+  if (field.required) {
+    parts.push("Required.");
+  }
+  if (field.enumValues.length > 0) {
+    parts.push(`Allowed values: ${field.enumValues.map(String).join(", ")}.`);
+  }
+  return parts.join(" ");
+}
+
+function formatArgument(field: CommandField): string[] {
+  const label = `  ${argumentMetavar(field)}:`;
+  return wrapParagraph(field.description || "Required command argument.", label.length + 1).map(
+    (line, index) => (index === 0 ? `${label} ${line.trimStart()}` : line)
+  );
+}
+
+function wrapParagraph(value: string, indent = 0): string[] {
+  const width = 88;
+  const words = value.trim().replace(/\s+/g, " ").split(" ").filter(Boolean);
+  const lines: string[] = [];
+  let line = " ".repeat(indent);
+  for (const word of words) {
+    if (line.trim() && `${line} ${word}`.length > width) {
+      lines.push(line);
+      line = `${" ".repeat(indent)}${word}`;
+    } else {
+      line = line.trim() ? `${line} ${word}` : `${line}${word}`;
+    }
+  }
+  if (line.trim() || lines.length === 0) {
+    lines.push(line);
+  }
+  return lines;
+}
+
+function formatExamples(group: CommandGroup, command: CommandDefinition): string[] {
+  let base = `  aidp ${group.name} ${command.name}`;
+  for (const field of commandArgumentFields(command)) {
+    base += ` <${field.cliName.replace(/-/g, "_")}>`;
+  }
+  if (commandRequiresInstanceId(command)) {
+    base += " --instance-id <ocid>";
+  }
+  if (command.bodyField) {
+    base += " --body @request.json";
+  }
+  return [base];
+}
+
+function runnableCommandGroupsExample(manifest: CommandManifest): string {
+  const candidates: Array<[[number, number, number, string, string], CommandGroup, CommandDefinition]> = [];
+  for (const group of manifest.commandGroups) {
+    for (const command of group.commands) {
+      const argumentCount = commandArgumentFields(command).length;
+      const bodyCount = command.bodyField ? 1 : 0;
+      const actionRank = command.name.startsWith("list-") || command.name === "list" ? 0 : 1;
+      candidates.push([[bodyCount, argumentCount, actionRank, group.name, command.name], group, command]);
+    }
+  }
+  candidates.sort((left, right) => compareRank(left[0], right[0]));
+  const candidate = candidates[0];
+  return candidate ? formatExamples(candidate[1], candidate[2])[0] : "";
+}
+
+function compareRank(left: [number, number, number, string, string], right: [number, number, number, string, string]): number {
+  for (let i = 0; i < left.length; i += 1) {
+    const leftValue = left[i];
+    const rightValue = right[i];
+    if (typeof leftValue === "number" && typeof rightValue === "number") {
+      if (leftValue !== rightValue) {
+        return leftValue - rightValue;
+      }
+    } else if (String(leftValue) !== String(rightValue)) {
+      return String(leftValue).localeCompare(String(rightValue));
+    }
+  }
+  return 0;
+}
+
+function exampleBody(command: CommandDefinition): Record<string, unknown> | undefined {
+  if (!command.bodyField) {
     return undefined;
   }
+  const model = rootBodyModel(command);
+  const fields = model ? model.fields : command.bodyFields;
+  return sampleObjectForFields(fields, command, new Set(), 0);
+}
 
-  const sample: Record<string, unknown> = {};
-  for (const field of operation.bodyFields) {
-    sample[field.name] = sampleBodyValue(field);
+function rootBodyVariantExamples(command: CommandDefinition): Array<{ label: string; sample: Record<string, unknown> }> {
+  const rootModel = rootBodyModel(command);
+  if (!rootModel || rootModel.variants.length === 0) {
+    return [];
   }
+  return rootModel.variants
+    .filter((variant) => Boolean(command.bodyModels[variant.modelName]))
+    .map((variant) => {
+      return {
+        label: `${variant.modelName} (${variant.discriminatorField}=${String(variant.discriminatorValue)})`,
+        sample: variantBodySample(command, command.bodyModel, variant)
+      };
+    });
+}
+
+function nestedBodyVariantExamples(command: CommandDefinition): Array<{ path: string; label: string; sample: Record<string, unknown> }> {
+  const rootModel = rootBodyModel(command);
+  if (!rootModel) {
+    return [];
+  }
+  return collectNestedBodyVariantExamples(rootModel.fields, command, "", new Set([command.bodyModel]), 0);
+}
+
+function collectNestedBodyVariantExamples(
+  fields: BodyField[],
+  command: CommandDefinition,
+  parentPath: string,
+  seenModels: Set<string>,
+  depth: number
+): Array<{ path: string; label: string; sample: Record<string, unknown> }> {
+  if (depth >= MAX_BODY_EXAMPLE_DEPTH) {
+    return [];
+  }
+  const examples: Array<{ path: string; label: string; sample: Record<string, unknown> }> = [];
+  for (const field of fields) {
+    if (!field.modelName || !command.bodyModels[field.modelName]) {
+      continue;
+    }
+    const path = parentPath ? `${parentPath}.${field.name}` : field.name;
+    const modelPath = field.type === "array" ? `${path}[]` : path;
+    const model = command.bodyModels[field.modelName];
+    for (const variant of model.variants) {
+      if (!command.bodyModels[variant.modelName]) {
+        continue;
+      }
+      examples.push({
+        path: modelPath,
+        label: `${variant.modelName} (${variant.discriminatorField}=${String(variant.discriminatorValue)})`,
+        sample: variantBodySample(command, field.modelName, variant)
+      });
+    }
+    if (!seenModels.has(field.modelName)) {
+      const nextSeen = new Set(seenModels);
+      nextSeen.add(field.modelName);
+      examples.push(
+        ...collectNestedBodyVariantExamples(model.fields, command, modelPath, nextSeen, depth + 1)
+      );
+    }
+  }
+  return examples;
+}
+
+function variantBodySample(
+  command: CommandDefinition,
+  baseModelName: string,
+  variant: { discriminatorField: string; discriminatorValue: unknown; modelName: string }
+): Record<string, unknown> {
+  const baseModel = command.bodyModels[baseModelName];
+  const variantModel = command.bodyModels[variant.modelName];
+  const sample = {
+    ...sampleObjectForFields(baseModel.fields, command, new Set(), 0),
+    ...sampleObjectForFields(variantModel.fields, command, new Set([baseModelName]), 0)
+  };
+  sample[variant.discriminatorField] = variant.discriminatorValue;
   return sample;
 }
 
-function sampleBodyValue(field: { enumValues?: string[]; type?: string }): unknown {
-  if (field.enumValues && field.enumValues.length > 0) {
-    return field.enumValues[0];
-  }
-
-  switch (field.type) {
-    case "boolean":
-      return false;
-    case "integer":
-    case "number":
-      return 0;
-    case "array":
-      return [];
-    case "object":
-      return {};
-    case "string":
-    default:
-      return "<string>";
-  }
+function sampleObjectForFields(
+  fields: BodyField[],
+  command: CommandDefinition,
+  seenModels: Set<string>,
+  depth: number
+): Record<string, unknown> {
+  return Object.fromEntries(
+    fields.map((field) => [field.name, sampleBodyValue(field, command, seenModels, depth)])
+  );
 }
 
-function formatAllowedBodyValues(valuesByField: Record<string, string[]>): string[] {
-  return Object.entries(valuesByField)
-    .filter((entry) => entry[1].length > 0)
-    .sort(([left], [right]) => left.localeCompare(right))
-    .map(([field, values]) => `  ${field}: ${values.join(", ")}`);
+function rootBodyFields(command: CommandDefinition): BodyField[] {
+  return rootBodyModel(command)?.fields ?? command.bodyFields;
 }
 
-function lowerCamelToSnake(value: string): string {
-  return value.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toLowerCase();
+function rootBodyModel(command: CommandDefinition): BodyModel | undefined {
+  return command.bodyModel ? command.bodyModels[command.bodyModel] : undefined;
+}
+
+function sampleBodyValue(
+  field: BodyField,
+  command: CommandDefinition,
+  seenModels: Set<string>,
+  depth: number
+): unknown {
+  if (field.type === "array") {
+    return [sampleArrayItem(field, command, seenModels, depth)];
+  }
+  if (field.modelName) {
+    return sampleModelValue(field.modelName, command, seenModels, depth);
+  }
+  return sampleScalarValue(field.type, field.enumValues);
+}
+
+function sampleArrayItem(
+  field: BodyField,
+  command: CommandDefinition,
+  seenModels: Set<string>,
+  depth: number
+): unknown {
+  if (field.modelName) {
+    return sampleModelValue(field.modelName, command, seenModels, depth);
+  }
+  return sampleScalarValue(field.itemType || "string", field.enumValues);
+}
+
+function sampleModelValue(
+  modelName: string,
+  command: CommandDefinition,
+  seenModels: Set<string>,
+  depth: number
+): Record<string, unknown> {
+  if (depth >= MAX_BODY_EXAMPLE_DEPTH || seenModels.has(modelName)) {
+    return {};
+  }
+  const model = command.bodyModels[modelName];
+  if (!model) {
+    return {};
+  }
+  const nextSeen = new Set(seenModels);
+  nextSeen.add(modelName);
+  return Object.fromEntries(
+    model.fields.map((field) => [field.name, sampleBodyValue(field, command, nextSeen, depth + 1)])
+  );
+}
+
+function sampleScalarValue(type: string, enumValues: unknown[]): unknown {
+  if (enumValues.length > 0) {
+    return enumValues[0];
+  }
+  if (type === "boolean" || type === "bool") {
+    return false;
+  }
+  if (["integer", "number", "int", "float"].includes(type)) {
+    return 0;
+  }
+  if (type === "array") {
+    return [];
+  }
+  if (type === "object") {
+    return {};
+  }
+  return "<string>";
+}
+
+function bodyRequiredFields(command: CommandDefinition): string[] {
+  if (Object.keys(command.bodyModels).length === 0) {
+    return command.bodyRequiredFields;
+  }
+  return collectRequiredBodyPaths(rootBodyFields(command), command, "", true, new Set(), 0);
+}
+
+function collectRequiredBodyPaths(
+  fields: BodyField[],
+  command: CommandDefinition,
+  parentPath: string,
+  parentRequired: boolean,
+  seenModels: Set<string>,
+  depth: number
+): string[] {
+  if (depth >= MAX_BODY_EXAMPLE_DEPTH) {
+    return [];
+  }
+  const requiredPaths: string[] = [];
+  for (const field of fields) {
+    const path = parentPath ? `${parentPath}.${field.name}` : field.name;
+    const required = parentRequired && field.required;
+    if (required) {
+      requiredPaths.push(path);
+    }
+    const nestedPath = field.type === "array" ? `${path}[]` : path;
+    if (field.modelName && !seenModels.has(field.modelName) && command.bodyModels[field.modelName]) {
+      const nextSeen = new Set(seenModels);
+      nextSeen.add(field.modelName);
+      requiredPaths.push(
+        ...collectRequiredBodyPaths(
+          command.bodyModels[field.modelName].fields,
+          command,
+          nestedPath,
+          required,
+          nextSeen,
+          depth + 1
+        )
+      );
+    }
+  }
+  return requiredPaths;
+}
+
+function bodyEnumFields(command: CommandDefinition): Record<string, unknown[]> {
+  if (Object.keys(command.bodyModels).length === 0) {
+    return command.bodyEnumFields;
+  }
+  return collectBodyEnumPaths(rootBodyFields(command), command, "", new Set(), 0);
+}
+
+function collectBodyEnumPaths(
+  fields: BodyField[],
+  command: CommandDefinition,
+  parentPath: string,
+  seenModels: Set<string>,
+  depth: number
+): Record<string, unknown[]> {
+  if (depth >= MAX_BODY_EXAMPLE_DEPTH) {
+    return {};
+  }
+  const enumPaths: Record<string, unknown[]> = {};
+  for (const field of fields) {
+    const path = parentPath ? `${parentPath}.${field.name}` : field.name;
+    if (field.enumValues.length > 0) {
+      enumPaths[path] = field.enumValues;
+    }
+    const nestedPath = field.type === "array" ? `${path}[]` : path;
+    if (field.modelName && !seenModels.has(field.modelName) && command.bodyModels[field.modelName]) {
+      const nextSeen = new Set(seenModels);
+      nextSeen.add(field.modelName);
+      Object.assign(
+        enumPaths,
+        collectBodyEnumPaths(command.bodyModels[field.modelName].fields, command, nestedPath, nextSeen, depth + 1)
+      );
+    }
+  }
+  return enumPaths;
 }

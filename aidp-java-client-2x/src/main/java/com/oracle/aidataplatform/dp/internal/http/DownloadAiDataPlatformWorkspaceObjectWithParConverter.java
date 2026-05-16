@@ -1,3 +1,5 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
 package com.oracle.aidataplatform.dp.internal.http;
 import com.oracle.bmc.http.internal.ResponseHelper;
 import com.oracle.aidataplatform.dp.model.*;

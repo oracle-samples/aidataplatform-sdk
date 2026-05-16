@@ -1,118 +1,126 @@
-import {
-  assertAuthMode,
-  defaultGlobalOptions,
-  GlobalOptions
-} from "./config";
+import { assertAuthMode, defaultGlobalOptions, GlobalOptions } from "./config";
 import { CliError } from "./errors";
 
-export interface ParsedCommand {
-  command: "help" | "version" | "services" | "operations" | "invoke";
-  globals: GlobalOptions;
+export interface ParsedArgs {
   args: string[];
+  globals: GlobalOptions;
+  helpRequested: boolean;
+  versionRequested: boolean;
 }
 
-const GLOBAL_OPTIONS_REQUIRING_VALUE = new Set([
-  "--config-file",
-  "--profile",
-  "--auth",
-  "--region",
-  "--endpoint",
-  "--environment-prefix",
-  "--environmentprefix",
-  "--environment-domain",
-  "--environment-host",
-  "--timeout",
-  "--ai-data-platform-id"
-]);
+export const GLOBAL_VALUE_OPTIONS: Record<string, keyof GlobalOptions> = {
+  "--config-file": "configFile",
+  "--profile": "profile",
+  "-p": "profile",
+  "--auth": "auth",
+  "--region": "region",
+  "--endpoint": "endpoint",
+  "--environment-prefix": "environmentPrefix",
+  "--environmentprefix": "environmentPrefix",
+  "--environment-domain": "environmentDomain",
+  "--environment-host": "environmentHost",
+  "--timeout": "timeout",
+  "--instance-id": "instanceId"
+};
 
-export function parseRootArgs(argv: string[]): ParsedCommand {
-  const globals = defaultGlobalOptions();
+export const GLOBAL_BOOLEAN_OPTIONS: Record<string, keyof GlobalOptions> = {
+  "--debug": "debug"
+};
+
+export function parseGlobalOptions(argv: string[]): ParsedArgs {
+  let globals = defaultGlobalOptions();
+  const remaining: string[] = [];
+  let helpRequested = false;
+  let versionRequested = false;
+  let commandSeen = false;
   let index = 0;
 
   while (index < argv.length) {
     const token = argv[index];
-
     if (token === "-h" || token === "--help") {
-      return { command: "help", globals, args: [] };
+      helpRequested = true;
+      index += 1;
+      continue;
     }
-
     if (token === "-v" || token === "--version") {
-      return { command: "version", globals, args: [] };
+      versionRequested = true;
+      index += 1;
+      continue;
     }
-
-    if (!token.startsWith("-")) {
-      break;
-    }
-
-    if (token === "--debug") {
-      globals.debug = true;
+    if (!commandSeen && token in GLOBAL_BOOLEAN_OPTIONS) {
+      globals = { ...globals, [GLOBAL_BOOLEAN_OPTIONS[token]]: true };
       index += 1;
       continue;
     }
 
     const [optionName, inlineValue] = splitInlineOption(token);
-    if (!GLOBAL_OPTIONS_REQUIRING_VALUE.has(optionName)) {
-      throw new CliError(`Unknown global option ${optionName}.`);
+    if (!commandSeen && optionName in GLOBAL_VALUE_OPTIONS) {
+      const [value, nextIndex] = optionValue(argv, index, optionName, inlineValue);
+      globals = applyGlobalOption(globals, optionName, value);
+      index = nextIndex;
+      continue;
+    }
+    if (!commandSeen && token.startsWith("-")) {
+      throw new CliError(`Unknown option '${optionName}'.`);
     }
 
-    const value = inlineValue ?? readRequiredValue(argv, index, optionName);
-    applyGlobalOption(globals, optionName, value);
-    index += inlineValue === undefined ? 2 : 1;
+    remaining.push(token);
+    if (!token.startsWith("-")) {
+      commandSeen = true;
+    }
+    index += 1;
   }
 
-  const command = argv[index];
-  if (!command) {
-    return { command: "help", globals, args: [] };
-  }
-
-  if (!["services", "operations", "invoke"].includes(command)) {
-    throw new CliError(`Unknown command ${command}. Run 'aidp --help'.`);
-  }
-
-  return {
-    command: command as ParsedCommand["command"],
-    globals,
-    args: argv.slice(index + 1)
-  };
+  return { args: remaining, globals, helpRequested, versionRequested };
 }
 
-function applyGlobalOption(globals: GlobalOptions, optionName: string, value: string): void {
-  switch (optionName) {
-    case "--config-file":
-      globals.configFile = value;
-      return;
-    case "--profile":
-      globals.profile = value;
-      return;
-    case "--auth":
-      assertAuthMode(value);
-      globals.auth = value;
-      return;
-    case "--region":
-      globals.region = value;
-      return;
-    case "--endpoint":
-      globals.endpoint = value;
-      return;
-    case "--environment-prefix":
-    case "--environmentprefix":
-      globals.environmentPrefix = value;
-      return;
-    case "--environment-domain":
-      globals.environmentDomain = value;
-      return;
-    case "--environment-host":
-      globals.environmentHost = value;
-      return;
-    case "--timeout":
-      globals.timeout = parseTimeout(value);
-      return;
-    case "--ai-data-platform-id":
-      globals.aiDataPlatformId = value;
-      return;
-    default:
-      throw new CliError(`Unknown global option ${optionName}.`);
+export function consumeLeadingGlobalOptions(
+  tokens: string[],
+  globals: GlobalOptions
+): [GlobalOptions, string[]] {
+  let values = { ...globals };
+  let index = 0;
+
+  while (index < tokens.length) {
+    const token = tokens[index];
+    if (token in GLOBAL_BOOLEAN_OPTIONS) {
+      values = { ...values, [GLOBAL_BOOLEAN_OPTIONS[token]]: true };
+      index += 1;
+      continue;
+    }
+
+    const [optionName, inlineValue] = splitInlineOption(token);
+    if (optionName in GLOBAL_VALUE_OPTIONS) {
+      const [value, nextIndex] = optionValue(tokens, index, optionName, inlineValue);
+      values = applyGlobalOption(values, optionName, value);
+      index = nextIndex;
+      continue;
+    }
+
+    break;
   }
+
+  return [values, tokens.slice(index)];
+}
+
+export function applyGlobalOption(
+  globals: GlobalOptions,
+  optionName: string,
+  value: string
+): GlobalOptions {
+  const key = GLOBAL_VALUE_OPTIONS[optionName];
+  if (!key) {
+    throw new CliError(`Unknown global option ${optionName}.`);
+  }
+
+  if (key === "auth") {
+    assertAuthMode(value);
+    return { ...globals, auth: value };
+  }
+  if (key === "timeout") {
+    return { ...globals, timeout: parseTimeout(value) };
+  }
+  return { ...globals, [key]: value };
 }
 
 export function splitInlineOption(token: string): [string, string | undefined] {
@@ -123,12 +131,20 @@ export function splitInlineOption(token: string): [string, string | undefined] {
   return [token.slice(0, separatorIndex), token.slice(separatorIndex + 1)];
 }
 
-export function readRequiredValue(argv: string[], optionIndex: number, optionName: string): string {
+export function optionValue(
+  argv: string[],
+  optionIndex: number,
+  optionName: string,
+  inlineValue: string | undefined
+): [string, number] {
+  if (inlineValue !== undefined) {
+    return [inlineValue, optionIndex + 1];
+  }
   const value = argv[optionIndex + 1];
-  if (value === undefined || value.startsWith("-")) {
+  if (value === undefined) {
     throw new CliError(`${optionName} requires a value.`);
   }
-  return value;
+  return [value, optionIndex + 2];
 }
 
 function parseTimeout(value: string): number {

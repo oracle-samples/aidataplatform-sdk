@@ -1,5 +1,7 @@
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
 [build-system]
-requires = ["setuptools>=67.0"]
+requires = ["setuptools>=67.0", "oci>=2.122.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -21,6 +23,9 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["aidp_cli*"]
+
+[tool.setuptools.package-data]
+aidp_cli = ["operation_manifest.json"]
 
 [tool.setuptools.dynamic]
 version = { file = ["VERSION"] }

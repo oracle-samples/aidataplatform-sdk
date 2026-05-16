@@ -1,3 +1,5 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
 package com.oracle.aidataplatform.dp;
 
 import com.oracle.aidataplatform.dp.requests.*;
