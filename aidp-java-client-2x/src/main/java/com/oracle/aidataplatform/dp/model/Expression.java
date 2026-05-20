@@ -1,0 +1,165 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+package com.oracle.aidataplatform.dp.model;
+
+
+/**
+ * Map of expressions with key as unique string and value as single expression.
+**/
+@javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=Expression.Builder.class)
+
+public final class Expression  {
+    @Deprecated
+    @java.beans.ConstructorProperties({"key", "value"})
+    public Expression(String key, String value) {
+        super();
+        this.key = key;
+        this.value = value;
+    }
+
+    @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+    public static class Builder {
+            /**
+     * A unique character to map the expression. This character is used to refer the expression string in condition field of the task. May only contain alphanumeric characters.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("key")
+        private String key;
+
+                /**
+         * A unique character to map the expression. This character is used to refer the expression string in condition field of the task. May only contain alphanumeric characters.
+         * @param key the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder key(String key) {
+        this.key = key;
+        return this;
+        }
+            /**
+     * Expression string.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("value")
+        private String value;
+
+                /**
+         * Expression string.
+         * @param value the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder value(String value) {
+        this.value = value;
+        return this;
+        }
+
+
+        public Expression build() {
+            Expression model = new Expression(this.key
+                    , this.value);            return model;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonIgnore
+        public Builder copy(Expression model) {
+                this.key(model.getKey());
+    this.value(model.getValue());
+return this;
+        }
+    }
+
+    /**
+     * Create a new builder.
+     */
+    public static Builder builder() {
+        return new Builder();
+    }
+
+
+    public Builder toBuilder() {
+        return new Builder().copy(this);
+    }
+
+    
+
+
+        /**
+     * A unique character to map the expression. This character is used to refer the expression string in condition field of the task. May only contain alphanumeric characters.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("key")
+    private final String key;
+
+        /**
+     * A unique character to map the expression. This character is used to refer the expression string in condition field of the task. May only contain alphanumeric characters.
+     * @return the value
+     **/
+    
+    public String getKey() {
+        return key;
+    }
+
+
+        /**
+     * Expression string.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("value")
+    private final String value;
+
+        /**
+     * Expression string.
+     * @return the value
+     **/
+    
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return this.toString(true);
+    }
+
+    /**
+     * Return a string representation of the object.
+     * @param includeByteArrayContents true to include the full contents of byte arrays
+     * @return string representation
+     */
+    public String toString(boolean includeByteArrayContents) {
+        java.lang.StringBuilder sb = new java.lang.StringBuilder();
+        sb.append("Expression(");
+        sb.append("key=").append(String.valueOf(this.key));
+        sb.append(", value=").append(String.valueOf(this.value));
+        sb.append(")");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Expression)) {
+            return false;
+        }
+
+        Expression other = (Expression) o;
+        return java.util.Objects.equals(this.key, other.key) &&
+            java.util.Objects.equals(this.value, other.value);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        result = (result * PRIME) + (this.key == null ? 43 : this.key.hashCode());
+        result = (result * PRIME) + (this.value == null ? 43 : this.value.hashCode());
+        return result;
+    }
+
+
+}

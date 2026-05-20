@@ -1,0 +1,620 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+package com.oracle.aidataplatform.dp.model;
+
+
+
+/**
+ * Role details.
+**/
+@jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=Role.Builder.class)
+
+public final class Role  {
+    @Deprecated
+    @java.beans.ConstructorProperties({"key", "displayName", "roleType", "timeCreated", "timeUpdated", "createdBy", "updatedBy", "isAssigned", "assignees", "lifecycleState", "lifecycleDetails", "description"})
+    public Role(String key, String displayName, RoleType roleType, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, Boolean isAssigned, java.util.List<RoleAssignee> assignees, LifecycleState lifecycleState, String lifecycleDetails, String description) {
+        super();
+        this.key = key;
+        this.displayName = displayName;
+        this.roleType = roleType;
+        this.timeCreated = timeCreated;
+        this.timeUpdated = timeUpdated;
+        this.createdBy = createdBy;
+        this.updatedBy = updatedBy;
+        this.isAssigned = isAssigned;
+        this.assignees = assignees;
+        this.lifecycleState = lifecycleState;
+        this.lifecycleDetails = lifecycleDetails;
+        this.description = description;
+    }
+
+    @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+    public static class Builder {
+                /**
+     * A unique key for the role. It cannot be changed.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("key")
+private String key;
+
+        /**
+         * A unique key for the role. It cannot be changed.
+         * @param key the value to set
+         * @return this builder
+         **/
+        
+
+public Builder key(String key) {
+    this.key = key;
+    return this;
+}
+            /**
+     * The role name. It can be changed.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("displayName")
+private String displayName;
+
+        /**
+         * The role name. It can be changed.
+         * @param displayName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+}
+            /**
+     * Type of role.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("roleType")
+private RoleType roleType;
+
+        /**
+         * Type of role.
+         * @param roleType the value to set
+         * @return this builder
+         **/
+        
+
+public Builder roleType(RoleType roleType) {
+    this.roleType = roleType;
+    return this;
+}
+            /**
+     * The time the role was created. An RFC3339 formatted datetime string.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("timeCreated")
+private java.util.Date timeCreated;
+
+        /**
+         * The time the role was created. An RFC3339 formatted datetime string.
+         * @param timeCreated the value to set
+         * @return this builder
+         **/
+        
+
+public Builder timeCreated(java.util.Date timeCreated) {
+    this.timeCreated = timeCreated;
+    return this;
+}
+            /**
+     * The time the Role was updated. An RFC3339 formatted datetime string.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("timeUpdated")
+private java.util.Date timeUpdated;
+
+        /**
+         * The time the Role was updated. An RFC3339 formatted datetime string.
+         * @param timeUpdated the value to set
+         * @return this builder
+         **/
+        
+
+public Builder timeUpdated(java.util.Date timeUpdated) {
+    this.timeUpdated = timeUpdated;
+    return this;
+}
+            /**
+     * The user name of the user/principal who created the role.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("createdBy")
+private String createdBy;
+
+        /**
+         * The user name of the user/principal who created the role.
+         * @param createdBy the value to set
+         * @return this builder
+         **/
+        
+
+public Builder createdBy(String createdBy) {
+    this.createdBy = createdBy;
+    return this;
+}
+            /**
+     * The user name of the user/principal who updated the role.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("updatedBy")
+private String updatedBy;
+
+        /**
+         * The user name of the user/principal who updated the role.
+         * @param updatedBy the value to set
+         * @return this builder
+         **/
+        
+
+public Builder updatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
+    return this;
+}
+            /**
+     * The role is assigned to the current user or a group that the user is part of.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("isAssigned")
+private Boolean isAssigned;
+
+        /**
+         * The role is assigned to the current user or a group that the user is part of.
+         * @param isAssigned the value to set
+         * @return this builder
+         **/
+        
+
+public Builder isAssigned(Boolean isAssigned) {
+    this.isAssigned = isAssigned;
+    return this;
+}
+            /**
+     * The users and groups this role is assigned to.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("assignees")
+private java.util.List<RoleAssignee> assignees;
+
+        /**
+         * The users and groups this role is assigned to.
+         * @param assignees the value to set
+         * @return this builder
+         **/
+        
+
+public Builder assignees(java.util.List<RoleAssignee> assignees) {
+    this.assignees = assignees;
+    return this;
+}
+            /**
+     * The state of the role.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("lifecycleState")
+private LifecycleState lifecycleState;
+
+        /**
+         * The state of the role.
+         * @param lifecycleState the value to set
+         * @return this builder
+         **/
+        
+
+public Builder lifecycleState(LifecycleState lifecycleState) {
+    this.lifecycleState = lifecycleState;
+    return this;
+}
+            /**
+     * A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("lifecycleDetails")
+private String lifecycleDetails;
+
+        /**
+         * A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
+         * @param lifecycleDetails the value to set
+         * @return this builder
+         **/
+        
+
+public Builder lifecycleDetails(String lifecycleDetails) {
+    this.lifecycleDetails = lifecycleDetails;
+    return this;
+}
+            /**
+     * The description of the role.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("description")
+private String description;
+
+        /**
+         * The description of the role.
+         * @param description the value to set
+         * @return this builder
+         **/
+        
+
+public Builder description(String description) {
+    this.description = description;
+    return this;
+}
+
+
+        public Role build() {
+            Role model = new Role(this.key
+                , this.displayName
+                , this.roleType
+                , this.timeCreated
+                , this.timeUpdated
+                , this.createdBy
+                , this.updatedBy
+                , this.isAssigned
+                , this.assignees
+                , this.lifecycleState
+                , this.lifecycleDetails
+                , this.description);            return model;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonIgnore
+        public Builder copy(Role model) {
+                this.key(model.getKey());
+    this.displayName(model.getDisplayName());
+    this.roleType(model.getRoleType());
+    this.timeCreated(model.getTimeCreated());
+    this.timeUpdated(model.getTimeUpdated());
+    this.createdBy(model.getCreatedBy());
+    this.updatedBy(model.getUpdatedBy());
+    this.isAssigned(model.getIsAssigned());
+    this.assignees(model.getAssignees());
+    this.lifecycleState(model.getLifecycleState());
+    this.lifecycleDetails(model.getLifecycleDetails());
+    this.description(model.getDescription());
+return this;
+        }
+    }
+
+    /**
+     * Create a new builder.
+     */
+    public static Builder builder() {
+        return new Builder();
+    }
+
+
+    public Builder toBuilder() {
+        return new Builder().copy(this);
+    }
+
+    
+
+
+        /**
+     * A unique key for the role. It cannot be changed.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("key")
+    private final String key;
+
+        /**
+     * A unique key for the role. It cannot be changed.
+     * @return the value
+     **/
+    
+    public String getKey() {
+        return key;
+    }
+
+
+        /**
+     * The role name. It can be changed.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("displayName")
+    private final String displayName;
+
+        /**
+     * The role name. It can be changed.
+     * @return the value
+     **/
+    
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    
+        /**
+     * Type of role.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("roleType")
+    private final RoleType roleType;
+
+        /**
+     * Type of role.
+     * @return the value
+     **/
+    
+    public RoleType getRoleType() {
+        return roleType;
+    }
+
+
+        /**
+     * The time the role was created. An RFC3339 formatted datetime string.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("timeCreated")
+    private final java.util.Date timeCreated;
+
+        /**
+     * The time the role was created. An RFC3339 formatted datetime string.
+     * @return the value
+     **/
+    
+    public java.util.Date getTimeCreated() {
+        return timeCreated;
+    }
+
+
+        /**
+     * The time the Role was updated. An RFC3339 formatted datetime string.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("timeUpdated")
+    private final java.util.Date timeUpdated;
+
+        /**
+     * The time the Role was updated. An RFC3339 formatted datetime string.
+     * @return the value
+     **/
+    
+    public java.util.Date getTimeUpdated() {
+        return timeUpdated;
+    }
+
+
+        /**
+     * The user name of the user/principal who created the role.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("createdBy")
+    private final String createdBy;
+
+        /**
+     * The user name of the user/principal who created the role.
+     * @return the value
+     **/
+    
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+
+        /**
+     * The user name of the user/principal who updated the role.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("updatedBy")
+    private final String updatedBy;
+
+        /**
+     * The user name of the user/principal who updated the role.
+     * @return the value
+     **/
+    
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+
+        /**
+     * The role is assigned to the current user or a group that the user is part of.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("isAssigned")
+    private final Boolean isAssigned;
+
+        /**
+     * The role is assigned to the current user or a group that the user is part of.
+     * @return the value
+     **/
+    
+    public Boolean getIsAssigned() {
+        return isAssigned;
+    }
+
+
+        /**
+     * The users and groups this role is assigned to.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("assignees")
+    private final java.util.List<RoleAssignee> assignees;
+
+        /**
+     * The users and groups this role is assigned to.
+     * @return the value
+     **/
+    
+    public java.util.List<RoleAssignee> getAssignees() {
+        return assignees;
+    }
+
+    /**
+     * The state of the role.
+     **/
+    public enum LifecycleState implements com.oracle.bmc.http.internal.BmcEnum {
+        Active("ACTIVE"),
+        
+
+        /**
+         * This value is used if a service returns a value for this enum that is not recognized by this
+         * version of the SDK.
+         */
+        UnknownEnumValue(null);
+
+        private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(LifecycleState.class);
+
+        private final String value;
+        private static java.util.Map<String, LifecycleState> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (LifecycleState v : LifecycleState.values()) {
+                if (v != UnknownEnumValue) {
+                    map.put(v.getValue(), v);
+                }
+            }
+        }
+
+        LifecycleState(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static LifecycleState create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            LOG.warn("Received unknown value '{}' for enum 'LifecycleState', returning UnknownEnumValue", key);
+            return UnknownEnumValue;
+        }
+    };
+        /**
+     * The state of the role.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("lifecycleState")
+    private final LifecycleState lifecycleState;
+
+        /**
+     * The state of the role.
+     * @return the value
+     **/
+    
+    public LifecycleState getLifecycleState() {
+        return lifecycleState;
+    }
+
+
+        /**
+     * A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("lifecycleDetails")
+    private final String lifecycleDetails;
+
+        /**
+     * A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
+     * @return the value
+     **/
+    
+    public String getLifecycleDetails() {
+        return lifecycleDetails;
+    }
+
+
+        /**
+     * The description of the role.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("description")
+    private final String description;
+
+        /**
+     * The description of the role.
+     * @return the value
+     **/
+    
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public String toString() {
+        return this.toString(true);
+    }
+
+    /**
+     * Return a string representation of the object.
+     * @param includeByteArrayContents true to include the full contents of byte arrays
+     * @return string representation
+     */
+    public String toString(boolean includeByteArrayContents) {
+        java.lang.StringBuilder sb = new java.lang.StringBuilder();
+        sb.append("Role(");
+        sb.append("key=").append(String.valueOf(this.key));
+        sb.append(", displayName=").append(String.valueOf(this.displayName));
+        sb.append(", roleType=").append(String.valueOf(this.roleType));
+        sb.append(", timeCreated=").append(String.valueOf(this.timeCreated));
+        sb.append(", timeUpdated=").append(String.valueOf(this.timeUpdated));
+        sb.append(", createdBy=").append(String.valueOf(this.createdBy));
+        sb.append(", updatedBy=").append(String.valueOf(this.updatedBy));
+        sb.append(", isAssigned=").append(String.valueOf(this.isAssigned));
+        sb.append(", assignees=").append(String.valueOf(this.assignees));
+        sb.append(", lifecycleState=").append(String.valueOf(this.lifecycleState));
+        sb.append(", lifecycleDetails=").append(String.valueOf(this.lifecycleDetails));
+        sb.append(", description=").append(String.valueOf(this.description));
+        sb.append(")");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Role)) {
+            return false;
+        }
+
+        Role other = (Role) o;
+        return java.util.Objects.equals(this.key, other.key) &&
+            java.util.Objects.equals(this.displayName, other.displayName) &&
+            java.util.Objects.equals(this.roleType, other.roleType) &&
+            java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
+            java.util.Objects.equals(this.timeUpdated, other.timeUpdated) &&
+            java.util.Objects.equals(this.createdBy, other.createdBy) &&
+            java.util.Objects.equals(this.updatedBy, other.updatedBy) &&
+            java.util.Objects.equals(this.isAssigned, other.isAssigned) &&
+            java.util.Objects.equals(this.assignees, other.assignees) &&
+            java.util.Objects.equals(this.lifecycleState, other.lifecycleState) &&
+            java.util.Objects.equals(this.lifecycleDetails, other.lifecycleDetails) &&
+            java.util.Objects.equals(this.description, other.description);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        result = (result * PRIME) + (this.key == null ? 43 : this.key.hashCode());
+        result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
+        result = (result * PRIME) + (this.roleType == null ? 43 : this.roleType.hashCode());
+        result = (result * PRIME) + (this.timeCreated == null ? 43 : this.timeCreated.hashCode());
+        result = (result * PRIME) + (this.timeUpdated == null ? 43 : this.timeUpdated.hashCode());
+        result = (result * PRIME) + (this.createdBy == null ? 43 : this.createdBy.hashCode());
+        result = (result * PRIME) + (this.updatedBy == null ? 43 : this.updatedBy.hashCode());
+        result = (result * PRIME) + (this.isAssigned == null ? 43 : this.isAssigned.hashCode());
+        result = (result * PRIME) + (this.assignees == null ? 43 : this.assignees.hashCode());
+        result = (result * PRIME) + (this.lifecycleState == null ? 43 : this.lifecycleState.hashCode());
+        result = (result * PRIME) + (this.lifecycleDetails == null ? 43 : this.lifecycleDetails.hashCode());
+        result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
+        return result;
+    }
+
+
+}

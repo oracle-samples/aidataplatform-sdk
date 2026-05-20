@@ -1,0 +1,22 @@
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aidp-python-client"
+dynamic = ["version"]
+dependencies = ["oci>=2.175.0,<3"]
+requires-python = ">=3.9"
+description = "Python SDK for the AI Data Platform Data Plane APIs."
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["aidp_python_client*"]
+
+[tool.setuptools.dynamic]
+version = { file = ["src/VERSION"] }

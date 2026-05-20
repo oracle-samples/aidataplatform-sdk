@@ -1,0 +1,262 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+package com.oracle.aidataplatform.dp;
+
+import com.oracle.aidataplatform.dp.requests.*;
+import com.oracle.aidataplatform.dp.responses.*;
+
+    /**
+    * Use the AI Data Platform Data Plane API to manage workspaces and objects in the workspace.
+    */
+
+@javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
+public interface VolumeAsync extends AutoCloseable {
+
+    /**
+     * Rebuilds the client from scratch.
+     * Useful to refresh certificates.
+     */
+    void refreshClient();
+
+    /**
+     * Sets the endpoint to call (ex, https://www.example.com).
+     * @param endpoint The endpoint of the serice.
+     */
+    void setEndpoint(String endpoint);
+
+    /**
+     * Gets the set endpoint for REST call (ex, https://www.example.com)
+     */
+    String getEndpoint();
+
+    /**
+     * Sets the region to call (ex, Region.US_PHOENIX_1).
+     * <p>
+     * Note, this will call {@link #setEndpoint(String) setEndpoint} after resolving the endpoint.  If the service is not available in this region, however, an IllegalArgumentException will be raised.
+     * @param region The region of the service.
+     */
+    void setRegion(com.oracle.bmc.Region region);
+
+    /**
+     * Sets the region to call (ex, 'us-phoenix-1').
+     * <p>
+     * Note, this will first try to map the region ID to a known Region and call
+     * {@link #setRegion(Region) setRegion}.
+     * <p>
+     * If no known Region could be determined, it will create an endpoint based on the 
+     * default endpoint format ({@link com.oracle.bmc.Region#formatDefaultRegionEndpoint(Service, String)}
+     * and then call {@link #setEndpoint(String) setEndpoint}.
+     * @param regionId The public region ID.
+     */
+    void setRegion(String regionId);
+
+    /**
+     * Determines whether realm specific endpoint should be used or not.
+     * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+     * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+     */
+    void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
+
+    /**
+     * Creates a volume in AI Data Platform Workbench.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<CreateAiDataPlatformVolumeResponse> createAiDataPlatformVolume(CreateAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformVolumeRequest, CreateAiDataPlatformVolumeResponse> handler);
+    
+    /**
+     * Deletes a directory in a volume.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DeleteAiDataPlatformDirResponse> deleteAiDataPlatformDir(DeleteAiDataPlatformDirRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformDirRequest, DeleteAiDataPlatformDirResponse> handler);
+    
+    /**
+     * Deletes a file or folder in a volume.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DeleteAiDataPlatformFileResponse> deleteAiDataPlatformFile(DeleteAiDataPlatformFileRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformFileRequest, DeleteAiDataPlatformFileResponse> handler);
+    
+    /**
+     * Deletes a volume.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DeleteAiDataPlatformVolumeResponse> deleteAiDataPlatformVolume(DeleteAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformVolumeRequest, DeleteAiDataPlatformVolumeResponse> handler);
+    
+    /**
+     * Downloads a file from a volume.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DownloadAiDataPlatformFileResponse> downloadAiDataPlatformFile(DownloadAiDataPlatformFileRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformFileRequest, DownloadAiDataPlatformFileResponse> handler);
+    
+    /**
+     * provide the par info for downloading the file for given path.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DownloadAiDataPlatformFileWithParResponse> downloadAiDataPlatformFileWithPar(DownloadAiDataPlatformFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformFileWithParRequest, DownloadAiDataPlatformFileWithParResponse> handler);
+    
+    /**
+     * Returns detailed information about a volume.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetAiDataPlatformVolumeResponse> getAiDataPlatformVolume(GetAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformVolumeRequest, GetAiDataPlatformVolumeResponse> handler);
+    
+    /**
+     * Returns a list of files in a volume.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ListAiDataPlatformFilesResponse> listAiDataPlatformFiles(ListAiDataPlatformFilesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformFilesRequest, ListAiDataPlatformFilesResponse> handler);
+    
+    /**
+     * Returns a list of volume permissions.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ListAiDataPlatformVolumePermissionsResponse> listAiDataPlatformVolumePermissions(ListAiDataPlatformVolumePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformVolumePermissionsRequest, ListAiDataPlatformVolumePermissionsResponse> handler);
+    
+    /**
+     * Returns a list of volumes.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ListAiDataPlatformVolumesResponse> listAiDataPlatformVolumes(ListAiDataPlatformVolumesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformVolumesRequest, ListAiDataPlatformVolumesResponse> handler);
+    
+    /**
+     * Creates a directory in a volume.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<MakeAiDataPlatformDirResponse> makeAiDataPlatformDir(MakeAiDataPlatformDirRequest request, com.oracle.bmc.responses.AsyncHandler<MakeAiDataPlatformDirRequest, MakeAiDataPlatformDirResponse> handler);
+    
+    /**
+     * Updates the permissions on a volume.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ManageAiDataPlatformVolumePermissionResponse> manageAiDataPlatformVolumePermission(ManageAiDataPlatformVolumePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformVolumePermissionRequest, ManageAiDataPlatformVolumePermissionResponse> handler);
+    
+    /**
+     * Updates a directory in volume with the provided information.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UpdateAiDataPlatformDirResponse> updateAiDataPlatformDir(UpdateAiDataPlatformDirRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformDirRequest, UpdateAiDataPlatformDirResponse> handler);
+    
+    /**
+     * Updates a volume with the provided information.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UpdateAiDataPlatformVolumeResponse> updateAiDataPlatformVolume(UpdateAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformVolumeRequest, UpdateAiDataPlatformVolumeResponse> handler);
+    
+    /**
+     * Uploads a file to volume. If the file already exists, it is updated.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UploadAiDataPlatformFileResponse> uploadAiDataPlatformFile(UploadAiDataPlatformFileRequest request, com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformFileRequest, UploadAiDataPlatformFileResponse> handler);
+    
+    /**
+     * Uploads a volume file by generating PAR. If file exists, then it will be updated.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UploadAiDataPlatformFileWithParResponse> uploadAiDataPlatformFileWithPar(UploadAiDataPlatformFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformFileWithParRequest, UploadAiDataPlatformFileWithParResponse> handler);
+    
+}

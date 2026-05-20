@@ -1,0 +1,13 @@
+target/
+dist/
+build/
+node_modules/
+.npm-cache/
+*.tgz
+*.egg-info/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+release/
+.DS_Store

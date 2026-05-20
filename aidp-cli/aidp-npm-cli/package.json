@@ -1,0 +1,47 @@
+{
+  "name": "aidp-cli",
+  "version": "0.1.10",
+  "description": "Command line interface for AI Data Platform data plane public APIs.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "aidp": "./dist/bin/aidp.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "./node_modules/typescript/bin/tsc -p tsconfig.json",
+    "generate-manifest": "node scripts/generate_manifest.js",
+    "prepack": "npm run build && npm run generate-manifest && npm run stage-local-deps",
+    "stage-local-deps": "node scripts/stage_local_dependencies.js",
+    "test": "npm run build && npm run generate-manifest && node test/run_tests.js",
+    "write-version": "node scripts/write_version.js"
+  },
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(UPL-1.0 OR Apache-2.0)",
+  "dependencies": {
+    "aidp-typescript-client": "file:../../aidp-typescript-client",
+    "oci-common": "^2.109.0"
+  },
+  "bundledDependencies": [
+    "aidp-typescript-client",
+    "oci-common"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/node-fetch": "^2.6.12",
+    "typescript": "^5.8.3"
+  }
+}

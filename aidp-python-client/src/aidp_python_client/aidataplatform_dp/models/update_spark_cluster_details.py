@@ -1,0 +1,216 @@
+# coding: utf-8
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+
+from .update_cluster_details import UpdateClusterDetails
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.decorators import init_model_state_from_kwargs
+
+
+@init_model_state_from_kwargs
+class UpdateSparkClusterDetails(UpdateClusterDetails):
+    """
+    Spark cluster details for creation
+    """
+
+    def __init__(self, **kwargs):
+        """
+        Initializes a new UpdateSparkClusterDetails object with values from keyword arguments. The default value of the :py:attr:`~oci.aidataplatform_dp.models.UpdateSparkClusterDetails.type` attribute
+        of this class is ``USER`` and it should not be changed.
+        The following keyword arguments are supported (corresponding to the getters/setters of this class):
+
+        :param type:
+            The value to assign to the type property of this UpdateSparkClusterDetails.
+            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE"
+        :type type: str
+
+        :param display_name:
+            The value to assign to the display_name property of this UpdateSparkClusterDetails.
+        :type display_name: str
+
+        :param description:
+            The value to assign to the description property of this UpdateSparkClusterDetails.
+        :type description: str
+
+        :param driver_config:
+            The value to assign to the driver_config property of this UpdateSparkClusterDetails.
+        :type driver_config: oci.aidataplatform_dp.models.DriverConfig
+
+        :param node_type:
+            The value to assign to the node_type property of this UpdateSparkClusterDetails.
+        :type node_type: str
+
+        :param worker_config:
+            The value to assign to the worker_config property of this UpdateSparkClusterDetails.
+        :type worker_config: oci.aidataplatform_dp.models.WorkerConfig
+
+        :param cluster_runtime_config:
+            The value to assign to the cluster_runtime_config property of this UpdateSparkClusterDetails.
+        :type cluster_runtime_config: oci.aidataplatform_dp.models.ClusterRuntimeConfig
+
+        :param logging_config:
+            The value to assign to the logging_config property of this UpdateSparkClusterDetails.
+        :type logging_config: oci.aidataplatform_dp.models.LoggingConfig
+
+        :param auto_termination_minutes:
+            The value to assign to the auto_termination_minutes property of this UpdateSparkClusterDetails.
+        :type auto_termination_minutes: int
+
+        :param subscription:
+            The value to assign to the subscription property of this UpdateSparkClusterDetails.
+        :type subscription: oci.aidataplatform_dp.models.SubscriptionDetails
+
+        """
+        self.swagger_types = {
+            'type': 'str',
+            'display_name': 'str',
+            'description': 'str',
+            'driver_config': 'DriverConfig',
+            'node_type': 'str',
+            'worker_config': 'WorkerConfig',
+            'cluster_runtime_config': 'ClusterRuntimeConfig',
+            'logging_config': 'LoggingConfig',
+            'auto_termination_minutes': 'int',
+            'subscription': 'SubscriptionDetails'
+        }
+
+        self.attribute_map = {
+            'type': 'type',
+            'display_name': 'displayName',
+            'description': 'description',
+            'driver_config': 'driverConfig',
+            'node_type': 'nodeType',
+            'worker_config': 'workerConfig',
+            'cluster_runtime_config': 'clusterRuntimeConfig',
+            'logging_config': 'loggingConfig',
+            'auto_termination_minutes': 'autoTerminationMinutes',
+            'subscription': 'subscription'
+        }
+
+        self._type = None
+        self._display_name = None
+        self._description = None
+        self._driver_config = None
+        self._node_type = None
+        self._worker_config = None
+        self._cluster_runtime_config = None
+        self._logging_config = None
+        self._auto_termination_minutes = None
+        self._subscription = None
+        self._type = 'USER'
+
+    @property
+    def worker_config(self):
+        """
+        Gets the worker_config of this UpdateSparkClusterDetails.
+
+        :return: The worker_config of this UpdateSparkClusterDetails.
+        :rtype: oci.aidataplatform_dp.models.WorkerConfig
+        """
+        return self._worker_config
+
+    @worker_config.setter
+    def worker_config(self, worker_config):
+        """
+        Sets the worker_config of this UpdateSparkClusterDetails.
+
+        :param worker_config: The worker_config of this UpdateSparkClusterDetails.
+        :type: oci.aidataplatform_dp.models.WorkerConfig
+        """
+        self._worker_config = worker_config
+
+    @property
+    def cluster_runtime_config(self):
+        """
+        Gets the cluster_runtime_config of this UpdateSparkClusterDetails.
+
+        :return: The cluster_runtime_config of this UpdateSparkClusterDetails.
+        :rtype: oci.aidataplatform_dp.models.ClusterRuntimeConfig
+        """
+        return self._cluster_runtime_config
+
+    @cluster_runtime_config.setter
+    def cluster_runtime_config(self, cluster_runtime_config):
+        """
+        Sets the cluster_runtime_config of this UpdateSparkClusterDetails.
+
+        :param cluster_runtime_config: The cluster_runtime_config of this UpdateSparkClusterDetails.
+        :type: oci.aidataplatform_dp.models.ClusterRuntimeConfig
+        """
+        self._cluster_runtime_config = cluster_runtime_config
+
+    @property
+    def logging_config(self):
+        """
+        Gets the logging_config of this UpdateSparkClusterDetails.
+
+        :return: The logging_config of this UpdateSparkClusterDetails.
+        :rtype: oci.aidataplatform_dp.models.LoggingConfig
+        """
+        return self._logging_config
+
+    @logging_config.setter
+    def logging_config(self, logging_config):
+        """
+        Sets the logging_config of this UpdateSparkClusterDetails.
+
+        :param logging_config: The logging_config of this UpdateSparkClusterDetails.
+        :type: oci.aidataplatform_dp.models.LoggingConfig
+        """
+        self._logging_config = logging_config
+
+    @property
+    def auto_termination_minutes(self):
+        """
+        Gets the auto_termination_minutes of this UpdateSparkClusterDetails.
+        Optional timeout value in minutes used to automatically stop idle compute clusters.
+
+
+        :return: The auto_termination_minutes of this UpdateSparkClusterDetails.
+        :rtype: int
+        """
+        return self._auto_termination_minutes
+
+    @auto_termination_minutes.setter
+    def auto_termination_minutes(self, auto_termination_minutes):
+        """
+        Sets the auto_termination_minutes of this UpdateSparkClusterDetails.
+        Optional timeout value in minutes used to automatically stop idle compute clusters.
+
+
+        :param auto_termination_minutes: The auto_termination_minutes of this UpdateSparkClusterDetails.
+        :type: int
+        """
+        self._auto_termination_minutes = auto_termination_minutes
+
+    @property
+    def subscription(self):
+        """
+        Gets the subscription of this UpdateSparkClusterDetails.
+
+        :return: The subscription of this UpdateSparkClusterDetails.
+        :rtype: oci.aidataplatform_dp.models.SubscriptionDetails
+        """
+        return self._subscription
+
+    @subscription.setter
+    def subscription(self, subscription):
+        """
+        Sets the subscription of this UpdateSparkClusterDetails.
+
+        :param subscription: The subscription of this UpdateSparkClusterDetails.
+        :type: oci.aidataplatform_dp.models.SubscriptionDetails
+        """
+        self._subscription = subscription
+
+    def __repr__(self):
+        return formatted_flat_dict(self)
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not self == other

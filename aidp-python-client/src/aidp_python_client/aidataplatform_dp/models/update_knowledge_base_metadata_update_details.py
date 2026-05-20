@@ -1,0 +1,101 @@
+# coding: utf-8
+# Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+
+
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.decorators import init_model_state_from_kwargs
+
+
+@init_model_state_from_kwargs
+class UpdateKnowledgeBaseMetadataUpdateDetails(object):
+    """
+    The information about a source metad
+    """
+
+    def __init__(self, **kwargs):
+        """
+        Initializes a new UpdateKnowledgeBaseMetadataUpdateDetails object with values from keyword arguments.
+        The following keyword arguments are supported (corresponding to the getters/setters of this class):
+
+        :param name:
+            The value to assign to the name property of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        :type name: str
+
+        :param description:
+            The value to assign to the description property of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        :type description: str
+
+        """
+        self.swagger_types = {
+            'name': 'str',
+            'description': 'str'
+        }
+
+        self.attribute_map = {
+            'name': 'name',
+            'description': 'description'
+        }
+
+        self._name = None
+        self._description = None
+
+    @property
+    def name(self):
+        """
+        Gets the name of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        new name for source
+
+
+        :return: The name of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        new name for source
+
+
+        :param name: The name of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        :type: str
+        """
+        self._name = name
+
+    @property
+    def description(self):
+        """
+        Gets the description of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        new description for source
+
+
+        :return: The description of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        new description for source
+
+
+        :param description: The description of this UpdateKnowledgeBaseMetadataUpdateDetails.
+        :type: str
+        """
+        self._description = description
+
+    def __repr__(self):
+        return formatted_flat_dict(self)
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not self == other

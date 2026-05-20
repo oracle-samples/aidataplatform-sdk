@@ -1,0 +1,45 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+package com.oracle.aidataplatform.dp.model;
+
+
+/**
+ * The state of the Master Catalog
+**/
+@jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
+public enum MasterCatalogLifecycleState implements com.oracle.bmc.http.internal.BmcEnum {
+    Active("ACTIVE"),
+    Creating("CREATING"),
+    Deleting("DELETING"),
+    ;
+
+    
+
+    private final String value;
+    private static java.util.Map<String, MasterCatalogLifecycleState> map;
+
+    static {
+        map = new java.util.HashMap<>();
+        for (MasterCatalogLifecycleState v : MasterCatalogLifecycleState.values()) {
+                map.put(v.getValue(), v);
+            
+        }
+    }
+
+    MasterCatalogLifecycleState(String value) {
+        this.value = value;
+    }
+
+    @com.fasterxml.jackson.annotation.JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @com.fasterxml.jackson.annotation.JsonCreator
+    public static MasterCatalogLifecycleState create(String key) {
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        throw new IllegalArgumentException("Invalid MasterCatalogLifecycleState: " + key);
+    }
+}
