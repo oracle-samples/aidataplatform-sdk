@@ -6,7 +6,7 @@
 
   <groupId>com.oracle.aidataplatform</groupId>
   <artifactId>aidp-java-client</artifactId>
-  <version>0.1.10</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>aidp-java-client</name>
 

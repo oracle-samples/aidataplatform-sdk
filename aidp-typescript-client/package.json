@@ -1,6 +1,6 @@
 {
   "name": "aidp-typescript-client",
-  "version": "0.1.10",
+  "version": "1.0.0",
   "description": "TypeScript SDK for the AI Data Platform Data Plane APIs.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
