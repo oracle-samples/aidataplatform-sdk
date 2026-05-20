@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LoggedModel(object):
     """
-    Details of the LoggedModel.
+    Details of the logged model.
     """
 
     def __init__(self, **kwargs):
@@ -64,7 +64,7 @@ class LoggedModel(object):
     def data(self):
         """
         Gets the data of this LoggedModel.
-        Details of the LoggedModel data.
+        Details of the logged model data.
 
 
         :return: The data of this LoggedModel.
@@ -76,7 +76,7 @@ class LoggedModel(object):
     def data(self, data):
         """
         Sets the data of this LoggedModel.
-        Details of the LoggedModel data.
+        Details of the logged model data.
 
 
         :param data: The data of this LoggedModel.

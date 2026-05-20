@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitDiffDetail(object):
     """
-    Unified diff details for a git file.
+    Unified diff details for a Git file.
     """
 
     #: A constant which can be used with the truncated_reason property of a GitDiffDetail.

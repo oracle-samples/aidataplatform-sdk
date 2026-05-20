@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Response object for restoring experiment run
+ * Response object for restoring experiment run.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=RestoreExperimentRunResponseDetails.Builder.class)

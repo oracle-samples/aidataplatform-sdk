@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Collection of git diff summaries for files under a folder context.
+ * Collection of Git diff summaries for files under a folder context.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitDiffSummaryCollection.Builder.class)
@@ -20,14 +20,14 @@ public final class GitDiffSummaryCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * List of git diff summaries.
+     * List of Git diff summaries.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("items")
         private java.util.List<GitDiffSummary> items;
 
                 /**
-         * List of git diff summaries.
+         * List of Git diff summaries.
          * @param items the value to set
          * @return this builder
          **/
@@ -66,14 +66,14 @@ return this;
 
 
         /**
-     * List of git diff summaries.
+     * List of Git diff summaries.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<GitDiffSummary> items;
 
         /**
-     * List of git diff summaries.
+     * List of Git diff summaries.
      * @return the value
      **/
     

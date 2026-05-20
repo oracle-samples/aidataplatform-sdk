@@ -12,7 +12,7 @@ export interface TransitionAiDataPlatformModelVersionStageRequest extends common
  */
  'aiDataPlatformId': string;
 /**
- * Transition a ModelVersion stage.
+ * Details to transition a model version stage.
  */
  'transitionModelVersionStageDetails':  model.TransitionModelVersionStageDetails;
 /**

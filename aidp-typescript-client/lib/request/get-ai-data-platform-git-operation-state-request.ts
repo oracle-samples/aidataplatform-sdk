@@ -16,11 +16,11 @@ export interface GetAiDataPlatformGitOperationStateRequest extends common.BaseRe
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Optional Operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+ * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
  */
  'operationName'?: string;
 /**

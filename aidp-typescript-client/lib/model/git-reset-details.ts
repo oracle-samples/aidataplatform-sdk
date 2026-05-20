@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface GitResetDetails {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath'?: string;
     /**
@@ -17,7 +17,7 @@ export interface GitResetDetails {
     */
     'branchName'?: string;
     /**
-    * Commit id / ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+    * Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
     */
     'commitId'?: string;
     /**

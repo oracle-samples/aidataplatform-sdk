@@ -16,11 +16,11 @@ export interface RebaseAiDataPlatformGitRepositoryRequest extends common.BaseReq
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Details needed to perform rebase operation
+ * Details needed to perform rebase operation.
  */
  'gitRebaseDetails':  model.GitRebaseDetails;
 /**

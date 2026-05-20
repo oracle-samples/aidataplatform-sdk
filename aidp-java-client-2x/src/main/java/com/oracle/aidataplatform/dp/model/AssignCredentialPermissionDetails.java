@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * The details of the permissions assigned on the Credential to assignee.
+ * The details of the permissions assigned on the credential to assignee.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=AssignCredentialPermissionDetails.Builder.class)

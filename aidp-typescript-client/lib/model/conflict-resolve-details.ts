@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* List of files to checkout side or mark as resolved
+* List of files to checkout side or mark as resolved.
 */
 export interface ConflictResolveDetails {
     /**
-    * list of file paths to checkout side or mark as resolved
+    * List of file paths to checkout side or mark as resolved.
     */
     'files': Array<string>;
     /**
-    * Action for resolving conflict
+    * Action for resolving conflict.
     */
     'action': ConflictResolveDetails.Action;
 

@@ -16,11 +16,11 @@ export interface GetAiDataPlatformGitRepositoryRequest extends common.BaseReques
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'
+ * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'.
  */
  'shouldIncludeCredentialKey'?: boolean;
 /**

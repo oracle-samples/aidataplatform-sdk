@@ -34,40 +34,40 @@ public class ListAiDataPlatformArtifactsRequest extends com.oracle.bmc.requests.
         return workspaceKey;
     }
         /**
-     * ID of the run whose artifacts to list
+     * ID of the run whose artifacts to list.
      */
     private String runId;
 
     
 
         /**
-     * ID of the run whose artifacts to list
+     * ID of the run whose artifacts to list.
      */
     public String getRunId() {
         return runId;
     }
         /**
-     * Filter artifacts matching this path (a relative path from the root artifact directory)
+     * Filter artifacts matching this path (a relative path from the root artifact directory).
      */
     private String path;
 
     
 
         /**
-     * Filter artifacts matching this path (a relative path from the root artifact directory)
+     * Filter artifacts matching this path (a relative path from the root artifact directory).
      */
     public String getPath() {
         return path;
     }
         /**
-     * Token indicating the page of artifact results to fetch
+     * Token indicating the page of artifact results to fetch.
      */
     private String pageToken;
 
     
 
         /**
-     * Token indicating the page of artifact results to fetch
+     * Token indicating the page of artifact results to fetch.
      */
     public String getPageToken() {
         return pageToken;
@@ -143,12 +143,12 @@ public class ListAiDataPlatformArtifactsRequest extends com.oracle.bmc.requests.
         }
 
             /**
-     * ID of the run whose artifacts to list
+     * ID of the run whose artifacts to list.
      */
         private String runId = null;
 
         /**
-         * ID of the run whose artifacts to list
+         * ID of the run whose artifacts to list.
          * @param runId the value to set
          * @return this builder instance
          */
@@ -158,12 +158,12 @@ public class ListAiDataPlatformArtifactsRequest extends com.oracle.bmc.requests.
         }
 
             /**
-     * Filter artifacts matching this path (a relative path from the root artifact directory)
+     * Filter artifacts matching this path (a relative path from the root artifact directory).
      */
         private String path = null;
 
         /**
-         * Filter artifacts matching this path (a relative path from the root artifact directory)
+         * Filter artifacts matching this path (a relative path from the root artifact directory).
          * @param path the value to set
          * @return this builder instance
          */
@@ -173,12 +173,12 @@ public class ListAiDataPlatformArtifactsRequest extends com.oracle.bmc.requests.
         }
 
             /**
-     * Token indicating the page of artifact results to fetch
+     * Token indicating the page of artifact results to fetch.
      */
         private String pageToken = null;
 
         /**
-         * Token indicating the page of artifact results to fetch
+         * Token indicating the page of artifact results to fetch.
          * @param pageToken the value to set
          * @return this builder instance
          */

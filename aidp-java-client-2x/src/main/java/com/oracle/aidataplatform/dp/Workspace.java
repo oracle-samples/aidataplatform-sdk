@@ -69,7 +69,7 @@ public interface Workspace extends AutoCloseable {
     CreateAiDataPlatformGitFolderResponse createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request);
     
     /**
-     * Creates an AI Data Platform Workbench workspace.
+     * Creates a workspace.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -80,7 +80,7 @@ public interface Workspace extends AutoCloseable {
     CreateAiDataPlatformWorkspaceResponse createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request);
     
     /**
-     * Deletes an AI Data Platform Workbench workspace.
+     * Deletes a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -90,7 +90,7 @@ public interface Workspace extends AutoCloseable {
     DeleteAiDataPlatformWorkspaceResponse deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request);
     
     /**
-     * Gets detailed information about an AI Data Platform Workbench workspace.
+     * Gets detailed information about a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -100,7 +100,7 @@ public interface Workspace extends AutoCloseable {
     GetAiDataPlatformWorkspaceResponse getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request);
     
     /**
-     * Gets a list of AI Data Platform Workbench create workspace permission summary objects.
+     * Gets a list of create workspace permission summary objects.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -111,7 +111,7 @@ public interface Workspace extends AutoCloseable {
     ListAiDataPlatformCreateWorkspacePermissionsResponse listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request);
     
     /**
-     * Gets a list of AI Data Platform Workbench workspace permissions.
+     * Gets a list of workspace permissions.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -122,7 +122,7 @@ public interface Workspace extends AutoCloseable {
     ListAiDataPlatformWorkspacePermissionsResponse listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request);
     
     /**
-     * Gets a list of AI Data Platform Workbench workspaces.
+     * Gets a list of workspaces.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -133,7 +133,7 @@ public interface Workspace extends AutoCloseable {
     ListAiDataPlatformWorkspacesResponse listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request);
     
     /**
-     * Updates create workspace permissions on an AI Data Platform Workbench workspace.
+     * Updates create workspace permissions on a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -143,7 +143,7 @@ public interface Workspace extends AutoCloseable {
     ManageAiDataPlatformCreateWorkspacePermissionResponse manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request);
     
     /**
-     * Updates permissions on a AI Data Platform Workbench workspace.
+     * Updates permissions on a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -153,7 +153,7 @@ public interface Workspace extends AutoCloseable {
     ManageAiDataPlatformWorkspacePermissionResponse manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request);
     
     /**
-     * Updates the details of an AI Data Platform Workbench workspace.
+     * Updates the details of a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -163,7 +163,7 @@ public interface Workspace extends AutoCloseable {
     UpdateAiDataPlatformWorkspaceResponse updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request);
     
     /**
-     * Updates the status of an AI Data Platform Workbench workspace.
+     * Updates the status of a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

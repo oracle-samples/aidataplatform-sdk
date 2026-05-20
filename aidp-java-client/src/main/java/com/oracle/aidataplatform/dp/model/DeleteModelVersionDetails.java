@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of the ModelVersion to delete.
+ * Details of the model version to delete.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DeleteModelVersionDetails.Builder.class)
@@ -40,14 +40,14 @@ public Builder name(String name) {
     return this;
 }
             /**
-     * Model\u2019s version number.
+     * Model version number.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("version")
 private String version;
 
         /**
-         * Model\u2019s version number.
+         * Model version number.
          * @param version the value to set
          * @return this builder
          **/
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * Model\u2019s version number.
+     * Model version number.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("version")
     private final String version;
 
         /**
-     * Model\u2019s version number.
+     * Model version number.
      * @return the value
      **/
     

@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * The details of the permissions revoked from assignees for a Credential.
+ * The details of the permissions revoked from assignees for a credential.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=RevokeCredentialPermissionDetails.Builder.class)
@@ -31,14 +31,14 @@ public final class RevokeCredentialPermissionDetails  {
         return this;
         }
             /**
-     * The permissions revoked from the assignees
+     * The permissions revoked from the assignees.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("permissions")
         private java.util.List<CredentialPrivilege> permissions;
 
                 /**
-         * The permissions revoked from the assignees
+         * The permissions revoked from the assignees.
          * @param permissions the value to set
          * @return this builder
          **/
@@ -89,14 +89,14 @@ return this;
 
     
         /**
-     * The permissions revoked from the assignees
+     * The permissions revoked from the assignees.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("permissions")
     private final java.util.List<CredentialPrivilege> permissions;
 
         /**
-     * The permissions revoked from the assignees
+     * The permissions revoked from the assignees.
      * @return the value
      **/
     

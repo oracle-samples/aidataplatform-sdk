@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * The privilege for a Credential
+ * The privilege for a credential.
 **/
 export enum CredentialPrivilege {
     Use = "USE",

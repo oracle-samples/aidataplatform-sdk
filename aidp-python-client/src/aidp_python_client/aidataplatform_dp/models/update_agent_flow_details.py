@@ -62,6 +62,10 @@ class UpdateAgentFlowDetails(object):
             The value to assign to the session_config property of this UpdateAgentFlowDetails.
         :type session_config: oci.aidataplatform_dp.models.SessionConfiguration
 
+        :param agent_card_config:
+            The value to assign to the agent_card_config property of this UpdateAgentFlowDetails.
+        :type agent_card_config: oci.aidataplatform_dp.models.AgentCardConfigDetail
+
         """
         self.swagger_types = {
             'display_name': 'str',
@@ -74,7 +78,8 @@ class UpdateAgentFlowDetails(object):
             'updated_nodes': 'list[str]',
             'added_nodes': 'list[str]',
             'guardrails': 'GuardrailsConfiguration',
-            'session_config': 'SessionConfiguration'
+            'session_config': 'SessionConfiguration',
+            'agent_card_config': 'AgentCardConfigDetail'
         }
 
         self.attribute_map = {
@@ -88,7 +93,8 @@ class UpdateAgentFlowDetails(object):
             'updated_nodes': 'updatedNodes',
             'added_nodes': 'addedNodes',
             'guardrails': 'guardrails',
-            'session_config': 'sessionConfig'
+            'session_config': 'sessionConfig',
+            'agent_card_config': 'agentCardConfig'
         }
 
         self._display_name = None
@@ -102,6 +108,7 @@ class UpdateAgentFlowDetails(object):
         self._added_nodes = None
         self._guardrails = None
         self._session_config = None
+        self._agent_card_config = None
 
     @property
     def display_name(self):
@@ -354,6 +361,26 @@ class UpdateAgentFlowDetails(object):
         :type: oci.aidataplatform_dp.models.SessionConfiguration
         """
         self._session_config = session_config
+
+    @property
+    def agent_card_config(self):
+        """
+        Gets the agent_card_config of this UpdateAgentFlowDetails.
+
+        :return: The agent_card_config of this UpdateAgentFlowDetails.
+        :rtype: oci.aidataplatform_dp.models.AgentCardConfigDetail
+        """
+        return self._agent_card_config
+
+    @agent_card_config.setter
+    def agent_card_config(self, agent_card_config):
+        """
+        Sets the agent_card_config of this UpdateAgentFlowDetails.
+
+        :param agent_card_config: The agent_card_config of this UpdateAgentFlowDetails.
+        :type: oci.aidataplatform_dp.models.AgentCardConfigDetail
+        """
+        self._agent_card_config = agent_card_config
 
     def __repr__(self):
         return formatted_flat_dict(self)

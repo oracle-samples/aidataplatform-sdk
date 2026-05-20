@@ -34,14 +34,14 @@ public class SetAiDataPlatformExperimentTagRequest extends com.oracle.bmc.reques
         return workspaceKey;
     }
         /**
-     * Tag details to set on an Experiment.
+     * Tag details to set on an experiment.
      */
     private com.oracle.aidataplatform.dp.model.SetExperimentTagDetails setExperimentTagDetails;
 
     
 
         /**
-     * Tag details to set on an Experiment.
+     * Tag details to set on an experiment.
      */
     public com.oracle.aidataplatform.dp.model.SetExperimentTagDetails getSetExperimentTagDetails() {
         return setExperimentTagDetails;
@@ -150,12 +150,12 @@ public class SetAiDataPlatformExperimentTagRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * Tag details to set on an Experiment.
+     * Tag details to set on an experiment.
      */
         private com.oracle.aidataplatform.dp.model.SetExperimentTagDetails setExperimentTagDetails = null;
 
         /**
-         * Tag details to set on an Experiment.
+         * Tag details to set on an experiment.
          * @param setExperimentTagDetails the value to set
          * @return this builder instance
          */

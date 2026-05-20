@@ -63,6 +63,10 @@ class CreateAgentFlowDetails(object):
             The value to assign to the session_config property of this CreateAgentFlowDetails.
         :type session_config: oci.aidataplatform_dp.models.SessionConfiguration
 
+        :param agent_card_config:
+            The value to assign to the agent_card_config property of this CreateAgentFlowDetails.
+        :type agent_card_config: oci.aidataplatform_dp.models.AgentCardConfigDetail
+
         :param diagram:
             The value to assign to the diagram property of this CreateAgentFlowDetails.
         :type diagram: oci.aidataplatform_dp.models.AgentFlowDiagram
@@ -78,6 +82,7 @@ class CreateAgentFlowDetails(object):
             'compute_key': 'str',
             'guardrails': 'GuardrailsConfiguration',
             'session_config': 'SessionConfiguration',
+            'agent_card_config': 'AgentCardConfigDetail',
             'diagram': 'AgentFlowDiagram'
         }
 
@@ -91,6 +96,7 @@ class CreateAgentFlowDetails(object):
             'compute_key': 'computeKey',
             'guardrails': 'guardrails',
             'session_config': 'sessionConfig',
+            'agent_card_config': 'agentCardConfig',
             'diagram': 'diagram'
         }
 
@@ -103,6 +109,7 @@ class CreateAgentFlowDetails(object):
         self._compute_key = None
         self._guardrails = None
         self._session_config = None
+        self._agent_card_config = None
         self._diagram = None
 
     @property
@@ -320,6 +327,26 @@ class CreateAgentFlowDetails(object):
         :type: oci.aidataplatform_dp.models.SessionConfiguration
         """
         self._session_config = session_config
+
+    @property
+    def agent_card_config(self):
+        """
+        Gets the agent_card_config of this CreateAgentFlowDetails.
+
+        :return: The agent_card_config of this CreateAgentFlowDetails.
+        :rtype: oci.aidataplatform_dp.models.AgentCardConfigDetail
+        """
+        return self._agent_card_config
+
+    @agent_card_config.setter
+    def agent_card_config(self, agent_card_config):
+        """
+        Sets the agent_card_config of this CreateAgentFlowDetails.
+
+        :param agent_card_config: The agent_card_config of this CreateAgentFlowDetails.
+        :type: oci.aidataplatform_dp.models.AgentCardConfigDetail
+        """
+        self._agent_card_config = agent_card_config
 
     @property
     def diagram(self):

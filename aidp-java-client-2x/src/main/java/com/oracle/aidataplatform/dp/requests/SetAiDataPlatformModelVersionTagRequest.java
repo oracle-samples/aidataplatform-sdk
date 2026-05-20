@@ -21,14 +21,14 @@ public class SetAiDataPlatformModelVersionTagRequest extends com.oracle.bmc.requ
         return aiDataPlatformId;
     }
         /**
-     * Details of a ModelVersion tag.
+     * Details of a model version tag.
      */
     private com.oracle.aidataplatform.dp.model.SetModelVersionTagDetails setModelVersionTagDetails;
 
     
 
         /**
-     * Details of a ModelVersion tag.
+     * Details of a model version tag.
      */
     public com.oracle.aidataplatform.dp.model.SetModelVersionTagDetails getSetModelVersionTagDetails() {
         return setModelVersionTagDetails;
@@ -122,12 +122,12 @@ public class SetAiDataPlatformModelVersionTagRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * Details of a ModelVersion tag.
+     * Details of a model version tag.
      */
         private com.oracle.aidataplatform.dp.model.SetModelVersionTagDetails setModelVersionTagDetails = null;
 
         /**
-         * Details of a ModelVersion tag.
+         * Details of a model version tag.
          * @param setModelVersionTagDetails the value to set
          * @return this builder instance
          */

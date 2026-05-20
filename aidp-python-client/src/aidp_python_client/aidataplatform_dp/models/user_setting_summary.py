@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UserSettingSummary(object):
     """
-    Summary of Setting
+    Summary of user settings.
     """
 
     #: A constant which can be used with the type property of a UserSettingSummary.
@@ -243,7 +243,7 @@ class UserSettingSummary(object):
     def properties(self):
         """
         Gets the properties of this UserSettingSummary.
-        A generic property bag associated with the setting resource
+        A generic property bag associated with the setting resource.
 
 
         :return: The properties of this UserSettingSummary.
@@ -255,7 +255,7 @@ class UserSettingSummary(object):
     def properties(self, properties):
         """
         Sets the properties of this UserSettingSummary.
-        A generic property bag associated with the setting resource
+        A generic property bag associated with the setting resource.
 
 
         :param properties: The properties of this UserSettingSummary.

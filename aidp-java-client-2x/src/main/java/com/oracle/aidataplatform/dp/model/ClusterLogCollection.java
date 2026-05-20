@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Results of a Cluster log list.
+ * Results of a cluster log list.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ClusterLogCollection.Builder.class)
@@ -20,14 +20,14 @@ public final class ClusterLogCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * List of Cluster logs.
+     * List of cluster logs.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("items")
         private java.util.List<ClusterLogsSummary> items;
 
                 /**
-         * List of Cluster logs.
+         * List of cluster logs.
          * @param items the value to set
          * @return this builder
          **/
@@ -66,14 +66,14 @@ return this;
 
 
         /**
-     * List of Cluster logs.
+     * List of cluster logs.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<ClusterLogsSummary> items;
 
         /**
-     * List of Cluster logs.
+     * List of cluster logs.
      * @return the value
      **/
     

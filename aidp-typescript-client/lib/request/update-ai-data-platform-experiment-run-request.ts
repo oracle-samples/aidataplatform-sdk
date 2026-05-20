@@ -16,7 +16,7 @@ export interface UpdateAiDataPlatformExperimentRunRequest extends common.BaseReq
  */
  'workspaceKey': string;
 /**
- * Update experiment run.
+ * Update experiment run details.
  */
  'updateExperimentRunDetails':  model.UpdateExperimentRunDetails;
 /**

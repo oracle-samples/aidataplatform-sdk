@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* The data to create a RegisteredModel.
+* The data to create a registered model.
 */
 export interface CreateRegisteredModelDetails {
     /**
@@ -21,7 +21,7 @@ export interface CreateRegisteredModelDetails {
     */
     'description'?: string;
     /**
-    * Deployment job id for this model.
+    * Deployment job ID for this model.
     */
     'deploymentJobId'?: string;
 

@@ -5,6 +5,8 @@
 from __future__ import absolute_import
 
 
+from .async_operations_client import AsyncOperationsClient
+from .async_operations_client_composite_operations import AsyncOperationsClientCompositeOperations
 from .audit_client import AuditClient
 from .audit_client_composite_operations import AuditClientCompositeOperations
 from .bundle_client import BundleClient
@@ -13,12 +15,12 @@ from .catalog_client import CatalogClient
 from .catalog_client_composite_operations import CatalogClientCompositeOperations
 from .cluster_client import ClusterClient
 from .cluster_client_composite_operations import ClusterClientCompositeOperations
-from .credential_store_client import CredentialStoreClient
-from .credential_store_client_composite_operations import CredentialStoreClientCompositeOperations
+from .credentials_client import CredentialsClient
+from .credentials_client_composite_operations import CredentialsClientCompositeOperations
 from .delta_share_client import DeltaShareClient
 from .delta_share_client_composite_operations import DeltaShareClientCompositeOperations
-from .git_service_client import GitServiceClient
-from .git_service_client_composite_operations import GitServiceClientCompositeOperations
+from .git_client import GitClient
+from .git_client_composite_operations import GitClientCompositeOperations
 from .ml_ops_client import MLOpsClient
 from .ml_ops_client_composite_operations import MLOpsClientCompositeOperations
 from .notebook_client import NotebookClient
@@ -37,8 +39,6 @@ from .workspace_client import WorkspaceClient
 from .workspace_client_composite_operations import WorkspaceClientCompositeOperations
 from .workspace_object_client import WorkspaceObjectClient
 from .workspace_object_client_composite_operations import WorkspaceObjectClientCompositeOperations
-from .wrapper_client import WrapperClient
-from .wrapper_client_composite_operations import WrapperClientCompositeOperations
 from . import models
 
-__all__ = ["AuditClient", "AuditClientCompositeOperations", "BundleClient", "BundleClientCompositeOperations", "CatalogClient", "CatalogClientCompositeOperations", "ClusterClient", "ClusterClientCompositeOperations", "CredentialStoreClient", "CredentialStoreClientCompositeOperations", "DeltaShareClient", "DeltaShareClientCompositeOperations", "GitServiceClient", "GitServiceClientCompositeOperations", "MLOpsClient", "MLOpsClientCompositeOperations", "NotebookClient", "NotebookClientCompositeOperations", "RoleClient", "RoleClientCompositeOperations", "SchemaClient", "SchemaClientCompositeOperations", "UserSettingClient", "UserSettingClientCompositeOperations", "VolumeClient", "VolumeClientCompositeOperations", "WorkflowClient", "WorkflowClientCompositeOperations", "WorkspaceClient", "WorkspaceClientCompositeOperations", "WorkspaceObjectClient", "WorkspaceObjectClientCompositeOperations", "WrapperClient", "WrapperClientCompositeOperations", "models"]
+__all__ = ["AsyncOperationsClient", "AsyncOperationsClientCompositeOperations", "AuditClient", "AuditClientCompositeOperations", "BundleClient", "BundleClientCompositeOperations", "CatalogClient", "CatalogClientCompositeOperations", "ClusterClient", "ClusterClientCompositeOperations", "CredentialsClient", "CredentialsClientCompositeOperations", "DeltaShareClient", "DeltaShareClientCompositeOperations", "GitClient", "GitClientCompositeOperations", "MLOpsClient", "MLOpsClientCompositeOperations", "NotebookClient", "NotebookClientCompositeOperations", "RoleClient", "RoleClientCompositeOperations", "SchemaClient", "SchemaClientCompositeOperations", "UserSettingClient", "UserSettingClientCompositeOperations", "VolumeClient", "VolumeClientCompositeOperations", "WorkflowClient", "WorkflowClientCompositeOperations", "WorkspaceClient", "WorkspaceClientCompositeOperations", "WorkspaceObjectClient", "WorkspaceObjectClientCompositeOperations", "models"]

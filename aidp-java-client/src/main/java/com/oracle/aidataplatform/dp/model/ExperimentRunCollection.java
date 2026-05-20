@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Result of listing Experiment Runs.
+ * Result of listing experiment runs.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ExperimentRunCollection.Builder.class)
@@ -22,14 +22,14 @@ public final class ExperimentRunCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Runs that match the search criteria
+     * Runs that match the search criteria.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("runs")
 private java.util.List<ExperimentRun> runs;
 
         /**
-         * Runs that match the search criteria
+         * Runs that match the search criteria.
          * @param runs the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * Runs that match the search criteria
+     * Runs that match the search criteria.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("runs")
     private final java.util.List<ExperimentRun> runs;
 
         /**
-     * Runs that match the search criteria
+     * Runs that match the search criteria.
      * @return the value
      **/
     

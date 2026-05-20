@@ -34,14 +34,14 @@ public class CheckoutAiDataPlatformBranchRequest extends com.oracle.bmc.requests
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
@@ -197,12 +197,12 @@ public class CheckoutAiDataPlatformBranchRequest extends com.oracle.bmc.requests
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */

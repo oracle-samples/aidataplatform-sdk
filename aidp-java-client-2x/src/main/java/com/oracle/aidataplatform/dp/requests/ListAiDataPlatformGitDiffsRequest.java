@@ -34,27 +34,27 @@ public class ListAiDataPlatformGitDiffsRequest extends com.oracle.bmc.requests.B
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * The git folder path
+     * The Git folder path.
      */
     private String gitFolderPath;
 
     
 
         /**
-     * The git folder path
+     * The Git folder path.
      */
     public String getGitFolderPath() {
         return gitFolderPath;
@@ -353,12 +353,12 @@ public class ListAiDataPlatformGitDiffsRequest extends com.oracle.bmc.requests.B
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -368,12 +368,12 @@ public class ListAiDataPlatformGitDiffsRequest extends com.oracle.bmc.requests.B
         }
 
             /**
-     * The git folder path
+     * The Git folder path.
      */
         private String gitFolderPath = null;
 
         /**
-         * The git folder path
+         * The Git folder path.
          * @param gitFolderPath the value to set
          * @return this builder instance
          */

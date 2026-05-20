@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface ExperimentRunParam {
     /**
-    * Key of the parameter
+    * Key of the parameter.
     */
     'key'?: string;
     /**
-    * Value of the parameter
+    * Value of the parameter.
     */
     'value'?: string;
 

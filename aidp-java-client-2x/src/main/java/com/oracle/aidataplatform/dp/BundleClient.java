@@ -470,5 +470,30 @@ public class BundleClient implements Bundle {
                     });
     }
 
+    @Override
+    public SyncAiDataPlatformBundleResponse syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request) {
+        LOG.trace("Called syncAiDataPlatformBundle");
+            final SyncAiDataPlatformBundleRequest interceptedRequest = SyncAiDataPlatformBundleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SyncAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+
+            final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
+            com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+            com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "SyncAiDataPlatformBundle", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SyncAiDataPlatformBundleResponse> transformer = SyncAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            return retrier.execute(
+                    interceptedRequest,
+                    retryRequest -> {
+                        final com.oracle.bmc.retrier.TokenRefreshRetrier tokenRefreshRetrier =
+                                new com.oracle.bmc.retrier.TokenRefreshRetrier(authenticationDetailsProvider);
+                        return tokenRefreshRetrier.execute(
+                                retryRequest,
+                                retriedRequest -> { 
+                                    javax.ws.rs.core.Response response = client.post(ib, retriedRequest.getSyncBundleDetails(), retriedRequest);
+                                    return transformer.apply(response);
+                                });
+                    });
+    }
+
 
 }

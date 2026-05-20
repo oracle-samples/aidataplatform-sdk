@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* OAuth admin setting details
+* OAuth admin setting details.
 */
 export interface OAuthAdminSetting extends model.SettingData {
     /**
-    * Issuer / authorization server base URL
+    * Issuer / authorization server base URL.
     */
     'identityProviderUrl': string;
     /**
-    * URL to retrieve JKS keystore
+    * URL to retrieve JKS keystore.
     */
     'retrieveJksUrl': string;
 

@@ -205,7 +205,7 @@ class UserSettingClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param str setting_key: (required)
-            The UUID of the User Setting
+            The UUID of the user setting.
 
         :param str if_match: (optional)
             For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
@@ -283,7 +283,7 @@ class UserSettingClient(object):
 
     def get_ai_data_platform_user_setting(self, ai_data_platform_id, setting_key, **kwargs):
         """
-        (Preview) Returns the full definition of a user setting identified by its key, including type-specific payload and default flag.
+        (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
 
 
         :param str ai_data_platform_id: (required)
@@ -292,7 +292,7 @@ class UserSettingClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param str setting_key: (required)
-            The UUID of the User Setting
+            The UUID of the user setting.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -364,7 +364,7 @@ class UserSettingClient(object):
 
     def list_ai_data_platform_user_settings(self, ai_data_platform_id, **kwargs):
         """
-        (Preview) Lists all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
+        (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
 
 
         :param str ai_data_platform_id: (required)
@@ -373,7 +373,7 @@ class UserSettingClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param str setting_type: (optional)
-            A filter to return only Settings whose value matches the given data type.
+            A filter to return only those settings whose value matches the given data type.
 
             Allowed values are: "IAM_USER_CREDENTIAL", "GIT_ACCOUNT"
 
@@ -526,7 +526,7 @@ class UserSettingClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param str setting_key: (required)
-            The UUID of the User Setting
+            The UUID of the user setting.
 
         :param oci.aidataplatform_dp.models.UpdateUserSettingDetails update_user_setting_details: (required)
             Details for the user setting to be updated.

@@ -5,19 +5,19 @@ import common = require("oci-common");
 
 
 /**
-* Update a git repository with the provided details
+* Update a Git repository with the provided details.
 */
 export interface UpdateGitRepositoryDetails {
     /**
-    * The path of the current git folder which has to be created for the new branch
+    * The path of the current Git folder which has to be created for the new branch.
     */
     'gitFolderPath'?: string;
     /**
-    * The git repository url corresponding to the branch
+    * The Git repository URL corresponding to the branch.
     */
     'gitUrl'?: string;
     /**
-    * updated PAT credential key
+    * Updated PAT credential key.
     */
     'credentialKey'?: string;
 

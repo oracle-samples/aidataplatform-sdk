@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ListExperimentsDetails(object):
     """
-    Details of Experiments to fetch.
+    Details of experiments to fetch.
     """
 
     #: A constant which can be used with the view_type property of a ListExperimentsDetails.
@@ -106,7 +106,7 @@ class ListExperimentsDetails(object):
     def page_token(self):
         """
         Gets the page_token of this ListExperimentsDetails.
-        Token indicating the page of experiments to fetch
+        Token indicating the page of experiments to fetch.
 
 
         :return: The page_token of this ListExperimentsDetails.
@@ -118,7 +118,7 @@ class ListExperimentsDetails(object):
     def page_token(self, page_token):
         """
         Sets the page_token of this ListExperimentsDetails.
-        Token indicating the page of experiments to fetch
+        Token indicating the page of experiments to fetch.
 
 
         :param page_token: The page_token of this ListExperimentsDetails.
@@ -164,8 +164,8 @@ class ListExperimentsDetails(object):
     def order_by(self):
         """
         Gets the order_by of this ListExperimentsDetails.
-        List of columns for ordering search results, which can include experiment name and id with
-        an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by experiment id DESC.
+        List of columns for ordering search results, which can include experiment name and ID with
+        an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by experiment ID DESC.
 
 
         :return: The order_by of this ListExperimentsDetails.
@@ -177,8 +177,8 @@ class ListExperimentsDetails(object):
     def order_by(self, order_by):
         """
         Sets the order_by of this ListExperimentsDetails.
-        List of columns for ordering search results, which can include experiment name and id with
-        an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by experiment id DESC.
+        List of columns for ordering search results, which can include experiment name and ID with
+        an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by experiment ID DESC.
 
 
         :param order_by: The order_by of this ListExperimentsDetails.

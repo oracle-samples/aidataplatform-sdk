@@ -21,14 +21,14 @@ public class DeleteAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         return aiDataPlatformId;
     }
         /**
-     * The unique identifier of the credential object whose details are to be retrieved.
+     * The unique identifier of an credential
      */
     private String credentialKey;
 
     
 
         /**
-     * The unique identifier of the credential object whose details are to be retrieved.
+     * The unique identifier of an credential
      */
     public String getCredentialKey() {
         return credentialKey;
@@ -110,12 +110,12 @@ public class DeleteAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * The unique identifier of the credential object whose details are to be retrieved.
+     * The unique identifier of an credential
      */
         private String credentialKey = null;
 
         /**
-         * The unique identifier of the credential object whose details are to be retrieved.
+         * The unique identifier of an credential
          * @param credentialKey the value to set
          * @return this builder instance
          */

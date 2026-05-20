@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Tag details to set on an Experiment Run.
+ * Tag details to set on an experiment run.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=SetExperimentRunTagDetails.Builder.class)
@@ -40,14 +40,14 @@ public final class SetExperimentRunTagDetails  {
         return this;
         }
             /**
-     * Key of the run tag
+     * Key of the run tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("key")
         private String key;
 
                 /**
-         * Key of the run tag
+         * Key of the run tag.
          * @param key the value to set
          * @return this builder
          **/
@@ -58,14 +58,14 @@ public final class SetExperimentRunTagDetails  {
         return this;
         }
             /**
-     * Value of the run tag
+     * Value of the run tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("value")
         private String value;
 
                 /**
-         * Value of the run tag
+         * Value of the run tag.
          * @param value the value to set
          * @return this builder
          **/
@@ -125,14 +125,14 @@ return this;
 
 
         /**
-     * Key of the run tag
+     * Key of the run tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Key of the run tag
+     * Key of the run tag.
      * @return the value
      **/
     
@@ -142,14 +142,14 @@ return this;
 
 
         /**
-     * Value of the run tag
+     * Value of the run tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("value")
     private final String value;
 
         /**
-     * Value of the run tag
+     * Value of the run tag.
      * @return the value
      **/
     

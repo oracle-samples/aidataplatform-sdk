@@ -21,14 +21,14 @@ public class CreateAiDataPlatformWorkspaceRequest extends com.oracle.bmc.request
         return aiDataPlatformId;
     }
         /**
-     * Details for the new AI Data Platform Workbench workspace.
+     * Details for the new workspace.
      */
     private com.oracle.aidataplatform.dp.model.CreateWorkspaceDetails createWorkspaceDetails;
 
     
 
         /**
-     * Details for the new AI Data Platform Workbench workspace.
+     * Details for the new workspace.
      */
     public com.oracle.aidataplatform.dp.model.CreateWorkspaceDetails getCreateWorkspaceDetails() {
         return createWorkspaceDetails;
@@ -109,12 +109,12 @@ public class CreateAiDataPlatformWorkspaceRequest extends com.oracle.bmc.request
         }
 
             /**
-     * Details for the new AI Data Platform Workbench workspace.
+     * Details for the new workspace.
      */
         private com.oracle.aidataplatform.dp.model.CreateWorkspaceDetails createWorkspaceDetails = null;
 
         /**
-         * Details for the new AI Data Platform Workbench workspace.
+         * Details for the new workspace.
          * @param createWorkspaceDetails the value to set
          * @return this builder instance
          */

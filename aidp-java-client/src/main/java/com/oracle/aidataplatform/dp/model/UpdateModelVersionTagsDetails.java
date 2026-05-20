@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of the ModelVersion tags to update.
+ * Details of the model version tags to update.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=UpdateModelVersionTagsDetails.Builder.class)
@@ -42,14 +42,14 @@ public Builder name(String name) {
     return this;
 }
             /**
-     * Model\u2019s version number.
+     * Model version number.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("version")
 private String version;
 
         /**
-         * Model\u2019s version number.
+         * Model version number.
          * @param version the value to set
          * @return this builder
          **/
@@ -60,14 +60,14 @@ public Builder version(String version) {
     return this;
 }
             /**
-     * ModelVersion tags to set
+     * Model version tags to set.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("set_tags")
 private java.util.List<ModelVersionTag> setTags;
 
         /**
-         * ModelVersion tags to set
+         * Model version tags to set.
          * @param setTags the value to set
          * @return this builder
          **/
@@ -78,14 +78,14 @@ public Builder setTags(java.util.List<ModelVersionTag> setTags) {
     return this;
 }
             /**
-     * ModelVersion tags to delete
+     * Model version tags to delete.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("delete_tags")
 private java.util.List<ModelVersionTagKey> deleteTags;
 
         /**
-         * ModelVersion tags to delete
+         * Model version tags to delete.
          * @param deleteTags the value to set
          * @return this builder
          **/
@@ -147,14 +147,14 @@ return this;
 
 
         /**
-     * Model\u2019s version number.
+     * Model version number.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("version")
     private final String version;
 
         /**
-     * Model\u2019s version number.
+     * Model version number.
      * @return the value
      **/
     
@@ -164,14 +164,14 @@ return this;
 
 
         /**
-     * ModelVersion tags to set
+     * Model version tags to set.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("set_tags")
     private final java.util.List<ModelVersionTag> setTags;
 
         /**
-     * ModelVersion tags to set
+     * Model version tags to set.
      * @return the value
      **/
     
@@ -181,14 +181,14 @@ return this;
 
 
         /**
-     * ModelVersion tags to delete
+     * Model version tags to delete.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("delete_tags")
     private final java.util.List<ModelVersionTagKey> deleteTags;
 
         /**
-     * ModelVersion tags to delete
+     * Model version tags to delete.
      * @return the value
      **/
     

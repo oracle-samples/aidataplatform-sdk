@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateModelVersionDetails(object):
     """
-    Details of the model version
+    Details of the model version.
     """
 
     def __init__(self, **kwargs):
@@ -75,7 +75,7 @@ class UpdateModelVersionDetails(object):
     def version(self):
         """
         **[Required]** Gets the version of this UpdateModelVersionDetails.
-        Model\u2019s version number.
+        Model version number.
 
 
         :return: The version of this UpdateModelVersionDetails.
@@ -87,7 +87,7 @@ class UpdateModelVersionDetails(object):
     def version(self, version):
         """
         Sets the version of this UpdateModelVersionDetails.
-        Model\u2019s version number.
+        Model version number.
 
 
         :param version: The version of this UpdateModelVersionDetails.

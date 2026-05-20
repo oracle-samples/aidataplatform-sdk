@@ -21,14 +21,14 @@ public class UpdateAiDataPlatformRegisteredModelTagsRequest extends com.oracle.b
         return aiDataPlatformId;
     }
         /**
-     * Details of RegisteredModel tags.
+     * Details of registered model tags.
      */
     private com.oracle.aidataplatform.dp.model.UpdateRegisteredModelTagsDetails updateRegisteredModelTagsDetails;
 
     
 
         /**
-     * Details of RegisteredModel tags.
+     * Details of registered model tags.
      */
     public com.oracle.aidataplatform.dp.model.UpdateRegisteredModelTagsDetails getUpdateRegisteredModelTagsDetails() {
         return updateRegisteredModelTagsDetails;
@@ -122,12 +122,12 @@ public class UpdateAiDataPlatformRegisteredModelTagsRequest extends com.oracle.b
         }
 
             /**
-     * Details of RegisteredModel tags.
+     * Details of registered model tags.
      */
         private com.oracle.aidataplatform.dp.model.UpdateRegisteredModelTagsDetails updateRegisteredModelTagsDetails = null;
 
         /**
-         * Details of RegisteredModel tags.
+         * Details of registered model tags.
          * @param updateRegisteredModelTagsDetails the value to set
          * @return this builder instance
          */

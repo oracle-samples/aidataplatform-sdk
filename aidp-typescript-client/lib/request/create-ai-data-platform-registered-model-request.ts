@@ -12,7 +12,7 @@ export interface CreateAiDataPlatformRegisteredModelRequest extends common.BaseR
  */
  'aiDataPlatformId': string;
 /**
- * Details for the new RegisteredModel.
+ * Details for the new registered model.
  */
  'createRegisteredModelDetails':  model.CreateRegisteredModelDetails;
 /**

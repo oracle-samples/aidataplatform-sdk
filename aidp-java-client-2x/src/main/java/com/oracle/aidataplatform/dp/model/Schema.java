@@ -20,6 +20,7 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = KafkaTopicSchema.class, name = "KAFKA_TOPIC"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpSchema.class, name = "ATP"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardSchema.class, name = "STANDARD"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacSchema.class, name = "ORACLE_ANALYTICS"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchema.class, name = "EXADATA")
 })
 

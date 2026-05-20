@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface GitMergeDetails {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath'?: string;
     /**
@@ -21,7 +21,7 @@ export interface GitMergeDetails {
     */
     'remoteBranchName': string;
     /**
-    * Commit id to merge (optional).
+    * Commit ID to merge (optional).
     */
     'commitId'?: string;
 

@@ -104,6 +104,10 @@ class AgentNode(AgentFlowNode):
             The value to assign to the tools property of this AgentNode.
         :type tools: list[oci.aidataplatform_dp.models.Tool]
 
+        :param tool_references:
+            The value to assign to the tool_references property of this AgentNode.
+        :type tool_references: list[str]
+
         """
         self.swagger_types = {
             'type': 'str',
@@ -126,7 +130,8 @@ class AgentNode(AgentFlowNode):
             'llm': 'LlmConfig',
             'model_settings': 'dict(str, object)',
             'memory': 'MemoryConfiguration',
-            'tools': 'list[Tool]'
+            'tools': 'list[Tool]',
+            'tool_references': 'list[str]'
         }
 
         self.attribute_map = {
@@ -150,7 +155,8 @@ class AgentNode(AgentFlowNode):
             'llm': 'llm',
             'model_settings': 'modelSettings',
             'memory': 'memory',
-            'tools': 'tools'
+            'tools': 'tools',
+            'tool_references': 'toolReferences'
         }
 
         self._type = None
@@ -174,6 +180,7 @@ class AgentNode(AgentFlowNode):
         self._model_settings = None
         self._memory = None
         self._tools = None
+        self._tool_references = None
         self._type = 'AGENT'
 
     @property
@@ -287,6 +294,30 @@ class AgentNode(AgentFlowNode):
         :type: list[oci.aidataplatform_dp.models.Tool]
         """
         self._tools = tools
+
+    @property
+    def tool_references(self):
+        """
+        Gets the tool_references of this AgentNode.
+        A list of tool reference keys, the full tool definition can be found in the toolsMap.
+
+
+        :return: The tool_references of this AgentNode.
+        :rtype: list[str]
+        """
+        return self._tool_references
+
+    @tool_references.setter
+    def tool_references(self, tool_references):
+        """
+        Sets the tool_references of this AgentNode.
+        A list of tool reference keys, the full tool definition can be found in the toolsMap.
+
+
+        :param tool_references: The tool_references of this AgentNode.
+        :type: list[str]
+        """
+        self._tool_references = tool_references
 
     def __repr__(self):
         return formatted_flat_dict(self)

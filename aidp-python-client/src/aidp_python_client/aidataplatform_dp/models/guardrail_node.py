@@ -84,9 +84,9 @@ class GuardrailNode(AgentFlowNode):
             The value to assign to the validation_errors property of this GuardrailNode.
         :type validation_errors: list[oci.aidataplatform_dp.models.ValidationError]
 
-        :param guardrails_config:
-            The value to assign to the guardrails_config property of this GuardrailNode.
-        :type guardrails_config: str
+        :param guardrails_config_key:
+            The value to assign to the guardrails_config_key property of this GuardrailNode.
+        :type guardrails_config_key: str
 
         :param extra_guardrails_config:
             The value to assign to the extra_guardrails_config property of this GuardrailNode.
@@ -110,7 +110,7 @@ class GuardrailNode(AgentFlowNode):
             'inputs': 'list[NodeInput]',
             'outputs': 'list[NodeOutput]',
             'validation_errors': 'list[ValidationError]',
-            'guardrails_config': 'str',
+            'guardrails_config_key': 'str',
             'extra_guardrails_config': 'dict(str, str)'
         }
 
@@ -131,7 +131,7 @@ class GuardrailNode(AgentFlowNode):
             'inputs': 'inputs',
             'outputs': 'outputs',
             'validation_errors': 'validationErrors',
-            'guardrails_config': 'guardrailsConfig',
+            'guardrails_config_key': 'guardrailsConfigKey',
             'extra_guardrails_config': 'extraGuardrailsConfig'
         }
 
@@ -151,33 +151,33 @@ class GuardrailNode(AgentFlowNode):
         self._inputs = None
         self._outputs = None
         self._validation_errors = None
-        self._guardrails_config = None
+        self._guardrails_config_key = None
         self._extra_guardrails_config = None
         self._type = 'GUARDRAILS'
 
     @property
-    def guardrails_config(self):
+    def guardrails_config_key(self):
         """
-        Gets the guardrails_config of this GuardrailNode.
-        The name of a guardrails configuration stored in the guardrails map in the flow diagram.
+        Gets the guardrails_config_key of this GuardrailNode.
+        A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
 
 
-        :return: The guardrails_config of this GuardrailNode.
+        :return: The guardrails_config_key of this GuardrailNode.
         :rtype: str
         """
-        return self._guardrails_config
+        return self._guardrails_config_key
 
-    @guardrails_config.setter
-    def guardrails_config(self, guardrails_config):
+    @guardrails_config_key.setter
+    def guardrails_config_key(self, guardrails_config_key):
         """
-        Sets the guardrails_config of this GuardrailNode.
-        The name of a guardrails configuration stored in the guardrails map in the flow diagram.
+        Sets the guardrails_config_key of this GuardrailNode.
+        A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
 
 
-        :param guardrails_config: The guardrails_config of this GuardrailNode.
+        :param guardrails_config_key: The guardrails_config_key of this GuardrailNode.
         :type: str
         """
-        self._guardrails_config = guardrails_config
+        self._guardrails_config_key = guardrails_config_key
 
     @property
     def extra_guardrails_config(self):

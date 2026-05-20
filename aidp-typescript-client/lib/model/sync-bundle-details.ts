@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface SyncBundleDetails {
     /**
-    * Target folder for the new bundle
+    * Target folder for the new bundle.
     */
     'path': string;
 

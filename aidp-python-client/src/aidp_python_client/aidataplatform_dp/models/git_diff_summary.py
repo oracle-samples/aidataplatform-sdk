@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitDiffSummary(object):
     """
-    Summary information about a file that differs in a git folder context.
+    Summary information about a file that differs in a Git folder context.
     """
 
     #: A constant which can be used with the change_type property of a GitDiffSummary.

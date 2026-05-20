@@ -314,6 +314,10 @@ return clientCall(request, DownloadAiDataPlatformFileWithParResponse::builder)
         
         .basePath("/20260430")
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("volumes").appendPathParam(request.getVolumeKey()).appendPathParam("actions").appendPathParam("downloadFileMeta")
+            
+                
+                    
+                    .appendQueryParam("shouldGenerateNewPar", request.getShouldGenerateNewPar())
         .accept("application/json")
                 
                 .appendHeader("path", request.getPath())
@@ -798,6 +802,10 @@ return clientCall(request, UploadAiDataPlatformFileWithParResponse::builder)
                 
                     
                     .appendQueryParam("isOverwrite", request.getIsOverwrite())
+            
+                
+                    
+                    .appendQueryParam("shouldGenerateNewPar", request.getShouldGenerateNewPar())
         .accept("application/json")
                 
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())

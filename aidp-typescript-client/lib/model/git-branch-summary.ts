@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* Git branch object summary
+* Git branch object summary.
 */
 export interface GitBranchSummary {
     /**
-    * The name of the git branch
+    * The name of the Git branch.
     */
     'branchName': string;
     /**
-    * Fully qualified branch path
+    * Fully qualified branch path.
     */
     'branchPath': string;
 

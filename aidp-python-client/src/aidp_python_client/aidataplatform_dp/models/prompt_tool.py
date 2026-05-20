@@ -37,12 +37,8 @@ class PromptTool(Tool):
 
         :param tool_type:
             The value to assign to the tool_type property of this PromptTool.
-            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
         :type tool_type: str
-
-        :param is_reference:
-            The value to assign to the is_reference property of this PromptTool.
-        :type is_reference: bool
 
         :param position_x:
             The value to assign to the position_x property of this PromptTool.
@@ -87,7 +83,6 @@ class PromptTool(Tool):
             'workspace_key': 'str',
             'description': 'str',
             'tool_type': 'str',
-            'is_reference': 'bool',
             'position_x': 'float',
             'position_y': 'float',
             'properties': 'dict(str, object)',
@@ -105,7 +100,6 @@ class PromptTool(Tool):
             'workspace_key': 'workspaceKey',
             'description': 'description',
             'tool_type': 'toolType',
-            'is_reference': 'isReference',
             'position_x': 'positionX',
             'position_y': 'positionY',
             'properties': 'properties',
@@ -122,7 +116,6 @@ class PromptTool(Tool):
         self._workspace_key = None
         self._description = None
         self._tool_type = None
-        self._is_reference = None
         self._position_x = None
         self._position_y = None
         self._properties = None

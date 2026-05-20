@@ -14,6 +14,7 @@ export enum SchemaCatalogType {
     Atp = "ATP",
     Oracle = "ORACLE",
     Exadata = "EXADATA",
+    OracleAnalytics = "ORACLE_ANALYTICS",
     
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* FileInfo of Artifact.
+* File info of artifact.
 */
 export interface ArtifactFileInfo {
     /**

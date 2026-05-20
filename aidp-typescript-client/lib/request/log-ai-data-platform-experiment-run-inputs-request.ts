@@ -16,7 +16,7 @@ export interface LogAiDataPlatformExperimentRunInputsRequest extends common.Base
  */
  'workspaceKey': string;
 /**
- * Details of an Experiment Run Inputs.
+ * Details of experiment run inputs.
  */
  'logExperimentRunInputsDetails':  model.LogExperimentRunInputsDetails;
 /**

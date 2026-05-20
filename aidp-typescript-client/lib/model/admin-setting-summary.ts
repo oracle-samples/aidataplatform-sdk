@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Summary of Setting
+* Summary of admin settings.
 */
 export interface AdminSettingSummary {
     /**
@@ -33,7 +33,7 @@ export interface AdminSettingSummary {
     */
     'timeUpdated': Date;
     /**
-    * A generic property bag associated with the setting resource
+    * A generic property bag associated with the setting resource.
     */
     'properties'?: { [key: string]: any; };
 

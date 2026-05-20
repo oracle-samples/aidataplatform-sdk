@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of the LoggedModel Info.
+ * Details of the logged model info.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=LoggedModelInfo.Builder.class)
@@ -29,14 +29,14 @@ public final class LoggedModelInfo  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * id of logged-model.
+     * ID of logged model.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("model_id")
         private String modelId;
 
                 /**
-         * id of logged-model.
+         * ID of logged model.
          * @param modelId the value to set
          * @return this builder
          **/
@@ -65,14 +65,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * name of logged-model.
+     * Name of logged model.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("name")
         private String name;
 
                 /**
-         * name of logged-model.
+         * Name of logged model.
          * @param name the value to set
          * @return this builder
          **/
@@ -83,14 +83,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * Unix timestamp in milliseconds when the logged-model was created.
+     * Unix timestamp in milliseconds when the logged model was created.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("creation_timestamp_ms")
         private Long creationTimestampMs;
 
                 /**
-         * Unix timestamp in milliseconds when the logged-model was created.
+         * Unix timestamp in milliseconds when the logged model was created.
          * @param creationTimestampMs the value to set
          * @return this builder
          **/
@@ -101,14 +101,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * Unix timestamp in milliseconds when the logged-model was last updated.
+     * Unix timestamp in milliseconds when the logged model was last updated.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("last_updated_timestamp_ms")
         private Long lastUpdatedTimestampMs;
 
                 /**
-         * Unix timestamp in milliseconds when the logged-model was last updated.
+         * Unix timestamp in milliseconds when the logged model was last updated.
          * @param lastUpdatedTimestampMs the value to set
          * @return this builder
          **/
@@ -119,14 +119,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * artifact_uri.
+     * Artifact URI.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("artifact_uri")
         private String artifactUri;
 
                 /**
-         * artifact_uri.
+         * Artifact URI.
          * @param artifactUri the value to set
          * @return this builder
          **/
@@ -137,14 +137,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * status of logged-model.
+     * Status of logged model.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("status")
         private String status;
 
                 /**
-         * status of logged-model.
+         * Status of logged model.
          * @param status the value to set
          * @return this builder
          **/
@@ -155,14 +155,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * model_type of logged-model.
+     * Model type of logged model.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("model_type")
         private String modelType;
 
                 /**
-         * model_type of logged-model.
+         * Model type of logged model.
          * @param modelType the value to set
          * @return this builder
          **/
@@ -173,14 +173,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * source_run_id of logged-model.
+     * Source run ID of logged model.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("source_run_id")
         private String sourceRunId;
 
                 /**
-         * source_run_id of logged-model.
+         * Source run ID of logged model.
          * @param sourceRunId the value to set
          * @return this builder
          **/
@@ -191,14 +191,14 @@ public final class LoggedModelInfo  {
         return this;
         }
             /**
-     * tags of logged-model
+     * Tags of logged model.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("tags")
         private java.util.List<LoggedModelTag> tags;
 
                 /**
-         * tags of logged-model
+         * Tags of logged model.
          * @param tags the value to set
          * @return this builder
          **/
@@ -255,14 +255,14 @@ return this;
 
 
         /**
-     * id of logged-model.
+     * ID of logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("model_id")
     private final String modelId;
 
         /**
-     * id of logged-model.
+     * ID of logged model.
      * @return the value
      **/
     
@@ -289,14 +289,14 @@ return this;
 
 
         /**
-     * name of logged-model.
+     * Name of logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * name of logged-model.
+     * Name of logged model.
      * @return the value
      **/
     
@@ -306,14 +306,14 @@ return this;
 
 
         /**
-     * Unix timestamp in milliseconds when the logged-model was created.
+     * Unix timestamp in milliseconds when the logged model was created.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("creation_timestamp_ms")
     private final Long creationTimestampMs;
 
         /**
-     * Unix timestamp in milliseconds when the logged-model was created.
+     * Unix timestamp in milliseconds when the logged model was created.
      * @return the value
      **/
     
@@ -323,14 +323,14 @@ return this;
 
 
         /**
-     * Unix timestamp in milliseconds when the logged-model was last updated.
+     * Unix timestamp in milliseconds when the logged model was last updated.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("last_updated_timestamp_ms")
     private final Long lastUpdatedTimestampMs;
 
         /**
-     * Unix timestamp in milliseconds when the logged-model was last updated.
+     * Unix timestamp in milliseconds when the logged model was last updated.
      * @return the value
      **/
     
@@ -340,14 +340,14 @@ return this;
 
 
         /**
-     * artifact_uri.
+     * Artifact URI.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("artifact_uri")
     private final String artifactUri;
 
         /**
-     * artifact_uri.
+     * Artifact URI.
      * @return the value
      **/
     
@@ -357,14 +357,14 @@ return this;
 
 
         /**
-     * status of logged-model.
+     * Status of logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("status")
     private final String status;
 
         /**
-     * status of logged-model.
+     * Status of logged model.
      * @return the value
      **/
     
@@ -374,14 +374,14 @@ return this;
 
 
         /**
-     * model_type of logged-model.
+     * Model type of logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("model_type")
     private final String modelType;
 
         /**
-     * model_type of logged-model.
+     * Model type of logged model.
      * @return the value
      **/
     
@@ -391,14 +391,14 @@ return this;
 
 
         /**
-     * source_run_id of logged-model.
+     * Source run ID of logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("source_run_id")
     private final String sourceRunId;
 
         /**
-     * source_run_id of logged-model.
+     * Source run ID of logged model.
      * @return the value
      **/
     
@@ -408,14 +408,14 @@ return this;
 
 
         /**
-     * tags of logged-model
+     * Tags of logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("tags")
     private final java.util.List<LoggedModelTag> tags;
 
         /**
-     * tags of logged-model
+     * Tags of logged model.
      * @return the value
      **/
     

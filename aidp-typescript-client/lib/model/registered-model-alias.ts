@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Alias of the RegisteredModel
+* Alias of the registered model
 */
 export interface RegisteredModelAlias {
     /**

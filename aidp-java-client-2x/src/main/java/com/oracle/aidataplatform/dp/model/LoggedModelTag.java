@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * LoggedModel tag.
+ * Logged model tag.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=LoggedModelTag.Builder.class)
@@ -21,14 +21,14 @@ public final class LoggedModelTag  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Key of the tag
+     * Key of the tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("key")
         private String key;
 
                 /**
-         * Key of the tag
+         * Key of the tag.
          * @param key the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class LoggedModelTag  {
         return this;
         }
             /**
-     * Value of the tag
+     * Value of the tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("value")
         private String value;
 
                 /**
-         * Value of the tag
+         * Value of the tag.
          * @param value the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * Key of the tag
+     * Key of the tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Key of the tag
+     * Key of the tag.
      * @return the value
      **/
     
@@ -104,14 +104,14 @@ return this;
 
 
         /**
-     * Value of the tag
+     * Value of the tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("value")
     private final String value;
 
         /**
-     * Value of the tag
+     * Value of the tag.
      * @return the value
      **/
     

@@ -106,7 +106,7 @@ class HttpToolConfiguration(object):
     @property
     def method(self):
         """
-        **[Required]** Gets the method of this HttpToolConfiguration.
+        Gets the method of this HttpToolConfiguration.
         HTTP method (GET, POST, PUT, DELETE, PATCH)
 
         Allowed values for this property are: "GET", "POST", "PUT", "DELETE", "PATCH"
@@ -138,7 +138,7 @@ class HttpToolConfiguration(object):
     @property
     def url(self):
         """
-        **[Required]** Gets the url of this HttpToolConfiguration.
+        Gets the url of this HttpToolConfiguration.
         Target URL with optional {{variable}} templates
 
 

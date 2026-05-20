@@ -11,8 +11,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AgentFlowDeployment  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "agentFlowKey", "agentFlowComputeKey", "endpointUrl", "description", "deploymentType", "lifecycleState", "deploymentVersion", "timeCreated", "createdBy", "timeUpdated", "updatedBy", "sessionRetentionConfig", "oAuthConfig"})
-    public AgentFlowDeployment(String key, String displayName, String agentFlowKey, String agentFlowComputeKey, String endpointUrl, String description, DeploymentType deploymentType, DeploymentLifecycleState lifecycleState, String deploymentVersion, java.util.Date timeCreated, String createdBy, java.util.Date timeUpdated, String updatedBy, SessionRetentionConfiguration sessionRetentionConfig, OAuthConfiguration oAuthConfig) {
+    @java.beans.ConstructorProperties({"key", "displayName", "agentFlowKey", "agentFlowComputeKey", "endpointUrl", "description", "deploymentType", "lifecycleState", "deploymentVersion", "timeCreated", "createdBy", "timeUpdated", "updatedBy", "sessionRetentionConfig", "oAuthConfig", "agentCardUrl"})
+    public AgentFlowDeployment(String key, String displayName, String agentFlowKey, String agentFlowComputeKey, String endpointUrl, String description, DeploymentType deploymentType, DeploymentLifecycleState lifecycleState, String deploymentVersion, java.util.Date timeCreated, String createdBy, java.util.Date timeUpdated, String updatedBy, SessionRetentionConfiguration sessionRetentionConfig, OAuthConfiguration oAuthConfig, String agentCardUrl) {
         super();
         this.key = key;
         this.displayName = displayName;
@@ -29,6 +29,7 @@ public final class AgentFlowDeployment  {
         this.updatedBy = updatedBy;
         this.sessionRetentionConfig = sessionRetentionConfig;
         this.oAuthConfig = oAuthConfig;
+        this.agentCardUrl = agentCardUrl;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -287,6 +288,24 @@ public final class AgentFlowDeployment  {
         this.oAuthConfig = oAuthConfig;
         return this;
         }
+            /**
+     * AgentCard base URL
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("agentCardUrl")
+        private String agentCardUrl;
+
+                /**
+         * AgentCard base URL
+         * @param agentCardUrl the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder agentCardUrl(String agentCardUrl) {
+        this.agentCardUrl = agentCardUrl;
+        return this;
+        }
 
 
         public AgentFlowDeployment build() {
@@ -304,7 +323,8 @@ public final class AgentFlowDeployment  {
                     , this.timeUpdated
                     , this.updatedBy
                     , this.sessionRetentionConfig
-                    , this.oAuthConfig);            return model;
+                    , this.oAuthConfig
+                    , this.agentCardUrl);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -324,6 +344,7 @@ public final class AgentFlowDeployment  {
     this.updatedBy(model.getUpdatedBy());
     this.sessionRetentionConfig(model.getSessionRetentionConfig());
     this.oAuthConfig(model.getOAuthConfig());
+    this.agentCardUrl(model.getAgentCardUrl());
 return this;
         }
     }
@@ -583,6 +604,23 @@ return this;
         return oAuthConfig;
     }
 
+
+        /**
+     * AgentCard base URL
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("agentCardUrl")
+    private final String agentCardUrl;
+
+        /**
+     * AgentCard base URL
+     * @return the value
+     **/
+    
+    public String getAgentCardUrl() {
+        return agentCardUrl;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -611,6 +649,7 @@ return this;
         sb.append(", updatedBy=").append(String.valueOf(this.updatedBy));
         sb.append(", sessionRetentionConfig=").append(String.valueOf(this.sessionRetentionConfig));
         sb.append(", oAuthConfig=").append(String.valueOf(this.oAuthConfig));
+        sb.append(", agentCardUrl=").append(String.valueOf(this.agentCardUrl));
         sb.append(")");
         return sb.toString();
     }
@@ -639,7 +678,8 @@ return this;
             java.util.Objects.equals(this.timeUpdated, other.timeUpdated) &&
             java.util.Objects.equals(this.updatedBy, other.updatedBy) &&
             java.util.Objects.equals(this.sessionRetentionConfig, other.sessionRetentionConfig) &&
-            java.util.Objects.equals(this.oAuthConfig, other.oAuthConfig);
+            java.util.Objects.equals(this.oAuthConfig, other.oAuthConfig) &&
+            java.util.Objects.equals(this.agentCardUrl, other.agentCardUrl);
     }
 
     @Override
@@ -661,6 +701,7 @@ return this;
         result = (result * PRIME) + (this.updatedBy == null ? 43 : this.updatedBy.hashCode());
         result = (result * PRIME) + (this.sessionRetentionConfig == null ? 43 : this.sessionRetentionConfig.hashCode());
         result = (result * PRIME) + (this.oAuthConfig == null ? 43 : this.oAuthConfig.hashCode());
+        result = (result * PRIME) + (this.agentCardUrl == null ? 43 : this.agentCardUrl.hashCode());
         return result;
     }
 

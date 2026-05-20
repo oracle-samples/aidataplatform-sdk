@@ -12,7 +12,7 @@ export interface CreateAiDataPlatformWorkspaceRequest extends common.BaseRequest
  */
  'aiDataPlatformId': string;
 /**
- * Details for the new AI Data Platform Workbench workspace.
+ * Details for the new workspace.
  */
  'createWorkspaceDetails':  model.CreateWorkspaceDetails;
 /**

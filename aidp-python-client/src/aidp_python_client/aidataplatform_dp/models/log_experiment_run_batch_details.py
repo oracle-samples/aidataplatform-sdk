@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LogExperimentRunBatchDetails(object):
     """
-    Run Batch data to log.
+    Run batch data to log.
     """
 
     def __init__(self, **kwargs):

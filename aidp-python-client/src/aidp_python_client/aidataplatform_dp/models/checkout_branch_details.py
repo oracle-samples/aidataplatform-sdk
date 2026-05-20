@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CheckoutBranchDetails(object):
     """
-    Information required to checkout a new git branch
+    Information required to checkout a new Git branch.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class CheckoutBranchDetails(object):
     def branch_name(self):
         """
         **[Required]** Gets the branch_name of this CheckoutBranchDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this CheckoutBranchDetails.
@@ -56,7 +56,7 @@ class CheckoutBranchDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this CheckoutBranchDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this CheckoutBranchDetails.
@@ -68,7 +68,7 @@ class CheckoutBranchDetails(object):
     def git_folder_path(self):
         """
         **[Required]** Gets the git_folder_path of this CheckoutBranchDetails.
-        The path of the git folder in the context
+        The path of the Git folder in the context.
 
 
         :return: The git_folder_path of this CheckoutBranchDetails.
@@ -80,7 +80,7 @@ class CheckoutBranchDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this CheckoutBranchDetails.
-        The path of the git folder in the context
+        The path of the Git folder in the context.
 
 
         :param git_folder_path: The git_folder_path of this CheckoutBranchDetails.

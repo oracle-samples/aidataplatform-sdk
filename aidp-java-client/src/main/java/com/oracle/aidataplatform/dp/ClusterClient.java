@@ -155,6 +155,46 @@ return clientCall(request, DeleteAiDataPlatformClusterResponse::builder)
 
     @Override
     
+    public DownloadAiDataPlatformClusterLogsResponse downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getDownloadClusterLogsDetails(), "downloadClusterLogsDetails is required");
+        
+
+
+return clientCall(request, DownloadAiDataPlatformClusterLogsResponse::builder)
+        .logger(LOG, "downloadAiDataPlatformClusterLogs")
+        .serviceDetails("Cluster", "DownloadAiDataPlatformClusterLogs", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(DownloadAiDataPlatformClusterLogsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("downloadLogs")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            DownloadAiDataPlatformClusterLogsResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("datalake-cluster-log-par-url", 
+            DownloadAiDataPlatformClusterLogsResponse.Builder::datalakeClusterLogParUrl)
+                .handleResponseHeaderString("opc-request-id", 
+            DownloadAiDataPlatformClusterLogsResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public GetAiDataPlatformClusterResponse getAiDataPlatformCluster(GetAiDataPlatformClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -524,6 +564,55 @@ return clientCall(request, RestartAiDataPlatformClusterResponse::builder)
 
     @Override
     
+    public SearchAiDataPlatformClusterLogsResponse searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getSearchClusterLogsDetails(), "searchClusterLogsDetails is required");
+        
+
+
+return clientCall(request, SearchAiDataPlatformClusterLogsResponse::builder)
+        .logger(LOG, "searchAiDataPlatformClusterLogs")
+        .serviceDetails("Cluster", "SearchAiDataPlatformClusterLogs", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SearchAiDataPlatformClusterLogsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("searchLogs")
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("if-match", request.getIfMatch())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLogCollection.class, SearchAiDataPlatformClusterLogsResponse.Builder::clusterLogCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            SearchAiDataPlatformClusterLogsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            SearchAiDataPlatformClusterLogsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
     public StartAiDataPlatformClusterResponse startAiDataPlatformCluster(StartAiDataPlatformClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -604,6 +693,47 @@ return clientCall(request, StopAiDataPlatformClusterResponse::builder)
             StopAiDataPlatformClusterResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
             StopAiDataPlatformClusterResponse.Builder::etag)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public SummarizeAiDataPlatformMetricsDataResponse summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getSummarizeMetricsDataDetails(), "summarizeMetricsDataDetails is required");
+        
+
+
+return clientCall(request, SummarizeAiDataPlatformMetricsDataResponse::builder)
+        .logger(LOG, "summarizeAiDataPlatformMetricsData")
+        .serviceDetails("Cluster", "SummarizeAiDataPlatformMetricsData", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SummarizeAiDataPlatformMetricsDataRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("summarizeMetricsData")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("if-match", request.getIfMatch())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.SummarizeMetricsResponse.class, SummarizeAiDataPlatformMetricsDataResponse.Builder::summarizeMetricsResponse)
+                .handleResponseHeaderString("etag", 
+            SummarizeAiDataPlatformMetricsDataResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            SummarizeAiDataPlatformMetricsDataResponse.Builder::opcRequestId)
 
                 .callSync();
     }

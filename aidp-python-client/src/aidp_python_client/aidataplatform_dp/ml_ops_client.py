@@ -87,7 +87,7 @@ class MLOpsClient(object):
 
     def create_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, create_experiment_details, **kwargs):
         """
-        Create an Experiment in a Workspace.
+        (Preview) Creates an experiment in a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -99,7 +99,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.CreateExperimentDetails create_experiment_details: (required)
-            Details for the new Experiment.
+            Details for the new experiment.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -189,7 +189,7 @@ class MLOpsClient(object):
 
     def create_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, create_experiment_run_details, **kwargs):
         """
-        Create a new run within an Experiment.
+        (Preview) Creates a new run within an experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -291,7 +291,7 @@ class MLOpsClient(object):
 
     def create_ai_data_platform_model_version(self, ai_data_platform_id, create_model_version_details, **kwargs):
         """
-        Create a ModelVersion.
+        (Preview) Creates a model version.
 
 
         :param str ai_data_platform_id: (required)
@@ -300,7 +300,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateModelVersionDetails create_model_version_details: (required)
-            Details for the new ModelVersion.
+            Details for the new model version.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -389,7 +389,7 @@ class MLOpsClient(object):
 
     def create_ai_data_platform_registered_model(self, ai_data_platform_id, create_registered_model_details, **kwargs):
         """
-        Create a RegisteredModel in a Workspace.
+        (Preview) Creates a registered model in a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -398,7 +398,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateRegisteredModelDetails create_registered_model_details: (required)
-            Details for the new RegisteredModel.
+            Details for the new registered model.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -487,7 +487,7 @@ class MLOpsClient(object):
 
     def create_ai_data_platform_workspace_model_version(self, ai_data_platform_id, workspace_key, create_model_version_details, **kwargs):
         """
-        Create a ModelVersion in a specified Workspace.
+        (Preview) Creates a new model version in a specified workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -499,7 +499,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.CreateModelVersionDetails create_model_version_details: (required)
-            Details for the new ModelVersion.
+            Details for the new model version.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -589,7 +589,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, delete_experiment_details, **kwargs):
         """
-        Delete an Experiment
+        (Preview) Deletes an experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -601,7 +601,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.DeleteExperimentDetails delete_experiment_details: (required)
-            Details of the Experiment.
+            Details of the experiment.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -691,7 +691,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, delete_experiment_run_details, **kwargs):
         """
-        Delete an Experiment Run
+        (Preview) Deletes an experiment run.
 
 
         :param str ai_data_platform_id: (required)
@@ -793,7 +793,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_experiment_run_tag(self, ai_data_platform_id, workspace_key, delete_experiment_run_tag_details, **kwargs):
         """
-        Delete a tag on an Experiment Run.
+        (Preview) Deletes a tag on an experiment run.
 
 
         :param str ai_data_platform_id: (required)
@@ -805,7 +805,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.DeleteExperimentRunTagDetails delete_experiment_run_tag_details: (required)
-            Tag details to delete on an Experiment Run.
+            Tag details to delete on an experiment run.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -895,7 +895,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_experiment_tag(self, ai_data_platform_id, workspace_key, delete_experiment_tag_details, **kwargs):
         """
-        Delete a tag on an Experiment.
+        (Preview) Deletes a tag on an experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -907,7 +907,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.DeleteExperimentTagDetails delete_experiment_tag_details: (required)
-            Tag details to delete on an Experiment.
+            Tag details to delete on an experiment.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -997,7 +997,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_model_version(self, ai_data_platform_id, delete_model_version_details, **kwargs):
         """
-        Delete a ModelVersion
+        (Preview) Deletes a model version.
 
 
         :param str ai_data_platform_id: (required)
@@ -1006,7 +1006,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.DeleteModelVersionDetails delete_model_version_details: (required)
-            Details of the ModelVersion.
+            Details of the model version to delete.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -1095,7 +1095,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_model_version_tag(self, ai_data_platform_id, delete_model_version_tag_details, **kwargs):
         """
-        Delete a tag on ModelVersion.
+        (Preview) Deletes a tag on a model version.
 
 
         :param str ai_data_platform_id: (required)
@@ -1104,7 +1104,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.DeleteModelVersionTagDetails delete_model_version_tag_details: (required)
-            Details of a ModelVersion tag.
+            Details of a model version tag to delete.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -1193,7 +1193,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_registered_model(self, ai_data_platform_id, delete_registered_model_details, **kwargs):
         """
-        Delete a RegisteredModel
+        (Preview) Deletes a registered model.
 
 
         :param str ai_data_platform_id: (required)
@@ -1202,7 +1202,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.DeleteRegisteredModelDetails delete_registered_model_details: (required)
-            Details of the RegisteredModel.
+            Details of the registered model to delete.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -1291,7 +1291,7 @@ class MLOpsClient(object):
 
     def delete_ai_data_platform_registered_model_tag(self, ai_data_platform_id, delete_registered_model_tag_details, **kwargs):
         """
-        Delete a tag on RegisteredModel.
+        (Preview) Deletes a tag on a registered model.
 
 
         :param str ai_data_platform_id: (required)
@@ -1300,7 +1300,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.DeleteRegisteredModelTagDetails delete_registered_model_tag_details: (required)
-            Details of a RegisteredModel tag.
+            Details of a registered model tag.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -1389,7 +1389,7 @@ class MLOpsClient(object):
 
     def get_ai_data_platform_experiment_by_id(self, ai_data_platform_id, workspace_key, experiment_id, **kwargs):
         """
-        Get metadata for an experiment by ID. This method works on deleted experiments.
+        (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
 
 
         :param str ai_data_platform_id: (required)
@@ -1401,7 +1401,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param str experiment_id: (required)
-            The unique ID of the experiment to retrieve
+            The unique ID of the experiment to retrieve.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -1485,7 +1485,7 @@ class MLOpsClient(object):
 
     def get_ai_data_platform_experiment_by_name(self, ai_data_platform_id, workspace_key, experiment_name, **kwargs):
         """
-        This endpoint will return deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
+        (Preview) Returns experiment metadata for a given name. Returns deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
 
 
         :param str ai_data_platform_id: (required)
@@ -1497,7 +1497,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param str experiment_name: (required)
-            The name of the experiment to retrieve
+            The name of the experiment to retrieve.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -1581,7 +1581,7 @@ class MLOpsClient(object):
 
     def get_ai_data_platform_experiment_run_by_id(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
         """
-        Get details of an experiment run by ID.
+        (Preview) Returns details of an experiment run by ID.
 
 
         :param str ai_data_platform_id: (required)
@@ -1593,7 +1593,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param str run_id: (required)
-            ID of the run to fetch
+            ID of the run to fetch.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -1677,7 +1677,7 @@ class MLOpsClient(object):
 
     def get_ai_data_platform_experiment_run_metric_history(self, ai_data_platform_id, workspace_key, run_id, metric_key, **kwargs):
         """
-        Returns a history of ExperimentRun metric.
+        (Preview) Returns a history of experiment run metrics.
 
 
         :param str ai_data_platform_id: (required)
@@ -1689,13 +1689,13 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param str run_id: (required)
-            ID of the Run metric history to fetch
+            ID of the run metric history to fetch.
 
         :param str metric_key: (required)
-            Name of the metric key
+            Name of the metric key.
 
         :param str page_token: (optional)
-            Pagination token to go to the next page of metric history
+            Pagination token to go to the next page of metric history.
 
         :param int max_results: (optional)
             Maximum number of logged instances of a metric for a run to return per call. Backend servers
@@ -1790,7 +1790,7 @@ class MLOpsClient(object):
 
     def get_ai_data_platform_model_version(self, ai_data_platform_id, name, version, **kwargs):
         """
-        Get details for ModelVersion.
+        (Preview)  Returns detailed information for a model version.
 
 
         :param str ai_data_platform_id: (required)
@@ -1799,10 +1799,10 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param str name: (required)
-            Name of the ModelVersion
+            Name of the model version.
 
         :param str version: (required)
-            Version number of the model version
+            Version number of the model version.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -1886,7 +1886,7 @@ class MLOpsClient(object):
 
     def get_ai_data_platform_registered_model(self, ai_data_platform_id, name, **kwargs):
         """
-        Get details for RegisteredModel.
+        (Preview) Returns details for a specified registered model.
 
 
         :param str ai_data_platform_id: (required)
@@ -1895,7 +1895,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param str name: (required)
-            Name of the RegisteredModel
+            Name of the registered model.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -1978,7 +1978,7 @@ class MLOpsClient(object):
 
     def list_ai_data_platform_artifacts(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
         """
-        Returns a list of Artifacts.
+        (Preview) Returns a list of artifacts.
 
 
         :param str ai_data_platform_id: (required)
@@ -1990,13 +1990,13 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param str run_id: (required)
-            ID of the run whose artifacts to list
+            ID of the run whose artifacts to list.
 
         :param str path: (optional)
-            Filter artifacts matching this path (a relative path from the root artifact directory)
+            Filter artifacts matching this path (a relative path from the root artifact directory).
 
         :param str page_token: (optional)
-            Token indicating the page of artifact results to fetch
+            Token indicating the page of artifact results to fetch.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -2084,7 +2084,7 @@ class MLOpsClient(object):
 
     def list_ai_data_platform_experiment_runs(self, ai_data_platform_id, workspace_key, list_experiment_runs_details, **kwargs):
         """
-        Returns a list of Experiment Runs in a Workspace.
+        (Preview) Returns a list of experiment runs in a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -2096,7 +2096,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.ListExperimentRunsDetails list_experiment_runs_details: (required)
-            Details of Experiment Runs to fetch.
+            Details of experiment runs to fetch.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -2175,7 +2175,7 @@ class MLOpsClient(object):
 
     def list_ai_data_platform_experiments(self, ai_data_platform_id, workspace_key, list_experiments_details, **kwargs):
         """
-        Returns a list of Experiments.
+        (Preview) Returns a list of experiments with the given details.
 
 
         :param str ai_data_platform_id: (required)
@@ -2187,7 +2187,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.ListExperimentsDetails list_experiments_details: (required)
-            Details of Experiments to fetch.
+            Details of experiments to fetch.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -2266,7 +2266,7 @@ class MLOpsClient(object):
 
     def list_ai_data_platform_logged_models(self, ai_data_platform_id, workspace_key, list_logged_models_details, **kwargs):
         """
-        Returns a list of LoggedModels.
+        (Preview) Returns a list of logged models.
 
 
         :param str ai_data_platform_id: (required)
@@ -2278,7 +2278,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.ListLoggedModelsDetails list_logged_models_details: (required)
-            Details of LoggedModels to fetch.
+            Details of logged models to fetch.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -2357,7 +2357,7 @@ class MLOpsClient(object):
 
     def list_ai_data_platform_model_versions(self, ai_data_platform_id, **kwargs):
         """
-        Returns a list of ModelVersions.
+        (Preview) Returns a list of model versions.
 
 
         :param str ai_data_platform_id: (required)
@@ -2370,10 +2370,10 @@ class MLOpsClient(object):
             values wrapped in single quotes.
 
         :param int max_results: (optional)
-            Maximum number of model versions to retrieve
+            Maximum number of model versions to retrieve.
 
         :param str page_token: (optional)
-            Pagination token to go to the next page based on a previous search query
+            Pagination token to go to the next page based on a previous search query.
 
         :param str order_by: (optional)
             List of columns to be ordered by including model name, version, stage with an optional \"DESC\" or \"ASC\"
@@ -2468,7 +2468,7 @@ class MLOpsClient(object):
 
     def list_ai_data_platform_registered_models(self, ai_data_platform_id, **kwargs):
         """
-        Returns a list of RegisteredModels in a Workspace.
+        (Preview) Returns a list of registered models in a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -2482,10 +2482,10 @@ class MLOpsClient(object):
             values wrapped in single quotes.
 
         :param int max_results: (optional)
-            Maximum number of models desired. Default is 100. Max threshold is 1000
+            Maximum number of models desired. Default is 100. Max threshold is 1000.
 
         :param str page_token: (optional)
-            Pagination token to go to the next page based on a previous search query
+            Pagination token to go to the next page based on a previous search query.
 
         :param str order_by: (optional)
             List of columns for ordering search results, which can include model name and last updated
@@ -2580,7 +2580,7 @@ class MLOpsClient(object):
 
     def log_ai_data_platform_experiment_run_batch(self, ai_data_platform_id, workspace_key, log_experiment_run_batch_details, **kwargs):
         """
-        Log an Experiment Run Batch.
+        (Preview) Logs an experiment run batch.
 
 
         :param str ai_data_platform_id: (required)
@@ -2592,7 +2592,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.LogExperimentRunBatchDetails log_experiment_run_batch_details: (required)
-            Details of an Experiment Run Batch.
+            Details of an experiment run batch.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -2682,7 +2682,7 @@ class MLOpsClient(object):
 
     def log_ai_data_platform_experiment_run_inputs(self, ai_data_platform_id, workspace_key, log_experiment_run_inputs_details, **kwargs):
         """
-        Log an Experiment Run Inputs.
+        (Preview) Logs experiment run inputs.
 
 
         :param str ai_data_platform_id: (required)
@@ -2694,7 +2694,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.LogExperimentRunInputsDetails log_experiment_run_inputs_details: (required)
-            Details of an Experiment Run Inputs.
+            Details of experiment run inputs.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -2784,7 +2784,7 @@ class MLOpsClient(object):
 
     def log_ai_data_platform_experiment_run_metric(self, ai_data_platform_id, workspace_key, log_experiment_run_metric_details, **kwargs):
         """
-        Log an Experiment Run Metric.
+        (Preview) Logs an experiment run metric.
 
 
         :param str ai_data_platform_id: (required)
@@ -2796,7 +2796,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.LogExperimentRunMetricDetails log_experiment_run_metric_details: (required)
-            Details of an Experiment Run Metric.
+            Details of an experiment run metric.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -2886,7 +2886,7 @@ class MLOpsClient(object):
 
     def log_ai_data_platform_experiment_run_model(self, ai_data_platform_id, workspace_key, log_experiment_run_model_details, **kwargs):
         """
-        Log an Experiment Run Model.
+        (Preview) Logs an experiment run model.
 
 
         :param str ai_data_platform_id: (required)
@@ -2898,7 +2898,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.LogExperimentRunModelDetails log_experiment_run_model_details: (required)
-            Details of an Experiment Run Model.
+            Details of an experiment run model.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -2988,7 +2988,7 @@ class MLOpsClient(object):
 
     def log_ai_data_platform_experiment_run_param(self, ai_data_platform_id, workspace_key, log_experiment_run_param_details, **kwargs):
         """
-        Log an Experiment Run Param.
+        (Preview) Logs an experiment run parameter.
 
 
         :param str ai_data_platform_id: (required)
@@ -3000,7 +3000,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.LogExperimentRunParamDetails log_experiment_run_param_details: (required)
-            Details of an Experiment Run Param.
+            Details of an experiment run parameter.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3090,7 +3090,7 @@ class MLOpsClient(object):
 
     def rename_ai_data_platform_registered_model(self, ai_data_platform_id, rename_registered_model_details, **kwargs):
         """
-        Rename a RegisteredModel.
+        (Preview) Renames a registered model.
 
 
         :param str ai_data_platform_id: (required)
@@ -3099,7 +3099,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.RenameRegisteredModelDetails rename_registered_model_details: (required)
-            Details of a RegisteredModel Rename.
+            Details of a registered model rename.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3188,7 +3188,7 @@ class MLOpsClient(object):
 
     def restore_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, restore_experiment_details, **kwargs):
         """
-        Restore an Experiment.
+        (Preview) Restores an experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -3290,7 +3290,7 @@ class MLOpsClient(object):
 
     def restore_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, restore_experiment_run_details, **kwargs):
         """
-        Restore an Experiment Run.
+        (Preview) Restores an experiment run.
 
 
         :param str ai_data_platform_id: (required)
@@ -3392,7 +3392,7 @@ class MLOpsClient(object):
 
     def set_ai_data_platform_experiment_run_tag(self, ai_data_platform_id, workspace_key, set_experiment_run_tag_details, **kwargs):
         """
-        Set a tag on an Experiment Run.
+        (Preview) Sets a tag on an experiment run.
 
 
         :param str ai_data_platform_id: (required)
@@ -3404,7 +3404,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.SetExperimentRunTagDetails set_experiment_run_tag_details: (required)
-            Tag details to set on an Experiment Run.
+            Tag details to set on an experiment run.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3494,7 +3494,7 @@ class MLOpsClient(object):
 
     def set_ai_data_platform_experiment_tag(self, ai_data_platform_id, workspace_key, set_experiment_tag_details, **kwargs):
         """
-        Set a tag on an Experiment.
+        (Preview) Sets a tag on an experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -3506,7 +3506,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.SetExperimentTagDetails set_experiment_tag_details: (required)
-            Tag details to set on an Experiment.
+            Tag details to set on an experiment.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3596,7 +3596,7 @@ class MLOpsClient(object):
 
     def set_ai_data_platform_model_version_tag(self, ai_data_platform_id, set_model_version_tag_details, **kwargs):
         """
-        Set a tag on ModelVersion.
+        (Preview) Sets a tag on a model version.
 
 
         :param str ai_data_platform_id: (required)
@@ -3605,7 +3605,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.SetModelVersionTagDetails set_model_version_tag_details: (required)
-            Details of a ModelVersion tag.
+            Details of a model version tag.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3694,7 +3694,7 @@ class MLOpsClient(object):
 
     def set_ai_data_platform_registered_model_tag(self, ai_data_platform_id, set_registered_model_tag_details, **kwargs):
         """
-        Set a tag on RegisteredModel.
+        (Preview) Sets a tag on a registered model.
 
 
         :param str ai_data_platform_id: (required)
@@ -3703,7 +3703,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.SetRegisteredModelTagDetails set_registered_model_tag_details: (required)
-            Details of a RegisteredModel tag.
+            Details of a registered model tag.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3792,7 +3792,7 @@ class MLOpsClient(object):
 
     def transition_ai_data_platform_model_version_stage(self, ai_data_platform_id, transition_model_version_stage_details, **kwargs):
         """
-        Transition a ModelVersion stage
+        (Preview) Transitions a model version stage.
 
 
         :param str ai_data_platform_id: (required)
@@ -3801,7 +3801,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.TransitionModelVersionStageDetails transition_model_version_stage_details: (required)
-            Transition a ModelVersion stage.
+            Details to transition a model version stage.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -3890,7 +3890,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, update_experiment_details, **kwargs):
         """
-        Update an Experiment.
+        (Preview) Updates an experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -3992,7 +3992,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, update_experiment_run_details, **kwargs):
         """
-        Update an Experiment Run.
+        (Preview) Updates an experiment run.
 
 
         :param str ai_data_platform_id: (required)
@@ -4004,7 +4004,7 @@ class MLOpsClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.UpdateExperimentRunDetails update_experiment_run_details: (required)
-            Update experiment run.
+            Update experiment run details.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -4094,7 +4094,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_experiment_run_tags(self, ai_data_platform_id, workspace_key, update_experiment_run_tags_details, **kwargs):
         """
-        Update tags on ExperimentRun.
+        (Preview) Updates tags on an experiment run.
 
 
         :param str ai_data_platform_id: (required)
@@ -4196,7 +4196,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_experiment_tags(self, ai_data_platform_id, workspace_key, update_experiment_tags_details, **kwargs):
         """
-        Update tags on Experiment.
+        (Preview) Updates tags on experiment.
 
 
         :param str ai_data_platform_id: (required)
@@ -4298,7 +4298,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_model_version(self, ai_data_platform_id, update_model_version_details, **kwargs):
         """
-        Update a ModelVersion
+        (Preview) Updates a model version
 
 
         :param str ai_data_platform_id: (required)
@@ -4307,7 +4307,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.UpdateModelVersionDetails update_model_version_details: (required)
-            Update ModelVersion.
+            Details to update model version.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -4396,7 +4396,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_model_version_tags(self, ai_data_platform_id, update_model_version_tags_details, **kwargs):
         """
-        Update tags on ModelVersion.
+        (Preview) Updates tags on a model version.
 
 
         :param str ai_data_platform_id: (required)
@@ -4405,7 +4405,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.UpdateModelVersionTagsDetails update_model_version_tags_details: (required)
-            Details of ModelVersion tags.
+            Details of model version tags to update.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -4494,7 +4494,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_registered_model(self, ai_data_platform_id, update_registered_model_details, **kwargs):
         """
-        Update a RegisteredModel
+        (Preview) Updates a registered model with the provided details.
 
 
         :param str ai_data_platform_id: (required)
@@ -4503,7 +4503,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.UpdateRegisteredModelDetails update_registered_model_details: (required)
-            Update RegisteredModel.
+            Details to update the registered model.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -4592,7 +4592,7 @@ class MLOpsClient(object):
 
     def update_ai_data_platform_registered_model_tags(self, ai_data_platform_id, update_registered_model_tags_details, **kwargs):
         """
-        Update tags on RegisteredModel.
+        (Preview) Updates tags on a registered model.
 
 
         :param str ai_data_platform_id: (required)
@@ -4601,7 +4601,7 @@ class MLOpsClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.UpdateRegisteredModelTagsDetails update_registered_model_tags_details: (required)
-            Details of RegisteredModel tags.
+            Details of registered model tags.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or

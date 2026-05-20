@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Status of the Run.
+ * Status of the run.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum DeploymentJobRunState implements com.oracle.bmc.http.internal.BmcEnum {

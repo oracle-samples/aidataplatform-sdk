@@ -12,11 +12,11 @@ export interface UpdateAiDataPlatformCredentialRequest extends common.BaseReques
  */
  'aiDataPlatformId': string;
 /**
- * The unique identifier of the credential object whose details are to be retrieved.
+ * The unique identifier of an credential
  */
  'credentialKey': string;
 /**
- * The information to be updated
+ * The information to be updated.
  */
  'updateDataLakeCredentialDetails':  model.UpdateDataLakeCredentialDetails;
 /**

@@ -22,11 +22,16 @@ export interface AgentNode extends model.AgentFlowNode {
     * List of tools that are accessible to the agent. Provide the unique tool key
     */
     'tools'?: Array<model.Tool>;
+    /**
+    * A list of tool reference keys, the full tool definition can be found in the toolsMap.
+    */
+    'toolReferences'?: Array<string>;
 
    "type": string;
 }
 
 export namespace AgentNode {
+
 
 
 
@@ -51,6 +56,7 @@ export namespace AgentNode {
                 obj.tools.map((item)=>{return model.Tool.getJsonObj(item)})
                 
                  : undefined,
+
         }};
 
         
@@ -76,6 +82,7 @@ export namespace AgentNode {
                 obj.tools.map((item)=>{return model.Tool.getDeserializedJsonObj(item)})
                 
                  : undefined,
+
          }};
 
         

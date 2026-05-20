@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Information to update permissions on a Credential.
+* Information to update permissions on a credential.
 */
 export interface ManageCredentialPermissionDetails {
     'assignCredentialPermissionDetails'?: model.AssignCredentialPermissionDetails;

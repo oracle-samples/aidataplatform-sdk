@@ -15,7 +15,8 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhTable.class, name = "ALH"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardTable.class, name = "STANDARD"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataTable.class, name = "EXADATA"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpTable.class, name = "ATP")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpTable.class, name = "ATP"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacTable.class, name = "ORACLE_ANALYTICS")
 })
 
 public class Table  {

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of the model version
+* Details of the model version.
 */
 export interface UpdateModelVersionDetails {
     /**
@@ -13,7 +13,7 @@ export interface UpdateModelVersionDetails {
     */
     'name': string;
     /**
-    * Model\u2019s version number.
+    * Model version number.
     */
     'version': string;
     /**

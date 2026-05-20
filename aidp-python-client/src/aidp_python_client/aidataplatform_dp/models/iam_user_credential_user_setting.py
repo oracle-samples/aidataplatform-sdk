@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class IamUserCredentialUserSetting(SettingData):
     """
-    IAM user credential setting details
+    IAM user credential setting details.
     """
 
     def __init__(self, **kwargs):
@@ -75,7 +75,7 @@ class IamUserCredentialUserSetting(SettingData):
     def user_id(self):
         """
         **[Required]** Gets the user_id of this IamUserCredentialUserSetting.
-        User OCID or User Name
+        User OCID or User Name.
 
 
         :return: The user_id of this IamUserCredentialUserSetting.
@@ -87,7 +87,7 @@ class IamUserCredentialUserSetting(SettingData):
     def user_id(self, user_id):
         """
         Sets the user_id of this IamUserCredentialUserSetting.
-        User OCID or User Name
+        User OCID or User Name.
 
 
         :param user_id: The user_id of this IamUserCredentialUserSetting.
@@ -99,7 +99,7 @@ class IamUserCredentialUserSetting(SettingData):
     def tenancy(self):
         """
         **[Required]** Gets the tenancy of this IamUserCredentialUserSetting.
-        Tenancy
+        Tenancy of the user.
 
 
         :return: The tenancy of this IamUserCredentialUserSetting.
@@ -111,7 +111,7 @@ class IamUserCredentialUserSetting(SettingData):
     def tenancy(self, tenancy):
         """
         Sets the tenancy of this IamUserCredentialUserSetting.
-        Tenancy
+        Tenancy of the user.
 
 
         :param tenancy: The tenancy of this IamUserCredentialUserSetting.
@@ -123,7 +123,7 @@ class IamUserCredentialUserSetting(SettingData):
     def region(self):
         """
         **[Required]** Gets the region of this IamUserCredentialUserSetting.
-        Region
+        Region of the user.
 
 
         :return: The region of this IamUserCredentialUserSetting.
@@ -135,7 +135,7 @@ class IamUserCredentialUserSetting(SettingData):
     def region(self, region):
         """
         Sets the region of this IamUserCredentialUserSetting.
-        Region
+        Region of the user.
 
 
         :param region: The region of this IamUserCredentialUserSetting.
@@ -147,7 +147,7 @@ class IamUserCredentialUserSetting(SettingData):
     def fingerprint(self):
         """
         **[Required]** Gets the fingerprint of this IamUserCredentialUserSetting.
-        Fingerprint
+        Fingerprint.
 
 
         :return: The fingerprint of this IamUserCredentialUserSetting.
@@ -159,7 +159,7 @@ class IamUserCredentialUserSetting(SettingData):
     def fingerprint(self, fingerprint):
         """
         Sets the fingerprint of this IamUserCredentialUserSetting.
-        Fingerprint
+        Fingerprint.
 
 
         :param fingerprint: The fingerprint of this IamUserCredentialUserSetting.
@@ -171,7 +171,7 @@ class IamUserCredentialUserSetting(SettingData):
     def private_api_key(self):
         """
         **[Required]** Gets the private_api_key of this IamUserCredentialUserSetting.
-        Private API Key
+        Private API Key.
 
 
         :return: The private_api_key of this IamUserCredentialUserSetting.
@@ -183,7 +183,7 @@ class IamUserCredentialUserSetting(SettingData):
     def private_api_key(self, private_api_key):
         """
         Sets the private_api_key of this IamUserCredentialUserSetting.
-        Private API Key
+        Private API Key.
 
 
         :param private_api_key: The private_api_key of this IamUserCredentialUserSetting.

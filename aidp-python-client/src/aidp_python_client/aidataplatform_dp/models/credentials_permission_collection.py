@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CredentialsPermissionCollection(object):
     """
-    List of Credential permissions.
+    List of credential permissions.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class CredentialsPermissionCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this CredentialsPermissionCollection.
-        List of Credential permissions.
+        List of credential permissions.
 
 
         :return: The items of this CredentialsPermissionCollection.
@@ -49,7 +49,7 @@ class CredentialsPermissionCollection(object):
     def items(self, items):
         """
         Sets the items of this CredentialsPermissionCollection.
-        List of Credential permissions.
+        List of credential permissions.
 
 
         :param items: The items of this CredentialsPermissionCollection.

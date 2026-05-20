@@ -58,7 +58,7 @@ class ModelMetric(object):
     def key(self):
         """
         Gets the key of this ModelMetric.
-        Name of the metric
+        Name of the metric.
 
 
         :return: The key of this ModelMetric.
@@ -70,7 +70,7 @@ class ModelMetric(object):
     def key(self, key):
         """
         Sets the key of this ModelMetric.
-        Name of the metric
+        Name of the metric.
 
 
         :param key: The key of this ModelMetric.
@@ -82,7 +82,7 @@ class ModelMetric(object):
     def value(self):
         """
         Gets the value of this ModelMetric.
-        Value of the metric
+        Value of the metric.
 
 
         :return: The value of this ModelMetric.
@@ -94,7 +94,7 @@ class ModelMetric(object):
     def value(self, value):
         """
         Sets the value of this ModelMetric.
-        Value of the metric
+        Value of the metric.
 
 
         :param value: The value of this ModelMetric.

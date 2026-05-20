@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitFolderMetadatum(object):
     """
-    Details about a git repository
+    Details about a Git repository.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class GitFolderMetadatum(object):
     def repo_key(self):
         """
         **[Required]** Gets the repo_key of this GitFolderMetadatum.
-        Unique repo key if folder/file path is associated with a git folder
+        Unique repo key if folder/file path is associated with a Git folder.
 
 
         :return: The repo_key of this GitFolderMetadatum.
@@ -56,7 +56,7 @@ class GitFolderMetadatum(object):
     def repo_key(self, repo_key):
         """
         Sets the repo_key of this GitFolderMetadatum.
-        Unique repo key if folder/file path is associated with a git folder
+        Unique repo key if folder/file path is associated with a Git folder.
 
 
         :param repo_key: The repo_key of this GitFolderMetadatum.
@@ -68,7 +68,7 @@ class GitFolderMetadatum(object):
     def is_associated(self):
         """
         **[Required]** Gets the is_associated of this GitFolderMetadatum.
-        If the passed folder/file path is associated with a git folder. (Active/Inactive)
+        If the passed folder/file path is associated with a Git folder. (Active/Inactive)
 
 
         :return: The is_associated of this GitFolderMetadatum.
@@ -80,7 +80,7 @@ class GitFolderMetadatum(object):
     def is_associated(self, is_associated):
         """
         Sets the is_associated of this GitFolderMetadatum.
-        If the passed folder/file path is associated with a git folder. (Active/Inactive)
+        If the passed folder/file path is associated with a Git folder. (Active/Inactive)
 
 
         :param is_associated: The is_associated of this GitFolderMetadatum.

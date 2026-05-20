@@ -29,7 +29,7 @@ class UpdateHttpToolDetails(UpdateToolDetails):
 
         :param tool_type:
             The value to assign to the tool_type property of this UpdateHttpToolDetails.
-            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
         :type tool_type: str
 
         :param properties:

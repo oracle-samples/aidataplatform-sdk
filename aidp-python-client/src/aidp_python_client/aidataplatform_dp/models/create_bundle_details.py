@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateBundleDetails(object):
     """
-    Request body to create a new Bundle.
+    Request body to create a new bundle.
     """
 
     def __init__(self, **kwargs):
@@ -58,7 +58,7 @@ class CreateBundleDetails(object):
     def name(self):
         """
         **[Required]** Gets the name of this CreateBundleDetails.
-        Name for the new bundle
+        Name for the new bundle.
 
 
         :return: The name of this CreateBundleDetails.
@@ -70,7 +70,7 @@ class CreateBundleDetails(object):
     def name(self, name):
         """
         Sets the name of this CreateBundleDetails.
-        Name for the new bundle
+        Name for the new bundle.
 
 
         :param name: The name of this CreateBundleDetails.
@@ -82,7 +82,7 @@ class CreateBundleDetails(object):
     def description(self):
         """
         Gets the description of this CreateBundleDetails.
-        Description for the bundle
+        Description for the bundle.
 
 
         :return: The description of this CreateBundleDetails.
@@ -94,7 +94,7 @@ class CreateBundleDetails(object):
     def description(self, description):
         """
         Sets the description of this CreateBundleDetails.
-        Description for the bundle
+        Description for the bundle.
 
 
         :param description: The description of this CreateBundleDetails.
@@ -106,7 +106,7 @@ class CreateBundleDetails(object):
     def path(self):
         """
         **[Required]** Gets the path of this CreateBundleDetails.
-        Target folder for the new bundle
+        Target folder for the new bundle.
 
 
         :return: The path of this CreateBundleDetails.
@@ -118,7 +118,7 @@ class CreateBundleDetails(object):
     def path(self, path):
         """
         Sets the path of this CreateBundleDetails.
-        Target folder for the new bundle
+        Target folder for the new bundle.
 
 
         :param path: The path of this CreateBundleDetails.

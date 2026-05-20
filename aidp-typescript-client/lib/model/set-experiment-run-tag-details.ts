@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Tag details to set on an Experiment Run.
+* Tag details to set on an experiment run.
 */
 export interface SetExperimentRunTagDetails {
     /**
@@ -13,11 +13,11 @@ export interface SetExperimentRunTagDetails {
     */
     'runId': string;
     /**
-    * Key of the run tag
+    * Key of the run tag.
     */
     'key': string;
     /**
-    * Value of the run tag
+    * Value of the run tag.
     */
     'value': string;
 

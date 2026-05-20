@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class AdminSettingSummary(object):
     """
-    Summary of Setting
+    Summary of admin settings.
     """
 
     #: A constant which can be used with the type property of a AdminSettingSummary.
@@ -244,7 +244,7 @@ class AdminSettingSummary(object):
     def properties(self):
         """
         Gets the properties of this AdminSettingSummary.
-        A generic property bag associated with the setting resource
+        A generic property bag associated with the setting resource.
 
 
         :return: The properties of this AdminSettingSummary.
@@ -256,7 +256,7 @@ class AdminSettingSummary(object):
     def properties(self, properties):
         """
         Sets the properties of this AdminSettingSummary.
-        A generic property bag associated with the setting resource
+        A generic property bag associated with the setting resource.
 
 
         :param properties: The properties of this AdminSettingSummary.

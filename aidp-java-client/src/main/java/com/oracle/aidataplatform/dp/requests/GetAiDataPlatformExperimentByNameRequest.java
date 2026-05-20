@@ -34,14 +34,14 @@ public class GetAiDataPlatformExperimentByNameRequest extends com.oracle.bmc.req
         return workspaceKey;
     }
         /**
-     * The name of the experiment to retrieve
+     * The name of the experiment to retrieve.
      */
     private String experimentName;
 
     
 
         /**
-     * The name of the experiment to retrieve
+     * The name of the experiment to retrieve.
      */
     public String getExperimentName() {
         return experimentName;
@@ -117,12 +117,12 @@ public class GetAiDataPlatformExperimentByNameRequest extends com.oracle.bmc.req
         }
 
             /**
-     * The name of the experiment to retrieve
+     * The name of the experiment to retrieve.
      */
         private String experimentName = null;
 
         /**
-         * The name of the experiment to retrieve
+         * The name of the experiment to retrieve.
          * @param experimentName the value to set
          * @return this builder instance
          */

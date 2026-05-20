@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Result of listing Artifacts.
+* Result of listing artifacts.
 */
 export interface ArtifactList {
     /**

@@ -41,7 +41,7 @@ export interface ExperimentRunInfo {
     */
     'lifecycleStage'?: string;
     /**
-    * uuid of the run.
+    * UUID of the run.
     */
     'runUuid'?: string;
     /**

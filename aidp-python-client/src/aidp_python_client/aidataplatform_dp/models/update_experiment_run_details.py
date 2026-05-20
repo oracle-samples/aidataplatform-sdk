@@ -107,7 +107,7 @@ class UpdateExperimentRunDetails(object):
     def status(self):
         """
         Gets the status of this UpdateExperimentRunDetails.
-        Updated Status of the run.
+        Updated status of the run.
 
         Allowed values for this property are: "RUNNING", "SCHEDULED", "FINISHED", "FAILED", "KILLED", "INTERNAL_ERROR"
 
@@ -121,7 +121,7 @@ class UpdateExperimentRunDetails(object):
     def status(self, status):
         """
         Sets the status of this UpdateExperimentRunDetails.
-        Updated Status of the run.
+        Updated status of the run.
 
 
         :param status: The status of this UpdateExperimentRunDetails.

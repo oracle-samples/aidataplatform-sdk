@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Key of the Experiment tag.
+* Key of the experiment tag.
 */
 export interface ExperimentTagKey {
     /**

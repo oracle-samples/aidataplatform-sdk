@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitDiffSummaryCollection(object):
     """
-    Collection of git diff summaries for files under a folder context.
+    Collection of Git diff summaries for files under a folder context.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class GitDiffSummaryCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this GitDiffSummaryCollection.
-        List of git diff summaries.
+        List of Git diff summaries.
 
 
         :return: The items of this GitDiffSummaryCollection.
@@ -49,7 +49,7 @@ class GitDiffSummaryCollection(object):
     def items(self, items):
         """
         Sets the items of this GitDiffSummaryCollection.
-        List of git diff summaries.
+        List of Git diff summaries.
 
 
         :param items: The items of this GitDiffSummaryCollection.

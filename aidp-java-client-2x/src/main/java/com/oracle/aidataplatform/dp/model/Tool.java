@@ -13,7 +13,6 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = PromptTool.class, name = "PROMPT"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = McpTool.class, name = "MCP"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlTool.class, name = "SQL"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ToolReference.class, name = "REFERENCE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = RagTool.class, name = "RAG"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = HttpTool.class, name = "HTTP"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = NlToSqlTool.class, name = "NL2SQL")
@@ -21,14 +20,13 @@ package com.oracle.aidataplatform.dp.model;
 
 public class Tool  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "workspaceKey", "description", "isReference", "positionX", "positionY", "properties", "timeCreated", "timeUpdated", "createdBy", "updatedBy"})
-    protected Tool(String key, String displayName, String workspaceKey, String description, Boolean isReference, Float positionX, Float positionY, java.util.Map<String, Object> properties, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy) {
+    @java.beans.ConstructorProperties({"key", "displayName", "workspaceKey", "description", "positionX", "positionY", "properties", "timeCreated", "timeUpdated", "createdBy", "updatedBy"})
+    protected Tool(String key, String displayName, String workspaceKey, String description, Float positionX, Float positionY, java.util.Map<String, Object> properties, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy) {
         super();
         this.key = key;
         this.displayName = displayName;
         this.workspaceKey = workspaceKey;
         this.description = description;
-        this.isReference = isReference;
         this.positionX = positionX;
         this.positionY = positionY;
         this.properties = properties;
@@ -106,23 +104,6 @@ public class Tool  {
     
     public String getDescription() {
         return description;
-    }
-
-
-        /**
-     * If true, this tool is a reference to a tool stored in the tool cache. | Used for backward compatibility so that the toolType for the reference can be set to the original tool type.
-     **/
-    
-    @com.fasterxml.jackson.annotation.JsonProperty("isReference")
-    private final Boolean isReference;
-
-        /**
-     * If true, this tool is a reference to a tool stored in the tool cache. | Used for backward compatibility so that the toolType for the reference can be set to the original tool type.
-     * @return the value
-     **/
-    
-    public Boolean getIsReference() {
-        return isReference;
     }
 
 
@@ -261,7 +242,6 @@ public class Tool  {
         sb.append(", displayName=").append(String.valueOf(this.displayName));
         sb.append(", workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(", description=").append(String.valueOf(this.description));
-        sb.append(", isReference=").append(String.valueOf(this.isReference));
         sb.append(", positionX=").append(String.valueOf(this.positionX));
         sb.append(", positionY=").append(String.valueOf(this.positionY));
         sb.append(", properties=").append(String.valueOf(this.properties));
@@ -287,7 +267,6 @@ public class Tool  {
             java.util.Objects.equals(this.displayName, other.displayName) &&
             java.util.Objects.equals(this.workspaceKey, other.workspaceKey) &&
             java.util.Objects.equals(this.description, other.description) &&
-            java.util.Objects.equals(this.isReference, other.isReference) &&
             java.util.Objects.equals(this.positionX, other.positionX) &&
             java.util.Objects.equals(this.positionY, other.positionY) &&
             java.util.Objects.equals(this.properties, other.properties) &&
@@ -305,7 +284,6 @@ public class Tool  {
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
-        result = (result * PRIME) + (this.isReference == null ? 43 : this.isReference.hashCode());
         result = (result * PRIME) + (this.positionX == null ? 43 : this.positionX.hashCode());
         result = (result * PRIME) + (this.positionY == null ? 43 : this.positionY.hashCode());
         result = (result * PRIME) + (this.properties == null ? 43 : this.properties.hashCode());

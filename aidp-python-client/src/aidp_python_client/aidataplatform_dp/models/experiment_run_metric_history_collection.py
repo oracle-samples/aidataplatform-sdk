@@ -44,7 +44,7 @@ class ExperimentRunMetricHistoryCollection(object):
     def metrics(self):
         """
         Gets the metrics of this ExperimentRunMetricHistoryCollection.
-        Logged values for the metric
+        Logged values for the metric.
 
 
         :return: The metrics of this ExperimentRunMetricHistoryCollection.
@@ -56,7 +56,7 @@ class ExperimentRunMetricHistoryCollection(object):
     def metrics(self, metrics):
         """
         Sets the metrics of this ExperimentRunMetricHistoryCollection.
-        Logged values for the metric
+        Logged values for the metric.
 
 
         :param metrics: The metrics of this ExperimentRunMetricHistoryCollection.

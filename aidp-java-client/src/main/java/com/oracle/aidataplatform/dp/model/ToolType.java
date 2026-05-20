@@ -15,7 +15,6 @@ public enum ToolType implements com.oracle.bmc.http.internal.BmcEnum {
     Mcp("MCP"),
     Custom("CUSTOM"),
     Http("HTTP"),
-    Reference("REFERENCE"),
     ;
 
     

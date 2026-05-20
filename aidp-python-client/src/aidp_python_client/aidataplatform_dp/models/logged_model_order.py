@@ -44,7 +44,7 @@ class LoggedModelOrder(object):
     def field_name(self):
         """
         **[Required]** Gets the field_name of this LoggedModelOrder.
-        field name. Allowed values are creation_time
+        Field name. Allowed values are creation_time.
 
 
         :return: The field_name of this LoggedModelOrder.
@@ -56,7 +56,7 @@ class LoggedModelOrder(object):
     def field_name(self, field_name):
         """
         Sets the field_name of this LoggedModelOrder.
-        field name. Allowed values are creation_time
+        Field name. Allowed values are creation_time.
 
 
         :param field_name: The field_name of this LoggedModelOrder.

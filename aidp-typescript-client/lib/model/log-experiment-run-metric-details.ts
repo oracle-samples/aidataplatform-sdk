@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of an Experiment Run Metric
+* Details of an experiment run metric.
 */
 export interface LogExperimentRunMetricDetails {
     /**
@@ -13,11 +13,11 @@ export interface LogExperimentRunMetricDetails {
     */
     'runId': string;
     /**
-    * Name of the metric
+    * Name of the metric.
     */
     'key': string;
     /**
-    * Value of the metric Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Value of the metric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'value': number;
     /**

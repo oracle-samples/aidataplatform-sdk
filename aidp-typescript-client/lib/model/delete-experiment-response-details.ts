@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for deleting an experiment
+* Response object for deleting an experiment.
 */
 export interface DeleteExperimentResponseDetails {
 

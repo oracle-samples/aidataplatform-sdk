@@ -22,14 +22,14 @@ public final class LoggedModelOrder  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * field name. Allowed values are creation_time
+     * Field name. Allowed values are creation_time.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("field_name")
 private String fieldName;
 
         /**
-         * field name. Allowed values are creation_time
+         * Field name. Allowed values are creation_time.
          * @param fieldName the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * field name. Allowed values are creation_time
+     * Field name. Allowed values are creation_time.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("field_name")
     private final String fieldName;
 
         /**
-     * field name. Allowed values are creation_time
+     * Field name. Allowed values are creation_time.
      * @return the value
      **/
     

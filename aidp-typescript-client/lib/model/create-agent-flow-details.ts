@@ -38,6 +38,7 @@ export interface CreateAgentFlowDetails {
     'computeKey'?: string;
     'guardrails'?: model.GuardrailsConfiguration;
     'sessionConfig'?: model.SessionConfiguration;
+    'agentCardConfig'?: model.AgentCardConfigDetail;
     'diagram'?: model.AgentFlowDiagram;
 
 }
@@ -53,6 +54,7 @@ export namespace CreateAgentFlowDetails {
     Code = "CODE"
 
 }
+
 
 
 
@@ -79,6 +81,10 @@ export namespace CreateAgentFlowDetails {
                 
                 
                 model.SessionConfiguration.getJsonObj(obj.sessionConfig) : undefined,
+                'agentCardConfig': obj.agentCardConfig ?
+                
+                
+                model.AgentCardConfigDetail.getJsonObj(obj.agentCardConfig) : undefined,
                 'diagram': obj.diagram ?
                 
                 
@@ -108,6 +114,10 @@ export namespace CreateAgentFlowDetails {
                 
                 
                 model.SessionConfiguration.getDeserializedJsonObj(obj.sessionConfig) : undefined,
+                    'agentCardConfig': obj.agentCardConfig ?
+                
+                
+                model.AgentCardConfigDetail.getDeserializedJsonObj(obj.agentCardConfig) : undefined,
                     'diagram': obj.diagram ?
                 
                 

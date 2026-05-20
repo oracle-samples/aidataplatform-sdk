@@ -16,7 +16,7 @@ export interface SetAiDataPlatformExperimentRunTagRequest extends common.BaseReq
  */
  'workspaceKey': string;
 /**
- * Tag details to set on an Experiment Run.
+ * Tag details to set on an experiment run.
  */
  'setExperimentRunTagDetails':  model.SetExperimentRunTagDetails;
 /**

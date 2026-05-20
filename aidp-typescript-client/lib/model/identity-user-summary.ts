@@ -13,7 +13,7 @@ export interface IdentityUserSummary {
     */
     'userId'?: string;
     /**
-    * The login userName used by the user
+    * The login userName used by the user.
     */
     'userName'?: string;
     /**

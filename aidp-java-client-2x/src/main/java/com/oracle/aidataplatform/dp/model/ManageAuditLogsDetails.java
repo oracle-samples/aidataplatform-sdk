@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * manage audit log details
+ * Manage audit log details.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ManageAuditLogsDetails.Builder.class)
@@ -21,14 +21,14 @@ public final class ManageAuditLogsDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * action to enable or disable the logs
+     * Action to enable or disable the logs.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("action")
         private Action action;
 
                 /**
-         * action to enable or disable the logs
+         * Action to enable or disable the logs.
          * @param action the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class ManageAuditLogsDetails  {
         return this;
         }
             /**
-     * Retention period of the audit logs
+     * Retention period of the audit logs.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("retentionPeriod")
         private Integer retentionPeriod;
 
                 /**
-         * Retention period of the audit logs
+         * Retention period of the audit logs.
          * @param retentionPeriod the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
     
         /**
-     * action to enable or disable the logs
+     * Action to enable or disable the logs.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final Action action;
 
         /**
-     * action to enable or disable the logs
+     * Action to enable or disable the logs.
      * @return the value
      **/
     
@@ -104,14 +104,14 @@ return this;
 
 
         /**
-     * Retention period of the audit logs
+     * Retention period of the audit logs.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("retentionPeriod")
     private final Integer retentionPeriod;
 
         /**
-     * Retention period of the audit logs
+     * Retention period of the audit logs.
      * @return the value
      **/
     

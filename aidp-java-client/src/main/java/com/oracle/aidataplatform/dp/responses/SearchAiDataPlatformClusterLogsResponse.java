@@ -7,12 +7,16 @@ import com.oracle.aidataplatform.dp.model.*;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public class SearchAiDataPlatformClusterLogsResponse extends com.oracle.bmc.responses.BmcResponse {
     /**
-     * Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+     * Unique Oracle-assigned identifier for the request. If you need to contact
+* Oracle about a particular request, please provide the request ID.
+* 
      */
     private String opcRequestId;
 
     /**
-     * Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+     * Unique Oracle-assigned identifier for the request. If you need to contact
+* Oracle about a particular request, please provide the request ID.
+* 
      * @return the value
      */
     public String getOpcRequestId() {
@@ -20,12 +24,16 @@ public class SearchAiDataPlatformClusterLogsResponse extends com.oracle.bmc.resp
     }
     
     /**
-     * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+     * For list pagination. When this header appears in the response, additional pages of results remain. For
+* important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
      */
     private String opcNextPage;
 
     /**
-     * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+     * For list pagination. When this header appears in the response, additional pages of results remain. For
+* important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
      * @return the value
      */
     public String getOpcNextPage() {
@@ -73,12 +81,16 @@ public class SearchAiDataPlatformClusterLogsResponse extends com.oracle.bmc.resp
         }
 
         /**
-         * Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+         * Unique Oracle-assigned identifier for the request. If you need to contact
+* Oracle about a particular request, please provide the request ID.
+* 
          */
         private String opcRequestId;
 
         /**
-         * Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+         * Unique Oracle-assigned identifier for the request. If you need to contact
+* Oracle about a particular request, please provide the request ID.
+* 
          * @param opcRequestId the value to set
          * @return this builder
          */
@@ -88,12 +100,16 @@ public class SearchAiDataPlatformClusterLogsResponse extends com.oracle.bmc.resp
         }
 
         /**
-         * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+         * For list pagination. When this header appears in the response, additional pages of results remain. For
+* important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
          */
         private String opcNextPage;
 
         /**
-         * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+         * For list pagination. When this header appears in the response, additional pages of results remain. For
+* important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
          * @param opcNextPage the value to set
          * @return this builder
          */

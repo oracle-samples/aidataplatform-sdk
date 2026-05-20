@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of Updating Setting
+* Details of updating setting.
 */
 export interface UpdateSettingDetails {
     /**

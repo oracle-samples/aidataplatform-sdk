@@ -13,6 +13,22 @@ class NodeOutput(object):
     An output slot for a node, including type and requirements.
     """
 
+    #: A constant which can be used with the port_position property of a NodeOutput.
+    #: This constant has a value of "TOP"
+    PORT_POSITION_TOP = "TOP"
+
+    #: A constant which can be used with the port_position property of a NodeOutput.
+    #: This constant has a value of "BOTTOM"
+    PORT_POSITION_BOTTOM = "BOTTOM"
+
+    #: A constant which can be used with the port_position property of a NodeOutput.
+    #: This constant has a value of "RIGHT"
+    PORT_POSITION_RIGHT = "RIGHT"
+
+    #: A constant which can be used with the port_position property of a NodeOutput.
+    #: This constant has a value of "LEFT"
+    PORT_POSITION_LEFT = "LEFT"
+
     def __init__(self, **kwargs):
         """
         Initializes a new NodeOutput object with values from keyword arguments.
@@ -26,6 +42,11 @@ class NodeOutput(object):
             The value to assign to the type property of this NodeOutput.
         :type type: oci.aidataplatform_dp.models.NodeIo
 
+        :param port_position:
+            The value to assign to the port_position property of this NodeOutput.
+            Allowed values for this property are: "TOP", "BOTTOM", "RIGHT", "LEFT"
+        :type port_position: str
+
         :param description:
             The value to assign to the description property of this NodeOutput.
         :type description: str
@@ -38,6 +59,7 @@ class NodeOutput(object):
         self.swagger_types = {
             'name': 'str',
             'type': 'NodeIo',
+            'port_position': 'str',
             'description': 'str',
             'is_required': 'bool'
         }
@@ -45,12 +67,14 @@ class NodeOutput(object):
         self.attribute_map = {
             'name': 'name',
             'type': 'type',
+            'port_position': 'portPosition',
             'description': 'description',
             'is_required': 'isRequired'
         }
 
         self._name = None
         self._type = None
+        self._port_position = None
         self._description = None
         self._is_required = None
 
@@ -97,6 +121,38 @@ class NodeOutput(object):
         :type: oci.aidataplatform_dp.models.NodeIo
         """
         self._type = type
+
+    @property
+    def port_position(self):
+        """
+        Gets the port_position of this NodeOutput.
+        UI position of the output port on the node.
+
+        Allowed values for this property are: "TOP", "BOTTOM", "RIGHT", "LEFT"
+
+
+        :return: The port_position of this NodeOutput.
+        :rtype: str
+        """
+        return self._port_position
+
+    @port_position.setter
+    def port_position(self, port_position):
+        """
+        Sets the port_position of this NodeOutput.
+        UI position of the output port on the node.
+
+
+        :param port_position: The port_position of this NodeOutput.
+        :type: str
+        """
+        allowed_values = ["TOP", "BOTTOM", "RIGHT", "LEFT"]
+        if not value_allowed_none_or_none_sentinel(port_position, allowed_values):
+            raise ValueError(
+                "Invalid value for `port_position`, must be None or one of {0}"
+                .format(allowed_values)
+            )
+        self._port_position = port_position
 
     @property
     def description(self):

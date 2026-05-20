@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LoggedModelTag(object):
     """
-    LoggedModel tag.
+    Logged model tag.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class LoggedModelTag(object):
     def key(self):
         """
         **[Required]** Gets the key of this LoggedModelTag.
-        Key of the tag
+        Key of the tag.
 
 
         :return: The key of this LoggedModelTag.
@@ -56,7 +56,7 @@ class LoggedModelTag(object):
     def key(self, key):
         """
         Sets the key of this LoggedModelTag.
-        Key of the tag
+        Key of the tag.
 
 
         :param key: The key of this LoggedModelTag.
@@ -68,7 +68,7 @@ class LoggedModelTag(object):
     def value(self):
         """
         **[Required]** Gets the value of this LoggedModelTag.
-        Value of the tag
+        Value of the tag.
 
 
         :return: The value of this LoggedModelTag.
@@ -80,7 +80,7 @@ class LoggedModelTag(object):
     def value(self, value):
         """
         Sets the value of this LoggedModelTag.
-        Value of the tag
+        Value of the tag.
 
 
         :param value: The value of this LoggedModelTag.

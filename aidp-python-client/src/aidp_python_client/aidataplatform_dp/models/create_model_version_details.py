@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateModelVersionDetails(object):
     """
-    The data to create a ModelVersion.
+    The data to create a model version.
     """
 
     def __init__(self, **kwargs):
@@ -199,7 +199,7 @@ class CreateModelVersionDetails(object):
     def run_link(self):
         """
         Gets the run_link of this CreateModelVersionDetails.
-        Run Link: Direct link to the run that generated this version.
+        Direct link to the run that generated this version.
 
 
         :return: The run_link of this CreateModelVersionDetails.
@@ -211,7 +211,7 @@ class CreateModelVersionDetails(object):
     def run_link(self, run_link):
         """
         Sets the run_link of this CreateModelVersionDetails.
-        Run Link: Direct link to the run that generated this version.
+        Direct link to the run that generated this version.
 
 
         :param run_link: The run_link of this CreateModelVersionDetails.
@@ -223,7 +223,7 @@ class CreateModelVersionDetails(object):
     def model_id(self):
         """
         Gets the model_id of this CreateModelVersionDetails.
-        Model id for model version that is used to link the registered model to the source logged model.
+        Model ID for model version that is used to link the registered model to the source logged model.
 
 
         :return: The model_id of this CreateModelVersionDetails.
@@ -235,7 +235,7 @@ class CreateModelVersionDetails(object):
     def model_id(self, model_id):
         """
         Sets the model_id of this CreateModelVersionDetails.
-        Model id for model version that is used to link the registered model to the source logged model.
+        Model ID for model version that is used to link the registered model to the source logged model.
 
 
         :param model_id: The model_id of this CreateModelVersionDetails.

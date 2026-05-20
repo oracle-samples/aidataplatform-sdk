@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LogExperimentRunInputsResponseDetails(object):
     """
-    Response object for logging experiment run inputs
+    Response object for logging experiment run inputs.
     """
 
     def __init__(self, **kwargs):

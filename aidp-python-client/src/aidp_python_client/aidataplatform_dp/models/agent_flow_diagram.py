@@ -30,6 +30,10 @@ class AgentFlowDiagram(object):
             The value to assign to the description property of this AgentFlowDiagram.
         :type description: str
 
+        :param model_version:
+            The value to assign to the model_version property of this AgentFlowDiagram.
+        :type model_version: str
+
         :param nodes:
             The value to assign to the nodes property of this AgentFlowDiagram.
         :type nodes: dict(str, AgentFlowNode)
@@ -38,9 +42,9 @@ class AgentFlowDiagram(object):
             The value to assign to the edges property of this AgentFlowDiagram.
         :type edges: dict(str, AgentFlowEdge)
 
-        :param tool_map:
-            The value to assign to the tool_map property of this AgentFlowDiagram.
-        :type tool_map: dict(str, Tool)
+        :param tools_map:
+            The value to assign to the tools_map property of this AgentFlowDiagram.
+        :type tools_map: dict(str, Tool)
 
         :param guardrails_map:
             The value to assign to the guardrails_map property of this AgentFlowDiagram.
@@ -51,9 +55,10 @@ class AgentFlowDiagram(object):
             'key': 'str',
             'display_name': 'str',
             'description': 'str',
+            'model_version': 'str',
             'nodes': 'dict(str, AgentFlowNode)',
             'edges': 'dict(str, AgentFlowEdge)',
-            'tool_map': 'dict(str, Tool)',
+            'tools_map': 'dict(str, Tool)',
             'guardrails_map': 'dict(str, GuardrailsConfiguration)'
         }
 
@@ -61,18 +66,20 @@ class AgentFlowDiagram(object):
             'key': 'key',
             'display_name': 'displayName',
             'description': 'description',
+            'model_version': 'modelVersion',
             'nodes': 'nodes',
             'edges': 'edges',
-            'tool_map': 'toolMap',
+            'tools_map': 'toolsMap',
             'guardrails_map': 'guardrailsMap'
         }
 
         self._key = None
         self._display_name = None
         self._description = None
+        self._model_version = None
         self._nodes = None
         self._edges = None
-        self._tool_map = None
+        self._tools_map = None
         self._guardrails_map = None
 
     @property
@@ -148,6 +155,30 @@ class AgentFlowDiagram(object):
         self._description = description
 
     @property
+    def model_version(self):
+        """
+        Gets the model_version of this AgentFlowDiagram.
+        The model and upgrade compatibility version for this agent flow diagram.
+
+
+        :return: The model_version of this AgentFlowDiagram.
+        :rtype: str
+        """
+        return self._model_version
+
+    @model_version.setter
+    def model_version(self, model_version):
+        """
+        Sets the model_version of this AgentFlowDiagram.
+        The model and upgrade compatibility version for this agent flow diagram.
+
+
+        :param model_version: The model_version of this AgentFlowDiagram.
+        :type: str
+        """
+        self._model_version = model_version
+
+    @property
     def nodes(self):
         """
         Gets the nodes of this AgentFlowDiagram.
@@ -196,34 +227,34 @@ class AgentFlowDiagram(object):
         self._edges = edges
 
     @property
-    def tool_map(self):
+    def tools_map(self):
         """
-        Gets the tool_map of this AgentFlowDiagram.
+        Gets the tools_map of this AgentFlowDiagram.
         A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
 
 
-        :return: The tool_map of this AgentFlowDiagram.
+        :return: The tools_map of this AgentFlowDiagram.
         :rtype: dict(str, Tool)
         """
-        return self._tool_map
+        return self._tools_map
 
-    @tool_map.setter
-    def tool_map(self, tool_map):
+    @tools_map.setter
+    def tools_map(self, tools_map):
         """
-        Sets the tool_map of this AgentFlowDiagram.
+        Sets the tools_map of this AgentFlowDiagram.
         A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
 
 
-        :param tool_map: The tool_map of this AgentFlowDiagram.
+        :param tools_map: The tools_map of this AgentFlowDiagram.
         :type: dict(str, Tool)
         """
-        self._tool_map = tool_map
+        self._tools_map = tools_map
 
     @property
     def guardrails_map(self):
         """
         Gets the guardrails_map of this AgentFlowDiagram.
-        A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+        A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
 
 
         :return: The guardrails_map of this AgentFlowDiagram.
@@ -235,7 +266,7 @@ class AgentFlowDiagram(object):
     def guardrails_map(self, guardrails_map):
         """
         Sets the guardrails_map of this AgentFlowDiagram.
-        A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+        A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
 
 
         :param guardrails_map: The guardrails_map of this AgentFlowDiagram.

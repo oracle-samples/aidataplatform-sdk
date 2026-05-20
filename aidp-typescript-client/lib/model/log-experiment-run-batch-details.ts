@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Run Batch data to log.
+* Run batch data to log.
 */
 export interface LogExperimentRunBatchDetails {
     /**

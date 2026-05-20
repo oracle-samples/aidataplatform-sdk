@@ -87,7 +87,7 @@ class AuditClient(object):
 
     def manage_ai_data_platform_audit_logs(self, ai_data_platform_id, manage_audit_logs_details, **kwargs):
         """
-        Manage audit logs for Intelligent Data Lake
+        Manages audit logs for AI Data Platform Workbench.
 
 
         :param str ai_data_platform_id: (required)
@@ -96,7 +96,7 @@ class AuditClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.ManageAuditLogsDetails manage_audit_logs_details: (required)
-            Details to manage audit log.
+            Details to update in an audit log.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -178,7 +178,7 @@ class AuditClient(object):
 
     def search_ai_data_platform_audit_logs(self, ai_data_platform_id, search_audit_logs_details, **kwargs):
         """
-        Search audit logs for Intelligent Data Lake
+        Searches audit logs for AI Data Platform Workbench.
 
 
         :param str ai_data_platform_id: (required)

@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Collection of git diff summaries for files under a folder context.
+* Collection of Git diff summaries for files under a folder context.
 */
 export interface GitDiffSummaryCollection {
     /**
-    * List of git diff summaries.
+    * List of Git diff summaries.
     */
     'items': Array<model.GitDiffSummary>;
 

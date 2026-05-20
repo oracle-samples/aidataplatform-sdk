@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ExperimentCollection(object):
     """
-    Result of listing Experiments.
+    Result of listing experiments.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class ExperimentCollection(object):
     def experiments(self):
         """
         **[Required]** Gets the experiments of this ExperimentCollection.
-        Experiments that match the search criteria
+        Experiments that match the search criteria.
 
 
         :return: The experiments of this ExperimentCollection.
@@ -56,7 +56,7 @@ class ExperimentCollection(object):
     def experiments(self, experiments):
         """
         Sets the experiments of this ExperimentCollection.
-        Experiments that match the search criteria
+        Experiments that match the search criteria.
 
 
         :param experiments: The experiments of this ExperimentCollection.

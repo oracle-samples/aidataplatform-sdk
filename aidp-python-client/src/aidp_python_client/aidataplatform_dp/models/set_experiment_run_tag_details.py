@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class SetExperimentRunTagDetails(object):
     """
-    Tag details to set on an Experiment Run.
+    Tag details to set on an experiment run.
     """
 
     def __init__(self, **kwargs):
@@ -75,7 +75,7 @@ class SetExperimentRunTagDetails(object):
     def key(self):
         """
         **[Required]** Gets the key of this SetExperimentRunTagDetails.
-        Key of the run tag
+        Key of the run tag.
 
 
         :return: The key of this SetExperimentRunTagDetails.
@@ -87,7 +87,7 @@ class SetExperimentRunTagDetails(object):
     def key(self, key):
         """
         Sets the key of this SetExperimentRunTagDetails.
-        Key of the run tag
+        Key of the run tag.
 
 
         :param key: The key of this SetExperimentRunTagDetails.
@@ -99,7 +99,7 @@ class SetExperimentRunTagDetails(object):
     def value(self):
         """
         **[Required]** Gets the value of this SetExperimentRunTagDetails.
-        Value of the run tag
+        Value of the run tag.
 
 
         :return: The value of this SetExperimentRunTagDetails.
@@ -111,7 +111,7 @@ class SetExperimentRunTagDetails(object):
     def value(self, value):
         """
         Sets the value of this SetExperimentRunTagDetails.
-        Value of the run tag
+        Value of the run tag.
 
 
         :param value: The value of this SetExperimentRunTagDetails.

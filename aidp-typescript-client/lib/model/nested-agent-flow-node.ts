@@ -12,6 +12,7 @@ export interface NestedAgentFlowNode extends model.AgentFlowNode {
     * System prompt written by the flow developer defining the agent\u2019s goal(s) and what tools the agent has access to.
     */
     'instructions'?: string;
+    'memory'?: model.MemoryConfiguration;
     /**
     * Extra configuration for the nested agent flow node.
     */
@@ -24,10 +25,15 @@ export namespace NestedAgentFlowNode {
 
 
 
+
     export function getJsonObj(obj: NestedAgentFlowNode, isParentJsonObj?: boolean): object {
         const jsonObj = {...isParentJsonObj? obj : model.AgentFlowNode.getJsonObj(obj) as NestedAgentFlowNode, ...{
             
 
+                'memory': obj.memory ?
+                
+                
+                model.MemoryConfiguration.getJsonObj(obj.memory) : undefined,
 
         }};
 
@@ -40,6 +46,10 @@ export namespace NestedAgentFlowNode {
         const jsonObj = {...isParentJsonObj? obj : model.AgentFlowNode.getDeserializedJsonObj(obj) as NestedAgentFlowNode, ...{
             
 
+                    'memory': obj.memory ?
+                
+                
+                model.MemoryConfiguration.getDeserializedJsonObj(obj.memory) : undefined,
 
          }};
 

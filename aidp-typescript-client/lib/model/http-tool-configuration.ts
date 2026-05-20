@@ -11,11 +11,11 @@ export interface HttpToolConfiguration {
     /**
     * HTTP method (GET, POST, PUT, DELETE, PATCH)
     */
-    'method': model.HttpMethod;
+    'method'?: model.HttpMethod;
     /**
     * Target URL with optional {{variable}} templates
     */
-    'url': string;
+    'url'?: string;
     /**
     * Optional custom headers
     */

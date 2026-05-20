@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface BundledResource {
     /**
-    * Type of resource (job or agentflow)
+    * Type of resource (job or agentflow).
     */
     'resourceType': BundledResource.ResourceType;
     /**
-    * Workspace unique key for the resource
+    * Workspace unique key for the resource.
     */
     'resourceKey': string;
 

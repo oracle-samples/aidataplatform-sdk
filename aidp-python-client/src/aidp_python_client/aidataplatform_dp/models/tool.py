@@ -41,10 +41,6 @@ class Tool(object):
     #: This constant has a value of "HTTP"
     TOOL_TYPE_HTTP = "HTTP"
 
-    #: A constant which can be used with the tool_type property of a Tool.
-    #: This constant has a value of "REFERENCE"
-    TOOL_TYPE_REFERENCE = "REFERENCE"
-
     def __init__(self, **kwargs):
         """
         Initializes a new Tool object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
@@ -54,7 +50,6 @@ class Tool(object):
         * :class:`~oci.aidataplatform_dp.models.PromptTool`
         * :class:`~oci.aidataplatform_dp.models.McpTool`
         * :class:`~oci.aidataplatform_dp.models.SqlTool`
-        * :class:`~oci.aidataplatform_dp.models.ToolReference`
         * :class:`~oci.aidataplatform_dp.models.RagTool`
         * :class:`~oci.aidataplatform_dp.models.HttpTool`
         * :class:`~oci.aidataplatform_dp.models.NlToSqlTool`
@@ -79,12 +74,8 @@ class Tool(object):
 
         :param tool_type:
             The value to assign to the tool_type property of this Tool.
-            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
         :type tool_type: str
-
-        :param is_reference:
-            The value to assign to the is_reference property of this Tool.
-        :type is_reference: bool
 
         :param position_x:
             The value to assign to the position_x property of this Tool.
@@ -121,7 +112,6 @@ class Tool(object):
             'workspace_key': 'str',
             'description': 'str',
             'tool_type': 'str',
-            'is_reference': 'bool',
             'position_x': 'float',
             'position_y': 'float',
             'properties': 'dict(str, object)',
@@ -137,7 +127,6 @@ class Tool(object):
             'workspace_key': 'workspaceKey',
             'description': 'description',
             'tool_type': 'toolType',
-            'is_reference': 'isReference',
             'position_x': 'positionX',
             'position_y': 'positionY',
             'properties': 'properties',
@@ -152,7 +141,6 @@ class Tool(object):
         self._workspace_key = None
         self._description = None
         self._tool_type = None
-        self._is_reference = None
         self._position_x = None
         self._position_y = None
         self._properties = None
@@ -180,9 +168,6 @@ class Tool(object):
 
         if type == 'SQL':
             return 'SqlTool'
-
-        if type == 'REFERENCE':
-            return 'ToolReference'
 
         if type == 'RAG':
             return 'RagTool'
@@ -297,7 +282,7 @@ class Tool(object):
         Gets the tool_type of this Tool.
         Type of tool. Managed, external or mount tool.
 
-        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
 
 
         :return: The tool_type of this Tool.
@@ -315,37 +300,13 @@ class Tool(object):
         :param tool_type: The tool_type of this Tool.
         :type: str
         """
-        allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"]
+        allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
                 "Invalid value for `tool_type`, must be None or one of {0}"
                 .format(allowed_values)
             )
         self._tool_type = tool_type
-
-    @property
-    def is_reference(self):
-        """
-        Gets the is_reference of this Tool.
-        If true, this tool is a reference to a tool stored in the tool cache. | Used for backward compatibility so that the toolType for the reference can be set to the original tool type.
-
-
-        :return: The is_reference of this Tool.
-        :rtype: bool
-        """
-        return self._is_reference
-
-    @is_reference.setter
-    def is_reference(self, is_reference):
-        """
-        Sets the is_reference of this Tool.
-        If true, this tool is a reference to a tool stored in the tool cache. | Used for backward compatibility so that the toolType for the reference can be set to the original tool type.
-
-
-        :param is_reference: The is_reference of this Tool.
-        :type: bool
-        """
-        self._is_reference = is_reference
 
     @property
     def position_x(self):

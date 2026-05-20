@@ -11,8 +11,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class UpdateAgentFlowDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"displayName", "description", "computeKey", "diagram", "entryFilePath", "dependenciesFilePath", "deletedNodes", "updatedNodes", "addedNodes", "guardrails", "sessionConfig"})
-    public UpdateAgentFlowDetails(String displayName, String description, String computeKey, AgentFlowDiagram diagram, String entryFilePath, String dependenciesFilePath, java.util.List<String> deletedNodes, java.util.List<String> updatedNodes, java.util.List<String> addedNodes, GuardrailsConfiguration guardrails, SessionConfiguration sessionConfig) {
+    @java.beans.ConstructorProperties({"displayName", "description", "computeKey", "diagram", "entryFilePath", "dependenciesFilePath", "deletedNodes", "updatedNodes", "addedNodes", "guardrails", "sessionConfig", "agentCardConfig"})
+    public UpdateAgentFlowDetails(String displayName, String description, String computeKey, AgentFlowDiagram diagram, String entryFilePath, String dependenciesFilePath, java.util.List<String> deletedNodes, java.util.List<String> updatedNodes, java.util.List<String> addedNodes, GuardrailsConfiguration guardrails, SessionConfiguration sessionConfig, AgentCardConfigDetail agentCardConfig) {
         super();
         this.displayName = displayName;
         this.description = description;
@@ -25,6 +25,7 @@ public final class UpdateAgentFlowDetails  {
         this.addedNodes = addedNodes;
         this.guardrails = guardrails;
         this.sessionConfig = sessionConfig;
+        this.agentCardConfig = agentCardConfig;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -203,6 +204,16 @@ public final class UpdateAgentFlowDetails  {
         this.sessionConfig = sessionConfig;
         return this;
         }
+        
+        @com.fasterxml.jackson.annotation.JsonProperty("agentCardConfig")
+        private AgentCardConfigDetail agentCardConfig;
+
+        
+
+        public Builder agentCardConfig(AgentCardConfigDetail agentCardConfig) {
+        this.agentCardConfig = agentCardConfig;
+        return this;
+        }
 
 
         public UpdateAgentFlowDetails build() {
@@ -216,7 +227,8 @@ public final class UpdateAgentFlowDetails  {
                     , this.updatedNodes
                     , this.addedNodes
                     , this.guardrails
-                    , this.sessionConfig);            return model;
+                    , this.sessionConfig
+                    , this.agentCardConfig);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -232,6 +244,7 @@ public final class UpdateAgentFlowDetails  {
     this.addedNodes(model.getAddedNodes());
     this.guardrails(model.getGuardrails());
     this.sessionConfig(model.getSessionConfig());
+    this.agentCardConfig(model.getAgentCardConfig());
 return this;
         }
     }
@@ -416,6 +429,16 @@ return this;
         return sessionConfig;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("agentCardConfig")
+    private final AgentCardConfigDetail agentCardConfig;
+
+    
+    public AgentCardConfigDetail getAgentCardConfig() {
+        return agentCardConfig;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -440,6 +463,7 @@ return this;
         sb.append(", addedNodes=").append(String.valueOf(this.addedNodes));
         sb.append(", guardrails=").append(String.valueOf(this.guardrails));
         sb.append(", sessionConfig=").append(String.valueOf(this.sessionConfig));
+        sb.append(", agentCardConfig=").append(String.valueOf(this.agentCardConfig));
         sb.append(")");
         return sb.toString();
     }
@@ -464,7 +488,8 @@ return this;
             java.util.Objects.equals(this.updatedNodes, other.updatedNodes) &&
             java.util.Objects.equals(this.addedNodes, other.addedNodes) &&
             java.util.Objects.equals(this.guardrails, other.guardrails) &&
-            java.util.Objects.equals(this.sessionConfig, other.sessionConfig);
+            java.util.Objects.equals(this.sessionConfig, other.sessionConfig) &&
+            java.util.Objects.equals(this.agentCardConfig, other.agentCardConfig);
     }
 
     @Override
@@ -482,6 +507,7 @@ return this;
         result = (result * PRIME) + (this.addedNodes == null ? 43 : this.addedNodes.hashCode());
         result = (result * PRIME) + (this.guardrails == null ? 43 : this.guardrails.hashCode());
         result = (result * PRIME) + (this.sessionConfig == null ? 43 : this.sessionConfig.hashCode());
+        result = (result * PRIME) + (this.agentCardConfig == null ? 43 : this.agentCardConfig.hashCode());
         return result;
     }
 

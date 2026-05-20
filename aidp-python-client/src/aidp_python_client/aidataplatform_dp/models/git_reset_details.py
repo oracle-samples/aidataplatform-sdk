@@ -71,7 +71,7 @@ class GitResetDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitResetDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :return: The git_folder_path of this GitResetDetails.
@@ -83,7 +83,7 @@ class GitResetDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitResetDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :param git_folder_path: The git_folder_path of this GitResetDetails.
@@ -95,7 +95,7 @@ class GitResetDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitResetDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this GitResetDetails.
@@ -107,7 +107,7 @@ class GitResetDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitResetDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this GitResetDetails.
@@ -119,7 +119,7 @@ class GitResetDetails(object):
     def commit_id(self):
         """
         Gets the commit_id of this GitResetDetails.
-        Commit id / ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+        Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
 
 
         :return: The commit_id of this GitResetDetails.
@@ -131,7 +131,7 @@ class GitResetDetails(object):
     def commit_id(self, commit_id):
         """
         Sets the commit_id of this GitResetDetails.
-        Commit id / ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+        Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
 
 
         :param commit_id: The commit_id of this GitResetDetails.

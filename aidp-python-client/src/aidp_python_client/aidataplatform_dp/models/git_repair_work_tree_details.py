@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitRepairWorkTreeDetails(object):
     """
-    Details needed to repair git work tree for a folder context.
+    Details needed to repair Git work tree for a folder context.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class GitRepairWorkTreeDetails(object):
     def git_folder_path(self):
         """
         **[Required]** Gets the git_folder_path of this GitRepairWorkTreeDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :return: The git_folder_path of this GitRepairWorkTreeDetails.
@@ -56,7 +56,7 @@ class GitRepairWorkTreeDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitRepairWorkTreeDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :param git_folder_path: The git_folder_path of this GitRepairWorkTreeDetails.
@@ -68,7 +68,7 @@ class GitRepairWorkTreeDetails(object):
     def branch_name(self):
         """
         **[Required]** Gets the branch_name of this GitRepairWorkTreeDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this GitRepairWorkTreeDetails.
@@ -80,7 +80,7 @@ class GitRepairWorkTreeDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitRepairWorkTreeDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this GitRepairWorkTreeDetails.

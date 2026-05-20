@@ -126,7 +126,7 @@ class GitOperationState(object):
     def git_folder_path(self):
         """
         **[Required]** Gets the git_folder_path of this GitOperationState.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :return: The git_folder_path of this GitOperationState.
@@ -138,7 +138,7 @@ class GitOperationState(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitOperationState.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :param git_folder_path: The git_folder_path of this GitOperationState.
@@ -150,7 +150,7 @@ class GitOperationState(object):
     def state(self):
         """
         **[Required]** Gets the state of this GitOperationState.
-        Current git operation state detected.
+        Current Git operation state detected.
 
         Allowed values for this property are: "CLEAN", "MERGE_IN_PROGRESS", "REBASE_IN_PROGRESS", "PULL_IN_PROGRESS", "DETACHED_HEAD", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -165,7 +165,7 @@ class GitOperationState(object):
     def state(self, state):
         """
         Sets the state of this GitOperationState.
-        Current git operation state detected.
+        Current Git operation state detected.
 
 
         :param state: The state of this GitOperationState.
@@ -276,7 +276,7 @@ class GitOperationState(object):
     def head_commit_id(self):
         """
         Gets the head_commit_id of this GitOperationState.
-        Full commit id of HEAD.
+        Full commit ID of HEAD.
 
 
         :return: The head_commit_id of this GitOperationState.
@@ -288,7 +288,7 @@ class GitOperationState(object):
     def head_commit_id(self, head_commit_id):
         """
         Sets the head_commit_id of this GitOperationState.
-        Full commit id of HEAD.
+        Full commit ID of HEAD.
 
 
         :param head_commit_id: The head_commit_id of this GitOperationState.

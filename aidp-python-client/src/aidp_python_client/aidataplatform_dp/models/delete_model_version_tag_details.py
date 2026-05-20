@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeleteModelVersionTagDetails(object):
     """
-    Details of the ModelVersion tag.
+    Details of the model version tag.
     """
 
     def __init__(self, **kwargs):
@@ -75,7 +75,7 @@ class DeleteModelVersionTagDetails(object):
     def version(self):
         """
         **[Required]** Gets the version of this DeleteModelVersionTagDetails.
-        Model\u2019s version number.
+        Model version number.
 
 
         :return: The version of this DeleteModelVersionTagDetails.
@@ -87,7 +87,7 @@ class DeleteModelVersionTagDetails(object):
     def version(self, version):
         """
         Sets the version of this DeleteModelVersionTagDetails.
-        Model\u2019s version number.
+        Model version number.
 
 
         :param version: The version of this DeleteModelVersionTagDetails.

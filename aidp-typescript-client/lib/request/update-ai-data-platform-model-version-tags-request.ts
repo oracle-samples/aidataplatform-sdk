@@ -12,7 +12,7 @@ export interface UpdateAiDataPlatformModelVersionTagsRequest extends common.Base
  */
  'aiDataPlatformId': string;
 /**
- * Details of ModelVersion tags.
+ * Details of model version tags to update.
  */
  'updateModelVersionTagsDetails':  model.UpdateModelVersionTagsDetails;
 /**

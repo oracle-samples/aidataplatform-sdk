@@ -21,27 +21,27 @@ public class UpdateAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         return aiDataPlatformId;
     }
         /**
-     * The unique identifier of the credential object whose details are to be retrieved.
+     * The unique identifier of an credential
      */
     private String credentialKey;
 
     
 
         /**
-     * The unique identifier of the credential object whose details are to be retrieved.
+     * The unique identifier of an credential
      */
     public String getCredentialKey() {
         return credentialKey;
     }
         /**
-     * The information to be updated
+     * The information to be updated.
      */
     private com.oracle.aidataplatform.dp.model.UpdateDataLakeCredentialDetails updateDataLakeCredentialDetails;
 
     
 
         /**
-     * The information to be updated
+     * The information to be updated.
      */
     public com.oracle.aidataplatform.dp.model.UpdateDataLakeCredentialDetails getUpdateDataLakeCredentialDetails() {
         return updateDataLakeCredentialDetails;
@@ -133,12 +133,12 @@ public class UpdateAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * The unique identifier of the credential object whose details are to be retrieved.
+     * The unique identifier of an credential
      */
         private String credentialKey = null;
 
         /**
-         * The unique identifier of the credential object whose details are to be retrieved.
+         * The unique identifier of an credential
          * @param credentialKey the value to set
          * @return this builder instance
          */
@@ -148,12 +148,12 @@ public class UpdateAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * The information to be updated
+     * The information to be updated.
      */
         private com.oracle.aidataplatform.dp.model.UpdateDataLakeCredentialDetails updateDataLakeCredentialDetails = null;
 
         /**
-         * The information to be updated
+         * The information to be updated.
          * @param updateDataLakeCredentialDetails the value to set
          * @return this builder instance
          */

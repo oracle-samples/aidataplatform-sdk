@@ -22,14 +22,14 @@ public final class ModelParam  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Name of the parameter
+     * Name of the parameter.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("name")
 private String name;
 
         /**
-         * Name of the parameter
+         * Name of the parameter.
          * @param name the value to set
          * @return this builder
          **/
@@ -40,14 +40,14 @@ public Builder name(String name) {
     return this;
 }
             /**
-     * Value of the parameter
+     * Value of the parameter.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("value")
 private String value;
 
         /**
-         * Value of the parameter
+         * Value of the parameter.
          * @param value the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * Name of the parameter
+     * Name of the parameter.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * Name of the parameter
+     * Name of the parameter.
      * @return the value
      **/
     
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * Value of the parameter
+     * Value of the parameter.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("value")
     private final String value;
 
         /**
-     * Value of the parameter
+     * Value of the parameter.
      * @return the value
      **/
     

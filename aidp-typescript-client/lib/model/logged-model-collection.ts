@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface LoggedModelCollection {
     /**
-    * LoggedModels that match the search criteria
+    * Logged models that match the search criteria
     */
     'models'?: Array<model.LoggedModel>;
     /**

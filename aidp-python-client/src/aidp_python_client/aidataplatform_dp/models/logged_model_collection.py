@@ -44,7 +44,7 @@ class LoggedModelCollection(object):
     def models(self):
         """
         Gets the models of this LoggedModelCollection.
-        LoggedModels that match the search criteria
+        Logged models that match the search criteria
 
 
         :return: The models of this LoggedModelCollection.
@@ -56,7 +56,7 @@ class LoggedModelCollection(object):
     def models(self, models):
         """
         Sets the models of this LoggedModelCollection.
-        LoggedModels that match the search criteria
+        Logged models that match the search criteria
 
 
         :param models: The models of this LoggedModelCollection.

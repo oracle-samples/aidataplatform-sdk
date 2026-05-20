@@ -75,7 +75,7 @@ class UpdateExperimentTagsDetails(object):
     def set_tags(self):
         """
         Gets the set_tags of this UpdateExperimentTagsDetails.
-        Experiment tags to set
+        Experiment tags to set.
 
 
         :return: The set_tags of this UpdateExperimentTagsDetails.
@@ -87,7 +87,7 @@ class UpdateExperimentTagsDetails(object):
     def set_tags(self, set_tags):
         """
         Sets the set_tags of this UpdateExperimentTagsDetails.
-        Experiment tags to set
+        Experiment tags to set.
 
 
         :param set_tags: The set_tags of this UpdateExperimentTagsDetails.
@@ -99,7 +99,7 @@ class UpdateExperimentTagsDetails(object):
     def delete_tags(self):
         """
         Gets the delete_tags of this UpdateExperimentTagsDetails.
-        Experiment tags to delete
+        Experiment tags to delete.
 
 
         :return: The delete_tags of this UpdateExperimentTagsDetails.
@@ -111,7 +111,7 @@ class UpdateExperimentTagsDetails(object):
     def delete_tags(self, delete_tags):
         """
         Sets the delete_tags of this UpdateExperimentTagsDetails.
-        Experiment tags to delete
+        Experiment tags to delete.
 
 
         :param delete_tags: The delete_tags of this UpdateExperimentTagsDetails.

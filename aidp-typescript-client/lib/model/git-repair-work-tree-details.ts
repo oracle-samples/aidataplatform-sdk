@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Details needed to repair git work tree for a folder context.
+* Details needed to repair Git work tree for a folder context.
 */
 export interface GitRepairWorkTreeDetails {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath': string;
     /**

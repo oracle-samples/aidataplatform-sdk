@@ -21,14 +21,14 @@ public class CreateAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         return aiDataPlatformId;
     }
         /**
-     * Creates a new Credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
+     * Details for the new credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
      */
     private com.oracle.aidataplatform.dp.model.CreateDataLakeCredentialDetails createDataLakeCredentialDetails;
 
     
 
         /**
-     * Creates a new Credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
+     * Details for the new credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
      */
     public com.oracle.aidataplatform.dp.model.CreateDataLakeCredentialDetails getCreateDataLakeCredentialDetails() {
         return createDataLakeCredentialDetails;
@@ -122,12 +122,12 @@ public class CreateAiDataPlatformCredentialRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * Creates a new Credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
+     * Details for the new credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
      */
         private com.oracle.aidataplatform.dp.model.CreateDataLakeCredentialDetails createDataLakeCredentialDetails = null;
 
         /**
-         * Creates a new Credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
+         * Details for the new credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
          * @param createDataLakeCredentialDetails the value to set
          * @return this builder instance
          */

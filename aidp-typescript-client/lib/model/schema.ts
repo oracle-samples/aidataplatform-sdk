@@ -112,6 +112,8 @@ export namespace Schema {
                     return model.AtpSchema.getJsonObj(<model.AtpSchema>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchema.getJsonObj(<model.StandardSchema>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacSchema.getJsonObj(<model.OacSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
                 default:
@@ -155,6 +157,8 @@ export namespace Schema {
                     return model.AtpSchema.getDeserializedJsonObj(<model.AtpSchema>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchema.getDeserializedJsonObj(<model.StandardSchema>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacSchema.getDeserializedJsonObj(<model.OacSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getDeserializedJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
                 default:

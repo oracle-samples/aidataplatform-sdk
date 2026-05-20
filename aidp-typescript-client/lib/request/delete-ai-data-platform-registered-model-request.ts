@@ -12,7 +12,7 @@ export interface DeleteAiDataPlatformRegisteredModelRequest extends common.BaseR
  */
  'aiDataPlatformId': string;
 /**
- * Details of the RegisteredModel.
+ * Details of the registered model to delete.
  */
  'deleteRegisteredModelDetails':  model.DeleteRegisteredModelDetails;
 /**

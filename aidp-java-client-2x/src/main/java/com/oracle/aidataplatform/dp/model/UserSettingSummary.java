@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Summary of Setting
+ * Summary of user settings.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=UserSettingSummary.Builder.class)
@@ -134,14 +134,14 @@ public final class UserSettingSummary  {
         return this;
         }
             /**
-     * A generic property bag associated with the setting resource
+     * A generic property bag associated with the setting resource.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("properties")
         private java.util.Map<String, Object> properties;
 
                 /**
-         * A generic property bag associated with the setting resource
+         * A generic property bag associated with the setting resource.
          * @param properties the value to set
          * @return this builder
          **/
@@ -294,14 +294,14 @@ return this;
 
 
         /**
-     * A generic property bag associated with the setting resource
+     * A generic property bag associated with the setting resource.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("properties")
     private final java.util.Map<String, Object> properties;
 
         /**
-     * A generic property bag associated with the setting resource
+     * A generic property bag associated with the setting resource.
      * @return the value
      **/
     

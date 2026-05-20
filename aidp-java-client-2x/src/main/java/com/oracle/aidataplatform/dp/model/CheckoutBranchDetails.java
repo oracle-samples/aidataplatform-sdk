@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Information required to checkout a new git branch
+ * Information required to checkout a new Git branch.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CheckoutBranchDetails.Builder.class)
@@ -21,14 +21,14 @@ public final class CheckoutBranchDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("branchName")
         private String branchName;
 
                 /**
-         * The name of the git branch
+         * The name of the Git branch.
          * @param branchName the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class CheckoutBranchDetails  {
         return this;
         }
             /**
-     * The path of the git folder in the context
+     * The path of the Git folder in the context.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
         private String gitFolderPath;
 
                 /**
-         * The path of the git folder in the context
+         * The path of the Git folder in the context.
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      * @return the value
      **/
     
@@ -104,14 +104,14 @@ return this;
 
 
         /**
-     * The path of the git folder in the context
+     * The path of the Git folder in the context.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * The path of the git folder in the context
+     * The path of the Git folder in the context.
      * @return the value
      **/
     

@@ -12,7 +12,7 @@ export interface UpdateAiDataPlatformUserSettingRequest extends common.BaseReque
  */
  'aiDataPlatformId': string;
 /**
- * The UUID of the User Setting
+ * The UUID of the user setting.
  */
  'settingKey': string;
 /**

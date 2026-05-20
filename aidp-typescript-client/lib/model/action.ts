@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * action to enable or disable the logs
+ * Action to enable or disable the logs.
 **/
 export enum Action {
     Enable = "ENABLE",

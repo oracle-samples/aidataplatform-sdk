@@ -12,7 +12,7 @@ export interface SetAiDataPlatformModelVersionTagRequest extends common.BaseRequ
  */
  'aiDataPlatformId': string;
 /**
- * Details of a ModelVersion tag.
+ * Details of a model version tag.
  */
  'setModelVersionTagDetails':  model.SetModelVersionTagDetails;
 /**

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class VaultReferenceCredentialDetails(CredentialDetails):
     """
-    Credential details for referencing existing secrets managed outside the IDL. This extends
+    Credential details for referencing existing secrets managed outside AI Data Platform. This extends
     the base CredentialDetails object, with the credential type set as VAULT_REFERENCE.
     """
 

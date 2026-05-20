@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Git account setting details
+ * Git account setting details.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitAccountUserSetting.Builder.class)
@@ -33,14 +33,14 @@ public Builder providerName(GitAccountProviderName providerName) {
     return this;
 }
             /**
-     * The type of git account entity.
+     * The type of Git account entity.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("entityType")
 private EntityType entityType;
 
         /**
-         * The type of git account entity.
+         * The type of Git account entity.
          * @param entityType the value to set
          * @return this builder
          **/
@@ -145,7 +145,7 @@ return this;
     }
 
     /**
-     * The type of git account entity.
+     * The type of Git account entity.
      **/
     public enum EntityType implements com.oracle.bmc.http.internal.BmcEnum {
         PersonalAccessToken("PERSONAL_ACCESS_TOKEN"),
@@ -190,14 +190,14 @@ return this;
         }
     };
         /**
-     * The type of git account entity.
+     * The type of Git account entity.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("entityType")
     private final EntityType entityType;
 
         /**
-     * The type of git account entity.
+     * The type of Git account entity.
      * @return the value
      **/
     

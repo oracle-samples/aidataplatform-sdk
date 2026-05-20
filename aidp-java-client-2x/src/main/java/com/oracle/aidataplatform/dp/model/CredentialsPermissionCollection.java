@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * List of Credential permissions.
+ * List of credential permissions.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CredentialsPermissionCollection.Builder.class)
@@ -20,14 +20,14 @@ public final class CredentialsPermissionCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * List of Credential permissions.
+     * List of credential permissions.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("items")
         private java.util.List<PermissionSummary> items;
 
                 /**
-         * List of Credential permissions.
+         * List of credential permissions.
          * @param items the value to set
          * @return this builder
          **/
@@ -66,14 +66,14 @@ return this;
 
 
         /**
-     * List of Credential permissions.
+     * List of credential permissions.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<PermissionSummary> items;
 
         /**
-     * List of Credential permissions.
+     * List of credential permissions.
      * @return the value
      **/
     

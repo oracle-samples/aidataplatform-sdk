@@ -34,27 +34,27 @@ public class PullAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.reque
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Folder/branch details to pull
+     * Folder/branch details to pull.
      */
     private com.oracle.aidataplatform.dp.model.GitPullDetails gitPullDetails;
 
     
 
         /**
-     * Folder/branch details to pull
+     * Folder/branch details to pull.
      */
     public com.oracle.aidataplatform.dp.model.GitPullDetails getGitPullDetails() {
         return gitPullDetails;
@@ -184,12 +184,12 @@ public class PullAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.reque
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class PullAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.reque
         }
 
             /**
-     * Folder/branch details to pull
+     * Folder/branch details to pull.
      */
         private com.oracle.aidataplatform.dp.model.GitPullDetails gitPullDetails = null;
 
         /**
-         * Folder/branch details to pull
+         * Folder/branch details to pull.
          * @param gitPullDetails the value to set
          * @return this builder instance
          */

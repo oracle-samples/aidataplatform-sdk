@@ -34,14 +34,14 @@ public class DeleteAiDataPlatformExperimentTagRequest extends com.oracle.bmc.req
         return workspaceKey;
     }
         /**
-     * Tag details to delete on an Experiment.
+     * Tag details to delete on an experiment.
      */
     private com.oracle.aidataplatform.dp.model.DeleteExperimentTagDetails deleteExperimentTagDetails;
 
     
 
         /**
-     * Tag details to delete on an Experiment.
+     * Tag details to delete on an experiment.
      */
     public com.oracle.aidataplatform.dp.model.DeleteExperimentTagDetails getDeleteExperimentTagDetails() {
         return deleteExperimentTagDetails;
@@ -150,12 +150,12 @@ public class DeleteAiDataPlatformExperimentTagRequest extends com.oracle.bmc.req
         }
 
             /**
-     * Tag details to delete on an Experiment.
+     * Tag details to delete on an experiment.
      */
         private com.oracle.aidataplatform.dp.model.DeleteExperimentTagDetails deleteExperimentTagDetails = null;
 
         /**
-         * Tag details to delete on an Experiment.
+         * Tag details to delete on an experiment.
          * @param deleteExperimentTagDetails the value to set
          * @return this builder instance
          */

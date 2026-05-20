@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* The details of the permissions assigned on the Credential to assignee.
+* The details of the permissions assigned on the credential to assignee.
 */
 export interface AssignCredentialPermissionDetails {
     'assignees': model.PermissionAssignees;

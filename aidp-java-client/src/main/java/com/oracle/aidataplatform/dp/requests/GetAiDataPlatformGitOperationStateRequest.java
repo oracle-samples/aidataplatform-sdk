@@ -34,27 +34,27 @@ public class GetAiDataPlatformGitOperationStateRequest extends com.oracle.bmc.re
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Optional Operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+     * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
      */
     private String operationName;
 
     
 
         /**
-     * Optional Operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+     * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
      */
     public String getOperationName() {
         return operationName;
@@ -130,12 +130,12 @@ public class GetAiDataPlatformGitOperationStateRequest extends com.oracle.bmc.re
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -145,12 +145,12 @@ public class GetAiDataPlatformGitOperationStateRequest extends com.oracle.bmc.re
         }
 
             /**
-     * Optional Operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+     * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
      */
         private String operationName = null;
 
         /**
-         * Optional Operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+         * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
          * @param operationName the value to set
          * @return this builder instance
          */

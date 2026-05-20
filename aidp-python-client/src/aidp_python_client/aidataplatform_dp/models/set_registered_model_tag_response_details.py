@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class SetRegisteredModelTagResponseDetails(object):
     """
-    Response object for tagging a RegisteredModel
+    Response object for tagging a registered model.
     """
 
     def __init__(self, **kwargs):

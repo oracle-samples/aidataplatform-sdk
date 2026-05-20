@@ -21,27 +21,27 @@ public class GetAiDataPlatformModelVersionRequest extends com.oracle.bmc.request
         return aiDataPlatformId;
     }
         /**
-     * Name of the ModelVersion
+     * Name of the model version.
      */
     private String name;
 
     
 
         /**
-     * Name of the ModelVersion
+     * Name of the model version.
      */
     public String getName() {
         return name;
     }
         /**
-     * Version number of the model version
+     * Version number of the model version.
      */
     private String version;
 
     
 
         /**
-     * Version number of the model version
+     * Version number of the model version.
      */
     public String getVersion() {
         return version;
@@ -102,12 +102,12 @@ public class GetAiDataPlatformModelVersionRequest extends com.oracle.bmc.request
         }
 
             /**
-     * Name of the ModelVersion
+     * Name of the model version.
      */
         private String name = null;
 
         /**
-         * Name of the ModelVersion
+         * Name of the model version.
          * @param name the value to set
          * @return this builder instance
          */
@@ -117,12 +117,12 @@ public class GetAiDataPlatformModelVersionRequest extends com.oracle.bmc.request
         }
 
             /**
-     * Version number of the model version
+     * Version number of the model version.
      */
         private String version = null;
 
         /**
-         * Version number of the model version
+         * Version number of the model version.
          * @param version the value to set
          * @return this builder instance
          */

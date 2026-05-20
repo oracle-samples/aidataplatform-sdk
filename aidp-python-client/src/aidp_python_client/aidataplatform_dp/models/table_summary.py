@@ -37,6 +37,10 @@ class TableSummary(object):
     #: This constant has a value of "EXADATA"
     ENTITY_TYPE_EXADATA = "EXADATA"
 
+    #: A constant which can be used with the entity_type property of a TableSummary.
+    #: This constant has a value of "ORACLE_ANALYTICS"
+    ENTITY_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
+
     #: A constant which can be used with the table_type property of a TableSummary.
     #: This constant has a value of "MANAGED"
     TABLE_TYPE_MANAGED = "MANAGED"
@@ -69,6 +73,7 @@ class TableSummary(object):
         * :class:`~oci.aidataplatform_dp.models.StandardTableSummary`
         * :class:`~oci.aidataplatform_dp.models.AlhTableSummary`
         * :class:`~oci.aidataplatform_dp.models.ExadataTableSummary`
+        * :class:`~oci.aidataplatform_dp.models.OacTableSummary`
         * :class:`~oci.aidataplatform_dp.models.AdwTableSummary`
         * :class:`~oci.aidataplatform_dp.models.OracleTableSummary`
         * :class:`~oci.aidataplatform_dp.models.AtpTableSummary`
@@ -77,7 +82,7 @@ class TableSummary(object):
 
         :param entity_type:
             The value to assign to the entity_type property of this TableSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type entity_type: str
 
@@ -169,6 +174,9 @@ class TableSummary(object):
         if type == 'EXADATA':
             return 'ExadataTableSummary'
 
+        if type == 'ORACLE_ANALYTICS':
+            return 'OacTableSummary'
+
         if type == 'ADW':
             return 'AdwTableSummary'
 
@@ -186,7 +194,7 @@ class TableSummary(object):
         **[Required]** Gets the entity_type of this TableSummary.
         An enum to decide the type of the derived model
 
-        Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -205,7 +213,7 @@ class TableSummary(object):
         :param entity_type: The entity_type of this TableSummary.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA"]
+        allowed_values = ["ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(entity_type, allowed_values):
             entity_type = 'UNKNOWN_ENUM_VALUE'
         self._entity_type = entity_type

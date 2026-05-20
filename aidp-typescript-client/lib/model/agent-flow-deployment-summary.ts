@@ -52,10 +52,15 @@ export interface AgentFlowDeploymentSummary {
     * The OCID of the user/principal who created the Agent flow session.
     */
     'createdBy': string;
+    /**
+    * AgentCard base URL
+    */
+    'agentCardUrl'?: string;
 
 }
 
 export namespace AgentFlowDeploymentSummary {
+
 
 
 
@@ -82,6 +87,7 @@ export namespace AgentFlowDeploymentSummary {
 
 
 
+
         }};
 
         
@@ -92,6 +98,7 @@ export namespace AgentFlowDeploymentSummary {
     export function getDeserializedJsonObj(obj: AgentFlowDeploymentSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

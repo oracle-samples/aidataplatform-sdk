@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeleteRegisteredModelDetails(object):
     """
-    Details of the RegisteredModel to delete.
+    Details of the registered model to delete.
     """
 
     def __init__(self, **kwargs):

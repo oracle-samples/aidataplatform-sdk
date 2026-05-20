@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details about a git repository
+ * Details about a Git repository.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitFolderMetadatum.Builder.class)
@@ -21,14 +21,14 @@ public final class GitFolderMetadatum  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Unique repo key if folder/file path is associated with a git folder
+     * Unique repo key if folder/file path is associated with a Git folder.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("repoKey")
         private String repoKey;
 
                 /**
-         * Unique repo key if folder/file path is associated with a git folder
+         * Unique repo key if folder/file path is associated with a Git folder.
          * @param repoKey the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class GitFolderMetadatum  {
         return this;
         }
             /**
-     * If the passed folder/file path is associated with a git folder. (Active/Inactive)
+     * If the passed folder/file path is associated with a Git folder. (Active/Inactive)
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("isAssociated")
         private Boolean isAssociated;
 
                 /**
-         * If the passed folder/file path is associated with a git folder. (Active/Inactive)
+         * If the passed folder/file path is associated with a Git folder. (Active/Inactive)
          * @param isAssociated the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * Unique repo key if folder/file path is associated with a git folder
+     * Unique repo key if folder/file path is associated with a Git folder.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("repoKey")
     private final String repoKey;
 
         /**
-     * Unique repo key if folder/file path is associated with a git folder
+     * Unique repo key if folder/file path is associated with a Git folder.
      * @return the value
      **/
     
@@ -104,14 +104,14 @@ return this;
 
 
         /**
-     * If the passed folder/file path is associated with a git folder. (Active/Inactive)
+     * If the passed folder/file path is associated with a Git folder. (Active/Inactive)
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isAssociated")
     private final Boolean isAssociated;
 
         /**
-     * If the passed folder/file path is associated with a git folder. (Active/Inactive)
+     * If the passed folder/file path is associated with a Git folder. (Active/Inactive)
      * @return the value
      **/
     

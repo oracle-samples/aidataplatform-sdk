@@ -20,11 +20,11 @@ class TestToolParamValues(object):
 
         :param values:
             The value to assign to the values property of this TestToolParamValues.
-        :type values: dict(str, str)
+        :type values: object
 
         """
         self.swagger_types = {
-            'values': 'dict(str, str)'
+            'values': 'object'
         }
 
         self.attribute_map = {
@@ -37,11 +37,11 @@ class TestToolParamValues(object):
     def values(self):
         """
         Gets the values of this TestToolParamValues.
-        Map of parameter names to their string values.
+        Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
 
 
         :return: The values of this TestToolParamValues.
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._values
 
@@ -49,11 +49,11 @@ class TestToolParamValues(object):
     def values(self, values):
         """
         Sets the values of this TestToolParamValues.
-        Map of parameter names to their string values.
+        Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
 
 
         :param values: The values of this TestToolParamValues.
-        :type: dict(str, str)
+        :type: object
         """
         self._values = values
 

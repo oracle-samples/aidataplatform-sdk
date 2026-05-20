@@ -16,7 +16,7 @@ export interface LogAiDataPlatformExperimentRunMetricRequest extends common.Base
  */
  'workspaceKey': string;
 /**
- * Details of an Experiment Run Metric.
+ * Details of an experiment run metric.
  */
  'logExperimentRunMetricDetails':  model.LogExperimentRunMetricDetails;
 /**

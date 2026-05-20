@@ -20,7 +20,7 @@ export interface UpdateAiDataPlatformGitRepositoryRequest extends common.BaseReq
  */
  'updateGitRepositoryDetails':  model.UpdateGitRepositoryDetails;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**

@@ -47,6 +47,19 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
         return path;
     }
         /**
+     * Flag to toggle to generate short living par
+     */
+    private Boolean shouldGenerateNewPar;
+
+    
+
+        /**
+     * Flag to toggle to generate short living par
+     */
+    public Boolean getShouldGenerateNewPar() {
+        return shouldGenerateNewPar;
+    }
+        /**
      * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24
 * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
@@ -142,6 +155,21 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
         }
 
             /**
+     * Flag to toggle to generate short living par
+     */
+        private Boolean shouldGenerateNewPar = null;
+
+        /**
+         * Flag to toggle to generate short living par
+         * @param shouldGenerateNewPar the value to set
+         * @return this builder instance
+         */
+        public Builder shouldGenerateNewPar(Boolean shouldGenerateNewPar) {
+            this.shouldGenerateNewPar = shouldGenerateNewPar;
+            return this;
+        }
+
+            /**
      * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24
 * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
@@ -215,7 +243,7 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
          * @return this builder instance
          */
         public Builder copy(DownloadAiDataPlatformFileWithParRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());volumeKey(o.getVolumeKey());path(o.getPath());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());volumeKey(o.getVolumeKey());path(o.getPath());shouldGenerateNewPar(o.getShouldGenerateNewPar());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -251,10 +279,11 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
             request.aiDataPlatformId = aiDataPlatformId;
             request.volumeKey = volumeKey;
             request.path = path;
+            request.shouldGenerateNewPar = shouldGenerateNewPar;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
             return request;
-            // new DownloadAiDataPlatformFileWithParRequest(aiDataPlatformId, volumeKey, path, opcRetryToken, opcRequestId);
+            // new DownloadAiDataPlatformFileWithParRequest(aiDataPlatformId, volumeKey, path, shouldGenerateNewPar, opcRetryToken, opcRequestId);
         }
     }
 
@@ -267,6 +296,7 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
             .aiDataPlatformId(aiDataPlatformId)
             .volumeKey(volumeKey)
             .path(path)
+            .shouldGenerateNewPar(shouldGenerateNewPar)
             .opcRetryToken(opcRetryToken)
             .opcRequestId(opcRequestId);
     }
@@ -287,6 +317,7 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",volumeKey=").append(String.valueOf(this.volumeKey));
         sb.append(",path=").append(String.valueOf(this.path));
+        sb.append(",shouldGenerateNewPar=").append(String.valueOf(this.shouldGenerateNewPar));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(")");
@@ -307,6 +338,7 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.volumeKey, other.volumeKey)
             && java.util.Objects.equals(this.path, other.path)
+            && java.util.Objects.equals(this.shouldGenerateNewPar, other.shouldGenerateNewPar)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
@@ -318,6 +350,7 @@ public class DownloadAiDataPlatformFileWithParRequest extends com.oracle.bmc.req
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.volumeKey == null ? 43 : this.volumeKey.hashCode());
         result = (result * PRIME) + (this.path == null ? 43 : this.path.hashCode());
+        result = (result * PRIME) + (this.shouldGenerateNewPar == null ? 43 : this.shouldGenerateNewPar.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         return result;

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for deleting a ModelVersion
+* Response object for deleting a model version.
 */
 export interface DeleteModelVersionResponseDetails {
 

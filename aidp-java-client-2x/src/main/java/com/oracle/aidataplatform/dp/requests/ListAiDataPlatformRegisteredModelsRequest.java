@@ -40,27 +40,27 @@ public class ListAiDataPlatformRegisteredModelsRequest extends com.oracle.bmc.re
         return filter;
     }
         /**
-     * Maximum number of models desired. Default is 100. Max threshold is 1000
+     * Maximum number of models desired. Default is 100. Max threshold is 1000.
      */
     private Long maxResults;
 
     
 
         /**
-     * Maximum number of models desired. Default is 100. Max threshold is 1000
+     * Maximum number of models desired. Default is 100. Max threshold is 1000.
      */
     public Long getMaxResults() {
         return maxResults;
     }
         /**
-     * Pagination token to go to the next page based on a previous search query
+     * Pagination token to go to the next page based on a previous search query.
      */
     private String pageToken;
 
     
 
         /**
-     * Pagination token to go to the next page based on a previous search query
+     * Pagination token to go to the next page based on a previous search query.
      */
     public String getPageToken() {
         return pageToken;
@@ -161,12 +161,12 @@ public class ListAiDataPlatformRegisteredModelsRequest extends com.oracle.bmc.re
         }
 
             /**
-     * Maximum number of models desired. Default is 100. Max threshold is 1000
+     * Maximum number of models desired. Default is 100. Max threshold is 1000.
      */
         private Long maxResults = null;
 
         /**
-         * Maximum number of models desired. Default is 100. Max threshold is 1000
+         * Maximum number of models desired. Default is 100. Max threshold is 1000.
          * @param maxResults the value to set
          * @return this builder instance
          */
@@ -176,12 +176,12 @@ public class ListAiDataPlatformRegisteredModelsRequest extends com.oracle.bmc.re
         }
 
             /**
-     * Pagination token to go to the next page based on a previous search query
+     * Pagination token to go to the next page based on a previous search query.
      */
         private String pageToken = null;
 
         /**
-         * Pagination token to go to the next page based on a previous search query
+         * Pagination token to go to the next page based on a previous search query.
          * @param pageToken the value to set
          * @return this builder instance
          */

@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface GitPullDetails {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath'?: string;
     /**

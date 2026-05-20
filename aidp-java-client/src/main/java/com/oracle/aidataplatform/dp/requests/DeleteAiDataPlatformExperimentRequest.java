@@ -34,14 +34,14 @@ public class DeleteAiDataPlatformExperimentRequest extends com.oracle.bmc.reques
         return workspaceKey;
     }
         /**
-     * Details of the Experiment.
+     * Details of the experiment.
      */
     private com.oracle.aidataplatform.dp.model.DeleteExperimentDetails deleteExperimentDetails;
 
     
 
         /**
-     * Details of the Experiment.
+     * Details of the experiment.
      */
     public com.oracle.aidataplatform.dp.model.DeleteExperimentDetails getDeleteExperimentDetails() {
         return deleteExperimentDetails;
@@ -150,12 +150,12 @@ public class DeleteAiDataPlatformExperimentRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * Details of the Experiment.
+     * Details of the experiment.
      */
         private com.oracle.aidataplatform.dp.model.DeleteExperimentDetails deleteExperimentDetails = null;
 
         /**
-         * Details of the Experiment.
+         * Details of the experiment.
          * @param deleteExperimentDetails the value to set
          * @return this builder instance
          */

@@ -41,10 +41,6 @@ class CreateToolDetails(object):
     #: This constant has a value of "HTTP"
     TOOL_TYPE_HTTP = "HTTP"
 
-    #: A constant which can be used with the tool_type property of a CreateToolDetails.
-    #: This constant has a value of "REFERENCE"
-    TOOL_TYPE_REFERENCE = "REFERENCE"
-
     def __init__(self, **kwargs):
         """
         Initializes a new CreateToolDetails object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
@@ -69,7 +65,7 @@ class CreateToolDetails(object):
 
         :param tool_type:
             The value to assign to the tool_type property of this CreateToolDetails.
-            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
         :type tool_type: str
 
         :param properties:
@@ -178,7 +174,7 @@ class CreateToolDetails(object):
         **[Required]** Gets the tool_type of this CreateToolDetails.
         Type of tool. Managed, external or mount tool.
 
-        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
 
 
         :return: The tool_type of this CreateToolDetails.
@@ -196,7 +192,7 @@ class CreateToolDetails(object):
         :param tool_type: The tool_type of this CreateToolDetails.
         :type: str
         """
-        allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"]
+        allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
                 "Invalid value for `tool_type`, must be None or one of {0}"

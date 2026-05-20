@@ -16,7 +16,7 @@ export interface GetAiDataPlatformExperimentByIdRequest extends common.BaseReque
  */
  'workspaceKey': string;
 /**
- * The unique ID of the experiment to retrieve
+ * The unique ID of the experiment to retrieve.
  */
  'experimentId': string;
 /**

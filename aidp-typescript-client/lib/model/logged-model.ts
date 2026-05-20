@@ -5,12 +5,12 @@ import common = require("oci-common");
 
 
 /**
-* Details of the LoggedModel.
+* Details of the logged model.
 */
 export interface LoggedModel {
     'info'?: model.LoggedModelInfo;
     /**
-    * Details of the LoggedModel data.
+    * Details of the logged model data.
     */
     'data'?: any;
 

@@ -214,6 +214,40 @@ return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
 .callAsync(handler);
     }
 
+    @Override
+    
+    public java.util.concurrent.Future<SyncAiDataPlatformBundleResponse> syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getSyncBundleDetails(), "syncBundleDetails is required");
+        
+
+
+return clientCall(request, SyncAiDataPlatformBundleResponse::builder)
+        .logger(LOG, "syncAiDataPlatformBundle")
+        .serviceDetails("Bundle", "SyncAiDataPlatformBundle", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SyncAiDataPlatformBundleRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("bundles").appendPathParam("actions").appendPathParam("sync")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            SyncAiDataPlatformBundleResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            SyncAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+.callAsync(handler);
+    }
+
 
     /**
      * Create a new client instance.

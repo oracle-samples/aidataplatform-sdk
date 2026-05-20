@@ -13,7 +13,7 @@ package com.oracle.aidataplatform.dp.model;
 public final class PiiCategory  {
     @Deprecated
     @java.beans.ConstructorProperties({"category", "isEnabled", "action", "threshold"})
-    public PiiCategory(String category, Boolean isEnabled, PolicyAction action, Float threshold) {
+    public PiiCategory(PiiCategoryType category, Boolean isEnabled, PolicyAction action, Float threshold) {
         super();
         this.category = category;
         this.isEnabled = isEnabled;
@@ -28,7 +28,7 @@ public final class PiiCategory  {
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("category")
-private String category;
+private PiiCategoryType category;
 
         /**
          * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
@@ -37,7 +37,7 @@ private String category;
          **/
         
 
-public Builder category(String category) {
+public Builder category(PiiCategoryType category) {
     this.category = category;
     return this;
 }
@@ -128,20 +128,20 @@ return this;
 
     
 
-
+    
         /**
      * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("category")
-    private final String category;
+    private final PiiCategoryType category;
 
         /**
      * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
      * @return the value
      **/
     
-    public String getCategory() {
+    public PiiCategoryType getCategory() {
         return category;
     }
 

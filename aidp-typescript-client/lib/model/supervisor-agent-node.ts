@@ -23,6 +23,10 @@ export interface SupervisorAgentNode extends model.AgentFlowNode {
     */
     'tools'?: Array<model.Tool>;
     /**
+    * A list of tool reference keys, the full tool definition can be found in the toolsMap.
+    */
+    'toolReferences'?: Array<string>;
+    /**
     * Extra configuration for the supervisor node.  Captured as a generic dictionary.
     */
     'supervisorConfig'?: { [key: string]: string; };
@@ -31,6 +35,7 @@ export interface SupervisorAgentNode extends model.AgentFlowNode {
 }
 
 export namespace SupervisorAgentNode {
+
 
 
 
@@ -57,6 +62,7 @@ export namespace SupervisorAgentNode {
                 
                  : undefined,
 
+
         }};
 
         
@@ -82,6 +88,7 @@ export namespace SupervisorAgentNode {
                 obj.tools.map((item)=>{return model.Tool.getDeserializedJsonObj(item)})
                 
                  : undefined,
+
 
          }};
 

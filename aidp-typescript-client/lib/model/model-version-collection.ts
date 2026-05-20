@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* Result of listing ModelVersions.
+* Result of listing model versions.
 */
 export interface ModelVersionCollection {
     /**
-    * ModelVersions that match the search criteria
+    * Model versions that match the search criteria.
     */
     'modelVersions': Array<model.ModelVersion>;
     /**
-    * Token that can be used to retrieve the next page of ModelVersions.
+    * Token that can be used to retrieve the next page of model versions.
     */
     'nextPageToken'?: string;
 

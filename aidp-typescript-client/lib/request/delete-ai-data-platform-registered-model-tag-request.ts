@@ -12,7 +12,7 @@ export interface DeleteAiDataPlatformRegisteredModelTagRequest extends common.Ba
  */
  'aiDataPlatformId': string;
 /**
- * Details of a RegisteredModel tag.
+ * Details of a registered model tag.
  */
  'deleteRegisteredModelTagDetails':  model.DeleteRegisteredModelTagDetails;
 /**

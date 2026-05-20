@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Results of a Cluster log list.
+* Results of a cluster log list.
 */
 export interface ClusterLogCollection {
     /**
-    * List of Cluster logs.
+    * List of cluster logs.
     */
     'items': Array<model.ClusterLogsSummary>;
 

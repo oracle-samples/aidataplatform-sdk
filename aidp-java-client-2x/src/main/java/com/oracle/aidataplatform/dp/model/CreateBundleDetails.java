@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Request body to create a new Bundle.
+ * Request body to create a new bundle.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CreateBundleDetails.Builder.class)
@@ -23,14 +23,14 @@ public final class CreateBundleDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Name for the new bundle
+     * Name for the new bundle.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("name")
         private String name;
 
                 /**
-         * Name for the new bundle
+         * Name for the new bundle.
          * @param name the value to set
          * @return this builder
          **/
@@ -41,14 +41,14 @@ public final class CreateBundleDetails  {
         return this;
         }
             /**
-     * Description for the bundle
+     * Description for the bundle.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("description")
         private String description;
 
                 /**
-         * Description for the bundle
+         * Description for the bundle.
          * @param description the value to set
          * @return this builder
          **/
@@ -59,14 +59,14 @@ public final class CreateBundleDetails  {
         return this;
         }
             /**
-     * Target folder for the new bundle
+     * Target folder for the new bundle.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("path")
         private String path;
 
                 /**
-         * Target folder for the new bundle
+         * Target folder for the new bundle.
          * @param path the value to set
          * @return this builder
          **/
@@ -133,14 +133,14 @@ return this;
 
 
         /**
-     * Name for the new bundle
+     * Name for the new bundle.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * Name for the new bundle
+     * Name for the new bundle.
      * @return the value
      **/
     
@@ -150,14 +150,14 @@ return this;
 
 
         /**
-     * Description for the bundle
+     * Description for the bundle.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("description")
     private final String description;
 
         /**
-     * Description for the bundle
+     * Description for the bundle.
      * @return the value
      **/
     
@@ -167,14 +167,14 @@ return this;
 
 
         /**
-     * Target folder for the new bundle
+     * Target folder for the new bundle.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("path")
     private final String path;
 
         /**
-     * Target folder for the new bundle
+     * Target folder for the new bundle.
      * @return the value
      **/
     

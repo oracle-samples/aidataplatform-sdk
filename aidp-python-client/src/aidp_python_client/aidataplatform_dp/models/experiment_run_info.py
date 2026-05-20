@@ -324,7 +324,7 @@ class ExperimentRunInfo(object):
     def run_uuid(self):
         """
         Gets the run_uuid of this ExperimentRunInfo.
-        uuid of the run.
+        UUID of the run.
 
 
         :return: The run_uuid of this ExperimentRunInfo.
@@ -336,7 +336,7 @@ class ExperimentRunInfo(object):
     def run_uuid(self, run_uuid):
         """
         Sets the run_uuid of this ExperimentRunInfo.
-        uuid of the run.
+        UUID of the run.
 
 
         :param run_uuid: The run_uuid of this ExperimentRunInfo.

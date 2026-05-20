@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of an Experiment Run Param
+* Details of an experiment run param.
 */
 export interface LogExperimentRunParamDetails {
     /**
@@ -13,11 +13,11 @@ export interface LogExperimentRunParamDetails {
     */
     'runId': string;
     /**
-    * Name of the param
+    * Name of the param.
     */
     'key': string;
     /**
-    * Value of the param
+    * Value of the param.
     */
     'value': string;
 

@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Result of CredentialV2Collection
+* Result of CredentialV2Collection.
 */
 export interface CredentialV2Collection {
     /**
-    * List of CredentialV2 Summaries
+    * List of CredentialV2 summaries.
     */
     'items': Array<model.CredentialV2Summary>;
 

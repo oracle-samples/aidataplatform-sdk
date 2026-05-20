@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface ExperimentRunMetricHistoryCollection {
     /**
-    * Logged values for the metric
+    * Logged values for the metric.
     */
     'metrics'?: Array<model.ExperimentRunMetric>;
     /**

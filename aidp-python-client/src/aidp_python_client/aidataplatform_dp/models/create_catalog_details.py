@@ -45,6 +45,10 @@ class CreateCatalogDetails(object):
     #: This constant has a value of "EXADATA"
     SOURCE_TYPE_EXADATA = "EXADATA"
 
+    #: A constant which can be used with the source_type property of a CreateCatalogDetails.
+    #: This constant has a value of "ORACLE_ANALYTICS"
+    SOURCE_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
+
     def __init__(self, **kwargs):
         """
         Initializes a new CreateCatalogDetails object with values from keyword arguments.
@@ -65,7 +69,7 @@ class CreateCatalogDetails(object):
 
         :param source_type:
             The value to assign to the source_type property of this CreateCatalogDetails.
-            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA"
+            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
         :type source_type: str
 
         :param properties:
@@ -188,7 +192,7 @@ class CreateCatalogDetails(object):
         Gets the source_type of this CreateCatalogDetails.
         External catalog source type.
 
-        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA"
+        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
 
 
         :return: The source_type of this CreateCatalogDetails.
@@ -206,7 +210,7 @@ class CreateCatalogDetails(object):
         :param source_type: The source_type of this CreateCatalogDetails.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA"]
+        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             raise ValueError(
                 "Invalid value for `source_type`, must be None or one of {0}"

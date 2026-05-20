@@ -34,14 +34,14 @@ public class ListAiDataPlatformGitBranchesRequest extends com.oracle.bmc.request
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
@@ -232,12 +232,12 @@ public class ListAiDataPlatformGitBranchesRequest extends com.oracle.bmc.request
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */

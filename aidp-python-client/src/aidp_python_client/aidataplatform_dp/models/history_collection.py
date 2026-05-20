@@ -68,7 +68,7 @@ class HistoryCollection(object):
     def git_url(self):
         """
         Gets the git_url of this HistoryCollection.
-        The git repository url corresponding to the branch
+        The Git repository URL corresponding to the branch.
 
 
         :return: The git_url of this HistoryCollection.
@@ -80,7 +80,7 @@ class HistoryCollection(object):
     def git_url(self, git_url):
         """
         Sets the git_url of this HistoryCollection.
-        The git repository url corresponding to the branch
+        The Git repository URL corresponding to the branch.
 
 
         :param git_url: The git_url of this HistoryCollection.

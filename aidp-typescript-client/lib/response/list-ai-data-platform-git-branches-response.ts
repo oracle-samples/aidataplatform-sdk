@@ -17,6 +17,12 @@ export interface ListAiDataPlatformGitBranchesResponse {
      */
     'opcNextPage': string;
     /**
+     * For list pagination. This header provides total number of items available. For
+* important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+    'opcTotalItems': number;
+    /**
      * The returned model.GitBranchCollection instance.
      */
     'gitBranchCollection': model.GitBranchCollection;

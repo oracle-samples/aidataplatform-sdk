@@ -12,7 +12,7 @@ export interface ListAiDataPlatformUserSettingsRequest extends common.BaseReques
  */
  'aiDataPlatformId': string;
 /**
- * A filter to return only Settings whose value matches the given data type.
+ * A filter to return only those settings whose value matches the given data type.
  */
  'settingType'?: ListAiDataPlatformUserSettingsRequest.SettingType;
 /**

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Summary of the CredentialV2 Object.
+* Summary of the CredentialV2 object.
 */
 export interface CredentialV2Summary {
     /**

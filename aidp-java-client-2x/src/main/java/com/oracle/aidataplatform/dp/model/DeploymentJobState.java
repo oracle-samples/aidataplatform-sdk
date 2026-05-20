@@ -3,7 +3,7 @@
 package com.oracle.aidataplatform.dp.model;
 
 /**
- * Status of the Job.
+ * Status of the job.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum DeploymentJobState {

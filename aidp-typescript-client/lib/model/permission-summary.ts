@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Information about a Credential Permission.
+* Information about a credential permission.
 */
 export interface PermissionSummary {
     /**
-    * The ocid of user/group and name in case of role.
+    * The OCID of user/group and name in case of role.
     */
     'grantee': string;
     /**
@@ -21,7 +21,7 @@ export interface PermissionSummary {
     */
     'granteeType': model.GranteeType;
     /**
-    * The selected permissions for a Credential.
+    * The selected permissions for a credential.
     */
     'granteePermissions': Array<PermissionSummary.GranteePermissions>;
     /**

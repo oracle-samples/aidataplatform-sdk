@@ -12,7 +12,7 @@ export interface CreateAiDataPlatformCredentialRequest extends common.BaseReques
  */
  'aiDataPlatformId': string;
 /**
- * Creates a new Credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
+ * Details for the new credential object. When the internal flag is enabled, callers must supply a {@code namespace} value of {@code default} or {@code user_settings} in the payload.
  */
  'createDataLakeCredentialDetails':  model.CreateDataLakeCredentialDetails;
 /**

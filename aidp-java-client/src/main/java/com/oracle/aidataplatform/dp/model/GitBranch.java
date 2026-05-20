@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Git Branch details
+ * Git branch details.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitBranch.Builder.class)
@@ -26,14 +26,14 @@ public final class GitBranch  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the git branch
+         * The name of the Git branch.
          * @param branchName the value to set
          * @return this builder
          **/
@@ -44,14 +44,14 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * The git repository url corresponding to the branch
+     * The Git repository URL corresponding to the branch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
 private String gitUrl;
 
         /**
-         * The git repository url corresponding to the branch
+         * The Git repository URL corresponding to the branch.
          * @param gitUrl the value to set
          * @return this builder
          **/
@@ -62,14 +62,14 @@ public Builder gitUrl(String gitUrl) {
     return this;
 }
             /**
-     * Git Error Message
+     * Git error message.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("errorMessage")
 private String errorMessage;
 
         /**
-         * Git Error Message
+         * Git error message.
          * @param errorMessage the value to set
          * @return this builder
          **/
@@ -80,14 +80,14 @@ public Builder errorMessage(String errorMessage) {
     return this;
 }
             /**
-     * Git STDOUT Message
+     * Git STDOUT message.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("stdOut")
 private String stdOut;
 
         /**
-         * Git STDOUT Message
+         * Git STDOUT message.
          * @param stdOut the value to set
          * @return this builder
          **/
@@ -98,14 +98,14 @@ public Builder stdOut(String stdOut) {
     return this;
 }
             /**
-     * Git STDERR Message
+     * Git STDERR message.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("stdErr")
 private String stdErr;
 
         /**
-         * Git STDERR Message
+         * Git STDERR message.
          * @param stdErr the value to set
          * @return this builder
          **/
@@ -116,14 +116,14 @@ public Builder stdErr(String stdErr) {
     return this;
 }
             /**
-     * Git exit status
+     * Git exit status.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitExitCode")
 private Integer gitExitCode;
 
         /**
-         * Git exit status
+         * Git exit status.
          * @param gitExitCode the value to set
          * @return this builder
          **/
@@ -172,14 +172,14 @@ return this;
 
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      * @return the value
      **/
     
@@ -189,14 +189,14 @@ return this;
 
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository URL corresponding to the branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
     private final String gitUrl;
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository URL corresponding to the branch.
      * @return the value
      **/
     
@@ -206,14 +206,14 @@ return this;
 
 
         /**
-     * Git Error Message
+     * Git error message.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("errorMessage")
     private final String errorMessage;
 
         /**
-     * Git Error Message
+     * Git error message.
      * @return the value
      **/
     
@@ -223,14 +223,14 @@ return this;
 
 
         /**
-     * Git STDOUT Message
+     * Git STDOUT message.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("stdOut")
     private final String stdOut;
 
         /**
-     * Git STDOUT Message
+     * Git STDOUT message.
      * @return the value
      **/
     
@@ -240,14 +240,14 @@ return this;
 
 
         /**
-     * Git STDERR Message
+     * Git STDERR message.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("stdErr")
     private final String stdErr;
 
         /**
-     * Git STDERR Message
+     * Git STDERR message.
      * @return the value
      **/
     
@@ -257,14 +257,14 @@ return this;
 
 
         /**
-     * Git exit status
+     * Git exit status.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitExitCode")
     private final Integer gitExitCode;
 
         /**
-     * Git exit status
+     * Git exit status.
      * @return the value
      **/
     

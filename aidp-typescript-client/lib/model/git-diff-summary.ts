@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Summary information about a file that differs in a git folder context.
+* Summary information about a file that differs in a Git folder context.
 */
 export interface GitDiffSummary {
     /**

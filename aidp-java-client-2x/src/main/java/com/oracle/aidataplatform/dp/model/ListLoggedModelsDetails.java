@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of LoggedModels to fetch.
+ * Details of logged models to fetch.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ListLoggedModelsDetails.Builder.class)
@@ -66,14 +66,14 @@ public final class ListLoggedModelsDetails  {
         return this;
         }
             /**
-     * Token indicating the page of logged-models to fetch
+     * Token indicating the page of logged-models to fetch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("page_token")
         private String pageToken;
 
                 /**
-         * Token indicating the page of logged-models to fetch
+         * Token indicating the page of logged-models to fetch.
          * @param pageToken the value to set
          * @return this builder
          **/
@@ -200,14 +200,14 @@ return this;
 
 
         /**
-     * Token indicating the page of logged-models to fetch
+     * Token indicating the page of logged-models to fetch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("page_token")
     private final String pageToken;
 
         /**
-     * Token indicating the page of logged-models to fetch
+     * Token indicating the page of logged-models to fetch.
      * @return the value
      **/
     

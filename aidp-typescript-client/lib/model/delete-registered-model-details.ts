@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of the RegisteredModel to delete.
+* Details of the registered model to delete.
 */
 export interface DeleteRegisteredModelDetails {
     /**

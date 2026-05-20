@@ -21,14 +21,14 @@ public class GetAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.requ
         return aiDataPlatformId;
     }
         /**
-     * Name of the RegisteredModel
+     * Name of the registered model.
      */
     private String name;
 
     
 
         /**
-     * Name of the RegisteredModel
+     * Name of the registered model.
      */
     public String getName() {
         return name;
@@ -89,12 +89,12 @@ public class GetAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * Name of the RegisteredModel
+     * Name of the registered model.
      */
         private String name = null;
 
         /**
-         * Name of the RegisteredModel
+         * Name of the registered model.
          * @param name the value to set
          * @return this builder instance
          */

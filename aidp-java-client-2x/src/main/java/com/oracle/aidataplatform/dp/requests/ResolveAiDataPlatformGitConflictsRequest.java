@@ -34,27 +34,27 @@ public class ResolveAiDataPlatformGitConflictsRequest extends com.oracle.bmc.req
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Conflict resolution details
+     * Conflict resolution details.
      */
     private com.oracle.aidataplatform.dp.model.ConflictResolveDetails conflictResolveDetails;
 
     
 
         /**
-     * Conflict resolution details
+     * Conflict resolution details.
      */
     public com.oracle.aidataplatform.dp.model.ConflictResolveDetails getConflictResolveDetails() {
         return conflictResolveDetails;
@@ -171,12 +171,12 @@ public class ResolveAiDataPlatformGitConflictsRequest extends com.oracle.bmc.req
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -186,12 +186,12 @@ public class ResolveAiDataPlatformGitConflictsRequest extends com.oracle.bmc.req
         }
 
             /**
-     * Conflict resolution details
+     * Conflict resolution details.
      */
         private com.oracle.aidataplatform.dp.model.ConflictResolveDetails conflictResolveDetails = null;
 
         /**
-         * Conflict resolution details
+         * Conflict resolution details.
          * @param conflictResolveDetails the value to set
          * @return this builder instance
          */

@@ -34,14 +34,14 @@ public class CreateAiDataPlatformWorkspaceModelVersionRequest extends com.oracle
         return workspaceKey;
     }
         /**
-     * Details for the new ModelVersion.
+     * Details for the new model version.
      */
     private com.oracle.aidataplatform.dp.model.CreateModelVersionDetails createModelVersionDetails;
 
     
 
         /**
-     * Details for the new ModelVersion.
+     * Details for the new model version.
      */
     public com.oracle.aidataplatform.dp.model.CreateModelVersionDetails getCreateModelVersionDetails() {
         return createModelVersionDetails;
@@ -150,12 +150,12 @@ public class CreateAiDataPlatformWorkspaceModelVersionRequest extends com.oracle
         }
 
             /**
-     * Details for the new ModelVersion.
+     * Details for the new model version.
      */
         private com.oracle.aidataplatform.dp.model.CreateModelVersionDetails createModelVersionDetails = null;
 
         /**
-         * Details for the new ModelVersion.
+         * Details for the new model version.
          * @param createModelVersionDetails the value to set
          * @return this builder instance
          */

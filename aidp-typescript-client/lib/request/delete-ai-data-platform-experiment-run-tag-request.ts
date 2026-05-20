@@ -16,7 +16,7 @@ export interface DeleteAiDataPlatformExperimentRunTagRequest extends common.Base
  */
  'workspaceKey': string;
 /**
- * Tag details to delete on an Experiment Run.
+ * Tag details to delete on an experiment run.
  */
  'deleteExperimentRunTagDetails':  model.DeleteExperimentRunTagDetails;
 /**

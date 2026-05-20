@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeleteModelVersionTagResponseDetails(object):
     """
-    Response object for deleting tag of a ModelVersion
+    Response object for deleting tag of a model version
     """
 
     def __init__(self, **kwargs):

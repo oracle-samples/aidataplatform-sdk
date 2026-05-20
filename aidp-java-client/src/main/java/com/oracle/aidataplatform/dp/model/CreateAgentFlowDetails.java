@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class CreateAgentFlowDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"displayName", "description", "pathInfo", "type", "entryFilePath", "dependenciesFilePath", "computeKey", "guardrails", "sessionConfig", "diagram"})
-    public CreateAgentFlowDetails(String displayName, String description, String pathInfo, Type type, String entryFilePath, String dependenciesFilePath, String computeKey, GuardrailsConfiguration guardrails, SessionConfiguration sessionConfig, AgentFlowDiagram diagram) {
+    @java.beans.ConstructorProperties({"displayName", "description", "pathInfo", "type", "entryFilePath", "dependenciesFilePath", "computeKey", "guardrails", "sessionConfig", "agentCardConfig", "diagram"})
+    public CreateAgentFlowDetails(String displayName, String description, String pathInfo, Type type, String entryFilePath, String dependenciesFilePath, String computeKey, GuardrailsConfiguration guardrails, SessionConfiguration sessionConfig, AgentCardConfigDetail agentCardConfig, AgentFlowDiagram diagram) {
         super();
         this.displayName = displayName;
         this.description = description;
@@ -24,6 +24,7 @@ public final class CreateAgentFlowDetails  {
         this.computeKey = computeKey;
         this.guardrails = guardrails;
         this.sessionConfig = sessionConfig;
+        this.agentCardConfig = agentCardConfig;
         this.diagram = diagram;
     }
 
@@ -176,6 +177,16 @@ public Builder sessionConfig(SessionConfiguration sessionConfig) {
     return this;
 }
         
+@com.fasterxml.jackson.annotation.JsonProperty("agentCardConfig")
+private AgentCardConfigDetail agentCardConfig;
+
+
+
+public Builder agentCardConfig(AgentCardConfigDetail agentCardConfig) {
+    this.agentCardConfig = agentCardConfig;
+    return this;
+}
+        
 @com.fasterxml.jackson.annotation.JsonProperty("diagram")
 private AgentFlowDiagram diagram;
 
@@ -197,6 +208,7 @@ public Builder diagram(AgentFlowDiagram diagram) {
                 , this.computeKey
                 , this.guardrails
                 , this.sessionConfig
+                , this.agentCardConfig
                 , this.diagram);            return model;
         }
 
@@ -211,6 +223,7 @@ public Builder diagram(AgentFlowDiagram diagram) {
     this.computeKey(model.getComputeKey());
     this.guardrails(model.getGuardrails());
     this.sessionConfig(model.getSessionConfig());
+    this.agentCardConfig(model.getAgentCardConfig());
     this.diagram(model.getDiagram());
 return this;
         }
@@ -408,6 +421,16 @@ return this;
 
 
     
+    @com.fasterxml.jackson.annotation.JsonProperty("agentCardConfig")
+    private final AgentCardConfigDetail agentCardConfig;
+
+    
+    public AgentCardConfigDetail getAgentCardConfig() {
+        return agentCardConfig;
+    }
+
+
+    
     @com.fasterxml.jackson.annotation.JsonProperty("diagram")
     private final AgentFlowDiagram diagram;
 
@@ -438,6 +461,7 @@ return this;
         sb.append(", computeKey=").append(String.valueOf(this.computeKey));
         sb.append(", guardrails=").append(String.valueOf(this.guardrails));
         sb.append(", sessionConfig=").append(String.valueOf(this.sessionConfig));
+        sb.append(", agentCardConfig=").append(String.valueOf(this.agentCardConfig));
         sb.append(", diagram=").append(String.valueOf(this.diagram));
         sb.append(")");
         return sb.toString();
@@ -462,6 +486,7 @@ return this;
             java.util.Objects.equals(this.computeKey, other.computeKey) &&
             java.util.Objects.equals(this.guardrails, other.guardrails) &&
             java.util.Objects.equals(this.sessionConfig, other.sessionConfig) &&
+            java.util.Objects.equals(this.agentCardConfig, other.agentCardConfig) &&
             java.util.Objects.equals(this.diagram, other.diagram);
     }
 
@@ -478,6 +503,7 @@ return this;
         result = (result * PRIME) + (this.computeKey == null ? 43 : this.computeKey.hashCode());
         result = (result * PRIME) + (this.guardrails == null ? 43 : this.guardrails.hashCode());
         result = (result * PRIME) + (this.sessionConfig == null ? 43 : this.sessionConfig.hashCode());
+        result = (result * PRIME) + (this.agentCardConfig == null ? 43 : this.agentCardConfig.hashCode());
         result = (result * PRIME) + (this.diagram == null ? 43 : this.diagram.hashCode());
         return result;
     }

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitBranch(object):
     """
-    Git Branch details
+    Git branch details.
     """
 
     def __init__(self, **kwargs):
@@ -72,7 +72,7 @@ class GitBranch(object):
     def branch_name(self):
         """
         **[Required]** Gets the branch_name of this GitBranch.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this GitBranch.
@@ -84,7 +84,7 @@ class GitBranch(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitBranch.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this GitBranch.
@@ -96,7 +96,7 @@ class GitBranch(object):
     def git_url(self):
         """
         **[Required]** Gets the git_url of this GitBranch.
-        The git repository url corresponding to the branch
+        The Git repository URL corresponding to the branch.
 
 
         :return: The git_url of this GitBranch.
@@ -108,7 +108,7 @@ class GitBranch(object):
     def git_url(self, git_url):
         """
         Sets the git_url of this GitBranch.
-        The git repository url corresponding to the branch
+        The Git repository URL corresponding to the branch.
 
 
         :param git_url: The git_url of this GitBranch.
@@ -120,7 +120,7 @@ class GitBranch(object):
     def error_message(self):
         """
         Gets the error_message of this GitBranch.
-        Git Error Message
+        Git error message.
 
 
         :return: The error_message of this GitBranch.
@@ -132,7 +132,7 @@ class GitBranch(object):
     def error_message(self, error_message):
         """
         Sets the error_message of this GitBranch.
-        Git Error Message
+        Git error message.
 
 
         :param error_message: The error_message of this GitBranch.
@@ -144,7 +144,7 @@ class GitBranch(object):
     def std_out(self):
         """
         Gets the std_out of this GitBranch.
-        Git STDOUT Message
+        Git STDOUT message.
 
 
         :return: The std_out of this GitBranch.
@@ -156,7 +156,7 @@ class GitBranch(object):
     def std_out(self, std_out):
         """
         Sets the std_out of this GitBranch.
-        Git STDOUT Message
+        Git STDOUT message.
 
 
         :param std_out: The std_out of this GitBranch.
@@ -168,7 +168,7 @@ class GitBranch(object):
     def std_err(self):
         """
         Gets the std_err of this GitBranch.
-        Git STDERR Message
+        Git STDERR message.
 
 
         :return: The std_err of this GitBranch.
@@ -180,7 +180,7 @@ class GitBranch(object):
     def std_err(self, std_err):
         """
         Sets the std_err of this GitBranch.
-        Git STDERR Message
+        Git STDERR message.
 
 
         :param std_err: The std_err of this GitBranch.
@@ -192,7 +192,7 @@ class GitBranch(object):
     def git_exit_code(self):
         """
         Gets the git_exit_code of this GitBranch.
-        Git exit status
+        Git exit status.
 
 
         :return: The git_exit_code of this GitBranch.
@@ -204,7 +204,7 @@ class GitBranch(object):
     def git_exit_code(self, git_exit_code):
         """
         Sets the git_exit_code of this GitBranch.
-        Git exit status
+        Git exit status.
 
 
         :param git_exit_code: The git_exit_code of this GitBranch.

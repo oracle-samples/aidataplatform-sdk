@@ -21,7 +21,7 @@ class AtpTableSummary(TableSummary):
 
         :param entity_type:
             The value to assign to the entity_type property of this AtpTableSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:

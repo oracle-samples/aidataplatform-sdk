@@ -16,11 +16,11 @@ export interface ResetAiDataPlatformGitFolderStateRequest extends common.BaseReq
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Merge conflict resolution details
+ * Merge conflict resolution details.
  */
  'resetGitFolderStateDetails':  model.ResetGitFolderStateDetails;
 /**

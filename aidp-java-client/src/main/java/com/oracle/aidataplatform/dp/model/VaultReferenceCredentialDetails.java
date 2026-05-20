@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Credential details for referencing existing secrets managed outside the IDL. This extends
+ * Credential details for referencing existing secrets managed outside AI Data Platform. This extends
 * the base CredentialDetails object, with the credential type set as VAULT_REFERENCE.
 * 
 **/

@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface ModelParam {
     /**
-    * Name of the parameter
+    * Name of the parameter.
     */
     'name'?: string;
     /**
-    * Value of the parameter
+    * Value of the parameter.
     */
     'value'?: string;
 

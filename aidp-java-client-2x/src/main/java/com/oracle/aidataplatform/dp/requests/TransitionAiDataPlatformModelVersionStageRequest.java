@@ -21,14 +21,14 @@ public class TransitionAiDataPlatformModelVersionStageRequest extends com.oracle
         return aiDataPlatformId;
     }
         /**
-     * Transition a ModelVersion stage.
+     * Details to transition a model version stage.
      */
     private com.oracle.aidataplatform.dp.model.TransitionModelVersionStageDetails transitionModelVersionStageDetails;
 
     
 
         /**
-     * Transition a ModelVersion stage.
+     * Details to transition a model version stage.
      */
     public com.oracle.aidataplatform.dp.model.TransitionModelVersionStageDetails getTransitionModelVersionStageDetails() {
         return transitionModelVersionStageDetails;
@@ -122,12 +122,12 @@ public class TransitionAiDataPlatformModelVersionStageRequest extends com.oracle
         }
 
             /**
-     * Transition a ModelVersion stage.
+     * Details to transition a model version stage.
      */
         private com.oracle.aidataplatform.dp.model.TransitionModelVersionStageDetails transitionModelVersionStageDetails = null;
 
         /**
-         * Transition a ModelVersion stage.
+         * Details to transition a model version stage.
          * @param transitionModelVersionStageDetails the value to set
          * @return this builder instance
          */

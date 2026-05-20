@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateGitBranch(object):
     """
-    Git Branch details
+    Git branch details.
     """
 
     def __init__(self, **kwargs):
@@ -79,7 +79,7 @@ class CreateGitBranch(object):
     def git_branch_name(self):
         """
         **[Required]** Gets the git_branch_name of this CreateGitBranch.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The git_branch_name of this CreateGitBranch.
@@ -91,7 +91,7 @@ class CreateGitBranch(object):
     def git_branch_name(self, git_branch_name):
         """
         Sets the git_branch_name of this CreateGitBranch.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param git_branch_name: The git_branch_name of this CreateGitBranch.
@@ -103,7 +103,7 @@ class CreateGitBranch(object):
     def git_url(self):
         """
         **[Required]** Gets the git_url of this CreateGitBranch.
-        The git repository url corresponding to the branch
+        The Git repository URL corresponding to the branch.
 
 
         :return: The git_url of this CreateGitBranch.
@@ -115,7 +115,7 @@ class CreateGitBranch(object):
     def git_url(self, git_url):
         """
         Sets the git_url of this CreateGitBranch.
-        The git repository url corresponding to the branch
+        The Git repository URL corresponding to the branch.
 
 
         :param git_url: The git_url of this CreateGitBranch.
@@ -127,7 +127,7 @@ class CreateGitBranch(object):
     def error_message(self):
         """
         Gets the error_message of this CreateGitBranch.
-        Git Error Message
+        Git error message.
 
 
         :return: The error_message of this CreateGitBranch.
@@ -139,7 +139,7 @@ class CreateGitBranch(object):
     def error_message(self, error_message):
         """
         Sets the error_message of this CreateGitBranch.
-        Git Error Message
+        Git error message.
 
 
         :param error_message: The error_message of this CreateGitBranch.
@@ -151,7 +151,7 @@ class CreateGitBranch(object):
     def std_out(self):
         """
         Gets the std_out of this CreateGitBranch.
-        Git STDOUT Message
+        Git STDOUT message.
 
 
         :return: The std_out of this CreateGitBranch.
@@ -163,7 +163,7 @@ class CreateGitBranch(object):
     def std_out(self, std_out):
         """
         Sets the std_out of this CreateGitBranch.
-        Git STDOUT Message
+        Git STDOUT message.
 
 
         :param std_out: The std_out of this CreateGitBranch.
@@ -175,7 +175,7 @@ class CreateGitBranch(object):
     def std_err(self):
         """
         Gets the std_err of this CreateGitBranch.
-        Git STDERR Message
+        Git STDERR message.
 
 
         :return: The std_err of this CreateGitBranch.
@@ -187,7 +187,7 @@ class CreateGitBranch(object):
     def std_err(self, std_err):
         """
         Sets the std_err of this CreateGitBranch.
-        Git STDERR Message
+        Git STDERR message.
 
 
         :param std_err: The std_err of this CreateGitBranch.
@@ -199,7 +199,7 @@ class CreateGitBranch(object):
     def git_exit_code(self):
         """
         Gets the git_exit_code of this CreateGitBranch.
-        Git exit status
+        Git exit status.
 
 
         :return: The git_exit_code of this CreateGitBranch.
@@ -211,7 +211,7 @@ class CreateGitBranch(object):
     def git_exit_code(self, git_exit_code):
         """
         Sets the git_exit_code of this CreateGitBranch.
-        Git exit status
+        Git exit status.
 
 
         :param git_exit_code: The git_exit_code of this CreateGitBranch.
@@ -223,7 +223,7 @@ class CreateGitBranch(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this CreateGitBranch.
-        The path of the current git folder which has to be created for the new branch
+        The path of the current Git folder which has to be created for the new branch.
 
 
         :return: The git_folder_path of this CreateGitBranch.
@@ -235,7 +235,7 @@ class CreateGitBranch(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this CreateGitBranch.
-        The path of the current git folder which has to be created for the new branch
+        The path of the current Git folder which has to be created for the new branch.
 
 
         :param git_folder_path: The git_folder_path of this CreateGitBranch.

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Tag details to delete on an Experiment.
+* Tag details to delete on an experiment.
 */
 export interface DeleteExperimentTagDetails {
     /**

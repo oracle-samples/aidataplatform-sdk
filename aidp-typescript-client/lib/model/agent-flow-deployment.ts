@@ -62,10 +62,15 @@ export interface AgentFlowDeployment {
     'updatedBy'?: string;
     'sessionRetentionConfig'?: model.SessionRetentionConfiguration;
     'oAuthConfig'?: model.OAuthConfiguration;
+    /**
+    * AgentCard base URL
+    */
+    'agentCardUrl'?: string;
 
 }
 
 export namespace AgentFlowDeployment {
+
 
 
 
@@ -106,6 +111,7 @@ export namespace AgentFlowDeployment {
                 
                 
                 model.OAuthConfiguration.getJsonObj(obj.oAuthConfig) : undefined,
+
         }};
 
         
@@ -137,6 +143,7 @@ export namespace AgentFlowDeployment {
                 
                 
                 model.OAuthConfiguration.getDeserializedJsonObj(obj.oAuthConfig) : undefined,
+
          }};
 
         

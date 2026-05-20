@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of the RegisteredModel tags to update.
+ * Details of the registered model tags to update.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=UpdateRegisteredModelTagsDetails.Builder.class)
@@ -41,14 +41,14 @@ public Builder name(String name) {
     return this;
 }
             /**
-     * RegisteredModel tags to set
+     * Registered model tags to set.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("set_tags")
 private java.util.List<RegisteredModelTag> setTags;
 
         /**
-         * RegisteredModel tags to set
+         * Registered model tags to set.
          * @param setTags the value to set
          * @return this builder
          **/
@@ -59,14 +59,14 @@ public Builder setTags(java.util.List<RegisteredModelTag> setTags) {
     return this;
 }
             /**
-     * RegisteredModel tags to delete
+     * Registered model tags to delete.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("delete_tags")
 private java.util.List<RegisteredModelTagKey> deleteTags;
 
         /**
-         * RegisteredModel tags to delete
+         * Registered model tags to delete.
          * @param deleteTags the value to set
          * @return this builder
          **/
@@ -126,14 +126,14 @@ return this;
 
 
         /**
-     * RegisteredModel tags to set
+     * Registered model tags to set.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("set_tags")
     private final java.util.List<RegisteredModelTag> setTags;
 
         /**
-     * RegisteredModel tags to set
+     * Registered model tags to set.
      * @return the value
      **/
     
@@ -143,14 +143,14 @@ return this;
 
 
         /**
-     * RegisteredModel tags to delete
+     * Registered model tags to delete.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("delete_tags")
     private final java.util.List<RegisteredModelTagKey> deleteTags;
 
         /**
-     * RegisteredModel tags to delete
+     * Registered model tags to delete.
      * @return the value
      **/
     

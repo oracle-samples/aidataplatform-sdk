@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Key of the RegisteredModel tag.
+* Key of the registered model tag.
 */
 export interface RegisteredModelTagKey {
     /**

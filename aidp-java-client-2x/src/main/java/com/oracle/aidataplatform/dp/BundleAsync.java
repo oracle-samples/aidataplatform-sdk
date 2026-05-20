@@ -58,8 +58,7 @@ public interface BundleAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * (Preview) Creates a new bundle under the specified workspace path and initializes it with the
-* requested bundled resources.
+     * (Preview) Creates a new bundle.
 * <p>
 A bundle is a self-contained, portable representation of selected workspace assets, such as jobs
 * and agent flows, along with their dependencies and associated code artifacts. It captures both
@@ -149,9 +148,8 @@ Request notes:
     java.util.concurrent.Future<CreateAiDataPlatformBundleResponse> createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse> handler);
     
     /**
-     * (Preview) Deploys the specified bundle by reading the bundle manifest and resource descriptors
-* from the workspace, resolving bundle variables, and then creating or updating
-* workspace resources to match the bundle contents.
+     * (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
+* Returns an async job key for tracking deployment progress.
 * <p>
 This operation is asynchronous. The request is accepted for background execution and
 * returns an async operation key in the response headers.
@@ -211,7 +209,7 @@ Request notes:
     java.util.concurrent.Future<FetchAiDataPlatformBundleDeploymentStatusResponse> fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request, com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse> handler);
     
     /**
-     * (Preview) Purges the deployed resources associated with the specified bundle from the workspace.
+     * (Preview) Tears down all resources deployed by the specified bundle in the workspace.
 * <p>
 This operation is intended to tear down resources that were created or managed through
 * bundle deployment. It does not delete the bundle files themselves from the workspace
@@ -236,5 +234,51 @@ Request notes:
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<PurgeAiDataPlatformBundleResponse> purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse> handler);
+    
+    /**
+     * (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
+* Returns an async job key for tracking sync progress.
+* <p>
+This operation is intended for cases where the bundle should be refreshed to reflect
+* newer source changes while preserving the bundle structure and identity.
+* <p>
+Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source
+* jobs and agent flows that were captured when the bundle was created. The source metadata
+* is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and
+* workspace. The operation refreshes source-controlled bundle content while preserving the
+* bundle identity and runtime metadata.
+* <p>
+During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp`
+* directory, compares existing and staged descriptors, preserves existing variable aliases
+* and override references where possible, merges existing manifest default variables, and
+* then promotes the refreshed source-controlled files back into the bundle root.
+* <p>
+Sync preserves environment-specific and deployment runtime files such as
+* `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the
+* refreshed source snapshot.
+* <p>
+This operation is asynchronous and returns async operation headers when accepted.
+* <p>
+Typical use cases:
+* - refresh bundle contents after upstream workspace resources have changed
+* - reconcile descriptor or artifact content with current resource origins
+* - preserve local bundle overrides while pulling in source resource updates
+* - keep a Git-backed bundle current before committing or promoting it
+* <p>
+Request notes:
+* - `path` identifies the bundle root folder in the workspace volume
+* - the bundle must contain a valid `aidp_workbench.yaml`
+* - the bundle must contain `.aidp/resource_origins.yaml`
+* - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<SyncAiDataPlatformBundleResponse> syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handler);
     
 }

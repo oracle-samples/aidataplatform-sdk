@@ -34,27 +34,27 @@ public class ResetAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.requ
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Details needed to perform git reset operation
+     * Details needed to perform Git reset operation.
      */
     private com.oracle.aidataplatform.dp.model.GitResetDetails gitResetDetails;
 
     
 
         /**
-     * Details needed to perform git reset operation
+     * Details needed to perform Git reset operation.
      */
     public com.oracle.aidataplatform.dp.model.GitResetDetails getGitResetDetails() {
         return gitResetDetails;
@@ -184,12 +184,12 @@ public class ResetAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class ResetAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * Details needed to perform git reset operation
+     * Details needed to perform Git reset operation.
      */
         private com.oracle.aidataplatform.dp.model.GitResetDetails gitResetDetails = null;
 
         /**
-         * Details needed to perform git reset operation
+         * Details needed to perform Git reset operation.
          * @param gitResetDetails the value to set
          * @return this builder instance
          */

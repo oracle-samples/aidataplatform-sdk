@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class RegisteredModelAlias(object):
     """
-    Alias of the RegisteredModel
+    Alias of the registered model
     """
 
     def __init__(self, **kwargs):

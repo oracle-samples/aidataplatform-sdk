@@ -6,7 +6,9 @@ import com.oracle.bmc.SdkClients;
 
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @SdkClients({
-AuditAsyncClient.class,
+AsyncOperationsAsyncClient.class,
+	AsyncOperationsClient.class,
+	AuditAsyncClient.class,
 	AuditClient.class,
 	BundleAsyncClient.class,
 	BundleClient.class,
@@ -14,12 +16,12 @@ AuditAsyncClient.class,
 	CatalogClient.class,
 	ClusterAsyncClient.class,
 	ClusterClient.class,
-	CredentialStoreAsyncClient.class,
-	CredentialStoreClient.class,
+	CredentialsAsyncClient.class,
+	CredentialsClient.class,
 	DeltaShareAsyncClient.class,
 	DeltaShareClient.class,
-	GitServiceAsyncClient.class,
-	GitServiceClient.class,
+	GitAsyncClient.class,
+	GitClient.class,
 	MLOpsAsyncClient.class,
 	MLOpsClient.class,
 	NotebookAsyncClient.class,
@@ -37,9 +39,7 @@ AuditAsyncClient.class,
 	WorkspaceAsyncClient.class,
 	WorkspaceClient.class,
 	WorkspaceObjectAsyncClient.class,
-	WorkspaceObjectClient.class,
-	WrapperAsyncClient.class,
-	WrapperClient.class
+	WorkspaceObjectClient.class
 })
 public final class SdkClientsMetadata {
 }

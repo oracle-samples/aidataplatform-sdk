@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Unified diff details for a git file.
+* Unified diff details for a Git file.
 */
 export interface GitDiffDetail {
     /**

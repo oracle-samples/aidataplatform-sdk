@@ -21,14 +21,14 @@ public class DeleteAiDataPlatformRegisteredModelTagRequest extends com.oracle.bm
         return aiDataPlatformId;
     }
         /**
-     * Details of a RegisteredModel tag.
+     * Details of a registered model tag.
      */
     private com.oracle.aidataplatform.dp.model.DeleteRegisteredModelTagDetails deleteRegisteredModelTagDetails;
 
     
 
         /**
-     * Details of a RegisteredModel tag.
+     * Details of a registered model tag.
      */
     public com.oracle.aidataplatform.dp.model.DeleteRegisteredModelTagDetails getDeleteRegisteredModelTagDetails() {
         return deleteRegisteredModelTagDetails;
@@ -122,12 +122,12 @@ public class DeleteAiDataPlatformRegisteredModelTagRequest extends com.oracle.bm
         }
 
             /**
-     * Details of a RegisteredModel tag.
+     * Details of a registered model tag.
      */
         private com.oracle.aidataplatform.dp.model.DeleteRegisteredModelTagDetails deleteRegisteredModelTagDetails = null;
 
         /**
-         * Details of a RegisteredModel tag.
+         * Details of a registered model tag.
          * @param deleteRegisteredModelTagDetails the value to set
          * @return this builder instance
          */

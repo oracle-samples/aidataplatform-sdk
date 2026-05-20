@@ -30,14 +30,14 @@ public final class GitOperationState  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * Folder path used to locate the git worktree.
+         * Folder path used to locate the Git worktree.
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -48,14 +48,14 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * Current git operation state detected.
+     * Current Git operation state detected.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("state")
 private State state;
 
         /**
-         * Current git operation state detected.
+         * Current Git operation state detected.
          * @param state the value to set
          * @return this builder
          **/
@@ -138,14 +138,14 @@ public Builder currentBranch(String currentBranch) {
     return this;
 }
             /**
-     * Full commit id of HEAD.
+     * Full commit ID of HEAD.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("headCommitId")
 private String headCommitId;
 
         /**
-         * Full commit id of HEAD.
+         * Full commit ID of HEAD.
          * @param headCommitId the value to set
          * @return this builder
          **/
@@ -256,14 +256,14 @@ return this;
 
 
         /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      * @return the value
      **/
     
@@ -272,7 +272,7 @@ return this;
     }
 
     /**
-     * Current git operation state detected.
+     * Current Git operation state detected.
      **/
     public enum State implements com.oracle.bmc.http.internal.BmcEnum {
         Clean("CLEAN"),
@@ -322,14 +322,14 @@ return this;
         }
     };
         /**
-     * Current git operation state detected.
+     * Current Git operation state detected.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("state")
     private final State state;
 
         /**
-     * Current git operation state detected.
+     * Current Git operation state detected.
      * @return the value
      **/
     
@@ -407,14 +407,14 @@ return this;
 
 
         /**
-     * Full commit id of HEAD.
+     * Full commit ID of HEAD.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("headCommitId")
     private final String headCommitId;
 
         /**
-     * Full commit id of HEAD.
+     * Full commit ID of HEAD.
      * @return the value
      **/
     

@@ -23,14 +23,14 @@ public final class ModelMetric  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Name of the metric
+     * Name of the metric.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("key")
         private String key;
 
                 /**
-         * Name of the metric
+         * Name of the metric.
          * @param key the value to set
          * @return this builder
          **/
@@ -41,14 +41,14 @@ public final class ModelMetric  {
         return this;
         }
             /**
-     * Value of the metric
+     * Value of the metric.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("value")
         private Double value;
 
                 /**
-         * Value of the metric
+         * Value of the metric.
          * @param value the value to set
          * @return this builder
          **/
@@ -129,14 +129,14 @@ return this;
 
 
         /**
-     * Name of the metric
+     * Name of the metric.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Name of the metric
+     * Name of the metric.
      * @return the value
      **/
     
@@ -146,14 +146,14 @@ return this;
 
 
         /**
-     * Value of the metric
+     * Value of the metric.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("value")
     private final Double value;
 
         /**
-     * Value of the metric
+     * Value of the metric.
      * @return the value
      **/
     

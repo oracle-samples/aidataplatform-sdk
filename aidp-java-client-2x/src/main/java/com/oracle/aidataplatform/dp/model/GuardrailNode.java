@@ -119,21 +119,21 @@ public final class GuardrailNode extends AgentFlowNode {
             return this;
             }
             /**
-     * The name of a guardrails configuration stored in the guardrails map in the flow diagram.
+     * A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
      **/
     
-        @com.fasterxml.jackson.annotation.JsonProperty("guardrailsConfig")
-        private String guardrailsConfig;
+        @com.fasterxml.jackson.annotation.JsonProperty("guardrailsConfigKey")
+        private String guardrailsConfigKey;
 
                 /**
-         * The name of a guardrails configuration stored in the guardrails map in the flow diagram.
-         * @param guardrailsConfig the value to set
+         * A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
+         * @param guardrailsConfigKey the value to set
          * @return this builder
          **/
         
 
-        public Builder guardrailsConfig(String guardrailsConfig) {
-        this.guardrailsConfig = guardrailsConfig;
+        public Builder guardrailsConfigKey(String guardrailsConfigKey) {
+        this.guardrailsConfigKey = guardrailsConfigKey;
         return this;
         }
             /**
@@ -172,7 +172,7 @@ public final class GuardrailNode extends AgentFlowNode {
                     , this.inputs
                     , this.outputs
                     , this.validationErrors
-                    , this.guardrailsConfig
+                    , this.guardrailsConfigKey
                     , this.extraGuardrailsConfig);            return model;
         }
 
@@ -193,7 +193,7 @@ public final class GuardrailNode extends AgentFlowNode {
     this.inputs(model.getInputs());
     this.outputs(model.getOutputs());
     this.validationErrors(model.getValidationErrors());
-    this.guardrailsConfig(model.getGuardrailsConfig());
+    this.guardrailsConfigKey(model.getGuardrailsConfigKey());
     this.extraGuardrailsConfig(model.getExtraGuardrailsConfig());
 return this;
         }
@@ -213,27 +213,27 @@ return this;
 
     
     @Deprecated
-    public GuardrailNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String guardrailsConfig, java.util.Map<String, String> extraGuardrailsConfig) {
+    public GuardrailNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String guardrailsConfigKey, java.util.Map<String, String> extraGuardrailsConfig) {
         super(nodeType, name, description, positionX, positionY, isExpanded, parentNodeId, configuration, nodeTypeId, key, timeCreated, timeUpdated, inputs, outputs, validationErrors);
-        this.guardrailsConfig = guardrailsConfig;
+        this.guardrailsConfigKey = guardrailsConfigKey;
         this.extraGuardrailsConfig = extraGuardrailsConfig;
     }
 
 
         /**
-     * The name of a guardrails configuration stored in the guardrails map in the flow diagram.
+     * A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
      **/
     
-    @com.fasterxml.jackson.annotation.JsonProperty("guardrailsConfig")
-    private final String guardrailsConfig;
+    @com.fasterxml.jackson.annotation.JsonProperty("guardrailsConfigKey")
+    private final String guardrailsConfigKey;
 
         /**
-     * The name of a guardrails configuration stored in the guardrails map in the flow diagram.
+     * A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
      * @return the value
      **/
     
-    public String getGuardrailsConfig() {
-        return guardrailsConfig;
+    public String getGuardrailsConfigKey() {
+        return guardrailsConfigKey;
     }
 
 
@@ -267,7 +267,7 @@ return this;
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("GuardrailNode(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
-        sb.append(", guardrailsConfig=").append(String.valueOf(this.guardrailsConfig));
+        sb.append(", guardrailsConfigKey=").append(String.valueOf(this.guardrailsConfigKey));
         sb.append(", extraGuardrailsConfig=").append(String.valueOf(this.extraGuardrailsConfig));
         sb.append(")");
         return sb.toString();
@@ -283,7 +283,7 @@ return this;
         }
 
         GuardrailNode other = (GuardrailNode) o;
-        return java.util.Objects.equals(this.guardrailsConfig, other.guardrailsConfig) &&
+        return java.util.Objects.equals(this.guardrailsConfigKey, other.guardrailsConfigKey) &&
             java.util.Objects.equals(this.extraGuardrailsConfig, other.extraGuardrailsConfig) &&
             super.equals(other);
     }
@@ -292,7 +292,7 @@ return this;
     public int hashCode() {
         final int PRIME = 59;
         int result = super.hashCode();
-        result = (result * PRIME) + (this.guardrailsConfig == null ? 43 : this.guardrailsConfig.hashCode());
+        result = (result * PRIME) + (this.guardrailsConfigKey == null ? 43 : this.guardrailsConfigKey.hashCode());
         result = (result * PRIME) + (this.extraGuardrailsConfig == null ? 43 : this.extraGuardrailsConfig.hashCode());
         return result;
     }

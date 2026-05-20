@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateUserSettingDetails(object):
     """
-    Details of Creating Setting
+    Settings details for the new user.
     """
 
     def __init__(self, **kwargs):

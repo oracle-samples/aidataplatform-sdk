@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ManageCredentialPermissionDetails(object):
     """
-    Information to update permissions on a Credential.
+    Information to update permissions on a credential.
     """
 
     def __init__(self, **kwargs):

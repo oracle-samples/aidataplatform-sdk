@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of Experiments to fetch.
+* Details of experiments to fetch.
 */
 export interface ListExperimentsDetails {
     /**
@@ -16,7 +16,7 @@ export interface ListExperimentsDetails {
     */
     'maxResults'?: number;
     /**
-    * Token indicating the page of experiments to fetch
+    * Token indicating the page of experiments to fetch.
     */
     'pageToken'?: string;
     /**
@@ -30,8 +30,8 @@ export interface ListExperimentsDetails {
     */
     'filter'?: string;
     /**
-    * List of columns for ordering search results, which can include experiment name and id with 
-* an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by experiment id DESC.
+    * List of columns for ordering search results, which can include experiment name and ID with 
+* an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by experiment ID DESC.
 * 
     */
     'orderBy'?: Array<string>;

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class AuditLogSearchResultCollection(object):
     """
-    Search results for audit log search request
+    Search results for audit log search request.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class AuditLogSearchResultCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this AuditLogSearchResultCollection.
-        audit log search results
+        Audit log search results.
 
 
         :return: The items of this AuditLogSearchResultCollection.
@@ -49,7 +49,7 @@ class AuditLogSearchResultCollection(object):
     def items(self, items):
         """
         Sets the items of this AuditLogSearchResultCollection.
-        audit log search results
+        Audit log search results.
 
 
         :param items: The items of this AuditLogSearchResultCollection.

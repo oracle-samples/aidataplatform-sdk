@@ -12,9 +12,10 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class GuardrailsConfiguration  {
     @Deprecated
-    @java.beans.ConstructorProperties({"name", "description", "policies"})
-    public GuardrailsConfiguration(String name, String description, java.util.List<SafetyPolicy> policies) {
+    @java.beans.ConstructorProperties({"key", "name", "description", "policies"})
+    public GuardrailsConfiguration(String key, String name, String description, java.util.List<SafetyPolicy> policies) {
         super();
+        this.key = key;
         this.name = name;
         this.description = description;
         this.policies = policies;
@@ -23,6 +24,24 @@ public final class GuardrailsConfiguration  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
+     * The unique identifier (UUID) of the guardrails configuration.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("key")
+private String key;
+
+        /**
+         * The unique identifier (UUID) of the guardrails configuration.
+         * @param key the value to set
+         * @return this builder
+         **/
+        
+
+public Builder key(String key) {
+    this.key = key;
+    return this;
+}
+            /**
      * Name of the guardrails configuration
      **/
     
@@ -79,14 +98,16 @@ public Builder policies(java.util.List<SafetyPolicy> policies) {
 
 
         public GuardrailsConfiguration build() {
-            GuardrailsConfiguration model = new GuardrailsConfiguration(this.name
+            GuardrailsConfiguration model = new GuardrailsConfiguration(this.key
+                , this.name
                 , this.description
                 , this.policies);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(GuardrailsConfiguration model) {
-                this.name(model.getName());
+                this.key(model.getKey());
+    this.name(model.getName());
     this.description(model.getDescription());
     this.policies(model.getPolicies());
 return this;
@@ -106,6 +127,23 @@ return this;
     }
 
     
+
+
+        /**
+     * The unique identifier (UUID) of the guardrails configuration.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("key")
+    private final String key;
+
+        /**
+     * The unique identifier (UUID) of the guardrails configuration.
+     * @return the value
+     **/
+    
+    public String getKey() {
+        return key;
+    }
 
 
         /**
@@ -171,7 +209,8 @@ return this;
     public String toString(boolean includeByteArrayContents) {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("GuardrailsConfiguration(");
-        sb.append("name=").append(String.valueOf(this.name));
+        sb.append("key=").append(String.valueOf(this.key));
+        sb.append(", name=").append(String.valueOf(this.name));
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", policies=").append(String.valueOf(this.policies));
         sb.append(")");
@@ -188,7 +227,8 @@ return this;
         }
 
         GuardrailsConfiguration other = (GuardrailsConfiguration) o;
-        return java.util.Objects.equals(this.name, other.name) &&
+        return java.util.Objects.equals(this.key, other.key) &&
+            java.util.Objects.equals(this.name, other.name) &&
             java.util.Objects.equals(this.description, other.description) &&
             java.util.Objects.equals(this.policies, other.policies);
     }
@@ -197,6 +237,7 @@ return this;
     public int hashCode() {
         final int PRIME = 59;
         int result = 1;
+        result = (result * PRIME) + (this.key == null ? 43 : this.key.hashCode());
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.policies == null ? 43 : this.policies.hashCode());

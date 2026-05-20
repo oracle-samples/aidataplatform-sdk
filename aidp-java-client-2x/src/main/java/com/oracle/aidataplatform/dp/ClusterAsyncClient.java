@@ -426,6 +426,35 @@ public class ClusterAsyncClient implements ClusterAsync {
     }
 
     @Override
+    public java.util.concurrent.Future<DownloadAiDataPlatformClusterLogsResponse> downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformClusterLogsRequest, DownloadAiDataPlatformClusterLogsResponse> handler) {
+        LOG.trace("Called async downloadAiDataPlatformClusterLogs");
+        final DownloadAiDataPlatformClusterLogsRequest interceptedRequest = DownloadAiDataPlatformClusterLogsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadAiDataPlatformClusterLogsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Cluster", "DownloadAiDataPlatformClusterLogs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DownloadAiDataPlatformClusterLogsResponse> transformer = DownloadAiDataPlatformClusterLogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        );
+        com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformClusterLogsRequest, DownloadAiDataPlatformClusterLogsResponse> handlerToUse = handler;
+
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformClusterLogsRequest, DownloadAiDataPlatformClusterLogsResponse>, java.util.concurrent.Future<DownloadAiDataPlatformClusterLogsResponse>> futureSupplier =
+        client.postFutureSupplier(interceptedRequest, interceptedRequest.getDownloadClusterLogsDetails(), ib, transformer);
+
+        if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DownloadAiDataPlatformClusterLogsRequest, DownloadAiDataPlatformClusterLogsResponse>(
+                (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
+                handlerToUse,
+                futureSupplier) {
+                    @Override
+                    protected void beforeRetryAction() {
+                        
+                    }
+            };
+        } else {
+            return futureSupplier.apply(handlerToUse);
+        }
+    }
+
+    @Override
     public java.util.concurrent.Future<GetAiDataPlatformClusterResponse> getAiDataPlatformCluster(GetAiDataPlatformClusterRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformClusterRequest, GetAiDataPlatformClusterResponse> handler) {
         LOG.trace("Called async getAiDataPlatformCluster");
         final GetAiDataPlatformClusterRequest interceptedRequest = GetAiDataPlatformClusterConverter.interceptRequest(request);
@@ -652,6 +681,35 @@ public class ClusterAsyncClient implements ClusterAsync {
     }
 
     @Override
+    public java.util.concurrent.Future<SearchAiDataPlatformClusterLogsResponse> searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request, final com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformClusterLogsRequest, SearchAiDataPlatformClusterLogsResponse> handler) {
+        LOG.trace("Called async searchAiDataPlatformClusterLogs");
+        final SearchAiDataPlatformClusterLogsRequest interceptedRequest = SearchAiDataPlatformClusterLogsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SearchAiDataPlatformClusterLogsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Cluster", "SearchAiDataPlatformClusterLogs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SearchAiDataPlatformClusterLogsResponse> transformer = SearchAiDataPlatformClusterLogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        );
+        com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformClusterLogsRequest, SearchAiDataPlatformClusterLogsResponse> handlerToUse = handler;
+
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformClusterLogsRequest, SearchAiDataPlatformClusterLogsResponse>, java.util.concurrent.Future<SearchAiDataPlatformClusterLogsResponse>> futureSupplier =
+        client.postFutureSupplier(interceptedRequest, interceptedRequest.getSearchClusterLogsDetails(), ib, transformer);
+
+        if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SearchAiDataPlatformClusterLogsRequest, SearchAiDataPlatformClusterLogsResponse>(
+                (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
+                handlerToUse,
+                futureSupplier) {
+                    @Override
+                    protected void beforeRetryAction() {
+                        
+                    }
+            };
+        } else {
+            return futureSupplier.apply(handlerToUse);
+        }
+    }
+
+    @Override
     public java.util.concurrent.Future<StartAiDataPlatformClusterResponse> startAiDataPlatformCluster(StartAiDataPlatformClusterRequest request, final com.oracle.bmc.responses.AsyncHandler<StartAiDataPlatformClusterRequest, StartAiDataPlatformClusterResponse> handler) {
         LOG.trace("Called async startAiDataPlatformCluster");
         final StartAiDataPlatformClusterRequest interceptedRequest = StartAiDataPlatformClusterConverter.interceptRequest(request);
@@ -696,6 +754,35 @@ public class ClusterAsyncClient implements ClusterAsync {
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
             return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<StopAiDataPlatformClusterRequest, StopAiDataPlatformClusterResponse>(
+                (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
+                handlerToUse,
+                futureSupplier) {
+                    @Override
+                    protected void beforeRetryAction() {
+                        
+                    }
+            };
+        } else {
+            return futureSupplier.apply(handlerToUse);
+        }
+    }
+
+    @Override
+    public java.util.concurrent.Future<SummarizeAiDataPlatformMetricsDataResponse> summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request, final com.oracle.bmc.responses.AsyncHandler<SummarizeAiDataPlatformMetricsDataRequest, SummarizeAiDataPlatformMetricsDataResponse> handler) {
+        LOG.trace("Called async summarizeAiDataPlatformMetricsData");
+        final SummarizeAiDataPlatformMetricsDataRequest interceptedRequest = SummarizeAiDataPlatformMetricsDataConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SummarizeAiDataPlatformMetricsDataConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Cluster", "SummarizeAiDataPlatformMetricsData", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SummarizeAiDataPlatformMetricsDataResponse> transformer = SummarizeAiDataPlatformMetricsDataConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        );
+        com.oracle.bmc.responses.AsyncHandler<SummarizeAiDataPlatformMetricsDataRequest, SummarizeAiDataPlatformMetricsDataResponse> handlerToUse = handler;
+
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SummarizeAiDataPlatformMetricsDataRequest, SummarizeAiDataPlatformMetricsDataResponse>, java.util.concurrent.Future<SummarizeAiDataPlatformMetricsDataResponse>> futureSupplier =
+        client.postFutureSupplier(interceptedRequest, interceptedRequest.getSummarizeMetricsDataDetails(), ib, transformer);
+
+        if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SummarizeAiDataPlatformMetricsDataRequest, SummarizeAiDataPlatformMetricsDataResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

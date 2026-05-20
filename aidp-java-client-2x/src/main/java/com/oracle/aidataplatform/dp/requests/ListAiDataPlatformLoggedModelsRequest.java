@@ -34,14 +34,14 @@ public class ListAiDataPlatformLoggedModelsRequest extends com.oracle.bmc.reques
         return workspaceKey;
     }
         /**
-     * Details of LoggedModels to fetch.
+     * Details of logged models to fetch.
      */
     private com.oracle.aidataplatform.dp.model.ListLoggedModelsDetails listLoggedModelsDetails;
 
     
 
         /**
-     * Details of LoggedModels to fetch.
+     * Details of logged models to fetch.
      */
     public com.oracle.aidataplatform.dp.model.ListLoggedModelsDetails getListLoggedModelsDetails() {
         return listLoggedModelsDetails;
@@ -127,12 +127,12 @@ public class ListAiDataPlatformLoggedModelsRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * Details of LoggedModels to fetch.
+     * Details of logged models to fetch.
      */
         private com.oracle.aidataplatform.dp.model.ListLoggedModelsDetails listLoggedModelsDetails = null;
 
         /**
-         * Details of LoggedModels to fetch.
+         * Details of logged models to fetch.
          * @param listLoggedModelsDetails the value to set
          * @return this builder instance
          */

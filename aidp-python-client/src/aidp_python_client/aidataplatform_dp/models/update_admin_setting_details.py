@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateAdminSettingDetails(object):
     """
-    Details of Updating Setting
+    Settings details to update for the admin.
     """
 
     def __init__(self, **kwargs):

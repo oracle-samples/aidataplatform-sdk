@@ -41,10 +41,6 @@ class ToolSummary(object):
     #: This constant has a value of "HTTP"
     TOOL_TYPE_HTTP = "HTTP"
 
-    #: A constant which can be used with the tool_type property of a ToolSummary.
-    #: This constant has a value of "REFERENCE"
-    TOOL_TYPE_REFERENCE = "REFERENCE"
-
     def __init__(self, **kwargs):
         """
         Initializes a new ToolSummary object with values from keyword arguments.
@@ -60,7 +56,7 @@ class ToolSummary(object):
 
         :param tool_type:
             The value to assign to the tool_type property of this ToolSummary.
-            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
         :type tool_type: str
 
         :param workspace_key:
@@ -176,7 +172,7 @@ class ToolSummary(object):
         **[Required]** Gets the tool_type of this ToolSummary.
         Type of tool. Managed, external or mount tool.
 
-        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"
+        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
 
 
         :return: The tool_type of this ToolSummary.
@@ -194,7 +190,7 @@ class ToolSummary(object):
         :param tool_type: The tool_type of this ToolSummary.
         :type: str
         """
-        allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", "REFERENCE"]
+        allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
                 "Invalid value for `tool_type`, must be None or one of {0}"

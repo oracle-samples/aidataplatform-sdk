@@ -13,6 +13,22 @@ class PiiCategory(object):
     PII category configuration
     """
 
+    #: A constant which can be used with the category property of a PiiCategory.
+    #: This constant has a value of "PERSON"
+    CATEGORY_PERSON = "PERSON"
+
+    #: A constant which can be used with the category property of a PiiCategory.
+    #: This constant has a value of "ADDRESS"
+    CATEGORY_ADDRESS = "ADDRESS"
+
+    #: A constant which can be used with the category property of a PiiCategory.
+    #: This constant has a value of "TELEPHONE_NUMBER"
+    CATEGORY_TELEPHONE_NUMBER = "TELEPHONE_NUMBER"
+
+    #: A constant which can be used with the category property of a PiiCategory.
+    #: This constant has a value of "EMAIL"
+    CATEGORY_EMAIL = "EMAIL"
+
     #: A constant which can be used with the action property of a PiiCategory.
     #: This constant has a value of "BLOCK"
     ACTION_BLOCK = "BLOCK"
@@ -32,6 +48,7 @@ class PiiCategory(object):
 
         :param category:
             The value to assign to the category property of this PiiCategory.
+            Allowed values for this property are: "PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL"
         :type category: str
 
         :param is_enabled:
@@ -73,6 +90,8 @@ class PiiCategory(object):
         **[Required]** Gets the category of this PiiCategory.
         PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
 
+        Allowed values for this property are: "PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL"
+
 
         :return: The category of this PiiCategory.
         :rtype: str
@@ -89,6 +108,12 @@ class PiiCategory(object):
         :param category: The category of this PiiCategory.
         :type: str
         """
+        allowed_values = ["PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL"]
+        if not value_allowed_none_or_none_sentinel(category, allowed_values):
+            raise ValueError(
+                "Invalid value for `category`, must be None or one of {0}"
+                .format(allowed_values)
+            )
         self._category = category
 
     @property

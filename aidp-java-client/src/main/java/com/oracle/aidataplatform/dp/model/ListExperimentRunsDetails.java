@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of Experiment Runs to fetch.
+ * Details of experiment runs to fetch.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ListExperimentRunsDetails.Builder.class)
@@ -26,14 +26,14 @@ public final class ListExperimentRunsDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * List of experiment IDs to search over
+     * List of experiment IDs to search over.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("experiment_ids")
 private java.util.List<String> experimentIds;
 
         /**
-         * List of experiment IDs to search over
+         * List of experiment IDs to search over.
          * @param experimentIds the value to set
          * @return this builder
          **/
@@ -68,14 +68,14 @@ public Builder maxResults(Integer maxResults) {
     return this;
 }
             /**
-     * Token indicating the page of experiment runs to fetch
+     * Token indicating the page of experiment runs to fetch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("page_token")
 private String pageToken;
 
         /**
-         * Token indicating the page of experiment runs to fetch
+         * Token indicating the page of experiment runs to fetch.
          * @param pageToken the value to set
          * @return this builder
          **/
@@ -200,14 +200,14 @@ return this;
 
 
         /**
-     * List of experiment IDs to search over
+     * List of experiment IDs to search over.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("experiment_ids")
     private final java.util.List<String> experimentIds;
 
         /**
-     * List of experiment IDs to search over
+     * List of experiment IDs to search over.
      * @return the value
      **/
     
@@ -240,14 +240,14 @@ return this;
 
 
         /**
-     * Token indicating the page of experiment runs to fetch
+     * Token indicating the page of experiment runs to fetch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("page_token")
     private final String pageToken;
 
         /**
-     * Token indicating the page of experiment runs to fetch
+     * Token indicating the page of experiment runs to fetch.
      * @return the value
      **/
     

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for logging experiment run metric
+* Response object for logging experiment run metric.
 */
 export interface LogExperimentRunMetricResponseDetails {
 

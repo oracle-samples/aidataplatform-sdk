@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Details of the LoggedModel Info.
+* Details of the logged model info.
 */
 export interface LoggedModelInfo {
     /**
-    * id of logged-model.
+    * ID of logged model.
     */
     'modelId'?: string;
     /**
@@ -17,35 +17,35 @@ export interface LoggedModelInfo {
     */
     'experimentId'?: string;
     /**
-    * name of logged-model.
+    * Name of logged model.
     */
     'name'?: string;
     /**
-    * Unix timestamp in milliseconds when the logged-model was created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Unix timestamp in milliseconds when the logged model was created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'creationTimestampMs'?: number;
     /**
-    * Unix timestamp in milliseconds when the logged-model was last updated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Unix timestamp in milliseconds when the logged model was last updated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'lastUpdatedTimestampMs'?: number;
     /**
-    * artifact_uri.
+    * Artifact URI.
     */
     'artifactUri'?: string;
     /**
-    * status of logged-model.
+    * Status of logged model.
     */
     'status'?: string;
     /**
-    * model_type of logged-model.
+    * Model type of logged model.
     */
     'modelType'?: string;
     /**
-    * source_run_id of logged-model.
+    * Source run ID of logged model.
     */
     'sourceRunId'?: string;
     /**
-    * tags of logged-model
+    * Tags of logged model.
     */
     'tags'?: Array<model.LoggedModelTag>;
 

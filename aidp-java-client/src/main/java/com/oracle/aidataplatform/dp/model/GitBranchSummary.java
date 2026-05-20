@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Git branch object summary
+ * Git branch object summary.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitBranchSummary.Builder.class)
@@ -22,14 +22,14 @@ public final class GitBranchSummary  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the git branch
+         * The name of the Git branch.
          * @param branchName the value to set
          * @return this builder
          **/
@@ -40,14 +40,14 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * Fully qualified branch path
+     * Fully qualified branch path.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchPath")
 private String branchPath;
 
         /**
-         * Fully qualified branch path
+         * Fully qualified branch path.
          * @param branchPath the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      * @return the value
      **/
     
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * Fully qualified branch path
+     * Fully qualified branch path.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchPath")
     private final String branchPath;
 
         /**
-     * Fully qualified branch path
+     * Fully qualified branch path.
      * @return the value
      **/
     

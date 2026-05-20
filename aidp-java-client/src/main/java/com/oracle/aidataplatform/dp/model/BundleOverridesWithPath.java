@@ -22,14 +22,14 @@ public final class BundleOverridesWithPath  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Target folder for the new bundle
+     * Target folder for the new bundle.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("path")
 private String path;
 
         /**
-         * Target folder for the new bundle
+         * Target folder for the new bundle.
          * @param path the value to set
          * @return this builder
          **/
@@ -80,14 +80,14 @@ return this;
 
 
         /**
-     * Target folder for the new bundle
+     * Target folder for the new bundle.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("path")
     private final String path;
 
         /**
-     * Target folder for the new bundle
+     * Target folder for the new bundle.
      * @return the value
      **/
     

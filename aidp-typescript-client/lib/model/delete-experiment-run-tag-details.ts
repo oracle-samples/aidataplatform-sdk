@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Tag details to delete on an Experiment Run.
+* Tag details to delete on an experiment run.
 */
 export interface DeleteExperimentRunTagDetails {
     /**
@@ -13,7 +13,7 @@ export interface DeleteExperimentRunTagDetails {
     */
     'runId': string;
     /**
-    * Key of the run tag
+    * Key of the run tag.
     */
     'key': string;
 

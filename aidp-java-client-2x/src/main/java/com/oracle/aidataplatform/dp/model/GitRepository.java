@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details about a git repository
+ * Details about a Git repository.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitRepository.Builder.class)
@@ -25,14 +25,14 @@ public final class GitRepository  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Unique key associated with repository
+     * Unique key associated with repository.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("key")
         private String key;
 
                 /**
-         * Unique key associated with repository
+         * Unique key associated with repository.
          * @param key the value to set
          * @return this builder
          **/
@@ -43,14 +43,14 @@ public final class GitRepository  {
         return this;
         }
             /**
-     * The workspaceKey associated with the git repository
+     * The workspaceKey associated with the Git repository.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("workspaceKey")
         private String workspaceKey;
 
                 /**
-         * The workspaceKey associated with the git repository
+         * The workspaceKey associated with the Git repository.
          * @param workspaceKey the value to set
          * @return this builder
          **/
@@ -61,14 +61,14 @@ public final class GitRepository  {
         return this;
         }
             /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("branchName")
         private String branchName;
 
                 /**
-         * The name of the git branch
+         * The name of the Git branch.
          * @param branchName the value to set
          * @return this builder
          **/
@@ -79,14 +79,14 @@ public final class GitRepository  {
         return this;
         }
             /**
-     * The git repository url corresponding to the branch
+     * The Git repository url corresponding to the branch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
         private String gitUrl;
 
                 /**
-         * The git repository url corresponding to the branch
+         * The Git repository url corresponding to the branch.
          * @param gitUrl the value to set
          * @return this builder
          **/
@@ -97,14 +97,14 @@ public final class GitRepository  {
         return this;
         }
             /**
-     * The path of the current git folder which has to be created for the new branch
+     * The path of the current Git folder which has to be created for the new branch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
         private String gitFolderPath;
 
                 /**
-         * The path of the current git folder which has to be created for the new branch
+         * The path of the current Git folder which has to be created for the new branch.
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -171,14 +171,14 @@ return this;
 
 
         /**
-     * Unique key associated with repository
+     * Unique key associated with repository.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Unique key associated with repository
+     * Unique key associated with repository.
      * @return the value
      **/
     
@@ -188,14 +188,14 @@ return this;
 
 
         /**
-     * The workspaceKey associated with the git repository
+     * The workspaceKey associated with the Git repository.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("workspaceKey")
     private final String workspaceKey;
 
         /**
-     * The workspaceKey associated with the git repository
+     * The workspaceKey associated with the Git repository.
      * @return the value
      **/
     
@@ -205,14 +205,14 @@ return this;
 
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      * @return the value
      **/
     
@@ -222,14 +222,14 @@ return this;
 
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository url corresponding to the branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
     private final String gitUrl;
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository url corresponding to the branch.
      * @return the value
      **/
     
@@ -239,14 +239,14 @@ return this;
 
 
         /**
-     * The path of the current git folder which has to be created for the new branch
+     * The path of the current Git folder which has to be created for the new branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * The path of the current git folder which has to be created for the new branch
+     * The path of the current Git folder which has to be created for the new branch.
      * @return the value
      **/
     

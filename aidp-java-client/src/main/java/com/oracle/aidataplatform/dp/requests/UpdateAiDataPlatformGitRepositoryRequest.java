@@ -47,14 +47,14 @@ public class UpdateAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.req
         return updateGitRepositoryDetails;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
@@ -163,12 +163,12 @@ public class UpdateAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.req
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */

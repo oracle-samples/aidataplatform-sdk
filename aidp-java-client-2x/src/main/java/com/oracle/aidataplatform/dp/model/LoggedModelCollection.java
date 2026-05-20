@@ -21,14 +21,14 @@ public final class LoggedModelCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * LoggedModels that match the search criteria
+     * Logged models that match the search criteria
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("models")
         private java.util.List<LoggedModel> models;
 
                 /**
-         * LoggedModels that match the search criteria
+         * Logged models that match the search criteria
          * @param models the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * LoggedModels that match the search criteria
+     * Logged models that match the search criteria
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("models")
     private final java.util.List<LoggedModel> models;
 
         /**
-     * LoggedModels that match the search criteria
+     * Logged models that match the search criteria
      * @return the value
      **/
     

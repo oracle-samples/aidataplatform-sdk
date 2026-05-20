@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Response object for updating tags of an ExperimentRun
+ * Response object for updating tags of an ExperimentRun.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=UpdateExperimentRunTagsResponseDetails.Builder.class)

@@ -11,7 +11,7 @@ export interface PiiCategory {
     /**
     * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
     */
-    'category': string;
+    'category': model.PiiCategoryType;
     /**
     * Whether this category is enabled
     */

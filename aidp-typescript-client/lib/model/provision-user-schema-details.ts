@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface ProvisionUserSchemaDetails extends model.ExecuteDatabaseUserWorkflowsDetails {
     /**
-    * The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+    * The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
     */
     'userSchemaName'?: string;
     /**

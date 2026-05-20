@@ -12,7 +12,7 @@ export interface DeleteAiDataPlatformModelVersionTagRequest extends common.BaseR
  */
  'aiDataPlatformId': string;
 /**
- * Details of a ModelVersion tag.
+ * Details of a model version tag to delete.
  */
  'deleteModelVersionTagDetails':  model.DeleteModelVersionTagDetails;
 /**

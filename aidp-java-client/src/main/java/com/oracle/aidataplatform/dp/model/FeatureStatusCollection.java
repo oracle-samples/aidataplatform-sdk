@@ -21,14 +21,14 @@ public final class FeatureStatusCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * List of features
+     * List of features.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("items")
 private java.util.List<FeatureStatusSummary> items;
 
         /**
-         * List of features
+         * List of features.
          * @param items the value to set
          * @return this builder
          **/
@@ -67,14 +67,14 @@ return this;
 
 
         /**
-     * List of features
+     * List of features.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<FeatureStatusSummary> items;
 
         /**
-     * List of features
+     * List of features.
      * @return the value
      **/
     

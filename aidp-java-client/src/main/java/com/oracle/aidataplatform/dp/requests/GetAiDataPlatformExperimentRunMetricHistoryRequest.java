@@ -34,40 +34,40 @@ public class GetAiDataPlatformExperimentRunMetricHistoryRequest extends com.orac
         return workspaceKey;
     }
         /**
-     * ID of the Run metric history to fetch
+     * ID of the run metric history to fetch.
      */
     private String runId;
 
     
 
         /**
-     * ID of the Run metric history to fetch
+     * ID of the run metric history to fetch.
      */
     public String getRunId() {
         return runId;
     }
         /**
-     * Name of the metric key
+     * Name of the metric key.
      */
     private String metricKey;
 
     
 
         /**
-     * Name of the metric key
+     * Name of the metric key.
      */
     public String getMetricKey() {
         return metricKey;
     }
         /**
-     * Pagination token to go to the next page of metric history
+     * Pagination token to go to the next page of metric history.
      */
     private String pageToken;
 
     
 
         /**
-     * Pagination token to go to the next page of metric history
+     * Pagination token to go to the next page of metric history.
      */
     public String getPageToken() {
         return pageToken;
@@ -164,12 +164,12 @@ public class GetAiDataPlatformExperimentRunMetricHistoryRequest extends com.orac
         }
 
             /**
-     * ID of the Run metric history to fetch
+     * ID of the run metric history to fetch.
      */
         private String runId = null;
 
         /**
-         * ID of the Run metric history to fetch
+         * ID of the run metric history to fetch.
          * @param runId the value to set
          * @return this builder instance
          */
@@ -179,12 +179,12 @@ public class GetAiDataPlatformExperimentRunMetricHistoryRequest extends com.orac
         }
 
             /**
-     * Name of the metric key
+     * Name of the metric key.
      */
         private String metricKey = null;
 
         /**
-         * Name of the metric key
+         * Name of the metric key.
          * @param metricKey the value to set
          * @return this builder instance
          */
@@ -194,12 +194,12 @@ public class GetAiDataPlatformExperimentRunMetricHistoryRequest extends com.orac
         }
 
             /**
-     * Pagination token to go to the next page of metric history
+     * Pagination token to go to the next page of metric history.
      */
         private String pageToken = null;
 
         /**
-         * Pagination token to go to the next page of metric history
+         * Pagination token to go to the next page of metric history.
          * @param pageToken the value to set
          * @return this builder instance
          */

@@ -41,14 +41,14 @@ public final class UpdateExperimentRunDetails  {
         return this;
         }
             /**
-     * Updated Status of the run.
+     * Updated status of the run.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("status")
         private ExperimentRunStatus status;
 
                 /**
-         * Updated Status of the run.
+         * Updated status of the run.
          * @param status the value to set
          * @return this builder
          **/
@@ -146,14 +146,14 @@ return this;
 
     
         /**
-     * Updated Status of the run.
+     * Updated status of the run.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("status")
     private final ExperimentRunStatus status;
 
         /**
-     * Updated Status of the run.
+     * Updated status of the run.
      * @return the value
      **/
     

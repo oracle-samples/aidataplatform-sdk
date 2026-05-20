@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* LoggedModel tag.
+* Logged model tag.
 */
 export interface LoggedModelTag {
     /**
-    * Key of the tag
+    * Key of the tag.
     */
     'key': string;
     /**
-    * Value of the tag
+    * Value of the tag.
     */
     'value': string;
 

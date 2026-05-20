@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class RenameRegisteredModelResponseDetails(object):
     """
-    Response object for renaming a RegisteredModel
+    Response object for renaming a registered model.
     """
 
     def __init__(self, **kwargs):

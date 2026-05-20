@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Response object for updating tags of a RegisteredModel
+ * Response object for updating tags of a registered model.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=UpdateRegisteredModelTagsResponseDetails.Builder.class)

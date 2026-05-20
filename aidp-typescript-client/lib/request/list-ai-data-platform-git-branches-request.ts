@@ -16,7 +16,7 @@ export interface ListAiDataPlatformGitBranchesRequest extends common.BaseRequest
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**

@@ -28,6 +28,9 @@ public enum Operation implements com.oracle.bmc.http.internal.BmcEnum {
     Write("WRITE"),
     Start("START"),
     Stop("STOP"),
+    Copy("COPY"),
+    Deploy("DEPLOY"),
+    Undeploy("UNDEPLOY"),
     
 
     /**

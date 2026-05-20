@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of Experiments to fetch.
+ * Details of experiments to fetch.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ListExperimentsDetails.Builder.class)
@@ -48,14 +48,14 @@ public final class ListExperimentsDetails  {
         return this;
         }
             /**
-     * Token indicating the page of experiments to fetch
+     * Token indicating the page of experiments to fetch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("page_token")
         private String pageToken;
 
                 /**
-         * Token indicating the page of experiments to fetch
+         * Token indicating the page of experiments to fetch.
          * @param pageToken the value to set
          * @return this builder
          **/
@@ -96,8 +96,8 @@ public final class ListExperimentsDetails  {
         return this;
         }
             /**
-     * List of columns for ordering search results, which can include experiment name and id with 
-* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment id DESC.
+     * List of columns for ordering search results, which can include experiment name and ID with 
+* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment ID DESC.
 * 
      **/
     
@@ -105,8 +105,8 @@ public final class ListExperimentsDetails  {
         private java.util.List<String> orderBy;
 
                 /**
-         * List of columns for ordering search results, which can include experiment name and id with 
-* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment id DESC.
+         * List of columns for ordering search results, which can include experiment name and ID with 
+* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment ID DESC.
 * 
          * @param orderBy the value to set
          * @return this builder
@@ -195,14 +195,14 @@ return this;
 
 
         /**
-     * Token indicating the page of experiments to fetch
+     * Token indicating the page of experiments to fetch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("page_token")
     private final String pageToken;
 
         /**
-     * Token indicating the page of experiments to fetch
+     * Token indicating the page of experiments to fetch.
      * @return the value
      **/
     
@@ -241,8 +241,8 @@ return this;
 
 
         /**
-     * List of columns for ordering search results, which can include experiment name and id with 
-* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment id DESC.
+     * List of columns for ordering search results, which can include experiment name and ID with 
+* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment ID DESC.
 * 
      **/
     
@@ -250,8 +250,8 @@ return this;
     private final java.util.List<String> orderBy;
 
         /**
-     * List of columns for ordering search results, which can include experiment name and id with 
-* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment id DESC.
+     * List of columns for ordering search results, which can include experiment name and ID with 
+* an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by experiment ID DESC.
 * 
      * @return the value
      **/

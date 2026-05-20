@@ -13,7 +13,7 @@ export interface ResetGitFolderStateDetails {
     */
     'action': ResetGitFolderStateDetails.Action;
     /**
-    * list of file paths whose changes are to be discarded and reset to original
+    * List of file paths whose changes are to be discarded and reset to original.
     */
     'discardPaths'?: Array<string>;
     /**

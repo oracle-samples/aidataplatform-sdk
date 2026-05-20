@@ -124,6 +124,10 @@ class AgentFlow(object):
             The value to assign to the session_config property of this AgentFlow.
         :type session_config: oci.aidataplatform_dp.models.SessionConfiguration
 
+        :param agent_card_config:
+            The value to assign to the agent_card_config property of this AgentFlow.
+        :type agent_card_config: oci.aidataplatform_dp.models.AgentCardConfigDetail
+
         :param version:
             The value to assign to the version property of this AgentFlow.
         :type version: int
@@ -152,6 +156,7 @@ class AgentFlow(object):
             'diagram': 'AgentFlowDiagram',
             'guardrails': 'GuardrailsConfiguration',
             'session_config': 'SessionConfiguration',
+            'agent_card_config': 'AgentCardConfigDetail',
             'version': 'int'
         }
 
@@ -178,6 +183,7 @@ class AgentFlow(object):
             'diagram': 'diagram',
             'guardrails': 'guardrails',
             'session_config': 'sessionConfig',
+            'agent_card_config': 'agentCardConfig',
             'version': 'version'
         }
 
@@ -203,6 +209,7 @@ class AgentFlow(object):
         self._diagram = None
         self._guardrails = None
         self._session_config = None
+        self._agent_card_config = None
         self._version = None
 
     @property
@@ -738,6 +745,26 @@ class AgentFlow(object):
         :type: oci.aidataplatform_dp.models.SessionConfiguration
         """
         self._session_config = session_config
+
+    @property
+    def agent_card_config(self):
+        """
+        Gets the agent_card_config of this AgentFlow.
+
+        :return: The agent_card_config of this AgentFlow.
+        :rtype: oci.aidataplatform_dp.models.AgentCardConfigDetail
+        """
+        return self._agent_card_config
+
+    @agent_card_config.setter
+    def agent_card_config(self, agent_card_config):
+        """
+        Sets the agent_card_config of this AgentFlow.
+
+        :param agent_card_config: The agent_card_config of this AgentFlow.
+        :type: oci.aidataplatform_dp.models.AgentCardConfigDetail
+        """
+        self._agent_card_config = agent_card_config
 
     @property
     def version(self):

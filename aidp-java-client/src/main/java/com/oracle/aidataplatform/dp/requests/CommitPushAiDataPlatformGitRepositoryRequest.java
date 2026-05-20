@@ -34,27 +34,27 @@ public class CommitPushAiDataPlatformGitRepositoryRequest extends com.oracle.bmc
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Commit details
+     * Commit details.
      */
     private com.oracle.aidataplatform.dp.model.CommitPushDetails commitPushDetails;
 
     
 
         /**
-     * Commit details
+     * Commit details.
      */
     public com.oracle.aidataplatform.dp.model.CommitPushDetails getCommitPushDetails() {
         return commitPushDetails;
@@ -184,12 +184,12 @@ public class CommitPushAiDataPlatformGitRepositoryRequest extends com.oracle.bmc
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class CommitPushAiDataPlatformGitRepositoryRequest extends com.oracle.bmc
         }
 
             /**
-     * Commit details
+     * Commit details.
      */
         private com.oracle.aidataplatform.dp.model.CommitPushDetails commitPushDetails = null;
 
         /**
-         * Commit details
+         * Commit details.
          * @param commitPushDetails the value to set
          * @return this builder instance
          */

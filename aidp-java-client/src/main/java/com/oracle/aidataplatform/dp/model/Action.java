@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * action to enable or disable the logs
+ * Action to enable or disable the logs.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum Action implements com.oracle.bmc.http.internal.BmcEnum {

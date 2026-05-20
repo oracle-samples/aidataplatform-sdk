@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Search results for audit log search request
+* Search results for audit log search request.
 */
 export interface AuditLogSearchResultCollection {
     /**
-    * audit log search results
+    * Audit log search results.
     */
     'items': Array<model.AuditLogSearchResultSummary>;
 

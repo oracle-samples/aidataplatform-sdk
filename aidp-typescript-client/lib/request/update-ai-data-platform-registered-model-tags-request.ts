@@ -12,7 +12,7 @@ export interface UpdateAiDataPlatformRegisteredModelTagsRequest extends common.B
  */
  'aiDataPlatformId': string;
 /**
- * Details of RegisteredModel tags.
+ * Details of registered model tags.
  */
  'updateRegisteredModelTagsDetails':  model.UpdateRegisteredModelTagsDetails;
 /**

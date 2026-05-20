@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of the ModelVersion to delete.
+* Details of the model version to delete.
 */
 export interface DeleteModelVersionDetails {
     /**
@@ -13,7 +13,7 @@ export interface DeleteModelVersionDetails {
     */
     'name': string;
     /**
-    * Model\u2019s version number.
+    * Model version number.
     */
     'version': string;
 

@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * List of files to checkout side or mark as resolved
+ * List of files to checkout side or mark as resolved.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ConflictResolveDetails.Builder.class)
@@ -21,14 +21,14 @@ public final class ConflictResolveDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * list of file paths to checkout side or mark as resolved
+     * List of file paths to checkout side or mark as resolved.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("files")
         private java.util.List<String> files;
 
                 /**
-         * list of file paths to checkout side or mark as resolved
+         * List of file paths to checkout side or mark as resolved.
          * @param files the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class ConflictResolveDetails  {
         return this;
         }
             /**
-     * Action for resolving conflict
+     * Action for resolving conflict.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("action")
         private Action action;
 
                 /**
-         * Action for resolving conflict
+         * Action for resolving conflict.
          * @param action the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * list of file paths to checkout side or mark as resolved
+     * List of file paths to checkout side or mark as resolved.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("files")
     private final java.util.List<String> files;
 
         /**
-     * list of file paths to checkout side or mark as resolved
+     * List of file paths to checkout side or mark as resolved.
      * @return the value
      **/
     
@@ -103,7 +103,7 @@ return this;
     }
 
     /**
-     * Action for resolving conflict
+     * Action for resolving conflict.
      **/
     public enum Action {
         Local("LOCAL"),
@@ -142,14 +142,14 @@ return this;
         }
     };
         /**
-     * Action for resolving conflict
+     * Action for resolving conflict.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final Action action;
 
         /**
-     * Action for resolving conflict
+     * Action for resolving conflict.
      * @return the value
      **/
     

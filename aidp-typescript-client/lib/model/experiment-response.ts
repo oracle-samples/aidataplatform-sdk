@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for getting an experiment
+* Response object for getting an experiment.
 */
 export interface ExperimentResponse {
     'experiment': model.Experiment;

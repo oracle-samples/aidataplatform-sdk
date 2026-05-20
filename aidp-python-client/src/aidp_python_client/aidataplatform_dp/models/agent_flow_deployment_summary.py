@@ -96,6 +96,10 @@ class AgentFlowDeploymentSummary(object):
             The value to assign to the created_by property of this AgentFlowDeploymentSummary.
         :type created_by: str
 
+        :param agent_card_url:
+            The value to assign to the agent_card_url property of this AgentFlowDeploymentSummary.
+        :type agent_card_url: str
+
         """
         self.swagger_types = {
             'display_name': 'str',
@@ -108,7 +112,8 @@ class AgentFlowDeploymentSummary(object):
             'endpoint_url': 'str',
             'deployment_version': 'str',
             'time_created': 'datetime',
-            'created_by': 'str'
+            'created_by': 'str',
+            'agent_card_url': 'str'
         }
 
         self.attribute_map = {
@@ -122,7 +127,8 @@ class AgentFlowDeploymentSummary(object):
             'endpoint_url': 'endpointUrl',
             'deployment_version': 'deploymentVersion',
             'time_created': 'timeCreated',
-            'created_by': 'createdBy'
+            'created_by': 'createdBy',
+            'agent_card_url': 'agentCardUrl'
         }
 
         self._display_name = None
@@ -136,6 +142,7 @@ class AgentFlowDeploymentSummary(object):
         self._deployment_version = None
         self._time_created = None
         self._created_by = None
+        self._agent_card_url = None
 
     @property
     def display_name(self):
@@ -416,6 +423,30 @@ class AgentFlowDeploymentSummary(object):
         :type: str
         """
         self._created_by = created_by
+
+    @property
+    def agent_card_url(self):
+        """
+        Gets the agent_card_url of this AgentFlowDeploymentSummary.
+        AgentCard base URL
+
+
+        :return: The agent_card_url of this AgentFlowDeploymentSummary.
+        :rtype: str
+        """
+        return self._agent_card_url
+
+    @agent_card_url.setter
+    def agent_card_url(self, agent_card_url):
+        """
+        Sets the agent_card_url of this AgentFlowDeploymentSummary.
+        AgentCard base URL
+
+
+        :param agent_card_url: The agent_card_url of this AgentFlowDeploymentSummary.
+        :type: str
+        """
+        self._agent_card_url = agent_card_url
 
     def __repr__(self):
         return formatted_flat_dict(self)

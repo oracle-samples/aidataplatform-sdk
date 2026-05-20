@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Response object for deleting tag of a RegisteredModel
+ * Response object for deleting tag of a registered model
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DeleteRegisteredModelTagResponseDetails.Builder.class)

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateExperimentRunTagsResponseDetails(object):
     """
-    Response object for updating tags of an ExperimentRun
+    Response object for updating tags of an ExperimentRun.
     """
 
     def __init__(self, **kwargs):

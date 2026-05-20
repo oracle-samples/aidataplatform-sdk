@@ -137,6 +137,16 @@ public Builder instructions(String instructions) {
     this.instructions = instructions;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("memory")
+private MemoryConfiguration memory;
+
+
+
+public Builder memory(MemoryConfiguration memory) {
+    this.memory = memory;
+    return this;
+}
             /**
      * Extra configuration for the nested agent flow node.
      **/
@@ -174,6 +184,7 @@ public Builder nestedAgentFlowConfig(java.util.Map<String, String> nestedAgentFl
                 , this.outputs
                 , this.validationErrors
                 , this.instructions
+                , this.memory
                 , this.nestedAgentFlowConfig);            return model;
         }
 
@@ -195,6 +206,7 @@ public Builder nestedAgentFlowConfig(java.util.Map<String, String> nestedAgentFl
     this.outputs(model.getOutputs());
     this.validationErrors(model.getValidationErrors());
     this.instructions(model.getInstructions());
+    this.memory(model.getMemory());
     this.nestedAgentFlowConfig(model.getNestedAgentFlowConfig());
 return this;
         }
@@ -214,9 +226,10 @@ return this;
 
     
     @Deprecated
-    public NestedAgentFlowNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String instructions, java.util.Map<String, String> nestedAgentFlowConfig) {
+    public NestedAgentFlowNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String instructions, MemoryConfiguration memory, java.util.Map<String, String> nestedAgentFlowConfig) {
     super(nodeType, name, description, positionX, positionY, isExpanded, parentNodeId, configuration, nodeTypeId, key, timeCreated, timeUpdated, inputs, outputs, validationErrors);
         this.instructions = instructions;
+        this.memory = memory;
         this.nestedAgentFlowConfig = nestedAgentFlowConfig;
     }
 
@@ -235,6 +248,16 @@ return this;
     
     public String getInstructions() {
         return instructions;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("memory")
+    private final MemoryConfiguration memory;
+
+    
+    public MemoryConfiguration getMemory() {
+        return memory;
     }
 
 
@@ -269,6 +292,7 @@ return this;
         sb.append("NestedAgentFlowNode(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", instructions=").append(String.valueOf(this.instructions));
+        sb.append(", memory=").append(String.valueOf(this.memory));
         sb.append(", nestedAgentFlowConfig=").append(String.valueOf(this.nestedAgentFlowConfig));
         sb.append(")");
         return sb.toString();
@@ -285,6 +309,7 @@ return this;
 
         NestedAgentFlowNode other = (NestedAgentFlowNode) o;
         return java.util.Objects.equals(this.instructions, other.instructions) &&
+            java.util.Objects.equals(this.memory, other.memory) &&
             java.util.Objects.equals(this.nestedAgentFlowConfig, other.nestedAgentFlowConfig) &&
             super.equals(other);
     }
@@ -294,6 +319,7 @@ return this;
         final int PRIME = 59;
         int result = super.hashCode();
         result = (result * PRIME) + (this.instructions == null ? 43 : this.instructions.hashCode());
+        result = (result * PRIME) + (this.memory == null ? 43 : this.memory.hashCode());
         result = (result * PRIME) + (this.nestedAgentFlowConfig == null ? 43 : this.nestedAgentFlowConfig.hashCode());
         return result;
     }

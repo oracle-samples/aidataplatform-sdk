@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ListLoggedModelsDetails(object):
     """
-    Details of LoggedModels to fetch.
+    Details of logged models to fetch.
     """
 
     def __init__(self, **kwargs):
@@ -115,7 +115,7 @@ class ListLoggedModelsDetails(object):
     def page_token(self):
         """
         Gets the page_token of this ListLoggedModelsDetails.
-        Token indicating the page of logged-models to fetch
+        Token indicating the page of logged-models to fetch.
 
 
         :return: The page_token of this ListLoggedModelsDetails.
@@ -127,7 +127,7 @@ class ListLoggedModelsDetails(object):
     def page_token(self, page_token):
         """
         Sets the page_token of this ListLoggedModelsDetails.
-        Token indicating the page of logged-models to fetch
+        Token indicating the page of logged-models to fetch.
 
 
         :param page_token: The page_token of this ListLoggedModelsDetails.

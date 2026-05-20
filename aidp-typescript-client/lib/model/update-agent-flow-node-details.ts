@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface UpdateAgentFlowNodeDetails {
     /**
-    * Type of this node.
+    * This field is deprecated. | It does not need to be set to any value for API calls.
     */
     'nodeType'?: string;
     /**

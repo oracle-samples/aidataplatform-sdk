@@ -21,14 +21,14 @@ public class DeleteAiDataPlatformModelVersionTagRequest extends com.oracle.bmc.r
         return aiDataPlatformId;
     }
         /**
-     * Details of a ModelVersion tag.
+     * Details of a model version tag to delete.
      */
     private com.oracle.aidataplatform.dp.model.DeleteModelVersionTagDetails deleteModelVersionTagDetails;
 
     
 
         /**
-     * Details of a ModelVersion tag.
+     * Details of a model version tag to delete.
      */
     public com.oracle.aidataplatform.dp.model.DeleteModelVersionTagDetails getDeleteModelVersionTagDetails() {
         return deleteModelVersionTagDetails;
@@ -122,12 +122,12 @@ public class DeleteAiDataPlatformModelVersionTagRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details of a ModelVersion tag.
+     * Details of a model version tag to delete.
      */
         private com.oracle.aidataplatform.dp.model.DeleteModelVersionTagDetails deleteModelVersionTagDetails = null;
 
         /**
-         * Details of a ModelVersion tag.
+         * Details of a model version tag to delete.
          * @param deleteModelVersionTagDetails the value to set
          * @return this builder instance
          */

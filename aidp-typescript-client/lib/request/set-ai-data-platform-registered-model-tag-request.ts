@@ -12,7 +12,7 @@ export interface SetAiDataPlatformRegisteredModelTagRequest extends common.BaseR
  */
  'aiDataPlatformId': string;
 /**
- * Details of a RegisteredModel tag.
+ * Details of a registered model tag.
  */
  'setRegisteredModelTagDetails':  model.SetRegisteredModelTagDetails;
 /**

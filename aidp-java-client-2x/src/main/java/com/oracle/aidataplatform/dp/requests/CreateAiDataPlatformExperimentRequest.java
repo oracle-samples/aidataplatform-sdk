@@ -34,14 +34,14 @@ public class CreateAiDataPlatformExperimentRequest extends com.oracle.bmc.reques
         return workspaceKey;
     }
         /**
-     * Details for the new Experiment.
+     * Details for the new experiment.
      */
     private com.oracle.aidataplatform.dp.model.CreateExperimentDetails createExperimentDetails;
 
     
 
         /**
-     * Details for the new Experiment.
+     * Details for the new experiment.
      */
     public com.oracle.aidataplatform.dp.model.CreateExperimentDetails getCreateExperimentDetails() {
         return createExperimentDetails;
@@ -150,12 +150,12 @@ public class CreateAiDataPlatformExperimentRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * Details for the new Experiment.
+     * Details for the new experiment.
      */
         private com.oracle.aidataplatform.dp.model.CreateExperimentDetails createExperimentDetails = null;
 
         /**
-         * Details for the new Experiment.
+         * Details for the new experiment.
          * @param createExperimentDetails the value to set
          * @return this builder instance
          */

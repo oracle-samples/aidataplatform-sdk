@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface CommitPushDetails {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath'?: string;
     /**

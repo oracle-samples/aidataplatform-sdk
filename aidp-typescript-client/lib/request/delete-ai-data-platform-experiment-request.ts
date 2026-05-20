@@ -16,7 +16,7 @@ export interface DeleteAiDataPlatformExperimentRequest extends common.BaseReques
  */
  'workspaceKey': string;
 /**
- * Details of the Experiment.
+ * Details of the experiment.
  */
  'deleteExperimentDetails':  model.DeleteExperimentDetails;
 /**

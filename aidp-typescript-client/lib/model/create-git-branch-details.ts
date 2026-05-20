@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Information required to create a new git branch
+* Information required to create a new Git branch.
 */
 export interface CreateGitBranchDetails {
     /**
@@ -13,7 +13,7 @@ export interface CreateGitBranchDetails {
     */
     'gitBranchName': string;
     /**
-    * The path of the current git folder which has to be created for the new branch
+    * The path of the current Git folder which has to be created for the new branch.
     */
     'gitFolderPath'?: string;
 

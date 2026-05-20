@@ -11,15 +11,16 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AgentFlowDiagram  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "description", "nodes", "edges", "toolMap", "guardrailsMap"})
-    public AgentFlowDiagram(String key, String displayName, String description, java.util.Map<String, AgentFlowNode> nodes, java.util.Map<String, AgentFlowEdge> edges, java.util.Map<String, Tool> toolMap, java.util.Map<String, GuardrailsConfiguration> guardrailsMap) {
+    @java.beans.ConstructorProperties({"key", "displayName", "description", "modelVersion", "nodes", "edges", "toolsMap", "guardrailsMap"})
+    public AgentFlowDiagram(String key, String displayName, String description, String modelVersion, java.util.Map<String, AgentFlowNode> nodes, java.util.Map<String, AgentFlowEdge> edges, java.util.Map<String, Tool> toolsMap, java.util.Map<String, GuardrailsConfiguration> guardrailsMap) {
         super();
         this.key = key;
         this.displayName = displayName;
         this.description = description;
+        this.modelVersion = modelVersion;
         this.nodes = nodes;
         this.edges = edges;
-        this.toolMap = toolMap;
+        this.toolsMap = toolsMap;
         this.guardrailsMap = guardrailsMap;
     }
 
@@ -80,6 +81,24 @@ public final class AgentFlowDiagram  {
         return this;
         }
             /**
+     * The model and upgrade compatibility version for this agent flow diagram.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("modelVersion")
+        private String modelVersion;
+
+                /**
+         * The model and upgrade compatibility version for this agent flow diagram.
+         * @param modelVersion the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder modelVersion(String modelVersion) {
+        this.modelVersion = modelVersion;
+        return this;
+        }
+            /**
      * Mapping of nodeId to node objects.
      **/
     
@@ -119,29 +138,29 @@ public final class AgentFlowDiagram  {
      * A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
      **/
     
-        @com.fasterxml.jackson.annotation.JsonProperty("toolMap")
-        private java.util.Map<String, Tool> toolMap;
+        @com.fasterxml.jackson.annotation.JsonProperty("toolsMap")
+        private java.util.Map<String, Tool> toolsMap;
 
                 /**
          * A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
-         * @param toolMap the value to set
+         * @param toolsMap the value to set
          * @return this builder
          **/
         
 
-        public Builder toolMap(java.util.Map<String, Tool> toolMap) {
-        this.toolMap = toolMap;
+        public Builder toolsMap(java.util.Map<String, Tool> toolsMap) {
+        this.toolsMap = toolsMap;
         return this;
         }
             /**
-     * A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+     * A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("guardrailsMap")
         private java.util.Map<String, GuardrailsConfiguration> guardrailsMap;
 
                 /**
-         * A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+         * A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
          * @param guardrailsMap the value to set
          * @return this builder
          **/
@@ -157,9 +176,10 @@ public final class AgentFlowDiagram  {
             AgentFlowDiagram model = new AgentFlowDiagram(this.key
                     , this.displayName
                     , this.description
+                    , this.modelVersion
                     , this.nodes
                     , this.edges
-                    , this.toolMap
+                    , this.toolsMap
                     , this.guardrailsMap);            return model;
         }
 
@@ -168,9 +188,10 @@ public final class AgentFlowDiagram  {
                 this.key(model.getKey());
     this.displayName(model.getDisplayName());
     this.description(model.getDescription());
+    this.modelVersion(model.getModelVersion());
     this.nodes(model.getNodes());
     this.edges(model.getEdges());
-    this.toolMap(model.getToolMap());
+    this.toolsMap(model.getToolsMap());
     this.guardrailsMap(model.getGuardrailsMap());
 return this;
         }
@@ -243,6 +264,23 @@ return this;
 
 
         /**
+     * The model and upgrade compatibility version for this agent flow diagram.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("modelVersion")
+    private final String modelVersion;
+
+        /**
+     * The model and upgrade compatibility version for this agent flow diagram.
+     * @return the value
+     **/
+    
+    public String getModelVersion() {
+        return modelVersion;
+    }
+
+
+        /**
      * Mapping of nodeId to node objects.
      **/
     
@@ -280,28 +318,28 @@ return this;
      * A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
      **/
     
-    @com.fasterxml.jackson.annotation.JsonProperty("toolMap")
-    private final java.util.Map<String, Tool> toolMap;
+    @com.fasterxml.jackson.annotation.JsonProperty("toolsMap")
+    private final java.util.Map<String, Tool> toolsMap;
 
         /**
      * A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
      * @return the value
      **/
     
-    public java.util.Map<String, Tool> getToolMap() {
-        return toolMap;
+    public java.util.Map<String, Tool> getToolsMap() {
+        return toolsMap;
     }
 
 
         /**
-     * A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+     * A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("guardrailsMap")
     private final java.util.Map<String, GuardrailsConfiguration> guardrailsMap;
 
         /**
-     * A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+     * A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
      * @return the value
      **/
     
@@ -325,9 +363,10 @@ return this;
         sb.append("key=").append(String.valueOf(this.key));
         sb.append(", displayName=").append(String.valueOf(this.displayName));
         sb.append(", description=").append(String.valueOf(this.description));
+        sb.append(", modelVersion=").append(String.valueOf(this.modelVersion));
         sb.append(", nodes=").append(String.valueOf(this.nodes));
         sb.append(", edges=").append(String.valueOf(this.edges));
-        sb.append(", toolMap=").append(String.valueOf(this.toolMap));
+        sb.append(", toolsMap=").append(String.valueOf(this.toolsMap));
         sb.append(", guardrailsMap=").append(String.valueOf(this.guardrailsMap));
         sb.append(")");
         return sb.toString();
@@ -346,9 +385,10 @@ return this;
         return java.util.Objects.equals(this.key, other.key) &&
             java.util.Objects.equals(this.displayName, other.displayName) &&
             java.util.Objects.equals(this.description, other.description) &&
+            java.util.Objects.equals(this.modelVersion, other.modelVersion) &&
             java.util.Objects.equals(this.nodes, other.nodes) &&
             java.util.Objects.equals(this.edges, other.edges) &&
-            java.util.Objects.equals(this.toolMap, other.toolMap) &&
+            java.util.Objects.equals(this.toolsMap, other.toolsMap) &&
             java.util.Objects.equals(this.guardrailsMap, other.guardrailsMap);
     }
 
@@ -359,9 +399,10 @@ return this;
         result = (result * PRIME) + (this.key == null ? 43 : this.key.hashCode());
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
+        result = (result * PRIME) + (this.modelVersion == null ? 43 : this.modelVersion.hashCode());
         result = (result * PRIME) + (this.nodes == null ? 43 : this.nodes.hashCode());
         result = (result * PRIME) + (this.edges == null ? 43 : this.edges.hashCode());
-        result = (result * PRIME) + (this.toolMap == null ? 43 : this.toolMap.hashCode());
+        result = (result * PRIME) + (this.toolsMap == null ? 43 : this.toolsMap.hashCode());
         result = (result * PRIME) + (this.guardrailsMap == null ? 43 : this.guardrailsMap.hashCode());
         return result;
     }

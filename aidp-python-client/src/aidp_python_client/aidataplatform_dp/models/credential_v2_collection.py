@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CredentialV2Collection(object):
     """
-    Result of CredentialV2Collection
+    Result of CredentialV2Collection.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class CredentialV2Collection(object):
     def items(self):
         """
         **[Required]** Gets the items of this CredentialV2Collection.
-        List of CredentialV2 Summaries
+        List of CredentialV2 summaries.
 
 
         :return: The items of this CredentialV2Collection.
@@ -49,7 +49,7 @@ class CredentialV2Collection(object):
     def items(self, items):
         """
         Sets the items of this CredentialV2Collection.
-        List of CredentialV2 Summaries
+        List of CredentialV2 summaries.
 
 
         :param items: The items of this CredentialV2Collection.

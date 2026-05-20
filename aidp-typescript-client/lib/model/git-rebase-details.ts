@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Details needed to perform a git rebase for a folder context.
+* Details needed to perform a Git rebase for a folder context.
 */
 export interface GitRebaseDetails {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath'?: string;
     /**
@@ -21,7 +21,7 @@ export interface GitRebaseDetails {
     */
     'remoteBranchName': string;
     /**
-    * Commit id to rebase onto (optional).
+    * Commit ID to rebase onto (optional).
     */
     'commitId'?: string;
 

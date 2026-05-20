@@ -14,6 +14,7 @@ public enum ExternalCatalogSourceType implements com.oracle.bmc.http.internal.Bm
     Atp("ATP"),
     Oracle("ORACLE"),
     Exadata("EXADATA"),
+    OracleAnalytics("ORACLE_ANALYTICS"),
     
 
     /**

@@ -9,6 +9,10 @@ import common = require("oci-common");
 */
 export interface GuardrailsConfiguration {
     /**
+    * The unique identifier (UUID) of the guardrails configuration.
+    */
+    'key'?: string;
+    /**
     * Name of the guardrails configuration
     */
     'name'?: string;
@@ -28,9 +32,11 @@ export namespace GuardrailsConfiguration {
 
 
 
+
     export function getJsonObj(obj: GuardrailsConfiguration): object {
         const jsonObj = {...obj, ...{
             
+
 
 
                 'policies': obj.policies ?
@@ -48,6 +54,7 @@ export namespace GuardrailsConfiguration {
     export function getDeserializedJsonObj(obj: GuardrailsConfiguration): object {
         const jsonObj = {...obj, ...{
             
+
 
 
                     'policies': obj.policies ?

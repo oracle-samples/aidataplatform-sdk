@@ -21,6 +21,10 @@ export interface AgentFlowDiagram {
     */
     'description'?: string;
     /**
+    * The model and upgrade compatibility version for this agent flow diagram.
+    */
+    'modelVersion'?: string;
+    /**
     * Mapping of nodeId to node objects.
     */
     'nodes'?: { [key: string]: model.AgentFlowNode; };
@@ -31,9 +35,9 @@ export interface AgentFlowDiagram {
     /**
     * A hash map with key=tool key, value=tool definition.   It is used to find the tool definition for a tool reference, where the tool is marked as a reference.
     */
-    'toolMap'?: { [key: string]: model.Tool; };
+    'toolsMap'?: { [key: string]: model.Tool; };
     /**
-    * A hash map with key=guardrails config name, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
+    * A hash map with key=guardrails config key, value=guardrails definition.   It is used to find the guardrails definition for a guardrails reference by name.
     */
     'guardrailsMap'?: { [key: string]: model.GuardrailsConfiguration; };
 
@@ -48,9 +52,11 @@ export namespace AgentFlowDiagram {
 
 
 
+
     export function getJsonObj(obj: AgentFlowDiagram): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 
@@ -64,10 +70,10 @@ export namespace AgentFlowDiagram {
                 
                 common.mapContainer(obj.edges, model.AgentFlowEdge.getJsonObj)
                  : undefined,
-                'toolMap': obj.toolMap ?
+                'toolsMap': obj.toolsMap ?
                 
                 
-                common.mapContainer(obj.toolMap, model.Tool.getJsonObj)
+                common.mapContainer(obj.toolsMap, model.Tool.getJsonObj)
                  : undefined,
                 'guardrailsMap': obj.guardrailsMap ?
                 
@@ -87,6 +93,7 @@ export namespace AgentFlowDiagram {
 
 
 
+
                     'nodes': obj.nodes ?
                 
                 
@@ -97,10 +104,10 @@ export namespace AgentFlowDiagram {
                 
                 common.mapContainer(obj.edges, model.AgentFlowEdge.getDeserializedJsonObj)
                  : undefined,
-                    'toolMap': obj.toolMap ?
+                    'toolsMap': obj.toolsMap ?
                 
                 
-                common.mapContainer(obj.toolMap, model.Tool.getDeserializedJsonObj)
+                common.mapContainer(obj.toolsMap, model.Tool.getDeserializedJsonObj)
                  : undefined,
                     'guardrailsMap': obj.guardrailsMap ?
                 

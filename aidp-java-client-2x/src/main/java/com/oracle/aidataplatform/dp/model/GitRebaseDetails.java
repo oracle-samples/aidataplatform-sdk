@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details needed to perform a git rebase for a folder context.
+ * Details needed to perform a Git rebase for a folder context.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitRebaseDetails.Builder.class)
@@ -23,14 +23,14 @@ public final class GitRebaseDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
         private String gitFolderPath;
 
                 /**
-         * Folder path used to locate the git worktree.
+         * Folder path used to locate the Git worktree.
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -41,14 +41,14 @@ public final class GitRebaseDetails  {
         return this;
         }
             /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("branchName")
         private String branchName;
 
                 /**
-         * The name of the git branch
+         * The name of the Git branch.
          * @param branchName the value to set
          * @return this builder
          **/
@@ -77,14 +77,14 @@ public final class GitRebaseDetails  {
         return this;
         }
             /**
-     * Commit id to rebase onto (optional).
+     * Commit ID to rebase onto (optional).
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("commitId")
         private String commitId;
 
                 /**
-         * Commit id to rebase onto (optional).
+         * Commit ID to rebase onto (optional).
          * @param commitId the value to set
          * @return this builder
          **/
@@ -129,14 +129,14 @@ return this;
 
 
         /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      * @return the value
      **/
     
@@ -146,14 +146,14 @@ return this;
 
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      * @return the value
      **/
     
@@ -180,14 +180,14 @@ return this;
 
 
         /**
-     * Commit id to rebase onto (optional).
+     * Commit ID to rebase onto (optional).
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("commitId")
     private final String commitId;
 
         /**
-     * Commit id to rebase onto (optional).
+     * Commit ID to rebase onto (optional).
      * @return the value
      **/
     

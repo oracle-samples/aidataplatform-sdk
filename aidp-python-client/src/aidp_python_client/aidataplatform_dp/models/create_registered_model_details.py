@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateRegisteredModelDetails(object):
     """
-    The data to create a RegisteredModel.
+    The data to create a registered model.
     """
 
     def __init__(self, **kwargs):
@@ -130,7 +130,7 @@ class CreateRegisteredModelDetails(object):
     def deployment_job_id(self):
         """
         Gets the deployment_job_id of this CreateRegisteredModelDetails.
-        Deployment job id for this model.
+        Deployment job ID for this model.
 
 
         :return: The deployment_job_id of this CreateRegisteredModelDetails.
@@ -142,7 +142,7 @@ class CreateRegisteredModelDetails(object):
     def deployment_job_id(self, deployment_job_id):
         """
         Sets the deployment_job_id of this CreateRegisteredModelDetails.
-        Deployment job id for this model.
+        Deployment job ID for this model.
 
 
         :param deployment_job_id: The deployment_job_id of this CreateRegisteredModelDetails.

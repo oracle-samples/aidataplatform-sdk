@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ExperimentTagKey(object):
     """
-    Key of the Experiment tag.
+    Key of the experiment tag.
     """
 
     def __init__(self, **kwargs):

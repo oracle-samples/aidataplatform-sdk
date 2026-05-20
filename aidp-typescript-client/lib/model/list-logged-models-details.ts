@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of LoggedModels to fetch.
+* Details of logged models to fetch.
 */
 export interface ListLoggedModelsDetails {
     /**
@@ -20,7 +20,7 @@ export interface ListLoggedModelsDetails {
     */
     'maxResults'?: number;
     /**
-    * Token indicating the page of logged-models to fetch
+    * Token indicating the page of logged-models to fetch.
     */
     'pageToken'?: string;
     /**

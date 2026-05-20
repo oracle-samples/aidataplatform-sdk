@@ -194,6 +194,24 @@ public Builder tools(java.util.List<Tool> tools) {
     return this;
 }
             /**
+     * A list of tool reference keys, the full tool definition can be found in the toolsMap.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("toolReferences")
+private java.util.List<String> toolReferences;
+
+        /**
+         * A list of tool reference keys, the full tool definition can be found in the toolsMap.
+         * @param toolReferences the value to set
+         * @return this builder
+         **/
+        
+
+public Builder toolReferences(java.util.List<String> toolReferences) {
+    this.toolReferences = toolReferences;
+    return this;
+}
+            /**
      * Extra configuration for the supervisor node.  Captured as a generic dictionary.
      **/
     
@@ -234,6 +252,7 @@ public Builder supervisorConfig(java.util.Map<String, String> supervisorConfig) 
                 , this.modelSettings
                 , this.memory
                 , this.tools
+                , this.toolReferences
                 , this.supervisorConfig);            return model;
         }
 
@@ -259,6 +278,7 @@ public Builder supervisorConfig(java.util.Map<String, String> supervisorConfig) 
     this.modelSettings(model.getModelSettings());
     this.memory(model.getMemory());
     this.tools(model.getTools());
+    this.toolReferences(model.getToolReferences());
     this.supervisorConfig(model.getSupervisorConfig());
 return this;
         }
@@ -278,13 +298,14 @@ return this;
 
     
     @Deprecated
-    public SupervisorAgentNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String instructions, LlmConfig llm, java.util.Map<String, Object> modelSettings, MemoryConfiguration memory, java.util.List<Tool> tools, java.util.Map<String, String> supervisorConfig) {
+    public SupervisorAgentNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String instructions, LlmConfig llm, java.util.Map<String, Object> modelSettings, MemoryConfiguration memory, java.util.List<Tool> tools, java.util.List<String> toolReferences, java.util.Map<String, String> supervisorConfig) {
     super(nodeType, name, description, positionX, positionY, isExpanded, parentNodeId, configuration, nodeTypeId, key, timeCreated, timeUpdated, inputs, outputs, validationErrors);
         this.instructions = instructions;
         this.llm = llm;
         this.modelSettings = modelSettings;
         this.memory = memory;
         this.tools = tools;
+        this.toolReferences = toolReferences;
         this.supervisorConfig = supervisorConfig;
     }
 
@@ -361,6 +382,23 @@ return this;
 
 
         /**
+     * A list of tool reference keys, the full tool definition can be found in the toolsMap.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("toolReferences")
+    private final java.util.List<String> toolReferences;
+
+        /**
+     * A list of tool reference keys, the full tool definition can be found in the toolsMap.
+     * @return the value
+     **/
+    
+    public java.util.List<String> getToolReferences() {
+        return toolReferences;
+    }
+
+
+        /**
      * Extra configuration for the supervisor node.  Captured as a generic dictionary.
      **/
     
@@ -395,6 +433,7 @@ return this;
         sb.append(", modelSettings=").append(String.valueOf(this.modelSettings));
         sb.append(", memory=").append(String.valueOf(this.memory));
         sb.append(", tools=").append(String.valueOf(this.tools));
+        sb.append(", toolReferences=").append(String.valueOf(this.toolReferences));
         sb.append(", supervisorConfig=").append(String.valueOf(this.supervisorConfig));
         sb.append(")");
         return sb.toString();
@@ -415,6 +454,7 @@ return this;
             java.util.Objects.equals(this.modelSettings, other.modelSettings) &&
             java.util.Objects.equals(this.memory, other.memory) &&
             java.util.Objects.equals(this.tools, other.tools) &&
+            java.util.Objects.equals(this.toolReferences, other.toolReferences) &&
             java.util.Objects.equals(this.supervisorConfig, other.supervisorConfig) &&
             super.equals(other);
     }
@@ -428,6 +468,7 @@ return this;
         result = (result * PRIME) + (this.modelSettings == null ? 43 : this.modelSettings.hashCode());
         result = (result * PRIME) + (this.memory == null ? 43 : this.memory.hashCode());
         result = (result * PRIME) + (this.tools == null ? 43 : this.tools.hashCode());
+        result = (result * PRIME) + (this.toolReferences == null ? 43 : this.toolReferences.hashCode());
         result = (result * PRIME) + (this.supervisorConfig == null ? 43 : this.supervisorConfig.hashCode());
         return result;
     }

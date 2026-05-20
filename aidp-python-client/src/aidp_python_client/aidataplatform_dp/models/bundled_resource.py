@@ -53,7 +53,7 @@ class BundledResource(object):
     def resource_type(self):
         """
         **[Required]** Gets the resource_type of this BundledResource.
-        Type of resource (job or agentflow)
+        Type of resource (job or agentflow).
 
         Allowed values for this property are: "JOB", "AGENTFLOW"
 
@@ -67,7 +67,7 @@ class BundledResource(object):
     def resource_type(self, resource_type):
         """
         Sets the resource_type of this BundledResource.
-        Type of resource (job or agentflow)
+        Type of resource (job or agentflow).
 
 
         :param resource_type: The resource_type of this BundledResource.
@@ -85,7 +85,7 @@ class BundledResource(object):
     def resource_key(self):
         """
         **[Required]** Gets the resource_key of this BundledResource.
-        Workspace unique key for the resource
+        Workspace unique key for the resource.
 
 
         :return: The resource_key of this BundledResource.
@@ -97,7 +97,7 @@ class BundledResource(object):
     def resource_key(self, resource_key):
         """
         Sets the resource_key of this BundledResource.
-        Workspace unique key for the resource
+        Workspace unique key for the resource.
 
 
         :param resource_key: The resource_key of this BundledResource.

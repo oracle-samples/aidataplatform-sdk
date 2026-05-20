@@ -13,7 +13,7 @@ export interface HistoryCollection {
     */
     'items': Array<model.HistorySummary>;
     /**
-    * The git repository url corresponding to the branch
+    * The Git repository URL corresponding to the branch.
     */
     'gitUrl'?: string;
 

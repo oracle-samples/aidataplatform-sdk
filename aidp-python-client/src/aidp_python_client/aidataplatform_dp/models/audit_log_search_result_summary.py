@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class AuditLogSearchResultSummary(object):
     """
-    Search result for audit log search request
+    Search result for audit log search request.
     """
 
     #: A constant which can be used with the object_type property of a AuditLogSearchResultSummary.
@@ -109,6 +109,10 @@ class AuditLogSearchResultSummary(object):
     #: This constant has a value of "CREDENTIAL"
     OBJECT_TYPE_CREDENTIAL = "CREDENTIAL"
 
+    #: A constant which can be used with the object_type property of a AuditLogSearchResultSummary.
+    #: This constant has a value of "AGENT_FLOW"
+    OBJECT_TYPE_AGENT_FLOW = "AGENT_FLOW"
+
     #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
     #: This constant has a value of "CREATE"
     OPERATION_CREATE = "CREATE"
@@ -189,6 +193,18 @@ class AuditLogSearchResultSummary(object):
     #: This constant has a value of "STOP"
     OPERATION_STOP = "STOP"
 
+    #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
+    #: This constant has a value of "COPY"
+    OPERATION_COPY = "COPY"
+
+    #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
+    #: This constant has a value of "DEPLOY"
+    OPERATION_DEPLOY = "DEPLOY"
+
+    #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
+    #: This constant has a value of "UNDEPLOY"
+    OPERATION_UNDEPLOY = "UNDEPLOY"
+
     #: A constant which can be used with the status property of a AuditLogSearchResultSummary.
     #: This constant has a value of "SUCCEEDED"
     STATUS_SUCCEEDED = "SUCCEEDED"
@@ -212,7 +228,7 @@ class AuditLogSearchResultSummary(object):
 
         :param object_type:
             The value to assign to the object_type property of this AuditLogSearchResultSummary.
-            Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type object_type: str
 
@@ -222,7 +238,7 @@ class AuditLogSearchResultSummary(object):
 
         :param operation:
             The value to assign to the operation property of this AuditLogSearchResultSummary.
-            Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type operation: str
 
@@ -283,7 +299,7 @@ class AuditLogSearchResultSummary(object):
     def event_id(self):
         """
         Gets the event_id of this AuditLogSearchResultSummary.
-        Unique id of the result
+        Unique ID of the result.
 
 
         :return: The event_id of this AuditLogSearchResultSummary.
@@ -295,7 +311,7 @@ class AuditLogSearchResultSummary(object):
     def event_id(self, event_id):
         """
         Sets the event_id of this AuditLogSearchResultSummary.
-        Unique id of the result
+        Unique ID of the result.
 
 
         :param event_id: The event_id of this AuditLogSearchResultSummary.
@@ -307,7 +323,7 @@ class AuditLogSearchResultSummary(object):
     def time_of_log(self):
         """
         Gets the time_of_log of this AuditLogSearchResultSummary.
-        Time of the log
+        Time of the log.
 
 
         :return: The time_of_log of this AuditLogSearchResultSummary.
@@ -319,7 +335,7 @@ class AuditLogSearchResultSummary(object):
     def time_of_log(self, time_of_log):
         """
         Sets the time_of_log of this AuditLogSearchResultSummary.
-        Time of the log
+        Time of the log.
 
 
         :param time_of_log: The time_of_log of this AuditLogSearchResultSummary.
@@ -331,9 +347,9 @@ class AuditLogSearchResultSummary(object):
     def object_type(self):
         """
         Gets the object_type of this AuditLogSearchResultSummary.
-        Type of Object
+        Type of object.
 
-        Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -346,13 +362,13 @@ class AuditLogSearchResultSummary(object):
     def object_type(self, object_type):
         """
         Sets the object_type of this AuditLogSearchResultSummary.
-        Type of Object
+        Type of object.
 
 
         :param object_type: The object_type of this AuditLogSearchResultSummary.
         :type: str
         """
-        allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL"]
+        allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW"]
         if not value_allowed_none_or_none_sentinel(object_type, allowed_values):
             object_type = 'UNKNOWN_ENUM_VALUE'
         self._object_type = object_type
@@ -361,7 +377,7 @@ class AuditLogSearchResultSummary(object):
     def object_name(self):
         """
         Gets the object_name of this AuditLogSearchResultSummary.
-        Name of the object
+        Name of the object.
 
 
         :return: The object_name of this AuditLogSearchResultSummary.
@@ -373,7 +389,7 @@ class AuditLogSearchResultSummary(object):
     def object_name(self, object_name):
         """
         Sets the object_name of this AuditLogSearchResultSummary.
-        Name of the object
+        Name of the object.
 
 
         :param object_name: The object_name of this AuditLogSearchResultSummary.
@@ -385,9 +401,9 @@ class AuditLogSearchResultSummary(object):
     def operation(self):
         """
         Gets the operation of this AuditLogSearchResultSummary.
-        Type of operation
+        Type of operation.
 
-        Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -400,13 +416,13 @@ class AuditLogSearchResultSummary(object):
     def operation(self, operation):
         """
         Sets the operation of this AuditLogSearchResultSummary.
-        Type of operation
+        Type of operation.
 
 
         :param operation: The operation of this AuditLogSearchResultSummary.
         :type: str
         """
-        allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP"]
+        allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"]
         if not value_allowed_none_or_none_sentinel(operation, allowed_values):
             operation = 'UNKNOWN_ENUM_VALUE'
         self._operation = operation
@@ -415,7 +431,7 @@ class AuditLogSearchResultSummary(object):
     def status(self):
         """
         Gets the status of this AuditLogSearchResultSummary.
-        Status of log
+        Status of log.
 
         Allowed values for this property are: "SUCCEEDED", "FAILED", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -430,7 +446,7 @@ class AuditLogSearchResultSummary(object):
     def status(self, status):
         """
         Sets the status of this AuditLogSearchResultSummary.
-        Status of log
+        Status of log.
 
 
         :param status: The status of this AuditLogSearchResultSummary.
@@ -445,7 +461,7 @@ class AuditLogSearchResultSummary(object):
     def started_by(self):
         """
         Gets the started_by of this AuditLogSearchResultSummary.
-        operation started by
+        Operation started by.
 
 
         :return: The started_by of this AuditLogSearchResultSummary.
@@ -457,7 +473,7 @@ class AuditLogSearchResultSummary(object):
     def started_by(self, started_by):
         """
         Sets the started_by of this AuditLogSearchResultSummary.
-        operation started by
+        Operation started by.
 
 
         :param started_by: The started_by of this AuditLogSearchResultSummary.
@@ -469,7 +485,7 @@ class AuditLogSearchResultSummary(object):
     def source(self):
         """
         Gets the source of this AuditLogSearchResultSummary.
-        Source of logs
+        Source of logs.
 
 
         :return: The source of this AuditLogSearchResultSummary.
@@ -481,7 +497,7 @@ class AuditLogSearchResultSummary(object):
     def source(self, source):
         """
         Sets the source of this AuditLogSearchResultSummary.
-        Source of logs
+        Source of logs.
 
 
         :param source: The source of this AuditLogSearchResultSummary.
@@ -493,7 +509,7 @@ class AuditLogSearchResultSummary(object):
     def payload(self):
         """
         Gets the payload of this AuditLogSearchResultSummary.
-        payload of logs
+        Payload of logs.
 
 
         :return: The payload of this AuditLogSearchResultSummary.
@@ -505,7 +521,7 @@ class AuditLogSearchResultSummary(object):
     def payload(self, payload):
         """
         Sets the payload of this AuditLogSearchResultSummary.
-        payload of logs
+        Payload of logs.
 
 
         :param payload: The payload of this AuditLogSearchResultSummary.

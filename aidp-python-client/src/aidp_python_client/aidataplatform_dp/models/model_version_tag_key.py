@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ModelVersionTagKey(object):
     """
-    Key of the ModelVersion tag.
+    Key of the model version tag.
     """
 
     def __init__(self, **kwargs):

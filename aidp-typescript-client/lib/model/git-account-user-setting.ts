@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Git account setting details
+* Git account setting details.
 */
 export interface GitAccountUserSetting extends model.SettingData {
     /**
@@ -13,7 +13,7 @@ export interface GitAccountUserSetting extends model.SettingData {
     */
     'providerName': model.GitAccountProviderName;
     /**
-    * The type of git account entity.
+    * The type of Git account entity.
     */
     'entityType': GitAccountUserSetting.EntityType;
     /**

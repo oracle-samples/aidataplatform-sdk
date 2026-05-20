@@ -37,7 +37,7 @@ class ModelInput(object):
     def model_id(self):
         """
         **[Required]** Gets the model_id of this ModelInput.
-        ID of the model input
+        ID of the model input.
 
 
         :return: The model_id of this ModelInput.
@@ -49,7 +49,7 @@ class ModelInput(object):
     def model_id(self, model_id):
         """
         Sets the model_id of this ModelInput.
-        ID of the model input
+        ID of the model input.
 
 
         :param model_id: The model_id of this ModelInput.

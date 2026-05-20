@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class TransitionModelVersionStageDetails(object):
     """
-    Transition details of the model version
+    Transition details of the model version.
     """
 
     def __init__(self, **kwargs):

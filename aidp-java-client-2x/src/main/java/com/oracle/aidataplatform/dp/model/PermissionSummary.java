@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Information about a Credential Permission.
+ * Information about a credential permission.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=PermissionSummary.Builder.class)
@@ -25,14 +25,14 @@ public final class PermissionSummary  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * The ocid of user/group and name in case of role.
+     * The OCID of user/group and name in case of role.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("grantee")
         private String grantee;
 
                 /**
-         * The ocid of user/group and name in case of role.
+         * The OCID of user/group and name in case of role.
          * @param grantee the value to set
          * @return this builder
          **/
@@ -79,14 +79,14 @@ public final class PermissionSummary  {
         return this;
         }
             /**
-     * The selected permissions for a Credential.
+     * The selected permissions for a credential.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("granteePermissions")
         private java.util.List<CredentialPrivilege> granteePermissions;
 
                 /**
-         * The selected permissions for a Credential.
+         * The selected permissions for a credential.
          * @param granteePermissions the value to set
          * @return this builder
          **/
@@ -171,14 +171,14 @@ return this;
 
 
         /**
-     * The ocid of user/group and name in case of role.
+     * The OCID of user/group and name in case of role.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("grantee")
     private final String grantee;
 
         /**
-     * The ocid of user/group and name in case of role.
+     * The OCID of user/group and name in case of role.
      * @return the value
      **/
     
@@ -222,14 +222,14 @@ return this;
 
     
         /**
-     * The selected permissions for a Credential.
+     * The selected permissions for a credential.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("granteePermissions")
     private final java.util.List<CredentialPrivilege> granteePermissions;
 
         /**
-     * The selected permissions for a Credential.
+     * The selected permissions for a credential.
      * @return the value
      **/
     

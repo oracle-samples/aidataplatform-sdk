@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Update a git repository with the provided details
+ * Update a Git repository with the provided details.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=UpdateGitRepositoryDetails.Builder.class)
@@ -23,14 +23,14 @@ public final class UpdateGitRepositoryDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The path of the current git folder which has to be created for the new branch
+     * The path of the current Git folder which has to be created for the new branch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * The path of the current git folder which has to be created for the new branch
+         * The path of the current Git folder which has to be created for the new branch.
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -41,14 +41,14 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * The git repository url corresponding to the branch
+     * The Git repository url corresponding to the branch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
 private String gitUrl;
 
         /**
-         * The git repository url corresponding to the branch
+         * The Git repository url corresponding to the branch.
          * @param gitUrl the value to set
          * @return this builder
          **/
@@ -59,14 +59,14 @@ public Builder gitUrl(String gitUrl) {
     return this;
 }
             /**
-     * updated PAT credential key
+     * Updated PAT credential key.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("credentialKey")
 private String credentialKey;
 
         /**
-         * updated PAT credential key
+         * Updated PAT credential key.
          * @param credentialKey the value to set
          * @return this builder
          **/
@@ -109,14 +109,14 @@ return this;
 
 
         /**
-     * The path of the current git folder which has to be created for the new branch
+     * The path of the current Git folder which has to be created for the new branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * The path of the current git folder which has to be created for the new branch
+     * The path of the current Git folder which has to be created for the new branch.
      * @return the value
      **/
     
@@ -126,14 +126,14 @@ return this;
 
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository url corresponding to the branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
     private final String gitUrl;
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository url corresponding to the branch.
      * @return the value
      **/
     
@@ -143,14 +143,14 @@ return this;
 
 
         /**
-     * updated PAT credential key
+     * Updated PAT credential key.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("credentialKey")
     private final String credentialKey;
 
         /**
-     * updated PAT credential key
+     * Updated PAT credential key.
      * @return the value
      **/
     

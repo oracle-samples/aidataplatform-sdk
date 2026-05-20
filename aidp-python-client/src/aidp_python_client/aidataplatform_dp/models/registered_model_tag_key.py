@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class RegisteredModelTagKey(object):
     """
-    Key of the RegisteredModel tag.
+    Key of the registered model tag.
     """
 
     def __init__(self, **kwargs):

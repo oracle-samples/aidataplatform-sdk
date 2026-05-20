@@ -11,7 +11,7 @@ export interface Kernel {
     /**
     * UUID of kernel.
     */
-    'id': string;
+    'id'?: string;
     /**
     * Kernel spec name. (Example python3)
     */

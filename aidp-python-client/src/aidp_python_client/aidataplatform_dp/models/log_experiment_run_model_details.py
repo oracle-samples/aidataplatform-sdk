@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LogExperimentRunModelDetails(object):
     """
-    Details of an Experiment Run Model
+    Details of an experiment run model.
     """
 
     def __init__(self, **kwargs):
@@ -68,7 +68,7 @@ class LogExperimentRunModelDetails(object):
     def model_json(self):
         """
         **[Required]** Gets the model_json of this LogExperimentRunModelDetails.
-        Model file in json format
+        Model file in JSON format
 
 
         :return: The model_json of this LogExperimentRunModelDetails.
@@ -80,7 +80,7 @@ class LogExperimentRunModelDetails(object):
     def model_json(self, model_json):
         """
         Sets the model_json of this LogExperimentRunModelDetails.
-        Model file in json format
+        Model file in JSON format
 
 
         :param model_json: The model_json of this LogExperimentRunModelDetails.

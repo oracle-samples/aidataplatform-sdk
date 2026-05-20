@@ -98,7 +98,7 @@ class Kernel(object):
     @property
     def id(self):
         """
-        **[Required]** Gets the id of this Kernel.
+        Gets the id of this Kernel.
         UUID of kernel.
 
 

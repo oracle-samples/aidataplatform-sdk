@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeleteExperimentTagResponseDetails(object):
     """
-    Response object for deleting tag on an experiment
+    Response object for deleting tag on an experiment.
     """
 
     def __init__(self, **kwargs):

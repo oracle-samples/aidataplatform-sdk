@@ -12,7 +12,7 @@ export interface UpdateAiDataPlatformRegisteredModelRequest extends common.BaseR
  */
  'aiDataPlatformId': string;
 /**
- * Update RegisteredModel.
+ * Details to update the registered model.
  */
  'updateRegisteredModelDetails':  model.UpdateRegisteredModelDetails;
 /**

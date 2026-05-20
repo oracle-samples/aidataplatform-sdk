@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Search results for audit log search request
+ * Search results for audit log search request.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=AuditLogSearchResultCollection.Builder.class)
@@ -21,14 +21,14 @@ public final class AuditLogSearchResultCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * audit log search results
+     * Audit log search results.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("items")
 private java.util.List<AuditLogSearchResultSummary> items;
 
         /**
-         * audit log search results
+         * Audit log search results.
          * @param items the value to set
          * @return this builder
          **/
@@ -67,14 +67,14 @@ return this;
 
 
         /**
-     * audit log search results
+     * Audit log search results.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<AuditLogSearchResultSummary> items;
 
         /**
-     * audit log search results
+     * Audit log search results.
      * @return the value
      **/
     

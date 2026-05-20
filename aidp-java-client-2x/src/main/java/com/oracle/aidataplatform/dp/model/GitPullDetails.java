@@ -24,14 +24,14 @@ public final class GitPullDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
         private String gitFolderPath;
 
                 /**
-         * Folder path used to locate the git worktree.
+         * Folder path used to locate the Git worktree.
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -42,14 +42,14 @@ public final class GitPullDetails  {
         return this;
         }
             /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("branchName")
         private String branchName;
 
                 /**
-         * The name of the git branch
+         * The name of the Git branch.
          * @param branchName the value to set
          * @return this builder
          **/
@@ -150,14 +150,14 @@ return this;
 
 
         /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the git worktree.
+     * Folder path used to locate the Git worktree.
      * @return the value
      **/
     
@@ -167,14 +167,14 @@ return this;
 
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the git branch
+     * The name of the Git branch.
      * @return the value
      **/
     

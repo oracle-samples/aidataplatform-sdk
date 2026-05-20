@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ConflictResolveDetails(object):
     """
-    List of files to checkout side or mark as resolved
+    List of files to checkout side or mark as resolved.
     """
 
     #: A constant which can be used with the action property of a ConflictResolveDetails.
@@ -57,7 +57,7 @@ class ConflictResolveDetails(object):
     def files(self):
         """
         **[Required]** Gets the files of this ConflictResolveDetails.
-        list of file paths to checkout side or mark as resolved
+        List of file paths to checkout side or mark as resolved.
 
 
         :return: The files of this ConflictResolveDetails.
@@ -69,7 +69,7 @@ class ConflictResolveDetails(object):
     def files(self, files):
         """
         Sets the files of this ConflictResolveDetails.
-        list of file paths to checkout side or mark as resolved
+        List of file paths to checkout side or mark as resolved.
 
 
         :param files: The files of this ConflictResolveDetails.
@@ -81,7 +81,7 @@ class ConflictResolveDetails(object):
     def action(self):
         """
         **[Required]** Gets the action of this ConflictResolveDetails.
-        Action for resolving conflict
+        Action for resolving conflict.
 
         Allowed values for this property are: "LOCAL", "REMOTE", "MARK_RESOLVED"
 
@@ -95,7 +95,7 @@ class ConflictResolveDetails(object):
     def action(self, action):
         """
         Sets the action of this ConflictResolveDetails.
-        Action for resolving conflict
+        Action for resolving conflict.
 
 
         :param action: The action of this ConflictResolveDetails.

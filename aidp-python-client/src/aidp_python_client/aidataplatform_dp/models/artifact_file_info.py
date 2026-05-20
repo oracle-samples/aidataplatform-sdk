@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ArtifactFileInfo(object):
     """
-    FileInfo of Artifact.
+    File info of artifact.
     """
 
     def __init__(self, **kwargs):

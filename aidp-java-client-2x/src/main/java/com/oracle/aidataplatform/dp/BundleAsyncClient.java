@@ -483,4 +483,33 @@ public class BundleAsyncClient implements BundleAsync {
         }
     }
 
+    @Override
+    public java.util.concurrent.Future<SyncAiDataPlatformBundleResponse> syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handler) {
+        LOG.trace("Called async syncAiDataPlatformBundle");
+        final SyncAiDataPlatformBundleRequest interceptedRequest = SyncAiDataPlatformBundleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SyncAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "SyncAiDataPlatformBundle", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SyncAiDataPlatformBundleResponse> transformer = SyncAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        );
+        com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handlerToUse = handler;
+
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse>, java.util.concurrent.Future<SyncAiDataPlatformBundleResponse>> futureSupplier =
+        client.postFutureSupplier(interceptedRequest, interceptedRequest.getSyncBundleDetails(), ib, transformer);
+
+        if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse>(
+                (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
+                handlerToUse,
+                futureSupplier) {
+                    @Override
+                    protected void beforeRetryAction() {
+                        
+                    }
+            };
+        } else {
+            return futureSupplier.apply(handlerToUse);
+        }
+    }
+
 }

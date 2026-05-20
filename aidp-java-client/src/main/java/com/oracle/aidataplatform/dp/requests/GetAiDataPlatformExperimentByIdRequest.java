@@ -34,14 +34,14 @@ public class GetAiDataPlatformExperimentByIdRequest extends com.oracle.bmc.reque
         return workspaceKey;
     }
         /**
-     * The unique ID of the experiment to retrieve
+     * The unique ID of the experiment to retrieve.
      */
     private String experimentId;
 
     
 
         /**
-     * The unique ID of the experiment to retrieve
+     * The unique ID of the experiment to retrieve.
      */
     public String getExperimentId() {
         return experimentId;
@@ -117,12 +117,12 @@ public class GetAiDataPlatformExperimentByIdRequest extends com.oracle.bmc.reque
         }
 
             /**
-     * The unique ID of the experiment to retrieve
+     * The unique ID of the experiment to retrieve.
      */
         private String experimentId = null;
 
         /**
-         * The unique ID of the experiment to retrieve
+         * The unique ID of the experiment to retrieve.
          * @param experimentId the value to set
          * @return this builder instance
          */

@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface FeatureStatusCollection {
     /**
-    * List of features
+    * List of features.
     */
     'items': Array<model.FeatureStatusSummary>;
 

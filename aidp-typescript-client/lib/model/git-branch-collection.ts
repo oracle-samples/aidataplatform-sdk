@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Collection of Git branches. Contains summary information about a git branch
+* Collection of Git branches. Contains summary information about a Git branch.
 */
 export interface GitBranchCollection {
     /**

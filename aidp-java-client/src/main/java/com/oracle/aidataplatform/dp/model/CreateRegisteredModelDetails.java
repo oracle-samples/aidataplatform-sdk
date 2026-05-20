@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * The data to create a RegisteredModel.
+ * The data to create a registered model.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CreateRegisteredModelDetails.Builder.class)
@@ -78,14 +78,14 @@ public Builder description(String description) {
     return this;
 }
             /**
-     * Deployment job id for this model.
+     * Deployment job ID for this model.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("deployment_job_id")
 private String deploymentJobId;
 
         /**
-         * Deployment job id for this model.
+         * Deployment job ID for this model.
          * @param deploymentJobId the value to set
          * @return this builder
          **/
@@ -181,14 +181,14 @@ return this;
 
 
         /**
-     * Deployment job id for this model.
+     * Deployment job ID for this model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("deployment_job_id")
     private final String deploymentJobId;
 
         /**
-     * Deployment job id for this model.
+     * Deployment job ID for this model.
      * @return the value
      **/
     

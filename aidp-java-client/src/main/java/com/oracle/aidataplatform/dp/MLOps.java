@@ -59,7 +59,7 @@ public interface MLOps extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Create an Experiment in a Workspace.
+     * (Preview) Creates an experiment in a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -69,7 +69,7 @@ public interface MLOps extends AutoCloseable {
     CreateAiDataPlatformExperimentResponse createAiDataPlatformExperiment(CreateAiDataPlatformExperimentRequest request);
     
     /**
-     * Create a new run within an Experiment.
+     * (Preview) Creates a new run within an experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -79,7 +79,7 @@ public interface MLOps extends AutoCloseable {
     CreateAiDataPlatformExperimentRunResponse createAiDataPlatformExperimentRun(CreateAiDataPlatformExperimentRunRequest request);
     
     /**
-     * Create a ModelVersion.
+     * (Preview) Creates a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -89,7 +89,7 @@ public interface MLOps extends AutoCloseable {
     CreateAiDataPlatformModelVersionResponse createAiDataPlatformModelVersion(CreateAiDataPlatformModelVersionRequest request);
     
     /**
-     * Create a RegisteredModel in a Workspace.
+     * (Preview) Creates a registered model in a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -99,7 +99,7 @@ public interface MLOps extends AutoCloseable {
     CreateAiDataPlatformRegisteredModelResponse createAiDataPlatformRegisteredModel(CreateAiDataPlatformRegisteredModelRequest request);
     
     /**
-     * Create a ModelVersion in a specified Workspace.
+     * (Preview) Creates a new model version in a specified workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -109,7 +109,7 @@ public interface MLOps extends AutoCloseable {
     CreateAiDataPlatformWorkspaceModelVersionResponse createAiDataPlatformWorkspaceModelVersion(CreateAiDataPlatformWorkspaceModelVersionRequest request);
     
     /**
-     * Delete an Experiment
+     * (Preview) Deletes an experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -119,7 +119,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformExperimentResponse deleteAiDataPlatformExperiment(DeleteAiDataPlatformExperimentRequest request);
     
     /**
-     * Delete an Experiment Run
+     * (Preview) Deletes an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -129,7 +129,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformExperimentRunResponse deleteAiDataPlatformExperimentRun(DeleteAiDataPlatformExperimentRunRequest request);
     
     /**
-     * Delete a tag on an Experiment Run.
+     * (Preview) Deletes a tag on an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -139,7 +139,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformExperimentRunTagResponse deleteAiDataPlatformExperimentRunTag(DeleteAiDataPlatformExperimentRunTagRequest request);
     
     /**
-     * Delete a tag on an Experiment.
+     * (Preview) Deletes a tag on an experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -149,7 +149,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformExperimentTagResponse deleteAiDataPlatformExperimentTag(DeleteAiDataPlatformExperimentTagRequest request);
     
     /**
-     * Delete a ModelVersion
+     * (Preview) Deletes a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -159,7 +159,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformModelVersionResponse deleteAiDataPlatformModelVersion(DeleteAiDataPlatformModelVersionRequest request);
     
     /**
-     * Delete a tag on ModelVersion.
+     * (Preview) Deletes a tag on a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -169,7 +169,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformModelVersionTagResponse deleteAiDataPlatformModelVersionTag(DeleteAiDataPlatformModelVersionTagRequest request);
     
     /**
-     * Delete a RegisteredModel
+     * (Preview) Deletes a registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -179,7 +179,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformRegisteredModelResponse deleteAiDataPlatformRegisteredModel(DeleteAiDataPlatformRegisteredModelRequest request);
     
     /**
-     * Delete a tag on RegisteredModel.
+     * (Preview) Deletes a tag on a registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -189,7 +189,7 @@ public interface MLOps extends AutoCloseable {
     DeleteAiDataPlatformRegisteredModelTagResponse deleteAiDataPlatformRegisteredModelTag(DeleteAiDataPlatformRegisteredModelTagRequest request);
     
     /**
-     * Get metadata for an experiment by ID. This method works on deleted experiments.
+     * (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -199,7 +199,7 @@ public interface MLOps extends AutoCloseable {
     GetAiDataPlatformExperimentByIdResponse getAiDataPlatformExperimentById(GetAiDataPlatformExperimentByIdRequest request);
     
     /**
-     * This endpoint will return deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
+     * (Preview) Returns experiment metadata for a given name. Returns deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -209,7 +209,7 @@ public interface MLOps extends AutoCloseable {
     GetAiDataPlatformExperimentByNameResponse getAiDataPlatformExperimentByName(GetAiDataPlatformExperimentByNameRequest request);
     
     /**
-     * Get details of an experiment run by ID.
+     * (Preview) Returns details of an experiment run by ID.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -219,7 +219,7 @@ public interface MLOps extends AutoCloseable {
     GetAiDataPlatformExperimentRunByIdResponse getAiDataPlatformExperimentRunById(GetAiDataPlatformExperimentRunByIdRequest request);
     
     /**
-     * Returns a history of ExperimentRun metric.
+     * (Preview) Returns a history of experiment run metrics.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -229,7 +229,7 @@ public interface MLOps extends AutoCloseable {
     GetAiDataPlatformExperimentRunMetricHistoryResponse getAiDataPlatformExperimentRunMetricHistory(GetAiDataPlatformExperimentRunMetricHistoryRequest request);
     
     /**
-     * Get details for ModelVersion.
+     * (Preview)  Returns detailed information for a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -239,7 +239,7 @@ public interface MLOps extends AutoCloseable {
     GetAiDataPlatformModelVersionResponse getAiDataPlatformModelVersion(GetAiDataPlatformModelVersionRequest request);
     
     /**
-     * Get details for RegisteredModel.
+     * (Preview) Returns details for a specified registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -249,7 +249,7 @@ public interface MLOps extends AutoCloseable {
     GetAiDataPlatformRegisteredModelResponse getAiDataPlatformRegisteredModel(GetAiDataPlatformRegisteredModelRequest request);
     
     /**
-     * Returns a list of Artifacts.
+     * (Preview) Returns a list of artifacts.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -259,7 +259,7 @@ public interface MLOps extends AutoCloseable {
     ListAiDataPlatformArtifactsResponse listAiDataPlatformArtifacts(ListAiDataPlatformArtifactsRequest request);
     
     /**
-     * Returns a list of Experiment Runs in a Workspace.
+     * (Preview) Returns a list of experiment runs in a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -269,7 +269,7 @@ public interface MLOps extends AutoCloseable {
     ListAiDataPlatformExperimentRunsResponse listAiDataPlatformExperimentRuns(ListAiDataPlatformExperimentRunsRequest request);
     
     /**
-     * Returns a list of Experiments.
+     * (Preview) Returns a list of experiments with the given details.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -279,7 +279,7 @@ public interface MLOps extends AutoCloseable {
     ListAiDataPlatformExperimentsResponse listAiDataPlatformExperiments(ListAiDataPlatformExperimentsRequest request);
     
     /**
-     * Returns a list of LoggedModels.
+     * (Preview) Returns a list of logged models.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -289,7 +289,7 @@ public interface MLOps extends AutoCloseable {
     ListAiDataPlatformLoggedModelsResponse listAiDataPlatformLoggedModels(ListAiDataPlatformLoggedModelsRequest request);
     
     /**
-     * Returns a list of ModelVersions.
+     * (Preview) Returns a list of model versions.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -299,7 +299,7 @@ public interface MLOps extends AutoCloseable {
     ListAiDataPlatformModelVersionsResponse listAiDataPlatformModelVersions(ListAiDataPlatformModelVersionsRequest request);
     
     /**
-     * Returns a list of RegisteredModels in a Workspace.
+     * (Preview) Returns a list of registered models in a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -309,7 +309,7 @@ public interface MLOps extends AutoCloseable {
     ListAiDataPlatformRegisteredModelsResponse listAiDataPlatformRegisteredModels(ListAiDataPlatformRegisteredModelsRequest request);
     
     /**
-     * Log an Experiment Run Batch.
+     * (Preview) Logs an experiment run batch.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -319,7 +319,7 @@ public interface MLOps extends AutoCloseable {
     LogAiDataPlatformExperimentRunBatchResponse logAiDataPlatformExperimentRunBatch(LogAiDataPlatformExperimentRunBatchRequest request);
     
     /**
-     * Log an Experiment Run Inputs.
+     * (Preview) Logs experiment run inputs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -329,7 +329,7 @@ public interface MLOps extends AutoCloseable {
     LogAiDataPlatformExperimentRunInputsResponse logAiDataPlatformExperimentRunInputs(LogAiDataPlatformExperimentRunInputsRequest request);
     
     /**
-     * Log an Experiment Run Metric.
+     * (Preview) Logs an experiment run metric.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -339,7 +339,7 @@ public interface MLOps extends AutoCloseable {
     LogAiDataPlatformExperimentRunMetricResponse logAiDataPlatformExperimentRunMetric(LogAiDataPlatformExperimentRunMetricRequest request);
     
     /**
-     * Log an Experiment Run Model.
+     * (Preview) Logs an experiment run model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -349,7 +349,7 @@ public interface MLOps extends AutoCloseable {
     LogAiDataPlatformExperimentRunModelResponse logAiDataPlatformExperimentRunModel(LogAiDataPlatformExperimentRunModelRequest request);
     
     /**
-     * Log an Experiment Run Param.
+     * (Preview) Logs an experiment run parameter.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -359,7 +359,7 @@ public interface MLOps extends AutoCloseable {
     LogAiDataPlatformExperimentRunParamResponse logAiDataPlatformExperimentRunParam(LogAiDataPlatformExperimentRunParamRequest request);
     
     /**
-     * Rename a RegisteredModel.
+     * (Preview) Renames a registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -369,7 +369,7 @@ public interface MLOps extends AutoCloseable {
     RenameAiDataPlatformRegisteredModelResponse renameAiDataPlatformRegisteredModel(RenameAiDataPlatformRegisteredModelRequest request);
     
     /**
-     * Restore an Experiment.
+     * (Preview) Restores an experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -379,7 +379,7 @@ public interface MLOps extends AutoCloseable {
     RestoreAiDataPlatformExperimentResponse restoreAiDataPlatformExperiment(RestoreAiDataPlatformExperimentRequest request);
     
     /**
-     * Restore an Experiment Run.
+     * (Preview) Restores an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -389,7 +389,7 @@ public interface MLOps extends AutoCloseable {
     RestoreAiDataPlatformExperimentRunResponse restoreAiDataPlatformExperimentRun(RestoreAiDataPlatformExperimentRunRequest request);
     
     /**
-     * Set a tag on an Experiment Run.
+     * (Preview) Sets a tag on an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -399,7 +399,7 @@ public interface MLOps extends AutoCloseable {
     SetAiDataPlatformExperimentRunTagResponse setAiDataPlatformExperimentRunTag(SetAiDataPlatformExperimentRunTagRequest request);
     
     /**
-     * Set a tag on an Experiment.
+     * (Preview) Sets a tag on an experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -409,7 +409,7 @@ public interface MLOps extends AutoCloseable {
     SetAiDataPlatformExperimentTagResponse setAiDataPlatformExperimentTag(SetAiDataPlatformExperimentTagRequest request);
     
     /**
-     * Set a tag on ModelVersion.
+     * (Preview) Sets a tag on a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -419,7 +419,7 @@ public interface MLOps extends AutoCloseable {
     SetAiDataPlatformModelVersionTagResponse setAiDataPlatformModelVersionTag(SetAiDataPlatformModelVersionTagRequest request);
     
     /**
-     * Set a tag on RegisteredModel.
+     * (Preview) Sets a tag on a registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -429,7 +429,7 @@ public interface MLOps extends AutoCloseable {
     SetAiDataPlatformRegisteredModelTagResponse setAiDataPlatformRegisteredModelTag(SetAiDataPlatformRegisteredModelTagRequest request);
     
     /**
-     * Transition a ModelVersion stage
+     * (Preview) Transitions a model version stage.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -439,7 +439,7 @@ public interface MLOps extends AutoCloseable {
     TransitionAiDataPlatformModelVersionStageResponse transitionAiDataPlatformModelVersionStage(TransitionAiDataPlatformModelVersionStageRequest request);
     
     /**
-     * Update an Experiment.
+     * (Preview) Updates an experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -449,7 +449,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformExperimentResponse updateAiDataPlatformExperiment(UpdateAiDataPlatformExperimentRequest request);
     
     /**
-     * Update an Experiment Run.
+     * (Preview) Updates an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -459,7 +459,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformExperimentRunResponse updateAiDataPlatformExperimentRun(UpdateAiDataPlatformExperimentRunRequest request);
     
     /**
-     * Update tags on ExperimentRun.
+     * (Preview) Updates tags on an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -469,7 +469,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformExperimentRunTagsResponse updateAiDataPlatformExperimentRunTags(UpdateAiDataPlatformExperimentRunTagsRequest request);
     
     /**
-     * Update tags on Experiment.
+     * (Preview) Updates tags on experiment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -479,7 +479,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformExperimentTagsResponse updateAiDataPlatformExperimentTags(UpdateAiDataPlatformExperimentTagsRequest request);
     
     /**
-     * Update a ModelVersion
+     * (Preview) Updates a model version
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -489,7 +489,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformModelVersionResponse updateAiDataPlatformModelVersion(UpdateAiDataPlatformModelVersionRequest request);
     
     /**
-     * Update tags on ModelVersion.
+     * (Preview) Updates tags on a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -499,7 +499,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformModelVersionTagsResponse updateAiDataPlatformModelVersionTags(UpdateAiDataPlatformModelVersionTagsRequest request);
     
     /**
-     * Update a RegisteredModel
+     * (Preview) Updates a registered model with the provided details.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -509,7 +509,7 @@ public interface MLOps extends AutoCloseable {
     UpdateAiDataPlatformRegisteredModelResponse updateAiDataPlatformRegisteredModel(UpdateAiDataPlatformRegisteredModelRequest request);
     
     /**
-     * Update tags on RegisteredModel.
+     * (Preview) Updates tags on a registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

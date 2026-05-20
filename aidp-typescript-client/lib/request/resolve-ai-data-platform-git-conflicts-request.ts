@@ -16,11 +16,11 @@ export interface ResolveAiDataPlatformGitConflictsRequest extends common.BaseReq
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Conflict resolution details
+ * Conflict resolution details.
  */
  'conflictResolveDetails':  model.ConflictResolveDetails;
 /**

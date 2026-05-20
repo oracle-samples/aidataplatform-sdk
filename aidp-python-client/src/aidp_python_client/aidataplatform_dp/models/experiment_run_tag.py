@@ -44,7 +44,7 @@ class ExperimentRunTag(object):
     def key(self):
         """
         Gets the key of this ExperimentRunTag.
-        Key of the run tag
+        Key of the run tag.
 
 
         :return: The key of this ExperimentRunTag.
@@ -56,7 +56,7 @@ class ExperimentRunTag(object):
     def key(self, key):
         """
         Sets the key of this ExperimentRunTag.
-        Key of the run tag
+        Key of the run tag.
 
 
         :param key: The key of this ExperimentRunTag.
@@ -68,7 +68,7 @@ class ExperimentRunTag(object):
     def value(self):
         """
         Gets the value of this ExperimentRunTag.
-        Value of the run tag
+        Value of the run tag.
 
 
         :return: The value of this ExperimentRunTag.
@@ -80,7 +80,7 @@ class ExperimentRunTag(object):
     def value(self, value):
         """
         Sets the value of this ExperimentRunTag.
-        Value of the run tag
+        Value of the run tag.
 
 
         :param value: The value of this ExperimentRunTag.

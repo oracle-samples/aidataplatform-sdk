@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeleteExperimentRunTagDetails(object):
     """
-    Tag details to delete on an Experiment Run.
+    Tag details to delete on an experiment run.
     """
 
     def __init__(self, **kwargs):
@@ -68,7 +68,7 @@ class DeleteExperimentRunTagDetails(object):
     def key(self):
         """
         **[Required]** Gets the key of this DeleteExperimentRunTagDetails.
-        Key of the run tag
+        Key of the run tag.
 
 
         :return: The key of this DeleteExperimentRunTagDetails.
@@ -80,7 +80,7 @@ class DeleteExperimentRunTagDetails(object):
     def key(self, key):
         """
         Sets the key of this DeleteExperimentRunTagDetails.
-        Key of the run tag
+        Key of the run tag.
 
 
         :param key: The key of this DeleteExperimentRunTagDetails.

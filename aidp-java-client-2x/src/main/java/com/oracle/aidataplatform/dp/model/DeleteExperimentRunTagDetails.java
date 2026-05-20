@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Tag details to delete on an Experiment Run.
+ * Tag details to delete on an experiment run.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DeleteExperimentRunTagDetails.Builder.class)
@@ -39,14 +39,14 @@ public final class DeleteExperimentRunTagDetails  {
         return this;
         }
             /**
-     * Key of the run tag
+     * Key of the run tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("key")
         private String key;
 
                 /**
-         * Key of the run tag
+         * Key of the run tag.
          * @param key the value to set
          * @return this builder
          **/
@@ -104,14 +104,14 @@ return this;
 
 
         /**
-     * Key of the run tag
+     * Key of the run tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Key of the run tag
+     * Key of the run tag.
      * @return the value
      **/
     

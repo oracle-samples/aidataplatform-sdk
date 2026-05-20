@@ -16,11 +16,11 @@ export interface PullAiDataPlatformGitRepositoryRequest extends common.BaseReque
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Folder/branch details to pull
+ * Folder/branch details to pull.
  */
  'gitPullDetails':  model.GitPullDetails;
 /**

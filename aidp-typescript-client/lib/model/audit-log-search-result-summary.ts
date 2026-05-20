@@ -5,43 +5,43 @@ import common = require("oci-common");
 
 
 /**
-* Search result for audit log search request
+* Search result for audit log search request.
 */
 export interface AuditLogSearchResultSummary {
     /**
-    * Unique id of the result
+    * Unique ID of the result.
     */
     'eventId'?: string;
     /**
-    * Time of the log
+    * Time of the log.
     */
     'timeOfLog'?: Date;
     /**
-    * Type of Object
+    * Type of object.
     */
     'objectType'?: model.ObjectType;
     /**
-    * Name of the object
+    * Name of the object.
     */
     'objectName'?: string;
     /**
-    * Type of operation
+    * Type of operation.
     */
     'operation'?: model.Operation;
     /**
-    * Status of log
+    * Status of log.
     */
     'status'?: model.Status;
     /**
-    * operation started by
+    * Operation started by.
     */
     'startedBy'?: string;
     /**
-    * Source of logs
+    * Source of logs.
     */
     'source'?: string;
     /**
-    * payload of logs
+    * Payload of logs.
     */
     'payload'?: string;
 

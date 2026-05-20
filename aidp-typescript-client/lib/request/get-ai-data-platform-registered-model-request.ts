@@ -12,7 +12,7 @@ export interface GetAiDataPlatformRegisteredModelRequest extends common.BaseRequ
  */
  'aiDataPlatformId': string;
 /**
- * Name of the RegisteredModel
+ * Name of the registered model.
  */
  'name': string;
 /**

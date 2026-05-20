@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * Status of the Job.
+ * Status of the job.
 **/
 export enum DeploymentJobState {
     DeploymentJobConnectionStateUnspecified = "DEPLOYMENT_JOB_CONNECTION_STATE_UNSPECIFIED",

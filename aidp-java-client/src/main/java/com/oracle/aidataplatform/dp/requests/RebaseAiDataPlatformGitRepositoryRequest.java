@@ -34,27 +34,27 @@ public class RebaseAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.req
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Details needed to perform rebase operation
+     * Details needed to perform rebase operation.
      */
     private com.oracle.aidataplatform.dp.model.GitRebaseDetails gitRebaseDetails;
 
     
 
         /**
-     * Details needed to perform rebase operation
+     * Details needed to perform rebase operation.
      */
     public com.oracle.aidataplatform.dp.model.GitRebaseDetails getGitRebaseDetails() {
         return gitRebaseDetails;
@@ -184,12 +184,12 @@ public class RebaseAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.req
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class RebaseAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.req
         }
 
             /**
-     * Details needed to perform rebase operation
+     * Details needed to perform rebase operation.
      */
         private com.oracle.aidataplatform.dp.model.GitRebaseDetails gitRebaseDetails = null;
 
         /**
-         * Details needed to perform rebase operation
+         * Details needed to perform rebase operation.
          * @param gitRebaseDetails the value to set
          * @return this builder instance
          */

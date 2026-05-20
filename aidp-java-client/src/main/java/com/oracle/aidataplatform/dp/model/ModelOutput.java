@@ -22,14 +22,14 @@ public final class ModelOutput  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * ID of the model input
+     * ID of the model input.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("model_id")
 private String modelId;
 
         /**
-         * ID of the model input
+         * ID of the model input.
          * @param modelId the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * ID of the model input
+     * ID of the model input.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("model_id")
     private final String modelId;
 
         /**
-     * ID of the model input
+     * ID of the model input.
      * @return the value
      **/
     

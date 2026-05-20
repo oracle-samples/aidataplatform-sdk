@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for updating a RegisteredModel
+* Response object for updating a registered model.
 */
 export interface UpdateRegisteredModelResponseDetails {
     'registeredModel': model.RegisteredModel;

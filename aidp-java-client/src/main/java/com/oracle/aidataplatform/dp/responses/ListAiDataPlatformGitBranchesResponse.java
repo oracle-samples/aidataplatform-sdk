@@ -33,6 +33,19 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
     }
     
     /**
+     * For list pagination. This header provides total number of items available.
+     */
+    private Integer opcTotalItems;
+
+    /**
+     * For list pagination. This header provides total number of items available.
+     * @return the value
+     */
+    public Integer getOpcTotalItems() {
+        return opcTotalItems;
+    }
+    
+    /**
      * The returned {@code GitBranchCollection} instance.
      */
     private com.oracle.aidataplatform.dp.model.GitBranchCollection gitBranchCollection;
@@ -46,11 +59,12 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
     }
 
 
-    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "gitBranchCollection"})
-    private ListAiDataPlatformGitBranchesResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, com.oracle.aidataplatform.dp.model.GitBranchCollection gitBranchCollection) {
+    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "opcTotalItems", "gitBranchCollection"})
+    private ListAiDataPlatformGitBranchesResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, Integer opcTotalItems, com.oracle.aidataplatform.dp.model.GitBranchCollection gitBranchCollection) {
         super(__httpStatusCode__, headers);
         this.opcRequestId = opcRequestId;
         this.opcNextPage = opcNextPage;
+        this.opcTotalItems = opcTotalItems;
         this.gitBranchCollection = gitBranchCollection;
 
     }
@@ -103,6 +117,21 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
         }
 
         /**
+         * For list pagination. This header provides total number of items available.
+         */
+        private Integer opcTotalItems;
+
+        /**
+         * For list pagination. This header provides total number of items available.
+         * @param opcTotalItems the value to set
+         * @return this builder
+         */
+        public Builder opcTotalItems(Integer opcTotalItems) {
+            this.opcTotalItems = opcTotalItems;
+            return this;
+        }
+
+        /**
          * The returned {@code GitBranchCollection} instance.
          */
         private com.oracle.aidataplatform.dp.model.GitBranchCollection gitBranchCollection;
@@ -125,7 +154,7 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
         public Builder copy(ListAiDataPlatformGitBranchesResponse o) {
             __httpStatusCode__(o.get__httpStatusCode__());
             headers(o.getHeaders());
-            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());
+            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());opcTotalItems(o.getOpcTotalItems());
             gitBranchCollection(o.getGitBranchCollection());
             
             return this;
@@ -137,7 +166,7 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
          */
         @Override
         public ListAiDataPlatformGitBranchesResponse build() {
-            return new ListAiDataPlatformGitBranchesResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, gitBranchCollection);
+            return new ListAiDataPlatformGitBranchesResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, opcTotalItems, gitBranchCollection);
         }
     }
 
@@ -156,6 +185,7 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
         sb.append("super=").append(super.toString());
         sb.append(",opcRequestId=").append(String.valueOf(opcRequestId));
         sb.append(",opcNextPage=").append(String.valueOf(opcNextPage));
+        sb.append(",opcTotalItems=").append(String.valueOf(opcTotalItems));
         sb.append(",gitBranchCollection=").append(String.valueOf(gitBranchCollection));
         sb.append(")");
         return sb.toString();
@@ -174,6 +204,7 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
         return super.equals(o)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.opcNextPage, other.opcNextPage)
+            && java.util.Objects.equals(this.opcTotalItems, other.opcTotalItems)
             && java.util.Objects.equals(this.gitBranchCollection, other.gitBranchCollection);
     }
 
@@ -183,6 +214,7 @@ public class ListAiDataPlatformGitBranchesResponse extends com.oracle.bmc.respon
         int result = super.hashCode();
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.opcNextPage == null ? 43 : this.opcNextPage.hashCode());
+        result = (result * PRIME) + (this.opcTotalItems == null ? 43 : this.opcTotalItems.hashCode());
         result = (result * PRIME) + (this.gitBranchCollection == null ? 43 : this.gitBranchCollection.hashCode());
         return result;
     }

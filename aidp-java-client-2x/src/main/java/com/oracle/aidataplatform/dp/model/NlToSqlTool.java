@@ -41,13 +41,6 @@ public final class NlToSqlTool extends Tool {
             this.description = description;
             return this;
             }
-        @com.fasterxml.jackson.annotation.JsonProperty("isReference")
-        private Boolean isReference;
-
-            public Builder isReference(Boolean isReference) {
-            this.isReference = isReference;
-            return this;
-            }
         @com.fasterxml.jackson.annotation.JsonProperty("positionX")
         private Float positionX;
 
@@ -124,7 +117,6 @@ public final class NlToSqlTool extends Tool {
                     , this.displayName
                     , this.workspaceKey
                     , this.description
-                    , this.isReference
                     , this.positionX
                     , this.positionY
                     , this.properties
@@ -142,7 +134,6 @@ public final class NlToSqlTool extends Tool {
     this.displayName(model.getDisplayName());
     this.workspaceKey(model.getWorkspaceKey());
     this.description(model.getDescription());
-    this.isReference(model.getIsReference());
     this.positionX(model.getPositionX());
     this.positionY(model.getPositionY());
     this.properties(model.getProperties());
@@ -170,8 +161,8 @@ return this;
 
     
     @Deprecated
-    public NlToSqlTool(String key, String displayName, String workspaceKey, String description, Boolean isReference, Float positionX, Float positionY, java.util.Map<String, Object> properties, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, NlToSqlToolInputSchema inputSchema, NlToSqlToolConfiguration toolConfig) {
-        super(key, displayName, workspaceKey, description, isReference, positionX, positionY, properties, timeCreated, timeUpdated, createdBy, updatedBy);
+    public NlToSqlTool(String key, String displayName, String workspaceKey, String description, Float positionX, Float positionY, java.util.Map<String, Object> properties, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, NlToSqlToolInputSchema inputSchema, NlToSqlToolConfiguration toolConfig) {
+        super(key, displayName, workspaceKey, description, positionX, positionY, properties, timeCreated, timeUpdated, createdBy, updatedBy);
         this.inputSchema = inputSchema;
         this.toolConfig = toolConfig;
     }

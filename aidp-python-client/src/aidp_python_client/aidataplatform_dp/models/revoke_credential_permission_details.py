@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class RevokeCredentialPermissionDetails(object):
     """
-    The details of the permissions revoked from assignees for a Credential.
+    The details of the permissions revoked from assignees for a credential.
     """
 
     #: A constant which can be used with the permissions property of a RevokeCredentialPermissionDetails.
@@ -81,7 +81,7 @@ class RevokeCredentialPermissionDetails(object):
     def permissions(self):
         """
         **[Required]** Gets the permissions of this RevokeCredentialPermissionDetails.
-        The permissions revoked from the assignees
+        The permissions revoked from the assignees.
 
         Allowed values for items in this list are: "USE", "READ", "MANAGE", "ADMIN"
 
@@ -95,7 +95,7 @@ class RevokeCredentialPermissionDetails(object):
     def permissions(self, permissions):
         """
         Sets the permissions of this RevokeCredentialPermissionDetails.
-        The permissions revoked from the assignees
+        The permissions revoked from the assignees.
 
 
         :param permissions: The permissions of this RevokeCredentialPermissionDetails.

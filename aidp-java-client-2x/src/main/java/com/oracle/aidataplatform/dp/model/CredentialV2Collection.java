@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Result of CredentialV2Collection
+ * Result of CredentialV2Collection.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CredentialV2Collection.Builder.class)
@@ -20,14 +20,14 @@ public final class CredentialV2Collection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * List of CredentialV2 Summaries
+     * List of CredentialV2 summaries.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("items")
         private java.util.List<CredentialV2Summary> items;
 
                 /**
-         * List of CredentialV2 Summaries
+         * List of CredentialV2 summaries.
          * @param items the value to set
          * @return this builder
          **/
@@ -66,14 +66,14 @@ return this;
 
 
         /**
-     * List of CredentialV2 Summaries
+     * List of CredentialV2 summaries.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<CredentialV2Summary> items;
 
         /**
-     * List of CredentialV2 Summaries
+     * List of CredentialV2 summaries.
      * @return the value
      **/
     

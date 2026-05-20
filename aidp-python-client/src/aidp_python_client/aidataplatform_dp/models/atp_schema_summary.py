@@ -21,7 +21,7 @@ class AtpSchemaSummary(SchemaSummary):
 
         :param entity_type:
             The value to assign to the entity_type property of this AtpSchemaSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:

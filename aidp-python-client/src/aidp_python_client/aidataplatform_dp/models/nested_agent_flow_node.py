@@ -88,6 +88,10 @@ class NestedAgentFlowNode(AgentFlowNode):
             The value to assign to the instructions property of this NestedAgentFlowNode.
         :type instructions: str
 
+        :param memory:
+            The value to assign to the memory property of this NestedAgentFlowNode.
+        :type memory: oci.aidataplatform_dp.models.MemoryConfiguration
+
         :param nested_agent_flow_config:
             The value to assign to the nested_agent_flow_config property of this NestedAgentFlowNode.
         :type nested_agent_flow_config: dict(str, str)
@@ -111,6 +115,7 @@ class NestedAgentFlowNode(AgentFlowNode):
             'outputs': 'list[NodeOutput]',
             'validation_errors': 'list[ValidationError]',
             'instructions': 'str',
+            'memory': 'MemoryConfiguration',
             'nested_agent_flow_config': 'dict(str, str)'
         }
 
@@ -132,6 +137,7 @@ class NestedAgentFlowNode(AgentFlowNode):
             'outputs': 'outputs',
             'validation_errors': 'validationErrors',
             'instructions': 'instructions',
+            'memory': 'memory',
             'nested_agent_flow_config': 'nestedAgentFlowConfig'
         }
 
@@ -152,6 +158,7 @@ class NestedAgentFlowNode(AgentFlowNode):
         self._outputs = None
         self._validation_errors = None
         self._instructions = None
+        self._memory = None
         self._nested_agent_flow_config = None
         self._type = 'NESTED_AGENT_FLOW'
 
@@ -178,6 +185,26 @@ class NestedAgentFlowNode(AgentFlowNode):
         :type: str
         """
         self._instructions = instructions
+
+    @property
+    def memory(self):
+        """
+        Gets the memory of this NestedAgentFlowNode.
+
+        :return: The memory of this NestedAgentFlowNode.
+        :rtype: oci.aidataplatform_dp.models.MemoryConfiguration
+        """
+        return self._memory
+
+    @memory.setter
+    def memory(self, memory):
+        """
+        Sets the memory of this NestedAgentFlowNode.
+
+        :param memory: The memory of this NestedAgentFlowNode.
+        :type: oci.aidataplatform_dp.models.MemoryConfiguration
+        """
+        self._memory = memory
 
     @property
     def nested_agent_flow_config(self):

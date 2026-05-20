@@ -53,7 +53,7 @@ class ProvisionUserSchemaDetails(ExecuteDatabaseUserWorkflowsDetails):
     def user_schema_name(self):
         """
         Gets the user_schema_name of this ProvisionUserSchemaDetails.
-        The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+        The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
 
 
         :return: The user_schema_name of this ProvisionUserSchemaDetails.
@@ -65,7 +65,7 @@ class ProvisionUserSchemaDetails(ExecuteDatabaseUserWorkflowsDetails):
     def user_schema_name(self, user_schema_name):
         """
         Sets the user_schema_name of this ProvisionUserSchemaDetails.
-        The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+        The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
 
 
         :param user_schema_name: The user_schema_name of this ProvisionUserSchemaDetails.

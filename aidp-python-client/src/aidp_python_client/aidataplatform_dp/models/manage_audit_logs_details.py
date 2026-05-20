@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ManageAuditLogsDetails(object):
     """
-    manage audit log details
+    Manage audit log details.
     """
 
     #: A constant which can be used with the action property of a ManageAuditLogsDetails.
@@ -53,7 +53,7 @@ class ManageAuditLogsDetails(object):
     def action(self):
         """
         Gets the action of this ManageAuditLogsDetails.
-        action to enable or disable the logs
+        Action to enable or disable the logs.
 
         Allowed values for this property are: "ENABLE", "DISABLE"
 
@@ -67,7 +67,7 @@ class ManageAuditLogsDetails(object):
     def action(self, action):
         """
         Sets the action of this ManageAuditLogsDetails.
-        action to enable or disable the logs
+        Action to enable or disable the logs.
 
 
         :param action: The action of this ManageAuditLogsDetails.
@@ -85,7 +85,7 @@ class ManageAuditLogsDetails(object):
     def retention_period(self):
         """
         Gets the retention_period of this ManageAuditLogsDetails.
-        Retention period of the audit logs
+        Retention period of the audit logs.
 
 
         :return: The retention_period of this ManageAuditLogsDetails.
@@ -97,7 +97,7 @@ class ManageAuditLogsDetails(object):
     def retention_period(self, retention_period):
         """
         Sets the retention_period of this ManageAuditLogsDetails.
-        Retention period of the audit logs
+        Retention period of the audit logs.
 
 
         :param retention_period: The retention_period of this ManageAuditLogsDetails.

@@ -16,7 +16,7 @@ export interface LogAiDataPlatformExperimentRunBatchRequest extends common.BaseR
  */
  'workspaceKey': string;
 /**
- * Details of an Experiment Run Batch.
+ * Details of an experiment run batch.
  */
  'logExperimentRunBatchDetails':  model.LogExperimentRunBatchDetails;
 /**

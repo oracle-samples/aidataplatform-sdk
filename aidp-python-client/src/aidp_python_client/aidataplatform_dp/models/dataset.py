@@ -72,7 +72,7 @@ class Dataset(object):
     def name(self):
         """
         **[Required]** Gets the name of this Dataset.
-        Name of the dataset
+        Name of the dataset.
 
 
         :return: The name of this Dataset.
@@ -84,7 +84,7 @@ class Dataset(object):
     def name(self, name):
         """
         Sets the name of this Dataset.
-        Name of the dataset
+        Name of the dataset.
 
 
         :param name: The name of this Dataset.
@@ -96,7 +96,7 @@ class Dataset(object):
     def digest(self):
         """
         **[Required]** Gets the digest of this Dataset.
-        Digest (hash) of the dataset
+        Digest (hash) of the dataset.
 
 
         :return: The digest of this Dataset.
@@ -108,7 +108,7 @@ class Dataset(object):
     def digest(self, digest):
         """
         Sets the digest of this Dataset.
-        Digest (hash) of the dataset
+        Digest (hash) of the dataset.
 
 
         :param digest: The digest of this Dataset.
@@ -120,7 +120,7 @@ class Dataset(object):
     def source_type(self):
         """
         **[Required]** Gets the source_type of this Dataset.
-        Type of the dataset source
+        Type of the dataset source.
 
 
         :return: The source_type of this Dataset.
@@ -132,7 +132,7 @@ class Dataset(object):
     def source_type(self, source_type):
         """
         Sets the source_type of this Dataset.
-        Type of the dataset source
+        Type of the dataset source.
 
 
         :param source_type: The source_type of this Dataset.
@@ -144,7 +144,7 @@ class Dataset(object):
     def source(self):
         """
         **[Required]** Gets the source of this Dataset.
-        URI or path to the dataset source
+        URI or path to the dataset source.
 
 
         :return: The source of this Dataset.
@@ -156,7 +156,7 @@ class Dataset(object):
     def source(self, source):
         """
         Sets the source of this Dataset.
-        URI or path to the dataset source
+        URI or path to the dataset source.
 
 
         :param source: The source of this Dataset.
@@ -168,7 +168,7 @@ class Dataset(object):
     def schema(self):
         """
         Gets the schema of this Dataset.
-        Schema of the dataset
+        Schema of the dataset.
 
 
         :return: The schema of this Dataset.
@@ -180,7 +180,7 @@ class Dataset(object):
     def schema(self, schema):
         """
         Sets the schema of this Dataset.
-        Schema of the dataset
+        Schema of the dataset.
 
 
         :param schema: The schema of this Dataset.
@@ -192,7 +192,7 @@ class Dataset(object):
     def profile(self):
         """
         Gets the profile of this Dataset.
-        Profile of the dataset
+        Profile of the dataset.
 
 
         :return: The profile of this Dataset.
@@ -204,7 +204,7 @@ class Dataset(object):
     def profile(self, profile):
         """
         Sets the profile of this Dataset.
-        Profile of the dataset
+        Profile of the dataset.
 
 
         :param profile: The profile of this Dataset.

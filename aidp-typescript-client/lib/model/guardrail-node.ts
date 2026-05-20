@@ -9,9 +9,9 @@ import common = require("oci-common");
 */
 export interface GuardrailNode extends model.AgentFlowNode {
     /**
-    * The name of a guardrails configuration stored in the guardrails map in the flow diagram.
+    * A reference by key value to a guardrails configuration stored in the guardrails map in the flow diagram.
     */
-    'guardrailsConfig'?: string;
+    'guardrailsConfigKey'?: string;
     /**
     * Extra configuration for the guardrails node.
     */

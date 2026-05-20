@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for renaming a RegisteredModel
+* Response object for renaming a registered model.
 */
 export interface RenameRegisteredModelResponseDetails {
     'registeredModel': model.RegisteredModel;

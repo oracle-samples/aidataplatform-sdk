@@ -13,7 +13,7 @@ export interface UpdateExperimentRunDetails {
     */
     'runId': string;
     /**
-    * Updated Status of the run.
+    * Updated status of the run.
     */
     'status'?: model.ExperimentRunStatus;
     /**

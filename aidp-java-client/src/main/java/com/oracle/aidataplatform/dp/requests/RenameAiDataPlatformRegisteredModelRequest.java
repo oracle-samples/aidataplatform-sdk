@@ -21,14 +21,14 @@ public class RenameAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         return aiDataPlatformId;
     }
         /**
-     * Details of a RegisteredModel Rename.
+     * Details of a registered model rename.
      */
     private com.oracle.aidataplatform.dp.model.RenameRegisteredModelDetails renameRegisteredModelDetails;
 
     
 
         /**
-     * Details of a RegisteredModel Rename.
+     * Details of a registered model rename.
      */
     public com.oracle.aidataplatform.dp.model.RenameRegisteredModelDetails getRenameRegisteredModelDetails() {
         return renameRegisteredModelDetails;
@@ -122,12 +122,12 @@ public class RenameAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details of a RegisteredModel Rename.
+     * Details of a registered model rename.
      */
         private com.oracle.aidataplatform.dp.model.RenameRegisteredModelDetails renameRegisteredModelDetails = null;
 
         /**
-         * Details of a RegisteredModel Rename.
+         * Details of a registered model rename.
          * @param renameRegisteredModelDetails the value to set
          * @return this builder instance
          */

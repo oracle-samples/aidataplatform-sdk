@@ -12,7 +12,7 @@ export interface ManageAiDataPlatformAuditLogsRequest extends common.BaseRequest
  */
  'aiDataPlatformId': string;
 /**
- * Details to manage audit log.
+ * Details to update in an audit log.
  */
  'manageAuditLogsDetails':  model.ManageAuditLogsDetails;
 /**

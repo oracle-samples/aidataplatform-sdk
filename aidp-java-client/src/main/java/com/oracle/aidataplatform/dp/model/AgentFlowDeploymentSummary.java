@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AgentFlowDeploymentSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"displayName", "description", "key", "lifecycleState", "deploymentType", "agentFlowComputeKey", "agentFlowKey", "endpointUrl", "deploymentVersion", "timeCreated", "createdBy"})
-    public AgentFlowDeploymentSummary(String displayName, String description, String key, DeploymentLifecycleState lifecycleState, DeploymentType deploymentType, String agentFlowComputeKey, String agentFlowKey, String endpointUrl, String deploymentVersion, java.util.Date timeCreated, String createdBy) {
+    @java.beans.ConstructorProperties({"displayName", "description", "key", "lifecycleState", "deploymentType", "agentFlowComputeKey", "agentFlowKey", "endpointUrl", "deploymentVersion", "timeCreated", "createdBy", "agentCardUrl"})
+    public AgentFlowDeploymentSummary(String displayName, String description, String key, DeploymentLifecycleState lifecycleState, DeploymentType deploymentType, String agentFlowComputeKey, String agentFlowKey, String endpointUrl, String deploymentVersion, java.util.Date timeCreated, String createdBy, String agentCardUrl) {
         super();
         this.displayName = displayName;
         this.description = description;
@@ -26,6 +26,7 @@ public final class AgentFlowDeploymentSummary  {
         this.deploymentVersion = deploymentVersion;
         this.timeCreated = timeCreated;
         this.createdBy = createdBy;
+        this.agentCardUrl = agentCardUrl;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -228,6 +229,24 @@ public Builder createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
 }
+            /**
+     * AgentCard base URL
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("agentCardUrl")
+private String agentCardUrl;
+
+        /**
+         * AgentCard base URL
+         * @param agentCardUrl the value to set
+         * @return this builder
+         **/
+        
+
+public Builder agentCardUrl(String agentCardUrl) {
+    this.agentCardUrl = agentCardUrl;
+    return this;
+}
 
 
         public AgentFlowDeploymentSummary build() {
@@ -241,7 +260,8 @@ public Builder createdBy(String createdBy) {
                 , this.endpointUrl
                 , this.deploymentVersion
                 , this.timeCreated
-                , this.createdBy);            return model;
+                , this.createdBy
+                , this.agentCardUrl);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -257,6 +277,7 @@ public Builder createdBy(String createdBy) {
     this.deploymentVersion(model.getDeploymentVersion());
     this.timeCreated(model.getTimeCreated());
     this.createdBy(model.getCreatedBy());
+    this.agentCardUrl(model.getAgentCardUrl());
 return this;
         }
     }
@@ -462,6 +483,23 @@ return this;
         return createdBy;
     }
 
+
+        /**
+     * AgentCard base URL
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("agentCardUrl")
+    private final String agentCardUrl;
+
+        /**
+     * AgentCard base URL
+     * @return the value
+     **/
+    
+    public String getAgentCardUrl() {
+        return agentCardUrl;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -486,6 +524,7 @@ return this;
         sb.append(", deploymentVersion=").append(String.valueOf(this.deploymentVersion));
         sb.append(", timeCreated=").append(String.valueOf(this.timeCreated));
         sb.append(", createdBy=").append(String.valueOf(this.createdBy));
+        sb.append(", agentCardUrl=").append(String.valueOf(this.agentCardUrl));
         sb.append(")");
         return sb.toString();
     }
@@ -510,7 +549,8 @@ return this;
             java.util.Objects.equals(this.endpointUrl, other.endpointUrl) &&
             java.util.Objects.equals(this.deploymentVersion, other.deploymentVersion) &&
             java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
-            java.util.Objects.equals(this.createdBy, other.createdBy);
+            java.util.Objects.equals(this.createdBy, other.createdBy) &&
+            java.util.Objects.equals(this.agentCardUrl, other.agentCardUrl);
     }
 
     @Override
@@ -528,6 +568,7 @@ return this;
         result = (result * PRIME) + (this.deploymentVersion == null ? 43 : this.deploymentVersion.hashCode());
         result = (result * PRIME) + (this.timeCreated == null ? 43 : this.timeCreated.hashCode());
         result = (result * PRIME) + (this.createdBy == null ? 43 : this.createdBy.hashCode());
+        result = (result * PRIME) + (this.agentCardUrl == null ? 43 : this.agentCardUrl.hashCode());
         return result;
     }
 

@@ -226,7 +226,7 @@ class UpdateAgentFlowNodeDetails(object):
     def node_type(self):
         """
         Gets the node_type of this UpdateAgentFlowNodeDetails.
-        Type of this node.
+        This field is deprecated. | It does not need to be set to any value for API calls.
 
 
         :return: The node_type of this UpdateAgentFlowNodeDetails.
@@ -238,7 +238,7 @@ class UpdateAgentFlowNodeDetails(object):
     def node_type(self, node_type):
         """
         Sets the node_type of this UpdateAgentFlowNodeDetails.
-        Type of this node.
+        This field is deprecated. | It does not need to be set to any value for API calls.
 
 
         :param node_type: The node_type of this UpdateAgentFlowNodeDetails.

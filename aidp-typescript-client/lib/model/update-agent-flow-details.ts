@@ -43,10 +43,12 @@ export interface UpdateAgentFlowDetails {
     'addedNodes'?: Array<string>;
     'guardrails'?: model.GuardrailsConfiguration;
     'sessionConfig'?: model.SessionConfiguration;
+    'agentCardConfig'?: model.AgentCardConfigDetail;
 
 }
 
 export namespace UpdateAgentFlowDetails {
+
 
 
 
@@ -82,6 +84,10 @@ export namespace UpdateAgentFlowDetails {
                 
                 
                 model.SessionConfiguration.getJsonObj(obj.sessionConfig) : undefined,
+                'agentCardConfig': obj.agentCardConfig ?
+                
+                
+                model.AgentCardConfigDetail.getJsonObj(obj.agentCardConfig) : undefined,
         }};
 
         
@@ -112,6 +118,10 @@ export namespace UpdateAgentFlowDetails {
                 
                 
                 model.SessionConfiguration.getDeserializedJsonObj(obj.sessionConfig) : undefined,
+                    'agentCardConfig': obj.agentCardConfig ?
+                
+                
+                model.AgentCardConfigDetail.getDeserializedJsonObj(obj.agentCardConfig) : undefined,
          }};
 
         

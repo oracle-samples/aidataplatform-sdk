@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class PermissionSummary(object):
     """
-    Information about a Credential Permission.
+    Information about a credential permission.
     """
 
     #: A constant which can be used with the grantee_type property of a PermissionSummary.
@@ -102,7 +102,7 @@ class PermissionSummary(object):
     def grantee(self):
         """
         **[Required]** Gets the grantee of this PermissionSummary.
-        The ocid of user/group and name in case of role.
+        The OCID of user/group and name in case of role.
 
 
         :return: The grantee of this PermissionSummary.
@@ -114,7 +114,7 @@ class PermissionSummary(object):
     def grantee(self, grantee):
         """
         Sets the grantee of this PermissionSummary.
-        The ocid of user/group and name in case of role.
+        The OCID of user/group and name in case of role.
 
 
         :param grantee: The grantee of this PermissionSummary.
@@ -182,7 +182,7 @@ class PermissionSummary(object):
     def grantee_permissions(self):
         """
         **[Required]** Gets the grantee_permissions of this PermissionSummary.
-        The selected permissions for a Credential.
+        The selected permissions for a credential.
 
         Allowed values for items in this list are: "USE", "READ", "MANAGE", "ADMIN"
 
@@ -196,7 +196,7 @@ class PermissionSummary(object):
     def grantee_permissions(self, grantee_permissions):
         """
         Sets the grantee_permissions of this PermissionSummary.
-        The selected permissions for a Credential.
+        The selected permissions for a credential.
 
 
         :param grantee_permissions: The grantee_permissions of this PermissionSummary.

@@ -21,14 +21,14 @@ public final class BundledResource  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Type of resource (job or agentflow)
+     * Type of resource (job or agentflow).
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("resourceType")
         private ResourceType resourceType;
 
                 /**
-         * Type of resource (job or agentflow)
+         * Type of resource (job or agentflow).
          * @param resourceType the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class BundledResource  {
         return this;
         }
             /**
-     * Workspace unique key for the resource
+     * Workspace unique key for the resource.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("resourceKey")
         private String resourceKey;
 
                 /**
-         * Workspace unique key for the resource
+         * Workspace unique key for the resource.
          * @param resourceKey the value to set
          * @return this builder
          **/
@@ -86,7 +86,7 @@ return this;
     
 
     /**
-     * Type of resource (job or agentflow)
+     * Type of resource (job or agentflow).
      **/
     public enum ResourceType {
         Job("JOB"),
@@ -124,14 +124,14 @@ return this;
         }
     };
         /**
-     * Type of resource (job or agentflow)
+     * Type of resource (job or agentflow).
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("resourceType")
     private final ResourceType resourceType;
 
         /**
-     * Type of resource (job or agentflow)
+     * Type of resource (job or agentflow).
      * @return the value
      **/
     
@@ -141,14 +141,14 @@ return this;
 
 
         /**
-     * Workspace unique key for the resource
+     * Workspace unique key for the resource.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("resourceKey")
     private final String resourceKey;
 
         /**
-     * Workspace unique key for the resource
+     * Workspace unique key for the resource.
      * @return the value
      **/
     

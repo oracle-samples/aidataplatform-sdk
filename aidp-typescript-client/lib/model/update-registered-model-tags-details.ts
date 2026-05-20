@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of the RegisteredModel tags to update.
+* Details of the registered model tags to update.
 */
 export interface UpdateRegisteredModelTagsDetails {
     /**
@@ -13,11 +13,11 @@ export interface UpdateRegisteredModelTagsDetails {
     */
     'name': string;
     /**
-    * RegisteredModel tags to set
+    * Registered model tags to set.
     */
     'setTags'?: Array<model.RegisteredModelTag>;
     /**
-    * RegisteredModel tags to delete
+    * Registered model tags to delete.
     */
     'deleteTags'?: Array<model.RegisteredModelTagKey>;
 

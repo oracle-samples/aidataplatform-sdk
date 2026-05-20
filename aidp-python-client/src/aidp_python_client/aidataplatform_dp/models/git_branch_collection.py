@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitBranchCollection(object):
     """
-    Collection of Git branches. Contains summary information about a git branch
+    Collection of Git branches. Contains summary information about a Git branch.
     """
 
     def __init__(self, **kwargs):

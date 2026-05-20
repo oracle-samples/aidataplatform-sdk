@@ -14,6 +14,7 @@ public enum TableCatalogType implements com.oracle.bmc.http.internal.BmcEnum {
     Atp("ATP"),
     Oracle("ORACLE"),
     Exadata("EXADATA"),
+    OracleAnalytics("ORACLE_ANALYTICS"),
     
 
     /**

@@ -21,14 +21,14 @@ public final class InputTag  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Key of the tag
+     * Key of the tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("key")
         private String key;
 
                 /**
-         * Key of the tag
+         * Key of the tag.
          * @param key the value to set
          * @return this builder
          **/
@@ -39,14 +39,14 @@ public final class InputTag  {
         return this;
         }
             /**
-     * Value of the tag
+     * Value of the tag.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("value")
         private String value;
 
                 /**
-         * Value of the tag
+         * Value of the tag.
          * @param value the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * Key of the tag
+     * Key of the tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Key of the tag
+     * Key of the tag.
      * @return the value
      **/
     
@@ -104,14 +104,14 @@ return this;
 
 
         /**
-     * Value of the tag
+     * Value of the tag.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("value")
     private final String value;
 
         /**
-     * Value of the tag
+     * Value of the tag.
      * @return the value
      **/
     

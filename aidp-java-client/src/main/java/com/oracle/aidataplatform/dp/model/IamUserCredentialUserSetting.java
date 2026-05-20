@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * IAM user credential setting details
+ * IAM user credential setting details.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=IamUserCredentialUserSetting.Builder.class)
@@ -15,14 +15,14 @@ public final class IamUserCredentialUserSetting extends SettingData {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * User OCID or User Name
+     * User OCID or User Name.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("userId")
 private String userId;
 
         /**
-         * User OCID or User Name
+         * User OCID or User Name.
          * @param userId the value to set
          * @return this builder
          **/
@@ -33,14 +33,14 @@ public Builder userId(String userId) {
     return this;
 }
             /**
-     * Tenancy
+     * Tenancy of the user.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("tenancy")
 private String tenancy;
 
         /**
-         * Tenancy
+         * Tenancy of the user.
          * @param tenancy the value to set
          * @return this builder
          **/
@@ -51,14 +51,14 @@ public Builder tenancy(String tenancy) {
     return this;
 }
             /**
-     * Region
+     * Region of the user.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("region")
 private String region;
 
         /**
-         * Region
+         * Region of the user.
          * @param region the value to set
          * @return this builder
          **/
@@ -69,14 +69,14 @@ public Builder region(String region) {
     return this;
 }
             /**
-     * Fingerprint
+     * Fingerprint.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("fingerprint")
 private String fingerprint;
 
         /**
-         * Fingerprint
+         * Fingerprint.
          * @param fingerprint the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ public Builder fingerprint(String fingerprint) {
     return this;
 }
             /**
-     * Private API Key
+     * Private API Key.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("privateApiKey")
 private String privateApiKey;
 
         /**
-         * Private API Key
+         * Private API Key.
          * @param privateApiKey the value to set
          * @return this builder
          **/
@@ -150,14 +150,14 @@ return this;
 
 
         /**
-     * User OCID or User Name
+     * User OCID or User Name.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("userId")
     private final String userId;
 
         /**
-     * User OCID or User Name
+     * User OCID or User Name.
      * @return the value
      **/
     
@@ -167,14 +167,14 @@ return this;
 
 
         /**
-     * Tenancy
+     * Tenancy of the user.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("tenancy")
     private final String tenancy;
 
         /**
-     * Tenancy
+     * Tenancy of the user.
      * @return the value
      **/
     
@@ -184,14 +184,14 @@ return this;
 
 
         /**
-     * Region
+     * Region of the user.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("region")
     private final String region;
 
         /**
-     * Region
+     * Region of the user.
      * @return the value
      **/
     
@@ -201,14 +201,14 @@ return this;
 
 
         /**
-     * Fingerprint
+     * Fingerprint.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("fingerprint")
     private final String fingerprint;
 
         /**
-     * Fingerprint
+     * Fingerprint.
      * @return the value
      **/
     
@@ -218,14 +218,14 @@ return this;
 
 
         /**
-     * Private API Key
+     * Private API Key.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("privateApiKey")
     private final String privateApiKey;
 
         /**
-     * Private API Key
+     * Private API Key.
      * @return the value
      **/
     

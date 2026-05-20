@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for creating an experiment
+* Response object for creating an experiment.
 */
 export interface CreateExperimentResponseDetails {
     /**

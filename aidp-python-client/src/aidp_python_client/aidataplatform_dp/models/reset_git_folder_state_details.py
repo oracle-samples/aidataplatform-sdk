@@ -100,7 +100,7 @@ class ResetGitFolderStateDetails(object):
     def discard_paths(self):
         """
         Gets the discard_paths of this ResetGitFolderStateDetails.
-        list of file paths whose changes are to be discarded and reset to original
+        List of file paths whose changes are to be discarded and reset to original.
 
 
         :return: The discard_paths of this ResetGitFolderStateDetails.
@@ -112,7 +112,7 @@ class ResetGitFolderStateDetails(object):
     def discard_paths(self, discard_paths):
         """
         Sets the discard_paths of this ResetGitFolderStateDetails.
-        list of file paths whose changes are to be discarded and reset to original
+        List of file paths whose changes are to be discarded and reset to original.
 
 
         :param discard_paths: The discard_paths of this ResetGitFolderStateDetails.

@@ -21,14 +21,14 @@ public class UpdateAiDataPlatformUserSettingRequest extends com.oracle.bmc.reque
         return aiDataPlatformId;
     }
         /**
-     * The UUID of the User Setting
+     * The UUID of the user setting.
      */
     private String settingKey;
 
     
 
         /**
-     * The UUID of the User Setting
+     * The UUID of the user setting.
      */
     public String getSettingKey() {
         return settingKey;
@@ -120,12 +120,12 @@ public class UpdateAiDataPlatformUserSettingRequest extends com.oracle.bmc.reque
         }
 
             /**
-     * The UUID of the User Setting
+     * The UUID of the user setting.
      */
         private String settingKey = null;
 
         /**
-         * The UUID of the User Setting
+         * The UUID of the user setting.
          * @param settingKey the value to set
          * @return this builder instance
          */

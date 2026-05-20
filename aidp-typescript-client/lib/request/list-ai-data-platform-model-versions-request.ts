@@ -18,11 +18,11 @@ export interface ListAiDataPlatformModelVersionsRequest extends common.BaseReque
  */
  'filter'?: string;
 /**
- * Maximum number of model versions to retrieve
+ * Maximum number of model versions to retrieve.
  */
  'maxResults'?: number;
 /**
- * Pagination token to go to the next page based on a previous search query
+ * Pagination token to go to the next page based on a previous search query.
  */
  'pageToken'?: string;
 /**

@@ -27,6 +27,9 @@ public enum Operation {
     Write("WRITE"),
     Start("START"),
     Stop("STOP"),
+    Copy("COPY"),
+    Deploy("DEPLOY"),
+    Undeploy("UNDEPLOY"),
     
 
     /**

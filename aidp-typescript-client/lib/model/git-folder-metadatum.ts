@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* Details about a git repository
+* Details about a Git repository.
 */
 export interface GitFolderMetadatum {
     /**
-    * Unique repo key if folder/file path is associated with a git folder
+    * Unique repo key if folder/file path is associated with a Git folder.
     */
     'repoKey': string;
     /**
-    * If the passed folder/file path is associated with a git folder. (Active/Inactive)
+    * If the passed folder/file path is associated with a Git folder. (Active/Inactive)
     */
     'isAssociated': boolean;
 

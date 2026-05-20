@@ -11,8 +11,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AgentFlow  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "workspaceKey", "description", "pathInfo", "type", "entryFilePath", "dependenciesFilePath", "deploymentComputeKey", "deploymentMode", "uri", "uriState", "lifecycleState", "lifecycleDetails", "timeCreated", "timeUpdated", "createdBy", "updatedBy", "computeKey", "diagram", "guardrails", "sessionConfig", "version"})
-    public AgentFlow(String key, String displayName, String workspaceKey, String description, String pathInfo, Type type, String entryFilePath, String dependenciesFilePath, String deploymentComputeKey, String deploymentMode, String uri, String uriState, LifecycleState lifecycleState, String lifecycleDetails, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, String computeKey, AgentFlowDiagram diagram, GuardrailsConfiguration guardrails, SessionConfiguration sessionConfig, Integer version) {
+    @java.beans.ConstructorProperties({"key", "displayName", "workspaceKey", "description", "pathInfo", "type", "entryFilePath", "dependenciesFilePath", "deploymentComputeKey", "deploymentMode", "uri", "uriState", "lifecycleState", "lifecycleDetails", "timeCreated", "timeUpdated", "createdBy", "updatedBy", "computeKey", "diagram", "guardrails", "sessionConfig", "agentCardConfig", "version"})
+    public AgentFlow(String key, String displayName, String workspaceKey, String description, String pathInfo, Type type, String entryFilePath, String dependenciesFilePath, String deploymentComputeKey, String deploymentMode, String uri, String uriState, LifecycleState lifecycleState, String lifecycleDetails, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, String computeKey, AgentFlowDiagram diagram, GuardrailsConfiguration guardrails, SessionConfiguration sessionConfig, AgentCardConfigDetail agentCardConfig, Integer version) {
         super();
         this.key = key;
         this.displayName = displayName;
@@ -36,6 +36,7 @@ public final class AgentFlow  {
         this.diagram = diagram;
         this.guardrails = guardrails;
         this.sessionConfig = sessionConfig;
+        this.agentCardConfig = agentCardConfig;
         this.version = version;
     }
 
@@ -417,6 +418,16 @@ public final class AgentFlow  {
         this.sessionConfig = sessionConfig;
         return this;
         }
+        
+        @com.fasterxml.jackson.annotation.JsonProperty("agentCardConfig")
+        private AgentCardConfigDetail agentCardConfig;
+
+        
+
+        public Builder agentCardConfig(AgentCardConfigDetail agentCardConfig) {
+        this.agentCardConfig = agentCardConfig;
+        return this;
+        }
             /**
      * A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking
      **/
@@ -460,6 +471,7 @@ public final class AgentFlow  {
                     , this.diagram
                     , this.guardrails
                     , this.sessionConfig
+                    , this.agentCardConfig
                     , this.version);            return model;
         }
 
@@ -487,6 +499,7 @@ public final class AgentFlow  {
     this.diagram(model.getDiagram());
     this.guardrails(model.getGuardrails());
     this.sessionConfig(model.getSessionConfig());
+    this.agentCardConfig(model.getAgentCardConfig());
     this.version(model.getVersion());
 return this;
         }
@@ -938,6 +951,16 @@ return this;
     }
 
 
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("agentCardConfig")
+    private final AgentCardConfigDetail agentCardConfig;
+
+    
+    public AgentCardConfigDetail getAgentCardConfig() {
+        return agentCardConfig;
+    }
+
+
         /**
      * A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking
      **/
@@ -989,6 +1012,7 @@ return this;
         sb.append(", diagram=").append(String.valueOf(this.diagram));
         sb.append(", guardrails=").append(String.valueOf(this.guardrails));
         sb.append(", sessionConfig=").append(String.valueOf(this.sessionConfig));
+        sb.append(", agentCardConfig=").append(String.valueOf(this.agentCardConfig));
         sb.append(", version=").append(String.valueOf(this.version));
         sb.append(")");
         return sb.toString();
@@ -1026,6 +1050,7 @@ return this;
             java.util.Objects.equals(this.diagram, other.diagram) &&
             java.util.Objects.equals(this.guardrails, other.guardrails) &&
             java.util.Objects.equals(this.sessionConfig, other.sessionConfig) &&
+            java.util.Objects.equals(this.agentCardConfig, other.agentCardConfig) &&
             java.util.Objects.equals(this.version, other.version);
     }
 
@@ -1055,6 +1080,7 @@ return this;
         result = (result * PRIME) + (this.diagram == null ? 43 : this.diagram.hashCode());
         result = (result * PRIME) + (this.guardrails == null ? 43 : this.guardrails.hashCode());
         result = (result * PRIME) + (this.sessionConfig == null ? 43 : this.sessionConfig.hashCode());
+        result = (result * PRIME) + (this.agentCardConfig == null ? 43 : this.agentCardConfig.hashCode());
         result = (result * PRIME) + (this.version == null ? 43 : this.version.hashCode());
         return result;
     }

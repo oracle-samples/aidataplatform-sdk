@@ -16,11 +16,11 @@ export interface GetAiDataPlatformGitDiffDetailRequest extends common.BaseReques
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * The git folder path
+ * The Git folder path.
  */
  'gitFolderPath': string;
 /**

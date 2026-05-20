@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateGitRepositoryDetails(object):
     """
-    Update a git repository with the provided details
+    Update a Git repository with the provided details.
     """
 
     def __init__(self, **kwargs):
@@ -51,7 +51,7 @@ class UpdateGitRepositoryDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this UpdateGitRepositoryDetails.
-        The path of the current git folder which has to be created for the new branch
+        The path of the current Git folder which has to be created for the new branch.
 
 
         :return: The git_folder_path of this UpdateGitRepositoryDetails.
@@ -63,7 +63,7 @@ class UpdateGitRepositoryDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this UpdateGitRepositoryDetails.
-        The path of the current git folder which has to be created for the new branch
+        The path of the current Git folder which has to be created for the new branch.
 
 
         :param git_folder_path: The git_folder_path of this UpdateGitRepositoryDetails.
@@ -75,7 +75,7 @@ class UpdateGitRepositoryDetails(object):
     def git_url(self):
         """
         Gets the git_url of this UpdateGitRepositoryDetails.
-        The git repository url corresponding to the branch
+        The Git repository url corresponding to the branch.
 
 
         :return: The git_url of this UpdateGitRepositoryDetails.
@@ -87,7 +87,7 @@ class UpdateGitRepositoryDetails(object):
     def git_url(self, git_url):
         """
         Sets the git_url of this UpdateGitRepositoryDetails.
-        The git repository url corresponding to the branch
+        The Git repository url corresponding to the branch.
 
 
         :param git_url: The git_url of this UpdateGitRepositoryDetails.
@@ -99,7 +99,7 @@ class UpdateGitRepositoryDetails(object):
     def credential_key(self):
         """
         Gets the credential_key of this UpdateGitRepositoryDetails.
-        updated PAT credential key
+        Updated PAT credential key.
 
 
         :return: The credential_key of this UpdateGitRepositoryDetails.
@@ -111,7 +111,7 @@ class UpdateGitRepositoryDetails(object):
     def credential_key(self, credential_key):
         """
         Sets the credential_key of this UpdateGitRepositoryDetails.
-        updated PAT credential key
+        Updated PAT credential key.
 
 
         :param credential_key: The credential_key of this UpdateGitRepositoryDetails.

@@ -14,7 +14,6 @@ public enum ToolType {
     Mcp("MCP"),
     Custom("CUSTOM"),
     Http("HTTP"),
-    Reference("REFERENCE"),
     ;
 
     

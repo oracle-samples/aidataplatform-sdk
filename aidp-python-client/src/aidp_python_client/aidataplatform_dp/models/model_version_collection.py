@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ModelVersionCollection(object):
     """
-    Result of listing ModelVersions.
+    Result of listing model versions.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class ModelVersionCollection(object):
     def model_versions(self):
         """
         **[Required]** Gets the model_versions of this ModelVersionCollection.
-        ModelVersions that match the search criteria
+        Model versions that match the search criteria.
 
 
         :return: The model_versions of this ModelVersionCollection.
@@ -56,7 +56,7 @@ class ModelVersionCollection(object):
     def model_versions(self, model_versions):
         """
         Sets the model_versions of this ModelVersionCollection.
-        ModelVersions that match the search criteria
+        Model versions that match the search criteria.
 
 
         :param model_versions: The model_versions of this ModelVersionCollection.
@@ -68,7 +68,7 @@ class ModelVersionCollection(object):
     def next_page_token(self):
         """
         Gets the next_page_token of this ModelVersionCollection.
-        Token that can be used to retrieve the next page of ModelVersions.
+        Token that can be used to retrieve the next page of model versions.
 
 
         :return: The next_page_token of this ModelVersionCollection.
@@ -80,7 +80,7 @@ class ModelVersionCollection(object):
     def next_page_token(self, next_page_token):
         """
         Sets the next_page_token of this ModelVersionCollection.
-        Token that can be used to retrieve the next page of ModelVersions.
+        Token that can be used to retrieve the next page of model versions.
 
 
         :param next_page_token: The next_page_token of this ModelVersionCollection.

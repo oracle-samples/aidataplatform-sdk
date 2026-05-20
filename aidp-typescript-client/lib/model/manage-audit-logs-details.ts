@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* manage audit log details
+* Manage audit log details.
 */
 export interface ManageAuditLogsDetails {
     /**
-    * action to enable or disable the logs
+    * Action to enable or disable the logs.
     */
     'action'?: model.Action;
     /**
-    * Retention period of the audit logs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Retention period of the audit logs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'retentionPeriod'?: number;
 

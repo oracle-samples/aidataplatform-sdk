@@ -21,14 +21,14 @@ public class DeleteAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         return aiDataPlatformId;
     }
         /**
-     * Details of the RegisteredModel.
+     * Details of the registered model to delete.
      */
     private com.oracle.aidataplatform.dp.model.DeleteRegisteredModelDetails deleteRegisteredModelDetails;
 
     
 
         /**
-     * Details of the RegisteredModel.
+     * Details of the registered model to delete.
      */
     public com.oracle.aidataplatform.dp.model.DeleteRegisteredModelDetails getDeleteRegisteredModelDetails() {
         return deleteRegisteredModelDetails;
@@ -122,12 +122,12 @@ public class DeleteAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details of the RegisteredModel.
+     * Details of the registered model to delete.
      */
         private com.oracle.aidataplatform.dp.model.DeleteRegisteredModelDetails deleteRegisteredModelDetails = null;
 
         /**
-         * Details of the RegisteredModel.
+         * Details of the registered model to delete.
          * @param deleteRegisteredModelDetails the value to set
          * @return this builder instance
          */

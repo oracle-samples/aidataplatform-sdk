@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ModelVersion(object):
     """
-    Details of the model version
+    Details of the model version.
     """
 
     #: A constant which can be used with the status property of a ModelVersion.
@@ -464,7 +464,7 @@ class ModelVersion(object):
     def run_link(self):
         """
         Gets the run_link of this ModelVersion.
-        Run Link: Direct link to the run that generated this version.
+        Direct link to the run that generated this version.
 
 
         :return: The run_link of this ModelVersion.
@@ -476,7 +476,7 @@ class ModelVersion(object):
     def run_link(self, run_link):
         """
         Sets the run_link of this ModelVersion.
-        Run Link: Direct link to the run that generated this version.
+        Direct link to the run that generated this version.
 
 
         :param run_link: The run_link of this ModelVersion.
@@ -512,7 +512,7 @@ class ModelVersion(object):
     def model_id(self):
         """
         Gets the model_id of this ModelVersion.
-        Model id for model version that is used to link the registered model to the source logged model.
+        Model ID for model version that is used to link the registered model to the source logged model.
 
 
         :return: The model_id of this ModelVersion.
@@ -524,7 +524,7 @@ class ModelVersion(object):
     def model_id(self, model_id):
         """
         Sets the model_id of this ModelVersion.
-        Model id for model version that is used to link the registered model to the source logged model.
+        Model ID for model version that is used to link the registered model to the source logged model.
 
 
         :param model_id: The model_id of this ModelVersion.

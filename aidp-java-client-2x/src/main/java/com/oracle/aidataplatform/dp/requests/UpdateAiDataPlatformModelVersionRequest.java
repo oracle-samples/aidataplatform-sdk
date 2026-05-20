@@ -21,14 +21,14 @@ public class UpdateAiDataPlatformModelVersionRequest extends com.oracle.bmc.requ
         return aiDataPlatformId;
     }
         /**
-     * Update ModelVersion.
+     * Details to update model version.
      */
     private com.oracle.aidataplatform.dp.model.UpdateModelVersionDetails updateModelVersionDetails;
 
     
 
         /**
-     * Update ModelVersion.
+     * Details to update model version.
      */
     public com.oracle.aidataplatform.dp.model.UpdateModelVersionDetails getUpdateModelVersionDetails() {
         return updateModelVersionDetails;
@@ -122,12 +122,12 @@ public class UpdateAiDataPlatformModelVersionRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * Update ModelVersion.
+     * Details to update model version.
      */
         private com.oracle.aidataplatform.dp.model.UpdateModelVersionDetails updateModelVersionDetails = null;
 
         /**
-         * Update ModelVersion.
+         * Details to update model version.
          * @param updateModelVersionDetails the value to set
          * @return this builder instance
          */

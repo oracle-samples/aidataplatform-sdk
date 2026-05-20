@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LoggedModelInfo(object):
     """
-    Details of the LoggedModel Info.
+    Details of the logged model info.
     """
 
     def __init__(self, **kwargs):
@@ -100,7 +100,7 @@ class LoggedModelInfo(object):
     def model_id(self):
         """
         Gets the model_id of this LoggedModelInfo.
-        id of logged-model.
+        ID of logged model.
 
 
         :return: The model_id of this LoggedModelInfo.
@@ -112,7 +112,7 @@ class LoggedModelInfo(object):
     def model_id(self, model_id):
         """
         Sets the model_id of this LoggedModelInfo.
-        id of logged-model.
+        ID of logged model.
 
 
         :param model_id: The model_id of this LoggedModelInfo.
@@ -148,7 +148,7 @@ class LoggedModelInfo(object):
     def name(self):
         """
         Gets the name of this LoggedModelInfo.
-        name of logged-model.
+        Name of logged model.
 
 
         :return: The name of this LoggedModelInfo.
@@ -160,7 +160,7 @@ class LoggedModelInfo(object):
     def name(self, name):
         """
         Sets the name of this LoggedModelInfo.
-        name of logged-model.
+        Name of logged model.
 
 
         :param name: The name of this LoggedModelInfo.
@@ -172,7 +172,7 @@ class LoggedModelInfo(object):
     def creation_timestamp_ms(self):
         """
         Gets the creation_timestamp_ms of this LoggedModelInfo.
-        Unix timestamp in milliseconds when the logged-model was created.
+        Unix timestamp in milliseconds when the logged model was created.
 
 
         :return: The creation_timestamp_ms of this LoggedModelInfo.
@@ -184,7 +184,7 @@ class LoggedModelInfo(object):
     def creation_timestamp_ms(self, creation_timestamp_ms):
         """
         Sets the creation_timestamp_ms of this LoggedModelInfo.
-        Unix timestamp in milliseconds when the logged-model was created.
+        Unix timestamp in milliseconds when the logged model was created.
 
 
         :param creation_timestamp_ms: The creation_timestamp_ms of this LoggedModelInfo.
@@ -196,7 +196,7 @@ class LoggedModelInfo(object):
     def last_updated_timestamp_ms(self):
         """
         Gets the last_updated_timestamp_ms of this LoggedModelInfo.
-        Unix timestamp in milliseconds when the logged-model was last updated.
+        Unix timestamp in milliseconds when the logged model was last updated.
 
 
         :return: The last_updated_timestamp_ms of this LoggedModelInfo.
@@ -208,7 +208,7 @@ class LoggedModelInfo(object):
     def last_updated_timestamp_ms(self, last_updated_timestamp_ms):
         """
         Sets the last_updated_timestamp_ms of this LoggedModelInfo.
-        Unix timestamp in milliseconds when the logged-model was last updated.
+        Unix timestamp in milliseconds when the logged model was last updated.
 
 
         :param last_updated_timestamp_ms: The last_updated_timestamp_ms of this LoggedModelInfo.
@@ -220,7 +220,7 @@ class LoggedModelInfo(object):
     def artifact_uri(self):
         """
         Gets the artifact_uri of this LoggedModelInfo.
-        artifact_uri.
+        Artifact URI.
 
 
         :return: The artifact_uri of this LoggedModelInfo.
@@ -232,7 +232,7 @@ class LoggedModelInfo(object):
     def artifact_uri(self, artifact_uri):
         """
         Sets the artifact_uri of this LoggedModelInfo.
-        artifact_uri.
+        Artifact URI.
 
 
         :param artifact_uri: The artifact_uri of this LoggedModelInfo.
@@ -244,7 +244,7 @@ class LoggedModelInfo(object):
     def status(self):
         """
         Gets the status of this LoggedModelInfo.
-        status of logged-model.
+        Status of logged model.
 
 
         :return: The status of this LoggedModelInfo.
@@ -256,7 +256,7 @@ class LoggedModelInfo(object):
     def status(self, status):
         """
         Sets the status of this LoggedModelInfo.
-        status of logged-model.
+        Status of logged model.
 
 
         :param status: The status of this LoggedModelInfo.
@@ -268,7 +268,7 @@ class LoggedModelInfo(object):
     def model_type(self):
         """
         Gets the model_type of this LoggedModelInfo.
-        model_type of logged-model.
+        Model type of logged model.
 
 
         :return: The model_type of this LoggedModelInfo.
@@ -280,7 +280,7 @@ class LoggedModelInfo(object):
     def model_type(self, model_type):
         """
         Sets the model_type of this LoggedModelInfo.
-        model_type of logged-model.
+        Model type of logged model.
 
 
         :param model_type: The model_type of this LoggedModelInfo.
@@ -292,7 +292,7 @@ class LoggedModelInfo(object):
     def source_run_id(self):
         """
         Gets the source_run_id of this LoggedModelInfo.
-        source_run_id of logged-model.
+        Source run ID of logged model.
 
 
         :return: The source_run_id of this LoggedModelInfo.
@@ -304,7 +304,7 @@ class LoggedModelInfo(object):
     def source_run_id(self, source_run_id):
         """
         Sets the source_run_id of this LoggedModelInfo.
-        source_run_id of logged-model.
+        Source run ID of logged model.
 
 
         :param source_run_id: The source_run_id of this LoggedModelInfo.
@@ -316,7 +316,7 @@ class LoggedModelInfo(object):
     def tags(self):
         """
         Gets the tags of this LoggedModelInfo.
-        tags of logged-model
+        Tags of logged model.
 
 
         :return: The tags of this LoggedModelInfo.
@@ -328,7 +328,7 @@ class LoggedModelInfo(object):
     def tags(self, tags):
         """
         Sets the tags of this LoggedModelInfo.
-        tags of logged-model
+        Tags of logged model.
 
 
         :param tags: The tags of this LoggedModelInfo.

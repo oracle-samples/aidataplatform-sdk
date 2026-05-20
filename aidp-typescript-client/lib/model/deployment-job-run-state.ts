@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * Status of the Run.
+ * Status of the run.
 **/
 export enum DeploymentJobRunState {
     DeploymentJobRunStateUnspecified = "DEPLOYMENT_JOB_RUN_STATE_UNSPECIFIED",

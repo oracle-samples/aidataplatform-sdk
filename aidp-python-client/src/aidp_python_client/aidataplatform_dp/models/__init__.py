@@ -13,6 +13,10 @@ from .adw_schema import AdwSchema
 from .adw_schema_summary import AdwSchemaSummary
 from .adw_table import AdwTable
 from .adw_table_summary import AdwTableSummary
+from .agent_card_capabilities_detail import AgentCardCapabilitiesDetail
+from .agent_card_config_detail import AgentCardConfigDetail
+from .agent_card_preview_response import AgentCardPreviewResponse
+from .agent_card_skill_detail import AgentCardSkillDetail
 from .agent_flow import AgentFlow
 from .agent_flow_attachment import AgentFlowAttachment
 from .agent_flow_collection import AgentFlowCollection
@@ -37,7 +41,13 @@ from .agent_flow_session_metric import AgentFlowSessionMetric
 from .agent_flow_session_metrics_range import AgentFlowSessionMetricsRange
 from .agent_flow_session_summary import AgentFlowSessionSummary
 from .agent_flow_summary import AgentFlowSummary
+from .agent_flow_validation_issue import AgentFlowValidationIssue
+from .agent_flow_validation_metadata import AgentFlowValidationMetadata
+from .agent_flow_validation_options import AgentFlowValidationOptions
+from .agent_flow_validation_result import AgentFlowValidationResult
+from .agent_flow_validation_summary import AgentFlowValidationSummary
 from .agent_node import AgentNode
+from .agent_provider import AgentProvider
 from .aggregated_data_point import AggregatedDataPoint
 from .aggregated_time_series_data_point import AggregatedTimeSeriesDataPoint
 from .ai_compute_override_item import AiComputeOverrideItem
@@ -69,6 +79,9 @@ from .assign_view_permission_details import AssignViewPermissionDetails
 from .assign_volume_permission_details import AssignVolumePermissionDetails
 from .assign_workspace_object_permission_details import AssignWorkspaceObjectPermissionDetails
 from .assign_workspace_permission_details import AssignWorkspacePermissionDetails
+from .async_operation import AsyncOperation
+from .async_operation_collection import AsyncOperationCollection
+from .async_operation_summary import AsyncOperationSummary
 from .atp_schema import AtpSchema
 from .atp_schema_summary import AtpSchemaSummary
 from .atp_table import AtpTable
@@ -83,6 +96,8 @@ from .audit_log_search_result_summary import AuditLogSearchResultSummary
 from .auth import Auth
 from .auto_scale import AutoScale
 from .bearer_token_auth import BearerTokenAuth
+from .bucket_collection import BucketCollection
+from .bucket_summary import BucketSummary
 from .bundle import Bundle
 from .bundle_deployed_resource import BundleDeployedResource
 from .bundle_deployment_status import BundleDeploymentStatus
@@ -93,6 +108,7 @@ from .bundled_resource import BundledResource
 from .catalog import Catalog
 from .catalog_collection import CatalogCollection
 from .catalog_connection_details import CatalogConnectionDetails
+from .catalog_migration_detail import CatalogMigrationDetail
 from .catalog_permission_collection import CatalogPermissionCollection
 from .catalog_permission_summary import CatalogPermissionSummary
 from .catalog_summary import CatalogSummary
@@ -209,6 +225,7 @@ from .dac_endpoint_summary import DacEndpointSummary
 from .data_lake import DataLake
 from .data_lake_cluster_collection import DataLakeClusterCollection
 from .data_lake_cluster_summary import DataLakeClusterSummary
+from .data_lake_metadata import DataLakeMetadata
 from .dataset import Dataset
 from .dataset_input import DatasetInput
 from .de_provision_user_schemas_details import DeProvisionUserSchemasDetails
@@ -269,6 +286,7 @@ from .exported_contents import ExportedContents
 from .exported_task_run_output_contents import ExportedTaskRunOutputContents
 from .expression import Expression
 from .external_agent_node import ExternalAgentNode
+from .external_catalog_migration_result import ExternalCatalogMigrationResult
 from .external_table_definition import ExternalTableDefinition
 from .feature import Feature
 from .feature_status_collection import FeatureStatusCollection
@@ -331,6 +349,7 @@ from .init_script_path import InitScriptPath
 from .input_tag import InputTag
 from .install_cluster_library_details import InstallClusterLibraryDetails
 from .is_principal_admin import IsPrincipalAdmin
+from .is_principal_aidp_admin import IsPrincipalAidpAdmin
 from .jar_task import JarTask
 from .job import Job
 from .job_cluster import JobCluster
@@ -463,6 +482,10 @@ from .notify_cluster_event_handler_details import NotifyClusterEventHandlerDetai
 from .o_auth import OAuth
 from .o_auth_admin_setting import OAuthAdminSetting
 from .o_auth_configuration import OAuthConfiguration
+from .oac_schema import OacSchema
+from .oac_schema_summary import OacSchemaSummary
+from .oac_table import OacTable
+from .oac_table_summary import OacTableSummary
 from .object_recent_search_summary import ObjectRecentSearchSummary
 from .object_search_summary import ObjectSearchSummary
 from .object_suggest_summary import ObjectSuggestSummary
@@ -485,6 +508,7 @@ from .pii_category import PiiCategory
 from .pii_detection_policy import PiiDetectionPolicy
 from .playground_cache import PlaygroundCache
 from .point import Point
+from .preview_agent_flow_agent_card_details import PreviewAgentFlowAgentCardDetails
 from .principals_with_workspace_access_collection import PrincipalsWithWorkspaceAccessCollection
 from .principals_with_workspace_access_summary import PrincipalsWithWorkspaceAccessSummary
 from .prompt_attacks_prevention_policy import PromptAttacksPreventionPolicy
@@ -662,7 +686,6 @@ from .tool import Tool
 from .tool_collection import ToolCollection
 from .tool_permission_collection import ToolPermissionCollection
 from .tool_permission_summary import ToolPermissionSummary
-from .tool_reference import ToolReference
 from .tool_summary import ToolSummary
 from .trace_details import TraceDetails
 from .trace_event import TraceEvent
@@ -673,6 +696,7 @@ from .uninstall_cluster_library_details import UninstallClusterLibraryDetails
 from .update_admin_setting_details import UpdateAdminSettingDetails
 from .update_agent_flow_compute_details import UpdateAgentFlowComputeDetails
 from .update_agent_flow_deployment_details import UpdateAgentFlowDeploymentDetails
+from .update_agent_flow_deployment_metadata_details import UpdateAgentFlowDeploymentMetadataDetails
 from .update_agent_flow_details import UpdateAgentFlowDetails
 from .update_agent_flow_node_details import UpdateAgentFlowNodeDetails
 from .update_agent_flow_session_details import UpdateAgentFlowSessionDetails
@@ -742,6 +766,7 @@ from .upload_file_with_par_result import UploadFileWithParResult
 from .user_setting import UserSetting
 from .user_setting_collection import UserSettingCollection
 from .user_setting_summary import UserSettingSummary
+from .validate_agent_flow_diagram_details import ValidateAgentFlowDiagramDetails
 from .validate_agent_flow_response import ValidateAgentFlowResponse
 from .validate_bundle_details import ValidateBundleDetails
 from .validate_view_sql_details import ValidateViewSqlDetails
@@ -795,6 +820,10 @@ aidataplatform_dp_type_mapping = {
     "AdwSchemaSummary": AdwSchemaSummary,
     "AdwTable": AdwTable,
     "AdwTableSummary": AdwTableSummary,
+    "AgentCardCapabilitiesDetail": AgentCardCapabilitiesDetail,
+    "AgentCardConfigDetail": AgentCardConfigDetail,
+    "AgentCardPreviewResponse": AgentCardPreviewResponse,
+    "AgentCardSkillDetail": AgentCardSkillDetail,
     "AgentFlow": AgentFlow,
     "AgentFlowAttachment": AgentFlowAttachment,
     "AgentFlowCollection": AgentFlowCollection,
@@ -819,7 +848,13 @@ aidataplatform_dp_type_mapping = {
     "AgentFlowSessionMetricsRange": AgentFlowSessionMetricsRange,
     "AgentFlowSessionSummary": AgentFlowSessionSummary,
     "AgentFlowSummary": AgentFlowSummary,
+    "AgentFlowValidationIssue": AgentFlowValidationIssue,
+    "AgentFlowValidationMetadata": AgentFlowValidationMetadata,
+    "AgentFlowValidationOptions": AgentFlowValidationOptions,
+    "AgentFlowValidationResult": AgentFlowValidationResult,
+    "AgentFlowValidationSummary": AgentFlowValidationSummary,
     "AgentNode": AgentNode,
+    "AgentProvider": AgentProvider,
     "AggregatedDataPoint": AggregatedDataPoint,
     "AggregatedTimeSeriesDataPoint": AggregatedTimeSeriesDataPoint,
     "AiComputeOverrideItem": AiComputeOverrideItem,
@@ -851,6 +886,9 @@ aidataplatform_dp_type_mapping = {
     "AssignVolumePermissionDetails": AssignVolumePermissionDetails,
     "AssignWorkspaceObjectPermissionDetails": AssignWorkspaceObjectPermissionDetails,
     "AssignWorkspacePermissionDetails": AssignWorkspacePermissionDetails,
+    "AsyncOperation": AsyncOperation,
+    "AsyncOperationCollection": AsyncOperationCollection,
+    "AsyncOperationSummary": AsyncOperationSummary,
     "AtpSchema": AtpSchema,
     "AtpSchemaSummary": AtpSchemaSummary,
     "AtpTable": AtpTable,
@@ -865,6 +903,8 @@ aidataplatform_dp_type_mapping = {
     "Auth": Auth,
     "AutoScale": AutoScale,
     "BearerTokenAuth": BearerTokenAuth,
+    "BucketCollection": BucketCollection,
+    "BucketSummary": BucketSummary,
     "Bundle": Bundle,
     "BundleDeployedResource": BundleDeployedResource,
     "BundleDeploymentStatus": BundleDeploymentStatus,
@@ -875,6 +915,7 @@ aidataplatform_dp_type_mapping = {
     "Catalog": Catalog,
     "CatalogCollection": CatalogCollection,
     "CatalogConnectionDetails": CatalogConnectionDetails,
+    "CatalogMigrationDetail": CatalogMigrationDetail,
     "CatalogPermissionCollection": CatalogPermissionCollection,
     "CatalogPermissionSummary": CatalogPermissionSummary,
     "CatalogSummary": CatalogSummary,
@@ -991,6 +1032,7 @@ aidataplatform_dp_type_mapping = {
     "DataLake": DataLake,
     "DataLakeClusterCollection": DataLakeClusterCollection,
     "DataLakeClusterSummary": DataLakeClusterSummary,
+    "DataLakeMetadata": DataLakeMetadata,
     "Dataset": Dataset,
     "DatasetInput": DatasetInput,
     "DeProvisionUserSchemasDetails": DeProvisionUserSchemasDetails,
@@ -1051,6 +1093,7 @@ aidataplatform_dp_type_mapping = {
     "ExportedTaskRunOutputContents": ExportedTaskRunOutputContents,
     "Expression": Expression,
     "ExternalAgentNode": ExternalAgentNode,
+    "ExternalCatalogMigrationResult": ExternalCatalogMigrationResult,
     "ExternalTableDefinition": ExternalTableDefinition,
     "Feature": Feature,
     "FeatureStatusCollection": FeatureStatusCollection,
@@ -1113,6 +1156,7 @@ aidataplatform_dp_type_mapping = {
     "InputTag": InputTag,
     "InstallClusterLibraryDetails": InstallClusterLibraryDetails,
     "IsPrincipalAdmin": IsPrincipalAdmin,
+    "IsPrincipalAidpAdmin": IsPrincipalAidpAdmin,
     "JarTask": JarTask,
     "Job": Job,
     "JobCluster": JobCluster,
@@ -1245,6 +1289,10 @@ aidataplatform_dp_type_mapping = {
     "OAuth": OAuth,
     "OAuthAdminSetting": OAuthAdminSetting,
     "OAuthConfiguration": OAuthConfiguration,
+    "OacSchema": OacSchema,
+    "OacSchemaSummary": OacSchemaSummary,
+    "OacTable": OacTable,
+    "OacTableSummary": OacTableSummary,
     "ObjectRecentSearchSummary": ObjectRecentSearchSummary,
     "ObjectSearchSummary": ObjectSearchSummary,
     "ObjectSuggestSummary": ObjectSuggestSummary,
@@ -1267,6 +1315,7 @@ aidataplatform_dp_type_mapping = {
     "PiiDetectionPolicy": PiiDetectionPolicy,
     "PlaygroundCache": PlaygroundCache,
     "Point": Point,
+    "PreviewAgentFlowAgentCardDetails": PreviewAgentFlowAgentCardDetails,
     "PrincipalsWithWorkspaceAccessCollection": PrincipalsWithWorkspaceAccessCollection,
     "PrincipalsWithWorkspaceAccessSummary": PrincipalsWithWorkspaceAccessSummary,
     "PromptAttacksPreventionPolicy": PromptAttacksPreventionPolicy,
@@ -1444,7 +1493,6 @@ aidataplatform_dp_type_mapping = {
     "ToolCollection": ToolCollection,
     "ToolPermissionCollection": ToolPermissionCollection,
     "ToolPermissionSummary": ToolPermissionSummary,
-    "ToolReference": ToolReference,
     "ToolSummary": ToolSummary,
     "TraceDetails": TraceDetails,
     "TraceEvent": TraceEvent,
@@ -1455,6 +1503,7 @@ aidataplatform_dp_type_mapping = {
     "UpdateAdminSettingDetails": UpdateAdminSettingDetails,
     "UpdateAgentFlowComputeDetails": UpdateAgentFlowComputeDetails,
     "UpdateAgentFlowDeploymentDetails": UpdateAgentFlowDeploymentDetails,
+    "UpdateAgentFlowDeploymentMetadataDetails": UpdateAgentFlowDeploymentMetadataDetails,
     "UpdateAgentFlowDetails": UpdateAgentFlowDetails,
     "UpdateAgentFlowNodeDetails": UpdateAgentFlowNodeDetails,
     "UpdateAgentFlowSessionDetails": UpdateAgentFlowSessionDetails,
@@ -1524,6 +1573,7 @@ aidataplatform_dp_type_mapping = {
     "UserSetting": UserSetting,
     "UserSettingCollection": UserSettingCollection,
     "UserSettingSummary": UserSettingSummary,
+    "ValidateAgentFlowDiagramDetails": ValidateAgentFlowDiagramDetails,
     "ValidateAgentFlowResponse": ValidateAgentFlowResponse,
     "ValidateBundleDetails": ValidateBundleDetails,
     "ValidateViewSqlDetails": ValidateViewSqlDetails,

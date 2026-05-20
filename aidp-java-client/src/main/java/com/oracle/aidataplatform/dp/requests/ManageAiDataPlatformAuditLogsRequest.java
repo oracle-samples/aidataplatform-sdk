@@ -21,14 +21,14 @@ public class ManageAiDataPlatformAuditLogsRequest extends com.oracle.bmc.request
         return aiDataPlatformId;
     }
         /**
-     * Details to manage audit log.
+     * Details to update in an audit log.
      */
     private com.oracle.aidataplatform.dp.model.ManageAuditLogsDetails manageAuditLogsDetails;
 
     
 
         /**
-     * Details to manage audit log.
+     * Details to update in an audit log.
      */
     public com.oracle.aidataplatform.dp.model.ManageAuditLogsDetails getManageAuditLogsDetails() {
         return manageAuditLogsDetails;
@@ -109,12 +109,12 @@ public class ManageAiDataPlatformAuditLogsRequest extends com.oracle.bmc.request
         }
 
             /**
-     * Details to manage audit log.
+     * Details to update in an audit log.
      */
         private com.oracle.aidataplatform.dp.model.ManageAuditLogsDetails manageAuditLogsDetails = null;
 
         /**
-         * Details to manage audit log.
+         * Details to update in an audit log.
          * @param manageAuditLogsDetails the value to set
          * @return this builder instance
          */

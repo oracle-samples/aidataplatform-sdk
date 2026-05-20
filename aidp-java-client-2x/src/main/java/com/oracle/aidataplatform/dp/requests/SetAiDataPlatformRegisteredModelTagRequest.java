@@ -21,14 +21,14 @@ public class SetAiDataPlatformRegisteredModelTagRequest extends com.oracle.bmc.r
         return aiDataPlatformId;
     }
         /**
-     * Details of a RegisteredModel tag.
+     * Details of a registered model tag.
      */
     private com.oracle.aidataplatform.dp.model.SetRegisteredModelTagDetails setRegisteredModelTagDetails;
 
     
 
         /**
-     * Details of a RegisteredModel tag.
+     * Details of a registered model tag.
      */
     public com.oracle.aidataplatform.dp.model.SetRegisteredModelTagDetails getSetRegisteredModelTagDetails() {
         return setRegisteredModelTagDetails;
@@ -122,12 +122,12 @@ public class SetAiDataPlatformRegisteredModelTagRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details of a RegisteredModel tag.
+     * Details of a registered model tag.
      */
         private com.oracle.aidataplatform.dp.model.SetRegisteredModelTagDetails setRegisteredModelTagDetails = null;
 
         /**
-         * Details of a RegisteredModel tag.
+         * Details of a registered model tag.
          * @param setRegisteredModelTagDetails the value to set
          * @return this builder instance
          */

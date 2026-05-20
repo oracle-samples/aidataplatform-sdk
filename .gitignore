@@ -9,5 +9,5 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .mypy_cache/
-/.idea/
+release/
 .DS_Store

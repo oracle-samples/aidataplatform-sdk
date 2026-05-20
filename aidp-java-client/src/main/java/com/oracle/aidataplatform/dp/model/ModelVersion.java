@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of the model version
+ * Details of the model version.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ModelVersion.Builder.class)
@@ -254,14 +254,14 @@ public Builder tags(java.util.List<ModelVersionTag> tags) {
     return this;
 }
             /**
-     * Run Link: Direct link to the run that generated this version.
+     * Direct link to the run that generated this version.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("run_link")
 private String runLink;
 
         /**
-         * Run Link: Direct link to the run that generated this version.
+         * Direct link to the run that generated this version.
          * @param runLink the value to set
          * @return this builder
          **/
@@ -290,14 +290,14 @@ public Builder aliases(java.util.List<String> aliases) {
     return this;
 }
             /**
-     * Model id for model version that is used to link the registered model to the source logged model.
+     * Model ID for model version that is used to link the registered model to the source logged model.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("model_id")
 private String modelId;
 
         /**
-         * Model id for model version that is used to link the registered model to the source logged model.
+         * Model ID for model version that is used to link the registered model to the source logged model.
          * @param modelId the value to set
          * @return this builder
          **/
@@ -620,14 +620,14 @@ return this;
 
 
         /**
-     * Run Link: Direct link to the run that generated this version.
+     * Direct link to the run that generated this version.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("run_link")
     private final String runLink;
 
         /**
-     * Run Link: Direct link to the run that generated this version.
+     * Direct link to the run that generated this version.
      * @return the value
      **/
     
@@ -654,14 +654,14 @@ return this;
 
 
         /**
-     * Model id for model version that is used to link the registered model to the source logged model.
+     * Model ID for model version that is used to link the registered model to the source logged model.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("model_id")
     private final String modelId;
 
         /**
-     * Model id for model version that is used to link the registered model to the source logged model.
+     * Model ID for model version that is used to link the registered model to the source logged model.
      * @return the value
      **/
     

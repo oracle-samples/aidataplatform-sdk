@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Result of listing ModelVersions.
+ * Result of listing model versions.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ModelVersionCollection.Builder.class)
@@ -22,14 +22,14 @@ public final class ModelVersionCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * ModelVersions that match the search criteria
+     * Model versions that match the search criteria.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("model_versions")
 private java.util.List<ModelVersion> modelVersions;
 
         /**
-         * ModelVersions that match the search criteria
+         * Model versions that match the search criteria.
          * @param modelVersions the value to set
          * @return this builder
          **/
@@ -40,14 +40,14 @@ public Builder modelVersions(java.util.List<ModelVersion> modelVersions) {
     return this;
 }
             /**
-     * Token that can be used to retrieve the next page of ModelVersions.
+     * Token that can be used to retrieve the next page of model versions.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("next_page_token")
 private String nextPageToken;
 
         /**
-         * Token that can be used to retrieve the next page of ModelVersions.
+         * Token that can be used to retrieve the next page of model versions.
          * @param nextPageToken the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * ModelVersions that match the search criteria
+     * Model versions that match the search criteria.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("model_versions")
     private final java.util.List<ModelVersion> modelVersions;
 
         /**
-     * ModelVersions that match the search criteria
+     * Model versions that match the search criteria.
      * @return the value
      **/
     
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * Token that can be used to retrieve the next page of ModelVersions.
+     * Token that can be used to retrieve the next page of model versions.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("next_page_token")
     private final String nextPageToken;
 
         /**
-     * Token that can be used to retrieve the next page of ModelVersions.
+     * Token that can be used to retrieve the next page of model versions.
      * @return the value
      **/
     

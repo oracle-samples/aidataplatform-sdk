@@ -268,6 +268,10 @@ return clientCall(request, DownloadAiDataPlatformWorkspaceObjectWithParResponse:
         
         .basePath("/20260430")
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("downloadFileMeta")
+            
+                
+                    
+                    .appendQueryParam("shouldGenerateNewPar", request.getShouldGenerateNewPar())
         .accept("application/json")
                 
                 .appendHeader("path", request.getPath())
@@ -697,6 +701,10 @@ return clientCall(request, UploadAiDataPlatformWorkspaceObjectWithParResponse::b
                 
                     
                     .appendQueryParam("isOverwrite", request.getIsOverwrite())
+            
+                
+                    
+                    .appendQueryParam("shouldGenerateNewPar", request.getShouldGenerateNewPar())
             
                 
                     

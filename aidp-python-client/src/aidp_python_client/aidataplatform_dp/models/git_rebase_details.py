@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitRebaseDetails(object):
     """
-    Details needed to perform a git rebase for a folder context.
+    Details needed to perform a Git rebase for a folder context.
     """
 
     def __init__(self, **kwargs):
@@ -58,7 +58,7 @@ class GitRebaseDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitRebaseDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :return: The git_folder_path of this GitRebaseDetails.
@@ -70,7 +70,7 @@ class GitRebaseDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitRebaseDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :param git_folder_path: The git_folder_path of this GitRebaseDetails.
@@ -82,7 +82,7 @@ class GitRebaseDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitRebaseDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this GitRebaseDetails.
@@ -94,7 +94,7 @@ class GitRebaseDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitRebaseDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this GitRebaseDetails.
@@ -130,7 +130,7 @@ class GitRebaseDetails(object):
     def commit_id(self):
         """
         Gets the commit_id of this GitRebaseDetails.
-        Commit id to rebase onto (optional).
+        Commit ID to rebase onto (optional).
 
 
         :return: The commit_id of this GitRebaseDetails.
@@ -142,7 +142,7 @@ class GitRebaseDetails(object):
     def commit_id(self, commit_id):
         """
         Sets the commit_id of this GitRebaseDetails.
-        Commit id to rebase onto (optional).
+        Commit ID to rebase onto (optional).
 
 
         :param commit_id: The commit_id of this GitRebaseDetails.

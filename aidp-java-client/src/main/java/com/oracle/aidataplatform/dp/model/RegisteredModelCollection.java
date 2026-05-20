@@ -22,14 +22,14 @@ public final class RegisteredModelCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * RegisteredModels that match the search criteria
+     * Registered models that match the search criteria.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("registered_models")
 private java.util.List<RegisteredModel> registeredModels;
 
         /**
-         * RegisteredModels that match the search criteria
+         * Registered models that match the search criteria.
          * @param registeredModels the value to set
          * @return this builder
          **/
@@ -40,14 +40,14 @@ public Builder registeredModels(java.util.List<RegisteredModel> registeredModels
     return this;
 }
             /**
-     * Token that can be used to retrieve the next page of RegisteredModels.
+     * Token that can be used to retrieve the next page of registered models.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("next_page_token")
 private String nextPageToken;
 
         /**
-         * Token that can be used to retrieve the next page of RegisteredModels.
+         * Token that can be used to retrieve the next page of registered models.
          * @param nextPageToken the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * RegisteredModels that match the search criteria
+     * Registered models that match the search criteria.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("registered_models")
     private final java.util.List<RegisteredModel> registeredModels;
 
         /**
-     * RegisteredModels that match the search criteria
+     * Registered models that match the search criteria.
      * @return the value
      **/
     
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * Token that can be used to retrieve the next page of RegisteredModels.
+     * Token that can be used to retrieve the next page of registered models.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("next_page_token")
     private final String nextPageToken;
 
         /**
-     * Token that can be used to retrieve the next page of RegisteredModels.
+     * Token that can be used to retrieve the next page of registered models.
      * @return the value
      **/
     

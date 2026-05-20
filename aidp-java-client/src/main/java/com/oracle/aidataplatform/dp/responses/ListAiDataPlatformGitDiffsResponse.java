@@ -33,6 +33,19 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
     }
     
     /**
+     * For list pagination. This header provides total number of items available.
+     */
+    private Integer opcTotalItems;
+
+    /**
+     * For list pagination. This header provides total number of items available.
+     * @return the value
+     */
+    public Integer getOpcTotalItems() {
+        return opcTotalItems;
+    }
+    
+    /**
      * The returned {@code GitDiffSummaryCollection} instance.
      */
     private com.oracle.aidataplatform.dp.model.GitDiffSummaryCollection gitDiffSummaryCollection;
@@ -46,11 +59,12 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
     }
 
 
-    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "gitDiffSummaryCollection"})
-    private ListAiDataPlatformGitDiffsResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, com.oracle.aidataplatform.dp.model.GitDiffSummaryCollection gitDiffSummaryCollection) {
+    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "opcTotalItems", "gitDiffSummaryCollection"})
+    private ListAiDataPlatformGitDiffsResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, Integer opcTotalItems, com.oracle.aidataplatform.dp.model.GitDiffSummaryCollection gitDiffSummaryCollection) {
         super(__httpStatusCode__, headers);
         this.opcRequestId = opcRequestId;
         this.opcNextPage = opcNextPage;
+        this.opcTotalItems = opcTotalItems;
         this.gitDiffSummaryCollection = gitDiffSummaryCollection;
 
     }
@@ -103,6 +117,21 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
         }
 
         /**
+         * For list pagination. This header provides total number of items available.
+         */
+        private Integer opcTotalItems;
+
+        /**
+         * For list pagination. This header provides total number of items available.
+         * @param opcTotalItems the value to set
+         * @return this builder
+         */
+        public Builder opcTotalItems(Integer opcTotalItems) {
+            this.opcTotalItems = opcTotalItems;
+            return this;
+        }
+
+        /**
          * The returned {@code GitDiffSummaryCollection} instance.
          */
         private com.oracle.aidataplatform.dp.model.GitDiffSummaryCollection gitDiffSummaryCollection;
@@ -125,7 +154,7 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
         public Builder copy(ListAiDataPlatformGitDiffsResponse o) {
             __httpStatusCode__(o.get__httpStatusCode__());
             headers(o.getHeaders());
-            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());
+            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());opcTotalItems(o.getOpcTotalItems());
             gitDiffSummaryCollection(o.getGitDiffSummaryCollection());
             
             return this;
@@ -137,7 +166,7 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
          */
         @Override
         public ListAiDataPlatformGitDiffsResponse build() {
-            return new ListAiDataPlatformGitDiffsResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, gitDiffSummaryCollection);
+            return new ListAiDataPlatformGitDiffsResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, opcTotalItems, gitDiffSummaryCollection);
         }
     }
 
@@ -156,6 +185,7 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
         sb.append("super=").append(super.toString());
         sb.append(",opcRequestId=").append(String.valueOf(opcRequestId));
         sb.append(",opcNextPage=").append(String.valueOf(opcNextPage));
+        sb.append(",opcTotalItems=").append(String.valueOf(opcTotalItems));
         sb.append(",gitDiffSummaryCollection=").append(String.valueOf(gitDiffSummaryCollection));
         sb.append(")");
         return sb.toString();
@@ -174,6 +204,7 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
         return super.equals(o)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.opcNextPage, other.opcNextPage)
+            && java.util.Objects.equals(this.opcTotalItems, other.opcTotalItems)
             && java.util.Objects.equals(this.gitDiffSummaryCollection, other.gitDiffSummaryCollection);
     }
 
@@ -183,6 +214,7 @@ public class ListAiDataPlatformGitDiffsResponse extends com.oracle.bmc.responses
         int result = super.hashCode();
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.opcNextPage == null ? 43 : this.opcNextPage.hashCode());
+        result = (result * PRIME) + (this.opcTotalItems == null ? 43 : this.opcTotalItems.hashCode());
         result = (result * PRIME) + (this.gitDiffSummaryCollection == null ? 43 : this.gitDiffSummaryCollection.hashCode());
         return result;
     }

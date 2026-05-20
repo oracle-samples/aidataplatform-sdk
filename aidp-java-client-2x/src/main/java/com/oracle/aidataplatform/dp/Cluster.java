@@ -79,6 +79,19 @@ public interface Cluster extends AutoCloseable {
     DeleteAiDataPlatformClusterResponse deleteAiDataPlatformCluster(DeleteAiDataPlatformClusterRequest request);
     
     /**
+     * Downloads logs within the specified cluster and time range.
+* The logs can be filtered by severity (`logLevel`), type (`logContentTypeContains`),
+* and other parameters such as execution context and thread identifiers.
+* 
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    DownloadAiDataPlatformClusterLogsResponse downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request);
+    
+    /**
      * Returns detailed information about a cluster.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -159,6 +172,17 @@ public interface Cluster extends AutoCloseable {
     RestartAiDataPlatformClusterResponse restartAiDataPlatformCluster(RestartAiDataPlatformClusterRequest request);
     
     /**
+     * Searches logs within the specified cluster and time range. Supports pagination and filtering.
+* 
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    SearchAiDataPlatformClusterLogsResponse searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request);
+    
+    /**
      * Starts a cluster that has halted operation.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -177,6 +201,19 @@ public interface Cluster extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     StopAiDataPlatformClusterResponse stopAiDataPlatformCluster(StopAiDataPlatformClusterRequest request);
+    
+    /**
+     * Provides summarized compute metrics for a compute cluster in the given workspace.
+* This API aggregates metric data points based on a specified namespace, metric name, 
+* and aggregation type. The response contains computed metric summaries.
+* 
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    SummarizeAiDataPlatformMetricsDataResponse summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request);
     
     /**
      * Update the details of a given cluster.

@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface ModelInput {
     /**
-    * ID of the model input
+    * ID of the model input.
     */
     'modelId': string;
 

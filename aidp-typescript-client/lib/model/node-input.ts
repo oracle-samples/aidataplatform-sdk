@@ -14,6 +14,10 @@ export interface NodeInput {
     'name': string;
     'type': model.NodeIo;
     /**
+    * UI position of the input port on the node.
+    */
+    'portPosition'?: model.NodePortPosition;
+    /**
     * Documentation or tooltip shown in the UI.
     */
     'description'?: string;
@@ -35,6 +39,7 @@ export namespace NodeInput {
 
 
 
+
     export function getJsonObj(obj: NodeInput): object {
         const jsonObj = {...obj, ...{
             
@@ -43,6 +48,7 @@ export namespace NodeInput {
                 
                 
                 model.NodeIo.getJsonObj(obj.type) : undefined,
+
 
 
 
@@ -61,6 +67,7 @@ export namespace NodeInput {
                 
                 
                 model.NodeIo.getDeserializedJsonObj(obj.type) : undefined,
+
 
 
 

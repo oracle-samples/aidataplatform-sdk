@@ -18,6 +18,10 @@ class GuardrailsConfiguration(object):
         Initializes a new GuardrailsConfiguration object with values from keyword arguments.
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
+        :param key:
+            The value to assign to the key property of this GuardrailsConfiguration.
+        :type key: str
+
         :param name:
             The value to assign to the name property of this GuardrailsConfiguration.
         :type name: str
@@ -32,20 +36,47 @@ class GuardrailsConfiguration(object):
 
         """
         self.swagger_types = {
+            'key': 'str',
             'name': 'str',
             'description': 'str',
             'policies': 'list[SafetyPolicy]'
         }
 
         self.attribute_map = {
+            'key': 'key',
             'name': 'name',
             'description': 'description',
             'policies': 'policies'
         }
 
+        self._key = None
         self._name = None
         self._description = None
         self._policies = None
+
+    @property
+    def key(self):
+        """
+        Gets the key of this GuardrailsConfiguration.
+        The unique identifier (UUID) of the guardrails configuration.
+
+
+        :return: The key of this GuardrailsConfiguration.
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """
+        Sets the key of this GuardrailsConfiguration.
+        The unique identifier (UUID) of the guardrails configuration.
+
+
+        :param key: The key of this GuardrailsConfiguration.
+        :type: str
+        """
+        self._key = key
 
     @property
     def name(self):

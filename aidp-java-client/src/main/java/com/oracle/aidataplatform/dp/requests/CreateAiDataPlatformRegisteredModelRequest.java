@@ -21,14 +21,14 @@ public class CreateAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         return aiDataPlatformId;
     }
         /**
-     * Details for the new RegisteredModel.
+     * Details for the new registered model.
      */
     private com.oracle.aidataplatform.dp.model.CreateRegisteredModelDetails createRegisteredModelDetails;
 
     
 
         /**
-     * Details for the new RegisteredModel.
+     * Details for the new registered model.
      */
     public com.oracle.aidataplatform.dp.model.CreateRegisteredModelDetails getCreateRegisteredModelDetails() {
         return createRegisteredModelDetails;
@@ -122,12 +122,12 @@ public class CreateAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details for the new RegisteredModel.
+     * Details for the new registered model.
      */
         private com.oracle.aidataplatform.dp.model.CreateRegisteredModelDetails createRegisteredModelDetails = null;
 
         /**
-         * Details for the new RegisteredModel.
+         * Details for the new registered model.
          * @param createRegisteredModelDetails the value to set
          * @return this builder instance
          */

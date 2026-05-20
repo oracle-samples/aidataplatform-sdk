@@ -34,14 +34,14 @@ public class UpdateAiDataPlatformExperimentRunRequest extends com.oracle.bmc.req
         return workspaceKey;
     }
         /**
-     * Update experiment run.
+     * Update experiment run details.
      */
     private com.oracle.aidataplatform.dp.model.UpdateExperimentRunDetails updateExperimentRunDetails;
 
     
 
         /**
-     * Update experiment run.
+     * Update experiment run details.
      */
     public com.oracle.aidataplatform.dp.model.UpdateExperimentRunDetails getUpdateExperimentRunDetails() {
         return updateExperimentRunDetails;
@@ -150,12 +150,12 @@ public class UpdateAiDataPlatformExperimentRunRequest extends com.oracle.bmc.req
         }
 
             /**
-     * Update experiment run.
+     * Update experiment run details.
      */
         private com.oracle.aidataplatform.dp.model.UpdateExperimentRunDetails updateExperimentRunDetails = null;
 
         /**
-         * Update experiment run.
+         * Update experiment run details.
          * @param updateExperimentRunDetails the value to set
          * @return this builder instance
          */

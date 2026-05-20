@@ -34,27 +34,27 @@ public class GetAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.reques
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'
+     * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'.
      */
     private Boolean shouldIncludeCredentialKey;
 
     
 
         /**
-     * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'
+     * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'.
      */
     public Boolean getShouldIncludeCredentialKey() {
         return shouldIncludeCredentialKey;
@@ -117,12 +117,12 @@ public class GetAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -132,12 +132,12 @@ public class GetAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'
+     * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'.
      */
         private Boolean shouldIncludeCredentialKey = null;
 
         /**
-         * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'
+         * A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'.
          * @param shouldIncludeCredentialKey the value to set
          * @return this builder instance
          */

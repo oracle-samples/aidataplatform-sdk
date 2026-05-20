@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Information needed to search the audit logs
+ * Information needed to search the audit logs.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=SearchAuditLogsDetails.Builder.class)
@@ -29,14 +29,14 @@ public final class SearchAuditLogsDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Start time of the logs
+     * Start time of the logs.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("timeBegin")
         private java.util.Date timeBegin;
 
                 /**
-         * Start time of the logs
+         * Start time of the logs.
          * @param timeBegin the value to set
          * @return this builder
          **/
@@ -47,14 +47,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * End time of the logs
+     * End time of the logs.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("timeEnd")
         private java.util.Date timeEnd;
 
                 /**
-         * End time of the logs
+         * End time of the logs.
          * @param timeEnd the value to set
          * @return this builder
          **/
@@ -65,14 +65,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * Type of Object
+     * Type of object.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("objectType")
         private ObjectType objectType;
 
                 /**
-         * Type of Object
+         * Type of object.
          * @param objectType the value to set
          * @return this builder
          **/
@@ -83,14 +83,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * Name of the object
+     * Name of the object.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("objectName")
         private String objectName;
 
                 /**
-         * Name of the object
+         * Name of the object.
          * @param objectName the value to set
          * @return this builder
          **/
@@ -101,14 +101,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * Type of operation
+     * Type of operation.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("operation")
         private Operation operation;
 
                 /**
-         * Type of operation
+         * Type of operation.
          * @param operation the value to set
          * @return this builder
          **/
@@ -119,14 +119,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * Status of log
+     * Status of log.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("status")
         private Status status;
 
                 /**
-         * Status of log
+         * Status of log.
          * @param status the value to set
          * @return this builder
          **/
@@ -137,14 +137,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * Operation started by
+     * Operation started by.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("startedBy")
         private String startedBy;
 
                 /**
-         * Operation started by
+         * Operation started by.
          * @param startedBy the value to set
          * @return this builder
          **/
@@ -155,14 +155,14 @@ public final class SearchAuditLogsDetails  {
         return this;
         }
             /**
-     * Query to search the log
+     * Query to search the log.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("query")
         private String query;
 
                 /**
-         * Query to search the log
+         * Query to search the log.
          * @param query the value to set
          * @return this builder
          **/
@@ -257,14 +257,14 @@ return this;
 
 
         /**
-     * Start time of the logs
+     * Start time of the logs.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("timeBegin")
     private final java.util.Date timeBegin;
 
         /**
-     * Start time of the logs
+     * Start time of the logs.
      * @return the value
      **/
     
@@ -274,14 +274,14 @@ return this;
 
 
         /**
-     * End time of the logs
+     * End time of the logs.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("timeEnd")
     private final java.util.Date timeEnd;
 
         /**
-     * End time of the logs
+     * End time of the logs.
      * @return the value
      **/
     
@@ -291,14 +291,14 @@ return this;
 
     
         /**
-     * Type of Object
+     * Type of object.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("objectType")
     private final ObjectType objectType;
 
         /**
-     * Type of Object
+     * Type of object.
      * @return the value
      **/
     
@@ -308,14 +308,14 @@ return this;
 
 
         /**
-     * Name of the object
+     * Name of the object.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("objectName")
     private final String objectName;
 
         /**
-     * Name of the object
+     * Name of the object.
      * @return the value
      **/
     
@@ -325,14 +325,14 @@ return this;
 
     
         /**
-     * Type of operation
+     * Type of operation.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("operation")
     private final Operation operation;
 
         /**
-     * Type of operation
+     * Type of operation.
      * @return the value
      **/
     
@@ -342,14 +342,14 @@ return this;
 
     
         /**
-     * Status of log
+     * Status of log.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("status")
     private final Status status;
 
         /**
-     * Status of log
+     * Status of log.
      * @return the value
      **/
     
@@ -359,14 +359,14 @@ return this;
 
 
         /**
-     * Operation started by
+     * Operation started by.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("startedBy")
     private final String startedBy;
 
         /**
-     * Operation started by
+     * Operation started by.
      * @return the value
      **/
     
@@ -376,14 +376,14 @@ return this;
 
 
         /**
-     * Query to search the log
+     * Query to search the log.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("query")
     private final String query;
 
         /**
-     * Query to search the log
+     * Query to search the log.
      * @return the value
      **/
     

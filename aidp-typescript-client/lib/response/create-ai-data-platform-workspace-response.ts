@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 export interface CreateAiDataPlatformWorkspaceResponse {
     /**
-     * URL for the created AI Data Platform Workbench workspace. The AI Data Platform Workbench workspace key is generated after this request is sent.
+     * URL for the created workspace. The workspace key is generated after this request is sent.
      */
     'location': string;
     /**

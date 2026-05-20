@@ -47,6 +47,19 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
         return path;
     }
         /**
+     * Flag to toggle to generate short living par
+     */
+    private Boolean shouldGenerateNewPar;
+
+    
+
+        /**
+     * Flag to toggle to generate short living par
+     */
+    public Boolean getShouldGenerateNewPar() {
+        return shouldGenerateNewPar;
+    }
+        /**
      * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24
 * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
@@ -168,6 +181,21 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
         }
 
             /**
+     * Flag to toggle to generate short living par
+     */
+        private Boolean shouldGenerateNewPar = null;
+
+        /**
+         * Flag to toggle to generate short living par
+         * @param shouldGenerateNewPar the value to set
+         * @return this builder instance
+         */
+        public Builder shouldGenerateNewPar(Boolean shouldGenerateNewPar) {
+            this.shouldGenerateNewPar = shouldGenerateNewPar;
+            return this;
+        }
+
+            /**
      * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24
 * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
@@ -271,7 +299,7 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
          * @return this builder instance
          */
         public Builder copy(DownloadAiDataPlatformWorkspaceObjectWithParRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());path(o.getPath());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());type(o.getType());shouldUpdateRecent(o.getShouldUpdateRecent());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());path(o.getPath());shouldGenerateNewPar(o.getShouldGenerateNewPar());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());type(o.getType());shouldUpdateRecent(o.getShouldUpdateRecent());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -307,12 +335,13 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
             request.aiDataPlatformId = aiDataPlatformId;
             request.workspaceKey = workspaceKey;
             request.path = path;
+            request.shouldGenerateNewPar = shouldGenerateNewPar;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
             request.type = type;
             request.shouldUpdateRecent = shouldUpdateRecent;
             return request;
-            // new DownloadAiDataPlatformWorkspaceObjectWithParRequest(aiDataPlatformId, workspaceKey, path, opcRetryToken, opcRequestId, type, shouldUpdateRecent);
+            // new DownloadAiDataPlatformWorkspaceObjectWithParRequest(aiDataPlatformId, workspaceKey, path, shouldGenerateNewPar, opcRetryToken, opcRequestId, type, shouldUpdateRecent);
         }
     }
 
@@ -325,6 +354,7 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .path(path)
+            .shouldGenerateNewPar(shouldGenerateNewPar)
             .opcRetryToken(opcRetryToken)
             .opcRequestId(opcRequestId)
             .type(type)
@@ -347,6 +377,7 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",path=").append(String.valueOf(this.path));
+        sb.append(",shouldGenerateNewPar=").append(String.valueOf(this.shouldGenerateNewPar));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(",type=").append(String.valueOf(this.type));
@@ -369,6 +400,7 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.path, other.path)
+            && java.util.Objects.equals(this.shouldGenerateNewPar, other.shouldGenerateNewPar)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.type, other.type)
@@ -382,6 +414,7 @@ public class DownloadAiDataPlatformWorkspaceObjectWithParRequest extends com.ora
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.path == null ? 43 : this.path.hashCode());
+        result = (result * PRIME) + (this.shouldGenerateNewPar == null ? 43 : this.shouldGenerateNewPar.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.type == null ? 43 : this.type.hashCode());

@@ -14,6 +14,7 @@ public enum SchemaCatalogType {
     Atp("ATP"),
     Oracle("ORACLE"),
     Exadata("EXADATA"),
+    OracleAnalytics("ORACLE_ANALYTICS"),
     
 
     /**

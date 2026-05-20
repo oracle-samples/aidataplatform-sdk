@@ -421,6 +421,31 @@ public class ClusterClient implements Cluster {
     }
 
     @Override
+    public DownloadAiDataPlatformClusterLogsResponse downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request) {
+        LOG.trace("Called downloadAiDataPlatformClusterLogs");
+            final DownloadAiDataPlatformClusterLogsRequest interceptedRequest = DownloadAiDataPlatformClusterLogsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadAiDataPlatformClusterLogsConverter.fromRequest(client, interceptedRequest);
+
+            final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
+            com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+            com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Cluster", "DownloadAiDataPlatformClusterLogs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DownloadAiDataPlatformClusterLogsResponse> transformer = DownloadAiDataPlatformClusterLogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            return retrier.execute(
+                    interceptedRequest,
+                    retryRequest -> {
+                        final com.oracle.bmc.retrier.TokenRefreshRetrier tokenRefreshRetrier =
+                                new com.oracle.bmc.retrier.TokenRefreshRetrier(authenticationDetailsProvider);
+                        return tokenRefreshRetrier.execute(
+                                retryRequest,
+                                retriedRequest -> { 
+                                    javax.ws.rs.core.Response response = client.post(ib, retriedRequest.getDownloadClusterLogsDetails(), retriedRequest);
+                                    return transformer.apply(response);
+                                });
+                    });
+    }
+
+    @Override
     public GetAiDataPlatformClusterResponse getAiDataPlatformCluster(GetAiDataPlatformClusterRequest request) {
         LOG.trace("Called getAiDataPlatformCluster");
             final GetAiDataPlatformClusterRequest interceptedRequest = GetAiDataPlatformClusterConverter.interceptRequest(request);
@@ -615,6 +640,31 @@ public class ClusterClient implements Cluster {
     }
 
     @Override
+    public SearchAiDataPlatformClusterLogsResponse searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request) {
+        LOG.trace("Called searchAiDataPlatformClusterLogs");
+            final SearchAiDataPlatformClusterLogsRequest interceptedRequest = SearchAiDataPlatformClusterLogsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SearchAiDataPlatformClusterLogsConverter.fromRequest(client, interceptedRequest);
+
+            final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
+            com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+            com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Cluster", "SearchAiDataPlatformClusterLogs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SearchAiDataPlatformClusterLogsResponse> transformer = SearchAiDataPlatformClusterLogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            return retrier.execute(
+                    interceptedRequest,
+                    retryRequest -> {
+                        final com.oracle.bmc.retrier.TokenRefreshRetrier tokenRefreshRetrier =
+                                new com.oracle.bmc.retrier.TokenRefreshRetrier(authenticationDetailsProvider);
+                        return tokenRefreshRetrier.execute(
+                                retryRequest,
+                                retriedRequest -> { 
+                                    javax.ws.rs.core.Response response = client.post(ib, retriedRequest.getSearchClusterLogsDetails(), retriedRequest);
+                                    return transformer.apply(response);
+                                });
+                    });
+    }
+
+    @Override
     public StartAiDataPlatformClusterResponse startAiDataPlatformCluster(StartAiDataPlatformClusterRequest request) {
         LOG.trace("Called startAiDataPlatformCluster");
             final StartAiDataPlatformClusterRequest interceptedRequest = StartAiDataPlatformClusterConverter.interceptRequest(request);
@@ -659,6 +709,31 @@ public class ClusterClient implements Cluster {
                                 retryRequest,
                                 retriedRequest -> { 
                                     javax.ws.rs.core.Response response = client.post(ib, retriedRequest.getStopClusterDetails(), retriedRequest);
+                                    return transformer.apply(response);
+                                });
+                    });
+    }
+
+    @Override
+    public SummarizeAiDataPlatformMetricsDataResponse summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request) {
+        LOG.trace("Called summarizeAiDataPlatformMetricsData");
+            final SummarizeAiDataPlatformMetricsDataRequest interceptedRequest = SummarizeAiDataPlatformMetricsDataConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SummarizeAiDataPlatformMetricsDataConverter.fromRequest(client, interceptedRequest);
+
+            final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
+            com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
+            com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Cluster", "SummarizeAiDataPlatformMetricsData", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SummarizeAiDataPlatformMetricsDataResponse> transformer = SummarizeAiDataPlatformMetricsDataConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            return retrier.execute(
+                    interceptedRequest,
+                    retryRequest -> {
+                        final com.oracle.bmc.retrier.TokenRefreshRetrier tokenRefreshRetrier =
+                                new com.oracle.bmc.retrier.TokenRefreshRetrier(authenticationDetailsProvider);
+                        return tokenRefreshRetrier.execute(
+                                retryRequest,
+                                retriedRequest -> { 
+                                    javax.ws.rs.core.Response response = client.post(ib, retriedRequest.getSummarizeMetricsDataDetails(), retriedRequest);
                                     return transformer.apply(response);
                                 });
                     });

@@ -89,6 +89,7 @@ export interface AgentFlow {
     'diagram'?: model.AgentFlowDiagram;
     'guardrails'?: model.GuardrailsConfiguration;
     'sessionConfig'?: model.SessionConfiguration;
+    'agentCardConfig'?: model.AgentCardConfigDetail;
     /**
     * A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
@@ -135,6 +136,7 @@ export namespace AgentFlow {
 
 
 
+
     export function getJsonObj(obj: AgentFlow): object {
         const jsonObj = {...obj, ...{
             
@@ -169,6 +171,10 @@ export namespace AgentFlow {
                 
                 
                 model.SessionConfiguration.getJsonObj(obj.sessionConfig) : undefined,
+                'agentCardConfig': obj.agentCardConfig ?
+                
+                
+                model.AgentCardConfigDetail.getJsonObj(obj.agentCardConfig) : undefined,
 
         }};
 
@@ -211,6 +217,10 @@ export namespace AgentFlow {
                 
                 
                 model.SessionConfiguration.getDeserializedJsonObj(obj.sessionConfig) : undefined,
+                    'agentCardConfig': obj.agentCardConfig ?
+                
+                
+                model.AgentCardConfigDetail.getDeserializedJsonObj(obj.agentCardConfig) : undefined,
 
          }};
 

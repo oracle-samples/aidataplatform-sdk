@@ -12,11 +12,11 @@ export interface GetAiDataPlatformModelVersionRequest extends common.BaseRequest
  */
  'aiDataPlatformId': string;
 /**
- * Name of the ModelVersion
+ * Name of the model version.
  */
  'name': string;
 /**
- * Version number of the model version
+ * Version number of the model version.
  */
  'version': string;
 /**

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Git Branch details
+* Git branch details.
 */
 export interface CreateGitBranch {
     /**
@@ -13,27 +13,27 @@ export interface CreateGitBranch {
     */
     'gitBranchName': string;
     /**
-    * The git repository url corresponding to the branch
+    * The Git repository URL corresponding to the branch.
     */
     'gitUrl': string;
     /**
-    * Git Error Message
+    * Git error message.
     */
     'errorMessage'?: string;
     /**
-    * Git STDOUT Message
+    * Git STDOUT message.
     */
     'stdOut'?: string;
     /**
-    * Git STDERR Message
+    * Git STDERR message.
     */
     'stdErr'?: string;
     /**
-    * Git exit status Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Git exit status. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'gitExitCode'?: number;
     /**
-    * The path of the current git folder which has to be created for the new branch
+    * The path of the current Git folder which has to be created for the new branch.
     */
     'gitFolderPath'?: string;
 

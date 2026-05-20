@@ -34,14 +34,14 @@ public class LogAiDataPlatformExperimentRunParamRequest extends com.oracle.bmc.r
         return workspaceKey;
     }
         /**
-     * Details of an Experiment Run Param.
+     * Details of an experiment run parameter.
      */
     private com.oracle.aidataplatform.dp.model.LogExperimentRunParamDetails logExperimentRunParamDetails;
 
     
 
         /**
-     * Details of an Experiment Run Param.
+     * Details of an experiment run parameter.
      */
     public com.oracle.aidataplatform.dp.model.LogExperimentRunParamDetails getLogExperimentRunParamDetails() {
         return logExperimentRunParamDetails;
@@ -150,12 +150,12 @@ public class LogAiDataPlatformExperimentRunParamRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details of an Experiment Run Param.
+     * Details of an experiment run parameter.
      */
         private com.oracle.aidataplatform.dp.model.LogExperimentRunParamDetails logExperimentRunParamDetails = null;
 
         /**
-         * Details of an Experiment Run Param.
+         * Details of an experiment run parameter.
          * @param logExperimentRunParamDetails the value to set
          * @return this builder instance
          */

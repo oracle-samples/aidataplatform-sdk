@@ -11,11 +11,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class NodeInput  {
     @Deprecated
-    @java.beans.ConstructorProperties({"name", "type", "description", "isRequired", "isSingleConnection"})
-    public NodeInput(String name, NodeIo type, String description, Boolean isRequired, Boolean isSingleConnection) {
+    @java.beans.ConstructorProperties({"name", "type", "portPosition", "description", "isRequired", "isSingleConnection"})
+    public NodeInput(String name, NodeIo type, NodePortPosition portPosition, String description, Boolean isRequired, Boolean isSingleConnection) {
         super();
         this.name = name;
         this.type = type;
+        this.portPosition = portPosition;
         this.description = description;
         this.isRequired = isRequired;
         this.isSingleConnection = isSingleConnection;
@@ -49,6 +50,24 @@ public final class NodeInput  {
 
         public Builder type(NodeIo type) {
         this.type = type;
+        return this;
+        }
+            /**
+     * UI position of the input port on the node.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("portPosition")
+        private NodePortPosition portPosition;
+
+                /**
+         * UI position of the input port on the node.
+         * @param portPosition the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder portPosition(NodePortPosition portPosition) {
+        this.portPosition = portPosition;
         return this;
         }
             /**
@@ -110,6 +129,7 @@ public final class NodeInput  {
         public NodeInput build() {
             NodeInput model = new NodeInput(this.name
                     , this.type
+                    , this.portPosition
                     , this.description
                     , this.isRequired
                     , this.isSingleConnection);            return model;
@@ -119,6 +139,7 @@ public final class NodeInput  {
         public Builder copy(NodeInput model) {
                 this.name(model.getName());
     this.type(model.getType());
+    this.portPosition(model.getPortPosition());
     this.description(model.getDescription());
     this.isRequired(model.getIsRequired());
     this.isSingleConnection(model.getIsSingleConnection());
@@ -165,6 +186,23 @@ return this;
     
     public NodeIo getType() {
         return type;
+    }
+
+    
+        /**
+     * UI position of the input port on the node.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("portPosition")
+    private final NodePortPosition portPosition;
+
+        /**
+     * UI position of the input port on the node.
+     * @return the value
+     **/
+    
+    public NodePortPosition getPortPosition() {
+        return portPosition;
     }
 
 
@@ -233,6 +271,7 @@ return this;
         sb.append("NodeInput(");
         sb.append("name=").append(String.valueOf(this.name));
         sb.append(", type=").append(String.valueOf(this.type));
+        sb.append(", portPosition=").append(String.valueOf(this.portPosition));
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", isRequired=").append(String.valueOf(this.isRequired));
         sb.append(", isSingleConnection=").append(String.valueOf(this.isSingleConnection));
@@ -252,6 +291,7 @@ return this;
         NodeInput other = (NodeInput) o;
         return java.util.Objects.equals(this.name, other.name) &&
             java.util.Objects.equals(this.type, other.type) &&
+            java.util.Objects.equals(this.portPosition, other.portPosition) &&
             java.util.Objects.equals(this.description, other.description) &&
             java.util.Objects.equals(this.isRequired, other.isRequired) &&
             java.util.Objects.equals(this.isSingleConnection, other.isSingleConnection);
@@ -263,6 +303,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.type == null ? 43 : this.type.hashCode());
+        result = (result * PRIME) + (this.portPosition == null ? 43 : this.portPosition.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.isRequired == null ? 43 : this.isRequired.hashCode());
         result = (result * PRIME) + (this.isSingleConnection == null ? 43 : this.isSingleConnection.hashCode());

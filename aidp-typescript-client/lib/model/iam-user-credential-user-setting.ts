@@ -5,27 +5,27 @@ import common = require("oci-common");
 
 
 /**
-* IAM user credential setting details
+* IAM user credential setting details.
 */
 export interface IamUserCredentialUserSetting extends model.SettingData {
     /**
-    * User OCID or User Name
+    * User OCID or User Name.
     */
     'userId': string;
     /**
-    * Tenancy
+    * Tenancy of the user.
     */
     'tenancy': string;
     /**
-    * Region
+    * Region of the user.
     */
     'region': string;
     /**
-    * Fingerprint
+    * Fingerprint.
     */
     'fingerprint': string;
     /**
-    * Private API Key
+    * Private API Key.
     */
     'privateApiKey': string;
 

@@ -16,11 +16,11 @@ export interface CommitPushAiDataPlatformGitRepositoryRequest extends common.Bas
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Commit details
+ * Commit details.
  */
  'commitPushDetails':  model.CommitPushDetails;
 /**

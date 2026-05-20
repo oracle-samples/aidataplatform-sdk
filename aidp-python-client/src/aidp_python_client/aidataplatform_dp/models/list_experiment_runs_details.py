@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ListExperimentRunsDetails(object):
     """
-    Details of Experiment Runs to fetch.
+    Details of experiment runs to fetch.
     """
 
     #: A constant which can be used with the run_view_type property of a ListExperimentRunsDetails.
@@ -85,7 +85,7 @@ class ListExperimentRunsDetails(object):
     def experiment_ids(self):
         """
         Gets the experiment_ids of this ListExperimentRunsDetails.
-        List of experiment IDs to search over
+        List of experiment IDs to search over.
 
 
         :return: The experiment_ids of this ListExperimentRunsDetails.
@@ -97,7 +97,7 @@ class ListExperimentRunsDetails(object):
     def experiment_ids(self, experiment_ids):
         """
         Sets the experiment_ids of this ListExperimentRunsDetails.
-        List of experiment IDs to search over
+        List of experiment IDs to search over.
 
 
         :param experiment_ids: The experiment_ids of this ListExperimentRunsDetails.
@@ -137,7 +137,7 @@ class ListExperimentRunsDetails(object):
     def page_token(self):
         """
         Gets the page_token of this ListExperimentRunsDetails.
-        Token indicating the page of experiment runs to fetch
+        Token indicating the page of experiment runs to fetch.
 
 
         :return: The page_token of this ListExperimentRunsDetails.
@@ -149,7 +149,7 @@ class ListExperimentRunsDetails(object):
     def page_token(self, page_token):
         """
         Sets the page_token of this ListExperimentRunsDetails.
-        Token indicating the page of experiment runs to fetch
+        Token indicating the page of experiment runs to fetch.
 
 
         :param page_token: The page_token of this ListExperimentRunsDetails.

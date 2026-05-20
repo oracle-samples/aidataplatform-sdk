@@ -21,7 +21,7 @@ public class UploadAiDataPlatformFileWithParConverter {
 
     public static com.oracle.bmc.http.internal.WrappedInvocationBuilder fromRequest(com.oracle.bmc.http.internal.RestClient client, com.oracle.aidataplatform.dp.requests.UploadAiDataPlatformFileWithParRequest request) {
         Validate.notNull(request, "request instance is required");
-        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");        Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");        Validate.notNull(request.getUploadFileWithParDetails(), "uploadFileWithParDetails is required");        Validate.notNull(request.getPath(), "path is required");                                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");        Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");        Validate.notNull(request.getUploadFileWithParDetails(), "uploadFileWithParDetails is required");        Validate.notNull(request.getPath(), "path is required");                                        
 
         com.oracle.bmc.http.internal.WrappedWebTarget target = client.getBaseTarget()
         .path("/20260430")
@@ -29,6 +29,10 @@ public class UploadAiDataPlatformFileWithParConverter {
 
             if (request.getIsOverwrite() != null) { 
             target = target.queryParam("isOverwrite", com.oracle.bmc.util.internal.HttpUtils.attemptEncodeQueryParam(request.getIsOverwrite()));
+             }
+
+            if (request.getShouldGenerateNewPar() != null) { 
+            target = target.queryParam("shouldGenerateNewPar", com.oracle.bmc.util.internal.HttpUtils.attemptEncodeQueryParam(request.getShouldGenerateNewPar()));
              }
 
         com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = target.request();

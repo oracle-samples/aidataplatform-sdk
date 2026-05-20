@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * OAuth admin setting details
+ * OAuth admin setting details.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=OAuthAdminSetting.Builder.class)
@@ -14,14 +14,14 @@ public final class OAuthAdminSetting extends SettingData {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Issuer / authorization server base URL
+     * Issuer / authorization server base URL.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("identityProviderUrl")
         private String identityProviderUrl;
 
                 /**
-         * Issuer / authorization server base URL
+         * Issuer / authorization server base URL.
          * @param identityProviderUrl the value to set
          * @return this builder
          **/
@@ -32,14 +32,14 @@ public final class OAuthAdminSetting extends SettingData {
         return this;
         }
             /**
-     * URL to retrieve JKS keystore
+     * URL to retrieve JKS keystore.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("retrieveJksUrl")
         private String retrieveJksUrl;
 
                 /**
-         * URL to retrieve JKS keystore
+         * URL to retrieve JKS keystore.
          * @param retrieveJksUrl the value to set
          * @return this builder
          **/
@@ -86,14 +86,14 @@ return this;
 
 
         /**
-     * Issuer / authorization server base URL
+     * Issuer / authorization server base URL.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("identityProviderUrl")
     private final String identityProviderUrl;
 
         /**
-     * Issuer / authorization server base URL
+     * Issuer / authorization server base URL.
      * @return the value
      **/
     
@@ -103,14 +103,14 @@ return this;
 
 
         /**
-     * URL to retrieve JKS keystore
+     * URL to retrieve JKS keystore.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("retrieveJksUrl")
     private final String retrieveJksUrl;
 
         /**
-     * URL to retrieve JKS keystore
+     * URL to retrieve JKS keystore.
      * @return the value
      **/
     

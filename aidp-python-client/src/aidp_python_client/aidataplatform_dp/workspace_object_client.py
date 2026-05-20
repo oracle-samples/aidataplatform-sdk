@@ -440,6 +440,9 @@ class WorkspaceObjectClient(object):
         :param str path: (required)
             The absolute path of the file or folder
 
+        :param bool should_generate_new_par: (optional)
+            Flag to toggle to generate short living par
+
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
             server error without risk of running that same action again. Retry tokens expire after 24
@@ -476,6 +479,7 @@ class WorkspaceObjectClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
+            "should_generate_new_par",
             "opc_retry_token",
             "opc_request_id",
             "type",
@@ -496,6 +500,11 @@ class WorkspaceObjectClient(object):
         for (k, v) in six.iteritems(path_params):
             if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        query_params = {
+            "shouldGenerateNewPar": kwargs.get("should_generate_new_par", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
 
         header_params = {
             "accept": "application/json",
@@ -520,6 +529,7 @@ class WorkspaceObjectClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="DownloadFileWithParResult")
         else:
@@ -527,6 +537,7 @@ class WorkspaceObjectClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="DownloadFileWithParResult")
 
@@ -1473,6 +1484,9 @@ class WorkspaceObjectClient(object):
         :param bool is_overwrite: (optional)
             A boolean which decides if overwrite is allowed
 
+        :param bool should_generate_new_par: (optional)
+            Flag to toggle to generate short living par
+
         :param bool should_update_recent: (optional)
             A flag to identify if the recent list should be updated.
 
@@ -1513,6 +1527,7 @@ class WorkspaceObjectClient(object):
         expected_kwargs = [
             "retry_strategy",
             "is_overwrite",
+            "should_generate_new_par",
             "should_update_recent",
             "opc_retry_token",
             "opc_request_id",
@@ -1537,6 +1552,7 @@ class WorkspaceObjectClient(object):
 
         query_params = {
             "isOverwrite": kwargs.get("is_overwrite", missing),
+            "shouldGenerateNewPar": kwargs.get("should_generate_new_par", missing),
             "objectDescription": kwargs.get("object_description", missing)
         }
         query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}

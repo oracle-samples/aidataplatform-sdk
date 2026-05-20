@@ -16,15 +16,15 @@ export interface GetAiDataPlatformExperimentRunMetricHistoryRequest extends comm
  */
  'workspaceKey': string;
 /**
- * ID of the Run metric history to fetch
+ * ID of the run metric history to fetch.
  */
  'runId': string;
 /**
- * Name of the metric key
+ * Name of the metric key.
  */
  'metricKey': string;
 /**
- * Pagination token to go to the next page of metric history
+ * Pagination token to go to the next page of metric history.
  */
  'pageToken'?: string;
 /**

@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Details of Experiment Runs to fetch.
+* Details of experiment runs to fetch.
 */
 export interface ListExperimentRunsDetails {
     /**
-    * List of experiment IDs to search over
+    * List of experiment IDs to search over.
     */
     'experimentIds'?: Array<string>;
     /**
@@ -20,7 +20,7 @@ export interface ListExperimentRunsDetails {
     */
     'maxResults'?: number;
     /**
-    * Token indicating the page of experiment runs to fetch
+    * Token indicating the page of experiment runs to fetch.
     */
     'pageToken'?: string;
     /**

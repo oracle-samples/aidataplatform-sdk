@@ -12,7 +12,7 @@ package com.oracle.aidataplatform.dp.model;
 public final class TestToolParamValues  {
     @Deprecated
     @java.beans.ConstructorProperties({"values"})
-    public TestToolParamValues(java.util.Map<String, String> values) {
+    public TestToolParamValues(Object values) {
         super();
         this.values = values;
     }
@@ -20,20 +20,20 @@ public final class TestToolParamValues  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Map of parameter names to their string values.
+     * Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("values")
-        private java.util.Map<String, String> values;
+        private Object values;
 
                 /**
-         * Map of parameter names to their string values.
+         * Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
          * @param values the value to set
          * @return this builder
          **/
         
 
-        public Builder values(java.util.Map<String, String> values) {
+        public Builder values(Object values) {
         this.values = values;
         return this;
         }
@@ -66,18 +66,18 @@ return this;
 
 
         /**
-     * Map of parameter names to their string values.
+     * Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("values")
-    private final java.util.Map<String, String> values;
+    private final Object values;
 
         /**
-     * Map of parameter names to their string values.
+     * Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
      * @return the value
      **/
     
-    public java.util.Map<String, String> getValues() {
+    public Object getValues() {
         return values;
     }
 

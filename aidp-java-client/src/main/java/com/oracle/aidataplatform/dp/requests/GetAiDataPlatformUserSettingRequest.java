@@ -21,14 +21,14 @@ public class GetAiDataPlatformUserSettingRequest extends com.oracle.bmc.requests
         return aiDataPlatformId;
     }
         /**
-     * The UUID of the User Setting
+     * The UUID of the user setting.
      */
     private String settingKey;
 
     
 
         /**
-     * The UUID of the User Setting
+     * The UUID of the user setting.
      */
     public String getSettingKey() {
         return settingKey;
@@ -76,12 +76,12 @@ public class GetAiDataPlatformUserSettingRequest extends com.oracle.bmc.requests
         }
 
             /**
-     * The UUID of the User Setting
+     * The UUID of the user setting.
      */
         private String settingKey = null;
 
         /**
-         * The UUID of the User Setting
+         * The UUID of the user setting.
          * @param settingKey the value to set
          * @return this builder instance
          */

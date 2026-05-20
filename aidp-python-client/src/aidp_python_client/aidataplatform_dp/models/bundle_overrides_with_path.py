@@ -44,7 +44,7 @@ class BundleOverridesWithPath(object):
     def path(self):
         """
         **[Required]** Gets the path of this BundleOverridesWithPath.
-        Target folder for the new bundle
+        Target folder for the new bundle.
 
 
         :return: The path of this BundleOverridesWithPath.
@@ -56,7 +56,7 @@ class BundleOverridesWithPath(object):
     def path(self, path):
         """
         Sets the path of this BundleOverridesWithPath.
-        Target folder for the new bundle
+        Target folder for the new bundle.
 
 
         :param path: The path of this BundleOverridesWithPath.

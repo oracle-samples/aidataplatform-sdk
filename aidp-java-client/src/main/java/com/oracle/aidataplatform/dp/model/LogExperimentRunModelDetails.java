@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of an Experiment Run Model
+ * Details of an experiment run model.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=LogExperimentRunModelDetails.Builder.class)
@@ -40,14 +40,14 @@ public Builder runId(String runId) {
     return this;
 }
             /**
-     * Model file in json format
+     * Model file in JSON format
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("model_json")
 private String modelJson;
 
         /**
-         * Model file in json format
+         * Model file in JSON format
          * @param modelJson the value to set
          * @return this builder
          **/
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * Model file in json format
+     * Model file in JSON format
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("model_json")
     private final String modelJson;
 
         /**
-     * Model file in json format
+     * Model file in JSON format
      * @return the value
      **/
     

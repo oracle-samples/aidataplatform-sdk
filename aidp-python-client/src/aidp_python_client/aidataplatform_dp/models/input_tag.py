@@ -44,7 +44,7 @@ class InputTag(object):
     def key(self):
         """
         **[Required]** Gets the key of this InputTag.
-        Key of the tag
+        Key of the tag.
 
 
         :return: The key of this InputTag.
@@ -56,7 +56,7 @@ class InputTag(object):
     def key(self, key):
         """
         Sets the key of this InputTag.
-        Key of the tag
+        Key of the tag.
 
 
         :param key: The key of this InputTag.
@@ -68,7 +68,7 @@ class InputTag(object):
     def value(self):
         """
         **[Required]** Gets the value of this InputTag.
-        Value of the tag
+        Value of the tag.
 
 
         :return: The value of this InputTag.
@@ -80,7 +80,7 @@ class InputTag(object):
     def value(self, value):
         """
         Sets the value of this InputTag.
-        Value of the tag
+        Value of the tag.
 
 
         :param value: The value of this InputTag.

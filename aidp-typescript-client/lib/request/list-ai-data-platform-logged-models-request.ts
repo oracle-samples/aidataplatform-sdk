@@ -16,7 +16,7 @@ export interface ListAiDataPlatformLoggedModelsRequest extends common.BaseReques
  */
  'workspaceKey': string;
 /**
- * Details of LoggedModels to fetch.
+ * Details of logged models to fetch.
  */
  'listLoggedModelsDetails':  model.ListLoggedModelsDetails;
 /**

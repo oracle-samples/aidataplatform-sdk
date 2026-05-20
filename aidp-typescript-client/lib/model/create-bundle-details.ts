@@ -5,19 +5,19 @@ import common = require("oci-common");
 
 
 /**
-* Request body to create a new Bundle.
+* Request body to create a new bundle.
 */
 export interface CreateBundleDetails {
     /**
-    * Name for the new bundle
+    * Name for the new bundle.
     */
     'name': string;
     /**
-    * Description for the bundle
+    * Description for the bundle.
     */
     'description'?: string;
     /**
-    * Target folder for the new bundle
+    * Target folder for the new bundle.
     */
     'path': string;
     /**

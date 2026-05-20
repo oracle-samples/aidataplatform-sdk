@@ -37,7 +37,7 @@ class FeatureStatusCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this FeatureStatusCollection.
-        List of features
+        List of features.
 
 
         :return: The items of this FeatureStatusCollection.
@@ -49,7 +49,7 @@ class FeatureStatusCollection(object):
     def items(self, items):
         """
         Sets the items of this FeatureStatusCollection.
-        List of features
+        List of features.
 
 
         :param items: The items of this FeatureStatusCollection.

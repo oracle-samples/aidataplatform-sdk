@@ -19,11 +19,11 @@ export interface ListAiDataPlatformRegisteredModelsRequest extends common.BaseRe
  */
  'filter'?: string;
 /**
- * Maximum number of models desired. Default is 100. Max threshold is 1000
+ * Maximum number of models desired. Default is 100. Max threshold is 1000.
  */
  'maxResults'?: number;
 /**
- * Pagination token to go to the next page based on a previous search query
+ * Pagination token to go to the next page based on a previous search query.
  */
  'pageToken'?: string;
 /**

@@ -13,8 +13,7 @@ export enum ToolType {
     Nl2Sql = "NL2SQL",
     Mcp = "MCP",
     Custom = "CUSTOM",
-    Http = "HTTP",
-    Reference = "REFERENCE"
+    Http = "HTTP"
     
 }
 

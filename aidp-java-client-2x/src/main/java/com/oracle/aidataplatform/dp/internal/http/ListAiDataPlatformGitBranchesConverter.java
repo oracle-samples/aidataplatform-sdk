@@ -100,6 +100,11 @@ public class ListAiDataPlatformGitBranchesConverter {
             builder.opcNextPage(com.oracle.bmc.http.internal.HeaderUtils.toValue("opc-next-page", opcNextPageHeader.get().get(0), String.class));
         }
 
+        java.util.Optional<java.util.List<String>> opcTotalItemsHeader = com.oracle.bmc.http.internal.HeaderUtils.getHeadersWithName(headers, "opc-total-items");
+        if (opcTotalItemsHeader.isPresent()) {
+            builder.opcTotalItems(com.oracle.bmc.http.internal.HeaderUtils.toValue("opc-total-items", opcTotalItemsHeader.get().get(0), Integer.class));
+        }
+
         com.oracle.aidataplatform.dp.responses.ListAiDataPlatformGitBranchesResponse responseWrapper = builder.build();
         
         ResponseHelper.closeResponseSilentlyIfNotBuffered(rawResponse);

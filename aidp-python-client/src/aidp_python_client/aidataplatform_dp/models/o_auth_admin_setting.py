@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class OAuthAdminSetting(SettingData):
     """
-    OAuth admin setting details
+    OAuth admin setting details.
     """
 
     def __init__(self, **kwargs):
@@ -54,7 +54,7 @@ class OAuthAdminSetting(SettingData):
     def identity_provider_url(self):
         """
         **[Required]** Gets the identity_provider_url of this OAuthAdminSetting.
-        Issuer / authorization server base URL
+        Issuer / authorization server base URL.
 
 
         :return: The identity_provider_url of this OAuthAdminSetting.
@@ -66,7 +66,7 @@ class OAuthAdminSetting(SettingData):
     def identity_provider_url(self, identity_provider_url):
         """
         Sets the identity_provider_url of this OAuthAdminSetting.
-        Issuer / authorization server base URL
+        Issuer / authorization server base URL.
 
 
         :param identity_provider_url: The identity_provider_url of this OAuthAdminSetting.
@@ -78,7 +78,7 @@ class OAuthAdminSetting(SettingData):
     def retrieve_jks_url(self):
         """
         **[Required]** Gets the retrieve_jks_url of this OAuthAdminSetting.
-        URL to retrieve JKS keystore
+        URL to retrieve JKS keystore.
 
 
         :return: The retrieve_jks_url of this OAuthAdminSetting.
@@ -90,7 +90,7 @@ class OAuthAdminSetting(SettingData):
     def retrieve_jks_url(self, retrieve_jks_url):
         """
         Sets the retrieve_jks_url of this OAuthAdminSetting.
-        URL to retrieve JKS keystore
+        URL to retrieve JKS keystore.
 
 
         :param retrieve_jks_url: The retrieve_jks_url of this OAuthAdminSetting.

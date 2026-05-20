@@ -11,11 +11,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class NodeOutput  {
     @Deprecated
-    @java.beans.ConstructorProperties({"name", "type", "description", "isRequired"})
-    public NodeOutput(String name, NodeIo type, String description, Boolean isRequired) {
+    @java.beans.ConstructorProperties({"name", "type", "portPosition", "description", "isRequired"})
+    public NodeOutput(String name, NodeIo type, NodePortPosition portPosition, String description, Boolean isRequired) {
         super();
         this.name = name;
         this.type = type;
+        this.portPosition = portPosition;
         this.description = description;
         this.isRequired = isRequired;
     }
@@ -48,6 +49,24 @@ public final class NodeOutput  {
 
         public Builder type(NodeIo type) {
         this.type = type;
+        return this;
+        }
+            /**
+     * UI position of the output port on the node.
+     **/
+    
+        @com.fasterxml.jackson.annotation.JsonProperty("portPosition")
+        private NodePortPosition portPosition;
+
+                /**
+         * UI position of the output port on the node.
+         * @param portPosition the value to set
+         * @return this builder
+         **/
+        
+
+        public Builder portPosition(NodePortPosition portPosition) {
+        this.portPosition = portPosition;
         return this;
         }
             /**
@@ -91,6 +110,7 @@ public final class NodeOutput  {
         public NodeOutput build() {
             NodeOutput model = new NodeOutput(this.name
                     , this.type
+                    , this.portPosition
                     , this.description
                     , this.isRequired);            return model;
         }
@@ -99,6 +119,7 @@ public final class NodeOutput  {
         public Builder copy(NodeOutput model) {
                 this.name(model.getName());
     this.type(model.getType());
+    this.portPosition(model.getPortPosition());
     this.description(model.getDescription());
     this.isRequired(model.getIsRequired());
 return this;
@@ -144,6 +165,23 @@ return this;
     
     public NodeIo getType() {
         return type;
+    }
+
+    
+        /**
+     * UI position of the output port on the node.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("portPosition")
+    private final NodePortPosition portPosition;
+
+        /**
+     * UI position of the output port on the node.
+     * @return the value
+     **/
+    
+    public NodePortPosition getPortPosition() {
+        return portPosition;
     }
 
 
@@ -195,6 +233,7 @@ return this;
         sb.append("NodeOutput(");
         sb.append("name=").append(String.valueOf(this.name));
         sb.append(", type=").append(String.valueOf(this.type));
+        sb.append(", portPosition=").append(String.valueOf(this.portPosition));
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", isRequired=").append(String.valueOf(this.isRequired));
         sb.append(")");
@@ -213,6 +252,7 @@ return this;
         NodeOutput other = (NodeOutput) o;
         return java.util.Objects.equals(this.name, other.name) &&
             java.util.Objects.equals(this.type, other.type) &&
+            java.util.Objects.equals(this.portPosition, other.portPosition) &&
             java.util.Objects.equals(this.description, other.description) &&
             java.util.Objects.equals(this.isRequired, other.isRequired);
     }
@@ -223,6 +263,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.type == null ? 43 : this.type.hashCode());
+        result = (result * PRIME) + (this.portPosition == null ? 43 : this.portPosition.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.isRequired == null ? 43 : this.isRequired.hashCode());
         return result;

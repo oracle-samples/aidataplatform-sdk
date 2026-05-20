@@ -34,14 +34,14 @@ public class LogAiDataPlatformExperimentRunBatchRequest extends com.oracle.bmc.r
         return workspaceKey;
     }
         /**
-     * Details of an Experiment Run Batch.
+     * Details of an experiment run batch.
      */
     private com.oracle.aidataplatform.dp.model.LogExperimentRunBatchDetails logExperimentRunBatchDetails;
 
     
 
         /**
-     * Details of an Experiment Run Batch.
+     * Details of an experiment run batch.
      */
     public com.oracle.aidataplatform.dp.model.LogExperimentRunBatchDetails getLogExperimentRunBatchDetails() {
         return logExperimentRunBatchDetails;
@@ -150,12 +150,12 @@ public class LogAiDataPlatformExperimentRunBatchRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Details of an Experiment Run Batch.
+     * Details of an experiment run batch.
      */
         private com.oracle.aidataplatform.dp.model.LogExperimentRunBatchDetails logExperimentRunBatchDetails = null;
 
         /**
-         * Details of an Experiment Run Batch.
+         * Details of an experiment run batch.
          * @param logExperimentRunBatchDetails the value to set
          * @return this builder instance
          */

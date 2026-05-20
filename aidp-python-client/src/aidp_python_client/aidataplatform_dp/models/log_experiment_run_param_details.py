@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LogExperimentRunParamDetails(object):
     """
-    Details of an Experiment Run Param
+    Details of an experiment run param.
     """
 
     def __init__(self, **kwargs):
@@ -75,7 +75,7 @@ class LogExperimentRunParamDetails(object):
     def key(self):
         """
         **[Required]** Gets the key of this LogExperimentRunParamDetails.
-        Name of the param
+        Name of the param.
 
 
         :return: The key of this LogExperimentRunParamDetails.
@@ -87,7 +87,7 @@ class LogExperimentRunParamDetails(object):
     def key(self, key):
         """
         Sets the key of this LogExperimentRunParamDetails.
-        Name of the param
+        Name of the param.
 
 
         :param key: The key of this LogExperimentRunParamDetails.
@@ -99,7 +99,7 @@ class LogExperimentRunParamDetails(object):
     def value(self):
         """
         **[Required]** Gets the value of this LogExperimentRunParamDetails.
-        Value of the param
+        Value of the param.
 
 
         :return: The value of this LogExperimentRunParamDetails.
@@ -111,7 +111,7 @@ class LogExperimentRunParamDetails(object):
     def value(self, value):
         """
         Sets the value of this LogExperimentRunParamDetails.
-        Value of the param
+        Value of the param.
 
 
         :param value: The value of this LogExperimentRunParamDetails.

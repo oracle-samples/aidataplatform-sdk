@@ -104,6 +104,10 @@ class SupervisorAgentNode(AgentFlowNode):
             The value to assign to the tools property of this SupervisorAgentNode.
         :type tools: list[oci.aidataplatform_dp.models.Tool]
 
+        :param tool_references:
+            The value to assign to the tool_references property of this SupervisorAgentNode.
+        :type tool_references: list[str]
+
         :param supervisor_config:
             The value to assign to the supervisor_config property of this SupervisorAgentNode.
         :type supervisor_config: dict(str, str)
@@ -131,6 +135,7 @@ class SupervisorAgentNode(AgentFlowNode):
             'model_settings': 'dict(str, object)',
             'memory': 'MemoryConfiguration',
             'tools': 'list[Tool]',
+            'tool_references': 'list[str]',
             'supervisor_config': 'dict(str, str)'
         }
 
@@ -156,6 +161,7 @@ class SupervisorAgentNode(AgentFlowNode):
             'model_settings': 'modelSettings',
             'memory': 'memory',
             'tools': 'tools',
+            'tool_references': 'toolReferences',
             'supervisor_config': 'supervisorConfig'
         }
 
@@ -180,6 +186,7 @@ class SupervisorAgentNode(AgentFlowNode):
         self._model_settings = None
         self._memory = None
         self._tools = None
+        self._tool_references = None
         self._supervisor_config = None
         self._type = 'SUPERVISOR_AGENT'
 
@@ -294,6 +301,30 @@ class SupervisorAgentNode(AgentFlowNode):
         :type: list[oci.aidataplatform_dp.models.Tool]
         """
         self._tools = tools
+
+    @property
+    def tool_references(self):
+        """
+        Gets the tool_references of this SupervisorAgentNode.
+        A list of tool reference keys, the full tool definition can be found in the toolsMap.
+
+
+        :return: The tool_references of this SupervisorAgentNode.
+        :rtype: list[str]
+        """
+        return self._tool_references
+
+    @tool_references.setter
+    def tool_references(self, tool_references):
+        """
+        Sets the tool_references of this SupervisorAgentNode.
+        A list of tool reference keys, the full tool definition can be found in the toolsMap.
+
+
+        :param tool_references: The tool_references of this SupervisorAgentNode.
+        :type: list[str]
+        """
+        self._tool_references = tool_references
 
     @property
     def supervisor_config(self):

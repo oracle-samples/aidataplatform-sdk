@@ -16,7 +16,7 @@ export interface LogAiDataPlatformExperimentRunModelRequest extends common.BaseR
  */
  'workspaceKey': string;
 /**
- * Details of an Experiment Run Model.
+ * Details of an experiment run model.
  */
  'logExperimentRunModelDetails':  model.LogExperimentRunModelDetails;
 /**

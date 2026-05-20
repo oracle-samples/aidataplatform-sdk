@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * The privilege for a Credential
+ * The privilege for a credential.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum CredentialPrivilege implements com.oracle.bmc.http.internal.BmcEnum {

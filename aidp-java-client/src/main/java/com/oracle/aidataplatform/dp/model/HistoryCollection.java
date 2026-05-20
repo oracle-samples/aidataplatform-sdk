@@ -40,14 +40,14 @@ public Builder items(java.util.List<HistorySummary> items) {
     return this;
 }
             /**
-     * The git repository url corresponding to the branch
+     * The Git repository URL corresponding to the branch.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
 private String gitUrl;
 
         /**
-         * The git repository url corresponding to the branch
+         * The Git repository URL corresponding to the branch.
          * @param gitUrl the value to set
          * @return this builder
          **/
@@ -105,14 +105,14 @@ return this;
 
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository URL corresponding to the branch.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitUrl")
     private final String gitUrl;
 
         /**
-     * The git repository url corresponding to the branch
+     * The Git repository URL corresponding to the branch.
      * @return the value
      **/
     

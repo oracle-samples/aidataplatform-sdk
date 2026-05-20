@@ -31,6 +31,7 @@ public enum ObjectType {
     AuditLog("AUDIT_LOG"),
     Workflow("WORKFLOW"),
     Credential("CREDENTIAL"),
+    AgentFlow("AGENT_FLOW"),
     
 
     /**

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Information required to checkout a new git branch
+* Information required to checkout a new Git branch.
 */
 export interface CheckoutBranchDetails {
     /**
@@ -13,7 +13,7 @@ export interface CheckoutBranchDetails {
     */
     'branchName': string;
     /**
-    * The path of the git folder in the context
+    * The path of the Git folder in the context.
     */
     'gitFolderPath': string;
 

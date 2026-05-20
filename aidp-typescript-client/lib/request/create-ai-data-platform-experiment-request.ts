@@ -16,7 +16,7 @@ export interface CreateAiDataPlatformExperimentRequest extends common.BaseReques
  */
  'workspaceKey': string;
 /**
- * Details for the new Experiment.
+ * Details for the new experiment.
  */
  'createExperimentDetails':  model.CreateExperimentDetails;
 /**

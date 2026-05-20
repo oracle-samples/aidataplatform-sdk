@@ -31,6 +31,7 @@ export enum ObjectType {
     AuditLog = "AUDIT_LOG",
     Workflow = "WORKFLOW",
     Credential = "CREDENTIAL",
+    AgentFlow = "AGENT_FLOW",
     
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

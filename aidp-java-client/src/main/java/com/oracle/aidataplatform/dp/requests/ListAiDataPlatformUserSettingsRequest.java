@@ -21,12 +21,12 @@ public class ListAiDataPlatformUserSettingsRequest extends com.oracle.bmc.reques
         return aiDataPlatformId;
     }
         /**
-     * A filter to return only Settings whose value matches the given data type.
+     * A filter to return only those settings whose value matches the given data type.
      */
     private SettingType settingType;
 
         /**
-     * A filter to return only Settings whose value matches the given data type.
+     * A filter to return only those settings whose value matches the given data type.
      **/
     public enum SettingType implements com.oracle.bmc.http.internal.BmcEnum {
         IamUserCredential("IAM_USER_CREDENTIAL"),
@@ -65,7 +65,7 @@ public class ListAiDataPlatformUserSettingsRequest extends com.oracle.bmc.reques
     };
 
         /**
-     * A filter to return only Settings whose value matches the given data type.
+     * A filter to return only those settings whose value matches the given data type.
      */
     public SettingType getSettingType() {
         return settingType;
@@ -240,12 +240,12 @@ public class ListAiDataPlatformUserSettingsRequest extends com.oracle.bmc.reques
         }
 
             /**
-     * A filter to return only Settings whose value matches the given data type.
+     * A filter to return only those settings whose value matches the given data type.
      */
         private SettingType settingType = null;
 
         /**
-         * A filter to return only Settings whose value matches the given data type.
+         * A filter to return only those settings whose value matches the given data type.
          * @param settingType the value to set
          * @return this builder instance
          */

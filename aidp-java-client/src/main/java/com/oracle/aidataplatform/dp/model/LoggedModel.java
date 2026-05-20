@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of the LoggedModel.
+ * Details of the logged model.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=LoggedModel.Builder.class)
@@ -32,14 +32,14 @@ public Builder info(LoggedModelInfo info) {
     return this;
 }
             /**
-     * Details of the LoggedModel data.
+     * Details of the logged model data.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("data")
 private Object data;
 
         /**
-         * Details of the LoggedModel data.
+         * Details of the logged model data.
          * @param data the value to set
          * @return this builder
          **/
@@ -90,14 +90,14 @@ return this;
 
 
         /**
-     * Details of the LoggedModel data.
+     * Details of the logged model data.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("data")
     private final Object data;
 
         /**
-     * Details of the LoggedModel data.
+     * Details of the logged model data.
      * @return the value
      **/
     

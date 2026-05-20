@@ -58,7 +58,7 @@ class GitMergeDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitMergeDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :return: The git_folder_path of this GitMergeDetails.
@@ -70,7 +70,7 @@ class GitMergeDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitMergeDetails.
-        Folder path used to locate the git worktree.
+        Folder path used to locate the Git worktree.
 
 
         :param git_folder_path: The git_folder_path of this GitMergeDetails.
@@ -82,7 +82,7 @@ class GitMergeDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitMergeDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this GitMergeDetails.
@@ -94,7 +94,7 @@ class GitMergeDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitMergeDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this GitMergeDetails.
@@ -130,7 +130,7 @@ class GitMergeDetails(object):
     def commit_id(self):
         """
         Gets the commit_id of this GitMergeDetails.
-        Commit id to merge (optional).
+        Commit ID to merge (optional).
 
 
         :return: The commit_id of this GitMergeDetails.
@@ -142,7 +142,7 @@ class GitMergeDetails(object):
     def commit_id(self, commit_id):
         """
         Sets the commit_id of this GitMergeDetails.
-        Commit id to merge (optional).
+        Commit ID to merge (optional).
 
 
         :param commit_id: The commit_id of this GitMergeDetails.

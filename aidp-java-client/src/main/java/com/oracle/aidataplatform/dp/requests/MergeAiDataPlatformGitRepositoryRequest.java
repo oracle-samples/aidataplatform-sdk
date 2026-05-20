@@ -34,27 +34,27 @@ public class MergeAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.requ
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Folder/branch details to merge
+     * Folder/branch details to merge.
      */
     private com.oracle.aidataplatform.dp.model.GitMergeDetails gitMergeDetails;
 
     
 
         /**
-     * Folder/branch details to merge
+     * Folder/branch details to merge.
      */
     public com.oracle.aidataplatform.dp.model.GitMergeDetails getGitMergeDetails() {
         return gitMergeDetails;
@@ -184,12 +184,12 @@ public class MergeAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class MergeAiDataPlatformGitRepositoryRequest extends com.oracle.bmc.requ
         }
 
             /**
-     * Folder/branch details to merge
+     * Folder/branch details to merge.
      */
         private com.oracle.aidataplatform.dp.model.GitMergeDetails gitMergeDetails = null;
 
         /**
-         * Folder/branch details to merge
+         * Folder/branch details to merge.
          * @param gitMergeDetails the value to set
          * @return this builder instance
          */

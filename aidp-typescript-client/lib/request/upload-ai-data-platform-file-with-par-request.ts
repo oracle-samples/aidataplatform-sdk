@@ -28,6 +28,10 @@ export interface UploadAiDataPlatformFileWithParRequest extends common.BaseReque
  */
  'isOverwrite'?: boolean;
 /**
+ * Flag to toggle to generate short living par
+ */
+ 'shouldGenerateNewPar'?: boolean;
+/**
  * A flag to identify if the recent list should be updated.
  */
  'shouldUpdateRecent'?: boolean;

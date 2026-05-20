@@ -44,7 +44,7 @@ class ExperimentRunParam(object):
     def key(self):
         """
         Gets the key of this ExperimentRunParam.
-        Key of the parameter
+        Key of the parameter.
 
 
         :return: The key of this ExperimentRunParam.
@@ -56,7 +56,7 @@ class ExperimentRunParam(object):
     def key(self, key):
         """
         Sets the key of this ExperimentRunParam.
-        Key of the parameter
+        Key of the parameter.
 
 
         :param key: The key of this ExperimentRunParam.
@@ -68,7 +68,7 @@ class ExperimentRunParam(object):
     def value(self):
         """
         Gets the value of this ExperimentRunParam.
-        Value of the parameter
+        Value of the parameter.
 
 
         :return: The value of this ExperimentRunParam.
@@ -80,7 +80,7 @@ class ExperimentRunParam(object):
     def value(self, value):
         """
         Sets the value of this ExperimentRunParam.
-        Value of the parameter
+        Value of the parameter.
 
 
         :param value: The value of this ExperimentRunParam.

@@ -25,10 +25,6 @@ export interface Tool {
     */
     'description'?: string;
     /**
-    * If true, this tool is a reference to a tool stored in the tool cache. | Used for backward compatibility so that the toolType for the reference can be set to the original tool type.
-    */
-    'isReference'?: boolean;
-    /**
     * Canvas X coordinate of the Tool node Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'positionX'?: number;
@@ -73,11 +69,9 @@ export namespace Tool {
 
 
 
-
     export function getJsonObj(obj: Tool): object {
         const jsonObj = {...obj, ...{
             
-
 
 
 
@@ -103,8 +97,6 @@ export namespace Tool {
                     return model.McpTool.getJsonObj(<model.McpTool>(<object>jsonObj), true);
                 case "SQL":
                     return model.SqlTool.getJsonObj(<model.SqlTool>(<object>jsonObj), true);
-                case "REFERENCE":
-                    return model.ToolReference.getJsonObj(<model.ToolReference>(<object>jsonObj), true);
                 case "RAG":
                     return model.RagTool.getJsonObj(<model.RagTool>(<object>jsonObj), true);
                 case "HTTP":
@@ -133,7 +125,6 @@ export namespace Tool {
 
 
 
-
          }};
 
         
@@ -148,8 +139,6 @@ export namespace Tool {
                     return model.McpTool.getDeserializedJsonObj(<model.McpTool>(<object>jsonObj), true);
                 case "SQL":
                     return model.SqlTool.getDeserializedJsonObj(<model.SqlTool>(<object>jsonObj), true);
-                case "REFERENCE":
-                    return model.ToolReference.getDeserializedJsonObj(<model.ToolReference>(<object>jsonObj), true);
                 case "RAG":
                     return model.RagTool.getDeserializedJsonObj(<model.RagTool>(<object>jsonObj), true);
                 case "HTTP":

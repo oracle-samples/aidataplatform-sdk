@@ -22,14 +22,14 @@ public final class ExperimentRunMetricHistoryCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Logged values for the metric
+     * Logged values for the metric.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("metrics")
 private java.util.List<ExperimentRunMetric> metrics;
 
         /**
-         * Logged values for the metric
+         * Logged values for the metric.
          * @param metrics the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * Logged values for the metric
+     * Logged values for the metric.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("metrics")
     private final java.util.List<ExperimentRunMetric> metrics;
 
         /**
-     * Logged values for the metric
+     * Logged values for the metric.
      * @return the value
      **/
     

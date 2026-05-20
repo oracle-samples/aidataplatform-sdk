@@ -34,14 +34,14 @@ public class LogAiDataPlatformExperimentRunMetricRequest extends com.oracle.bmc.
         return workspaceKey;
     }
         /**
-     * Details of an Experiment Run Metric.
+     * Details of an experiment run metric.
      */
     private com.oracle.aidataplatform.dp.model.LogExperimentRunMetricDetails logExperimentRunMetricDetails;
 
     
 
         /**
-     * Details of an Experiment Run Metric.
+     * Details of an experiment run metric.
      */
     public com.oracle.aidataplatform.dp.model.LogExperimentRunMetricDetails getLogExperimentRunMetricDetails() {
         return logExperimentRunMetricDetails;
@@ -150,12 +150,12 @@ public class LogAiDataPlatformExperimentRunMetricRequest extends com.oracle.bmc.
         }
 
             /**
-     * Details of an Experiment Run Metric.
+     * Details of an experiment run metric.
      */
         private com.oracle.aidataplatform.dp.model.LogExperimentRunMetricDetails logExperimentRunMetricDetails = null;
 
         /**
-         * Details of an Experiment Run Metric.
+         * Details of an experiment run metric.
          * @param logExperimentRunMetricDetails the value to set
          * @return this builder instance
          */

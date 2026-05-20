@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface ModelVersionTag {
     /**
-    * Key of the tag
+    * Key of the tag.
     */
     'key'?: string;
     /**
-    * Value of the tag
+    * Value of the tag.
     */
     'value'?: string;
 

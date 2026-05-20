@@ -12,7 +12,7 @@ export interface GetAiDataPlatformCredentialRequest extends common.BaseRequest {
  */
  'aiDataPlatformId': string;
 /**
- * The unique identifier of the credential object whose details are to be retrieved.
+ * The unique identifier of an credential
  */
  'credentialKey': string;
 /**

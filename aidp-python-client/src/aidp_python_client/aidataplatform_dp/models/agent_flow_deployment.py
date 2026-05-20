@@ -112,6 +112,10 @@ class AgentFlowDeployment(object):
             The value to assign to the o_auth_config property of this AgentFlowDeployment.
         :type o_auth_config: oci.aidataplatform_dp.models.OAuthConfiguration
 
+        :param agent_card_url:
+            The value to assign to the agent_card_url property of this AgentFlowDeployment.
+        :type agent_card_url: str
+
         """
         self.swagger_types = {
             'key': 'str',
@@ -128,7 +132,8 @@ class AgentFlowDeployment(object):
             'time_updated': 'datetime',
             'updated_by': 'str',
             'session_retention_config': 'SessionRetentionConfiguration',
-            'o_auth_config': 'OAuthConfiguration'
+            'o_auth_config': 'OAuthConfiguration',
+            'agent_card_url': 'str'
         }
 
         self.attribute_map = {
@@ -146,7 +151,8 @@ class AgentFlowDeployment(object):
             'time_updated': 'timeUpdated',
             'updated_by': 'updatedBy',
             'session_retention_config': 'sessionRetentionConfig',
-            'o_auth_config': 'oAuthConfig'
+            'o_auth_config': 'oAuthConfig',
+            'agent_card_url': 'agentCardUrl'
         }
 
         self._key = None
@@ -164,6 +170,7 @@ class AgentFlowDeployment(object):
         self._updated_by = None
         self._session_retention_config = None
         self._o_auth_config = None
+        self._agent_card_url = None
 
     @property
     def key(self):
@@ -532,6 +539,30 @@ class AgentFlowDeployment(object):
         :type: oci.aidataplatform_dp.models.OAuthConfiguration
         """
         self._o_auth_config = o_auth_config
+
+    @property
+    def agent_card_url(self):
+        """
+        Gets the agent_card_url of this AgentFlowDeployment.
+        AgentCard base URL
+
+
+        :return: The agent_card_url of this AgentFlowDeployment.
+        :rtype: str
+        """
+        return self._agent_card_url
+
+    @agent_card_url.setter
+    def agent_card_url(self, agent_card_url):
+        """
+        Sets the agent_card_url of this AgentFlowDeployment.
+        AgentCard base URL
+
+
+        :param agent_card_url: The agent_card_url of this AgentFlowDeployment.
+        :type: str
+        """
+        self._agent_card_url = agent_card_url
 
     def __repr__(self):
         return formatted_flat_dict(self)

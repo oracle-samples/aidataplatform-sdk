@@ -70,7 +70,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateAiDataPlatformGitFolderResponse> createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitFolderRequest, CreateAiDataPlatformGitFolderResponse> handler);
     
     /**
-     * Creates an AI Data Platform Workbench workspace.
+     * Creates a workspace.
 * 
      * 
      * @param request The request object containing the details to send
@@ -83,7 +83,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateAiDataPlatformWorkspaceResponse> createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceRequest, CreateAiDataPlatformWorkspaceResponse> handler);
     
     /**
-     * Deletes an AI Data Platform Workbench workspace.
+     * Deletes a workspace.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -95,7 +95,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteAiDataPlatformWorkspaceResponse> deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformWorkspaceRequest, DeleteAiDataPlatformWorkspaceResponse> handler);
     
     /**
-     * Gets detailed information about an AI Data Platform Workbench workspace.
+     * Gets detailed information about a workspace.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -107,7 +107,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<GetAiDataPlatformWorkspaceResponse> getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformWorkspaceRequest, GetAiDataPlatformWorkspaceResponse> handler);
     
     /**
-     * Gets a list of AI Data Platform Workbench create workspace permission summary objects.
+     * Gets a list of create workspace permission summary objects.
 * 
      * 
      * @param request The request object containing the details to send
@@ -120,7 +120,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAiDataPlatformCreateWorkspacePermissionsResponse> listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCreateWorkspacePermissionsRequest, ListAiDataPlatformCreateWorkspacePermissionsResponse> handler);
     
     /**
-     * Gets a list of AI Data Platform Workbench workspace permissions.
+     * Gets a list of workspace permissions.
 * 
      * 
      * @param request The request object containing the details to send
@@ -133,7 +133,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAiDataPlatformWorkspacePermissionsResponse> listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacePermissionsRequest, ListAiDataPlatformWorkspacePermissionsResponse> handler);
     
     /**
-     * Gets a list of AI Data Platform Workbench workspaces.
+     * Gets a list of workspaces.
 * 
      * 
      * @param request The request object containing the details to send
@@ -146,7 +146,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAiDataPlatformWorkspacesResponse> listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacesRequest, ListAiDataPlatformWorkspacesResponse> handler);
     
     /**
-     * Updates create workspace permissions on an AI Data Platform Workbench workspace.
+     * Updates create workspace permissions on a workspace.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -158,7 +158,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<ManageAiDataPlatformCreateWorkspacePermissionResponse> manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCreateWorkspacePermissionRequest, ManageAiDataPlatformCreateWorkspacePermissionResponse> handler);
     
     /**
-     * Updates permissions on a AI Data Platform Workbench workspace.
+     * Updates permissions on a workspace.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -170,7 +170,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<ManageAiDataPlatformWorkspacePermissionResponse> manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformWorkspacePermissionRequest, ManageAiDataPlatformWorkspacePermissionResponse> handler);
     
     /**
-     * Updates the details of an AI Data Platform Workbench workspace.
+     * Updates the details of a workspace.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -182,7 +182,7 @@ public interface WorkspaceAsync extends AutoCloseable {
     java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceResponse> updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceRequest, UpdateAiDataPlatformWorkspaceResponse> handler);
     
     /**
-     * Updates the status of an AI Data Platform Workbench workspace.
+     * Updates the status of a workspace.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

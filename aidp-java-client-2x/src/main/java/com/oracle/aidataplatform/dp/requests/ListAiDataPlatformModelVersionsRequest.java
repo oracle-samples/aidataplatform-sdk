@@ -38,27 +38,27 @@ public class ListAiDataPlatformModelVersionsRequest extends com.oracle.bmc.reque
         return filter;
     }
         /**
-     * Maximum number of model versions to retrieve
+     * Maximum number of model versions to retrieve.
      */
     private Long maxResults;
 
     
 
         /**
-     * Maximum number of model versions to retrieve
+     * Maximum number of model versions to retrieve.
      */
     public Long getMaxResults() {
         return maxResults;
     }
         /**
-     * Pagination token to go to the next page based on a previous search query
+     * Pagination token to go to the next page based on a previous search query.
      */
     private String pageToken;
 
     
 
         /**
-     * Pagination token to go to the next page based on a previous search query
+     * Pagination token to go to the next page based on a previous search query.
      */
     public String getPageToken() {
         return pageToken;
@@ -157,12 +157,12 @@ public class ListAiDataPlatformModelVersionsRequest extends com.oracle.bmc.reque
         }
 
             /**
-     * Maximum number of model versions to retrieve
+     * Maximum number of model versions to retrieve.
      */
         private Long maxResults = null;
 
         /**
-         * Maximum number of model versions to retrieve
+         * Maximum number of model versions to retrieve.
          * @param maxResults the value to set
          * @return this builder instance
          */
@@ -172,12 +172,12 @@ public class ListAiDataPlatformModelVersionsRequest extends com.oracle.bmc.reque
         }
 
             /**
-     * Pagination token to go to the next page based on a previous search query
+     * Pagination token to go to the next page based on a previous search query.
      */
         private String pageToken = null;
 
         /**
-         * Pagination token to go to the next page based on a previous search query
+         * Pagination token to go to the next page based on a previous search query.
          * @param pageToken the value to set
          * @return this builder instance
          */

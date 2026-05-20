@@ -5,12 +5,12 @@ import common = require("oci-common");
 
 
 /**
-* The details of the permissions revoked from assignees for a Credential.
+* The details of the permissions revoked from assignees for a credential.
 */
 export interface RevokeCredentialPermissionDetails {
     'assignees': model.PermissionAssignees;
     /**
-    * The permissions revoked from the assignees
+    * The permissions revoked from the assignees.
     */
     'permissions': Array<RevokeCredentialPermissionDetails.Permissions>;
 

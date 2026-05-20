@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of the ModelVersion tags to update.
+* Details of the model version tags to update.
 */
 export interface UpdateModelVersionTagsDetails {
     /**
@@ -13,15 +13,15 @@ export interface UpdateModelVersionTagsDetails {
     */
     'name': string;
     /**
-    * Model\u2019s version number.
+    * Model version number.
     */
     'version': string;
     /**
-    * ModelVersion tags to set
+    * Model version tags to set.
     */
     'setTags'?: Array<model.ModelVersionTag>;
     /**
-    * ModelVersion tags to delete
+    * Model version tags to delete.
     */
     'deleteTags'?: Array<model.ModelVersionTagKey>;
 

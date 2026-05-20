@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of the model version
+* Details of the model version.
 */
 export interface ModelVersion {
     /**
@@ -57,7 +57,7 @@ export interface ModelVersion {
     */
     'tags'?: Array<model.ModelVersionTag>;
     /**
-    * Run Link: Direct link to the run that generated this version.
+    * Direct link to the run that generated this version.
     */
     'runLink'?: string;
     /**
@@ -65,7 +65,7 @@ export interface ModelVersion {
     */
     'aliases'?: Array<string>;
     /**
-    * Model id for model version that is used to link the registered model to the source logged model.
+    * Model ID for model version that is used to link the registered model to the source logged model.
     */
     'modelId'?: string;
     /**

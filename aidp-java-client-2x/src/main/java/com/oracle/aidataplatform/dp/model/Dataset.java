@@ -25,14 +25,14 @@ public final class Dataset  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Name of the dataset
+     * Name of the dataset.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("name")
         private String name;
 
                 /**
-         * Name of the dataset
+         * Name of the dataset.
          * @param name the value to set
          * @return this builder
          **/
@@ -43,14 +43,14 @@ public final class Dataset  {
         return this;
         }
             /**
-     * Digest (hash) of the dataset
+     * Digest (hash) of the dataset.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("digest")
         private String digest;
 
                 /**
-         * Digest (hash) of the dataset
+         * Digest (hash) of the dataset.
          * @param digest the value to set
          * @return this builder
          **/
@@ -61,14 +61,14 @@ public final class Dataset  {
         return this;
         }
             /**
-     * Type of the dataset source
+     * Type of the dataset source.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("source_type")
         private String sourceType;
 
                 /**
-         * Type of the dataset source
+         * Type of the dataset source.
          * @param sourceType the value to set
          * @return this builder
          **/
@@ -79,14 +79,14 @@ public final class Dataset  {
         return this;
         }
             /**
-     * URI or path to the dataset source
+     * URI or path to the dataset source.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("source")
         private String source;
 
                 /**
-         * URI or path to the dataset source
+         * URI or path to the dataset source.
          * @param source the value to set
          * @return this builder
          **/
@@ -97,14 +97,14 @@ public final class Dataset  {
         return this;
         }
             /**
-     * Schema of the dataset
+     * Schema of the dataset.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("schema")
         private String schema;
 
                 /**
-         * Schema of the dataset
+         * Schema of the dataset.
          * @param schema the value to set
          * @return this builder
          **/
@@ -115,14 +115,14 @@ public final class Dataset  {
         return this;
         }
             /**
-     * Profile of the dataset
+     * Profile of the dataset.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("profile")
         private String profile;
 
                 /**
-         * Profile of the dataset
+         * Profile of the dataset.
          * @param profile the value to set
          * @return this builder
          **/
@@ -171,14 +171,14 @@ return this;
 
 
         /**
-     * Name of the dataset
+     * Name of the dataset.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * Name of the dataset
+     * Name of the dataset.
      * @return the value
      **/
     
@@ -188,14 +188,14 @@ return this;
 
 
         /**
-     * Digest (hash) of the dataset
+     * Digest (hash) of the dataset.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("digest")
     private final String digest;
 
         /**
-     * Digest (hash) of the dataset
+     * Digest (hash) of the dataset.
      * @return the value
      **/
     
@@ -205,14 +205,14 @@ return this;
 
 
         /**
-     * Type of the dataset source
+     * Type of the dataset source.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("source_type")
     private final String sourceType;
 
         /**
-     * Type of the dataset source
+     * Type of the dataset source.
      * @return the value
      **/
     
@@ -222,14 +222,14 @@ return this;
 
 
         /**
-     * URI or path to the dataset source
+     * URI or path to the dataset source.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("source")
     private final String source;
 
         /**
-     * URI or path to the dataset source
+     * URI or path to the dataset source.
      * @return the value
      **/
     
@@ -239,14 +239,14 @@ return this;
 
 
         /**
-     * Schema of the dataset
+     * Schema of the dataset.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("schema")
     private final String schema;
 
         /**
-     * Schema of the dataset
+     * Schema of the dataset.
      * @return the value
      **/
     
@@ -256,14 +256,14 @@ return this;
 
 
         /**
-     * Profile of the dataset
+     * Profile of the dataset.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("profile")
     private final String profile;
 
         /**
-     * Profile of the dataset
+     * Profile of the dataset.
      * @return the value
      **/
     

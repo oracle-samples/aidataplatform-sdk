@@ -41,14 +41,14 @@ public Builder action(Action action) {
     return this;
 }
             /**
-     * list of file paths whose changes are to be discarded and reset to original
+     * List of file paths whose changes are to be discarded and reset to original.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("discardPaths")
 private java.util.List<String> discardPaths;
 
         /**
-         * list of file paths whose changes are to be discarded and reset to original
+         * List of file paths whose changes are to be discarded and reset to original.
          * @param discardPaths the value to set
          * @return this builder
          **/
@@ -165,14 +165,14 @@ return this;
 
 
         /**
-     * list of file paths whose changes are to be discarded and reset to original
+     * List of file paths whose changes are to be discarded and reset to original.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("discardPaths")
     private final java.util.List<String> discardPaths;
 
         /**
-     * list of file paths whose changes are to be discarded and reset to original
+     * List of file paths whose changes are to be discarded and reset to original.
      * @return the value
      **/
     

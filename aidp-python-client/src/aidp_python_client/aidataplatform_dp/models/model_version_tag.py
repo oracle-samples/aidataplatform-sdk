@@ -44,7 +44,7 @@ class ModelVersionTag(object):
     def key(self):
         """
         Gets the key of this ModelVersionTag.
-        Key of the tag
+        Key of the tag.
 
 
         :return: The key of this ModelVersionTag.
@@ -56,7 +56,7 @@ class ModelVersionTag(object):
     def key(self, key):
         """
         Sets the key of this ModelVersionTag.
-        Key of the tag
+        Key of the tag.
 
 
         :param key: The key of this ModelVersionTag.
@@ -68,7 +68,7 @@ class ModelVersionTag(object):
     def value(self):
         """
         Gets the value of this ModelVersionTag.
-        Value of the tag
+        Value of the tag.
 
 
         :return: The value of this ModelVersionTag.
@@ -80,7 +80,7 @@ class ModelVersionTag(object):
     def value(self, value):
         """
         Sets the value of this ModelVersionTag.
-        Value of the tag
+        Value of the tag.
 
 
         :param value: The value of this ModelVersionTag.

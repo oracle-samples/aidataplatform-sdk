@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface LoggedModelOrder {
     /**
-    * field name. Allowed values are creation_time
+    * Field name. Allowed values are creation_time.
     */
     'fieldName': string;
     /**

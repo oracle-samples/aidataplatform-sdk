@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ClusterLogCollection(object):
     """
-    Results of a Cluster log list.
+    Results of a cluster log list.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class ClusterLogCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this ClusterLogCollection.
-        List of Cluster logs.
+        List of cluster logs.
 
 
         :return: The items of this ClusterLogCollection.
@@ -49,7 +49,7 @@ class ClusterLogCollection(object):
     def items(self, items):
         """
         Sets the items of this ClusterLogCollection.
-        List of Cluster logs.
+        List of cluster logs.
 
 
         :param items: The items of this ClusterLogCollection.

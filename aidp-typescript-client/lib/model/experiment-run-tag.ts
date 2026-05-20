@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface ExperimentRunTag {
     /**
-    * Key of the run tag
+    * Key of the run tag.
     */
     'key'?: string;
     /**
-    * Value of the run tag
+    * Value of the run tag.
     */
     'value'?: string;
 

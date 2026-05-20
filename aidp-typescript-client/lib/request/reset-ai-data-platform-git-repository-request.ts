@@ -16,11 +16,11 @@ export interface ResetAiDataPlatformGitRepositoryRequest extends common.BaseRequ
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Details needed to perform git reset operation
+ * Details needed to perform Git reset operation.
  */
  'gitResetDetails':  model.GitResetDetails;
 /**

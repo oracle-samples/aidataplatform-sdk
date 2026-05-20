@@ -87,8 +87,7 @@ class BundleClient(object):
 
     def create_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, create_bundle_details, **kwargs):
         """
-        (Preview) Creates a new bundle under the specified workspace path and initializes it with the
-        requested bundled resources.
+        (Preview) Creates a new bundle.
 
         A bundle is a self-contained, portable representation of selected workspace assets, such as jobs
         and agent flows, along with their dependencies and associated code artifacts. It captures both
@@ -260,9 +259,8 @@ class BundleClient(object):
 
     def deploy_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, deploy_bundle_details, **kwargs):
         """
-        (Preview) Deploys the specified bundle by reading the bundle manifest and resource descriptors
-        from the workspace, resolving bundle variables, and then creating or updating
-        workspace resources to match the bundle contents.
+        (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
+        Returns an async job key for tracking deployment progress.
 
         This operation is asynchronous. The request is accepted for background execution and
         returns an async operation key in the response headers.
@@ -477,7 +475,7 @@ class BundleClient(object):
 
     def purge_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, purge_bundle_details, **kwargs):
         """
-        (Preview) Purges the deployed resources associated with the specified bundle from the workspace.
+        (Preview) Tears down all resources deployed by the specified bundle in the workspace.
 
         This operation is intended to tear down resources that were created or managed through
         bundle deployment. It does not delete the bundle files themselves from the workspace
@@ -583,3 +581,131 @@ class BundleClient(object):
                 path_params=path_params,
                 header_params=header_params,
                 body=purge_bundle_details)
+
+    def sync_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, sync_bundle_details, **kwargs):
+        """
+        (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
+        Returns an async job key for tracking sync progress.
+
+        This operation is intended for cases where the bundle should be refreshed to reflect
+        newer source changes while preserving the bundle structure and identity.
+
+        Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source
+        jobs and agent flows that were captured when the bundle was created. The source metadata
+        is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and
+        workspace. The operation refreshes source-controlled bundle content while preserving the
+        bundle identity and runtime metadata.
+
+        During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp`
+        directory, compares existing and staged descriptors, preserves existing variable aliases
+        and override references where possible, merges existing manifest default variables, and
+        then promotes the refreshed source-controlled files back into the bundle root.
+
+        Sync preserves environment-specific and deployment runtime files such as
+        `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the
+        refreshed source snapshot.
+
+        This operation is asynchronous and returns async operation headers when accepted.
+
+        Typical use cases:
+        - refresh bundle contents after upstream workspace resources have changed
+        - reconcile descriptor or artifact content with current resource origins
+        - preserve local bundle overrides while pulling in source resource updates
+        - keep a Git-backed bundle current before committing or promoting it
+
+        Request notes:
+        - `path` identifies the bundle root folder in the workspace volume
+        - the bundle must contain a valid `aidp_workbench.yaml`
+        - the bundle must contain `.aidp/resource_origins.yaml`
+        - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str workspace_key: (required)
+            The key of the Workspace
+
+        :param oci.aidataplatform_dp.models.SyncBundleDetails sync_bundle_details: (required)
+            Request payload for bundle sync.
+
+        :param str opc_retry_token: (optional)
+            A token that uniquely identifies a request so it can be retried in case of a timeout or
+            server error without risk of running that same action again. Retry tokens expire after 24
+            hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+            has been deleted and removed from the system, then a retry of the original creation request
+            might be rejected.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type None
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/bundles/actions/sync"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_retry_token",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "sync_ai_data_platform_bundle got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id,
+            "workspaceKey": workspace_key
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-retry-token": kwargs.get("opc_retry_token", missing),
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            if not isinstance(retry_strategy, retry.NoneRetryStrategy):
+                self.base_client.add_opc_retry_token_if_needed(header_params)
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=sync_bundle_details)
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=sync_bundle_details)

@@ -16,7 +16,7 @@ export interface CreateAiDataPlatformWorkspaceModelVersionRequest extends common
  */
  'workspaceKey': string;
 /**
- * Details for the new ModelVersion.
+ * Details for the new model version.
  */
  'createModelVersionDetails':  model.CreateModelVersionDetails;
 /**

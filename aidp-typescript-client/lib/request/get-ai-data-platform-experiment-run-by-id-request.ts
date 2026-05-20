@@ -16,7 +16,7 @@ export interface GetAiDataPlatformExperimentRunByIdRequest extends common.BaseRe
  */
  'workspaceKey': string;
 /**
- * ID of the run to fetch
+ * ID of the run to fetch.
  */
  'runId': string;
 /**

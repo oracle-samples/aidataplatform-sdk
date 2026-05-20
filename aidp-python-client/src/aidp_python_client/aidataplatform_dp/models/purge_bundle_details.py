@@ -37,7 +37,7 @@ class PurgeBundleDetails(object):
     def path(self):
         """
         **[Required]** Gets the path of this PurgeBundleDetails.
-        Target folder for the new bundle
+        Target folder for the new bundle.
 
 
         :return: The path of this PurgeBundleDetails.
@@ -49,7 +49,7 @@ class PurgeBundleDetails(object):
     def path(self, path):
         """
         Sets the path of this PurgeBundleDetails.
-        Target folder for the new bundle
+        Target folder for the new bundle.
 
 
         :param path: The path of this PurgeBundleDetails.

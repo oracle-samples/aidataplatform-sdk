@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitAccountUserSetting(SettingData):
     """
-    Git account setting details
+    Git account setting details.
     """
 
     #: A constant which can be used with the provider_name property of a GitAccountUserSetting.
@@ -123,7 +123,7 @@ class GitAccountUserSetting(SettingData):
     def entity_type(self):
         """
         **[Required]** Gets the entity_type of this GitAccountUserSetting.
-        The type of git account entity.
+        The type of Git account entity.
 
         Allowed values for this property are: "PERSONAL_ACCESS_TOKEN", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -138,7 +138,7 @@ class GitAccountUserSetting(SettingData):
     def entity_type(self, entity_type):
         """
         Sets the entity_type of this GitAccountUserSetting.
-        The type of git account entity.
+        The type of Git account entity.
 
 
         :param entity_type: The entity_type of this GitAccountUserSetting.

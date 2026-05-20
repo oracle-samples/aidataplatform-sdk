@@ -16,7 +16,7 @@ export interface GetAiDataPlatformExperimentByNameRequest extends common.BaseReq
  */
  'workspaceKey': string;
 /**
- * The name of the experiment to retrieve
+ * The name of the experiment to retrieve.
  */
  'experimentName': string;
 /**

@@ -1,5 +1,9 @@
 // Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
 
+import * as GetAiDataPlatformAsyncOperationResponse from './get-ai-data-platform-async-operation-response';
+export import GetAiDataPlatformAsyncOperationResponse = GetAiDataPlatformAsyncOperationResponse.GetAiDataPlatformAsyncOperationResponse;
+import * as ListAiDataPlatformAsyncOperationsResponse from './list-ai-data-platform-async-operations-response';
+export import ListAiDataPlatformAsyncOperationsResponse = ListAiDataPlatformAsyncOperationsResponse.ListAiDataPlatformAsyncOperationsResponse;
 import * as ManageAiDataPlatformAuditLogsResponse from './manage-ai-data-platform-audit-logs-response';
 export import ManageAiDataPlatformAuditLogsResponse = ManageAiDataPlatformAuditLogsResponse.ManageAiDataPlatformAuditLogsResponse;
 import * as SearchAiDataPlatformAuditLogsResponse from './search-ai-data-platform-audit-logs-response';
@@ -12,6 +16,8 @@ import * as FetchAiDataPlatformBundleDeploymentStatusResponse from './fetch-ai-d
 export import FetchAiDataPlatformBundleDeploymentStatusResponse = FetchAiDataPlatformBundleDeploymentStatusResponse.FetchAiDataPlatformBundleDeploymentStatusResponse;
 import * as PurgeAiDataPlatformBundleResponse from './purge-ai-data-platform-bundle-response';
 export import PurgeAiDataPlatformBundleResponse = PurgeAiDataPlatformBundleResponse.PurgeAiDataPlatformBundleResponse;
+import * as SyncAiDataPlatformBundleResponse from './sync-ai-data-platform-bundle-response';
+export import SyncAiDataPlatformBundleResponse = SyncAiDataPlatformBundleResponse.SyncAiDataPlatformBundleResponse;
 import * as CatalogAiDataPlatformTestConnectionResponse from './catalog-ai-data-platform-test-connection-response';
 export import CatalogAiDataPlatformTestConnectionResponse = CatalogAiDataPlatformTestConnectionResponse.CatalogAiDataPlatformTestConnectionResponse;
 import * as CreateAiDataPlatformCatalogResponse from './create-ai-data-platform-catalog-response';
@@ -34,6 +40,8 @@ import * as CreateAiDataPlatformClusterResponse from './create-ai-data-platform-
 export import CreateAiDataPlatformClusterResponse = CreateAiDataPlatformClusterResponse.CreateAiDataPlatformClusterResponse;
 import * as DeleteAiDataPlatformClusterResponse from './delete-ai-data-platform-cluster-response';
 export import DeleteAiDataPlatformClusterResponse = DeleteAiDataPlatformClusterResponse.DeleteAiDataPlatformClusterResponse;
+import * as DownloadAiDataPlatformClusterLogsResponse from './download-ai-data-platform-cluster-logs-response';
+export import DownloadAiDataPlatformClusterLogsResponse = DownloadAiDataPlatformClusterLogsResponse.DownloadAiDataPlatformClusterLogsResponse;
 import * as GetAiDataPlatformClusterResponse from './get-ai-data-platform-cluster-response';
 export import GetAiDataPlatformClusterResponse = GetAiDataPlatformClusterResponse.GetAiDataPlatformClusterResponse;
 import * as GetAiDataPlatformDefaultClusterResponse from './get-ai-data-platform-default-cluster-response';
@@ -50,10 +58,14 @@ import * as PatchAiDataPlatformClusterLibraryResponse from './patch-ai-data-plat
 export import PatchAiDataPlatformClusterLibraryResponse = PatchAiDataPlatformClusterLibraryResponse.PatchAiDataPlatformClusterLibraryResponse;
 import * as RestartAiDataPlatformClusterResponse from './restart-ai-data-platform-cluster-response';
 export import RestartAiDataPlatformClusterResponse = RestartAiDataPlatformClusterResponse.RestartAiDataPlatformClusterResponse;
+import * as SearchAiDataPlatformClusterLogsResponse from './search-ai-data-platform-cluster-logs-response';
+export import SearchAiDataPlatformClusterLogsResponse = SearchAiDataPlatformClusterLogsResponse.SearchAiDataPlatformClusterLogsResponse;
 import * as StartAiDataPlatformClusterResponse from './start-ai-data-platform-cluster-response';
 export import StartAiDataPlatformClusterResponse = StartAiDataPlatformClusterResponse.StartAiDataPlatformClusterResponse;
 import * as StopAiDataPlatformClusterResponse from './stop-ai-data-platform-cluster-response';
 export import StopAiDataPlatformClusterResponse = StopAiDataPlatformClusterResponse.StopAiDataPlatformClusterResponse;
+import * as SummarizeAiDataPlatformMetricsDataResponse from './summarize-ai-data-platform-metrics-data-response';
+export import SummarizeAiDataPlatformMetricsDataResponse = SummarizeAiDataPlatformMetricsDataResponse.SummarizeAiDataPlatformMetricsDataResponse;
 import * as UpdateAiDataPlatformClusterResponse from './update-ai-data-platform-cluster-response';
 export import UpdateAiDataPlatformClusterResponse = UpdateAiDataPlatformClusterResponse.UpdateAiDataPlatformClusterResponse;
 import * as CreateAiDataPlatformCredentialResponse from './create-ai-data-platform-credential-response';
@@ -448,9 +460,3 @@ import * as UpdateAiDataPlatformWorkspaceObjectResponse from './update-ai-data-p
 export import UpdateAiDataPlatformWorkspaceObjectResponse = UpdateAiDataPlatformWorkspaceObjectResponse.UpdateAiDataPlatformWorkspaceObjectResponse;
 import * as UploadAiDataPlatformWorkspaceObjectWithParResponse from './upload-ai-data-platform-workspace-object-with-par-response';
 export import UploadAiDataPlatformWorkspaceObjectWithParResponse = UploadAiDataPlatformWorkspaceObjectWithParResponse.UploadAiDataPlatformWorkspaceObjectWithParResponse;
-import * as DownloadAiDataPlatformClusterLogsResponse from './download-ai-data-platform-cluster-logs-response';
-export import DownloadAiDataPlatformClusterLogsResponse = DownloadAiDataPlatformClusterLogsResponse.DownloadAiDataPlatformClusterLogsResponse;
-import * as SearchAiDataPlatformClusterLogsResponse from './search-ai-data-platform-cluster-logs-response';
-export import SearchAiDataPlatformClusterLogsResponse = SearchAiDataPlatformClusterLogsResponse.SearchAiDataPlatformClusterLogsResponse;
-import * as SummarizeAiDataPlatformMetricsDataResponse from './summarize-ai-data-platform-metrics-data-response';
-export import SummarizeAiDataPlatformMetricsDataResponse = SummarizeAiDataPlatformMetricsDataResponse.SummarizeAiDataPlatformMetricsDataResponse;

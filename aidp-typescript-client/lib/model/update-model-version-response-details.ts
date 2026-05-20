@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Updated ModelVersion details.
+* Updated model version details.
 */
 export interface UpdateModelVersionResponseDetails {
     'modelVersion': model.ModelVersion;

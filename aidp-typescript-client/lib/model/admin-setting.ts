@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Admin Setting
+* Admin settings.
 */
 export interface AdminSetting {
     /**

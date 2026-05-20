@@ -197,7 +197,7 @@ class WorkspaceClient(object):
 
     def create_ai_data_platform_workspace(self, ai_data_platform_id, create_workspace_details, **kwargs):
         """
-        Creates an AI Data Platform Workbench workspace.
+        Creates a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -206,7 +206,7 @@ class WorkspaceClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateWorkspaceDetails create_workspace_details: (required)
-            Details for the new AI Data Platform Workbench workspace.
+            Details for the new workspace.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -290,7 +290,7 @@ class WorkspaceClient(object):
 
     def delete_ai_data_platform_workspace(self, ai_data_platform_id, workspace_key, **kwargs):
         """
-        Deletes an AI Data Platform Workbench workspace.
+        Deletes a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -382,7 +382,7 @@ class WorkspaceClient(object):
 
     def get_ai_data_platform_workspace(self, ai_data_platform_id, workspace_key, **kwargs):
         """
-        Gets detailed information about an AI Data Platform Workbench workspace.
+        Gets detailed information about a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -463,7 +463,7 @@ class WorkspaceClient(object):
 
     def list_ai_data_platform_create_workspace_permissions(self, ai_data_platform_id, **kwargs):
         """
-        Gets a list of AI Data Platform Workbench create workspace permission summary objects.
+        Gets a list of create workspace permission summary objects.
 
 
         :param str ai_data_platform_id: (required)
@@ -593,7 +593,7 @@ class WorkspaceClient(object):
 
     def list_ai_data_platform_workspace_permissions(self, ai_data_platform_id, workspace_key, **kwargs):
         """
-        Gets a list of AI Data Platform Workbench workspace permissions.
+        Gets a list of workspace permissions.
 
 
         :param str ai_data_platform_id: (required)
@@ -727,7 +727,7 @@ class WorkspaceClient(object):
 
     def list_ai_data_platform_workspaces(self, ai_data_platform_id, **kwargs):
         """
-        Gets a list of AI Data Platform Workbench workspaces.
+        Gets a list of workspaces.
 
 
         :param str ai_data_platform_id: (required)
@@ -901,7 +901,7 @@ class WorkspaceClient(object):
 
     def manage_ai_data_platform_create_workspace_permission(self, ai_data_platform_id, manage_create_workspace_permission_details, **kwargs):
         """
-        Updates create workspace permissions on an AI Data Platform Workbench workspace.
+        Updates create workspace permissions on a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -1000,7 +1000,7 @@ class WorkspaceClient(object):
 
     def manage_ai_data_platform_workspace_permission(self, ai_data_platform_id, workspace_key, manage_workspace_permission_details, **kwargs):
         """
-        Updates permissions on a AI Data Platform Workbench workspace.
+        Updates permissions on a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -1103,7 +1103,7 @@ class WorkspaceClient(object):
 
     def update_ai_data_platform_workspace(self, ai_data_platform_id, workspace_key, update_workspace_details, **kwargs):
         """
-        Updates the details of an AI Data Platform Workbench workspace.
+        Updates the details of a workspace.
 
 
         :param str ai_data_platform_id: (required)
@@ -1197,7 +1197,7 @@ class WorkspaceClient(object):
 
     def update_ai_data_platform_workspace_async_operation_status(self, ai_data_platform_id, workspace_key, async_operation_key, update_workspace_async_operation_status_details, **kwargs):
         """
-        Updates the status of an AI Data Platform Workbench workspace.
+        Updates the status of a workspace.
 
 
         :param str ai_data_platform_id: (required)

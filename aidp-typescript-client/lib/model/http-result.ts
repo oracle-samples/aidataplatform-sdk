@@ -13,6 +13,22 @@ export interface HttpResult {
     */
     'statusCode'?: number;
     /**
+    * Tool-level error code describing HTTP test failures
+    */
+    'errorCode'?: string;
+    /**
+    * Human-readable error message when the HTTP test fails
+    */
+    'message'?: string;
+    /**
+    * Indicates whether the failure occurred before an HTTP response was received
+    */
+    'isNetworkError'?: boolean;
+    /**
+    * Time elapsed before the HTTP test completed or failed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'elapsedSeconds'?: number;
+    /**
     * Response headers
     */
     'headers'?: { [key: string]: string; };
@@ -28,9 +44,17 @@ export namespace HttpResult {
 
 
 
+
+
+
+
     export function getJsonObj(obj: HttpResult): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+
 
 
 
@@ -44,6 +68,10 @@ export namespace HttpResult {
     export function getDeserializedJsonObj(obj: HttpResult): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+
 
 
 

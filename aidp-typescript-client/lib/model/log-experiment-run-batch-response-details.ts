@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Response object for logging experiment run Batch
+* Response object for logging experiment run batch.
 */
 export interface LogExperimentRunBatchResponseDetails {
 

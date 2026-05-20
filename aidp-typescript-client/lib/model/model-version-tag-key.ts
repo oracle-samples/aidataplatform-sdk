@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Key of the ModelVersion tag.
+* Key of the model version tag.
 */
 export interface ModelVersionTagKey {
     /**

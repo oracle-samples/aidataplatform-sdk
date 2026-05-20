@@ -16,15 +16,15 @@ export interface ListAiDataPlatformArtifactsRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * ID of the run whose artifacts to list
+ * ID of the run whose artifacts to list.
  */
  'runId': string;
 /**
- * Filter artifacts matching this path (a relative path from the root artifact directory)
+ * Filter artifacts matching this path (a relative path from the root artifact directory).
  */
  'path'?: string;
 /**
- * Token indicating the page of artifact results to fetch
+ * Token indicating the page of artifact results to fetch.
  */
  'pageToken'?: string;
 /**

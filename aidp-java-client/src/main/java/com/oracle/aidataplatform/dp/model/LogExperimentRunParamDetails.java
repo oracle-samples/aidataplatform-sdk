@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details of an Experiment Run Param
+ * Details of an experiment run param.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=LogExperimentRunParamDetails.Builder.class)
@@ -41,14 +41,14 @@ public Builder runId(String runId) {
     return this;
 }
             /**
-     * Name of the param
+     * Name of the param.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private String key;
 
         /**
-         * Name of the param
+         * Name of the param.
          * @param key the value to set
          * @return this builder
          **/
@@ -59,14 +59,14 @@ public Builder key(String key) {
     return this;
 }
             /**
-     * Value of the param
+     * Value of the param.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("value")
 private String value;
 
         /**
-         * Value of the param
+         * Value of the param.
          * @param value the value to set
          * @return this builder
          **/
@@ -126,14 +126,14 @@ return this;
 
 
         /**
-     * Name of the param
+     * Name of the param.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Name of the param
+     * Name of the param.
      * @return the value
      **/
     
@@ -143,14 +143,14 @@ return this;
 
 
         /**
-     * Value of the param
+     * Value of the param.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("value")
     private final String value;
 
         /**
-     * Value of the param
+     * Value of the param.
      * @return the value
      **/
     

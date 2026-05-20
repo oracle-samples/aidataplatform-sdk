@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface GitOperationState {
     /**
-    * Folder path used to locate the git worktree.
+    * Folder path used to locate the Git worktree.
     */
     'gitFolderPath': string;
     /**
-    * Current git operation state detected.
+    * Current Git operation state detected.
     */
     'state': GitOperationState.State;
     /**
@@ -33,7 +33,7 @@ export interface GitOperationState {
     */
     'currentBranch'?: string;
     /**
-    * Full commit id of HEAD.
+    * Full commit ID of HEAD.
     */
     'headCommitId'?: string;
     /**

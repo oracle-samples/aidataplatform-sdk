@@ -34,27 +34,27 @@ public class ResetAiDataPlatformGitFolderStateRequest extends com.oracle.bmc.req
         return workspaceKey;
     }
         /**
-     * The git repository key
+     * The Git repository key.
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The git repository key
+     * The Git repository key.
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Merge conflict resolution details
+     * Merge conflict resolution details.
      */
     private com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails resetGitFolderStateDetails;
 
     
 
         /**
-     * Merge conflict resolution details
+     * Merge conflict resolution details.
      */
     public com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails getResetGitFolderStateDetails() {
         return resetGitFolderStateDetails;
@@ -171,12 +171,12 @@ public class ResetAiDataPlatformGitFolderStateRequest extends com.oracle.bmc.req
         }
 
             /**
-     * The git repository key
+     * The Git repository key.
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The git repository key
+         * The Git repository key.
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -186,12 +186,12 @@ public class ResetAiDataPlatformGitFolderStateRequest extends com.oracle.bmc.req
         }
 
             /**
-     * Merge conflict resolution details
+     * Merge conflict resolution details.
      */
         private com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails resetGitFolderStateDetails = null;
 
         /**
-         * Merge conflict resolution details
+         * Merge conflict resolution details.
          * @param resetGitFolderStateDetails the value to set
          * @return this builder instance
          */

@@ -16,11 +16,11 @@ export interface MergeAiDataPlatformGitRepositoryRequest extends common.BaseRequ
  */
  'workspaceKey': string;
 /**
- * The git repository key
+ * The Git repository key.
  */
  'gitRepositoryKey': string;
 /**
- * Folder/branch details to merge
+ * Folder/branch details to merge.
  */
  'gitMergeDetails':  model.GitMergeDetails;
 /**

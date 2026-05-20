@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* List of Credential permissions.
+* List of credential permissions.
 */
 export interface CredentialsPermissionCollection {
     /**
-    * List of Credential permissions.
+    * List of credential permissions.
     */
     'items': Array<model.PermissionSummary>;
 

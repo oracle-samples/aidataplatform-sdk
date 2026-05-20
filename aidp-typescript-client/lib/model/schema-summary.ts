@@ -95,6 +95,8 @@ export namespace SchemaSummary {
                     return model.ExadataSchemaSummary.getJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE":
                     return model.OracleSchemaSummary.getJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacSchemaSummary.getJsonObj(<model.OacSchemaSummary>(<object>jsonObj), true);
                 case "ATP":
                     return model.AtpSchemaSummary.getJsonObj(<model.AtpSchemaSummary>(<object>jsonObj), true);
                 case "KAFKA_TOPIC":
@@ -137,6 +139,8 @@ export namespace SchemaSummary {
                     return model.ExadataSchemaSummary.getDeserializedJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE":
                     return model.OracleSchemaSummary.getDeserializedJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacSchemaSummary.getDeserializedJsonObj(<model.OacSchemaSummary>(<object>jsonObj), true);
                 case "ATP":
                     return model.AtpSchemaSummary.getDeserializedJsonObj(<model.AtpSchemaSummary>(<object>jsonObj), true);
                 case "KAFKA_TOPIC":

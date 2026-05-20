@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateRegisteredModelResponseDetails(object):
     """
-    Response object for updating a RegisteredModel
+    Response object for updating a registered model.
     """
 
     def __init__(self, **kwargs):

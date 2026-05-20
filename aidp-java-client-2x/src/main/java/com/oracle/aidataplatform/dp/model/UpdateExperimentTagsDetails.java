@@ -40,14 +40,14 @@ public final class UpdateExperimentTagsDetails  {
         return this;
         }
             /**
-     * Experiment tags to set
+     * Experiment tags to set.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("set_tags")
         private java.util.List<ExperimentTag> setTags;
 
                 /**
-         * Experiment tags to set
+         * Experiment tags to set.
          * @param setTags the value to set
          * @return this builder
          **/
@@ -58,14 +58,14 @@ public final class UpdateExperimentTagsDetails  {
         return this;
         }
             /**
-     * Experiment tags to delete
+     * Experiment tags to delete.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("delete_tags")
         private java.util.List<ExperimentTagKey> deleteTags;
 
                 /**
-         * Experiment tags to delete
+         * Experiment tags to delete.
          * @param deleteTags the value to set
          * @return this builder
          **/
@@ -125,14 +125,14 @@ return this;
 
 
         /**
-     * Experiment tags to set
+     * Experiment tags to set.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("set_tags")
     private final java.util.List<ExperimentTag> setTags;
 
         /**
-     * Experiment tags to set
+     * Experiment tags to set.
      * @return the value
      **/
     
@@ -142,14 +142,14 @@ return this;
 
 
         /**
-     * Experiment tags to delete
+     * Experiment tags to delete.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("delete_tags")
     private final java.util.List<ExperimentTagKey> deleteTags;
 
         /**
-     * Experiment tags to delete
+     * Experiment tags to delete.
      * @return the value
      **/
     

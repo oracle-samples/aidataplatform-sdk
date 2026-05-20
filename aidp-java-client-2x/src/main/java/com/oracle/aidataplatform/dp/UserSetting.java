@@ -97,7 +97,7 @@ public interface UserSetting extends AutoCloseable {
     DeleteAiDataPlatformUserSettingResponse deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request);
     
     /**
-     * (Preview) Returns the full definition of a user setting identified by its key, including type-specific payload and default flag.
+     * (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -108,7 +108,7 @@ public interface UserSetting extends AutoCloseable {
     GetAiDataPlatformUserSettingResponse getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request);
     
     /**
-     * (Preview) Lists all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
+     * (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation

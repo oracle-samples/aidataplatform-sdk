@@ -16,7 +16,7 @@ export interface ListAiDataPlatformExperimentsRequest extends common.BaseRequest
  */
  'workspaceKey': string;
 /**
- * Details of Experiments to fetch.
+ * Details of experiments to fetch.
  */
  'listExperimentsDetails':  model.ListExperimentsDetails;
 /**

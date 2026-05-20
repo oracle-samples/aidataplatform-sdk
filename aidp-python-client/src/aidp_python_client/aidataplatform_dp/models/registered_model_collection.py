@@ -44,7 +44,7 @@ class RegisteredModelCollection(object):
     def registered_models(self):
         """
         **[Required]** Gets the registered_models of this RegisteredModelCollection.
-        RegisteredModels that match the search criteria
+        Registered models that match the search criteria.
 
 
         :return: The registered_models of this RegisteredModelCollection.
@@ -56,7 +56,7 @@ class RegisteredModelCollection(object):
     def registered_models(self, registered_models):
         """
         Sets the registered_models of this RegisteredModelCollection.
-        RegisteredModels that match the search criteria
+        Registered models that match the search criteria.
 
 
         :param registered_models: The registered_models of this RegisteredModelCollection.
@@ -68,7 +68,7 @@ class RegisteredModelCollection(object):
     def next_page_token(self):
         """
         Gets the next_page_token of this RegisteredModelCollection.
-        Token that can be used to retrieve the next page of RegisteredModels.
+        Token that can be used to retrieve the next page of registered models.
 
 
         :return: The next_page_token of this RegisteredModelCollection.
@@ -80,7 +80,7 @@ class RegisteredModelCollection(object):
     def next_page_token(self, next_page_token):
         """
         Sets the next_page_token of this RegisteredModelCollection.
-        Token that can be used to retrieve the next page of RegisteredModels.
+        Token that can be used to retrieve the next page of registered models.
 
 
         :param next_page_token: The next_page_token of this RegisteredModelCollection.

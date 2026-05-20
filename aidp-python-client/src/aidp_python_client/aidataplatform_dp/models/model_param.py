@@ -44,7 +44,7 @@ class ModelParam(object):
     def name(self):
         """
         Gets the name of this ModelParam.
-        Name of the parameter
+        Name of the parameter.
 
 
         :return: The name of this ModelParam.
@@ -56,7 +56,7 @@ class ModelParam(object):
     def name(self, name):
         """
         Sets the name of this ModelParam.
-        Name of the parameter
+        Name of the parameter.
 
 
         :param name: The name of this ModelParam.
@@ -68,7 +68,7 @@ class ModelParam(object):
     def value(self):
         """
         Gets the value of this ModelParam.
-        Value of the parameter
+        Value of the parameter.
 
 
         :return: The value of this ModelParam.
@@ -80,7 +80,7 @@ class ModelParam(object):
     def value(self, value):
         """
         Sets the value of this ModelParam.
-        Value of the parameter
+        Value of the parameter.
 
 
         :param value: The value of this ModelParam.

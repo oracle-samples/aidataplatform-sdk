@@ -7,12 +7,12 @@ import com.oracle.aidataplatform.dp.model.*;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public class CreateAiDataPlatformWorkspaceResponse extends com.oracle.bmc.responses.BmcResponse {
     /**
-     * URL for the created AI Data Platform Workbench workspace. The AI Data Platform Workbench workspace key is generated after this request is sent.
+     * URL for the created workspace. The workspace key is generated after this request is sent.
      */
     private String location;
 
     /**
-     * URL for the created AI Data Platform Workbench workspace. The AI Data Platform Workbench workspace key is generated after this request is sent.
+     * URL for the created workspace. The workspace key is generated after this request is sent.
      * @return the value
      */
     public String getLocation() {
@@ -125,12 +125,12 @@ public class CreateAiDataPlatformWorkspaceResponse extends com.oracle.bmc.respon
         }
 
         /**
-         * URL for the created AI Data Platform Workbench workspace. The AI Data Platform Workbench workspace key is generated after this request is sent.
+         * URL for the created workspace. The workspace key is generated after this request is sent.
          */
         private String location;
 
         /**
-         * URL for the created AI Data Platform Workbench workspace. The AI Data Platform Workbench workspace key is generated after this request is sent.
+         * URL for the created workspace. The workspace key is generated after this request is sent.
          * @param location the value to set
          * @return this builder
          */

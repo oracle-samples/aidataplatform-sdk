@@ -36,7 +36,7 @@ class PatchClusterLibraryDetails(object):
     @property
     def items(self):
         """
-        Gets the items of this PatchClusterLibraryDetails.
+        **[Required]** Gets the items of this PatchClusterLibraryDetails.
         List of library changes to make.
 
 

@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface RegisteredModelCollection {
     /**
-    * RegisteredModels that match the search criteria
+    * Registered models that match the search criteria.
     */
     'registeredModels': Array<model.RegisteredModel>;
     /**
-    * Token that can be used to retrieve the next page of RegisteredModels.
+    * Token that can be used to retrieve the next page of registered models.
     */
     'nextPageToken'?: string;
 

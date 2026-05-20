@@ -100,7 +100,7 @@ public interface UserSettingAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteAiDataPlatformUserSettingResponse> deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformUserSettingRequest, DeleteAiDataPlatformUserSettingResponse> handler);
     
     /**
-     * (Preview) Returns the full definition of a user setting identified by its key, including type-specific payload and default flag.
+     * (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
 * 
      * 
      * @param request The request object containing the details to send
@@ -113,7 +113,7 @@ public interface UserSettingAsync extends AutoCloseable {
     java.util.concurrent.Future<GetAiDataPlatformUserSettingResponse> getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformUserSettingRequest, GetAiDataPlatformUserSettingResponse> handler);
     
     /**
-     * (Preview) Lists all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
+     * (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
 * 
      * 
      * @param request The request object containing the details to send

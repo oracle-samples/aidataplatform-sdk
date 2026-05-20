@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitBranchSummary(object):
     """
-    Git branch object summary
+    Git branch object summary.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class GitBranchSummary(object):
     def branch_name(self):
         """
         **[Required]** Gets the branch_name of this GitBranchSummary.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The branch_name of this GitBranchSummary.
@@ -56,7 +56,7 @@ class GitBranchSummary(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitBranchSummary.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param branch_name: The branch_name of this GitBranchSummary.
@@ -68,7 +68,7 @@ class GitBranchSummary(object):
     def branch_path(self):
         """
         **[Required]** Gets the branch_path of this GitBranchSummary.
-        Fully qualified branch path
+        Fully qualified branch path.
 
 
         :return: The branch_path of this GitBranchSummary.
@@ -80,7 +80,7 @@ class GitBranchSummary(object):
     def branch_path(self, branch_path):
         """
         Sets the branch_path of this GitBranchSummary.
-        Fully qualified branch path
+        Fully qualified branch path.
 
 
         :param branch_path: The branch_path of this GitBranchSummary.

@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Result of listing Experiments.
+ * Result of listing experiments.
 **/
 @javax.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ExperimentCollection.Builder.class)
@@ -21,14 +21,14 @@ public final class ExperimentCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * Experiments that match the search criteria
+     * Experiments that match the search criteria.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("experiments")
         private java.util.List<Experiment> experiments;
 
                 /**
-         * Experiments that match the search criteria
+         * Experiments that match the search criteria.
          * @param experiments the value to set
          * @return this builder
          **/
@@ -87,14 +87,14 @@ return this;
 
 
         /**
-     * Experiments that match the search criteria
+     * Experiments that match the search criteria.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("experiments")
     private final java.util.List<Experiment> experiments;
 
         /**
-     * Experiments that match the search criteria
+     * Experiments that match the search criteria.
      * @return the value
      **/
     

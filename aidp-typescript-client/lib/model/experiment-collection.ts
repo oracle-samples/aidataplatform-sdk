@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Result of listing Experiments.
+* Result of listing experiments.
 */
 export interface ExperimentCollection {
     /**
-    * Experiments that match the search criteria
+    * Experiments that match the search criteria.
     */
     'experiments': Array<model.Experiment>;
     /**

@@ -5,27 +5,27 @@ import common = require("oci-common");
 
 
 /**
-* Details about a git repository
+* Details about a Git repository.
 */
 export interface GitRepository {
     /**
-    * Unique key associated with repository
+    * Unique key associated with repository.
     */
     'key': string;
     /**
-    * The workspaceKey associated with the git repository
+    * The workspaceKey associated with the Git repository.
     */
     'workspaceKey': string;
     /**
-    * The name of the git branch
+    * The name of the Git branch.
     */
     'branchName': string;
     /**
-    * The git repository url corresponding to the branch
+    * The Git repository url corresponding to the branch.
     */
     'gitUrl': string;
     /**
-    * The path of the current git folder which has to be created for the new branch
+    * The path of the current Git folder which has to be created for the new branch.
     */
     'gitFolderPath': string;
     /**

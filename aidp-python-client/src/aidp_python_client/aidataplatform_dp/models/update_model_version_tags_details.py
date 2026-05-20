@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateModelVersionTagsDetails(object):
     """
-    Details of the ModelVersion tags to update.
+    Details of the model version tags to update.
     """
 
     def __init__(self, **kwargs):
@@ -82,7 +82,7 @@ class UpdateModelVersionTagsDetails(object):
     def version(self):
         """
         **[Required]** Gets the version of this UpdateModelVersionTagsDetails.
-        Model\u2019s version number.
+        Model version number.
 
 
         :return: The version of this UpdateModelVersionTagsDetails.
@@ -94,7 +94,7 @@ class UpdateModelVersionTagsDetails(object):
     def version(self, version):
         """
         Sets the version of this UpdateModelVersionTagsDetails.
-        Model\u2019s version number.
+        Model version number.
 
 
         :param version: The version of this UpdateModelVersionTagsDetails.
@@ -106,7 +106,7 @@ class UpdateModelVersionTagsDetails(object):
     def set_tags(self):
         """
         Gets the set_tags of this UpdateModelVersionTagsDetails.
-        ModelVersion tags to set
+        Model version tags to set.
 
 
         :return: The set_tags of this UpdateModelVersionTagsDetails.
@@ -118,7 +118,7 @@ class UpdateModelVersionTagsDetails(object):
     def set_tags(self, set_tags):
         """
         Sets the set_tags of this UpdateModelVersionTagsDetails.
-        ModelVersion tags to set
+        Model version tags to set.
 
 
         :param set_tags: The set_tags of this UpdateModelVersionTagsDetails.
@@ -130,7 +130,7 @@ class UpdateModelVersionTagsDetails(object):
     def delete_tags(self):
         """
         Gets the delete_tags of this UpdateModelVersionTagsDetails.
-        ModelVersion tags to delete
+        Model version tags to delete.
 
 
         :return: The delete_tags of this UpdateModelVersionTagsDetails.
@@ -142,7 +142,7 @@ class UpdateModelVersionTagsDetails(object):
     def delete_tags(self, delete_tags):
         """
         Sets the delete_tags of this UpdateModelVersionTagsDetails.
-        ModelVersion tags to delete
+        Model version tags to delete.
 
 
         :param delete_tags: The delete_tags of this UpdateModelVersionTagsDetails.

@@ -14,14 +14,14 @@ public final class ProvisionUserSchemaDetails extends ExecuteDatabaseUserWorkflo
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
             /**
-     * The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+     * The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("userSchemaName")
         private String userSchemaName;
 
                 /**
-         * The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+         * The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
          * @param userSchemaName the value to set
          * @return this builder
          **/
@@ -86,14 +86,14 @@ return this;
 
 
         /**
-     * The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+     * The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("userSchemaName")
     private final String userSchemaName;
 
         /**
-     * The user schema name, for example AIDP_<uniqueSuffix>_KB_READONLY.
+     * The user schema name. Example: AIDP_<uniqueSuffix>_KB_READONLY
      * @return the value
      **/
     

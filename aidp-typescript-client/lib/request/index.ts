@@ -1,5 +1,9 @@
 // Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
 
+import * as GetAiDataPlatformAsyncOperationRequest from './get-ai-data-platform-async-operation-request';
+export import GetAiDataPlatformAsyncOperationRequest = GetAiDataPlatformAsyncOperationRequest.GetAiDataPlatformAsyncOperationRequest;
+import * as ListAiDataPlatformAsyncOperationsRequest from './list-ai-data-platform-async-operations-request';
+export import ListAiDataPlatformAsyncOperationsRequest = ListAiDataPlatformAsyncOperationsRequest.ListAiDataPlatformAsyncOperationsRequest;
 import * as ManageAiDataPlatformAuditLogsRequest from './manage-ai-data-platform-audit-logs-request';
 export import ManageAiDataPlatformAuditLogsRequest = ManageAiDataPlatformAuditLogsRequest.ManageAiDataPlatformAuditLogsRequest;
 import * as SearchAiDataPlatformAuditLogsRequest from './search-ai-data-platform-audit-logs-request';
@@ -12,6 +16,8 @@ import * as FetchAiDataPlatformBundleDeploymentStatusRequest from './fetch-ai-da
 export import FetchAiDataPlatformBundleDeploymentStatusRequest = FetchAiDataPlatformBundleDeploymentStatusRequest.FetchAiDataPlatformBundleDeploymentStatusRequest;
 import * as PurgeAiDataPlatformBundleRequest from './purge-ai-data-platform-bundle-request';
 export import PurgeAiDataPlatformBundleRequest = PurgeAiDataPlatformBundleRequest.PurgeAiDataPlatformBundleRequest;
+import * as SyncAiDataPlatformBundleRequest from './sync-ai-data-platform-bundle-request';
+export import SyncAiDataPlatformBundleRequest = SyncAiDataPlatformBundleRequest.SyncAiDataPlatformBundleRequest;
 import * as CatalogAiDataPlatformTestConnectionRequest from './catalog-ai-data-platform-test-connection-request';
 export import CatalogAiDataPlatformTestConnectionRequest = CatalogAiDataPlatformTestConnectionRequest.CatalogAiDataPlatformTestConnectionRequest;
 import * as CreateAiDataPlatformCatalogRequest from './create-ai-data-platform-catalog-request';
@@ -34,6 +40,8 @@ import * as CreateAiDataPlatformClusterRequest from './create-ai-data-platform-c
 export import CreateAiDataPlatformClusterRequest = CreateAiDataPlatformClusterRequest.CreateAiDataPlatformClusterRequest;
 import * as DeleteAiDataPlatformClusterRequest from './delete-ai-data-platform-cluster-request';
 export import DeleteAiDataPlatformClusterRequest = DeleteAiDataPlatformClusterRequest.DeleteAiDataPlatformClusterRequest;
+import * as DownloadAiDataPlatformClusterLogsRequest from './download-ai-data-platform-cluster-logs-request';
+export import DownloadAiDataPlatformClusterLogsRequest = DownloadAiDataPlatformClusterLogsRequest.DownloadAiDataPlatformClusterLogsRequest;
 import * as GetAiDataPlatformClusterRequest from './get-ai-data-platform-cluster-request';
 export import GetAiDataPlatformClusterRequest = GetAiDataPlatformClusterRequest.GetAiDataPlatformClusterRequest;
 import * as GetAiDataPlatformDefaultClusterRequest from './get-ai-data-platform-default-cluster-request';
@@ -50,10 +58,14 @@ import * as PatchAiDataPlatformClusterLibraryRequest from './patch-ai-data-platf
 export import PatchAiDataPlatformClusterLibraryRequest = PatchAiDataPlatformClusterLibraryRequest.PatchAiDataPlatformClusterLibraryRequest;
 import * as RestartAiDataPlatformClusterRequest from './restart-ai-data-platform-cluster-request';
 export import RestartAiDataPlatformClusterRequest = RestartAiDataPlatformClusterRequest.RestartAiDataPlatformClusterRequest;
+import * as SearchAiDataPlatformClusterLogsRequest from './search-ai-data-platform-cluster-logs-request';
+export import SearchAiDataPlatformClusterLogsRequest = SearchAiDataPlatformClusterLogsRequest.SearchAiDataPlatformClusterLogsRequest;
 import * as StartAiDataPlatformClusterRequest from './start-ai-data-platform-cluster-request';
 export import StartAiDataPlatformClusterRequest = StartAiDataPlatformClusterRequest.StartAiDataPlatformClusterRequest;
 import * as StopAiDataPlatformClusterRequest from './stop-ai-data-platform-cluster-request';
 export import StopAiDataPlatformClusterRequest = StopAiDataPlatformClusterRequest.StopAiDataPlatformClusterRequest;
+import * as SummarizeAiDataPlatformMetricsDataRequest from './summarize-ai-data-platform-metrics-data-request';
+export import SummarizeAiDataPlatformMetricsDataRequest = SummarizeAiDataPlatformMetricsDataRequest.SummarizeAiDataPlatformMetricsDataRequest;
 import * as UpdateAiDataPlatformClusterRequest from './update-ai-data-platform-cluster-request';
 export import UpdateAiDataPlatformClusterRequest = UpdateAiDataPlatformClusterRequest.UpdateAiDataPlatformClusterRequest;
 import * as CreateAiDataPlatformCredentialRequest from './create-ai-data-platform-credential-request';
@@ -448,9 +460,3 @@ import * as UpdateAiDataPlatformWorkspaceObjectRequest from './update-ai-data-pl
 export import UpdateAiDataPlatformWorkspaceObjectRequest = UpdateAiDataPlatformWorkspaceObjectRequest.UpdateAiDataPlatformWorkspaceObjectRequest;
 import * as UploadAiDataPlatformWorkspaceObjectWithParRequest from './upload-ai-data-platform-workspace-object-with-par-request';
 export import UploadAiDataPlatformWorkspaceObjectWithParRequest = UploadAiDataPlatformWorkspaceObjectWithParRequest.UploadAiDataPlatformWorkspaceObjectWithParRequest;
-import * as DownloadAiDataPlatformClusterLogsRequest from './download-ai-data-platform-cluster-logs-request';
-export import DownloadAiDataPlatformClusterLogsRequest = DownloadAiDataPlatformClusterLogsRequest.DownloadAiDataPlatformClusterLogsRequest;
-import * as SearchAiDataPlatformClusterLogsRequest from './search-ai-data-platform-cluster-logs-request';
-export import SearchAiDataPlatformClusterLogsRequest = SearchAiDataPlatformClusterLogsRequest.SearchAiDataPlatformClusterLogsRequest;
-import * as SummarizeAiDataPlatformMetricsDataRequest from './summarize-ai-data-platform-metrics-data-request';
-export import SummarizeAiDataPlatformMetricsDataRequest = SummarizeAiDataPlatformMetricsDataRequest.SummarizeAiDataPlatformMetricsDataRequest;

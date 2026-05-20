@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateGitBranchDetails(object):
     """
-    Information required to create a new git branch
+    Information required to create a new Git branch.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class CreateGitBranchDetails(object):
     def git_branch_name(self):
         """
         **[Required]** Gets the git_branch_name of this CreateGitBranchDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :return: The git_branch_name of this CreateGitBranchDetails.
@@ -56,7 +56,7 @@ class CreateGitBranchDetails(object):
     def git_branch_name(self, git_branch_name):
         """
         Sets the git_branch_name of this CreateGitBranchDetails.
-        The name of the git branch
+        The name of the Git branch.
 
 
         :param git_branch_name: The git_branch_name of this CreateGitBranchDetails.
@@ -68,7 +68,7 @@ class CreateGitBranchDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this CreateGitBranchDetails.
-        The path of the current git folder which has to be created for the new branch
+        The path of the current Git folder which has to be created for the new branch.
 
 
         :return: The git_folder_path of this CreateGitBranchDetails.
@@ -80,7 +80,7 @@ class CreateGitBranchDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this CreateGitBranchDetails.
-        The path of the current git folder which has to be created for the new branch
+        The path of the current Git folder which has to be created for the new branch.
 
 
         :param git_folder_path: The git_folder_path of this CreateGitBranchDetails.

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of Creating Setting
+* Settings details for the new user.
 */
 export interface CreateUserSettingDetails {
     /**

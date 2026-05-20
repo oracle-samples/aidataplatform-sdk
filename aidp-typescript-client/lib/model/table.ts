@@ -155,6 +155,8 @@ export namespace Table {
                     return model.ExadataTable.getJsonObj(<model.ExadataTable>(<object>jsonObj), true);
                 case "ATP":
                     return model.AtpTable.getJsonObj(<model.AtpTable>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacTable.getJsonObj(<model.OacTable>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -220,6 +222,8 @@ export namespace Table {
                     return model.ExadataTable.getDeserializedJsonObj(<model.ExadataTable>(<object>jsonObj), true);
                 case "ATP":
                     return model.AtpTable.getDeserializedJsonObj(<model.AtpTable>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacTable.getDeserializedJsonObj(<model.OacTable>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

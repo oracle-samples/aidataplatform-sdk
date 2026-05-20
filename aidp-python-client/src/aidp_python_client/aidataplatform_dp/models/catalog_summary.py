@@ -45,6 +45,10 @@ class CatalogSummary(object):
     #: This constant has a value of "EXADATA"
     SOURCE_TYPE_EXADATA = "EXADATA"
 
+    #: A constant which can be used with the source_type property of a CatalogSummary.
+    #: This constant has a value of "ORACLE_ANALYTICS"
+    SOURCE_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
+
     #: A constant which can be used with the lifecycle_state property of a CatalogSummary.
     #: This constant has a value of "ACTIVE"
     LIFECYCLE_STATE_ACTIVE = "ACTIVE"
@@ -102,7 +106,7 @@ class CatalogSummary(object):
 
         :param source_type:
             The value to assign to the source_type property of this CatalogSummary.
-            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type source_type: str
 
@@ -324,7 +328,7 @@ class CatalogSummary(object):
         Gets the source_type of this CatalogSummary.
         External catalog source type.
 
-        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -343,7 +347,7 @@ class CatalogSummary(object):
         :param source_type: The source_type of this CatalogSummary.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA"]
+        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             source_type = 'UNKNOWN_ENUM_VALUE'
         self._source_type = source_type

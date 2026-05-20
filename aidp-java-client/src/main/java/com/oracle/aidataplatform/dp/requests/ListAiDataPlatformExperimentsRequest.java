@@ -34,14 +34,14 @@ public class ListAiDataPlatformExperimentsRequest extends com.oracle.bmc.request
         return workspaceKey;
     }
         /**
-     * Details of Experiments to fetch.
+     * Details of experiments to fetch.
      */
     private com.oracle.aidataplatform.dp.model.ListExperimentsDetails listExperimentsDetails;
 
     
 
         /**
-     * Details of Experiments to fetch.
+     * Details of experiments to fetch.
      */
     public com.oracle.aidataplatform.dp.model.ListExperimentsDetails getListExperimentsDetails() {
         return listExperimentsDetails;
@@ -127,12 +127,12 @@ public class ListAiDataPlatformExperimentsRequest extends com.oracle.bmc.request
         }
 
             /**
-     * Details of Experiments to fetch.
+     * Details of experiments to fetch.
      */
         private com.oracle.aidataplatform.dp.model.ListExperimentsDetails listExperimentsDetails = null;
 
         /**
-         * Details of Experiments to fetch.
+         * Details of experiments to fetch.
          * @param listExperimentsDetails the value to set
          * @return this builder instance
          */

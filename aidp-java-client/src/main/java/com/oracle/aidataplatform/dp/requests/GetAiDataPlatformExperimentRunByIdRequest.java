@@ -34,14 +34,14 @@ public class GetAiDataPlatformExperimentRunByIdRequest extends com.oracle.bmc.re
         return workspaceKey;
     }
         /**
-     * ID of the run to fetch
+     * ID of the run to fetch.
      */
     private String runId;
 
     
 
         /**
-     * ID of the run to fetch
+     * ID of the run to fetch.
      */
     public String getRunId() {
         return runId;
@@ -117,12 +117,12 @@ public class GetAiDataPlatformExperimentRunByIdRequest extends com.oracle.bmc.re
         }
 
             /**
-     * ID of the run to fetch
+     * ID of the run to fetch.
      */
         private String runId = null;
 
         /**
-         * ID of the run to fetch
+         * ID of the run to fetch.
          * @param runId the value to set
          * @return this builder instance
          */

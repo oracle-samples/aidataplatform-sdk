@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeleteExperimentTagDetails(object):
     """
-    Tag details to delete on an Experiment.
+    Tag details to delete on an experiment.
     """
 
     def __init__(self, **kwargs):

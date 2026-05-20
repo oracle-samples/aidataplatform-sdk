@@ -40,14 +40,14 @@ public class CreateAgentFlowNodeDetails  {
 
 
         /**
-     * Type of this node.
+     * This field is deprecated. | It does not need to be set to any value for API calls.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("nodeType")
     private final String nodeType;
 
         /**
-     * Type of this node.
+     * This field is deprecated. | It does not need to be set to any value for API calls.
      * @return the value
      **/
     

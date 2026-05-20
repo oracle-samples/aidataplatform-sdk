@@ -13,11 +13,11 @@ export interface UpdateExperimentTagsDetails {
     */
     'experimentId': string;
     /**
-    * Experiment tags to set
+    * Experiment tags to set.
     */
     'setTags'?: Array<model.ExperimentTag>;
     /**
-    * Experiment tags to delete
+    * Experiment tags to delete.
     */
     'deleteTags'?: Array<model.ExperimentTagKey>;
 

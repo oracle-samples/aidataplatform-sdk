@@ -11,7 +11,7 @@ export interface PatchClusterLibraryDetails {
     /**
     * List of library changes to make.
     */
-    'items'?: Array<model.ClusterLibraryDetails>;
+    'items': Array<model.ClusterLibraryDetails>;
 
 }
 

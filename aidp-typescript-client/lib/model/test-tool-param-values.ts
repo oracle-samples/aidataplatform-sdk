@@ -9,9 +9,9 @@ import common = require("oci-common");
 */
 export interface TestToolParamValues {
     /**
-    * Map of parameter names to their string values.
+    * Map of parameter names to their JSON values. Value types such as string, number, boolean, array, object, and null are preserved
     */
-    'values'?: { [key: string]: string; };
+    'values'?: any;
 
 }
 

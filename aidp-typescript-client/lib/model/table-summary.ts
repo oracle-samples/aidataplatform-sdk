@@ -77,6 +77,8 @@ export namespace TableSummary {
                     return model.AlhTableSummary.getJsonObj(<model.AlhTableSummary>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataTableSummary.getJsonObj(<model.ExadataTableSummary>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacTableSummary.getJsonObj(<model.OacTableSummary>(<object>jsonObj), true);
                 case "ADW":
                     return model.AdwTableSummary.getJsonObj(<model.AdwTableSummary>(<object>jsonObj), true);
                 case "ORACLE":
@@ -114,6 +116,8 @@ export namespace TableSummary {
                     return model.AlhTableSummary.getDeserializedJsonObj(<model.AlhTableSummary>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataTableSummary.getDeserializedJsonObj(<model.ExadataTableSummary>(<object>jsonObj), true);
+                case "ORACLE_ANALYTICS":
+                    return model.OacTableSummary.getDeserializedJsonObj(<model.OacTableSummary>(<object>jsonObj), true);
                 case "ADW":
                     return model.AdwTableSummary.getDeserializedJsonObj(<model.AdwTableSummary>(<object>jsonObj), true);
                 case "ORACLE":

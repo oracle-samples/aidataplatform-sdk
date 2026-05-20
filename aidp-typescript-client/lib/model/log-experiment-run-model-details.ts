@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Details of an Experiment Run Model
+* Details of an experiment run model.
 */
 export interface LogExperimentRunModelDetails {
     /**
@@ -13,7 +13,7 @@ export interface LogExperimentRunModelDetails {
     */
     'runId': string;
     /**
-    * Model file in json format
+    * Model file in JSON format
     */
     'modelJson': string;
 

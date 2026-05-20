@@ -12,7 +12,7 @@ export interface RenameAiDataPlatformRegisteredModelRequest extends common.BaseR
  */
  'aiDataPlatformId': string;
 /**
- * Details of a RegisteredModel Rename.
+ * Details of a registered model rename.
  */
  'renameRegisteredModelDetails':  model.RenameRegisteredModelDetails;
 /**

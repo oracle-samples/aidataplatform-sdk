@@ -21,14 +21,14 @@ public class UpdateAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         return aiDataPlatformId;
     }
         /**
-     * Update RegisteredModel.
+     * Details to update the registered model.
      */
     private com.oracle.aidataplatform.dp.model.UpdateRegisteredModelDetails updateRegisteredModelDetails;
 
     
 
         /**
-     * Update RegisteredModel.
+     * Details to update the registered model.
      */
     public com.oracle.aidataplatform.dp.model.UpdateRegisteredModelDetails getUpdateRegisteredModelDetails() {
         return updateRegisteredModelDetails;
@@ -122,12 +122,12 @@ public class UpdateAiDataPlatformRegisteredModelRequest extends com.oracle.bmc.r
         }
 
             /**
-     * Update RegisteredModel.
+     * Details to update the registered model.
      */
         private com.oracle.aidataplatform.dp.model.UpdateRegisteredModelDetails updateRegisteredModelDetails = null;
 
         /**
-         * Update RegisteredModel.
+         * Details to update the registered model.
          * @param updateRegisteredModelDetails the value to set
          * @return this builder instance
          */

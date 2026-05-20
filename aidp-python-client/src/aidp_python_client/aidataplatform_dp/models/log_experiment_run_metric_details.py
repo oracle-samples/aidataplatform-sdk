@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class LogExperimentRunMetricDetails(object):
     """
-    Details of an Experiment Run Metric
+    Details of an experiment run metric.
     """
 
     def __init__(self, **kwargs):
@@ -89,7 +89,7 @@ class LogExperimentRunMetricDetails(object):
     def key(self):
         """
         **[Required]** Gets the key of this LogExperimentRunMetricDetails.
-        Name of the metric
+        Name of the metric.
 
 
         :return: The key of this LogExperimentRunMetricDetails.
@@ -101,7 +101,7 @@ class LogExperimentRunMetricDetails(object):
     def key(self, key):
         """
         Sets the key of this LogExperimentRunMetricDetails.
-        Name of the metric
+        Name of the metric.
 
 
         :param key: The key of this LogExperimentRunMetricDetails.
@@ -113,7 +113,7 @@ class LogExperimentRunMetricDetails(object):
     def value(self):
         """
         **[Required]** Gets the value of this LogExperimentRunMetricDetails.
-        Value of the metric
+        Value of the metric.
 
 
         :return: The value of this LogExperimentRunMetricDetails.
@@ -125,7 +125,7 @@ class LogExperimentRunMetricDetails(object):
     def value(self, value):
         """
         Sets the value of this LogExperimentRunMetricDetails.
-        Value of the metric
+        Value of the metric.
 
 
         :param value: The value of this LogExperimentRunMetricDetails.

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* The data to rename a RegisteredModel.
+* The data to rename a registered model.
 */
 export interface RenameRegisteredModelDetails {
     /**

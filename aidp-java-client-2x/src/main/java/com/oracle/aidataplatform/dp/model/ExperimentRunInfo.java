@@ -173,14 +173,14 @@ public final class ExperimentRunInfo  {
         return this;
         }
             /**
-     * uuid of the run.
+     * UUID of the run.
      **/
     
         @com.fasterxml.jackson.annotation.JsonProperty("run_uuid")
         private String runUuid;
 
                 /**
-         * uuid of the run.
+         * UUID of the run.
          * @param runUuid the value to set
          * @return this builder
          **/
@@ -391,14 +391,14 @@ return this;
 
 
         /**
-     * uuid of the run.
+     * UUID of the run.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("run_uuid")
     private final String runUuid;
 
         /**
-     * uuid of the run.
+     * UUID of the run.
      * @return the value
      **/
     
