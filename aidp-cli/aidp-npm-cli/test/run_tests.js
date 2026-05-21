@@ -20,7 +20,7 @@ assert.ok(!generatorSource.includes('require("yaml")'));
 
 assert.strictEqual(names.serviceNameFromClientClass("WorkspaceObjectClient"), "workspace-object");
 assert.strictEqual(names.serviceNameFromClientClass("MlOpsClient"), "mlops");
-assert.strictEqual(names.camelToKebab("getAiDataPlatformWorkspace"), "get-ai-data-platform-workspace");
+assert.strictEqual(names.camelToKebab("getWorkspace"), "get-workspace");
 assert.strictEqual(names.cliNameToLowerCamel("workspace-key"), "workspaceKey");
 
 assert.strictEqual(manifestJson.version, 4);

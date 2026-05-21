@@ -177,16 +177,16 @@ For API documentation, see the
 ### CLI: List Workspaces
 
 ```bash
-aidp workspace list-workspaces \
-  --ai-data-platform-id <ai_data_platform_ocid> \
+aidp workspace list \
+  --instance-id <ai_data_platform_ocid> \
   --region <oci_region>
 ```
 
 Use an explicit endpoint when needed:
 
 ```bash
-aidp workspace list-workspaces \
-  --ai-data-platform-id <ai_data_platform_ocid> \
+aidp workspace list \
+  --instance-id <ai_data_platform_ocid> \
   --endpoint <service_endpoint>
 ```
 
@@ -196,8 +196,8 @@ aidp workspace list-workspaces \
 import com.oracle.aidataplatform.dp.WorkspaceClient;
 import com.oracle.aidataplatform.dp.model.SortOrder;
 import com.oracle.aidataplatform.dp.model.Workspace;
-import com.oracle.aidataplatform.dp.requests.ListAiDataPlatformWorkspacesRequest;
-import com.oracle.aidataplatform.dp.responses.ListAiDataPlatformWorkspacesResponse;
+import com.oracle.aidataplatform.dp.requests.ListWorkspacesRequest;
+import com.oracle.aidataplatform.dp.responses.ListWorkspacesResponse;
 import com.oracle.bmc.ConfigFileReader;
 import com.oracle.bmc.auth.SessionTokenAuthenticationDetailsProvider;
 
@@ -222,17 +222,17 @@ public class ListWorkspacesExample {
     }
 
     try (WorkspaceClient client = builder.build(provider)) {
-      ListAiDataPlatformWorkspacesRequest request =
-          ListAiDataPlatformWorkspacesRequest.builder()
+      ListWorkspacesRequest request =
+          ListWorkspacesRequest.builder()
               .aiDataPlatformId(aiDataPlatformId)
               .lifecycleState(Workspace.LifecycleState.Active)
-              .sortBy(ListAiDataPlatformWorkspacesRequest.SortBy.TimeCreated)
+              .sortBy(ListWorkspacesRequest.SortBy.TimeCreated)
               .sortOrder(SortOrder.Desc)
               .limit(10)
               .build();
 
-      ListAiDataPlatformWorkspacesResponse response =
-          client.listAiDataPlatformWorkspaces(request);
+      ListWorkspacesResponse response =
+          client.listWorkspaces(request);
 
       response.getWorkspaceCollection().getItems().forEach(System.out::println);
     }
@@ -281,7 +281,7 @@ if endpoint:
 
 client = WorkspaceClient(config, **client_kwargs)
 try:
-    response = client.list_ai_data_platform_workspaces(
+    response = client.list_workspaces(
         ai_data_platform_id,
         lifecycle_state="ACTIVE",
         sort_by="timeCreated",
@@ -319,15 +319,15 @@ if (endpoint) {
   client.regionId = region;
 }
 
-const request: requests.ListAiDataPlatformWorkspacesRequest = {
+const request: requests.ListWorkspacesRequest = {
   aiDataPlatformId,
   lifecycleState: "ACTIVE",
-  sortBy: requests.ListAiDataPlatformWorkspacesRequest.SortBy.TimeCreated,
+  sortBy: requests.ListWorkspacesRequest.SortBy.TimeCreated,
   sortOrder: models.SortOrder.Desc,
   limit: 10
 };
 
-const response = await client.listAiDataPlatformWorkspaces(request);
+const response = await client.listWorkspaces(request);
 for (const workspace of response.workspaceCollection.items ?? []) {
   console.log(workspace.displayName, workspace.key);
 }
