@@ -372,15 +372,15 @@ public class AsyncOperationsClient implements AsyncOperations {
     }
 
     @Override
-    public GetAiDataPlatformAsyncOperationResponse getAiDataPlatformAsyncOperation(GetAiDataPlatformAsyncOperationRequest request) {
-        LOG.trace("Called getAiDataPlatformAsyncOperation");
-            final GetAiDataPlatformAsyncOperationRequest interceptedRequest = GetAiDataPlatformAsyncOperationConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformAsyncOperationConverter.fromRequest(client, interceptedRequest);
+    public GetAsyncOperationResponse getAsyncOperation(GetAsyncOperationRequest request) {
+        LOG.trace("Called getAsyncOperation");
+            final GetAsyncOperationRequest interceptedRequest = GetAsyncOperationConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAsyncOperationConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "GetAiDataPlatformAsyncOperation", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformAsyncOperationResponse> transformer = GetAiDataPlatformAsyncOperationConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "GetAsyncOperation", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetAsyncOperationResponse> transformer = GetAsyncOperationConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -396,15 +396,15 @@ public class AsyncOperationsClient implements AsyncOperations {
     }
 
     @Override
-    public ListAiDataPlatformAsyncOperationsResponse listAiDataPlatformAsyncOperations(ListAiDataPlatformAsyncOperationsRequest request) {
-        LOG.trace("Called listAiDataPlatformAsyncOperations");
-            final ListAiDataPlatformAsyncOperationsRequest interceptedRequest = ListAiDataPlatformAsyncOperationsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformAsyncOperationsConverter.fromRequest(client, interceptedRequest);
+    public ListAsyncOperationsResponse listAsyncOperations(ListAsyncOperationsRequest request) {
+        LOG.trace("Called listAsyncOperations");
+            final ListAsyncOperationsRequest interceptedRequest = ListAsyncOperationsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAsyncOperationsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "ListAiDataPlatformAsyncOperations", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformAsyncOperationsResponse> transformer = ListAiDataPlatformAsyncOperationsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "ListAsyncOperations", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListAsyncOperationsResponse> transformer = ListAsyncOperationsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

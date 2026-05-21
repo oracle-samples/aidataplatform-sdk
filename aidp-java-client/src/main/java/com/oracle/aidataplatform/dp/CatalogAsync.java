@@ -67,7 +67,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CatalogAiDataPlatformTestConnectionResponse> catalogAiDataPlatformTestConnection(CatalogAiDataPlatformTestConnectionRequest request, com.oracle.bmc.responses.AsyncHandler<CatalogAiDataPlatformTestConnectionRequest, CatalogAiDataPlatformTestConnectionResponse> handler);
+    java.util.concurrent.Future<CatalogTestConnectionResponse> catalogTestConnection(CatalogTestConnectionRequest request, com.oracle.bmc.responses.AsyncHandler<CatalogTestConnectionRequest, CatalogTestConnectionResponse> handler);
     
     /**
      * Create a catalog in the AI Data Platform Workbench with the given ID.
@@ -79,7 +79,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformCatalogResponse> createAiDataPlatformCatalog(CreateAiDataPlatformCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCatalogRequest, CreateAiDataPlatformCatalogResponse> handler);
+    java.util.concurrent.Future<CreateCatalogResponse> createCatalog(CreateCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<CreateCatalogRequest, CreateCatalogResponse> handler);
     
     /**
      * Deletes the specified catalog from an AI Data Platform Workbench.
@@ -91,7 +91,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformCatalogResponse> deleteAiDataPlatformCatalog(DeleteAiDataPlatformCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCatalogRequest, DeleteAiDataPlatformCatalogResponse> handler);
+    java.util.concurrent.Future<DeleteCatalogResponse> deleteCatalog(DeleteCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteCatalogRequest, DeleteCatalogResponse> handler);
     
     /**
      * Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
@@ -103,7 +103,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformCatalogResponse> getAiDataPlatformCatalog(GetAiDataPlatformCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCatalogRequest, GetAiDataPlatformCatalogResponse> handler);
+    java.util.concurrent.Future<GetCatalogResponse> getCatalog(GetCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<GetCatalogRequest, GetCatalogResponse> handler);
     
     /**
      * Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
@@ -115,7 +115,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformCatalogPermissionsResponse> listAiDataPlatformCatalogPermissions(ListAiDataPlatformCatalogPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogPermissionsRequest, ListAiDataPlatformCatalogPermissionsResponse> handler);
+    java.util.concurrent.Future<ListCatalogPermissionsResponse> listCatalogPermissions(ListCatalogPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse> handler);
     
     /**
      * Get a list of catalogs in an AI Data Platform Workbench with a given ID.
@@ -127,7 +127,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformCatalogsResponse> listAiDataPlatformCatalogs(ListAiDataPlatformCatalogsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogsRequest, ListAiDataPlatformCatalogsResponse> handler);
+    java.util.concurrent.Future<ListCatalogsResponse> listCatalogs(ListCatalogsRequest request, com.oracle.bmc.responses.AsyncHandler<ListCatalogsRequest, ListCatalogsResponse> handler);
     
     /**
      * Update permission details for a catalog in an AI Data Platform Workbench.
@@ -139,7 +139,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformCatalogPermissionResponse> manageAiDataPlatformCatalogPermission(ManageAiDataPlatformCatalogPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCatalogPermissionRequest, ManageAiDataPlatformCatalogPermissionResponse> handler);
+    java.util.concurrent.Future<ManageCatalogPermissionResponse> manageCatalogPermission(ManageCatalogPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse> handler);
     
     /**
      * Refresh a catalog in an AI Data Platform Workbench through a crawler.
@@ -151,7 +151,7 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RefreshAiDataPlatformCatalogResponse> refreshAiDataPlatformCatalog(RefreshAiDataPlatformCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformCatalogRequest, RefreshAiDataPlatformCatalogResponse> handler);
+    java.util.concurrent.Future<RefreshCatalogResponse> refreshCatalog(RefreshCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshCatalogRequest, RefreshCatalogResponse> handler);
     
     /**
      * Update the details of an AI Data Platform Workbench catalog with the given information.
@@ -163,6 +163,6 @@ public interface CatalogAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformCatalogResponse> updateAiDataPlatformCatalog(UpdateAiDataPlatformCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCatalogRequest, UpdateAiDataPlatformCatalogResponse> handler);
+    java.util.concurrent.Future<UpdateCatalogResponse> updateCatalog(UpdateCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateCatalogRequest, UpdateCatalogResponse> handler);
     
 }

@@ -85,7 +85,7 @@ class GitClient(object):
         self.base_client = BaseClient("git", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def checkout_ai_data_platform_branch(self, ai_data_platform_id, workspace_key, git_repository_key, checkout_branch_details, **kwargs):
+    def checkout_branch(self, ai_data_platform_id, workspace_key, git_repository_key, checkout_branch_details, **kwargs):
         """
         (Preview) Checks out a remote branch into the specified workspace folder, ensuring the worktree tracks the requested branch HEAD.
 
@@ -155,7 +155,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "checkout_ai_data_platform_branch got unknown kwargs: {!r}".format(extra_kwargs))
+                "checkout_branch got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -204,7 +204,7 @@ class GitClient(object):
                 body=checkout_branch_details,
                 response_type="GitBranch")
 
-    def commit_push_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, commit_push_details, **kwargs):
+    def commit_push_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, commit_push_details, **kwargs):
         """
         (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
 
@@ -270,7 +270,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "commit_push_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "commit_push_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -316,7 +316,7 @@ class GitClient(object):
                 header_params=header_params,
                 body=commit_push_details)
 
-    def create_ai_data_platform_git_branch(self, ai_data_platform_id, workspace_key, git_repository_key, create_git_branch_details, **kwargs):
+    def create_git_branch(self, ai_data_platform_id, workspace_key, git_repository_key, create_git_branch_details, **kwargs):
         """
         (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
 
@@ -375,7 +375,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_git_branch got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_git_branch got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -422,7 +422,7 @@ class GitClient(object):
                 body=create_git_branch_details,
                 response_type="CreateGitBranch")
 
-    def get_ai_data_platform_git_diff_detail(self, ai_data_platform_id, workspace_key, git_repository_key, git_folder_path, branch_name, git_file_path, **kwargs):
+    def get_git_diff_detail(self, ai_data_platform_id, workspace_key, git_repository_key, git_folder_path, branch_name, git_file_path, **kwargs):
         """
         (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
 
@@ -483,7 +483,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_git_diff_detail got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_git_diff_detail got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -535,7 +535,7 @@ class GitClient(object):
                 header_params=header_params,
                 response_type="GitDiffDetail")
 
-    def get_ai_data_platform_git_operation_state(self, ai_data_platform_id, workspace_key, git_repository_key, **kwargs):
+    def get_git_operation_state(self, ai_data_platform_id, workspace_key, git_repository_key, **kwargs):
         """
         (Preview) Returns the current Git worktree status\u2014including in-progress operations or detached HEAD indicators\u2014for the workspace folder.
 
@@ -587,7 +587,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_git_operation_state got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_git_operation_state got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -636,7 +636,7 @@ class GitClient(object):
                 header_params=header_params,
                 response_type="GitOperationState")
 
-    def get_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, **kwargs):
+    def get_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, **kwargs):
         """
         (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
 
@@ -684,7 +684,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -732,7 +732,7 @@ class GitClient(object):
                 header_params=header_params,
                 response_type="GitRepository")
 
-    def list_ai_data_platform_git_branches(self, ai_data_platform_id, workspace_key, git_repository_key, **kwargs):
+    def list_git_branches(self, ai_data_platform_id, workspace_key, git_repository_key, **kwargs):
         """
         (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
 
@@ -812,7 +812,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_git_branches got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_git_branches got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -879,7 +879,7 @@ class GitClient(object):
                 header_params=header_params,
                 response_type="GitBranchCollection")
 
-    def list_ai_data_platform_git_diffs(self, ai_data_platform_id, workspace_key, git_repository_key, git_folder_path, branch_name, **kwargs):
+    def list_git_diffs(self, ai_data_platform_id, workspace_key, git_repository_key, git_folder_path, branch_name, **kwargs):
         """
         (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
 
@@ -974,7 +974,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_git_diffs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_git_diffs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1058,7 +1058,7 @@ class GitClient(object):
                 header_params=header_params,
                 response_type="GitDiffSummaryCollection")
 
-    def merge_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_merge_details, **kwargs):
+    def merge_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_merge_details, **kwargs):
         """
         (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
 
@@ -1124,7 +1124,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "merge_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "merge_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1170,7 +1170,7 @@ class GitClient(object):
                 header_params=header_params,
                 body=git_merge_details)
 
-    def pull_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_pull_details, **kwargs):
+    def pull_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_pull_details, **kwargs):
         """
         (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
 
@@ -1236,7 +1236,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "pull_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "pull_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1282,7 +1282,7 @@ class GitClient(object):
                 header_params=header_params,
                 body=git_pull_details)
 
-    def rebase_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_rebase_details, **kwargs):
+    def rebase_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_rebase_details, **kwargs):
         """
         (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
 
@@ -1348,7 +1348,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "rebase_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "rebase_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1394,7 +1394,7 @@ class GitClient(object):
                 header_params=header_params,
                 body=git_rebase_details)
 
-    def reset_ai_data_platform_git_folder_state(self, ai_data_platform_id, workspace_key, git_repository_key, reset_git_folder_state_details, **kwargs):
+    def reset_git_folder_state(self, ai_data_platform_id, workspace_key, git_repository_key, reset_git_folder_state_details, **kwargs):
         """
         (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
 
@@ -1456,7 +1456,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "reset_ai_data_platform_git_folder_state got unknown kwargs: {!r}".format(extra_kwargs))
+                "reset_git_folder_state got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1501,7 +1501,7 @@ class GitClient(object):
                 header_params=header_params,
                 body=reset_git_folder_state_details)
 
-    def reset_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_reset_details, **kwargs):
+    def reset_git_repository(self, ai_data_platform_id, workspace_key, git_repository_key, git_reset_details, **kwargs):
         """
         (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
 
@@ -1567,7 +1567,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "reset_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "reset_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1613,7 +1613,7 @@ class GitClient(object):
                 header_params=header_params,
                 body=git_reset_details)
 
-    def resolve_ai_data_platform_git_conflicts(self, ai_data_platform_id, workspace_key, git_repository_key, conflict_resolve_details, **kwargs):
+    def resolve_git_conflicts(self, ai_data_platform_id, workspace_key, git_repository_key, conflict_resolve_details, **kwargs):
         """
         (Preview) Accepts conflict resolution instructions\u2014choose source or target versions\u2014and records the resolution back to the repo.
 
@@ -1675,7 +1675,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "resolve_ai_data_platform_git_conflicts got unknown kwargs: {!r}".format(extra_kwargs))
+                "resolve_git_conflicts got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1722,7 +1722,7 @@ class GitClient(object):
                 body=conflict_resolve_details,
                 response_type="GitBranch")
 
-    def update_ai_data_platform_git_repository(self, ai_data_platform_id, workspace_key, update_git_repository_details, git_repository_key, **kwargs):
+    def update_git_repository(self, ai_data_platform_id, workspace_key, update_git_repository_details, git_repository_key, **kwargs):
         """
         (Preview) Updates stored repository details\u2014such as credentials or default branches\u2014so automation stays aligned with your source control.
 
@@ -1776,7 +1776,7 @@ class GitClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_git_repository got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

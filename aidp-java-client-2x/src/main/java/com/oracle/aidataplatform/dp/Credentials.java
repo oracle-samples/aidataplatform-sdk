@@ -66,7 +66,7 @@ public interface Credentials extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformCredentialResponse createAiDataPlatformCredential(CreateAiDataPlatformCredentialRequest request);
+    CreateCredentialResponse createCredential(CreateCredentialRequest request);
     
     /**
      * Deletes a credential object. The operation completes synchronously without a response body.
@@ -76,7 +76,7 @@ public interface Credentials extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformCredentialResponse deleteAiDataPlatformCredential(DeleteAiDataPlatformCredentialRequest request);
+    DeleteCredentialResponse deleteCredential(DeleteCredentialRequest request);
     
     /**
      * Gets detailed information about credential with a given credential key.
@@ -86,7 +86,7 @@ public interface Credentials extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformCredentialResponse getAiDataPlatformCredential(GetAiDataPlatformCredentialRequest request);
+    GetCredentialResponse getCredential(GetCredentialRequest request);
     
     /**
      * Returns a list of credentials.
@@ -96,7 +96,7 @@ public interface Credentials extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformCredentialsResponse listAiDataPlatformCredentials(ListAiDataPlatformCredentialsRequest request);
+    ListCredentialsResponse listCredentials(ListCredentialsRequest request);
     
     /**
      * Updates a credential object. The operation completes synchronously; callers can invoke get to confirm the latest state.
@@ -106,7 +106,13 @@ public interface Credentials extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformCredentialResponse updateAiDataPlatformCredential(UpdateAiDataPlatformCredentialRequest request);
+    UpdateCredentialResponse updateCredential(UpdateCredentialRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    CredentialsWaiters getWaiters();
 }

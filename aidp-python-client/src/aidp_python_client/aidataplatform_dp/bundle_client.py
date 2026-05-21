@@ -85,7 +85,7 @@ class BundleClient(object):
         self.base_client = BaseClient("bundle", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, create_bundle_details, **kwargs):
+    def create_bundle(self, ai_data_platform_id, workspace_key, create_bundle_details, **kwargs):
         """
         (Preview) Creates a new bundle.
 
@@ -214,7 +214,7 @@ class BundleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_bundle got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_bundle got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -257,7 +257,7 @@ class BundleClient(object):
                 header_params=header_params,
                 body=create_bundle_details)
 
-    def deploy_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, deploy_bundle_details, **kwargs):
+    def deploy_bundle(self, ai_data_platform_id, workspace_key, deploy_bundle_details, **kwargs):
         """
         (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
         Returns an async job key for tracking deployment progress.
@@ -325,7 +325,7 @@ class BundleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "deploy_ai_data_platform_bundle got unknown kwargs: {!r}".format(extra_kwargs))
+                "deploy_bundle got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -368,7 +368,7 @@ class BundleClient(object):
                 header_params=header_params,
                 body=deploy_bundle_details)
 
-    def fetch_ai_data_platform_bundle_deployment_status(self, ai_data_platform_id, workspace_key, fetch_bundle_deployment_status_details, **kwargs):
+    def fetch_bundle_deployment_status(self, ai_data_platform_id, workspace_key, fetch_bundle_deployment_status_details, **kwargs):
         """
         (Preview) Returns a high-level summary of the most recent deployment activity recorded for the
         specified bundle.
@@ -431,7 +431,7 @@ class BundleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "fetch_ai_data_platform_bundle_deployment_status got unknown kwargs: {!r}".format(extra_kwargs))
+                "fetch_bundle_deployment_status got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -473,7 +473,7 @@ class BundleClient(object):
                 body=fetch_bundle_deployment_status_details,
                 response_type="BundleDeploymentStatus")
 
-    def purge_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, purge_bundle_details, **kwargs):
+    def purge_bundle(self, ai_data_platform_id, workspace_key, purge_bundle_details, **kwargs):
         """
         (Preview) Tears down all resources deployed by the specified bundle in the workspace.
 
@@ -539,7 +539,7 @@ class BundleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "purge_ai_data_platform_bundle got unknown kwargs: {!r}".format(extra_kwargs))
+                "purge_bundle got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -582,7 +582,7 @@ class BundleClient(object):
                 header_params=header_params,
                 body=purge_bundle_details)
 
-    def sync_ai_data_platform_bundle(self, ai_data_platform_id, workspace_key, sync_bundle_details, **kwargs):
+    def sync_bundle(self, ai_data_platform_id, workspace_key, sync_bundle_details, **kwargs):
         """
         (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
         Returns an async job key for tracking sync progress.
@@ -667,7 +667,7 @@ class BundleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "sync_ai_data_platform_bundle got unknown kwargs: {!r}".format(extra_kwargs))
+                "sync_bundle got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

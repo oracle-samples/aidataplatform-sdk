@@ -369,20 +369,20 @@ public class AsyncOperationsAsyncClient implements AsyncOperationsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformAsyncOperationResponse> getAiDataPlatformAsyncOperation(GetAiDataPlatformAsyncOperationRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformAsyncOperationRequest, GetAiDataPlatformAsyncOperationResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformAsyncOperation");
-        final GetAiDataPlatformAsyncOperationRequest interceptedRequest = GetAiDataPlatformAsyncOperationConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformAsyncOperationConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "GetAiDataPlatformAsyncOperation", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformAsyncOperationResponse> transformer = GetAiDataPlatformAsyncOperationConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetAsyncOperationResponse> getAsyncOperation(GetAsyncOperationRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAsyncOperationRequest, GetAsyncOperationResponse> handler) {
+        LOG.trace("Called async getAsyncOperation");
+        final GetAsyncOperationRequest interceptedRequest = GetAsyncOperationConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAsyncOperationConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "GetAsyncOperation", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetAsyncOperationResponse> transformer = GetAsyncOperationConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformAsyncOperationRequest, GetAiDataPlatformAsyncOperationResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetAsyncOperationRequest, GetAsyncOperationResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformAsyncOperationRequest, GetAiDataPlatformAsyncOperationResponse>, java.util.concurrent.Future<GetAiDataPlatformAsyncOperationResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAsyncOperationRequest, GetAsyncOperationResponse>, java.util.concurrent.Future<GetAsyncOperationResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformAsyncOperationRequest, GetAiDataPlatformAsyncOperationResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAsyncOperationRequest, GetAsyncOperationResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -397,20 +397,20 @@ public class AsyncOperationsAsyncClient implements AsyncOperationsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformAsyncOperationsResponse> listAiDataPlatformAsyncOperations(ListAiDataPlatformAsyncOperationsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformAsyncOperationsRequest, ListAiDataPlatformAsyncOperationsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformAsyncOperations");
-        final ListAiDataPlatformAsyncOperationsRequest interceptedRequest = ListAiDataPlatformAsyncOperationsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformAsyncOperationsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "ListAiDataPlatformAsyncOperations", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformAsyncOperationsResponse> transformer = ListAiDataPlatformAsyncOperationsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListAsyncOperationsResponse> listAsyncOperations(ListAsyncOperationsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAsyncOperationsRequest, ListAsyncOperationsResponse> handler) {
+        LOG.trace("Called async listAsyncOperations");
+        final ListAsyncOperationsRequest interceptedRequest = ListAsyncOperationsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAsyncOperationsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("AsyncOperations", "ListAsyncOperations", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListAsyncOperationsResponse> transformer = ListAsyncOperationsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformAsyncOperationsRequest, ListAiDataPlatformAsyncOperationsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListAsyncOperationsRequest, ListAsyncOperationsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformAsyncOperationsRequest, ListAiDataPlatformAsyncOperationsResponse>, java.util.concurrent.Future<ListAiDataPlatformAsyncOperationsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAsyncOperationsRequest, ListAsyncOperationsResponse>, java.util.concurrent.Future<ListAsyncOperationsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformAsyncOperationsRequest, ListAiDataPlatformAsyncOperationsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAsyncOperationsRequest, ListAsyncOperationsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

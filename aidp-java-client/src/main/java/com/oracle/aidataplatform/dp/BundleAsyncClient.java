@@ -83,7 +83,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformBundleResponse> createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse> handler) {
+    public java.util.concurrent.Future<CreateBundleResponse> createBundle(CreateBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateBundleRequest, CreateBundleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -92,11 +92,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CreateAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "createAiDataPlatformBundle")
-        .serviceDetails("Bundle", "CreateAiDataPlatformBundle", "")
+return clientCall(request, CreateBundleResponse::builder)
+        .logger(LOG, "createBundle")
+        .serviceDetails("Bundle", "CreateBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformBundleRequest::builder)
+        .requestBuilder(CreateBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -109,15 +109,15 @@ return clientCall(request, CreateAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformBundleResponse.Builder::opcRequestId)
+            CreateBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            CreateBundleResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeployAiDataPlatformBundleResponse> deployAiDataPlatformBundle(DeployAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeployAiDataPlatformBundleRequest, DeployAiDataPlatformBundleResponse> handler) {
+    public java.util.concurrent.Future<DeployBundleResponse> deployBundle(DeployBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeployBundleRequest, DeployBundleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -126,11 +126,11 @@ return clientCall(request, CreateAiDataPlatformBundleResponse::builder)
         
 
 
-return clientCall(request, DeployAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "deployAiDataPlatformBundle")
-        .serviceDetails("Bundle", "DeployAiDataPlatformBundle", "")
+return clientCall(request, DeployBundleResponse::builder)
+        .logger(LOG, "deployBundle")
+        .serviceDetails("Bundle", "DeployBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeployAiDataPlatformBundleRequest::builder)
+        .requestBuilder(DeployBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -143,15 +143,15 @@ return clientCall(request, DeployAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            DeployAiDataPlatformBundleResponse.Builder::opcRequestId)
+            DeployBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeployAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            DeployBundleResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<FetchAiDataPlatformBundleDeploymentStatusResponse> fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse> handler) {
+    public java.util.concurrent.Future<FetchBundleDeploymentStatusResponse> fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -160,11 +160,11 @@ return clientCall(request, DeployAiDataPlatformBundleResponse::builder)
         
 
 
-return clientCall(request, FetchAiDataPlatformBundleDeploymentStatusResponse::builder)
-        .logger(LOG, "fetchAiDataPlatformBundleDeploymentStatus")
-        .serviceDetails("Bundle", "FetchAiDataPlatformBundleDeploymentStatus", "")
+return clientCall(request, FetchBundleDeploymentStatusResponse::builder)
+        .logger(LOG, "fetchBundleDeploymentStatus")
+        .serviceDetails("Bundle", "FetchBundleDeploymentStatus", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(FetchAiDataPlatformBundleDeploymentStatusRequest::builder)
+        .requestBuilder(FetchBundleDeploymentStatusRequest::builder)
         
         
         .basePath("/20260430")
@@ -174,15 +174,15 @@ return clientCall(request, FetchAiDataPlatformBundleDeploymentStatusResponse::bu
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.BundleDeploymentStatus.class, FetchAiDataPlatformBundleDeploymentStatusResponse.Builder::bundleDeploymentStatus)
+            .handleBody(com.oracle.aidataplatform.dp.model.BundleDeploymentStatus.class, FetchBundleDeploymentStatusResponse.Builder::bundleDeploymentStatus)
                 .handleResponseHeaderString("opc-request-id", 
-            FetchAiDataPlatformBundleDeploymentStatusResponse.Builder::opcRequestId)
+            FetchBundleDeploymentStatusResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<PurgeAiDataPlatformBundleResponse> purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse> handler) {
+    public java.util.concurrent.Future<PurgeBundleResponse> purgeBundle(PurgeBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<PurgeBundleRequest, PurgeBundleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -191,11 +191,11 @@ return clientCall(request, FetchAiDataPlatformBundleDeploymentStatusResponse::bu
         
 
 
-return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "purgeAiDataPlatformBundle")
-        .serviceDetails("Bundle", "PurgeAiDataPlatformBundle", "")
+return clientCall(request, PurgeBundleResponse::builder)
+        .logger(LOG, "purgeBundle")
+        .serviceDetails("Bundle", "PurgeBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(PurgeAiDataPlatformBundleRequest::builder)
+        .requestBuilder(PurgeBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -208,15 +208,15 @@ return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            PurgeAiDataPlatformBundleResponse.Builder::opcRequestId)
+            PurgeBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            PurgeAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            PurgeBundleResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<SyncAiDataPlatformBundleResponse> syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handler) {
+    public java.util.concurrent.Future<SyncBundleResponse> syncBundle(SyncBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncBundleRequest, SyncBundleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -225,11 +225,11 @@ return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
         
 
 
-return clientCall(request, SyncAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "syncAiDataPlatformBundle")
-        .serviceDetails("Bundle", "SyncAiDataPlatformBundle", "")
+return clientCall(request, SyncBundleResponse::builder)
+        .logger(LOG, "syncBundle")
+        .serviceDetails("Bundle", "SyncBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SyncAiDataPlatformBundleRequest::builder)
+        .requestBuilder(SyncBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -242,9 +242,9 @@ return clientCall(request, SyncAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            SyncAiDataPlatformBundleResponse.Builder::opcRequestId)
+            SyncBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            SyncAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            SyncBundleResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 

@@ -83,7 +83,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<AddAiDataPlatformMemberToRoleResponse> addAiDataPlatformMemberToRole(AddAiDataPlatformMemberToRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<AddAiDataPlatformMemberToRoleRequest, AddAiDataPlatformMemberToRoleResponse> handler) {
+    public java.util.concurrent.Future<AddMemberToRoleResponse> addMemberToRole(AddMemberToRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<AddMemberToRoleRequest, AddMemberToRoleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -92,11 +92,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, AddAiDataPlatformMemberToRoleResponse::builder)
-        .logger(LOG, "addAiDataPlatformMemberToRole")
-        .serviceDetails("Role", "AddAiDataPlatformMemberToRole", "")
+return clientCall(request, AddMemberToRoleResponse::builder)
+        .logger(LOG, "addMemberToRole")
+        .serviceDetails("Role", "AddMemberToRole", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(AddAiDataPlatformMemberToRoleRequest::builder)
+        .requestBuilder(AddMemberToRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -111,24 +111,24 @@ return clientCall(request, AddAiDataPlatformMemberToRoleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            AddAiDataPlatformMemberToRoleResponse.Builder::opcRequestId)
+            AddMemberToRoleResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformRoleResponse> createAiDataPlatformRole(CreateAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRoleRequest, CreateAiDataPlatformRoleResponse> handler) {
+    public java.util.concurrent.Future<CreateRoleResponse> createRole(CreateRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateRoleRequest, CreateRoleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateRoleDetails(), "createRoleDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "createAiDataPlatformRole")
-        .serviceDetails("Role", "CreateAiDataPlatformRole", "")
+return clientCall(request, CreateRoleResponse::builder)
+        .logger(LOG, "createRole")
+        .serviceDetails("Role", "CreateRole", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformRoleRequest::builder)
+        .requestBuilder(CreateRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -140,28 +140,28 @@ return clientCall(request, CreateAiDataPlatformRoleResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, CreateAiDataPlatformRoleResponse.Builder::role)
+            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, CreateRoleResponse.Builder::role)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformRoleResponse.Builder::etag)
+            CreateRoleResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformRoleResponse.Builder::opcRequestId)
+            CreateRoleResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformRoleResponse> deleteAiDataPlatformRole(DeleteAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRoleRequest, DeleteAiDataPlatformRoleResponse> handler) {
+    public java.util.concurrent.Future<DeleteRoleResponse> deleteRole(DeleteRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteRoleRequest, DeleteRoleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRoleKey(), "roleKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformRole")
-        .serviceDetails("Role", "DeleteAiDataPlatformRole", "")
+return clientCall(request, DeleteRoleResponse::builder)
+        .logger(LOG, "deleteRole")
+        .serviceDetails("Role", "DeleteRole", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformRoleRequest::builder)
+        .requestBuilder(DeleteRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -174,24 +174,24 @@ return clientCall(request, DeleteAiDataPlatformRoleResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformRoleResponse.Builder::opcRequestId)
+            DeleteRoleResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformRoleResponse> getAiDataPlatformRole(GetAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRoleRequest, GetAiDataPlatformRoleResponse> handler) {
+    public java.util.concurrent.Future<GetRoleResponse> getRole(GetRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<GetRoleRequest, GetRoleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRoleKey(), "roleKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "getAiDataPlatformRole")
-        .serviceDetails("Role", "GetAiDataPlatformRole", "")
+return clientCall(request, GetRoleResponse::builder)
+        .logger(LOG, "getRole")
+        .serviceDetails("Role", "GetRole", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformRoleRequest::builder)
+        .requestBuilder(GetRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -205,28 +205,28 @@ return clientCall(request, GetAiDataPlatformRoleResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, GetAiDataPlatformRoleResponse.Builder::role)
+            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, GetRoleResponse.Builder::role)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformRoleResponse.Builder::etag)
+            GetRoleResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformRoleResponse.Builder::opcRequestId)
+            GetRoleResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformRolePermissionsResponse> listAiDataPlatformRolePermissions(ListAiDataPlatformRolePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolePermissionsRequest, ListAiDataPlatformRolePermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListRolePermissionsResponse> listRolePermissions(ListRolePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRolePermissionsRequest, ListRolePermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRoleKey(), "roleKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRolePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformRolePermissions")
-        .serviceDetails("Role", "ListAiDataPlatformRolePermissions", "")
+return clientCall(request, ListRolePermissionsResponse::builder)
+        .logger(LOG, "listRolePermissions")
+        .serviceDetails("Role", "ListRolePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRolePermissionsRequest::builder)
+        .requestBuilder(ListRolePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -256,26 +256,26 @@ return clientCall(request, ListAiDataPlatformRolePermissionsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RolePermissionCollection.class, ListAiDataPlatformRolePermissionsResponse.Builder::rolePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RolePermissionCollection.class, ListRolePermissionsResponse.Builder::rolePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRolePermissionsResponse.Builder::opcRequestId)
+            ListRolePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRolePermissionsResponse.Builder::opcNextPage)
+            ListRolePermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformRolesResponse> listAiDataPlatformRoles(ListAiDataPlatformRolesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolesRequest, ListAiDataPlatformRolesResponse> handler) {
+    public java.util.concurrent.Future<ListRolesResponse> listRoles(ListRolesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRolesRequest, ListRolesResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRolesResponse::builder)
-        .logger(LOG, "listAiDataPlatformRoles")
-        .serviceDetails("Role", "ListAiDataPlatformRoles", "")
+return clientCall(request, ListRolesResponse::builder)
+        .logger(LOG, "listRoles")
+        .serviceDetails("Role", "ListRoles", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRolesRequest::builder)
+        .requestBuilder(ListRolesRequest::builder)
         
         
         .basePath("/20260430")
@@ -309,17 +309,17 @@ return clientCall(request, ListAiDataPlatformRolesResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RoleCollection.class, ListAiDataPlatformRolesResponse.Builder::roleCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RoleCollection.class, ListRolesResponse.Builder::roleCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRolesResponse.Builder::opcRequestId)
+            ListRolesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRolesResponse.Builder::opcNextPage)
+            ListRolesResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RemoveAiDataPlatformMemberFromRoleResponse> removeAiDataPlatformMemberFromRole(RemoveAiDataPlatformMemberFromRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<RemoveAiDataPlatformMemberFromRoleRequest, RemoveAiDataPlatformMemberFromRoleResponse> handler) {
+    public java.util.concurrent.Future<RemoveMemberFromRoleResponse> removeMemberFromRole(RemoveMemberFromRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<RemoveMemberFromRoleRequest, RemoveMemberFromRoleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -328,11 +328,11 @@ return clientCall(request, ListAiDataPlatformRolesResponse::builder)
         
 
 
-return clientCall(request, RemoveAiDataPlatformMemberFromRoleResponse::builder)
-        .logger(LOG, "removeAiDataPlatformMemberFromRole")
-        .serviceDetails("Role", "RemoveAiDataPlatformMemberFromRole", "")
+return clientCall(request, RemoveMemberFromRoleResponse::builder)
+        .logger(LOG, "removeMemberFromRole")
+        .serviceDetails("Role", "RemoveMemberFromRole", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RemoveAiDataPlatformMemberFromRoleRequest::builder)
+        .requestBuilder(RemoveMemberFromRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -347,13 +347,13 @@ return clientCall(request, RemoveAiDataPlatformMemberFromRoleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            RemoveAiDataPlatformMemberFromRoleResponse.Builder::opcRequestId)
+            RemoveMemberFromRoleResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformRoleResponse> updateAiDataPlatformRole(UpdateAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRoleRequest, UpdateAiDataPlatformRoleResponse> handler) {
+    public java.util.concurrent.Future<UpdateRoleResponse> updateRole(UpdateRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateRoleRequest, UpdateRoleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -362,11 +362,11 @@ return clientCall(request, RemoveAiDataPlatformMemberFromRoleResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "updateAiDataPlatformRole")
-        .serviceDetails("Role", "UpdateAiDataPlatformRole", "")
+return clientCall(request, UpdateRoleResponse::builder)
+        .logger(LOG, "updateRole")
+        .serviceDetails("Role", "UpdateRole", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformRoleRequest::builder)
+        .requestBuilder(UpdateRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -378,11 +378,11 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, UpdateAiDataPlatformRoleResponse.Builder::role)
+            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, UpdateRoleResponse.Builder::role)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformRoleResponse.Builder::etag)
+            UpdateRoleResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformRoleResponse.Builder::opcRequestId)
+            UpdateRoleResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

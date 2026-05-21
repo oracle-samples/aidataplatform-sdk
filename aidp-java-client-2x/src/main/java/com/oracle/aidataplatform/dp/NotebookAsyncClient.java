@@ -369,21 +369,21 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformContentResponse> createAiDataPlatformContent(CreateAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformContentRequest, CreateAiDataPlatformContentResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformContent");
-        final CreateAiDataPlatformContentRequest interceptedRequest = CreateAiDataPlatformContentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateContentResponse> createContent(CreateContentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateContentRequest, CreateContentResponse> handler) {
+        LOG.trace("Called async createContent");
+        final CreateContentRequest interceptedRequest = CreateContentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateContentConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateAiDataPlatformContent", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformContentResponse> transformer = CreateAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateContent", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateContentResponse> transformer = CreateContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformContentRequest, CreateAiDataPlatformContentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateContentRequest, CreateContentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformContentRequest, CreateAiDataPlatformContentResponse>, java.util.concurrent.Future<CreateAiDataPlatformContentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateContentRequest, CreateContentResponse>, java.util.concurrent.Future<CreateContentResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateContentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformContentRequest, CreateAiDataPlatformContentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateContentRequest, CreateContentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformSessionResponse> createAiDataPlatformSession(CreateAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSessionRequest, CreateAiDataPlatformSessionResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformSession");
-        final CreateAiDataPlatformSessionRequest interceptedRequest = CreateAiDataPlatformSessionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateSessionResponse> createSession(CreateSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateSessionRequest, CreateSessionResponse> handler) {
+        LOG.trace("Called async createSession");
+        final CreateSessionRequest interceptedRequest = CreateSessionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateSessionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateAiDataPlatformSession", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformSessionResponse> transformer = CreateAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateSession", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateSessionResponse> transformer = CreateSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSessionRequest, CreateAiDataPlatformSessionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateSessionRequest, CreateSessionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSessionRequest, CreateAiDataPlatformSessionResponse>, java.util.concurrent.Future<CreateAiDataPlatformSessionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateSessionRequest, CreateSessionResponse>, java.util.concurrent.Future<CreateSessionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateSessionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformSessionRequest, CreateAiDataPlatformSessionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateSessionRequest, CreateSessionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,20 +427,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformContentResponse> deleteAiDataPlatformContent(DeleteAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformContentRequest, DeleteAiDataPlatformContentResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformContent");
-        final DeleteAiDataPlatformContentRequest interceptedRequest = DeleteAiDataPlatformContentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteAiDataPlatformContent", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformContentResponse> transformer = DeleteAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteContentResponse> deleteContent(DeleteContentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteContentRequest, DeleteContentResponse> handler) {
+        LOG.trace("Called async deleteContent");
+        final DeleteContentRequest interceptedRequest = DeleteContentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteContentConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteContent", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteContentResponse> transformer = DeleteContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformContentRequest, DeleteAiDataPlatformContentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteContentRequest, DeleteContentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformContentRequest, DeleteAiDataPlatformContentResponse>, java.util.concurrent.Future<DeleteAiDataPlatformContentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteContentRequest, DeleteContentResponse>, java.util.concurrent.Future<DeleteContentResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformContentRequest, DeleteAiDataPlatformContentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteContentRequest, DeleteContentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -455,20 +455,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformSessionResponse> deleteAiDataPlatformSession(DeleteAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSessionRequest, DeleteAiDataPlatformSessionResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformSession");
-        final DeleteAiDataPlatformSessionRequest interceptedRequest = DeleteAiDataPlatformSessionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteAiDataPlatformSession", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformSessionResponse> transformer = DeleteAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteSessionResponse> deleteSession(DeleteSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteSessionRequest, DeleteSessionResponse> handler) {
+        LOG.trace("Called async deleteSession");
+        final DeleteSessionRequest interceptedRequest = DeleteSessionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteSessionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteSession", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteSessionResponse> transformer = DeleteSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSessionRequest, DeleteAiDataPlatformSessionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteSessionRequest, DeleteSessionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSessionRequest, DeleteAiDataPlatformSessionResponse>, java.util.concurrent.Future<DeleteAiDataPlatformSessionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteSessionRequest, DeleteSessionResponse>, java.util.concurrent.Future<DeleteSessionResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformSessionRequest, DeleteAiDataPlatformSessionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteSessionRequest, DeleteSessionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -483,20 +483,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ExportAiDataPlatformContentsResponse> exportAiDataPlatformContents(ExportAiDataPlatformContentsRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformContentsRequest, ExportAiDataPlatformContentsResponse> handler) {
-        LOG.trace("Called async exportAiDataPlatformContents");
-        final ExportAiDataPlatformContentsRequest interceptedRequest = ExportAiDataPlatformContentsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportAiDataPlatformContentsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ExportAiDataPlatformContents", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ExportAiDataPlatformContentsResponse> transformer = ExportAiDataPlatformContentsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ExportContentsResponse> exportContents(ExportContentsRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportContentsRequest, ExportContentsResponse> handler) {
+        LOG.trace("Called async exportContents");
+        final ExportContentsRequest interceptedRequest = ExportContentsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportContentsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ExportContents", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ExportContentsResponse> transformer = ExportContentsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformContentsRequest, ExportAiDataPlatformContentsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ExportContentsRequest, ExportContentsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformContentsRequest, ExportAiDataPlatformContentsResponse>, java.util.concurrent.Future<ExportAiDataPlatformContentsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ExportContentsRequest, ExportContentsResponse>, java.util.concurrent.Future<ExportContentsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getExportContentsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ExportAiDataPlatformContentsRequest, ExportAiDataPlatformContentsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ExportContentsRequest, ExportContentsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -511,20 +511,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformContentResponse> getAiDataPlatformContent(GetAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformContentRequest, GetAiDataPlatformContentResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformContent");
-        final GetAiDataPlatformContentRequest interceptedRequest = GetAiDataPlatformContentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetAiDataPlatformContent", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformContentResponse> transformer = GetAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetContentResponse> getContent(GetContentRequest request, final com.oracle.bmc.responses.AsyncHandler<GetContentRequest, GetContentResponse> handler) {
+        LOG.trace("Called async getContent");
+        final GetContentRequest interceptedRequest = GetContentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetContentConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetContent", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetContentResponse> transformer = GetContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformContentRequest, GetAiDataPlatformContentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetContentRequest, GetContentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformContentRequest, GetAiDataPlatformContentResponse>, java.util.concurrent.Future<GetAiDataPlatformContentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetContentRequest, GetContentResponse>, java.util.concurrent.Future<GetContentResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformContentRequest, GetAiDataPlatformContentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetContentRequest, GetContentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -539,20 +539,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformSessionResponse> getAiDataPlatformSession(GetAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSessionRequest, GetAiDataPlatformSessionResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformSession");
-        final GetAiDataPlatformSessionRequest interceptedRequest = GetAiDataPlatformSessionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetAiDataPlatformSession", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformSessionResponse> transformer = GetAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetSessionResponse> getSession(GetSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetSessionRequest, GetSessionResponse> handler) {
+        LOG.trace("Called async getSession");
+        final GetSessionRequest interceptedRequest = GetSessionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetSessionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetSession", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetSessionResponse> transformer = GetSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSessionRequest, GetAiDataPlatformSessionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetSessionRequest, GetSessionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSessionRequest, GetAiDataPlatformSessionResponse>, java.util.concurrent.Future<GetAiDataPlatformSessionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetSessionRequest, GetSessionResponse>, java.util.concurrent.Future<GetSessionResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformSessionRequest, GetAiDataPlatformSessionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetSessionRequest, GetSessionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -567,20 +567,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformSessionsResponse> listAiDataPlatformSessions(ListAiDataPlatformSessionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSessionsRequest, ListAiDataPlatformSessionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformSessions");
-        final ListAiDataPlatformSessionsRequest interceptedRequest = ListAiDataPlatformSessionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSessionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ListAiDataPlatformSessions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSessionsResponse> transformer = ListAiDataPlatformSessionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListSessionsResponse> listSessions(ListSessionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSessionsRequest, ListSessionsResponse> handler) {
+        LOG.trace("Called async listSessions");
+        final ListSessionsRequest interceptedRequest = ListSessionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSessionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ListSessions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListSessionsResponse> transformer = ListSessionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSessionsRequest, ListAiDataPlatformSessionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListSessionsRequest, ListSessionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSessionsRequest, ListAiDataPlatformSessionsResponse>, java.util.concurrent.Future<ListAiDataPlatformSessionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListSessionsRequest, ListSessionsResponse>, java.util.concurrent.Future<ListSessionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformSessionsRequest, ListAiDataPlatformSessionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListSessionsRequest, ListSessionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -595,20 +595,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ModifyAiDataPlatformContentResponse> modifyAiDataPlatformContent(ModifyAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<ModifyAiDataPlatformContentRequest, ModifyAiDataPlatformContentResponse> handler) {
-        LOG.trace("Called async modifyAiDataPlatformContent");
-        final ModifyAiDataPlatformContentRequest interceptedRequest = ModifyAiDataPlatformContentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ModifyAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ModifyAiDataPlatformContent", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ModifyAiDataPlatformContentResponse> transformer = ModifyAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ModifyContentResponse> modifyContent(ModifyContentRequest request, final com.oracle.bmc.responses.AsyncHandler<ModifyContentRequest, ModifyContentResponse> handler) {
+        LOG.trace("Called async modifyContent");
+        final ModifyContentRequest interceptedRequest = ModifyContentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ModifyContentConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ModifyContent", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ModifyContentResponse> transformer = ModifyContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ModifyAiDataPlatformContentRequest, ModifyAiDataPlatformContentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ModifyContentRequest, ModifyContentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ModifyAiDataPlatformContentRequest, ModifyAiDataPlatformContentResponse>, java.util.concurrent.Future<ModifyAiDataPlatformContentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ModifyContentRequest, ModifyContentResponse>, java.util.concurrent.Future<ModifyContentResponse>> futureSupplier =
         client.patchFutureSupplier(interceptedRequest, interceptedRequest.getModifyContentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ModifyAiDataPlatformContentRequest, ModifyAiDataPlatformContentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ModifyContentRequest, ModifyContentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -623,20 +623,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<PatchAiDataPlatformSessionResponse> patchAiDataPlatformSession(PatchAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<PatchAiDataPlatformSessionRequest, PatchAiDataPlatformSessionResponse> handler) {
-        LOG.trace("Called async patchAiDataPlatformSession");
-        final PatchAiDataPlatformSessionRequest interceptedRequest = PatchAiDataPlatformSessionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PatchAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "PatchAiDataPlatformSession", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, PatchAiDataPlatformSessionResponse> transformer = PatchAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<PatchSessionResponse> patchSession(PatchSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<PatchSessionRequest, PatchSessionResponse> handler) {
+        LOG.trace("Called async patchSession");
+        final PatchSessionRequest interceptedRequest = PatchSessionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PatchSessionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "PatchSession", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, PatchSessionResponse> transformer = PatchSessionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<PatchAiDataPlatformSessionRequest, PatchAiDataPlatformSessionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<PatchSessionRequest, PatchSessionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PatchAiDataPlatformSessionRequest, PatchAiDataPlatformSessionResponse>, java.util.concurrent.Future<PatchAiDataPlatformSessionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PatchSessionRequest, PatchSessionResponse>, java.util.concurrent.Future<PatchSessionResponse>> futureSupplier =
         client.patchFutureSupplier(interceptedRequest, interceptedRequest.getPatchSessionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PatchAiDataPlatformSessionRequest, PatchAiDataPlatformSessionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PatchSessionRequest, PatchSessionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -651,20 +651,20 @@ public class NotebookAsyncClient implements NotebookAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformContentResponse> updateAiDataPlatformContent(UpdateAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformContentRequest, UpdateAiDataPlatformContentResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformContent");
-        final UpdateAiDataPlatformContentRequest interceptedRequest = UpdateAiDataPlatformContentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "UpdateAiDataPlatformContent", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformContentResponse> transformer = UpdateAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateContentResponse> updateContent(UpdateContentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateContentRequest, UpdateContentResponse> handler) {
+        LOG.trace("Called async updateContent");
+        final UpdateContentRequest interceptedRequest = UpdateContentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateContentConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "UpdateContent", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateContentResponse> transformer = UpdateContentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformContentRequest, UpdateAiDataPlatformContentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateContentRequest, UpdateContentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformContentRequest, UpdateAiDataPlatformContentResponse>, java.util.concurrent.Future<UpdateAiDataPlatformContentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateContentRequest, UpdateContentResponse>, java.util.concurrent.Future<UpdateContentResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateContentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformContentRequest, UpdateAiDataPlatformContentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateContentRequest, UpdateContentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

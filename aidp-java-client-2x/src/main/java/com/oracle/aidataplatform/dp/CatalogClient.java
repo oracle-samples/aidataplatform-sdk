@@ -23,6 +23,7 @@ public class CatalogClient implements Catalog {
         return client;
     }
 
+    private final CatalogWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class CatalogClient implements Catalog {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public CatalogClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class CatalogClient implements Catalog {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public CatalogClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class CatalogClient implements Catalog {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class CatalogClient implements Catalog {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected CatalogClient(
@@ -196,6 +224,7 @@ public class CatalogClient implements Catalog {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class CatalogClient implements Catalog {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Catalog-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new CatalogWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -256,9 +293,21 @@ public class CatalogClient implements Catalog {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, CatalogClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -277,6 +326,7 @@ public class CatalogClient implements Catalog {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -372,16 +422,16 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public CatalogAiDataPlatformTestConnectionResponse catalogAiDataPlatformTestConnection(CatalogAiDataPlatformTestConnectionRequest request) {
-        LOG.trace("Called catalogAiDataPlatformTestConnection");
-            final CatalogAiDataPlatformTestConnectionRequest interceptedRequest = CatalogAiDataPlatformTestConnectionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CatalogAiDataPlatformTestConnectionConverter.fromRequest(client, interceptedRequest);
+    public CatalogTestConnectionResponse catalogTestConnection(CatalogTestConnectionRequest request) {
+        LOG.trace("Called catalogTestConnection");
+            final CatalogTestConnectionRequest interceptedRequest = CatalogTestConnectionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CatalogTestConnectionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CatalogAiDataPlatformTestConnection", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CatalogAiDataPlatformTestConnectionResponse> transformer = CatalogAiDataPlatformTestConnectionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CatalogTestConnection", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CatalogTestConnectionResponse> transformer = CatalogTestConnectionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +447,16 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public CreateAiDataPlatformCatalogResponse createAiDataPlatformCatalog(CreateAiDataPlatformCatalogRequest request) {
-        LOG.trace("Called createAiDataPlatformCatalog");
-            final CreateAiDataPlatformCatalogRequest interceptedRequest = CreateAiDataPlatformCatalogConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public CreateCatalogResponse createCatalog(CreateCatalogRequest request) {
+        LOG.trace("Called createCatalog");
+            final CreateCatalogRequest interceptedRequest = CreateCatalogConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateCatalogConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CreateAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformCatalogResponse> transformer = CreateAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CreateCatalog", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateCatalogResponse> transformer = CreateCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,15 +472,15 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public DeleteAiDataPlatformCatalogResponse deleteAiDataPlatformCatalog(DeleteAiDataPlatformCatalogRequest request) {
-        LOG.trace("Called deleteAiDataPlatformCatalog");
-            final DeleteAiDataPlatformCatalogRequest interceptedRequest = DeleteAiDataPlatformCatalogConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public DeleteCatalogResponse deleteCatalog(DeleteCatalogRequest request) {
+        LOG.trace("Called deleteCatalog");
+            final DeleteCatalogRequest interceptedRequest = DeleteCatalogConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteCatalogConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "DeleteAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformCatalogResponse> transformer = DeleteAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "DeleteCatalog", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteCatalogResponse> transformer = DeleteCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -446,15 +496,15 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public GetAiDataPlatformCatalogResponse getAiDataPlatformCatalog(GetAiDataPlatformCatalogRequest request) {
-        LOG.trace("Called getAiDataPlatformCatalog");
-            final GetAiDataPlatformCatalogRequest interceptedRequest = GetAiDataPlatformCatalogConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public GetCatalogResponse getCatalog(GetCatalogRequest request) {
+        LOG.trace("Called getCatalog");
+            final GetCatalogRequest interceptedRequest = GetCatalogConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetCatalogConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "GetAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformCatalogResponse> transformer = GetAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "GetCatalog", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetCatalogResponse> transformer = GetCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -470,15 +520,15 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public ListAiDataPlatformCatalogPermissionsResponse listAiDataPlatformCatalogPermissions(ListAiDataPlatformCatalogPermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformCatalogPermissions");
-            final ListAiDataPlatformCatalogPermissionsRequest interceptedRequest = ListAiDataPlatformCatalogPermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCatalogPermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListCatalogPermissionsResponse listCatalogPermissions(ListCatalogPermissionsRequest request) {
+        LOG.trace("Called listCatalogPermissions");
+            final ListCatalogPermissionsRequest interceptedRequest = ListCatalogPermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCatalogPermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListAiDataPlatformCatalogPermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCatalogPermissionsResponse> transformer = ListAiDataPlatformCatalogPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListCatalogPermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListCatalogPermissionsResponse> transformer = ListCatalogPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -494,15 +544,15 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public ListAiDataPlatformCatalogsResponse listAiDataPlatformCatalogs(ListAiDataPlatformCatalogsRequest request) {
-        LOG.trace("Called listAiDataPlatformCatalogs");
-            final ListAiDataPlatformCatalogsRequest interceptedRequest = ListAiDataPlatformCatalogsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCatalogsConverter.fromRequest(client, interceptedRequest);
+    public ListCatalogsResponse listCatalogs(ListCatalogsRequest request) {
+        LOG.trace("Called listCatalogs");
+            final ListCatalogsRequest interceptedRequest = ListCatalogsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCatalogsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListAiDataPlatformCatalogs", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCatalogsResponse> transformer = ListAiDataPlatformCatalogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListCatalogs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListCatalogsResponse> transformer = ListCatalogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -518,15 +568,15 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public ManageAiDataPlatformCatalogPermissionResponse manageAiDataPlatformCatalogPermission(ManageAiDataPlatformCatalogPermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformCatalogPermission");
-            final ManageAiDataPlatformCatalogPermissionRequest interceptedRequest = ManageAiDataPlatformCatalogPermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformCatalogPermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageCatalogPermissionResponse manageCatalogPermission(ManageCatalogPermissionRequest request) {
+        LOG.trace("Called manageCatalogPermission");
+            final ManageCatalogPermissionRequest interceptedRequest = ManageCatalogPermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageCatalogPermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ManageAiDataPlatformCatalogPermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformCatalogPermissionResponse> transformer = ManageAiDataPlatformCatalogPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ManageCatalogPermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageCatalogPermissionResponse> transformer = ManageCatalogPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -542,16 +592,16 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public RefreshAiDataPlatformCatalogResponse refreshAiDataPlatformCatalog(RefreshAiDataPlatformCatalogRequest request) {
-        LOG.trace("Called refreshAiDataPlatformCatalog");
-            final RefreshAiDataPlatformCatalogRequest interceptedRequest = RefreshAiDataPlatformCatalogConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public RefreshCatalogResponse refreshCatalog(RefreshCatalogRequest request) {
+        LOG.trace("Called refreshCatalog");
+            final RefreshCatalogRequest interceptedRequest = RefreshCatalogConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshCatalogConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "RefreshAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RefreshAiDataPlatformCatalogResponse> transformer = RefreshAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "RefreshCatalog", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RefreshCatalogResponse> transformer = RefreshCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -567,15 +617,15 @@ public class CatalogClient implements Catalog {
     }
 
     @Override
-    public UpdateAiDataPlatformCatalogResponse updateAiDataPlatformCatalog(UpdateAiDataPlatformCatalogRequest request) {
-        LOG.trace("Called updateAiDataPlatformCatalog");
-            final UpdateAiDataPlatformCatalogRequest interceptedRequest = UpdateAiDataPlatformCatalogConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public UpdateCatalogResponse updateCatalog(UpdateCatalogRequest request) {
+        LOG.trace("Called updateCatalog");
+            final UpdateCatalogRequest interceptedRequest = UpdateCatalogConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateCatalogConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "UpdateAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformCatalogResponse> transformer = UpdateAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "UpdateCatalog", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateCatalogResponse> transformer = UpdateCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -588,6 +638,11 @@ public class CatalogClient implements Catalog {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public CatalogWaiters getWaiters() {
+        return waiters;
     }
 
 

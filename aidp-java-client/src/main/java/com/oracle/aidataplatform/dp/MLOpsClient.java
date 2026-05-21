@@ -78,7 +78,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CreateAiDataPlatformExperimentResponse createAiDataPlatformExperiment(CreateAiDataPlatformExperimentRequest request) {
+    public CreateExperimentResponse createExperiment(CreateExperimentRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -87,11 +87,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CreateAiDataPlatformExperimentResponse::builder)
-        .logger(LOG, "createAiDataPlatformExperiment")
-        .serviceDetails("MLOps", "CreateAiDataPlatformExperiment", "")
+return clientCall(request, CreateExperimentResponse::builder)
+        .logger(LOG, "createExperiment")
+        .serviceDetails("MLOps", "CreateExperiment", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformExperimentRequest::builder)
+        .requestBuilder(CreateExperimentRequest::builder)
         
         
         .basePath("/20260430")
@@ -106,18 +106,18 @@ return clientCall(request, CreateAiDataPlatformExperimentResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateExperimentResponseDetails.class, CreateAiDataPlatformExperimentResponse.Builder::createExperimentResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateExperimentResponseDetails.class, CreateExperimentResponse.Builder::createExperimentResponseDetails)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformExperimentResponse.Builder::etag)
+            CreateExperimentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformExperimentResponse.Builder::opcRequestId)
+            CreateExperimentResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformExperimentRunResponse createAiDataPlatformExperimentRun(CreateAiDataPlatformExperimentRunRequest request) {
+    public CreateExperimentRunResponse createExperimentRun(CreateExperimentRunRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -126,11 +126,11 @@ return clientCall(request, CreateAiDataPlatformExperimentResponse::builder)
         
 
 
-return clientCall(request, CreateAiDataPlatformExperimentRunResponse::builder)
-        .logger(LOG, "createAiDataPlatformExperimentRun")
-        .serviceDetails("MLOps", "CreateAiDataPlatformExperimentRun", "")
+return clientCall(request, CreateExperimentRunResponse::builder)
+        .logger(LOG, "createExperimentRun")
+        .serviceDetails("MLOps", "CreateExperimentRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformExperimentRunRequest::builder)
+        .requestBuilder(CreateExperimentRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -145,29 +145,29 @@ return clientCall(request, CreateAiDataPlatformExperimentRunResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateExperimentRunResponseDetails.class, CreateAiDataPlatformExperimentRunResponse.Builder::createExperimentRunResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateExperimentRunResponseDetails.class, CreateExperimentRunResponse.Builder::createExperimentRunResponseDetails)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformExperimentRunResponse.Builder::etag)
+            CreateExperimentRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformExperimentRunResponse.Builder::opcRequestId)
+            CreateExperimentRunResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformModelVersionResponse createAiDataPlatformModelVersion(CreateAiDataPlatformModelVersionRequest request) {
+    public CreateModelVersionResponse createModelVersion(CreateModelVersionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateModelVersionDetails(), "createModelVersionDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformModelVersionResponse::builder)
-        .logger(LOG, "createAiDataPlatformModelVersion")
-        .serviceDetails("MLOps", "CreateAiDataPlatformModelVersion", "")
+return clientCall(request, CreateModelVersionResponse::builder)
+        .logger(LOG, "createModelVersion")
+        .serviceDetails("MLOps", "CreateModelVersion", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformModelVersionRequest::builder)
+        .requestBuilder(CreateModelVersionRequest::builder)
         
         
         .basePath("/20260430")
@@ -182,29 +182,29 @@ return clientCall(request, CreateAiDataPlatformModelVersionResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateModelVersionResponseDetails.class, CreateAiDataPlatformModelVersionResponse.Builder::createModelVersionResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateModelVersionResponseDetails.class, CreateModelVersionResponse.Builder::createModelVersionResponseDetails)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformModelVersionResponse.Builder::etag)
+            CreateModelVersionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformModelVersionResponse.Builder::opcRequestId)
+            CreateModelVersionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformRegisteredModelResponse createAiDataPlatformRegisteredModel(CreateAiDataPlatformRegisteredModelRequest request) {
+    public CreateRegisteredModelResponse createRegisteredModel(CreateRegisteredModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateRegisteredModelDetails(), "createRegisteredModelDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformRegisteredModelResponse::builder)
-        .logger(LOG, "createAiDataPlatformRegisteredModel")
-        .serviceDetails("MLOps", "CreateAiDataPlatformRegisteredModel", "")
+return clientCall(request, CreateRegisteredModelResponse::builder)
+        .logger(LOG, "createRegisteredModel")
+        .serviceDetails("MLOps", "CreateRegisteredModel", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformRegisteredModelRequest::builder)
+        .requestBuilder(CreateRegisteredModelRequest::builder)
         
         
         .basePath("/20260430")
@@ -219,18 +219,18 @@ return clientCall(request, CreateAiDataPlatformRegisteredModelResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateRegisteredModelResponseDetails.class, CreateAiDataPlatformRegisteredModelResponse.Builder::createRegisteredModelResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateRegisteredModelResponseDetails.class, CreateRegisteredModelResponse.Builder::createRegisteredModelResponseDetails)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformRegisteredModelResponse.Builder::etag)
+            CreateRegisteredModelResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformRegisteredModelResponse.Builder::opcRequestId)
+            CreateRegisteredModelResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformWorkspaceModelVersionResponse createAiDataPlatformWorkspaceModelVersion(CreateAiDataPlatformWorkspaceModelVersionRequest request) {
+    public CreateWorkspaceModelVersionResponse createWorkspaceModelVersion(CreateWorkspaceModelVersionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -239,11 +239,11 @@ return clientCall(request, CreateAiDataPlatformRegisteredModelResponse::builder)
         
 
 
-return clientCall(request, CreateAiDataPlatformWorkspaceModelVersionResponse::builder)
-        .logger(LOG, "createAiDataPlatformWorkspaceModelVersion")
-        .serviceDetails("MLOps", "CreateAiDataPlatformWorkspaceModelVersion", "")
+return clientCall(request, CreateWorkspaceModelVersionResponse::builder)
+        .logger(LOG, "createWorkspaceModelVersion")
+        .serviceDetails("MLOps", "CreateWorkspaceModelVersion", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformWorkspaceModelVersionRequest::builder)
+        .requestBuilder(CreateWorkspaceModelVersionRequest::builder)
         
         
         .basePath("/20260430")
@@ -258,18 +258,18 @@ return clientCall(request, CreateAiDataPlatformWorkspaceModelVersionResponse::bu
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateModelVersionResponseDetails.class, CreateAiDataPlatformWorkspaceModelVersionResponse.Builder::createModelVersionResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateModelVersionResponseDetails.class, CreateWorkspaceModelVersionResponse.Builder::createModelVersionResponseDetails)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformWorkspaceModelVersionResponse.Builder::etag)
+            CreateWorkspaceModelVersionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformWorkspaceModelVersionResponse.Builder::opcRequestId)
+            CreateWorkspaceModelVersionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformExperimentResponse deleteAiDataPlatformExperiment(DeleteAiDataPlatformExperimentRequest request) {
+    public DeleteExperimentResponse deleteExperiment(DeleteExperimentRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -278,11 +278,11 @@ return clientCall(request, CreateAiDataPlatformWorkspaceModelVersionResponse::bu
         
 
 
-return clientCall(request, DeleteAiDataPlatformExperimentResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformExperiment")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformExperiment", "")
+return clientCall(request, DeleteExperimentResponse::builder)
+        .logger(LOG, "deleteExperiment")
+        .serviceDetails("MLOps", "DeleteExperiment", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformExperimentRequest::builder)
+        .requestBuilder(DeleteExperimentRequest::builder)
         
         
         .basePath("/20260430")
@@ -297,18 +297,18 @@ return clientCall(request, DeleteAiDataPlatformExperimentResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentResponseDetails.class, DeleteAiDataPlatformExperimentResponse.Builder::deleteExperimentResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentResponseDetails.class, DeleteExperimentResponse.Builder::deleteExperimentResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformExperimentResponse.Builder::etag)
+            DeleteExperimentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformExperimentResponse.Builder::opcRequestId)
+            DeleteExperimentResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformExperimentRunResponse deleteAiDataPlatformExperimentRun(DeleteAiDataPlatformExperimentRunRequest request) {
+    public DeleteExperimentRunResponse deleteExperimentRun(DeleteExperimentRunRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -317,11 +317,11 @@ return clientCall(request, DeleteAiDataPlatformExperimentResponse::builder)
         
 
 
-return clientCall(request, DeleteAiDataPlatformExperimentRunResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformExperimentRun")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformExperimentRun", "")
+return clientCall(request, DeleteExperimentRunResponse::builder)
+        .logger(LOG, "deleteExperimentRun")
+        .serviceDetails("MLOps", "DeleteExperimentRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformExperimentRunRequest::builder)
+        .requestBuilder(DeleteExperimentRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -336,18 +336,18 @@ return clientCall(request, DeleteAiDataPlatformExperimentRunResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentRunResponseDetails.class, DeleteAiDataPlatformExperimentRunResponse.Builder::deleteExperimentRunResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentRunResponseDetails.class, DeleteExperimentRunResponse.Builder::deleteExperimentRunResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformExperimentRunResponse.Builder::etag)
+            DeleteExperimentRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformExperimentRunResponse.Builder::opcRequestId)
+            DeleteExperimentRunResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformExperimentRunTagResponse deleteAiDataPlatformExperimentRunTag(DeleteAiDataPlatformExperimentRunTagRequest request) {
+    public DeleteExperimentRunTagResponse deleteExperimentRunTag(DeleteExperimentRunTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -356,11 +356,11 @@ return clientCall(request, DeleteAiDataPlatformExperimentRunResponse::builder)
         
 
 
-return clientCall(request, DeleteAiDataPlatformExperimentRunTagResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformExperimentRunTag")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformExperimentRunTag", "")
+return clientCall(request, DeleteExperimentRunTagResponse::builder)
+        .logger(LOG, "deleteExperimentRunTag")
+        .serviceDetails("MLOps", "DeleteExperimentRunTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformExperimentRunTagRequest::builder)
+        .requestBuilder(DeleteExperimentRunTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -375,18 +375,18 @@ return clientCall(request, DeleteAiDataPlatformExperimentRunTagResponse::builder
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentRunTagResponseDetails.class, DeleteAiDataPlatformExperimentRunTagResponse.Builder::deleteExperimentRunTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentRunTagResponseDetails.class, DeleteExperimentRunTagResponse.Builder::deleteExperimentRunTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformExperimentRunTagResponse.Builder::etag)
+            DeleteExperimentRunTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformExperimentRunTagResponse.Builder::opcRequestId)
+            DeleteExperimentRunTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformExperimentTagResponse deleteAiDataPlatformExperimentTag(DeleteAiDataPlatformExperimentTagRequest request) {
+    public DeleteExperimentTagResponse deleteExperimentTag(DeleteExperimentTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -395,11 +395,11 @@ return clientCall(request, DeleteAiDataPlatformExperimentRunTagResponse::builder
         
 
 
-return clientCall(request, DeleteAiDataPlatformExperimentTagResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformExperimentTag")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformExperimentTag", "")
+return clientCall(request, DeleteExperimentTagResponse::builder)
+        .logger(LOG, "deleteExperimentTag")
+        .serviceDetails("MLOps", "DeleteExperimentTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformExperimentTagRequest::builder)
+        .requestBuilder(DeleteExperimentTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -414,29 +414,29 @@ return clientCall(request, DeleteAiDataPlatformExperimentTagResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentTagResponseDetails.class, DeleteAiDataPlatformExperimentTagResponse.Builder::deleteExperimentTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentTagResponseDetails.class, DeleteExperimentTagResponse.Builder::deleteExperimentTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformExperimentTagResponse.Builder::etag)
+            DeleteExperimentTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformExperimentTagResponse.Builder::opcRequestId)
+            DeleteExperimentTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformModelVersionResponse deleteAiDataPlatformModelVersion(DeleteAiDataPlatformModelVersionRequest request) {
+    public DeleteModelVersionResponse deleteModelVersion(DeleteModelVersionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getDeleteModelVersionDetails(), "deleteModelVersionDetails is required");
         
 
 
-return clientCall(request, DeleteAiDataPlatformModelVersionResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformModelVersion")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformModelVersion", "")
+return clientCall(request, DeleteModelVersionResponse::builder)
+        .logger(LOG, "deleteModelVersion")
+        .serviceDetails("MLOps", "DeleteModelVersion", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformModelVersionRequest::builder)
+        .requestBuilder(DeleteModelVersionRequest::builder)
         
         
         .basePath("/20260430")
@@ -451,29 +451,29 @@ return clientCall(request, DeleteAiDataPlatformModelVersionResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteModelVersionResponseDetails.class, DeleteAiDataPlatformModelVersionResponse.Builder::deleteModelVersionResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteModelVersionResponseDetails.class, DeleteModelVersionResponse.Builder::deleteModelVersionResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformModelVersionResponse.Builder::etag)
+            DeleteModelVersionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformModelVersionResponse.Builder::opcRequestId)
+            DeleteModelVersionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformModelVersionTagResponse deleteAiDataPlatformModelVersionTag(DeleteAiDataPlatformModelVersionTagRequest request) {
+    public DeleteModelVersionTagResponse deleteModelVersionTag(DeleteModelVersionTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getDeleteModelVersionTagDetails(), "deleteModelVersionTagDetails is required");
         
 
 
-return clientCall(request, DeleteAiDataPlatformModelVersionTagResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformModelVersionTag")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformModelVersionTag", "")
+return clientCall(request, DeleteModelVersionTagResponse::builder)
+        .logger(LOG, "deleteModelVersionTag")
+        .serviceDetails("MLOps", "DeleteModelVersionTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformModelVersionTagRequest::builder)
+        .requestBuilder(DeleteModelVersionTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -488,29 +488,29 @@ return clientCall(request, DeleteAiDataPlatformModelVersionTagResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteModelVersionTagResponseDetails.class, DeleteAiDataPlatformModelVersionTagResponse.Builder::deleteModelVersionTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteModelVersionTagResponseDetails.class, DeleteModelVersionTagResponse.Builder::deleteModelVersionTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformModelVersionTagResponse.Builder::etag)
+            DeleteModelVersionTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformModelVersionTagResponse.Builder::opcRequestId)
+            DeleteModelVersionTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformRegisteredModelResponse deleteAiDataPlatformRegisteredModel(DeleteAiDataPlatformRegisteredModelRequest request) {
+    public DeleteRegisteredModelResponse deleteRegisteredModel(DeleteRegisteredModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getDeleteRegisteredModelDetails(), "deleteRegisteredModelDetails is required");
         
 
 
-return clientCall(request, DeleteAiDataPlatformRegisteredModelResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformRegisteredModel")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformRegisteredModel", "")
+return clientCall(request, DeleteRegisteredModelResponse::builder)
+        .logger(LOG, "deleteRegisteredModel")
+        .serviceDetails("MLOps", "DeleteRegisteredModel", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformRegisteredModelRequest::builder)
+        .requestBuilder(DeleteRegisteredModelRequest::builder)
         
         
         .basePath("/20260430")
@@ -525,29 +525,29 @@ return clientCall(request, DeleteAiDataPlatformRegisteredModelResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteRegisteredModelResponseDetails.class, DeleteAiDataPlatformRegisteredModelResponse.Builder::deleteRegisteredModelResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteRegisteredModelResponseDetails.class, DeleteRegisteredModelResponse.Builder::deleteRegisteredModelResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformRegisteredModelResponse.Builder::etag)
+            DeleteRegisteredModelResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformRegisteredModelResponse.Builder::opcRequestId)
+            DeleteRegisteredModelResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformRegisteredModelTagResponse deleteAiDataPlatformRegisteredModelTag(DeleteAiDataPlatformRegisteredModelTagRequest request) {
+    public DeleteRegisteredModelTagResponse deleteRegisteredModelTag(DeleteRegisteredModelTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getDeleteRegisteredModelTagDetails(), "deleteRegisteredModelTagDetails is required");
         
 
 
-return clientCall(request, DeleteAiDataPlatformRegisteredModelTagResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformRegisteredModelTag")
-        .serviceDetails("MLOps", "DeleteAiDataPlatformRegisteredModelTag", "")
+return clientCall(request, DeleteRegisteredModelTagResponse::builder)
+        .logger(LOG, "deleteRegisteredModelTag")
+        .serviceDetails("MLOps", "DeleteRegisteredModelTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeleteAiDataPlatformRegisteredModelTagRequest::builder)
+        .requestBuilder(DeleteRegisteredModelTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -562,18 +562,18 @@ return clientCall(request, DeleteAiDataPlatformRegisteredModelTagResponse::build
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.DeleteRegisteredModelTagResponseDetails.class, DeleteAiDataPlatformRegisteredModelTagResponse.Builder::deleteRegisteredModelTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.DeleteRegisteredModelTagResponseDetails.class, DeleteRegisteredModelTagResponse.Builder::deleteRegisteredModelTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            DeleteAiDataPlatformRegisteredModelTagResponse.Builder::etag)
+            DeleteRegisteredModelTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformRegisteredModelTagResponse.Builder::opcRequestId)
+            DeleteRegisteredModelTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformExperimentByIdResponse getAiDataPlatformExperimentById(GetAiDataPlatformExperimentByIdRequest request) {
+    public GetExperimentByIdResponse getExperimentById(GetExperimentByIdRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -582,11 +582,11 @@ return clientCall(request, DeleteAiDataPlatformRegisteredModelTagResponse::build
         
 
 
-return clientCall(request, GetAiDataPlatformExperimentByIdResponse::builder)
-        .logger(LOG, "getAiDataPlatformExperimentById")
-        .serviceDetails("MLOps", "GetAiDataPlatformExperimentById", "")
+return clientCall(request, GetExperimentByIdResponse::builder)
+        .logger(LOG, "getExperimentById")
+        .serviceDetails("MLOps", "GetExperimentById", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformExperimentByIdRequest::builder)
+        .requestBuilder(GetExperimentByIdRequest::builder)
         
         
         .basePath("/20260430")
@@ -603,18 +603,18 @@ return clientCall(request, GetAiDataPlatformExperimentByIdResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentResponse.class, GetAiDataPlatformExperimentByIdResponse.Builder::experimentResponse)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentResponse.class, GetExperimentByIdResponse.Builder::experimentResponse)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformExperimentByIdResponse.Builder::etag)
+            GetExperimentByIdResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformExperimentByIdResponse.Builder::opcRequestId)
+            GetExperimentByIdResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformExperimentByNameResponse getAiDataPlatformExperimentByName(GetAiDataPlatformExperimentByNameRequest request) {
+    public GetExperimentByNameResponse getExperimentByName(GetExperimentByNameRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -623,11 +623,11 @@ return clientCall(request, GetAiDataPlatformExperimentByIdResponse::builder)
         
 
 
-return clientCall(request, GetAiDataPlatformExperimentByNameResponse::builder)
-        .logger(LOG, "getAiDataPlatformExperimentByName")
-        .serviceDetails("MLOps", "GetAiDataPlatformExperimentByName", "")
+return clientCall(request, GetExperimentByNameResponse::builder)
+        .logger(LOG, "getExperimentByName")
+        .serviceDetails("MLOps", "GetExperimentByName", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformExperimentByNameRequest::builder)
+        .requestBuilder(GetExperimentByNameRequest::builder)
         
         
         .basePath("/20260430")
@@ -644,18 +644,18 @@ return clientCall(request, GetAiDataPlatformExperimentByNameResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentResponse.class, GetAiDataPlatformExperimentByNameResponse.Builder::experimentResponse)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentResponse.class, GetExperimentByNameResponse.Builder::experimentResponse)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformExperimentByNameResponse.Builder::etag)
+            GetExperimentByNameResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformExperimentByNameResponse.Builder::opcRequestId)
+            GetExperimentByNameResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformExperimentRunByIdResponse getAiDataPlatformExperimentRunById(GetAiDataPlatformExperimentRunByIdRequest request) {
+    public GetExperimentRunByIdResponse getExperimentRunById(GetExperimentRunByIdRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -664,11 +664,11 @@ return clientCall(request, GetAiDataPlatformExperimentByNameResponse::builder)
         
 
 
-return clientCall(request, GetAiDataPlatformExperimentRunByIdResponse::builder)
-        .logger(LOG, "getAiDataPlatformExperimentRunById")
-        .serviceDetails("MLOps", "GetAiDataPlatformExperimentRunById", "")
+return clientCall(request, GetExperimentRunByIdResponse::builder)
+        .logger(LOG, "getExperimentRunById")
+        .serviceDetails("MLOps", "GetExperimentRunById", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformExperimentRunByIdRequest::builder)
+        .requestBuilder(GetExperimentRunByIdRequest::builder)
         
         
         .basePath("/20260430")
@@ -685,18 +685,18 @@ return clientCall(request, GetAiDataPlatformExperimentRunByIdResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GetExperimentRunResponseDetails.class, GetAiDataPlatformExperimentRunByIdResponse.Builder::getExperimentRunResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.GetExperimentRunResponseDetails.class, GetExperimentRunByIdResponse.Builder::getExperimentRunResponseDetails)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformExperimentRunByIdResponse.Builder::etag)
+            GetExperimentRunByIdResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformExperimentRunByIdResponse.Builder::opcRequestId)
+            GetExperimentRunByIdResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformExperimentRunMetricHistoryResponse getAiDataPlatformExperimentRunMetricHistory(GetAiDataPlatformExperimentRunMetricHistoryRequest request) {
+    public GetExperimentRunMetricHistoryResponse getExperimentRunMetricHistory(GetExperimentRunMetricHistoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -707,11 +707,11 @@ return clientCall(request, GetAiDataPlatformExperimentRunByIdResponse::builder)
         
 
 
-return clientCall(request, GetAiDataPlatformExperimentRunMetricHistoryResponse::builder)
-        .logger(LOG, "getAiDataPlatformExperimentRunMetricHistory")
-        .serviceDetails("MLOps", "GetAiDataPlatformExperimentRunMetricHistory", "")
+return clientCall(request, GetExperimentRunMetricHistoryResponse::builder)
+        .logger(LOG, "getExperimentRunMetricHistory")
+        .serviceDetails("MLOps", "GetExperimentRunMetricHistory", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformExperimentRunMetricHistoryRequest::builder)
+        .requestBuilder(GetExperimentRunMetricHistoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -740,18 +740,18 @@ return clientCall(request, GetAiDataPlatformExperimentRunMetricHistoryResponse::
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentRunMetricHistoryCollection.class, GetAiDataPlatformExperimentRunMetricHistoryResponse.Builder::experimentRunMetricHistoryCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentRunMetricHistoryCollection.class, GetExperimentRunMetricHistoryResponse.Builder::experimentRunMetricHistoryCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformExperimentRunMetricHistoryResponse.Builder::opcRequestId)
+            GetExperimentRunMetricHistoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            GetAiDataPlatformExperimentRunMetricHistoryResponse.Builder::opcNextPage)
+            GetExperimentRunMetricHistoryResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformModelVersionResponse getAiDataPlatformModelVersion(GetAiDataPlatformModelVersionRequest request) {
+    public GetModelVersionResponse getModelVersion(GetModelVersionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getName(), "name is required");
@@ -760,11 +760,11 @@ return clientCall(request, GetAiDataPlatformExperimentRunMetricHistoryResponse::
         
 
 
-return clientCall(request, GetAiDataPlatformModelVersionResponse::builder)
-        .logger(LOG, "getAiDataPlatformModelVersion")
-        .serviceDetails("MLOps", "GetAiDataPlatformModelVersion", "")
+return clientCall(request, GetModelVersionResponse::builder)
+        .logger(LOG, "getModelVersion")
+        .serviceDetails("MLOps", "GetModelVersion", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformModelVersionRequest::builder)
+        .requestBuilder(GetModelVersionRequest::builder)
         
         
         .basePath("/20260430")
@@ -785,29 +785,29 @@ return clientCall(request, GetAiDataPlatformModelVersionResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GetModelVersionResponseDetails.class, GetAiDataPlatformModelVersionResponse.Builder::getModelVersionResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.GetModelVersionResponseDetails.class, GetModelVersionResponse.Builder::getModelVersionResponseDetails)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformModelVersionResponse.Builder::etag)
+            GetModelVersionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformModelVersionResponse.Builder::opcRequestId)
+            GetModelVersionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformRegisteredModelResponse getAiDataPlatformRegisteredModel(GetAiDataPlatformRegisteredModelRequest request) {
+    public GetRegisteredModelResponse getRegisteredModel(GetRegisteredModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getName(), "name is required");
         
 
 
-return clientCall(request, GetAiDataPlatformRegisteredModelResponse::builder)
-        .logger(LOG, "getAiDataPlatformRegisteredModel")
-        .serviceDetails("MLOps", "GetAiDataPlatformRegisteredModel", "")
+return clientCall(request, GetRegisteredModelResponse::builder)
+        .logger(LOG, "getRegisteredModel")
+        .serviceDetails("MLOps", "GetRegisteredModel", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformRegisteredModelRequest::builder)
+        .requestBuilder(GetRegisteredModelRequest::builder)
         
         
         .basePath("/20260430")
@@ -824,18 +824,18 @@ return clientCall(request, GetAiDataPlatformRegisteredModelResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GetRegisteredModelResponseDetails.class, GetAiDataPlatformRegisteredModelResponse.Builder::getRegisteredModelResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.GetRegisteredModelResponseDetails.class, GetRegisteredModelResponse.Builder::getRegisteredModelResponseDetails)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformRegisteredModelResponse.Builder::etag)
+            GetRegisteredModelResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformRegisteredModelResponse.Builder::opcRequestId)
+            GetRegisteredModelResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformArtifactsResponse listAiDataPlatformArtifacts(ListAiDataPlatformArtifactsRequest request) {
+    public ListArtifactsResponse listArtifacts(ListArtifactsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -844,11 +844,11 @@ return clientCall(request, GetAiDataPlatformRegisteredModelResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformArtifactsResponse::builder)
-        .logger(LOG, "listAiDataPlatformArtifacts")
-        .serviceDetails("MLOps", "ListAiDataPlatformArtifacts", "")
+return clientCall(request, ListArtifactsResponse::builder)
+        .logger(LOG, "listArtifacts")
+        .serviceDetails("MLOps", "ListArtifacts", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformArtifactsRequest::builder)
+        .requestBuilder(ListArtifactsRequest::builder)
         
         
         .basePath("/20260430")
@@ -873,18 +873,18 @@ return clientCall(request, ListAiDataPlatformArtifactsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ArtifactList.class, ListAiDataPlatformArtifactsResponse.Builder::artifactList)
+            .handleBody(com.oracle.aidataplatform.dp.model.ArtifactList.class, ListArtifactsResponse.Builder::artifactList)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformArtifactsResponse.Builder::opcRequestId)
+            ListArtifactsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformArtifactsResponse.Builder::opcNextPage)
+            ListArtifactsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformExperimentRunsResponse listAiDataPlatformExperimentRuns(ListAiDataPlatformExperimentRunsRequest request) {
+    public ListExperimentRunsResponse listExperimentRuns(ListExperimentRunsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -893,11 +893,11 @@ return clientCall(request, ListAiDataPlatformArtifactsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformExperimentRunsResponse::builder)
-        .logger(LOG, "listAiDataPlatformExperimentRuns")
-        .serviceDetails("MLOps", "ListAiDataPlatformExperimentRuns", "")
+return clientCall(request, ListExperimentRunsResponse::builder)
+        .logger(LOG, "listExperimentRuns")
+        .serviceDetails("MLOps", "ListExperimentRuns", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ListAiDataPlatformExperimentRunsRequest::builder)
+        .requestBuilder(ListExperimentRunsRequest::builder)
         
         
         .basePath("/20260430")
@@ -910,18 +910,18 @@ return clientCall(request, ListAiDataPlatformExperimentRunsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentRunCollection.class, ListAiDataPlatformExperimentRunsResponse.Builder::experimentRunCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentRunCollection.class, ListExperimentRunsResponse.Builder::experimentRunCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformExperimentRunsResponse.Builder::opcRequestId)
+            ListExperimentRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformExperimentRunsResponse.Builder::opcNextPage)
+            ListExperimentRunsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformExperimentsResponse listAiDataPlatformExperiments(ListAiDataPlatformExperimentsRequest request) {
+    public ListExperimentsResponse listExperiments(ListExperimentsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -930,11 +930,11 @@ return clientCall(request, ListAiDataPlatformExperimentRunsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformExperimentsResponse::builder)
-        .logger(LOG, "listAiDataPlatformExperiments")
-        .serviceDetails("MLOps", "ListAiDataPlatformExperiments", "")
+return clientCall(request, ListExperimentsResponse::builder)
+        .logger(LOG, "listExperiments")
+        .serviceDetails("MLOps", "ListExperiments", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ListAiDataPlatformExperimentsRequest::builder)
+        .requestBuilder(ListExperimentsRequest::builder)
         
         
         .basePath("/20260430")
@@ -947,18 +947,18 @@ return clientCall(request, ListAiDataPlatformExperimentsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentCollection.class, ListAiDataPlatformExperimentsResponse.Builder::experimentCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExperimentCollection.class, ListExperimentsResponse.Builder::experimentCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformExperimentsResponse.Builder::opcRequestId)
+            ListExperimentsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformExperimentsResponse.Builder::opcNextPage)
+            ListExperimentsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformLoggedModelsResponse listAiDataPlatformLoggedModels(ListAiDataPlatformLoggedModelsRequest request) {
+    public ListLoggedModelsResponse listLoggedModels(ListLoggedModelsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -967,11 +967,11 @@ return clientCall(request, ListAiDataPlatformExperimentsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformLoggedModelsResponse::builder)
-        .logger(LOG, "listAiDataPlatformLoggedModels")
-        .serviceDetails("MLOps", "ListAiDataPlatformLoggedModels", "")
+return clientCall(request, ListLoggedModelsResponse::builder)
+        .logger(LOG, "listLoggedModels")
+        .serviceDetails("MLOps", "ListLoggedModels", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ListAiDataPlatformLoggedModelsRequest::builder)
+        .requestBuilder(ListLoggedModelsRequest::builder)
         
         
         .basePath("/20260430")
@@ -984,27 +984,27 @@ return clientCall(request, ListAiDataPlatformLoggedModelsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.LoggedModelCollection.class, ListAiDataPlatformLoggedModelsResponse.Builder::loggedModelCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.LoggedModelCollection.class, ListLoggedModelsResponse.Builder::loggedModelCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformLoggedModelsResponse.Builder::opcRequestId)
+            ListLoggedModelsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformLoggedModelsResponse.Builder::opcNextPage)
+            ListLoggedModelsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformModelVersionsResponse listAiDataPlatformModelVersions(ListAiDataPlatformModelVersionsRequest request) {
+    public ListModelVersionsResponse listModelVersions(ListModelVersionsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformModelVersionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformModelVersions")
-        .serviceDetails("MLOps", "ListAiDataPlatformModelVersions", "")
+return clientCall(request, ListModelVersionsResponse::builder)
+        .logger(LOG, "listModelVersions")
+        .serviceDetails("MLOps", "ListModelVersions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformModelVersionsRequest::builder)
+        .requestBuilder(ListModelVersionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1033,27 +1033,27 @@ return clientCall(request, ListAiDataPlatformModelVersionsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ModelVersionCollection.class, ListAiDataPlatformModelVersionsResponse.Builder::modelVersionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ModelVersionCollection.class, ListModelVersionsResponse.Builder::modelVersionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformModelVersionsResponse.Builder::opcRequestId)
+            ListModelVersionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformModelVersionsResponse.Builder::opcNextPage)
+            ListModelVersionsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformRegisteredModelsResponse listAiDataPlatformRegisteredModels(ListAiDataPlatformRegisteredModelsRequest request) {
+    public ListRegisteredModelsResponse listRegisteredModels(ListRegisteredModelsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRegisteredModelsResponse::builder)
-        .logger(LOG, "listAiDataPlatformRegisteredModels")
-        .serviceDetails("MLOps", "ListAiDataPlatformRegisteredModels", "")
+return clientCall(request, ListRegisteredModelsResponse::builder)
+        .logger(LOG, "listRegisteredModels")
+        .serviceDetails("MLOps", "ListRegisteredModels", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRegisteredModelsRequest::builder)
+        .requestBuilder(ListRegisteredModelsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1082,18 +1082,18 @@ return clientCall(request, ListAiDataPlatformRegisteredModelsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RegisteredModelCollection.class, ListAiDataPlatformRegisteredModelsResponse.Builder::registeredModelCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RegisteredModelCollection.class, ListRegisteredModelsResponse.Builder::registeredModelCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRegisteredModelsResponse.Builder::opcRequestId)
+            ListRegisteredModelsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRegisteredModelsResponse.Builder::opcNextPage)
+            ListRegisteredModelsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public LogAiDataPlatformExperimentRunBatchResponse logAiDataPlatformExperimentRunBatch(LogAiDataPlatformExperimentRunBatchRequest request) {
+    public LogExperimentRunBatchResponse logExperimentRunBatch(LogExperimentRunBatchRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1102,11 +1102,11 @@ return clientCall(request, ListAiDataPlatformRegisteredModelsResponse::builder)
         
 
 
-return clientCall(request, LogAiDataPlatformExperimentRunBatchResponse::builder)
-        .logger(LOG, "logAiDataPlatformExperimentRunBatch")
-        .serviceDetails("MLOps", "LogAiDataPlatformExperimentRunBatch", "")
+return clientCall(request, LogExperimentRunBatchResponse::builder)
+        .logger(LOG, "logExperimentRunBatch")
+        .serviceDetails("MLOps", "LogExperimentRunBatch", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(LogAiDataPlatformExperimentRunBatchRequest::builder)
+        .requestBuilder(LogExperimentRunBatchRequest::builder)
         
         
         .basePath("/20260430")
@@ -1121,18 +1121,18 @@ return clientCall(request, LogAiDataPlatformExperimentRunBatchResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunBatchResponseDetails.class, LogAiDataPlatformExperimentRunBatchResponse.Builder::logExperimentRunBatchResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunBatchResponseDetails.class, LogExperimentRunBatchResponse.Builder::logExperimentRunBatchResponseDetails)
                 .handleResponseHeaderString("etag", 
-            LogAiDataPlatformExperimentRunBatchResponse.Builder::etag)
+            LogExperimentRunBatchResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            LogAiDataPlatformExperimentRunBatchResponse.Builder::opcRequestId)
+            LogExperimentRunBatchResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public LogAiDataPlatformExperimentRunInputsResponse logAiDataPlatformExperimentRunInputs(LogAiDataPlatformExperimentRunInputsRequest request) {
+    public LogExperimentRunInputsResponse logExperimentRunInputs(LogExperimentRunInputsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1141,11 +1141,11 @@ return clientCall(request, LogAiDataPlatformExperimentRunBatchResponse::builder)
         
 
 
-return clientCall(request, LogAiDataPlatformExperimentRunInputsResponse::builder)
-        .logger(LOG, "logAiDataPlatformExperimentRunInputs")
-        .serviceDetails("MLOps", "LogAiDataPlatformExperimentRunInputs", "")
+return clientCall(request, LogExperimentRunInputsResponse::builder)
+        .logger(LOG, "logExperimentRunInputs")
+        .serviceDetails("MLOps", "LogExperimentRunInputs", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(LogAiDataPlatformExperimentRunInputsRequest::builder)
+        .requestBuilder(LogExperimentRunInputsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1160,18 +1160,18 @@ return clientCall(request, LogAiDataPlatformExperimentRunInputsResponse::builder
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunInputsResponseDetails.class, LogAiDataPlatformExperimentRunInputsResponse.Builder::logExperimentRunInputsResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunInputsResponseDetails.class, LogExperimentRunInputsResponse.Builder::logExperimentRunInputsResponseDetails)
                 .handleResponseHeaderString("etag", 
-            LogAiDataPlatformExperimentRunInputsResponse.Builder::etag)
+            LogExperimentRunInputsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            LogAiDataPlatformExperimentRunInputsResponse.Builder::opcRequestId)
+            LogExperimentRunInputsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public LogAiDataPlatformExperimentRunMetricResponse logAiDataPlatformExperimentRunMetric(LogAiDataPlatformExperimentRunMetricRequest request) {
+    public LogExperimentRunMetricResponse logExperimentRunMetric(LogExperimentRunMetricRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1180,11 +1180,11 @@ return clientCall(request, LogAiDataPlatformExperimentRunInputsResponse::builder
         
 
 
-return clientCall(request, LogAiDataPlatformExperimentRunMetricResponse::builder)
-        .logger(LOG, "logAiDataPlatformExperimentRunMetric")
-        .serviceDetails("MLOps", "LogAiDataPlatformExperimentRunMetric", "")
+return clientCall(request, LogExperimentRunMetricResponse::builder)
+        .logger(LOG, "logExperimentRunMetric")
+        .serviceDetails("MLOps", "LogExperimentRunMetric", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(LogAiDataPlatformExperimentRunMetricRequest::builder)
+        .requestBuilder(LogExperimentRunMetricRequest::builder)
         
         
         .basePath("/20260430")
@@ -1199,18 +1199,18 @@ return clientCall(request, LogAiDataPlatformExperimentRunMetricResponse::builder
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunMetricResponseDetails.class, LogAiDataPlatformExperimentRunMetricResponse.Builder::logExperimentRunMetricResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunMetricResponseDetails.class, LogExperimentRunMetricResponse.Builder::logExperimentRunMetricResponseDetails)
                 .handleResponseHeaderString("etag", 
-            LogAiDataPlatformExperimentRunMetricResponse.Builder::etag)
+            LogExperimentRunMetricResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            LogAiDataPlatformExperimentRunMetricResponse.Builder::opcRequestId)
+            LogExperimentRunMetricResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public LogAiDataPlatformExperimentRunModelResponse logAiDataPlatformExperimentRunModel(LogAiDataPlatformExperimentRunModelRequest request) {
+    public LogExperimentRunModelResponse logExperimentRunModel(LogExperimentRunModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1219,11 +1219,11 @@ return clientCall(request, LogAiDataPlatformExperimentRunMetricResponse::builder
         
 
 
-return clientCall(request, LogAiDataPlatformExperimentRunModelResponse::builder)
-        .logger(LOG, "logAiDataPlatformExperimentRunModel")
-        .serviceDetails("MLOps", "LogAiDataPlatformExperimentRunModel", "")
+return clientCall(request, LogExperimentRunModelResponse::builder)
+        .logger(LOG, "logExperimentRunModel")
+        .serviceDetails("MLOps", "LogExperimentRunModel", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(LogAiDataPlatformExperimentRunModelRequest::builder)
+        .requestBuilder(LogExperimentRunModelRequest::builder)
         
         
         .basePath("/20260430")
@@ -1238,18 +1238,18 @@ return clientCall(request, LogAiDataPlatformExperimentRunModelResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunModelResponseDetails.class, LogAiDataPlatformExperimentRunModelResponse.Builder::logExperimentRunModelResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunModelResponseDetails.class, LogExperimentRunModelResponse.Builder::logExperimentRunModelResponseDetails)
                 .handleResponseHeaderString("etag", 
-            LogAiDataPlatformExperimentRunModelResponse.Builder::etag)
+            LogExperimentRunModelResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            LogAiDataPlatformExperimentRunModelResponse.Builder::opcRequestId)
+            LogExperimentRunModelResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public LogAiDataPlatformExperimentRunParamResponse logAiDataPlatformExperimentRunParam(LogAiDataPlatformExperimentRunParamRequest request) {
+    public LogExperimentRunParamResponse logExperimentRunParam(LogExperimentRunParamRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1258,11 +1258,11 @@ return clientCall(request, LogAiDataPlatformExperimentRunModelResponse::builder)
         
 
 
-return clientCall(request, LogAiDataPlatformExperimentRunParamResponse::builder)
-        .logger(LOG, "logAiDataPlatformExperimentRunParam")
-        .serviceDetails("MLOps", "LogAiDataPlatformExperimentRunParam", "")
+return clientCall(request, LogExperimentRunParamResponse::builder)
+        .logger(LOG, "logExperimentRunParam")
+        .serviceDetails("MLOps", "LogExperimentRunParam", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(LogAiDataPlatformExperimentRunParamRequest::builder)
+        .requestBuilder(LogExperimentRunParamRequest::builder)
         
         
         .basePath("/20260430")
@@ -1277,29 +1277,29 @@ return clientCall(request, LogAiDataPlatformExperimentRunParamResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunParamResponseDetails.class, LogAiDataPlatformExperimentRunParamResponse.Builder::logExperimentRunParamResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunParamResponseDetails.class, LogExperimentRunParamResponse.Builder::logExperimentRunParamResponseDetails)
                 .handleResponseHeaderString("etag", 
-            LogAiDataPlatformExperimentRunParamResponse.Builder::etag)
+            LogExperimentRunParamResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            LogAiDataPlatformExperimentRunParamResponse.Builder::opcRequestId)
+            LogExperimentRunParamResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public RenameAiDataPlatformRegisteredModelResponse renameAiDataPlatformRegisteredModel(RenameAiDataPlatformRegisteredModelRequest request) {
+    public RenameRegisteredModelResponse renameRegisteredModel(RenameRegisteredModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getRenameRegisteredModelDetails(), "renameRegisteredModelDetails is required");
         
 
 
-return clientCall(request, RenameAiDataPlatformRegisteredModelResponse::builder)
-        .logger(LOG, "renameAiDataPlatformRegisteredModel")
-        .serviceDetails("MLOps", "RenameAiDataPlatformRegisteredModel", "")
+return clientCall(request, RenameRegisteredModelResponse::builder)
+        .logger(LOG, "renameRegisteredModel")
+        .serviceDetails("MLOps", "RenameRegisteredModel", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RenameAiDataPlatformRegisteredModelRequest::builder)
+        .requestBuilder(RenameRegisteredModelRequest::builder)
         
         
         .basePath("/20260430")
@@ -1314,16 +1314,16 @@ return clientCall(request, RenameAiDataPlatformRegisteredModelResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.RenameRegisteredModelResponseDetails.class, RenameAiDataPlatformRegisteredModelResponse.Builder::renameRegisteredModelResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.RenameRegisteredModelResponseDetails.class, RenameRegisteredModelResponse.Builder::renameRegisteredModelResponseDetails)
                 .handleResponseHeaderString("opc-request-id", 
-            RenameAiDataPlatformRegisteredModelResponse.Builder::opcRequestId)
+            RenameRegisteredModelResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public RestoreAiDataPlatformExperimentResponse restoreAiDataPlatformExperiment(RestoreAiDataPlatformExperimentRequest request) {
+    public RestoreExperimentResponse restoreExperiment(RestoreExperimentRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1332,11 +1332,11 @@ return clientCall(request, RenameAiDataPlatformRegisteredModelResponse::builder)
         
 
 
-return clientCall(request, RestoreAiDataPlatformExperimentResponse::builder)
-        .logger(LOG, "restoreAiDataPlatformExperiment")
-        .serviceDetails("MLOps", "RestoreAiDataPlatformExperiment", "")
+return clientCall(request, RestoreExperimentResponse::builder)
+        .logger(LOG, "restoreExperiment")
+        .serviceDetails("MLOps", "RestoreExperiment", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RestoreAiDataPlatformExperimentRequest::builder)
+        .requestBuilder(RestoreExperimentRequest::builder)
         
         
         .basePath("/20260430")
@@ -1351,18 +1351,18 @@ return clientCall(request, RestoreAiDataPlatformExperimentResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.RestoreExperimentResponseDetails.class, RestoreAiDataPlatformExperimentResponse.Builder::restoreExperimentResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.RestoreExperimentResponseDetails.class, RestoreExperimentResponse.Builder::restoreExperimentResponseDetails)
                 .handleResponseHeaderString("etag", 
-            RestoreAiDataPlatformExperimentResponse.Builder::etag)
+            RestoreExperimentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            RestoreAiDataPlatformExperimentResponse.Builder::opcRequestId)
+            RestoreExperimentResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public RestoreAiDataPlatformExperimentRunResponse restoreAiDataPlatformExperimentRun(RestoreAiDataPlatformExperimentRunRequest request) {
+    public RestoreExperimentRunResponse restoreExperimentRun(RestoreExperimentRunRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1371,11 +1371,11 @@ return clientCall(request, RestoreAiDataPlatformExperimentResponse::builder)
         
 
 
-return clientCall(request, RestoreAiDataPlatformExperimentRunResponse::builder)
-        .logger(LOG, "restoreAiDataPlatformExperimentRun")
-        .serviceDetails("MLOps", "RestoreAiDataPlatformExperimentRun", "")
+return clientCall(request, RestoreExperimentRunResponse::builder)
+        .logger(LOG, "restoreExperimentRun")
+        .serviceDetails("MLOps", "RestoreExperimentRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RestoreAiDataPlatformExperimentRunRequest::builder)
+        .requestBuilder(RestoreExperimentRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -1390,18 +1390,18 @@ return clientCall(request, RestoreAiDataPlatformExperimentRunResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.RestoreExperimentRunResponseDetails.class, RestoreAiDataPlatformExperimentRunResponse.Builder::restoreExperimentRunResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.RestoreExperimentRunResponseDetails.class, RestoreExperimentRunResponse.Builder::restoreExperimentRunResponseDetails)
                 .handleResponseHeaderString("etag", 
-            RestoreAiDataPlatformExperimentRunResponse.Builder::etag)
+            RestoreExperimentRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            RestoreAiDataPlatformExperimentRunResponse.Builder::opcRequestId)
+            RestoreExperimentRunResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public SetAiDataPlatformExperimentRunTagResponse setAiDataPlatformExperimentRunTag(SetAiDataPlatformExperimentRunTagRequest request) {
+    public SetExperimentRunTagResponse setExperimentRunTag(SetExperimentRunTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1410,11 +1410,11 @@ return clientCall(request, RestoreAiDataPlatformExperimentRunResponse::builder)
         
 
 
-return clientCall(request, SetAiDataPlatformExperimentRunTagResponse::builder)
-        .logger(LOG, "setAiDataPlatformExperimentRunTag")
-        .serviceDetails("MLOps", "SetAiDataPlatformExperimentRunTag", "")
+return clientCall(request, SetExperimentRunTagResponse::builder)
+        .logger(LOG, "setExperimentRunTag")
+        .serviceDetails("MLOps", "SetExperimentRunTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SetAiDataPlatformExperimentRunTagRequest::builder)
+        .requestBuilder(SetExperimentRunTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -1429,18 +1429,18 @@ return clientCall(request, SetAiDataPlatformExperimentRunTagResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.SetExperimentRunTagResponseDetails.class, SetAiDataPlatformExperimentRunTagResponse.Builder::setExperimentRunTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.SetExperimentRunTagResponseDetails.class, SetExperimentRunTagResponse.Builder::setExperimentRunTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            SetAiDataPlatformExperimentRunTagResponse.Builder::etag)
+            SetExperimentRunTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            SetAiDataPlatformExperimentRunTagResponse.Builder::opcRequestId)
+            SetExperimentRunTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public SetAiDataPlatformExperimentTagResponse setAiDataPlatformExperimentTag(SetAiDataPlatformExperimentTagRequest request) {
+    public SetExperimentTagResponse setExperimentTag(SetExperimentTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1449,11 +1449,11 @@ return clientCall(request, SetAiDataPlatformExperimentRunTagResponse::builder)
         
 
 
-return clientCall(request, SetAiDataPlatformExperimentTagResponse::builder)
-        .logger(LOG, "setAiDataPlatformExperimentTag")
-        .serviceDetails("MLOps", "SetAiDataPlatformExperimentTag", "")
+return clientCall(request, SetExperimentTagResponse::builder)
+        .logger(LOG, "setExperimentTag")
+        .serviceDetails("MLOps", "SetExperimentTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SetAiDataPlatformExperimentTagRequest::builder)
+        .requestBuilder(SetExperimentTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -1468,29 +1468,29 @@ return clientCall(request, SetAiDataPlatformExperimentTagResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.SetExperimentTagResponseDetails.class, SetAiDataPlatformExperimentTagResponse.Builder::setExperimentTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.SetExperimentTagResponseDetails.class, SetExperimentTagResponse.Builder::setExperimentTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            SetAiDataPlatformExperimentTagResponse.Builder::etag)
+            SetExperimentTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            SetAiDataPlatformExperimentTagResponse.Builder::opcRequestId)
+            SetExperimentTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public SetAiDataPlatformModelVersionTagResponse setAiDataPlatformModelVersionTag(SetAiDataPlatformModelVersionTagRequest request) {
+    public SetModelVersionTagResponse setModelVersionTag(SetModelVersionTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getSetModelVersionTagDetails(), "setModelVersionTagDetails is required");
         
 
 
-return clientCall(request, SetAiDataPlatformModelVersionTagResponse::builder)
-        .logger(LOG, "setAiDataPlatformModelVersionTag")
-        .serviceDetails("MLOps", "SetAiDataPlatformModelVersionTag", "")
+return clientCall(request, SetModelVersionTagResponse::builder)
+        .logger(LOG, "setModelVersionTag")
+        .serviceDetails("MLOps", "SetModelVersionTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SetAiDataPlatformModelVersionTagRequest::builder)
+        .requestBuilder(SetModelVersionTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -1505,29 +1505,29 @@ return clientCall(request, SetAiDataPlatformModelVersionTagResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.SetModelVersionTagResponseDetails.class, SetAiDataPlatformModelVersionTagResponse.Builder::setModelVersionTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.SetModelVersionTagResponseDetails.class, SetModelVersionTagResponse.Builder::setModelVersionTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            SetAiDataPlatformModelVersionTagResponse.Builder::etag)
+            SetModelVersionTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            SetAiDataPlatformModelVersionTagResponse.Builder::opcRequestId)
+            SetModelVersionTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public SetAiDataPlatformRegisteredModelTagResponse setAiDataPlatformRegisteredModelTag(SetAiDataPlatformRegisteredModelTagRequest request) {
+    public SetRegisteredModelTagResponse setRegisteredModelTag(SetRegisteredModelTagRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getSetRegisteredModelTagDetails(), "setRegisteredModelTagDetails is required");
         
 
 
-return clientCall(request, SetAiDataPlatformRegisteredModelTagResponse::builder)
-        .logger(LOG, "setAiDataPlatformRegisteredModelTag")
-        .serviceDetails("MLOps", "SetAiDataPlatformRegisteredModelTag", "")
+return clientCall(request, SetRegisteredModelTagResponse::builder)
+        .logger(LOG, "setRegisteredModelTag")
+        .serviceDetails("MLOps", "SetRegisteredModelTag", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SetAiDataPlatformRegisteredModelTagRequest::builder)
+        .requestBuilder(SetRegisteredModelTagRequest::builder)
         
         
         .basePath("/20260430")
@@ -1542,29 +1542,29 @@ return clientCall(request, SetAiDataPlatformRegisteredModelTagResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.SetRegisteredModelTagResponseDetails.class, SetAiDataPlatformRegisteredModelTagResponse.Builder::setRegisteredModelTagResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.SetRegisteredModelTagResponseDetails.class, SetRegisteredModelTagResponse.Builder::setRegisteredModelTagResponseDetails)
                 .handleResponseHeaderString("etag", 
-            SetAiDataPlatformRegisteredModelTagResponse.Builder::etag)
+            SetRegisteredModelTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            SetAiDataPlatformRegisteredModelTagResponse.Builder::opcRequestId)
+            SetRegisteredModelTagResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public TransitionAiDataPlatformModelVersionStageResponse transitionAiDataPlatformModelVersionStage(TransitionAiDataPlatformModelVersionStageRequest request) {
+    public TransitionModelVersionStageResponse transitionModelVersionStage(TransitionModelVersionStageRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getTransitionModelVersionStageDetails(), "transitionModelVersionStageDetails is required");
         
 
 
-return clientCall(request, TransitionAiDataPlatformModelVersionStageResponse::builder)
-        .logger(LOG, "transitionAiDataPlatformModelVersionStage")
-        .serviceDetails("MLOps", "TransitionAiDataPlatformModelVersionStage", "")
+return clientCall(request, TransitionModelVersionStageResponse::builder)
+        .logger(LOG, "transitionModelVersionStage")
+        .serviceDetails("MLOps", "TransitionModelVersionStage", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(TransitionAiDataPlatformModelVersionStageRequest::builder)
+        .requestBuilder(TransitionModelVersionStageRequest::builder)
         
         
         .basePath("/20260430")
@@ -1579,18 +1579,18 @@ return clientCall(request, TransitionAiDataPlatformModelVersionStageResponse::bu
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.TransitionModelVersionStageResponseDetails.class, TransitionAiDataPlatformModelVersionStageResponse.Builder::transitionModelVersionStageResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.TransitionModelVersionStageResponseDetails.class, TransitionModelVersionStageResponse.Builder::transitionModelVersionStageResponseDetails)
                 .handleResponseHeaderString("etag", 
-            TransitionAiDataPlatformModelVersionStageResponse.Builder::etag)
+            TransitionModelVersionStageResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            TransitionAiDataPlatformModelVersionStageResponse.Builder::opcRequestId)
+            TransitionModelVersionStageResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformExperimentResponse updateAiDataPlatformExperiment(UpdateAiDataPlatformExperimentRequest request) {
+    public UpdateExperimentResponse updateExperiment(UpdateExperimentRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1599,11 +1599,11 @@ return clientCall(request, TransitionAiDataPlatformModelVersionStageResponse::bu
         
 
 
-return clientCall(request, UpdateAiDataPlatformExperimentResponse::builder)
-        .logger(LOG, "updateAiDataPlatformExperiment")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformExperiment", "")
+return clientCall(request, UpdateExperimentResponse::builder)
+        .logger(LOG, "updateExperiment")
+        .serviceDetails("MLOps", "UpdateExperiment", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformExperimentRequest::builder)
+        .requestBuilder(UpdateExperimentRequest::builder)
         
         
         .basePath("/20260430")
@@ -1618,18 +1618,18 @@ return clientCall(request, UpdateAiDataPlatformExperimentResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentResponseDetails.class, UpdateAiDataPlatformExperimentResponse.Builder::updateExperimentResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentResponseDetails.class, UpdateExperimentResponse.Builder::updateExperimentResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformExperimentResponse.Builder::etag)
+            UpdateExperimentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformExperimentResponse.Builder::opcRequestId)
+            UpdateExperimentResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformExperimentRunResponse updateAiDataPlatformExperimentRun(UpdateAiDataPlatformExperimentRunRequest request) {
+    public UpdateExperimentRunResponse updateExperimentRun(UpdateExperimentRunRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1638,11 +1638,11 @@ return clientCall(request, UpdateAiDataPlatformExperimentResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformExperimentRunResponse::builder)
-        .logger(LOG, "updateAiDataPlatformExperimentRun")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformExperimentRun", "")
+return clientCall(request, UpdateExperimentRunResponse::builder)
+        .logger(LOG, "updateExperimentRun")
+        .serviceDetails("MLOps", "UpdateExperimentRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformExperimentRunRequest::builder)
+        .requestBuilder(UpdateExperimentRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -1657,18 +1657,18 @@ return clientCall(request, UpdateAiDataPlatformExperimentRunResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentRunResponseDetails.class, UpdateAiDataPlatformExperimentRunResponse.Builder::updateExperimentRunResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentRunResponseDetails.class, UpdateExperimentRunResponse.Builder::updateExperimentRunResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformExperimentRunResponse.Builder::etag)
+            UpdateExperimentRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformExperimentRunResponse.Builder::opcRequestId)
+            UpdateExperimentRunResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformExperimentRunTagsResponse updateAiDataPlatformExperimentRunTags(UpdateAiDataPlatformExperimentRunTagsRequest request) {
+    public UpdateExperimentRunTagsResponse updateExperimentRunTags(UpdateExperimentRunTagsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1677,11 +1677,11 @@ return clientCall(request, UpdateAiDataPlatformExperimentRunResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformExperimentRunTagsResponse::builder)
-        .logger(LOG, "updateAiDataPlatformExperimentRunTags")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformExperimentRunTags", "")
+return clientCall(request, UpdateExperimentRunTagsResponse::builder)
+        .logger(LOG, "updateExperimentRunTags")
+        .serviceDetails("MLOps", "UpdateExperimentRunTags", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformExperimentRunTagsRequest::builder)
+        .requestBuilder(UpdateExperimentRunTagsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1696,18 +1696,18 @@ return clientCall(request, UpdateAiDataPlatformExperimentRunTagsResponse::builde
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentRunTagsResponseDetails.class, UpdateAiDataPlatformExperimentRunTagsResponse.Builder::updateExperimentRunTagsResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentRunTagsResponseDetails.class, UpdateExperimentRunTagsResponse.Builder::updateExperimentRunTagsResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformExperimentRunTagsResponse.Builder::etag)
+            UpdateExperimentRunTagsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformExperimentRunTagsResponse.Builder::opcRequestId)
+            UpdateExperimentRunTagsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformExperimentTagsResponse updateAiDataPlatformExperimentTags(UpdateAiDataPlatformExperimentTagsRequest request) {
+    public UpdateExperimentTagsResponse updateExperimentTags(UpdateExperimentTagsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1716,11 +1716,11 @@ return clientCall(request, UpdateAiDataPlatformExperimentRunTagsResponse::builde
         
 
 
-return clientCall(request, UpdateAiDataPlatformExperimentTagsResponse::builder)
-        .logger(LOG, "updateAiDataPlatformExperimentTags")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformExperimentTags", "")
+return clientCall(request, UpdateExperimentTagsResponse::builder)
+        .logger(LOG, "updateExperimentTags")
+        .serviceDetails("MLOps", "UpdateExperimentTags", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformExperimentTagsRequest::builder)
+        .requestBuilder(UpdateExperimentTagsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1735,29 +1735,29 @@ return clientCall(request, UpdateAiDataPlatformExperimentTagsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentTagsResponseDetails.class, UpdateAiDataPlatformExperimentTagsResponse.Builder::updateExperimentTagsResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentTagsResponseDetails.class, UpdateExperimentTagsResponse.Builder::updateExperimentTagsResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformExperimentTagsResponse.Builder::etag)
+            UpdateExperimentTagsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformExperimentTagsResponse.Builder::opcRequestId)
+            UpdateExperimentTagsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformModelVersionResponse updateAiDataPlatformModelVersion(UpdateAiDataPlatformModelVersionRequest request) {
+    public UpdateModelVersionResponse updateModelVersion(UpdateModelVersionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getUpdateModelVersionDetails(), "updateModelVersionDetails is required");
         
 
 
-return clientCall(request, UpdateAiDataPlatformModelVersionResponse::builder)
-        .logger(LOG, "updateAiDataPlatformModelVersion")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformModelVersion", "")
+return clientCall(request, UpdateModelVersionResponse::builder)
+        .logger(LOG, "updateModelVersion")
+        .serviceDetails("MLOps", "UpdateModelVersion", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformModelVersionRequest::builder)
+        .requestBuilder(UpdateModelVersionRequest::builder)
         
         
         .basePath("/20260430")
@@ -1772,29 +1772,29 @@ return clientCall(request, UpdateAiDataPlatformModelVersionResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelVersionResponseDetails.class, UpdateAiDataPlatformModelVersionResponse.Builder::updateModelVersionResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelVersionResponseDetails.class, UpdateModelVersionResponse.Builder::updateModelVersionResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformModelVersionResponse.Builder::etag)
+            UpdateModelVersionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformModelVersionResponse.Builder::opcRequestId)
+            UpdateModelVersionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformModelVersionTagsResponse updateAiDataPlatformModelVersionTags(UpdateAiDataPlatformModelVersionTagsRequest request) {
+    public UpdateModelVersionTagsResponse updateModelVersionTags(UpdateModelVersionTagsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getUpdateModelVersionTagsDetails(), "updateModelVersionTagsDetails is required");
         
 
 
-return clientCall(request, UpdateAiDataPlatformModelVersionTagsResponse::builder)
-        .logger(LOG, "updateAiDataPlatformModelVersionTags")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformModelVersionTags", "")
+return clientCall(request, UpdateModelVersionTagsResponse::builder)
+        .logger(LOG, "updateModelVersionTags")
+        .serviceDetails("MLOps", "UpdateModelVersionTags", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformModelVersionTagsRequest::builder)
+        .requestBuilder(UpdateModelVersionTagsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1809,29 +1809,29 @@ return clientCall(request, UpdateAiDataPlatformModelVersionTagsResponse::builder
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelVersionTagsResponseDetails.class, UpdateAiDataPlatformModelVersionTagsResponse.Builder::updateModelVersionTagsResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelVersionTagsResponseDetails.class, UpdateModelVersionTagsResponse.Builder::updateModelVersionTagsResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformModelVersionTagsResponse.Builder::etag)
+            UpdateModelVersionTagsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformModelVersionTagsResponse.Builder::opcRequestId)
+            UpdateModelVersionTagsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformRegisteredModelResponse updateAiDataPlatformRegisteredModel(UpdateAiDataPlatformRegisteredModelRequest request) {
+    public UpdateRegisteredModelResponse updateRegisteredModel(UpdateRegisteredModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getUpdateRegisteredModelDetails(), "updateRegisteredModelDetails is required");
         
 
 
-return clientCall(request, UpdateAiDataPlatformRegisteredModelResponse::builder)
-        .logger(LOG, "updateAiDataPlatformRegisteredModel")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformRegisteredModel", "")
+return clientCall(request, UpdateRegisteredModelResponse::builder)
+        .logger(LOG, "updateRegisteredModel")
+        .serviceDetails("MLOps", "UpdateRegisteredModel", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformRegisteredModelRequest::builder)
+        .requestBuilder(UpdateRegisteredModelRequest::builder)
         
         
         .basePath("/20260430")
@@ -1846,29 +1846,29 @@ return clientCall(request, UpdateAiDataPlatformRegisteredModelResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateRegisteredModelResponseDetails.class, UpdateAiDataPlatformRegisteredModelResponse.Builder::updateRegisteredModelResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateRegisteredModelResponseDetails.class, UpdateRegisteredModelResponse.Builder::updateRegisteredModelResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformRegisteredModelResponse.Builder::etag)
+            UpdateRegisteredModelResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformRegisteredModelResponse.Builder::opcRequestId)
+            UpdateRegisteredModelResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformRegisteredModelTagsResponse updateAiDataPlatformRegisteredModelTags(UpdateAiDataPlatformRegisteredModelTagsRequest request) {
+    public UpdateRegisteredModelTagsResponse updateRegisteredModelTags(UpdateRegisteredModelTagsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getUpdateRegisteredModelTagsDetails(), "updateRegisteredModelTagsDetails is required");
         
 
 
-return clientCall(request, UpdateAiDataPlatformRegisteredModelTagsResponse::builder)
-        .logger(LOG, "updateAiDataPlatformRegisteredModelTags")
-        .serviceDetails("MLOps", "UpdateAiDataPlatformRegisteredModelTags", "")
+return clientCall(request, UpdateRegisteredModelTagsResponse::builder)
+        .logger(LOG, "updateRegisteredModelTags")
+        .serviceDetails("MLOps", "UpdateRegisteredModelTags", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UpdateAiDataPlatformRegisteredModelTagsRequest::builder)
+        .requestBuilder(UpdateRegisteredModelTagsRequest::builder)
         
         
         .basePath("/20260430")
@@ -1883,11 +1883,11 @@ return clientCall(request, UpdateAiDataPlatformRegisteredModelTagsResponse::buil
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UpdateRegisteredModelTagsResponseDetails.class, UpdateAiDataPlatformRegisteredModelTagsResponse.Builder::updateRegisteredModelTagsResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateRegisteredModelTagsResponseDetails.class, UpdateRegisteredModelTagsResponse.Builder::updateRegisteredModelTagsResponseDetails)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformRegisteredModelTagsResponse.Builder::etag)
+            UpdateRegisteredModelTagsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformRegisteredModelTagsResponse.Builder::opcRequestId)
+            UpdateRegisteredModelTagsResponse.Builder::opcRequestId)
 
                 .callSync();
     }

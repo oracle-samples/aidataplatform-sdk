@@ -83,18 +83,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformAsyncOperationResponse> getAiDataPlatformAsyncOperation(GetAiDataPlatformAsyncOperationRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformAsyncOperationRequest, GetAiDataPlatformAsyncOperationResponse> handler) {
+    public java.util.concurrent.Future<GetAsyncOperationResponse> getAsyncOperation(GetAsyncOperationRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAsyncOperationRequest, GetAsyncOperationResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getAsyncOperationKey(), "asyncOperationKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformAsyncOperationResponse::builder)
-        .logger(LOG, "getAiDataPlatformAsyncOperation")
-        .serviceDetails("AsyncOperations", "GetAiDataPlatformAsyncOperation", "")
+return clientCall(request, GetAsyncOperationResponse::builder)
+        .logger(LOG, "getAsyncOperation")
+        .serviceDetails("AsyncOperations", "GetAsyncOperation", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformAsyncOperationRequest::builder)
+        .requestBuilder(GetAsyncOperationRequest::builder)
         
         
         .basePath("/20260430")
@@ -104,26 +104,26 @@ return clientCall(request, GetAiDataPlatformAsyncOperationResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.AsyncOperation.class, GetAiDataPlatformAsyncOperationResponse.Builder::asyncOperation)
+            .handleBody(com.oracle.aidataplatform.dp.model.AsyncOperation.class, GetAsyncOperationResponse.Builder::asyncOperation)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformAsyncOperationResponse.Builder::opcRequestId)
+            GetAsyncOperationResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            GetAiDataPlatformAsyncOperationResponse.Builder::opcNextPage)
+            GetAsyncOperationResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformAsyncOperationsResponse> listAiDataPlatformAsyncOperations(ListAiDataPlatformAsyncOperationsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformAsyncOperationsRequest, ListAiDataPlatformAsyncOperationsResponse> handler) {
+    public java.util.concurrent.Future<ListAsyncOperationsResponse> listAsyncOperations(ListAsyncOperationsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAsyncOperationsRequest, ListAsyncOperationsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformAsyncOperationsResponse::builder)
-        .logger(LOG, "listAiDataPlatformAsyncOperations")
-        .serviceDetails("AsyncOperations", "ListAiDataPlatformAsyncOperations", "")
+return clientCall(request, ListAsyncOperationsResponse::builder)
+        .logger(LOG, "listAsyncOperations")
+        .serviceDetails("AsyncOperations", "ListAsyncOperations", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformAsyncOperationsRequest::builder)
+        .requestBuilder(ListAsyncOperationsRequest::builder)
         
         
         .basePath("/20260430")
@@ -169,11 +169,11 @@ return clientCall(request, ListAiDataPlatformAsyncOperationsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.AsyncOperationCollection.class, ListAiDataPlatformAsyncOperationsResponse.Builder::asyncOperationCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.AsyncOperationCollection.class, ListAsyncOperationsResponse.Builder::asyncOperationCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformAsyncOperationsResponse.Builder::opcRequestId)
+            ListAsyncOperationsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformAsyncOperationsResponse.Builder::opcNextPage)
+            ListAsyncOperationsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 

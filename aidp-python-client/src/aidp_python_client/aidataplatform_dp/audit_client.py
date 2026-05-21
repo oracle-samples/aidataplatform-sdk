@@ -85,7 +85,7 @@ class AuditClient(object):
         self.base_client = BaseClient("audit", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def manage_ai_data_platform_audit_logs(self, ai_data_platform_id, manage_audit_logs_details, **kwargs):
+    def manage_audit_logs(self, ai_data_platform_id, manage_audit_logs_details, **kwargs):
         """
         Manages audit logs for AI Data Platform Workbench.
 
@@ -134,7 +134,7 @@ class AuditClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_audit_logs got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_audit_logs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -176,7 +176,7 @@ class AuditClient(object):
                 header_params=header_params,
                 body=manage_audit_logs_details)
 
-    def search_ai_data_platform_audit_logs(self, ai_data_platform_id, search_audit_logs_details, **kwargs):
+    def search_audit_logs(self, ai_data_platform_id, search_audit_logs_details, **kwargs):
         """
         Searches audit logs for AI Data Platform Workbench.
 
@@ -241,7 +241,7 @@ class AuditClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "search_ai_data_platform_audit_logs got unknown kwargs: {!r}".format(extra_kwargs))
+                "search_audit_logs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id

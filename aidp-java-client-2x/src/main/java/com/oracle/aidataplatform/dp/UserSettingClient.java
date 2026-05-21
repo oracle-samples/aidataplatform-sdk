@@ -372,16 +372,16 @@ public class UserSettingClient implements UserSetting {
     }
 
     @Override
-    public CreateAiDataPlatformUserSettingResponse createAiDataPlatformUserSetting(CreateAiDataPlatformUserSettingRequest request) {
-        LOG.trace("Called createAiDataPlatformUserSetting");
-            final CreateAiDataPlatformUserSettingRequest interceptedRequest = CreateAiDataPlatformUserSettingConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
+    public CreateUserSettingResponse createUserSetting(CreateUserSettingRequest request) {
+        LOG.trace("Called createUserSetting");
+            final CreateUserSettingRequest interceptedRequest = CreateUserSettingConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateUserSettingConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "CreateAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformUserSettingResponse> transformer = CreateAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "CreateUserSetting", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateUserSettingResponse> transformer = CreateUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,15 +397,15 @@ public class UserSettingClient implements UserSetting {
     }
 
     @Override
-    public DeleteAiDataPlatformUserSettingResponse deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request) {
-        LOG.trace("Called deleteAiDataPlatformUserSetting");
-            final DeleteAiDataPlatformUserSettingRequest interceptedRequest = DeleteAiDataPlatformUserSettingConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
+    public DeleteUserSettingResponse deleteUserSetting(DeleteUserSettingRequest request) {
+        LOG.trace("Called deleteUserSetting");
+            final DeleteUserSettingRequest interceptedRequest = DeleteUserSettingConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteUserSettingConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "DeleteAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformUserSettingResponse> transformer = DeleteAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "DeleteUserSetting", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteUserSettingResponse> transformer = DeleteUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -421,15 +421,15 @@ public class UserSettingClient implements UserSetting {
     }
 
     @Override
-    public GetAiDataPlatformUserSettingResponse getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request) {
-        LOG.trace("Called getAiDataPlatformUserSetting");
-            final GetAiDataPlatformUserSettingRequest interceptedRequest = GetAiDataPlatformUserSettingConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
+    public GetUserSettingResponse getUserSetting(GetUserSettingRequest request) {
+        LOG.trace("Called getUserSetting");
+            final GetUserSettingRequest interceptedRequest = GetUserSettingConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetUserSettingConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "GetAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformUserSettingResponse> transformer = GetAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "GetUserSetting", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetUserSettingResponse> transformer = GetUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -445,15 +445,15 @@ public class UserSettingClient implements UserSetting {
     }
 
     @Override
-    public ListAiDataPlatformUserSettingsResponse listAiDataPlatformUserSettings(ListAiDataPlatformUserSettingsRequest request) {
-        LOG.trace("Called listAiDataPlatformUserSettings");
-            final ListAiDataPlatformUserSettingsRequest interceptedRequest = ListAiDataPlatformUserSettingsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformUserSettingsConverter.fromRequest(client, interceptedRequest);
+    public ListUserSettingsResponse listUserSettings(ListUserSettingsRequest request) {
+        LOG.trace("Called listUserSettings");
+            final ListUserSettingsRequest interceptedRequest = ListUserSettingsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListUserSettingsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "ListAiDataPlatformUserSettings", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformUserSettingsResponse> transformer = ListAiDataPlatformUserSettingsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "ListUserSettings", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListUserSettingsResponse> transformer = ListUserSettingsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -469,15 +469,15 @@ public class UserSettingClient implements UserSetting {
     }
 
     @Override
-    public UpdateAiDataPlatformUserSettingResponse updateAiDataPlatformUserSetting(UpdateAiDataPlatformUserSettingRequest request) {
-        LOG.trace("Called updateAiDataPlatformUserSetting");
-            final UpdateAiDataPlatformUserSettingRequest interceptedRequest = UpdateAiDataPlatformUserSettingConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
+    public UpdateUserSettingResponse updateUserSetting(UpdateUserSettingRequest request) {
+        LOG.trace("Called updateUserSetting");
+            final UpdateUserSettingRequest interceptedRequest = UpdateUserSettingConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateUserSettingConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "UpdateAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformUserSettingResponse> transformer = UpdateAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "UpdateUserSetting", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateUserSettingResponse> transformer = UpdateUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

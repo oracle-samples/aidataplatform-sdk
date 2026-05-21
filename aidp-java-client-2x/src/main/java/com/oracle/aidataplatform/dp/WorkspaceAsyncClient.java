@@ -369,21 +369,21 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformGitFolderResponse> createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitFolderRequest, CreateAiDataPlatformGitFolderResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformGitFolder");
-        final CreateAiDataPlatformGitFolderRequest interceptedRequest = CreateAiDataPlatformGitFolderConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformGitFolderConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateGitFolderResponse> createGitFolder(CreateGitFolderRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateGitFolderRequest, CreateGitFolderResponse> handler) {
+        LOG.trace("Called async createGitFolder");
+        final CreateGitFolderRequest interceptedRequest = CreateGitFolderConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateGitFolderConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateAiDataPlatformGitFolder", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformGitFolderResponse> transformer = CreateAiDataPlatformGitFolderConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateGitFolder", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateGitFolderResponse> transformer = CreateGitFolderConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitFolderRequest, CreateAiDataPlatformGitFolderResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateGitFolderRequest, CreateGitFolderResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitFolderRequest, CreateAiDataPlatformGitFolderResponse>, java.util.concurrent.Future<CreateAiDataPlatformGitFolderResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateGitFolderRequest, CreateGitFolderResponse>, java.util.concurrent.Future<CreateGitFolderResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateGitFolderDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformGitFolderRequest, CreateAiDataPlatformGitFolderResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateGitFolderRequest, CreateGitFolderResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformWorkspaceResponse> createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceRequest, CreateAiDataPlatformWorkspaceResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformWorkspace");
-        final CreateAiDataPlatformWorkspaceRequest interceptedRequest = CreateAiDataPlatformWorkspaceConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateWorkspaceResponse> createWorkspace(CreateWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceRequest, CreateWorkspaceResponse> handler) {
+        LOG.trace("Called async createWorkspace");
+        final CreateWorkspaceRequest interceptedRequest = CreateWorkspaceConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateWorkspaceConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformWorkspaceResponse> transformer = CreateAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateWorkspace", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateWorkspaceResponse> transformer = CreateWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceRequest, CreateAiDataPlatformWorkspaceResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceRequest, CreateWorkspaceResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceRequest, CreateAiDataPlatformWorkspaceResponse>, java.util.concurrent.Future<CreateAiDataPlatformWorkspaceResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceRequest, CreateWorkspaceResponse>, java.util.concurrent.Future<CreateWorkspaceResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateWorkspaceDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformWorkspaceRequest, CreateAiDataPlatformWorkspaceResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateWorkspaceRequest, CreateWorkspaceResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,20 +427,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformWorkspaceResponse> deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformWorkspaceRequest, DeleteAiDataPlatformWorkspaceResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformWorkspace");
-        final DeleteAiDataPlatformWorkspaceRequest interceptedRequest = DeleteAiDataPlatformWorkspaceConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "DeleteAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformWorkspaceResponse> transformer = DeleteAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteWorkspaceResponse> deleteWorkspace(DeleteWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteWorkspaceRequest, DeleteWorkspaceResponse> handler) {
+        LOG.trace("Called async deleteWorkspace");
+        final DeleteWorkspaceRequest interceptedRequest = DeleteWorkspaceConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteWorkspaceConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "DeleteWorkspace", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteWorkspaceResponse> transformer = DeleteWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformWorkspaceRequest, DeleteAiDataPlatformWorkspaceResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteWorkspaceRequest, DeleteWorkspaceResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformWorkspaceRequest, DeleteAiDataPlatformWorkspaceResponse>, java.util.concurrent.Future<DeleteAiDataPlatformWorkspaceResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteWorkspaceRequest, DeleteWorkspaceResponse>, java.util.concurrent.Future<DeleteWorkspaceResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformWorkspaceRequest, DeleteAiDataPlatformWorkspaceResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteWorkspaceRequest, DeleteWorkspaceResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -455,20 +455,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformWorkspaceResponse> getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformWorkspaceRequest, GetAiDataPlatformWorkspaceResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformWorkspace");
-        final GetAiDataPlatformWorkspaceRequest interceptedRequest = GetAiDataPlatformWorkspaceConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "GetAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformWorkspaceResponse> transformer = GetAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetWorkspaceResponse> getWorkspace(GetWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<GetWorkspaceRequest, GetWorkspaceResponse> handler) {
+        LOG.trace("Called async getWorkspace");
+        final GetWorkspaceRequest interceptedRequest = GetWorkspaceConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetWorkspaceConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "GetWorkspace", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetWorkspaceResponse> transformer = GetWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformWorkspaceRequest, GetAiDataPlatformWorkspaceResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetWorkspaceRequest, GetWorkspaceResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformWorkspaceRequest, GetAiDataPlatformWorkspaceResponse>, java.util.concurrent.Future<GetAiDataPlatformWorkspaceResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetWorkspaceRequest, GetWorkspaceResponse>, java.util.concurrent.Future<GetWorkspaceResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformWorkspaceRequest, GetAiDataPlatformWorkspaceResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetWorkspaceRequest, GetWorkspaceResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -483,20 +483,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformCreateWorkspacePermissionsResponse> listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCreateWorkspacePermissionsRequest, ListAiDataPlatformCreateWorkspacePermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformCreateWorkspacePermissions");
-        final ListAiDataPlatformCreateWorkspacePermissionsRequest interceptedRequest = ListAiDataPlatformCreateWorkspacePermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCreateWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListAiDataPlatformCreateWorkspacePermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCreateWorkspacePermissionsResponse> transformer = ListAiDataPlatformCreateWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListCreateWorkspacePermissionsResponse> listCreateWorkspacePermissions(ListCreateWorkspacePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCreateWorkspacePermissionsRequest, ListCreateWorkspacePermissionsResponse> handler) {
+        LOG.trace("Called async listCreateWorkspacePermissions");
+        final ListCreateWorkspacePermissionsRequest interceptedRequest = ListCreateWorkspacePermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCreateWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListCreateWorkspacePermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListCreateWorkspacePermissionsResponse> transformer = ListCreateWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCreateWorkspacePermissionsRequest, ListAiDataPlatformCreateWorkspacePermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListCreateWorkspacePermissionsRequest, ListCreateWorkspacePermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCreateWorkspacePermissionsRequest, ListAiDataPlatformCreateWorkspacePermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformCreateWorkspacePermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListCreateWorkspacePermissionsRequest, ListCreateWorkspacePermissionsResponse>, java.util.concurrent.Future<ListCreateWorkspacePermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformCreateWorkspacePermissionsRequest, ListAiDataPlatformCreateWorkspacePermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListCreateWorkspacePermissionsRequest, ListCreateWorkspacePermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -511,20 +511,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformWorkspacePermissionsResponse> listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacePermissionsRequest, ListAiDataPlatformWorkspacePermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformWorkspacePermissions");
-        final ListAiDataPlatformWorkspacePermissionsRequest interceptedRequest = ListAiDataPlatformWorkspacePermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListAiDataPlatformWorkspacePermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformWorkspacePermissionsResponse> transformer = ListAiDataPlatformWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListWorkspacePermissionsResponse> listWorkspacePermissions(ListWorkspacePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListWorkspacePermissionsRequest, ListWorkspacePermissionsResponse> handler) {
+        LOG.trace("Called async listWorkspacePermissions");
+        final ListWorkspacePermissionsRequest interceptedRequest = ListWorkspacePermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListWorkspacePermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListWorkspacePermissionsResponse> transformer = ListWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacePermissionsRequest, ListAiDataPlatformWorkspacePermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListWorkspacePermissionsRequest, ListWorkspacePermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacePermissionsRequest, ListAiDataPlatformWorkspacePermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformWorkspacePermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListWorkspacePermissionsRequest, ListWorkspacePermissionsResponse>, java.util.concurrent.Future<ListWorkspacePermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformWorkspacePermissionsRequest, ListAiDataPlatformWorkspacePermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListWorkspacePermissionsRequest, ListWorkspacePermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -539,20 +539,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformWorkspacesResponse> listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacesRequest, ListAiDataPlatformWorkspacesResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformWorkspaces");
-        final ListAiDataPlatformWorkspacesRequest interceptedRequest = ListAiDataPlatformWorkspacesConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformWorkspacesConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListAiDataPlatformWorkspaces", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformWorkspacesResponse> transformer = ListAiDataPlatformWorkspacesConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListWorkspacesResponse> listWorkspaces(ListWorkspacesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListWorkspacesRequest, ListWorkspacesResponse> handler) {
+        LOG.trace("Called async listWorkspaces");
+        final ListWorkspacesRequest interceptedRequest = ListWorkspacesConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListWorkspacesConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListWorkspaces", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListWorkspacesResponse> transformer = ListWorkspacesConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacesRequest, ListAiDataPlatformWorkspacesResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListWorkspacesRequest, ListWorkspacesResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacesRequest, ListAiDataPlatformWorkspacesResponse>, java.util.concurrent.Future<ListAiDataPlatformWorkspacesResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListWorkspacesRequest, ListWorkspacesResponse>, java.util.concurrent.Future<ListWorkspacesResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformWorkspacesRequest, ListAiDataPlatformWorkspacesResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListWorkspacesRequest, ListWorkspacesResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -567,21 +567,21 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformCreateWorkspacePermissionResponse> manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCreateWorkspacePermissionRequest, ManageAiDataPlatformCreateWorkspacePermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformCreateWorkspacePermission");
-        final ManageAiDataPlatformCreateWorkspacePermissionRequest interceptedRequest = ManageAiDataPlatformCreateWorkspacePermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformCreateWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ManageCreateWorkspacePermissionResponse> manageCreateWorkspacePermission(ManageCreateWorkspacePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageCreateWorkspacePermissionRequest, ManageCreateWorkspacePermissionResponse> handler) {
+        LOG.trace("Called async manageCreateWorkspacePermission");
+        final ManageCreateWorkspacePermissionRequest interceptedRequest = ManageCreateWorkspacePermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageCreateWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageAiDataPlatformCreateWorkspacePermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformCreateWorkspacePermissionResponse> transformer = ManageAiDataPlatformCreateWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageCreateWorkspacePermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageCreateWorkspacePermissionResponse> transformer = ManageCreateWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCreateWorkspacePermissionRequest, ManageAiDataPlatformCreateWorkspacePermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageCreateWorkspacePermissionRequest, ManageCreateWorkspacePermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCreateWorkspacePermissionRequest, ManageAiDataPlatformCreateWorkspacePermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformCreateWorkspacePermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageCreateWorkspacePermissionRequest, ManageCreateWorkspacePermissionResponse>, java.util.concurrent.Future<ManageCreateWorkspacePermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageCreateWorkspacePermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformCreateWorkspacePermissionRequest, ManageAiDataPlatformCreateWorkspacePermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageCreateWorkspacePermissionRequest, ManageCreateWorkspacePermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -596,21 +596,21 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformWorkspacePermissionResponse> manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformWorkspacePermissionRequest, ManageAiDataPlatformWorkspacePermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformWorkspacePermission");
-        final ManageAiDataPlatformWorkspacePermissionRequest interceptedRequest = ManageAiDataPlatformWorkspacePermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ManageWorkspacePermissionResponse> manageWorkspacePermission(ManageWorkspacePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageWorkspacePermissionRequest, ManageWorkspacePermissionResponse> handler) {
+        LOG.trace("Called async manageWorkspacePermission");
+        final ManageWorkspacePermissionRequest interceptedRequest = ManageWorkspacePermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageAiDataPlatformWorkspacePermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformWorkspacePermissionResponse> transformer = ManageAiDataPlatformWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageWorkspacePermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageWorkspacePermissionResponse> transformer = ManageWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformWorkspacePermissionRequest, ManageAiDataPlatformWorkspacePermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageWorkspacePermissionRequest, ManageWorkspacePermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformWorkspacePermissionRequest, ManageAiDataPlatformWorkspacePermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformWorkspacePermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageWorkspacePermissionRequest, ManageWorkspacePermissionResponse>, java.util.concurrent.Future<ManageWorkspacePermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageWorkspacePermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformWorkspacePermissionRequest, ManageAiDataPlatformWorkspacePermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageWorkspacePermissionRequest, ManageWorkspacePermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -625,20 +625,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceResponse> updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceRequest, UpdateAiDataPlatformWorkspaceResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformWorkspace");
-        final UpdateAiDataPlatformWorkspaceRequest interceptedRequest = UpdateAiDataPlatformWorkspaceConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformWorkspaceResponse> transformer = UpdateAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateWorkspaceResponse> updateWorkspace(UpdateWorkspaceRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceRequest, UpdateWorkspaceResponse> handler) {
+        LOG.trace("Called async updateWorkspace");
+        final UpdateWorkspaceRequest interceptedRequest = UpdateWorkspaceConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateWorkspaceConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateWorkspace", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateWorkspaceResponse> transformer = UpdateWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceRequest, UpdateAiDataPlatformWorkspaceResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceRequest, UpdateWorkspaceResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceRequest, UpdateAiDataPlatformWorkspaceResponse>, java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceRequest, UpdateWorkspaceResponse>, java.util.concurrent.Future<UpdateWorkspaceResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateWorkspaceDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformWorkspaceRequest, UpdateAiDataPlatformWorkspaceResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateWorkspaceRequest, UpdateWorkspaceResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -653,20 +653,20 @@ public class WorkspaceAsyncClient implements WorkspaceAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> updateAiDataPlatformWorkspaceAsyncOperationStatus(UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformWorkspaceAsyncOperationStatus");
-        final UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest interceptedRequest = UpdateAiDataPlatformWorkspaceAsyncOperationStatusConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformWorkspaceAsyncOperationStatusConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateAiDataPlatformWorkspaceAsyncOperationStatus", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> transformer = UpdateAiDataPlatformWorkspaceAsyncOperationStatusConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateWorkspaceAsyncOperationStatusResponse> updateWorkspaceAsyncOperationStatus(UpdateWorkspaceAsyncOperationStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceAsyncOperationStatusRequest, UpdateWorkspaceAsyncOperationStatusResponse> handler) {
+        LOG.trace("Called async updateWorkspaceAsyncOperationStatus");
+        final UpdateWorkspaceAsyncOperationStatusRequest interceptedRequest = UpdateWorkspaceAsyncOperationStatusConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateWorkspaceAsyncOperationStatusConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateWorkspaceAsyncOperationStatus", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateWorkspaceAsyncOperationStatusResponse> transformer = UpdateWorkspaceAsyncOperationStatusConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceAsyncOperationStatusRequest, UpdateWorkspaceAsyncOperationStatusResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse>, java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceAsyncOperationStatusRequest, UpdateWorkspaceAsyncOperationStatusResponse>, java.util.concurrent.Future<UpdateWorkspaceAsyncOperationStatusResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateWorkspaceAsyncOperationStatusDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateWorkspaceAsyncOperationStatusRequest, UpdateWorkspaceAsyncOperationStatusResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

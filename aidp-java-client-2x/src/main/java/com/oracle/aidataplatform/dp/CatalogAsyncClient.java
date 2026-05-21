@@ -369,21 +369,21 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CatalogAiDataPlatformTestConnectionResponse> catalogAiDataPlatformTestConnection(CatalogAiDataPlatformTestConnectionRequest request, final com.oracle.bmc.responses.AsyncHandler<CatalogAiDataPlatformTestConnectionRequest, CatalogAiDataPlatformTestConnectionResponse> handler) {
-        LOG.trace("Called async catalogAiDataPlatformTestConnection");
-        final CatalogAiDataPlatformTestConnectionRequest interceptedRequest = CatalogAiDataPlatformTestConnectionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CatalogAiDataPlatformTestConnectionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CatalogTestConnectionResponse> catalogTestConnection(CatalogTestConnectionRequest request, final com.oracle.bmc.responses.AsyncHandler<CatalogTestConnectionRequest, CatalogTestConnectionResponse> handler) {
+        LOG.trace("Called async catalogTestConnection");
+        final CatalogTestConnectionRequest interceptedRequest = CatalogTestConnectionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CatalogTestConnectionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CatalogAiDataPlatformTestConnection", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CatalogAiDataPlatformTestConnectionResponse> transformer = CatalogAiDataPlatformTestConnectionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CatalogTestConnection", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CatalogTestConnectionResponse> transformer = CatalogTestConnectionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CatalogAiDataPlatformTestConnectionRequest, CatalogAiDataPlatformTestConnectionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CatalogTestConnectionRequest, CatalogTestConnectionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CatalogAiDataPlatformTestConnectionRequest, CatalogAiDataPlatformTestConnectionResponse>, java.util.concurrent.Future<CatalogAiDataPlatformTestConnectionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CatalogTestConnectionRequest, CatalogTestConnectionResponse>, java.util.concurrent.Future<CatalogTestConnectionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCatalogTestConnectionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CatalogAiDataPlatformTestConnectionRequest, CatalogAiDataPlatformTestConnectionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CatalogTestConnectionRequest, CatalogTestConnectionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformCatalogResponse> createAiDataPlatformCatalog(CreateAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCatalogRequest, CreateAiDataPlatformCatalogResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformCatalog");
-        final CreateAiDataPlatformCatalogRequest interceptedRequest = CreateAiDataPlatformCatalogConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateCatalogResponse> createCatalog(CreateCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateCatalogRequest, CreateCatalogResponse> handler) {
+        LOG.trace("Called async createCatalog");
+        final CreateCatalogRequest interceptedRequest = CreateCatalogConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateCatalogConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CreateAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformCatalogResponse> transformer = CreateAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "CreateCatalog", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateCatalogResponse> transformer = CreateCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCatalogRequest, CreateAiDataPlatformCatalogResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateCatalogRequest, CreateCatalogResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCatalogRequest, CreateAiDataPlatformCatalogResponse>, java.util.concurrent.Future<CreateAiDataPlatformCatalogResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateCatalogRequest, CreateCatalogResponse>, java.util.concurrent.Future<CreateCatalogResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateCatalogDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformCatalogRequest, CreateAiDataPlatformCatalogResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateCatalogRequest, CreateCatalogResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,20 +427,20 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformCatalogResponse> deleteAiDataPlatformCatalog(DeleteAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCatalogRequest, DeleteAiDataPlatformCatalogResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformCatalog");
-        final DeleteAiDataPlatformCatalogRequest interceptedRequest = DeleteAiDataPlatformCatalogConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "DeleteAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformCatalogResponse> transformer = DeleteAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteCatalogResponse> deleteCatalog(DeleteCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteCatalogRequest, DeleteCatalogResponse> handler) {
+        LOG.trace("Called async deleteCatalog");
+        final DeleteCatalogRequest interceptedRequest = DeleteCatalogConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteCatalogConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "DeleteCatalog", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteCatalogResponse> transformer = DeleteCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCatalogRequest, DeleteAiDataPlatformCatalogResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteCatalogRequest, DeleteCatalogResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCatalogRequest, DeleteAiDataPlatformCatalogResponse>, java.util.concurrent.Future<DeleteAiDataPlatformCatalogResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteCatalogRequest, DeleteCatalogResponse>, java.util.concurrent.Future<DeleteCatalogResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformCatalogRequest, DeleteAiDataPlatformCatalogResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteCatalogRequest, DeleteCatalogResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -455,20 +455,20 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformCatalogResponse> getAiDataPlatformCatalog(GetAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCatalogRequest, GetAiDataPlatformCatalogResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformCatalog");
-        final GetAiDataPlatformCatalogRequest interceptedRequest = GetAiDataPlatformCatalogConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "GetAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformCatalogResponse> transformer = GetAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetCatalogResponse> getCatalog(GetCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<GetCatalogRequest, GetCatalogResponse> handler) {
+        LOG.trace("Called async getCatalog");
+        final GetCatalogRequest interceptedRequest = GetCatalogConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetCatalogConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "GetCatalog", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetCatalogResponse> transformer = GetCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCatalogRequest, GetAiDataPlatformCatalogResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetCatalogRequest, GetCatalogResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCatalogRequest, GetAiDataPlatformCatalogResponse>, java.util.concurrent.Future<GetAiDataPlatformCatalogResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetCatalogRequest, GetCatalogResponse>, java.util.concurrent.Future<GetCatalogResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformCatalogRequest, GetAiDataPlatformCatalogResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetCatalogRequest, GetCatalogResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -483,20 +483,20 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformCatalogPermissionsResponse> listAiDataPlatformCatalogPermissions(ListAiDataPlatformCatalogPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogPermissionsRequest, ListAiDataPlatformCatalogPermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformCatalogPermissions");
-        final ListAiDataPlatformCatalogPermissionsRequest interceptedRequest = ListAiDataPlatformCatalogPermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCatalogPermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListAiDataPlatformCatalogPermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCatalogPermissionsResponse> transformer = ListAiDataPlatformCatalogPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListCatalogPermissionsResponse> listCatalogPermissions(ListCatalogPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse> handler) {
+        LOG.trace("Called async listCatalogPermissions");
+        final ListCatalogPermissionsRequest interceptedRequest = ListCatalogPermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCatalogPermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListCatalogPermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListCatalogPermissionsResponse> transformer = ListCatalogPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogPermissionsRequest, ListAiDataPlatformCatalogPermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogPermissionsRequest, ListAiDataPlatformCatalogPermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformCatalogPermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse>, java.util.concurrent.Future<ListCatalogPermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformCatalogPermissionsRequest, ListAiDataPlatformCatalogPermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -511,20 +511,20 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformCatalogsResponse> listAiDataPlatformCatalogs(ListAiDataPlatformCatalogsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogsRequest, ListAiDataPlatformCatalogsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformCatalogs");
-        final ListAiDataPlatformCatalogsRequest interceptedRequest = ListAiDataPlatformCatalogsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCatalogsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListAiDataPlatformCatalogs", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCatalogsResponse> transformer = ListAiDataPlatformCatalogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListCatalogsResponse> listCatalogs(ListCatalogsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCatalogsRequest, ListCatalogsResponse> handler) {
+        LOG.trace("Called async listCatalogs");
+        final ListCatalogsRequest interceptedRequest = ListCatalogsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCatalogsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ListCatalogs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListCatalogsResponse> transformer = ListCatalogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogsRequest, ListAiDataPlatformCatalogsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListCatalogsRequest, ListCatalogsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogsRequest, ListAiDataPlatformCatalogsResponse>, java.util.concurrent.Future<ListAiDataPlatformCatalogsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListCatalogsRequest, ListCatalogsResponse>, java.util.concurrent.Future<ListCatalogsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformCatalogsRequest, ListAiDataPlatformCatalogsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListCatalogsRequest, ListCatalogsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -539,20 +539,20 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformCatalogPermissionResponse> manageAiDataPlatformCatalogPermission(ManageAiDataPlatformCatalogPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCatalogPermissionRequest, ManageAiDataPlatformCatalogPermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformCatalogPermission");
-        final ManageAiDataPlatformCatalogPermissionRequest interceptedRequest = ManageAiDataPlatformCatalogPermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformCatalogPermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ManageAiDataPlatformCatalogPermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformCatalogPermissionResponse> transformer = ManageAiDataPlatformCatalogPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageCatalogPermissionResponse> manageCatalogPermission(ManageCatalogPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse> handler) {
+        LOG.trace("Called async manageCatalogPermission");
+        final ManageCatalogPermissionRequest interceptedRequest = ManageCatalogPermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageCatalogPermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "ManageCatalogPermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageCatalogPermissionResponse> transformer = ManageCatalogPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCatalogPermissionRequest, ManageAiDataPlatformCatalogPermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCatalogPermissionRequest, ManageAiDataPlatformCatalogPermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformCatalogPermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse>, java.util.concurrent.Future<ManageCatalogPermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageCatalogPermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformCatalogPermissionRequest, ManageAiDataPlatformCatalogPermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -567,21 +567,21 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RefreshAiDataPlatformCatalogResponse> refreshAiDataPlatformCatalog(RefreshAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformCatalogRequest, RefreshAiDataPlatformCatalogResponse> handler) {
-        LOG.trace("Called async refreshAiDataPlatformCatalog");
-        final RefreshAiDataPlatformCatalogRequest interceptedRequest = RefreshAiDataPlatformCatalogConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RefreshCatalogResponse> refreshCatalog(RefreshCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshCatalogRequest, RefreshCatalogResponse> handler) {
+        LOG.trace("Called async refreshCatalog");
+        final RefreshCatalogRequest interceptedRequest = RefreshCatalogConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshCatalogConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "RefreshAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RefreshAiDataPlatformCatalogResponse> transformer = RefreshAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "RefreshCatalog", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RefreshCatalogResponse> transformer = RefreshCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformCatalogRequest, RefreshAiDataPlatformCatalogResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RefreshCatalogRequest, RefreshCatalogResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformCatalogRequest, RefreshAiDataPlatformCatalogResponse>, java.util.concurrent.Future<RefreshAiDataPlatformCatalogResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RefreshCatalogRequest, RefreshCatalogResponse>, java.util.concurrent.Future<RefreshCatalogResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RefreshAiDataPlatformCatalogRequest, RefreshAiDataPlatformCatalogResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RefreshCatalogRequest, RefreshCatalogResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -596,20 +596,20 @@ public class CatalogAsyncClient implements CatalogAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformCatalogResponse> updateAiDataPlatformCatalog(UpdateAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCatalogRequest, UpdateAiDataPlatformCatalogResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformCatalog");
-        final UpdateAiDataPlatformCatalogRequest interceptedRequest = UpdateAiDataPlatformCatalogConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformCatalogConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "UpdateAiDataPlatformCatalog", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformCatalogResponse> transformer = UpdateAiDataPlatformCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateCatalogResponse> updateCatalog(UpdateCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateCatalogRequest, UpdateCatalogResponse> handler) {
+        LOG.trace("Called async updateCatalog");
+        final UpdateCatalogRequest interceptedRequest = UpdateCatalogConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateCatalogConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Catalog", "UpdateCatalog", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateCatalogResponse> transformer = UpdateCatalogConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCatalogRequest, UpdateAiDataPlatformCatalogResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateCatalogRequest, UpdateCatalogResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCatalogRequest, UpdateAiDataPlatformCatalogResponse>, java.util.concurrent.Future<UpdateAiDataPlatformCatalogResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateCatalogRequest, UpdateCatalogResponse>, java.util.concurrent.Future<UpdateCatalogResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateCatalogDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformCatalogRequest, UpdateAiDataPlatformCatalogResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateCatalogRequest, UpdateCatalogResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

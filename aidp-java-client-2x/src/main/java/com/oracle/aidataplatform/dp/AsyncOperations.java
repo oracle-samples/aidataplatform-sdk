@@ -67,7 +67,7 @@ public interface AsyncOperations extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformAsyncOperationResponse getAiDataPlatformAsyncOperation(GetAiDataPlatformAsyncOperationRequest request);
+    GetAsyncOperationResponse getAsyncOperation(GetAsyncOperationRequest request);
     
     /**
      * List all async operations for a resource type.
@@ -79,7 +79,7 @@ public interface AsyncOperations extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformAsyncOperationsResponse listAiDataPlatformAsyncOperations(ListAiDataPlatformAsyncOperationsRequest request);
+    ListAsyncOperationsResponse listAsyncOperations(ListAsyncOperationsRequest request);
     
 
 }

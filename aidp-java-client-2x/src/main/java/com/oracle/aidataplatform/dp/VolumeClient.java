@@ -23,6 +23,7 @@ public class VolumeClient implements Volume {
         return client;
     }
 
+    private final VolumeWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class VolumeClient implements Volume {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public VolumeClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class VolumeClient implements Volume {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public VolumeClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class VolumeClient implements Volume {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class VolumeClient implements Volume {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected VolumeClient(
@@ -196,6 +224,7 @@ public class VolumeClient implements Volume {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class VolumeClient implements Volume {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Volume-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new VolumeWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -243,7 +280,7 @@ public class VolumeClient implements Volume {
         if (com.oracle.bmc.http.ApacheUtils.isExtraStreamLogsEnabled()) {
              LOG.warn(com.oracle.bmc.http.ApacheUtils.getStreamWarningMessage(
                 "VolumeClient",
-                 "downloadAiDataPlatformFile"
+                 "downloadFile"
                  )
              );
         }
@@ -263,9 +300,21 @@ public class VolumeClient implements Volume {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, VolumeClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -284,6 +333,7 @@ public class VolumeClient implements Volume {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -379,16 +429,16 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public CreateAiDataPlatformVolumeResponse createAiDataPlatformVolume(CreateAiDataPlatformVolumeRequest request) {
-        LOG.trace("Called createAiDataPlatformVolume");
-            final CreateAiDataPlatformVolumeRequest interceptedRequest = CreateAiDataPlatformVolumeConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformVolumeConverter.fromRequest(client, interceptedRequest);
+    public CreateVolumeResponse createVolume(CreateVolumeRequest request) {
+        LOG.trace("Called createVolume");
+            final CreateVolumeRequest interceptedRequest = CreateVolumeConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateVolumeConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "CreateAiDataPlatformVolume", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformVolumeResponse> transformer = CreateAiDataPlatformVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "CreateVolume", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateVolumeResponse> transformer = CreateVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -404,16 +454,16 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public DeleteAiDataPlatformDirResponse deleteAiDataPlatformDir(DeleteAiDataPlatformDirRequest request) {
-        LOG.trace("Called deleteAiDataPlatformDir");
-            final DeleteAiDataPlatformDirRequest interceptedRequest = DeleteAiDataPlatformDirConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformDirConverter.fromRequest(client, interceptedRequest);
+    public DeleteDirResponse deleteDir(DeleteDirRequest request) {
+        LOG.trace("Called deleteDir");
+            final DeleteDirRequest interceptedRequest = DeleteDirConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteDirConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DeleteAiDataPlatformDir", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformDirResponse> transformer = DeleteAiDataPlatformDirConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DeleteDir", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteDirResponse> transformer = DeleteDirConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -429,15 +479,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public DeleteAiDataPlatformFileResponse deleteAiDataPlatformFile(DeleteAiDataPlatformFileRequest request) {
-        LOG.trace("Called deleteAiDataPlatformFile");
-            final DeleteAiDataPlatformFileRequest interceptedRequest = DeleteAiDataPlatformFileConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformFileConverter.fromRequest(client, interceptedRequest);
+    public DeleteFileResponse deleteFile(DeleteFileRequest request) {
+        LOG.trace("Called deleteFile");
+            final DeleteFileRequest interceptedRequest = DeleteFileConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteFileConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DeleteAiDataPlatformFile", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformFileResponse> transformer = DeleteAiDataPlatformFileConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DeleteFile", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteFileResponse> transformer = DeleteFileConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -453,15 +503,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public DeleteAiDataPlatformVolumeResponse deleteAiDataPlatformVolume(DeleteAiDataPlatformVolumeRequest request) {
-        LOG.trace("Called deleteAiDataPlatformVolume");
-            final DeleteAiDataPlatformVolumeRequest interceptedRequest = DeleteAiDataPlatformVolumeConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformVolumeConverter.fromRequest(client, interceptedRequest);
+    public DeleteVolumeResponse deleteVolume(DeleteVolumeRequest request) {
+        LOG.trace("Called deleteVolume");
+            final DeleteVolumeRequest interceptedRequest = DeleteVolumeConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteVolumeConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DeleteAiDataPlatformVolume", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformVolumeResponse> transformer = DeleteAiDataPlatformVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DeleteVolume", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteVolumeResponse> transformer = DeleteVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -477,15 +527,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public DownloadAiDataPlatformFileResponse downloadAiDataPlatformFile(DownloadAiDataPlatformFileRequest request) {
-        LOG.trace("Called downloadAiDataPlatformFile");
-            final DownloadAiDataPlatformFileRequest interceptedRequest = DownloadAiDataPlatformFileConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadAiDataPlatformFileConverter.fromRequest(client, interceptedRequest);
+    public DownloadFileResponse downloadFile(DownloadFileRequest request) {
+        LOG.trace("Called downloadFile");
+            final DownloadFileRequest interceptedRequest = DownloadFileConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadFileConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DownloadAiDataPlatformFile", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DownloadAiDataPlatformFileResponse> transformer = DownloadAiDataPlatformFileConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DownloadFile", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DownloadFileResponse> transformer = DownloadFileConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -501,16 +551,16 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public DownloadAiDataPlatformFileWithParResponse downloadAiDataPlatformFileWithPar(DownloadAiDataPlatformFileWithParRequest request) {
-        LOG.trace("Called downloadAiDataPlatformFileWithPar");
-            final DownloadAiDataPlatformFileWithParRequest interceptedRequest = DownloadAiDataPlatformFileWithParConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadAiDataPlatformFileWithParConverter.fromRequest(client, interceptedRequest);
+    public DownloadFileWithParResponse downloadFileWithPar(DownloadFileWithParRequest request) {
+        LOG.trace("Called downloadFileWithPar");
+            final DownloadFileWithParRequest interceptedRequest = DownloadFileWithParConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadFileWithParConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DownloadAiDataPlatformFileWithPar", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DownloadAiDataPlatformFileWithParResponse> transformer = DownloadAiDataPlatformFileWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "DownloadFileWithPar", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DownloadFileWithParResponse> transformer = DownloadFileWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -526,15 +576,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public GetAiDataPlatformVolumeResponse getAiDataPlatformVolume(GetAiDataPlatformVolumeRequest request) {
-        LOG.trace("Called getAiDataPlatformVolume");
-            final GetAiDataPlatformVolumeRequest interceptedRequest = GetAiDataPlatformVolumeConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformVolumeConverter.fromRequest(client, interceptedRequest);
+    public GetVolumeResponse getVolume(GetVolumeRequest request) {
+        LOG.trace("Called getVolume");
+            final GetVolumeRequest interceptedRequest = GetVolumeConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetVolumeConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "GetAiDataPlatformVolume", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformVolumeResponse> transformer = GetAiDataPlatformVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "GetVolume", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetVolumeResponse> transformer = GetVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -550,15 +600,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public ListAiDataPlatformFilesResponse listAiDataPlatformFiles(ListAiDataPlatformFilesRequest request) {
-        LOG.trace("Called listAiDataPlatformFiles");
-            final ListAiDataPlatformFilesRequest interceptedRequest = ListAiDataPlatformFilesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformFilesConverter.fromRequest(client, interceptedRequest);
+    public ListFilesResponse listFiles(ListFilesRequest request) {
+        LOG.trace("Called listFiles");
+            final ListFilesRequest interceptedRequest = ListFilesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListFilesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ListAiDataPlatformFiles", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformFilesResponse> transformer = ListAiDataPlatformFilesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ListFiles", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListFilesResponse> transformer = ListFilesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -574,15 +624,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public ListAiDataPlatformVolumePermissionsResponse listAiDataPlatformVolumePermissions(ListAiDataPlatformVolumePermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformVolumePermissions");
-            final ListAiDataPlatformVolumePermissionsRequest interceptedRequest = ListAiDataPlatformVolumePermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformVolumePermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListVolumePermissionsResponse listVolumePermissions(ListVolumePermissionsRequest request) {
+        LOG.trace("Called listVolumePermissions");
+            final ListVolumePermissionsRequest interceptedRequest = ListVolumePermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListVolumePermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ListAiDataPlatformVolumePermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformVolumePermissionsResponse> transformer = ListAiDataPlatformVolumePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ListVolumePermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListVolumePermissionsResponse> transformer = ListVolumePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -598,15 +648,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public ListAiDataPlatformVolumesResponse listAiDataPlatformVolumes(ListAiDataPlatformVolumesRequest request) {
-        LOG.trace("Called listAiDataPlatformVolumes");
-            final ListAiDataPlatformVolumesRequest interceptedRequest = ListAiDataPlatformVolumesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformVolumesConverter.fromRequest(client, interceptedRequest);
+    public ListVolumesResponse listVolumes(ListVolumesRequest request) {
+        LOG.trace("Called listVolumes");
+            final ListVolumesRequest interceptedRequest = ListVolumesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListVolumesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ListAiDataPlatformVolumes", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformVolumesResponse> transformer = ListAiDataPlatformVolumesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ListVolumes", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListVolumesResponse> transformer = ListVolumesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -622,16 +672,16 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public MakeAiDataPlatformDirResponse makeAiDataPlatformDir(MakeAiDataPlatformDirRequest request) {
-        LOG.trace("Called makeAiDataPlatformDir");
-            final MakeAiDataPlatformDirRequest interceptedRequest = MakeAiDataPlatformDirConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MakeAiDataPlatformDirConverter.fromRequest(client, interceptedRequest);
+    public MakeDirResponse makeDir(MakeDirRequest request) {
+        LOG.trace("Called makeDir");
+            final MakeDirRequest interceptedRequest = MakeDirConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MakeDirConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "MakeAiDataPlatformDir", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, MakeAiDataPlatformDirResponse> transformer = MakeAiDataPlatformDirConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "MakeDir", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, MakeDirResponse> transformer = MakeDirConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -647,15 +697,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public ManageAiDataPlatformVolumePermissionResponse manageAiDataPlatformVolumePermission(ManageAiDataPlatformVolumePermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformVolumePermission");
-            final ManageAiDataPlatformVolumePermissionRequest interceptedRequest = ManageAiDataPlatformVolumePermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformVolumePermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageVolumePermissionResponse manageVolumePermission(ManageVolumePermissionRequest request) {
+        LOG.trace("Called manageVolumePermission");
+            final ManageVolumePermissionRequest interceptedRequest = ManageVolumePermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageVolumePermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ManageAiDataPlatformVolumePermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformVolumePermissionResponse> transformer = ManageAiDataPlatformVolumePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "ManageVolumePermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageVolumePermissionResponse> transformer = ManageVolumePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -671,16 +721,16 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public UpdateAiDataPlatformDirResponse updateAiDataPlatformDir(UpdateAiDataPlatformDirRequest request) {
-        LOG.trace("Called updateAiDataPlatformDir");
-            final UpdateAiDataPlatformDirRequest interceptedRequest = UpdateAiDataPlatformDirConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformDirConverter.fromRequest(client, interceptedRequest);
+    public UpdateDirResponse updateDir(UpdateDirRequest request) {
+        LOG.trace("Called updateDir");
+            final UpdateDirRequest interceptedRequest = UpdateDirConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateDirConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UpdateAiDataPlatformDir", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformDirResponse> transformer = UpdateAiDataPlatformDirConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UpdateDir", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateDirResponse> transformer = UpdateDirConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -696,15 +746,15 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public UpdateAiDataPlatformVolumeResponse updateAiDataPlatformVolume(UpdateAiDataPlatformVolumeRequest request) {
-        LOG.trace("Called updateAiDataPlatformVolume");
-            final UpdateAiDataPlatformVolumeRequest interceptedRequest = UpdateAiDataPlatformVolumeConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformVolumeConverter.fromRequest(client, interceptedRequest);
+    public UpdateVolumeResponse updateVolume(UpdateVolumeRequest request) {
+        LOG.trace("Called updateVolume");
+            final UpdateVolumeRequest interceptedRequest = UpdateVolumeConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateVolumeConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UpdateAiDataPlatformVolume", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformVolumeResponse> transformer = UpdateAiDataPlatformVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UpdateVolume", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateVolumeResponse> transformer = UpdateVolumeConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -720,19 +770,19 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public UploadAiDataPlatformFileResponse uploadAiDataPlatformFile(UploadAiDataPlatformFileRequest request) {
-        LOG.trace("Called uploadAiDataPlatformFile");
+    public UploadFileResponse uploadFile(UploadFileRequest request) {
+        LOG.trace("Called uploadFile");
         try {
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(request.getRetryConfiguration(), retryConfiguration, true);
             if (request.getRetryConfiguration() != null || retryConfiguration != null || shouldRetryBecauseOfWaiterConfiguration(retrier) || authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-                request = com.oracle.bmc.retrier.Retriers.wrapBodyInputStreamIfNecessary(request, UploadAiDataPlatformFileRequest.builder());
+                request = com.oracle.bmc.retrier.Retriers.wrapBodyInputStreamIfNecessary(request, UploadFileRequest.builder());
             }
-            final UploadAiDataPlatformFileRequest interceptedRequest = UploadAiDataPlatformFileConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UploadAiDataPlatformFileConverter.fromRequest(client, interceptedRequest);
+            final UploadFileRequest interceptedRequest = UploadFileConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UploadFileConverter.fromRequest(client, interceptedRequest);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UploadAiDataPlatformFile", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UploadAiDataPlatformFileResponse> transformer = UploadAiDataPlatformFileConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UploadFile", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UploadFileResponse> transformer = UploadFileConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -758,16 +808,16 @@ public class VolumeClient implements Volume {
     }
 
     @Override
-    public UploadAiDataPlatformFileWithParResponse uploadAiDataPlatformFileWithPar(UploadAiDataPlatformFileWithParRequest request) {
-        LOG.trace("Called uploadAiDataPlatformFileWithPar");
-            final UploadAiDataPlatformFileWithParRequest interceptedRequest = UploadAiDataPlatformFileWithParConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UploadAiDataPlatformFileWithParConverter.fromRequest(client, interceptedRequest);
+    public UploadFileWithParResponse uploadFileWithPar(UploadFileWithParRequest request) {
+        LOG.trace("Called uploadFileWithPar");
+            final UploadFileWithParRequest interceptedRequest = UploadFileWithParConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UploadFileWithParConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UploadAiDataPlatformFileWithPar", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UploadAiDataPlatformFileWithParResponse> transformer = UploadAiDataPlatformFileWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Volume", "UploadFileWithPar", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UploadFileWithParResponse> transformer = UploadFileWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -780,6 +830,11 @@ public class VolumeClient implements Volume {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public VolumeWaiters getWaiters() {
+        return waiters;
     }
 
 

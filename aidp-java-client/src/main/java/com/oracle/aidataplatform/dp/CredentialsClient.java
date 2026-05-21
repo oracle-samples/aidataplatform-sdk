@@ -20,11 +20,12 @@ public class CredentialsClient extends com.oracle.bmc.http.internal.BaseSyncClie
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(CredentialsClient.class);
 
 
+    private final CredentialsWaiters waiters;
 
     CredentialsClient(
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider
-            ) {
+            , java.util.concurrent.ExecutorService executorService) {
         super(
             builder,
             authenticationDetailsProvider,
@@ -32,7 +33,15 @@ public class CredentialsClient extends com.oracle.bmc.http.internal.BaseSyncClie
             
         );
 
-    }
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Credentials-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new CredentialsWaiters(executorService, this);
+            }
 
 
     
@@ -49,6 +58,8 @@ public class CredentialsClient extends com.oracle.bmc.http.internal.BaseSyncClie
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, CredentialsClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             final String packageName = "dp";
@@ -57,12 +68,22 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         }
 
         /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
+        }
+
+        /**
          * Build the client.
          * @param authenticationDetailsProvider authentication details provider
          * @return the client
          */
         public CredentialsClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
-            return new CredentialsClient(this, authenticationDetailsProvider);
+            return new CredentialsClient(this, authenticationDetailsProvider, executorService);
         }
     }
 
@@ -78,18 +99,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CreateAiDataPlatformCredentialResponse createAiDataPlatformCredential(CreateAiDataPlatformCredentialRequest request) {
+    public CreateCredentialResponse createCredential(CreateCredentialRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateDataLakeCredentialDetails(), "createDataLakeCredentialDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "createAiDataPlatformCredential")
-        .serviceDetails("Credentials", "CreateAiDataPlatformCredential", "")
+return clientCall(request, CreateCredentialResponse::builder)
+        .logger(LOG, "createCredential")
+        .serviceDetails("Credentials", "CreateCredential", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(CreateCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -105,25 +126,25 @@ return clientCall(request, CreateAiDataPlatformCredentialResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            CreateCredentialResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformCredentialResponse deleteAiDataPlatformCredential(DeleteAiDataPlatformCredentialRequest request) {
+    public DeleteCredentialResponse deleteCredential(DeleteCredentialRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCredentialKey(), "credentialKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformCredential")
-        .serviceDetails("Credentials", "DeleteAiDataPlatformCredential", "")
+return clientCall(request, DeleteCredentialResponse::builder)
+        .logger(LOG, "deleteCredential")
+        .serviceDetails("Credentials", "DeleteCredential", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(DeleteCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -139,25 +160,25 @@ return clientCall(request, DeleteAiDataPlatformCredentialResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            DeleteCredentialResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformCredentialResponse getAiDataPlatformCredential(GetAiDataPlatformCredentialRequest request) {
+    public GetCredentialResponse getCredential(GetCredentialRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCredentialKey(), "credentialKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "getAiDataPlatformCredential")
-        .serviceDetails("Credentials", "GetAiDataPlatformCredential", "")
+return clientCall(request, GetCredentialResponse::builder)
+        .logger(LOG, "getCredential")
+        .serviceDetails("Credentials", "GetCredential", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(GetCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -170,27 +191,27 @@ return clientCall(request, GetAiDataPlatformCredentialResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Credential.class, GetAiDataPlatformCredentialResponse.Builder::credential)
+            .handleBody(com.oracle.aidataplatform.dp.model.Credential.class, GetCredentialResponse.Builder::credential)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformCredentialResponse.Builder::etag)
+            GetCredentialResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            GetCredentialResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformCredentialsResponse listAiDataPlatformCredentials(ListAiDataPlatformCredentialsRequest request) {
+    public ListCredentialsResponse listCredentials(ListCredentialsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformCredentialsResponse::builder)
-        .logger(LOG, "listAiDataPlatformCredentials")
-        .serviceDetails("Credentials", "ListAiDataPlatformCredentials", "")
+return clientCall(request, ListCredentialsResponse::builder)
+        .logger(LOG, "listCredentials")
+        .serviceDetails("Credentials", "ListCredentials", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformCredentialsRequest::builder)
+        .requestBuilder(ListCredentialsRequest::builder)
         
         
         .basePath("/20260430")
@@ -235,18 +256,18 @@ return clientCall(request, ListAiDataPlatformCredentialsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.CredentialCollection.class, ListAiDataPlatformCredentialsResponse.Builder::credentialCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.CredentialCollection.class, ListCredentialsResponse.Builder::credentialCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformCredentialsResponse.Builder::opcRequestId)
+            ListCredentialsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformCredentialsResponse.Builder::opcNextPage)
+            ListCredentialsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformCredentialResponse updateAiDataPlatformCredential(UpdateAiDataPlatformCredentialRequest request) {
+    public UpdateCredentialResponse updateCredential(UpdateCredentialRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -255,11 +276,11 @@ return clientCall(request, ListAiDataPlatformCredentialsResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "updateAiDataPlatformCredential")
-        .serviceDetails("Credentials", "UpdateAiDataPlatformCredential", "")
+return clientCall(request, UpdateCredentialResponse::builder)
+        .logger(LOG, "updateCredential")
+        .serviceDetails("Credentials", "UpdateCredential", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(UpdateCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -275,9 +296,14 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            UpdateCredentialResponse.Builder::opcRequestId)
 
                 .callSync();
+    }
+
+    @Override
+    public CredentialsWaiters getWaiters() {
+        return waiters;
     }
 
 
@@ -292,7 +318,8 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
     public CredentialsClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider) {
         this(
             builder(),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -308,7 +335,8 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
         this(
             builder()
                 .configuration(configuration),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -326,7 +354,8 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
             builder()
                 .configuration(configuration)
                 .clientConfigurator(clientConfigurator),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -350,7 +379,8 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
                 .configuration(configuration)
                 .clientConfigurator(clientConfigurator)
                 .requestSignerFactory(defaultRequestSignerFactory),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -377,7 +407,8 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
                 .clientConfigurator(clientConfigurator)
                 .requestSignerFactory(defaultRequestSignerFactory)
                 .additionalClientConfigurators(additionalClientConfigurators),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -407,7 +438,8 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
                 .requestSignerFactory(defaultRequestSignerFactory)
                 .additionalClientConfigurators(additionalClientConfigurators)
                 .endpoint(endpoint),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -440,7 +472,44 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
                 .additionalClientConfigurators(additionalClientConfigurators)
                 .endpoint(endpoint)
                 .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @param endpoint {@link Builder#endpoint}
+     * @param signingStrategyRequestSignerFactories {@link Builder#signingStrategyRequestSignerFactories}
+     * @param executorService {@link Builder#executorService}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public CredentialsClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators)
+                .endpoint(endpoint)
+                .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
+            authenticationDetailsProvider,
+            executorService
         );
     }
 }

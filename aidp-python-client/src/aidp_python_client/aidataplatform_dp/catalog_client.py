@@ -85,7 +85,7 @@ class CatalogClient(object):
         self.base_client = BaseClient("catalog", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def catalog_ai_data_platform_test_connection(self, ai_data_platform_id, catalog_test_connection_details, **kwargs):
+    def catalog_test_connection(self, ai_data_platform_id, catalog_test_connection_details, **kwargs):
         """
         Test the connection of an AI Data Platform Workbench to an external catalog.
 
@@ -138,7 +138,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "catalog_ai_data_platform_test_connection got unknown kwargs: {!r}".format(extra_kwargs))
+                "catalog_test_connection got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -181,7 +181,7 @@ class CatalogClient(object):
                 header_params=header_params,
                 body=catalog_test_connection_details)
 
-    def create_ai_data_platform_catalog(self, ai_data_platform_id, create_catalog_details, **kwargs):
+    def create_catalog(self, ai_data_platform_id, create_catalog_details, **kwargs):
         """
         Create a catalog in the AI Data Platform Workbench with the given ID.
 
@@ -234,7 +234,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_catalog got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_catalog got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -277,7 +277,7 @@ class CatalogClient(object):
                 header_params=header_params,
                 body=create_catalog_details)
 
-    def delete_ai_data_platform_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
+    def delete_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
         """
         Deletes the specified catalog from an AI Data Platform Workbench.
 
@@ -333,7 +333,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_catalog got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_catalog got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -374,7 +374,7 @@ class CatalogClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def get_ai_data_platform_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
+    def get_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
         """
         Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
 
@@ -423,7 +423,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_catalog got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_catalog got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -471,7 +471,7 @@ class CatalogClient(object):
                 header_params=header_params,
                 response_type="Catalog")
 
-    def list_ai_data_platform_catalog_permissions(self, ai_data_platform_id, catalog_key, **kwargs):
+    def list_catalog_permissions(self, ai_data_platform_id, catalog_key, **kwargs):
         """
         Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
 
@@ -545,7 +545,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_catalog_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_catalog_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -610,7 +610,7 @@ class CatalogClient(object):
                 header_params=header_params,
                 response_type="CatalogPermissionCollection")
 
-    def list_ai_data_platform_catalogs(self, ai_data_platform_id, **kwargs):
+    def list_catalogs(self, ai_data_platform_id, **kwargs):
         """
         Get a list of catalogs in an AI Data Platform Workbench with a given ID.
 
@@ -693,7 +693,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_catalogs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_catalogs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -773,7 +773,7 @@ class CatalogClient(object):
                 header_params=header_params,
                 response_type="CatalogCollection")
 
-    def manage_ai_data_platform_catalog_permission(self, ai_data_platform_id, catalog_key, manage_catalog_permission_details, **kwargs):
+    def manage_catalog_permission(self, ai_data_platform_id, catalog_key, manage_catalog_permission_details, **kwargs):
         """
         Update permission details for a catalog in an AI Data Platform Workbench.
 
@@ -828,7 +828,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_catalog_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_catalog_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -870,7 +870,7 @@ class CatalogClient(object):
                 header_params=header_params,
                 body=manage_catalog_permission_details)
 
-    def refresh_ai_data_platform_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
+    def refresh_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
         """
         Refresh a catalog in an AI Data Platform Workbench through a crawler.
 
@@ -930,7 +930,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "refresh_ai_data_platform_catalog got unknown kwargs: {!r}".format(extra_kwargs))
+                "refresh_catalog got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -973,7 +973,7 @@ class CatalogClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def update_ai_data_platform_catalog(self, ai_data_platform_id, catalog_key, update_catalog_details, **kwargs):
+    def update_catalog(self, ai_data_platform_id, catalog_key, update_catalog_details, **kwargs):
         """
         Update the details of an AI Data Platform Workbench catalog with the given information.
 
@@ -1028,7 +1028,7 @@ class CatalogClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_catalog got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_catalog got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

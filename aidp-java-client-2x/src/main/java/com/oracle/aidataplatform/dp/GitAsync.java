@@ -68,7 +68,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CheckoutAiDataPlatformBranchResponse> checkoutAiDataPlatformBranch(CheckoutAiDataPlatformBranchRequest request, com.oracle.bmc.responses.AsyncHandler<CheckoutAiDataPlatformBranchRequest, CheckoutAiDataPlatformBranchResponse> handler);
+    java.util.concurrent.Future<CheckoutBranchResponse> checkoutBranch(CheckoutBranchRequest request, com.oracle.bmc.responses.AsyncHandler<CheckoutBranchRequest, CheckoutBranchResponse> handler);
     
     /**
      * (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
@@ -81,7 +81,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CommitPushAiDataPlatformGitRepositoryResponse> commitPushAiDataPlatformGitRepository(CommitPushAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<CommitPushAiDataPlatformGitRepositoryRequest, CommitPushAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<CommitPushGitRepositoryResponse> commitPushGitRepository(CommitPushGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<CommitPushGitRepositoryRequest, CommitPushGitRepositoryResponse> handler);
     
     /**
      * (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
@@ -94,7 +94,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformGitBranchResponse> createAiDataPlatformGitBranch(CreateAiDataPlatformGitBranchRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitBranchRequest, CreateAiDataPlatformGitBranchResponse> handler);
+    java.util.concurrent.Future<CreateGitBranchResponse> createGitBranch(CreateGitBranchRequest request, com.oracle.bmc.responses.AsyncHandler<CreateGitBranchRequest, CreateGitBranchResponse> handler);
     
     /**
      * (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
@@ -107,7 +107,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformGitDiffDetailResponse> getAiDataPlatformGitDiffDetail(GetAiDataPlatformGitDiffDetailRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitDiffDetailRequest, GetAiDataPlatformGitDiffDetailResponse> handler);
+    java.util.concurrent.Future<GetGitDiffDetailResponse> getGitDiffDetail(GetGitDiffDetailRequest request, com.oracle.bmc.responses.AsyncHandler<GetGitDiffDetailRequest, GetGitDiffDetailResponse> handler);
     
     /**
      * (Preview) Returns the current Git worktree status\u2014including in-progress operations or detached HEAD indicators\u2014for the workspace folder.
@@ -120,7 +120,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformGitOperationStateResponse> getAiDataPlatformGitOperationState(GetAiDataPlatformGitOperationStateRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitOperationStateRequest, GetAiDataPlatformGitOperationStateResponse> handler);
+    java.util.concurrent.Future<GetGitOperationStateResponse> getGitOperationState(GetGitOperationStateRequest request, com.oracle.bmc.responses.AsyncHandler<GetGitOperationStateRequest, GetGitOperationStateResponse> handler);
     
     /**
      * (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
@@ -133,7 +133,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformGitRepositoryResponse> getAiDataPlatformGitRepository(GetAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitRepositoryRequest, GetAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<GetGitRepositoryResponse> getGitRepository(GetGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<GetGitRepositoryRequest, GetGitRepositoryResponse> handler);
     
     /**
      * (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
@@ -146,7 +146,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformGitBranchesResponse> listAiDataPlatformGitBranches(ListAiDataPlatformGitBranchesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitBranchesRequest, ListAiDataPlatformGitBranchesResponse> handler);
+    java.util.concurrent.Future<ListGitBranchesResponse> listGitBranches(ListGitBranchesRequest request, com.oracle.bmc.responses.AsyncHandler<ListGitBranchesRequest, ListGitBranchesResponse> handler);
     
     /**
      * (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
@@ -159,7 +159,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformGitDiffsResponse> listAiDataPlatformGitDiffs(ListAiDataPlatformGitDiffsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitDiffsRequest, ListAiDataPlatformGitDiffsResponse> handler);
+    java.util.concurrent.Future<ListGitDiffsResponse> listGitDiffs(ListGitDiffsRequest request, com.oracle.bmc.responses.AsyncHandler<ListGitDiffsRequest, ListGitDiffsResponse> handler);
     
     /**
      * (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
@@ -172,7 +172,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<MergeAiDataPlatformGitRepositoryResponse> mergeAiDataPlatformGitRepository(MergeAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<MergeAiDataPlatformGitRepositoryRequest, MergeAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<MergeGitRepositoryResponse> mergeGitRepository(MergeGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<MergeGitRepositoryRequest, MergeGitRepositoryResponse> handler);
     
     /**
      * (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
@@ -185,7 +185,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<PullAiDataPlatformGitRepositoryResponse> pullAiDataPlatformGitRepository(PullAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<PullAiDataPlatformGitRepositoryRequest, PullAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<PullGitRepositoryResponse> pullGitRepository(PullGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<PullGitRepositoryRequest, PullGitRepositoryResponse> handler);
     
     /**
      * (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
@@ -198,7 +198,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RebaseAiDataPlatformGitRepositoryResponse> rebaseAiDataPlatformGitRepository(RebaseAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<RebaseAiDataPlatformGitRepositoryRequest, RebaseAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<RebaseGitRepositoryResponse> rebaseGitRepository(RebaseGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<RebaseGitRepositoryRequest, RebaseGitRepositoryResponse> handler);
     
     /**
      * (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
@@ -211,7 +211,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ResetAiDataPlatformGitFolderStateResponse> resetAiDataPlatformGitFolderState(ResetAiDataPlatformGitFolderStateRequest request, com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitFolderStateRequest, ResetAiDataPlatformGitFolderStateResponse> handler);
+    java.util.concurrent.Future<ResetGitFolderStateResponse> resetGitFolderState(ResetGitFolderStateRequest request, com.oracle.bmc.responses.AsyncHandler<ResetGitFolderStateRequest, ResetGitFolderStateResponse> handler);
     
     /**
      * (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
@@ -224,7 +224,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ResetAiDataPlatformGitRepositoryResponse> resetAiDataPlatformGitRepository(ResetAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitRepositoryRequest, ResetAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<ResetGitRepositoryResponse> resetGitRepository(ResetGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<ResetGitRepositoryRequest, ResetGitRepositoryResponse> handler);
     
     /**
      * (Preview) Accepts conflict resolution instructions\u2014choose source or target versions\u2014and records the resolution back to the repo.
@@ -237,7 +237,7 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ResolveAiDataPlatformGitConflictsResponse> resolveAiDataPlatformGitConflicts(ResolveAiDataPlatformGitConflictsRequest request, com.oracle.bmc.responses.AsyncHandler<ResolveAiDataPlatformGitConflictsRequest, ResolveAiDataPlatformGitConflictsResponse> handler);
+    java.util.concurrent.Future<ResolveGitConflictsResponse> resolveGitConflicts(ResolveGitConflictsRequest request, com.oracle.bmc.responses.AsyncHandler<ResolveGitConflictsRequest, ResolveGitConflictsResponse> handler);
     
     /**
      * (Preview) Updates stored repository details\u2014such as credentials or default branches\u2014so automation stays aligned with your source control.
@@ -250,6 +250,6 @@ public interface GitAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformGitRepositoryResponse> updateAiDataPlatformGitRepository(UpdateAiDataPlatformGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformGitRepositoryRequest, UpdateAiDataPlatformGitRepositoryResponse> handler);
+    java.util.concurrent.Future<UpdateGitRepositoryResponse> updateGitRepository(UpdateGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateGitRepositoryRequest, UpdateGitRepositoryResponse> handler);
     
 }

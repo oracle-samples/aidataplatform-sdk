@@ -85,7 +85,7 @@ class WorkspaceClient(object):
         self.base_client = BaseClient("workspace", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_git_folder(self, ai_data_platform_id, workspace_key, create_git_folder_details, **kwargs):
+    def create_git_folder(self, ai_data_platform_id, workspace_key, create_git_folder_details, **kwargs):
         """
         Creates a git folder in the workspace
 
@@ -148,7 +148,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_git_folder got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_git_folder got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -195,7 +195,7 @@ class WorkspaceClient(object):
                 body=create_git_folder_details,
                 response_type="GitFolder")
 
-    def create_ai_data_platform_workspace(self, ai_data_platform_id, create_workspace_details, **kwargs):
+    def create_workspace(self, ai_data_platform_id, create_workspace_details, **kwargs):
         """
         Creates a workspace.
 
@@ -244,7 +244,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_workspace got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_workspace got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -288,7 +288,7 @@ class WorkspaceClient(object):
                 body=create_workspace_details,
                 response_type="Workspace")
 
-    def delete_ai_data_platform_workspace(self, ai_data_platform_id, workspace_key, **kwargs):
+    def delete_workspace(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Deletes a workspace.
 
@@ -340,7 +340,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_workspace got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_workspace got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -380,7 +380,7 @@ class WorkspaceClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def get_ai_data_platform_workspace(self, ai_data_platform_id, workspace_key, **kwargs):
+    def get_workspace(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Gets detailed information about a workspace.
 
@@ -421,7 +421,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_workspace got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_workspace got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -461,7 +461,7 @@ class WorkspaceClient(object):
                 header_params=header_params,
                 response_type="Workspace")
 
-    def list_ai_data_platform_create_workspace_permissions(self, ai_data_platform_id, **kwargs):
+    def list_create_workspace_permissions(self, ai_data_platform_id, **kwargs):
         """
         Gets a list of create workspace permission summary objects.
 
@@ -528,7 +528,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_create_workspace_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_create_workspace_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -591,7 +591,7 @@ class WorkspaceClient(object):
                 header_params=header_params,
                 response_type="CreateWorkspacePermissionCollection")
 
-    def list_ai_data_platform_workspace_permissions(self, ai_data_platform_id, workspace_key, **kwargs):
+    def list_workspace_permissions(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Gets a list of workspace permissions.
 
@@ -661,7 +661,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_workspace_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_workspace_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -725,7 +725,7 @@ class WorkspaceClient(object):
                 header_params=header_params,
                 response_type="WorkspacePermissionCollection")
 
-    def list_ai_data_platform_workspaces(self, ai_data_platform_id, **kwargs):
+    def list_workspaces(self, ai_data_platform_id, **kwargs):
         """
         Gets a list of workspaces.
 
@@ -817,7 +817,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_workspaces got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_workspaces got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -899,7 +899,7 @@ class WorkspaceClient(object):
                 header_params=header_params,
                 response_type="WorkspaceCollection")
 
-    def manage_ai_data_platform_create_workspace_permission(self, ai_data_platform_id, manage_create_workspace_permission_details, **kwargs):
+    def manage_create_workspace_permission(self, ai_data_platform_id, manage_create_workspace_permission_details, **kwargs):
         """
         Updates create workspace permissions on a workspace.
 
@@ -955,7 +955,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_create_workspace_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_create_workspace_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -998,7 +998,7 @@ class WorkspaceClient(object):
                 header_params=header_params,
                 body=manage_create_workspace_permission_details)
 
-    def manage_ai_data_platform_workspace_permission(self, ai_data_platform_id, workspace_key, manage_workspace_permission_details, **kwargs):
+    def manage_workspace_permission(self, ai_data_platform_id, workspace_key, manage_workspace_permission_details, **kwargs):
         """
         Updates permissions on a workspace.
 
@@ -1057,7 +1057,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_workspace_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_workspace_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1101,7 +1101,7 @@ class WorkspaceClient(object):
                 header_params=header_params,
                 body=manage_workspace_permission_details)
 
-    def update_ai_data_platform_workspace(self, ai_data_platform_id, workspace_key, update_workspace_details, **kwargs):
+    def update_workspace(self, ai_data_platform_id, workspace_key, update_workspace_details, **kwargs):
         """
         Updates the details of a workspace.
 
@@ -1152,7 +1152,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_workspace got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_workspace got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1195,7 +1195,7 @@ class WorkspaceClient(object):
                 body=update_workspace_details,
                 response_type="Workspace")
 
-    def update_ai_data_platform_workspace_async_operation_status(self, ai_data_platform_id, workspace_key, async_operation_key, update_workspace_async_operation_status_details, **kwargs):
+    def update_workspace_async_operation_status(self, ai_data_platform_id, workspace_key, async_operation_key, update_workspace_async_operation_status_details, **kwargs):
         """
         Updates the status of a workspace.
 
@@ -1249,7 +1249,7 @@ class WorkspaceClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_workspace_async_operation_status got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_workspace_async_operation_status got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

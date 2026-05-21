@@ -369,21 +369,21 @@ public class AuditAsyncClient implements AuditAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformAuditLogsResponse> manageAiDataPlatformAuditLogs(ManageAiDataPlatformAuditLogsRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformAuditLogsRequest, ManageAiDataPlatformAuditLogsResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformAuditLogs");
-        final ManageAiDataPlatformAuditLogsRequest interceptedRequest = ManageAiDataPlatformAuditLogsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformAuditLogsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ManageAuditLogsResponse> manageAuditLogs(ManageAuditLogsRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAuditLogsRequest, ManageAuditLogsResponse> handler) {
+        LOG.trace("Called async manageAuditLogs");
+        final ManageAuditLogsRequest interceptedRequest = ManageAuditLogsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAuditLogsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "ManageAiDataPlatformAuditLogs", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformAuditLogsResponse> transformer = ManageAiDataPlatformAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "ManageAuditLogs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageAuditLogsResponse> transformer = ManageAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformAuditLogsRequest, ManageAiDataPlatformAuditLogsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageAuditLogsRequest, ManageAuditLogsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformAuditLogsRequest, ManageAiDataPlatformAuditLogsResponse>, java.util.concurrent.Future<ManageAiDataPlatformAuditLogsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAuditLogsRequest, ManageAuditLogsResponse>, java.util.concurrent.Future<ManageAuditLogsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageAuditLogsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformAuditLogsRequest, ManageAiDataPlatformAuditLogsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAuditLogsRequest, ManageAuditLogsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class AuditAsyncClient implements AuditAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<SearchAiDataPlatformAuditLogsResponse> searchAiDataPlatformAuditLogs(SearchAiDataPlatformAuditLogsRequest request, final com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformAuditLogsRequest, SearchAiDataPlatformAuditLogsResponse> handler) {
-        LOG.trace("Called async searchAiDataPlatformAuditLogs");
-        final SearchAiDataPlatformAuditLogsRequest interceptedRequest = SearchAiDataPlatformAuditLogsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SearchAiDataPlatformAuditLogsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<SearchAuditLogsResponse> searchAuditLogs(SearchAuditLogsRequest request, final com.oracle.bmc.responses.AsyncHandler<SearchAuditLogsRequest, SearchAuditLogsResponse> handler) {
+        LOG.trace("Called async searchAuditLogs");
+        final SearchAuditLogsRequest interceptedRequest = SearchAuditLogsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SearchAuditLogsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "SearchAiDataPlatformAuditLogs", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, SearchAiDataPlatformAuditLogsResponse> transformer = SearchAiDataPlatformAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "SearchAuditLogs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SearchAuditLogsResponse> transformer = SearchAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformAuditLogsRequest, SearchAiDataPlatformAuditLogsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<SearchAuditLogsRequest, SearchAuditLogsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformAuditLogsRequest, SearchAiDataPlatformAuditLogsResponse>, java.util.concurrent.Future<SearchAiDataPlatformAuditLogsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SearchAuditLogsRequest, SearchAuditLogsResponse>, java.util.concurrent.Future<SearchAuditLogsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getSearchAuditLogsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SearchAiDataPlatformAuditLogsRequest, SearchAiDataPlatformAuditLogsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SearchAuditLogsRequest, SearchAuditLogsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

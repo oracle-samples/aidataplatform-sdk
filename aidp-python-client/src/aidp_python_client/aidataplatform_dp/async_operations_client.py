@@ -85,7 +85,7 @@ class AsyncOperationsClient(object):
         self.base_client = BaseClient("async_operations", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def get_ai_data_platform_async_operation(self, ai_data_platform_id, async_operation_key, **kwargs):
+    def get_async_operation(self, ai_data_platform_id, async_operation_key, **kwargs):
         """
         Get detailed information for a particular async operation
 
@@ -126,7 +126,7 @@ class AsyncOperationsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_async_operation got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_async_operation got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -166,7 +166,7 @@ class AsyncOperationsClient(object):
                 header_params=header_params,
                 response_type="AsyncOperation")
 
-    def list_ai_data_platform_async_operations(self, ai_data_platform_id, **kwargs):
+    def list_async_operations(self, ai_data_platform_id, **kwargs):
         """
         List all async operations for a resource type.
         Filters can be used to narrow the search down.
@@ -253,7 +253,7 @@ class AsyncOperationsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_async_operations got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_async_operations got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id

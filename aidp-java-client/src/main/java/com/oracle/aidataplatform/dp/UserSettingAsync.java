@@ -84,7 +84,7 @@ public interface UserSettingAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformUserSettingResponse> createAiDataPlatformUserSetting(CreateAiDataPlatformUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformUserSettingRequest, CreateAiDataPlatformUserSettingResponse> handler);
+    java.util.concurrent.Future<CreateUserSettingResponse> createUserSetting(CreateUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<CreateUserSettingRequest, CreateUserSettingResponse> handler);
     
     /**
      * (Preview) Deletes a user setting and its credentials from this AI Data Platform instance, freeing the default slot for that type.
@@ -97,7 +97,7 @@ public interface UserSettingAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformUserSettingResponse> deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformUserSettingRequest, DeleteAiDataPlatformUserSettingResponse> handler);
+    java.util.concurrent.Future<DeleteUserSettingResponse> deleteUserSetting(DeleteUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteUserSettingRequest, DeleteUserSettingResponse> handler);
     
     /**
      * (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
@@ -110,7 +110,7 @@ public interface UserSettingAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformUserSettingResponse> getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformUserSettingRequest, GetAiDataPlatformUserSettingResponse> handler);
+    java.util.concurrent.Future<GetUserSettingResponse> getUserSetting(GetUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<GetUserSettingRequest, GetUserSettingResponse> handler);
     
     /**
      * (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
@@ -123,7 +123,7 @@ public interface UserSettingAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformUserSettingsResponse> listAiDataPlatformUserSettings(ListAiDataPlatformUserSettingsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformUserSettingsRequest, ListAiDataPlatformUserSettingsResponse> handler);
+    java.util.concurrent.Future<ListUserSettingsResponse> listUserSettings(ListUserSettingsRequest request, com.oracle.bmc.responses.AsyncHandler<ListUserSettingsRequest, ListUserSettingsResponse> handler);
     
     /**
      * (Preview) Updates the metadata or payload of an existing user setting, letting you rotate credentials or change defaults.
@@ -136,6 +136,6 @@ public interface UserSettingAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformUserSettingResponse> updateAiDataPlatformUserSetting(UpdateAiDataPlatformUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformUserSettingRequest, UpdateAiDataPlatformUserSettingResponse> handler);
+    java.util.concurrent.Future<UpdateUserSettingResponse> updateUserSetting(UpdateUserSettingRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateUserSettingRequest, UpdateUserSettingResponse> handler);
     
 }

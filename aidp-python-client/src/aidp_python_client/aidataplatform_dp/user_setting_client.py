@@ -85,7 +85,7 @@ class UserSettingClient(object):
         self.base_client = BaseClient("user_setting", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_user_setting(self, ai_data_platform_id, create_user_setting_details, **kwargs):
+    def create_user_setting(self, ai_data_platform_id, create_user_setting_details, **kwargs):
         """
         (Preview) The User Settings API allows you to manage user-specific configurations and credentials within an AI Data Platform instance.
         What you can do
@@ -150,7 +150,7 @@ class UserSettingClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -194,7 +194,7 @@ class UserSettingClient(object):
                 body=create_user_setting_details,
                 response_type="UserSetting")
 
-    def delete_ai_data_platform_user_setting(self, ai_data_platform_id, setting_key, **kwargs):
+    def delete_user_setting(self, ai_data_platform_id, setting_key, **kwargs):
         """
         (Preview) Deletes a user setting and its credentials from this AI Data Platform instance, freeing the default slot for that type.
 
@@ -242,7 +242,7 @@ class UserSettingClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -281,7 +281,7 @@ class UserSettingClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def get_ai_data_platform_user_setting(self, ai_data_platform_id, setting_key, **kwargs):
+    def get_user_setting(self, ai_data_platform_id, setting_key, **kwargs):
         """
         (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
 
@@ -322,7 +322,7 @@ class UserSettingClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -362,7 +362,7 @@ class UserSettingClient(object):
                 header_params=header_params,
                 response_type="UserSetting")
 
-    def list_ai_data_platform_user_settings(self, ai_data_platform_id, **kwargs):
+    def list_user_settings(self, ai_data_platform_id, **kwargs):
         """
         (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
 
@@ -442,7 +442,7 @@ class UserSettingClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_user_settings got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_user_settings got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -515,7 +515,7 @@ class UserSettingClient(object):
                 header_params=header_params,
                 response_type="UserSettingCollection")
 
-    def update_ai_data_platform_user_setting(self, ai_data_platform_id, setting_key, update_user_setting_details, **kwargs):
+    def update_user_setting(self, ai_data_platform_id, setting_key, update_user_setting_details, **kwargs):
         """
         (Preview) Updates the metadata or payload of an existing user setting, letting you rotate credentials or change defaults.
 
@@ -566,7 +566,7 @@ class UserSettingClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_user_setting got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

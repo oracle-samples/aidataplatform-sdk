@@ -66,7 +66,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformExperimentResponse createAiDataPlatformExperiment(CreateAiDataPlatformExperimentRequest request);
+    CreateExperimentResponse createExperiment(CreateExperimentRequest request);
     
     /**
      * (Preview) Creates a new run within an experiment.
@@ -76,7 +76,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformExperimentRunResponse createAiDataPlatformExperimentRun(CreateAiDataPlatformExperimentRunRequest request);
+    CreateExperimentRunResponse createExperimentRun(CreateExperimentRunRequest request);
     
     /**
      * (Preview) Creates a model version.
@@ -86,7 +86,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformModelVersionResponse createAiDataPlatformModelVersion(CreateAiDataPlatformModelVersionRequest request);
+    CreateModelVersionResponse createModelVersion(CreateModelVersionRequest request);
     
     /**
      * (Preview) Creates a registered model in a workspace.
@@ -96,7 +96,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformRegisteredModelResponse createAiDataPlatformRegisteredModel(CreateAiDataPlatformRegisteredModelRequest request);
+    CreateRegisteredModelResponse createRegisteredModel(CreateRegisteredModelRequest request);
     
     /**
      * (Preview) Creates a new model version in a specified workspace.
@@ -106,7 +106,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformWorkspaceModelVersionResponse createAiDataPlatformWorkspaceModelVersion(CreateAiDataPlatformWorkspaceModelVersionRequest request);
+    CreateWorkspaceModelVersionResponse createWorkspaceModelVersion(CreateWorkspaceModelVersionRequest request);
     
     /**
      * (Preview) Deletes an experiment.
@@ -116,7 +116,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformExperimentResponse deleteAiDataPlatformExperiment(DeleteAiDataPlatformExperimentRequest request);
+    DeleteExperimentResponse deleteExperiment(DeleteExperimentRequest request);
     
     /**
      * (Preview) Deletes an experiment run.
@@ -126,7 +126,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformExperimentRunResponse deleteAiDataPlatformExperimentRun(DeleteAiDataPlatformExperimentRunRequest request);
+    DeleteExperimentRunResponse deleteExperimentRun(DeleteExperimentRunRequest request);
     
     /**
      * (Preview) Deletes a tag on an experiment run.
@@ -136,7 +136,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformExperimentRunTagResponse deleteAiDataPlatformExperimentRunTag(DeleteAiDataPlatformExperimentRunTagRequest request);
+    DeleteExperimentRunTagResponse deleteExperimentRunTag(DeleteExperimentRunTagRequest request);
     
     /**
      * (Preview) Deletes a tag on an experiment.
@@ -146,7 +146,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformExperimentTagResponse deleteAiDataPlatformExperimentTag(DeleteAiDataPlatformExperimentTagRequest request);
+    DeleteExperimentTagResponse deleteExperimentTag(DeleteExperimentTagRequest request);
     
     /**
      * (Preview) Deletes a model version.
@@ -156,7 +156,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformModelVersionResponse deleteAiDataPlatformModelVersion(DeleteAiDataPlatformModelVersionRequest request);
+    DeleteModelVersionResponse deleteModelVersion(DeleteModelVersionRequest request);
     
     /**
      * (Preview) Deletes a tag on a model version.
@@ -166,7 +166,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformModelVersionTagResponse deleteAiDataPlatformModelVersionTag(DeleteAiDataPlatformModelVersionTagRequest request);
+    DeleteModelVersionTagResponse deleteModelVersionTag(DeleteModelVersionTagRequest request);
     
     /**
      * (Preview) Deletes a registered model.
@@ -176,7 +176,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformRegisteredModelResponse deleteAiDataPlatformRegisteredModel(DeleteAiDataPlatformRegisteredModelRequest request);
+    DeleteRegisteredModelResponse deleteRegisteredModel(DeleteRegisteredModelRequest request);
     
     /**
      * (Preview) Deletes a tag on a registered model.
@@ -186,7 +186,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformRegisteredModelTagResponse deleteAiDataPlatformRegisteredModelTag(DeleteAiDataPlatformRegisteredModelTagRequest request);
+    DeleteRegisteredModelTagResponse deleteRegisteredModelTag(DeleteRegisteredModelTagRequest request);
     
     /**
      * (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
@@ -196,7 +196,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformExperimentByIdResponse getAiDataPlatformExperimentById(GetAiDataPlatformExperimentByIdRequest request);
+    GetExperimentByIdResponse getExperimentById(GetExperimentByIdRequest request);
     
     /**
      * (Preview) Returns experiment metadata for a given name. Returns deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
@@ -206,7 +206,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformExperimentByNameResponse getAiDataPlatformExperimentByName(GetAiDataPlatformExperimentByNameRequest request);
+    GetExperimentByNameResponse getExperimentByName(GetExperimentByNameRequest request);
     
     /**
      * (Preview) Returns details of an experiment run by ID.
@@ -216,7 +216,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformExperimentRunByIdResponse getAiDataPlatformExperimentRunById(GetAiDataPlatformExperimentRunByIdRequest request);
+    GetExperimentRunByIdResponse getExperimentRunById(GetExperimentRunByIdRequest request);
     
     /**
      * (Preview) Returns a history of experiment run metrics.
@@ -226,7 +226,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformExperimentRunMetricHistoryResponse getAiDataPlatformExperimentRunMetricHistory(GetAiDataPlatformExperimentRunMetricHistoryRequest request);
+    GetExperimentRunMetricHistoryResponse getExperimentRunMetricHistory(GetExperimentRunMetricHistoryRequest request);
     
     /**
      * (Preview)  Returns detailed information for a model version.
@@ -236,7 +236,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformModelVersionResponse getAiDataPlatformModelVersion(GetAiDataPlatformModelVersionRequest request);
+    GetModelVersionResponse getModelVersion(GetModelVersionRequest request);
     
     /**
      * (Preview) Returns details for a specified registered model.
@@ -246,7 +246,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformRegisteredModelResponse getAiDataPlatformRegisteredModel(GetAiDataPlatformRegisteredModelRequest request);
+    GetRegisteredModelResponse getRegisteredModel(GetRegisteredModelRequest request);
     
     /**
      * (Preview) Returns a list of artifacts.
@@ -256,7 +256,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformArtifactsResponse listAiDataPlatformArtifacts(ListAiDataPlatformArtifactsRequest request);
+    ListArtifactsResponse listArtifacts(ListArtifactsRequest request);
     
     /**
      * (Preview) Returns a list of experiment runs in a workspace.
@@ -266,7 +266,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformExperimentRunsResponse listAiDataPlatformExperimentRuns(ListAiDataPlatformExperimentRunsRequest request);
+    ListExperimentRunsResponse listExperimentRuns(ListExperimentRunsRequest request);
     
     /**
      * (Preview) Returns a list of experiments with the given details.
@@ -276,7 +276,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformExperimentsResponse listAiDataPlatformExperiments(ListAiDataPlatformExperimentsRequest request);
+    ListExperimentsResponse listExperiments(ListExperimentsRequest request);
     
     /**
      * (Preview) Returns a list of logged models.
@@ -286,7 +286,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformLoggedModelsResponse listAiDataPlatformLoggedModels(ListAiDataPlatformLoggedModelsRequest request);
+    ListLoggedModelsResponse listLoggedModels(ListLoggedModelsRequest request);
     
     /**
      * (Preview) Returns a list of model versions.
@@ -296,7 +296,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformModelVersionsResponse listAiDataPlatformModelVersions(ListAiDataPlatformModelVersionsRequest request);
+    ListModelVersionsResponse listModelVersions(ListModelVersionsRequest request);
     
     /**
      * (Preview) Returns a list of registered models in a workspace.
@@ -306,7 +306,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRegisteredModelsResponse listAiDataPlatformRegisteredModels(ListAiDataPlatformRegisteredModelsRequest request);
+    ListRegisteredModelsResponse listRegisteredModels(ListRegisteredModelsRequest request);
     
     /**
      * (Preview) Logs an experiment run batch.
@@ -316,7 +316,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    LogAiDataPlatformExperimentRunBatchResponse logAiDataPlatformExperimentRunBatch(LogAiDataPlatformExperimentRunBatchRequest request);
+    LogExperimentRunBatchResponse logExperimentRunBatch(LogExperimentRunBatchRequest request);
     
     /**
      * (Preview) Logs experiment run inputs.
@@ -326,7 +326,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    LogAiDataPlatformExperimentRunInputsResponse logAiDataPlatformExperimentRunInputs(LogAiDataPlatformExperimentRunInputsRequest request);
+    LogExperimentRunInputsResponse logExperimentRunInputs(LogExperimentRunInputsRequest request);
     
     /**
      * (Preview) Logs an experiment run metric.
@@ -336,7 +336,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    LogAiDataPlatformExperimentRunMetricResponse logAiDataPlatformExperimentRunMetric(LogAiDataPlatformExperimentRunMetricRequest request);
+    LogExperimentRunMetricResponse logExperimentRunMetric(LogExperimentRunMetricRequest request);
     
     /**
      * (Preview) Logs an experiment run model.
@@ -346,7 +346,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    LogAiDataPlatformExperimentRunModelResponse logAiDataPlatformExperimentRunModel(LogAiDataPlatformExperimentRunModelRequest request);
+    LogExperimentRunModelResponse logExperimentRunModel(LogExperimentRunModelRequest request);
     
     /**
      * (Preview) Logs an experiment run parameter.
@@ -356,7 +356,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    LogAiDataPlatformExperimentRunParamResponse logAiDataPlatformExperimentRunParam(LogAiDataPlatformExperimentRunParamRequest request);
+    LogExperimentRunParamResponse logExperimentRunParam(LogExperimentRunParamRequest request);
     
     /**
      * (Preview) Renames a registered model.
@@ -366,7 +366,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RenameAiDataPlatformRegisteredModelResponse renameAiDataPlatformRegisteredModel(RenameAiDataPlatformRegisteredModelRequest request);
+    RenameRegisteredModelResponse renameRegisteredModel(RenameRegisteredModelRequest request);
     
     /**
      * (Preview) Restores an experiment.
@@ -376,7 +376,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RestoreAiDataPlatformExperimentResponse restoreAiDataPlatformExperiment(RestoreAiDataPlatformExperimentRequest request);
+    RestoreExperimentResponse restoreExperiment(RestoreExperimentRequest request);
     
     /**
      * (Preview) Restores an experiment run.
@@ -386,7 +386,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RestoreAiDataPlatformExperimentRunResponse restoreAiDataPlatformExperimentRun(RestoreAiDataPlatformExperimentRunRequest request);
+    RestoreExperimentRunResponse restoreExperimentRun(RestoreExperimentRunRequest request);
     
     /**
      * (Preview) Sets a tag on an experiment run.
@@ -396,7 +396,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SetAiDataPlatformExperimentRunTagResponse setAiDataPlatformExperimentRunTag(SetAiDataPlatformExperimentRunTagRequest request);
+    SetExperimentRunTagResponse setExperimentRunTag(SetExperimentRunTagRequest request);
     
     /**
      * (Preview) Sets a tag on an experiment.
@@ -406,7 +406,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SetAiDataPlatformExperimentTagResponse setAiDataPlatformExperimentTag(SetAiDataPlatformExperimentTagRequest request);
+    SetExperimentTagResponse setExperimentTag(SetExperimentTagRequest request);
     
     /**
      * (Preview) Sets a tag on a model version.
@@ -416,7 +416,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SetAiDataPlatformModelVersionTagResponse setAiDataPlatformModelVersionTag(SetAiDataPlatformModelVersionTagRequest request);
+    SetModelVersionTagResponse setModelVersionTag(SetModelVersionTagRequest request);
     
     /**
      * (Preview) Sets a tag on a registered model.
@@ -426,7 +426,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SetAiDataPlatformRegisteredModelTagResponse setAiDataPlatformRegisteredModelTag(SetAiDataPlatformRegisteredModelTagRequest request);
+    SetRegisteredModelTagResponse setRegisteredModelTag(SetRegisteredModelTagRequest request);
     
     /**
      * (Preview) Transitions a model version stage.
@@ -436,7 +436,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    TransitionAiDataPlatformModelVersionStageResponse transitionAiDataPlatformModelVersionStage(TransitionAiDataPlatformModelVersionStageRequest request);
+    TransitionModelVersionStageResponse transitionModelVersionStage(TransitionModelVersionStageRequest request);
     
     /**
      * (Preview) Updates an experiment.
@@ -446,7 +446,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformExperimentResponse updateAiDataPlatformExperiment(UpdateAiDataPlatformExperimentRequest request);
+    UpdateExperimentResponse updateExperiment(UpdateExperimentRequest request);
     
     /**
      * (Preview) Updates an experiment run.
@@ -456,7 +456,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformExperimentRunResponse updateAiDataPlatformExperimentRun(UpdateAiDataPlatformExperimentRunRequest request);
+    UpdateExperimentRunResponse updateExperimentRun(UpdateExperimentRunRequest request);
     
     /**
      * (Preview) Updates tags on an experiment run.
@@ -466,7 +466,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformExperimentRunTagsResponse updateAiDataPlatformExperimentRunTags(UpdateAiDataPlatformExperimentRunTagsRequest request);
+    UpdateExperimentRunTagsResponse updateExperimentRunTags(UpdateExperimentRunTagsRequest request);
     
     /**
      * (Preview) Updates tags on experiment.
@@ -476,7 +476,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformExperimentTagsResponse updateAiDataPlatformExperimentTags(UpdateAiDataPlatformExperimentTagsRequest request);
+    UpdateExperimentTagsResponse updateExperimentTags(UpdateExperimentTagsRequest request);
     
     /**
      * (Preview) Updates a model version
@@ -486,7 +486,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformModelVersionResponse updateAiDataPlatformModelVersion(UpdateAiDataPlatformModelVersionRequest request);
+    UpdateModelVersionResponse updateModelVersion(UpdateModelVersionRequest request);
     
     /**
      * (Preview) Updates tags on a model version.
@@ -496,7 +496,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformModelVersionTagsResponse updateAiDataPlatformModelVersionTags(UpdateAiDataPlatformModelVersionTagsRequest request);
+    UpdateModelVersionTagsResponse updateModelVersionTags(UpdateModelVersionTagsRequest request);
     
     /**
      * (Preview) Updates a registered model with the provided details.
@@ -506,7 +506,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformRegisteredModelResponse updateAiDataPlatformRegisteredModel(UpdateAiDataPlatformRegisteredModelRequest request);
+    UpdateRegisteredModelResponse updateRegisteredModel(UpdateRegisteredModelRequest request);
     
     /**
      * (Preview) Updates tags on a registered model.
@@ -516,7 +516,7 @@ public interface MLOps extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformRegisteredModelTagsResponse updateAiDataPlatformRegisteredModelTags(UpdateAiDataPlatformRegisteredModelTagsRequest request);
+    UpdateRegisteredModelTagsResponse updateRegisteredModelTags(UpdateRegisteredModelTagsRequest request);
     
 
 }

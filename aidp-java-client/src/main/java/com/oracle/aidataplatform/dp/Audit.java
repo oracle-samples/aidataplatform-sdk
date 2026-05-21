@@ -66,7 +66,7 @@ public interface Audit extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformAuditLogsResponse manageAiDataPlatformAuditLogs(ManageAiDataPlatformAuditLogsRequest request);
+    ManageAuditLogsResponse manageAuditLogs(ManageAuditLogsRequest request);
     
     /**
      * Searches audit logs for AI Data Platform Workbench.
@@ -76,7 +76,7 @@ public interface Audit extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SearchAiDataPlatformAuditLogsResponse searchAiDataPlatformAuditLogs(SearchAiDataPlatformAuditLogsRequest request);
+    SearchAuditLogsResponse searchAuditLogs(SearchAuditLogsRequest request);
     
 
 }

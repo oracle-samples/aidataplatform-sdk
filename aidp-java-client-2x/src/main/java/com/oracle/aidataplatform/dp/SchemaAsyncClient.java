@@ -369,21 +369,21 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformDataTableResponse> createAiDataPlatformDataTable(CreateAiDataPlatformDataTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformDataTableRequest, CreateAiDataPlatformDataTableResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformDataTable");
-        final CreateAiDataPlatformDataTableRequest interceptedRequest = CreateAiDataPlatformDataTableConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformDataTableConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateDataTableResponse> createDataTable(CreateDataTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateDataTableRequest, CreateDataTableResponse> handler) {
+        LOG.trace("Called async createDataTable");
+        final CreateDataTableRequest interceptedRequest = CreateDataTableConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateDataTableConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformDataTable", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformDataTableResponse> transformer = CreateAiDataPlatformDataTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateDataTable", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateDataTableResponse> transformer = CreateDataTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformDataTableRequest, CreateAiDataPlatformDataTableResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateDataTableRequest, CreateDataTableResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformDataTableRequest, CreateAiDataPlatformDataTableResponse>, java.util.concurrent.Future<CreateAiDataPlatformDataTableResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateDataTableRequest, CreateDataTableResponse>, java.util.concurrent.Future<CreateDataTableResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateDataTableDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformDataTableRequest, CreateAiDataPlatformDataTableResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateDataTableRequest, CreateDataTableResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformSchemaResponse> createAiDataPlatformSchema(CreateAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSchemaRequest, CreateAiDataPlatformSchemaResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformSchema");
-        final CreateAiDataPlatformSchemaRequest interceptedRequest = CreateAiDataPlatformSchemaConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateSchemaResponse> createSchema(CreateSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateSchemaRequest, CreateSchemaResponse> handler) {
+        LOG.trace("Called async createSchema");
+        final CreateSchemaRequest interceptedRequest = CreateSchemaConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateSchemaConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformSchemaResponse> transformer = CreateAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateSchema", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateSchemaResponse> transformer = CreateSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSchemaRequest, CreateAiDataPlatformSchemaResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateSchemaRequest, CreateSchemaResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSchemaRequest, CreateAiDataPlatformSchemaResponse>, java.util.concurrent.Future<CreateAiDataPlatformSchemaResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateSchemaRequest, CreateSchemaResponse>, java.util.concurrent.Future<CreateSchemaResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateSchemaDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformSchemaRequest, CreateAiDataPlatformSchemaResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateSchemaRequest, CreateSchemaResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,21 +427,21 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformTableResponse> createAiDataPlatformTable(CreateAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformTableRequest, CreateAiDataPlatformTableResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformTable");
-        final CreateAiDataPlatformTableRequest interceptedRequest = CreateAiDataPlatformTableConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateTableResponse> createTable(CreateTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateTableRequest, CreateTableResponse> handler) {
+        LOG.trace("Called async createTable");
+        final CreateTableRequest interceptedRequest = CreateTableConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateTableConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformTable", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformTableResponse> transformer = CreateAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateTable", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateTableResponse> transformer = CreateTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformTableRequest, CreateAiDataPlatformTableResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateTableRequest, CreateTableResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformTableRequest, CreateAiDataPlatformTableResponse>, java.util.concurrent.Future<CreateAiDataPlatformTableResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateTableRequest, CreateTableResponse>, java.util.concurrent.Future<CreateTableResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateTableDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformTableRequest, CreateAiDataPlatformTableResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateTableRequest, CreateTableResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -456,21 +456,21 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformViewResponse> createAiDataPlatformView(CreateAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformViewRequest, CreateAiDataPlatformViewResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformView");
-        final CreateAiDataPlatformViewRequest interceptedRequest = CreateAiDataPlatformViewConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateViewResponse> createView(CreateViewRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateViewRequest, CreateViewResponse> handler) {
+        LOG.trace("Called async createView");
+        final CreateViewRequest interceptedRequest = CreateViewConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateViewConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformView", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformViewResponse> transformer = CreateAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateView", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateViewResponse> transformer = CreateViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformViewRequest, CreateAiDataPlatformViewResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateViewRequest, CreateViewResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformViewRequest, CreateAiDataPlatformViewResponse>, java.util.concurrent.Future<CreateAiDataPlatformViewResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateViewRequest, CreateViewResponse>, java.util.concurrent.Future<CreateViewResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateViewDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformViewRequest, CreateAiDataPlatformViewResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateViewRequest, CreateViewResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -485,20 +485,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformSchemaResponse> deleteAiDataPlatformSchema(DeleteAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSchemaRequest, DeleteAiDataPlatformSchemaResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformSchema");
-        final DeleteAiDataPlatformSchemaRequest interceptedRequest = DeleteAiDataPlatformSchemaConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformSchemaResponse> transformer = DeleteAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteSchemaResponse> deleteSchema(DeleteSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteSchemaRequest, DeleteSchemaResponse> handler) {
+        LOG.trace("Called async deleteSchema");
+        final DeleteSchemaRequest interceptedRequest = DeleteSchemaConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteSchemaConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteSchema", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteSchemaResponse> transformer = DeleteSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSchemaRequest, DeleteAiDataPlatformSchemaResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteSchemaRequest, DeleteSchemaResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSchemaRequest, DeleteAiDataPlatformSchemaResponse>, java.util.concurrent.Future<DeleteAiDataPlatformSchemaResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteSchemaRequest, DeleteSchemaResponse>, java.util.concurrent.Future<DeleteSchemaResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformSchemaRequest, DeleteAiDataPlatformSchemaResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteSchemaRequest, DeleteSchemaResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -513,20 +513,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformTableResponse> deleteAiDataPlatformTable(DeleteAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformTableRequest, DeleteAiDataPlatformTableResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformTable");
-        final DeleteAiDataPlatformTableRequest interceptedRequest = DeleteAiDataPlatformTableConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteAiDataPlatformTable", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformTableResponse> transformer = DeleteAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteTableResponse> deleteTable(DeleteTableRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteTableRequest, DeleteTableResponse> handler) {
+        LOG.trace("Called async deleteTable");
+        final DeleteTableRequest interceptedRequest = DeleteTableConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteTableConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteTable", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteTableResponse> transformer = DeleteTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformTableRequest, DeleteAiDataPlatformTableResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteTableRequest, DeleteTableResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformTableRequest, DeleteAiDataPlatformTableResponse>, java.util.concurrent.Future<DeleteAiDataPlatformTableResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteTableRequest, DeleteTableResponse>, java.util.concurrent.Future<DeleteTableResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformTableRequest, DeleteAiDataPlatformTableResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteTableRequest, DeleteTableResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -541,20 +541,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformViewResponse> deleteAiDataPlatformView(DeleteAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformViewRequest, DeleteAiDataPlatformViewResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformView");
-        final DeleteAiDataPlatformViewRequest interceptedRequest = DeleteAiDataPlatformViewConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteAiDataPlatformView", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformViewResponse> transformer = DeleteAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteViewResponse> deleteView(DeleteViewRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteViewRequest, DeleteViewResponse> handler) {
+        LOG.trace("Called async deleteView");
+        final DeleteViewRequest interceptedRequest = DeleteViewConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteViewConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteView", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteViewResponse> transformer = DeleteViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformViewRequest, DeleteAiDataPlatformViewResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteViewRequest, DeleteViewResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformViewRequest, DeleteAiDataPlatformViewResponse>, java.util.concurrent.Future<DeleteAiDataPlatformViewResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteViewRequest, DeleteViewResponse>, java.util.concurrent.Future<DeleteViewResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformViewRequest, DeleteAiDataPlatformViewResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteViewRequest, DeleteViewResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -569,20 +569,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GenerateAiDataPlatformTempFileUploadTargetResponse> generateAiDataPlatformTempFileUploadTarget(GenerateAiDataPlatformTempFileUploadTargetRequest request, final com.oracle.bmc.responses.AsyncHandler<GenerateAiDataPlatformTempFileUploadTargetRequest, GenerateAiDataPlatformTempFileUploadTargetResponse> handler) {
-        LOG.trace("Called async generateAiDataPlatformTempFileUploadTarget");
-        final GenerateAiDataPlatformTempFileUploadTargetRequest interceptedRequest = GenerateAiDataPlatformTempFileUploadTargetConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GenerateAiDataPlatformTempFileUploadTargetConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GenerateAiDataPlatformTempFileUploadTarget", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GenerateAiDataPlatformTempFileUploadTargetResponse> transformer = GenerateAiDataPlatformTempFileUploadTargetConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GenerateTempFileUploadTargetResponse> generateTempFileUploadTarget(GenerateTempFileUploadTargetRequest request, final com.oracle.bmc.responses.AsyncHandler<GenerateTempFileUploadTargetRequest, GenerateTempFileUploadTargetResponse> handler) {
+        LOG.trace("Called async generateTempFileUploadTarget");
+        final GenerateTempFileUploadTargetRequest interceptedRequest = GenerateTempFileUploadTargetConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GenerateTempFileUploadTargetConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GenerateTempFileUploadTarget", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GenerateTempFileUploadTargetResponse> transformer = GenerateTempFileUploadTargetConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GenerateAiDataPlatformTempFileUploadTargetRequest, GenerateAiDataPlatformTempFileUploadTargetResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GenerateTempFileUploadTargetRequest, GenerateTempFileUploadTargetResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GenerateAiDataPlatformTempFileUploadTargetRequest, GenerateAiDataPlatformTempFileUploadTargetResponse>, java.util.concurrent.Future<GenerateAiDataPlatformTempFileUploadTargetResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GenerateTempFileUploadTargetRequest, GenerateTempFileUploadTargetResponse>, java.util.concurrent.Future<GenerateTempFileUploadTargetResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GenerateAiDataPlatformTempFileUploadTargetRequest, GenerateAiDataPlatformTempFileUploadTargetResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GenerateTempFileUploadTargetRequest, GenerateTempFileUploadTargetResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -597,20 +597,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformSchemaResponse> getAiDataPlatformSchema(GetAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSchemaRequest, GetAiDataPlatformSchemaResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformSchema");
-        final GetAiDataPlatformSchemaRequest interceptedRequest = GetAiDataPlatformSchemaConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformSchemaResponse> transformer = GetAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetSchemaResponse> getSchema(GetSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<GetSchemaRequest, GetSchemaResponse> handler) {
+        LOG.trace("Called async getSchema");
+        final GetSchemaRequest interceptedRequest = GetSchemaConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetSchemaConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetSchema", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetSchemaResponse> transformer = GetSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSchemaRequest, GetAiDataPlatformSchemaResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetSchemaRequest, GetSchemaResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSchemaRequest, GetAiDataPlatformSchemaResponse>, java.util.concurrent.Future<GetAiDataPlatformSchemaResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetSchemaRequest, GetSchemaResponse>, java.util.concurrent.Future<GetSchemaResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformSchemaRequest, GetAiDataPlatformSchemaResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetSchemaRequest, GetSchemaResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -625,20 +625,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformTableResponse> getAiDataPlatformTable(GetAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTableRequest, GetAiDataPlatformTableResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformTable");
-        final GetAiDataPlatformTableRequest interceptedRequest = GetAiDataPlatformTableConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetAiDataPlatformTable", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformTableResponse> transformer = GetAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetTableResponse> getTable(GetTableRequest request, final com.oracle.bmc.responses.AsyncHandler<GetTableRequest, GetTableResponse> handler) {
+        LOG.trace("Called async getTable");
+        final GetTableRequest interceptedRequest = GetTableConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetTableConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetTable", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetTableResponse> transformer = GetTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTableRequest, GetAiDataPlatformTableResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetTableRequest, GetTableResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTableRequest, GetAiDataPlatformTableResponse>, java.util.concurrent.Future<GetAiDataPlatformTableResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetTableRequest, GetTableResponse>, java.util.concurrent.Future<GetTableResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformTableRequest, GetAiDataPlatformTableResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetTableRequest, GetTableResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -653,20 +653,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformViewResponse> getAiDataPlatformView(GetAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformViewRequest, GetAiDataPlatformViewResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformView");
-        final GetAiDataPlatformViewRequest interceptedRequest = GetAiDataPlatformViewConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetAiDataPlatformView", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformViewResponse> transformer = GetAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetViewResponse> getView(GetViewRequest request, final com.oracle.bmc.responses.AsyncHandler<GetViewRequest, GetViewResponse> handler) {
+        LOG.trace("Called async getView");
+        final GetViewRequest interceptedRequest = GetViewConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetViewConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetView", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetViewResponse> transformer = GetViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformViewRequest, GetAiDataPlatformViewResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetViewRequest, GetViewResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformViewRequest, GetAiDataPlatformViewResponse>, java.util.concurrent.Future<GetAiDataPlatformViewResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetViewRequest, GetViewResponse>, java.util.concurrent.Future<GetViewResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformViewRequest, GetAiDataPlatformViewResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetViewRequest, GetViewResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -681,20 +681,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformSchemaPermissionsResponse> listAiDataPlatformSchemaPermissions(ListAiDataPlatformSchemaPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemaPermissionsRequest, ListAiDataPlatformSchemaPermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformSchemaPermissions");
-        final ListAiDataPlatformSchemaPermissionsRequest interceptedRequest = ListAiDataPlatformSchemaPermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSchemaPermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformSchemaPermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSchemaPermissionsResponse> transformer = ListAiDataPlatformSchemaPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListSchemaPermissionsResponse> listSchemaPermissions(ListSchemaPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse> handler) {
+        LOG.trace("Called async listSchemaPermissions");
+        final ListSchemaPermissionsRequest interceptedRequest = ListSchemaPermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSchemaPermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListSchemaPermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListSchemaPermissionsResponse> transformer = ListSchemaPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemaPermissionsRequest, ListAiDataPlatformSchemaPermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemaPermissionsRequest, ListAiDataPlatformSchemaPermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformSchemaPermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse>, java.util.concurrent.Future<ListSchemaPermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformSchemaPermissionsRequest, ListAiDataPlatformSchemaPermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -709,20 +709,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformSchemasResponse> listAiDataPlatformSchemas(ListAiDataPlatformSchemasRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemasRequest, ListAiDataPlatformSchemasResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformSchemas");
-        final ListAiDataPlatformSchemasRequest interceptedRequest = ListAiDataPlatformSchemasConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSchemasConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformSchemas", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSchemasResponse> transformer = ListAiDataPlatformSchemasConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListSchemasResponse> listSchemas(ListSchemasRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSchemasRequest, ListSchemasResponse> handler) {
+        LOG.trace("Called async listSchemas");
+        final ListSchemasRequest interceptedRequest = ListSchemasConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSchemasConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListSchemas", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListSchemasResponse> transformer = ListSchemasConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemasRequest, ListAiDataPlatformSchemasResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListSchemasRequest, ListSchemasResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemasRequest, ListAiDataPlatformSchemasResponse>, java.util.concurrent.Future<ListAiDataPlatformSchemasResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListSchemasRequest, ListSchemasResponse>, java.util.concurrent.Future<ListSchemasResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformSchemasRequest, ListAiDataPlatformSchemasResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListSchemasRequest, ListSchemasResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -737,20 +737,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformTablePermissionsResponse> listAiDataPlatformTablePermissions(ListAiDataPlatformTablePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablePermissionsRequest, ListAiDataPlatformTablePermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformTablePermissions");
-        final ListAiDataPlatformTablePermissionsRequest interceptedRequest = ListAiDataPlatformTablePermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformTablePermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformTablePermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformTablePermissionsResponse> transformer = ListAiDataPlatformTablePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListTablePermissionsResponse> listTablePermissions(ListTablePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTablePermissionsRequest, ListTablePermissionsResponse> handler) {
+        LOG.trace("Called async listTablePermissions");
+        final ListTablePermissionsRequest interceptedRequest = ListTablePermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListTablePermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListTablePermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListTablePermissionsResponse> transformer = ListTablePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablePermissionsRequest, ListAiDataPlatformTablePermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListTablePermissionsRequest, ListTablePermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablePermissionsRequest, ListAiDataPlatformTablePermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformTablePermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListTablePermissionsRequest, ListTablePermissionsResponse>, java.util.concurrent.Future<ListTablePermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformTablePermissionsRequest, ListAiDataPlatformTablePermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListTablePermissionsRequest, ListTablePermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -765,20 +765,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformTablesResponse> listAiDataPlatformTables(ListAiDataPlatformTablesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablesRequest, ListAiDataPlatformTablesResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformTables");
-        final ListAiDataPlatformTablesRequest interceptedRequest = ListAiDataPlatformTablesConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformTablesConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformTables", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformTablesResponse> transformer = ListAiDataPlatformTablesConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListTablesResponse> listTables(ListTablesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTablesRequest, ListTablesResponse> handler) {
+        LOG.trace("Called async listTables");
+        final ListTablesRequest interceptedRequest = ListTablesConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListTablesConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListTables", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListTablesResponse> transformer = ListTablesConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablesRequest, ListAiDataPlatformTablesResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListTablesRequest, ListTablesResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablesRequest, ListAiDataPlatformTablesResponse>, java.util.concurrent.Future<ListAiDataPlatformTablesResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListTablesRequest, ListTablesResponse>, java.util.concurrent.Future<ListTablesResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformTablesRequest, ListAiDataPlatformTablesResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListTablesRequest, ListTablesResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -793,20 +793,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformViewPermissionsResponse> listAiDataPlatformViewPermissions(ListAiDataPlatformViewPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewPermissionsRequest, ListAiDataPlatformViewPermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformViewPermissions");
-        final ListAiDataPlatformViewPermissionsRequest interceptedRequest = ListAiDataPlatformViewPermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformViewPermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformViewPermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformViewPermissionsResponse> transformer = ListAiDataPlatformViewPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListViewPermissionsResponse> listViewPermissions(ListViewPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListViewPermissionsRequest, ListViewPermissionsResponse> handler) {
+        LOG.trace("Called async listViewPermissions");
+        final ListViewPermissionsRequest interceptedRequest = ListViewPermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListViewPermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListViewPermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListViewPermissionsResponse> transformer = ListViewPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewPermissionsRequest, ListAiDataPlatformViewPermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListViewPermissionsRequest, ListViewPermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewPermissionsRequest, ListAiDataPlatformViewPermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformViewPermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListViewPermissionsRequest, ListViewPermissionsResponse>, java.util.concurrent.Future<ListViewPermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformViewPermissionsRequest, ListAiDataPlatformViewPermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListViewPermissionsRequest, ListViewPermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -821,20 +821,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformViewsResponse> listAiDataPlatformViews(ListAiDataPlatformViewsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewsRequest, ListAiDataPlatformViewsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformViews");
-        final ListAiDataPlatformViewsRequest interceptedRequest = ListAiDataPlatformViewsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformViewsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformViews", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformViewsResponse> transformer = ListAiDataPlatformViewsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListViewsResponse> listViews(ListViewsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListViewsRequest, ListViewsResponse> handler) {
+        LOG.trace("Called async listViews");
+        final ListViewsRequest interceptedRequest = ListViewsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListViewsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListViews", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListViewsResponse> transformer = ListViewsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewsRequest, ListAiDataPlatformViewsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListViewsRequest, ListViewsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewsRequest, ListAiDataPlatformViewsResponse>, java.util.concurrent.Future<ListAiDataPlatformViewsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListViewsRequest, ListViewsResponse>, java.util.concurrent.Future<ListViewsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformViewsRequest, ListAiDataPlatformViewsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListViewsRequest, ListViewsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -849,20 +849,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformSchemaPermissionResponse> manageAiDataPlatformSchemaPermission(ManageAiDataPlatformSchemaPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSchemaPermissionRequest, ManageAiDataPlatformSchemaPermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformSchemaPermission");
-        final ManageAiDataPlatformSchemaPermissionRequest interceptedRequest = ManageAiDataPlatformSchemaPermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformSchemaPermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageAiDataPlatformSchemaPermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformSchemaPermissionResponse> transformer = ManageAiDataPlatformSchemaPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageSchemaPermissionResponse> manageSchemaPermission(ManageSchemaPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageSchemaPermissionRequest, ManageSchemaPermissionResponse> handler) {
+        LOG.trace("Called async manageSchemaPermission");
+        final ManageSchemaPermissionRequest interceptedRequest = ManageSchemaPermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageSchemaPermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageSchemaPermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageSchemaPermissionResponse> transformer = ManageSchemaPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSchemaPermissionRequest, ManageAiDataPlatformSchemaPermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageSchemaPermissionRequest, ManageSchemaPermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSchemaPermissionRequest, ManageAiDataPlatformSchemaPermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformSchemaPermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageSchemaPermissionRequest, ManageSchemaPermissionResponse>, java.util.concurrent.Future<ManageSchemaPermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageSchemaPermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformSchemaPermissionRequest, ManageAiDataPlatformSchemaPermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageSchemaPermissionRequest, ManageSchemaPermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -877,20 +877,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformTablePermissionResponse> manageAiDataPlatformTablePermission(ManageAiDataPlatformTablePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformTablePermissionRequest, ManageAiDataPlatformTablePermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformTablePermission");
-        final ManageAiDataPlatformTablePermissionRequest interceptedRequest = ManageAiDataPlatformTablePermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformTablePermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageAiDataPlatformTablePermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformTablePermissionResponse> transformer = ManageAiDataPlatformTablePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageTablePermissionResponse> manageTablePermission(ManageTablePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageTablePermissionRequest, ManageTablePermissionResponse> handler) {
+        LOG.trace("Called async manageTablePermission");
+        final ManageTablePermissionRequest interceptedRequest = ManageTablePermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageTablePermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageTablePermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageTablePermissionResponse> transformer = ManageTablePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformTablePermissionRequest, ManageAiDataPlatformTablePermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageTablePermissionRequest, ManageTablePermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformTablePermissionRequest, ManageAiDataPlatformTablePermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformTablePermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageTablePermissionRequest, ManageTablePermissionResponse>, java.util.concurrent.Future<ManageTablePermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageTablePermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformTablePermissionRequest, ManageAiDataPlatformTablePermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageTablePermissionRequest, ManageTablePermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -905,20 +905,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformViewPermissionResponse> manageAiDataPlatformViewPermission(ManageAiDataPlatformViewPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformViewPermissionRequest, ManageAiDataPlatformViewPermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformViewPermission");
-        final ManageAiDataPlatformViewPermissionRequest interceptedRequest = ManageAiDataPlatformViewPermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformViewPermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageAiDataPlatformViewPermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformViewPermissionResponse> transformer = ManageAiDataPlatformViewPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageViewPermissionResponse> manageViewPermission(ManageViewPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageViewPermissionRequest, ManageViewPermissionResponse> handler) {
+        LOG.trace("Called async manageViewPermission");
+        final ManageViewPermissionRequest interceptedRequest = ManageViewPermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageViewPermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageViewPermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageViewPermissionResponse> transformer = ManageViewPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformViewPermissionRequest, ManageAiDataPlatformViewPermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageViewPermissionRequest, ManageViewPermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformViewPermissionRequest, ManageAiDataPlatformViewPermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformViewPermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageViewPermissionRequest, ManageViewPermissionResponse>, java.util.concurrent.Future<ManageViewPermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageViewPermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformViewPermissionRequest, ManageAiDataPlatformViewPermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageViewPermissionRequest, ManageViewPermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -933,20 +933,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<PerformAiDataPlatformInferSchemaResponse> performAiDataPlatformInferSchema(PerformAiDataPlatformInferSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaRequest, PerformAiDataPlatformInferSchemaResponse> handler) {
-        LOG.trace("Called async performAiDataPlatformInferSchema");
-        final PerformAiDataPlatformInferSchemaRequest interceptedRequest = PerformAiDataPlatformInferSchemaConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformAiDataPlatformInferSchemaConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformAiDataPlatformInferSchema", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, PerformAiDataPlatformInferSchemaResponse> transformer = PerformAiDataPlatformInferSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<PerformInferSchemaResponse> performInferSchema(PerformInferSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaRequest, PerformInferSchemaResponse> handler) {
+        LOG.trace("Called async performInferSchema");
+        final PerformInferSchemaRequest interceptedRequest = PerformInferSchemaConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformInferSchemaConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformInferSchema", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, PerformInferSchemaResponse> transformer = PerformInferSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaRequest, PerformAiDataPlatformInferSchemaResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaRequest, PerformInferSchemaResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaRequest, PerformAiDataPlatformInferSchemaResponse>, java.util.concurrent.Future<PerformAiDataPlatformInferSchemaResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaRequest, PerformInferSchemaResponse>, java.util.concurrent.Future<PerformInferSchemaResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getPerformInferSchemaDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PerformAiDataPlatformInferSchemaRequest, PerformAiDataPlatformInferSchemaResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PerformInferSchemaRequest, PerformInferSchemaResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -961,20 +961,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<PerformAiDataPlatformInferSchemaWithPreviewResponse> performAiDataPlatformInferSchemaWithPreview(PerformAiDataPlatformInferSchemaWithPreviewRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaWithPreviewRequest, PerformAiDataPlatformInferSchemaWithPreviewResponse> handler) {
-        LOG.trace("Called async performAiDataPlatformInferSchemaWithPreview");
-        final PerformAiDataPlatformInferSchemaWithPreviewRequest interceptedRequest = PerformAiDataPlatformInferSchemaWithPreviewConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformAiDataPlatformInferSchemaWithPreviewConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformAiDataPlatformInferSchemaWithPreview", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, PerformAiDataPlatformInferSchemaWithPreviewResponse> transformer = PerformAiDataPlatformInferSchemaWithPreviewConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<PerformInferSchemaWithPreviewResponse> performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse> handler) {
+        LOG.trace("Called async performInferSchemaWithPreview");
+        final PerformInferSchemaWithPreviewRequest interceptedRequest = PerformInferSchemaWithPreviewConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformInferSchemaWithPreviewConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformInferSchemaWithPreview", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, PerformInferSchemaWithPreviewResponse> transformer = PerformInferSchemaWithPreviewConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaWithPreviewRequest, PerformAiDataPlatformInferSchemaWithPreviewResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaWithPreviewRequest, PerformAiDataPlatformInferSchemaWithPreviewResponse>, java.util.concurrent.Future<PerformAiDataPlatformInferSchemaWithPreviewResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse>, java.util.concurrent.Future<PerformInferSchemaWithPreviewResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getPerformInferSchemaDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PerformAiDataPlatformInferSchemaWithPreviewRequest, PerformAiDataPlatformInferSchemaWithPreviewResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -989,21 +989,21 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RefreshAiDataPlatformSchemaResponse> refreshAiDataPlatformSchema(RefreshAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformSchemaRequest, RefreshAiDataPlatformSchemaResponse> handler) {
-        LOG.trace("Called async refreshAiDataPlatformSchema");
-        final RefreshAiDataPlatformSchemaRequest interceptedRequest = RefreshAiDataPlatformSchemaConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RefreshSchemaResponse> refreshSchema(RefreshSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshSchemaRequest, RefreshSchemaResponse> handler) {
+        LOG.trace("Called async refreshSchema");
+        final RefreshSchemaRequest interceptedRequest = RefreshSchemaConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshSchemaConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RefreshAiDataPlatformSchemaResponse> transformer = RefreshAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshSchema", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RefreshSchemaResponse> transformer = RefreshSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformSchemaRequest, RefreshAiDataPlatformSchemaResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RefreshSchemaRequest, RefreshSchemaResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformSchemaRequest, RefreshAiDataPlatformSchemaResponse>, java.util.concurrent.Future<RefreshAiDataPlatformSchemaResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RefreshSchemaRequest, RefreshSchemaResponse>, java.util.concurrent.Future<RefreshSchemaResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RefreshAiDataPlatformSchemaRequest, RefreshAiDataPlatformSchemaResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RefreshSchemaRequest, RefreshSchemaResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1018,21 +1018,21 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RefreshAiDataPlatformTableResponse> refreshAiDataPlatformTable(RefreshAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformTableRequest, RefreshAiDataPlatformTableResponse> handler) {
-        LOG.trace("Called async refreshAiDataPlatformTable");
-        final RefreshAiDataPlatformTableRequest interceptedRequest = RefreshAiDataPlatformTableConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RefreshTableResponse> refreshTable(RefreshTableRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshTableRequest, RefreshTableResponse> handler) {
+        LOG.trace("Called async refreshTable");
+        final RefreshTableRequest interceptedRequest = RefreshTableConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshTableConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshAiDataPlatformTable", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RefreshAiDataPlatformTableResponse> transformer = RefreshAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshTable", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RefreshTableResponse> transformer = RefreshTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformTableRequest, RefreshAiDataPlatformTableResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RefreshTableRequest, RefreshTableResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformTableRequest, RefreshAiDataPlatformTableResponse>, java.util.concurrent.Future<RefreshAiDataPlatformTableResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RefreshTableRequest, RefreshTableResponse>, java.util.concurrent.Future<RefreshTableResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RefreshAiDataPlatformTableRequest, RefreshAiDataPlatformTableResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RefreshTableRequest, RefreshTableResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1047,20 +1047,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RetrieveAiDataPlatformParResponse> retrieveAiDataPlatformPar(RetrieveAiDataPlatformParRequest request, final com.oracle.bmc.responses.AsyncHandler<RetrieveAiDataPlatformParRequest, RetrieveAiDataPlatformParResponse> handler) {
-        LOG.trace("Called async retrieveAiDataPlatformPar");
-        final RetrieveAiDataPlatformParRequest interceptedRequest = RetrieveAiDataPlatformParConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RetrieveAiDataPlatformParConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RetrieveAiDataPlatformPar", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RetrieveAiDataPlatformParResponse> transformer = RetrieveAiDataPlatformParConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<RetrieveParResponse> retrievePar(RetrieveParRequest request, final com.oracle.bmc.responses.AsyncHandler<RetrieveParRequest, RetrieveParResponse> handler) {
+        LOG.trace("Called async retrievePar");
+        final RetrieveParRequest interceptedRequest = RetrieveParConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RetrieveParConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RetrievePar", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RetrieveParResponse> transformer = RetrieveParConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RetrieveAiDataPlatformParRequest, RetrieveAiDataPlatformParResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RetrieveParRequest, RetrieveParResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RetrieveAiDataPlatformParRequest, RetrieveAiDataPlatformParResponse>, java.util.concurrent.Future<RetrieveAiDataPlatformParResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RetrieveParRequest, RetrieveParResponse>, java.util.concurrent.Future<RetrieveParResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RetrieveAiDataPlatformParRequest, RetrieveAiDataPlatformParResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RetrieveParRequest, RetrieveParResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1075,20 +1075,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformSchemaResponse> updateAiDataPlatformSchema(UpdateAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformSchemaRequest, UpdateAiDataPlatformSchemaResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformSchema");
-        final UpdateAiDataPlatformSchemaRequest interceptedRequest = UpdateAiDataPlatformSchemaConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformSchemaResponse> transformer = UpdateAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateSchemaResponse> updateSchema(UpdateSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateSchemaRequest, UpdateSchemaResponse> handler) {
+        LOG.trace("Called async updateSchema");
+        final UpdateSchemaRequest interceptedRequest = UpdateSchemaConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateSchemaConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateSchema", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateSchemaResponse> transformer = UpdateSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformSchemaRequest, UpdateAiDataPlatformSchemaResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateSchemaRequest, UpdateSchemaResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformSchemaRequest, UpdateAiDataPlatformSchemaResponse>, java.util.concurrent.Future<UpdateAiDataPlatformSchemaResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateSchemaRequest, UpdateSchemaResponse>, java.util.concurrent.Future<UpdateSchemaResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateSchemaDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformSchemaRequest, UpdateAiDataPlatformSchemaResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateSchemaRequest, UpdateSchemaResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1103,20 +1103,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformTableResponse> updateAiDataPlatformTable(UpdateAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformTableRequest, UpdateAiDataPlatformTableResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformTable");
-        final UpdateAiDataPlatformTableRequest interceptedRequest = UpdateAiDataPlatformTableConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateAiDataPlatformTable", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformTableResponse> transformer = UpdateAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateTableResponse> updateTable(UpdateTableRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateTableRequest, UpdateTableResponse> handler) {
+        LOG.trace("Called async updateTable");
+        final UpdateTableRequest interceptedRequest = UpdateTableConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateTableConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateTable", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateTableResponse> transformer = UpdateTableConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformTableRequest, UpdateAiDataPlatformTableResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateTableRequest, UpdateTableResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformTableRequest, UpdateAiDataPlatformTableResponse>, java.util.concurrent.Future<UpdateAiDataPlatformTableResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateTableRequest, UpdateTableResponse>, java.util.concurrent.Future<UpdateTableResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateTableDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformTableRequest, UpdateAiDataPlatformTableResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateTableRequest, UpdateTableResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1131,20 +1131,20 @@ public class SchemaAsyncClient implements SchemaAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformViewResponse> updateAiDataPlatformView(UpdateAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformViewRequest, UpdateAiDataPlatformViewResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformView");
-        final UpdateAiDataPlatformViewRequest interceptedRequest = UpdateAiDataPlatformViewConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateAiDataPlatformView", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformViewResponse> transformer = UpdateAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateViewResponse> updateView(UpdateViewRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateViewRequest, UpdateViewResponse> handler) {
+        LOG.trace("Called async updateView");
+        final UpdateViewRequest interceptedRequest = UpdateViewConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateViewConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateView", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateViewResponse> transformer = UpdateViewConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformViewRequest, UpdateAiDataPlatformViewResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateViewRequest, UpdateViewResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformViewRequest, UpdateAiDataPlatformViewResponse>, java.util.concurrent.Future<UpdateAiDataPlatformViewResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateViewRequest, UpdateViewResponse>, java.util.concurrent.Future<UpdateViewResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateViewDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformViewRequest, UpdateAiDataPlatformViewResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateViewRequest, UpdateViewResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

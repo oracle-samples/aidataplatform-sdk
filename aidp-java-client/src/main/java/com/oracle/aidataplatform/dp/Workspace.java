@@ -66,7 +66,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformGitFolderResponse createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request);
+    CreateGitFolderResponse createGitFolder(CreateGitFolderRequest request);
     
     /**
      * Creates a workspace.
@@ -77,7 +77,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformWorkspaceResponse createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request);
+    CreateWorkspaceResponse createWorkspace(CreateWorkspaceRequest request);
     
     /**
      * Deletes a workspace.
@@ -87,7 +87,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformWorkspaceResponse deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request);
+    DeleteWorkspaceResponse deleteWorkspace(DeleteWorkspaceRequest request);
     
     /**
      * Gets detailed information about a workspace.
@@ -97,7 +97,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformWorkspaceResponse getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request);
+    GetWorkspaceResponse getWorkspace(GetWorkspaceRequest request);
     
     /**
      * Gets a list of create workspace permission summary objects.
@@ -108,7 +108,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformCreateWorkspacePermissionsResponse listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request);
+    ListCreateWorkspacePermissionsResponse listCreateWorkspacePermissions(ListCreateWorkspacePermissionsRequest request);
     
     /**
      * Gets a list of workspace permissions.
@@ -119,7 +119,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformWorkspacePermissionsResponse listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request);
+    ListWorkspacePermissionsResponse listWorkspacePermissions(ListWorkspacePermissionsRequest request);
     
     /**
      * Gets a list of workspaces.
@@ -130,7 +130,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformWorkspacesResponse listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request);
+    ListWorkspacesResponse listWorkspaces(ListWorkspacesRequest request);
     
     /**
      * Updates create workspace permissions on a workspace.
@@ -140,7 +140,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformCreateWorkspacePermissionResponse manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request);
+    ManageCreateWorkspacePermissionResponse manageCreateWorkspacePermission(ManageCreateWorkspacePermissionRequest request);
     
     /**
      * Updates permissions on a workspace.
@@ -150,7 +150,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformWorkspacePermissionResponse manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request);
+    ManageWorkspacePermissionResponse manageWorkspacePermission(ManageWorkspacePermissionRequest request);
     
     /**
      * Updates the details of a workspace.
@@ -160,7 +160,7 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformWorkspaceResponse updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request);
+    UpdateWorkspaceResponse updateWorkspace(UpdateWorkspaceRequest request);
     
     /**
      * Updates the status of a workspace.
@@ -170,7 +170,13 @@ public interface Workspace extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse updateAiDataPlatformWorkspaceAsyncOperationStatus(UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest request);
+    UpdateWorkspaceAsyncOperationStatusResponse updateWorkspaceAsyncOperationStatus(UpdateWorkspaceAsyncOperationStatusRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    WorkspaceWaiters getWaiters();
 }

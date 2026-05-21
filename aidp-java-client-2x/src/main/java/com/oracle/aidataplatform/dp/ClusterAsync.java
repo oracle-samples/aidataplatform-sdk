@@ -67,7 +67,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformClusterResponse> createAiDataPlatformCluster(CreateAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformClusterRequest, CreateAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<CreateClusterResponse> createCluster(CreateClusterRequest request, com.oracle.bmc.responses.AsyncHandler<CreateClusterRequest, CreateClusterResponse> handler);
     
     /**
      * Deletes a cluster from a workspace.
@@ -79,7 +79,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformClusterResponse> deleteAiDataPlatformCluster(DeleteAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformClusterRequest, DeleteAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<DeleteClusterResponse> deleteCluster(DeleteClusterRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteClusterRequest, DeleteClusterResponse> handler);
     
     /**
      * Downloads logs within the specified cluster and time range.
@@ -94,7 +94,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DownloadAiDataPlatformClusterLogsResponse> downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformClusterLogsRequest, DownloadAiDataPlatformClusterLogsResponse> handler);
+    java.util.concurrent.Future<DownloadClusterLogsResponse> downloadClusterLogs(DownloadClusterLogsRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadClusterLogsRequest, DownloadClusterLogsResponse> handler);
     
     /**
      * Returns detailed information about a cluster.
@@ -106,7 +106,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformClusterResponse> getAiDataPlatformCluster(GetAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformClusterRequest, GetAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<GetClusterResponse> getCluster(GetClusterRequest request, com.oracle.bmc.responses.AsyncHandler<GetClusterRequest, GetClusterResponse> handler);
     
     /**
      * Gets information about the master catalog default cluster.
@@ -118,7 +118,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformDefaultClusterResponse> getAiDataPlatformDefaultCluster(GetAiDataPlatformDefaultClusterRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformDefaultClusterRequest, GetAiDataPlatformDefaultClusterResponse> handler);
+    java.util.concurrent.Future<GetDefaultClusterResponse> getDefaultCluster(GetDefaultClusterRequest request, com.oracle.bmc.responses.AsyncHandler<GetDefaultClusterRequest, GetDefaultClusterResponse> handler);
     
     /**
      * Gets a list of libraries installed on a cluster.
@@ -130,7 +130,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformClusterLibrariesResponse> listAiDataPlatformClusterLibraries(ListAiDataPlatformClusterLibrariesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformClusterLibrariesRequest, ListAiDataPlatformClusterLibrariesResponse> handler);
+    java.util.concurrent.Future<ListClusterLibrariesResponse> listClusterLibraries(ListClusterLibrariesRequest request, com.oracle.bmc.responses.AsyncHandler<ListClusterLibrariesRequest, ListClusterLibrariesResponse> handler);
     
     /**
      * Return a list of permissions for a given cluster.
@@ -142,7 +142,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformClusterPermissionsResponse> listAiDataPlatformClusterPermissions(ListAiDataPlatformClusterPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformClusterPermissionsRequest, ListAiDataPlatformClusterPermissionsResponse> handler);
+    java.util.concurrent.Future<ListClusterPermissionsResponse> listClusterPermissions(ListClusterPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListClusterPermissionsRequest, ListClusterPermissionsResponse> handler);
     
     /**
      * Returns a list of all clusters in a given workspace.
@@ -154,7 +154,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformClustersResponse> listAiDataPlatformClusters(ListAiDataPlatformClustersRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformClustersRequest, ListAiDataPlatformClustersResponse> handler);
+    java.util.concurrent.Future<ListClustersResponse> listClusters(ListClustersRequest request, com.oracle.bmc.responses.AsyncHandler<ListClustersRequest, ListClustersResponse> handler);
     
     /**
      * Updates the permissions for a given cluster.
@@ -166,7 +166,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformClusterPermissionResponse> manageAiDataPlatformClusterPermission(ManageAiDataPlatformClusterPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformClusterPermissionRequest, ManageAiDataPlatformClusterPermissionResponse> handler);
+    java.util.concurrent.Future<ManageClusterPermissionResponse> manageClusterPermission(ManageClusterPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageClusterPermissionRequest, ManageClusterPermissionResponse> handler);
     
     /**
      * Updates libraries of a cluster with the provided patches.
@@ -178,7 +178,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<PatchAiDataPlatformClusterLibraryResponse> patchAiDataPlatformClusterLibrary(PatchAiDataPlatformClusterLibraryRequest request, com.oracle.bmc.responses.AsyncHandler<PatchAiDataPlatformClusterLibraryRequest, PatchAiDataPlatformClusterLibraryResponse> handler);
+    java.util.concurrent.Future<PatchClusterLibraryResponse> patchClusterLibrary(PatchClusterLibraryRequest request, com.oracle.bmc.responses.AsyncHandler<PatchClusterLibraryRequest, PatchClusterLibraryResponse> handler);
     
     /**
      * Restarts a running cluster.
@@ -190,7 +190,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RestartAiDataPlatformClusterResponse> restartAiDataPlatformCluster(RestartAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<RestartAiDataPlatformClusterRequest, RestartAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<RestartClusterResponse> restartCluster(RestartClusterRequest request, com.oracle.bmc.responses.AsyncHandler<RestartClusterRequest, RestartClusterResponse> handler);
     
     /**
      * Searches logs within the specified cluster and time range. Supports pagination and filtering.
@@ -203,7 +203,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<SearchAiDataPlatformClusterLogsResponse> searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformClusterLogsRequest, SearchAiDataPlatformClusterLogsResponse> handler);
+    java.util.concurrent.Future<SearchClusterLogsResponse> searchClusterLogs(SearchClusterLogsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchClusterLogsRequest, SearchClusterLogsResponse> handler);
     
     /**
      * Starts a cluster that has halted operation.
@@ -215,7 +215,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<StartAiDataPlatformClusterResponse> startAiDataPlatformCluster(StartAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<StartAiDataPlatformClusterRequest, StartAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<StartClusterResponse> startCluster(StartClusterRequest request, com.oracle.bmc.responses.AsyncHandler<StartClusterRequest, StartClusterResponse> handler);
     
     /**
      * Stops an active cluster.
@@ -227,7 +227,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<StopAiDataPlatformClusterResponse> stopAiDataPlatformCluster(StopAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<StopAiDataPlatformClusterRequest, StopAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<StopClusterResponse> stopCluster(StopClusterRequest request, com.oracle.bmc.responses.AsyncHandler<StopClusterRequest, StopClusterResponse> handler);
     
     /**
      * Provides summarized compute metrics for a compute cluster in the given workspace.
@@ -242,7 +242,7 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<SummarizeAiDataPlatformMetricsDataResponse> summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request, com.oracle.bmc.responses.AsyncHandler<SummarizeAiDataPlatformMetricsDataRequest, SummarizeAiDataPlatformMetricsDataResponse> handler);
+    java.util.concurrent.Future<SummarizeMetricsDataResponse> summarizeMetricsData(SummarizeMetricsDataRequest request, com.oracle.bmc.responses.AsyncHandler<SummarizeMetricsDataRequest, SummarizeMetricsDataResponse> handler);
     
     /**
      * Update the details of a given cluster.
@@ -254,6 +254,6 @@ public interface ClusterAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformClusterResponse> updateAiDataPlatformCluster(UpdateAiDataPlatformClusterRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformClusterRequest, UpdateAiDataPlatformClusterResponse> handler);
+    java.util.concurrent.Future<UpdateClusterResponse> updateCluster(UpdateClusterRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateClusterRequest, UpdateClusterResponse> handler);
     
 }

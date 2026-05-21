@@ -83,18 +83,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformCredentialResponse> createAiDataPlatformCredential(CreateAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCredentialRequest, CreateAiDataPlatformCredentialResponse> handler) {
+    public java.util.concurrent.Future<CreateCredentialResponse> createCredential(CreateCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateCredentialRequest, CreateCredentialResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateDataLakeCredentialDetails(), "createDataLakeCredentialDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "createAiDataPlatformCredential")
-        .serviceDetails("Credentials", "CreateAiDataPlatformCredential", "")
+return clientCall(request, CreateCredentialResponse::builder)
+        .logger(LOG, "createCredential")
+        .serviceDetails("Credentials", "CreateCredential", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(CreateCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -109,24 +109,24 @@ return clientCall(request, CreateAiDataPlatformCredentialResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            CreateCredentialResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformCredentialResponse> deleteAiDataPlatformCredential(DeleteAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCredentialRequest, DeleteAiDataPlatformCredentialResponse> handler) {
+    public java.util.concurrent.Future<DeleteCredentialResponse> deleteCredential(DeleteCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteCredentialRequest, DeleteCredentialResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCredentialKey(), "credentialKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformCredential")
-        .serviceDetails("Credentials", "DeleteAiDataPlatformCredential", "")
+return clientCall(request, DeleteCredentialResponse::builder)
+        .logger(LOG, "deleteCredential")
+        .serviceDetails("Credentials", "DeleteCredential", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(DeleteCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -141,24 +141,24 @@ return clientCall(request, DeleteAiDataPlatformCredentialResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            DeleteCredentialResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformCredentialResponse> getAiDataPlatformCredential(GetAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCredentialRequest, GetAiDataPlatformCredentialResponse> handler) {
+    public java.util.concurrent.Future<GetCredentialResponse> getCredential(GetCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<GetCredentialRequest, GetCredentialResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCredentialKey(), "credentialKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "getAiDataPlatformCredential")
-        .serviceDetails("Credentials", "GetAiDataPlatformCredential", "")
+return clientCall(request, GetCredentialResponse::builder)
+        .logger(LOG, "getCredential")
+        .serviceDetails("Credentials", "GetCredential", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(GetCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -170,26 +170,26 @@ return clientCall(request, GetAiDataPlatformCredentialResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Credential.class, GetAiDataPlatformCredentialResponse.Builder::credential)
+            .handleBody(com.oracle.aidataplatform.dp.model.Credential.class, GetCredentialResponse.Builder::credential)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformCredentialResponse.Builder::etag)
+            GetCredentialResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            GetCredentialResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformCredentialsResponse> listAiDataPlatformCredentials(ListAiDataPlatformCredentialsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCredentialsRequest, ListAiDataPlatformCredentialsResponse> handler) {
+    public java.util.concurrent.Future<ListCredentialsResponse> listCredentials(ListCredentialsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCredentialsRequest, ListCredentialsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformCredentialsResponse::builder)
-        .logger(LOG, "listAiDataPlatformCredentials")
-        .serviceDetails("Credentials", "ListAiDataPlatformCredentials", "")
+return clientCall(request, ListCredentialsResponse::builder)
+        .logger(LOG, "listCredentials")
+        .serviceDetails("Credentials", "ListCredentials", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformCredentialsRequest::builder)
+        .requestBuilder(ListCredentialsRequest::builder)
         
         
         .basePath("/20260430")
@@ -233,17 +233,17 @@ return clientCall(request, ListAiDataPlatformCredentialsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.CredentialCollection.class, ListAiDataPlatformCredentialsResponse.Builder::credentialCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.CredentialCollection.class, ListCredentialsResponse.Builder::credentialCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformCredentialsResponse.Builder::opcRequestId)
+            ListCredentialsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformCredentialsResponse.Builder::opcNextPage)
+            ListCredentialsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformCredentialResponse> updateAiDataPlatformCredential(UpdateAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCredentialRequest, UpdateAiDataPlatformCredentialResponse> handler) {
+    public java.util.concurrent.Future<UpdateCredentialResponse> updateCredential(UpdateCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateCredentialRequest, UpdateCredentialResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -252,11 +252,11 @@ return clientCall(request, ListAiDataPlatformCredentialsResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
-        .logger(LOG, "updateAiDataPlatformCredential")
-        .serviceDetails("Credentials", "UpdateAiDataPlatformCredential", "")
+return clientCall(request, UpdateCredentialResponse::builder)
+        .logger(LOG, "updateCredential")
+        .serviceDetails("Credentials", "UpdateCredential", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformCredentialRequest::builder)
+        .requestBuilder(UpdateCredentialRequest::builder)
         
         
         .basePath("/20260430")
@@ -271,7 +271,7 @@ return clientCall(request, UpdateAiDataPlatformCredentialResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformCredentialResponse.Builder::opcRequestId)
+            UpdateCredentialResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

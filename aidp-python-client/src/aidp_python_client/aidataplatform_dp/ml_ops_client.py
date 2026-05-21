@@ -85,7 +85,7 @@ class MLOpsClient(object):
         self.base_client = BaseClient("ml_ops", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, create_experiment_details, **kwargs):
+    def create_experiment(self, ai_data_platform_id, workspace_key, create_experiment_details, **kwargs):
         """
         (Preview) Creates an experiment in a workspace.
 
@@ -141,7 +141,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_experiment got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_experiment got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -187,7 +187,7 @@ class MLOpsClient(object):
                 body=create_experiment_details,
                 response_type="CreateExperimentResponseDetails")
 
-    def create_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, create_experiment_run_details, **kwargs):
+    def create_experiment_run(self, ai_data_platform_id, workspace_key, create_experiment_run_details, **kwargs):
         """
         (Preview) Creates a new run within an experiment.
 
@@ -243,7 +243,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -289,7 +289,7 @@ class MLOpsClient(object):
                 body=create_experiment_run_details,
                 response_type="CreateExperimentRunResponseDetails")
 
-    def create_ai_data_platform_model_version(self, ai_data_platform_id, create_model_version_details, **kwargs):
+    def create_model_version(self, ai_data_platform_id, create_model_version_details, **kwargs):
         """
         (Preview) Creates a model version.
 
@@ -342,7 +342,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_model_version got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_model_version got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -387,7 +387,7 @@ class MLOpsClient(object):
                 body=create_model_version_details,
                 response_type="CreateModelVersionResponseDetails")
 
-    def create_ai_data_platform_registered_model(self, ai_data_platform_id, create_registered_model_details, **kwargs):
+    def create_registered_model(self, ai_data_platform_id, create_registered_model_details, **kwargs):
         """
         (Preview) Creates a registered model in a workspace.
 
@@ -440,7 +440,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -485,7 +485,7 @@ class MLOpsClient(object):
                 body=create_registered_model_details,
                 response_type="CreateRegisteredModelResponseDetails")
 
-    def create_ai_data_platform_workspace_model_version(self, ai_data_platform_id, workspace_key, create_model_version_details, **kwargs):
+    def create_workspace_model_version(self, ai_data_platform_id, workspace_key, create_model_version_details, **kwargs):
         """
         (Preview) Creates a new model version in a specified workspace.
 
@@ -541,7 +541,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_workspace_model_version got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_workspace_model_version got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -587,7 +587,7 @@ class MLOpsClient(object):
                 body=create_model_version_details,
                 response_type="CreateModelVersionResponseDetails")
 
-    def delete_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, delete_experiment_details, **kwargs):
+    def delete_experiment(self, ai_data_platform_id, workspace_key, delete_experiment_details, **kwargs):
         """
         (Preview) Deletes an experiment.
 
@@ -643,7 +643,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_experiment got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_experiment got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -689,7 +689,7 @@ class MLOpsClient(object):
                 body=delete_experiment_details,
                 response_type="DeleteExperimentResponseDetails")
 
-    def delete_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, delete_experiment_run_details, **kwargs):
+    def delete_experiment_run(self, ai_data_platform_id, workspace_key, delete_experiment_run_details, **kwargs):
         """
         (Preview) Deletes an experiment run.
 
@@ -745,7 +745,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -791,7 +791,7 @@ class MLOpsClient(object):
                 body=delete_experiment_run_details,
                 response_type="DeleteExperimentRunResponseDetails")
 
-    def delete_ai_data_platform_experiment_run_tag(self, ai_data_platform_id, workspace_key, delete_experiment_run_tag_details, **kwargs):
+    def delete_experiment_run_tag(self, ai_data_platform_id, workspace_key, delete_experiment_run_tag_details, **kwargs):
         """
         (Preview) Deletes a tag on an experiment run.
 
@@ -847,7 +847,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_experiment_run_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_experiment_run_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -893,7 +893,7 @@ class MLOpsClient(object):
                 body=delete_experiment_run_tag_details,
                 response_type="DeleteExperimentRunTagResponseDetails")
 
-    def delete_ai_data_platform_experiment_tag(self, ai_data_platform_id, workspace_key, delete_experiment_tag_details, **kwargs):
+    def delete_experiment_tag(self, ai_data_platform_id, workspace_key, delete_experiment_tag_details, **kwargs):
         """
         (Preview) Deletes a tag on an experiment.
 
@@ -949,7 +949,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_experiment_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_experiment_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -995,7 +995,7 @@ class MLOpsClient(object):
                 body=delete_experiment_tag_details,
                 response_type="DeleteExperimentTagResponseDetails")
 
-    def delete_ai_data_platform_model_version(self, ai_data_platform_id, delete_model_version_details, **kwargs):
+    def delete_model_version(self, ai_data_platform_id, delete_model_version_details, **kwargs):
         """
         (Preview) Deletes a model version.
 
@@ -1048,7 +1048,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_model_version got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_model_version got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1093,7 +1093,7 @@ class MLOpsClient(object):
                 body=delete_model_version_details,
                 response_type="DeleteModelVersionResponseDetails")
 
-    def delete_ai_data_platform_model_version_tag(self, ai_data_platform_id, delete_model_version_tag_details, **kwargs):
+    def delete_model_version_tag(self, ai_data_platform_id, delete_model_version_tag_details, **kwargs):
         """
         (Preview) Deletes a tag on a model version.
 
@@ -1146,7 +1146,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_model_version_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_model_version_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1191,7 +1191,7 @@ class MLOpsClient(object):
                 body=delete_model_version_tag_details,
                 response_type="DeleteModelVersionTagResponseDetails")
 
-    def delete_ai_data_platform_registered_model(self, ai_data_platform_id, delete_registered_model_details, **kwargs):
+    def delete_registered_model(self, ai_data_platform_id, delete_registered_model_details, **kwargs):
         """
         (Preview) Deletes a registered model.
 
@@ -1244,7 +1244,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1289,7 +1289,7 @@ class MLOpsClient(object):
                 body=delete_registered_model_details,
                 response_type="DeleteRegisteredModelResponseDetails")
 
-    def delete_ai_data_platform_registered_model_tag(self, ai_data_platform_id, delete_registered_model_tag_details, **kwargs):
+    def delete_registered_model_tag(self, ai_data_platform_id, delete_registered_model_tag_details, **kwargs):
         """
         (Preview) Deletes a tag on a registered model.
 
@@ -1342,7 +1342,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_registered_model_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_registered_model_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1387,7 +1387,7 @@ class MLOpsClient(object):
                 body=delete_registered_model_tag_details,
                 response_type="DeleteRegisteredModelTagResponseDetails")
 
-    def get_ai_data_platform_experiment_by_id(self, ai_data_platform_id, workspace_key, experiment_id, **kwargs):
+    def get_experiment_by_id(self, ai_data_platform_id, workspace_key, experiment_id, **kwargs):
         """
         (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
 
@@ -1435,7 +1435,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_experiment_by_id got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_experiment_by_id got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1483,7 +1483,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="ExperimentResponse")
 
-    def get_ai_data_platform_experiment_by_name(self, ai_data_platform_id, workspace_key, experiment_name, **kwargs):
+    def get_experiment_by_name(self, ai_data_platform_id, workspace_key, experiment_name, **kwargs):
         """
         (Preview) Returns experiment metadata for a given name. Returns deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
 
@@ -1531,7 +1531,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_experiment_by_name got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_experiment_by_name got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1579,7 +1579,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="ExperimentResponse")
 
-    def get_ai_data_platform_experiment_run_by_id(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
+    def get_experiment_run_by_id(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
         """
         (Preview) Returns details of an experiment run by ID.
 
@@ -1627,7 +1627,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_experiment_run_by_id got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_experiment_run_by_id got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1675,7 +1675,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="GetExperimentRunResponseDetails")
 
-    def get_ai_data_platform_experiment_run_metric_history(self, ai_data_platform_id, workspace_key, run_id, metric_key, **kwargs):
+    def get_experiment_run_metric_history(self, ai_data_platform_id, workspace_key, run_id, metric_key, **kwargs):
         """
         (Preview) Returns a history of experiment run metrics.
 
@@ -1737,7 +1737,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_experiment_run_metric_history got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_experiment_run_metric_history got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1788,7 +1788,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="ExperimentRunMetricHistoryCollection")
 
-    def get_ai_data_platform_model_version(self, ai_data_platform_id, name, version, **kwargs):
+    def get_model_version(self, ai_data_platform_id, name, version, **kwargs):
         """
         (Preview)  Returns detailed information for a model version.
 
@@ -1836,7 +1836,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_model_version got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_model_version got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1884,7 +1884,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="GetModelVersionResponseDetails")
 
-    def get_ai_data_platform_registered_model(self, ai_data_platform_id, name, **kwargs):
+    def get_registered_model(self, ai_data_platform_id, name, **kwargs):
         """
         (Preview) Returns details for a specified registered model.
 
@@ -1929,7 +1929,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1976,7 +1976,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="GetRegisteredModelResponseDetails")
 
-    def list_ai_data_platform_artifacts(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
+    def list_artifacts(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
         """
         (Preview) Returns a list of artifacts.
 
@@ -2032,7 +2032,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_artifacts got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_artifacts got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2082,7 +2082,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="ArtifactList")
 
-    def list_ai_data_platform_experiment_runs(self, ai_data_platform_id, workspace_key, list_experiment_runs_details, **kwargs):
+    def list_experiment_runs(self, ai_data_platform_id, workspace_key, list_experiment_runs_details, **kwargs):
         """
         (Preview) Returns a list of experiment runs in a workspace.
 
@@ -2130,7 +2130,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_experiment_runs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_experiment_runs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2173,7 +2173,7 @@ class MLOpsClient(object):
                 body=list_experiment_runs_details,
                 response_type="ExperimentRunCollection")
 
-    def list_ai_data_platform_experiments(self, ai_data_platform_id, workspace_key, list_experiments_details, **kwargs):
+    def list_experiments(self, ai_data_platform_id, workspace_key, list_experiments_details, **kwargs):
         """
         (Preview) Returns a list of experiments with the given details.
 
@@ -2221,7 +2221,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_experiments got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_experiments got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2264,7 +2264,7 @@ class MLOpsClient(object):
                 body=list_experiments_details,
                 response_type="ExperimentCollection")
 
-    def list_ai_data_platform_logged_models(self, ai_data_platform_id, workspace_key, list_logged_models_details, **kwargs):
+    def list_logged_models(self, ai_data_platform_id, workspace_key, list_logged_models_details, **kwargs):
         """
         (Preview) Returns a list of logged models.
 
@@ -2312,7 +2312,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_logged_models got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_logged_models got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2355,7 +2355,7 @@ class MLOpsClient(object):
                 body=list_logged_models_details,
                 response_type="LoggedModelCollection")
 
-    def list_ai_data_platform_model_versions(self, ai_data_platform_id, **kwargs):
+    def list_model_versions(self, ai_data_platform_id, **kwargs):
         """
         (Preview) Returns a list of model versions.
 
@@ -2416,7 +2416,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_model_versions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_model_versions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -2466,7 +2466,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="ModelVersionCollection")
 
-    def list_ai_data_platform_registered_models(self, ai_data_platform_id, **kwargs):
+    def list_registered_models(self, ai_data_platform_id, **kwargs):
         """
         (Preview) Returns a list of registered models in a workspace.
 
@@ -2528,7 +2528,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_registered_models got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_registered_models got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -2578,7 +2578,7 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="RegisteredModelCollection")
 
-    def log_ai_data_platform_experiment_run_batch(self, ai_data_platform_id, workspace_key, log_experiment_run_batch_details, **kwargs):
+    def log_experiment_run_batch(self, ai_data_platform_id, workspace_key, log_experiment_run_batch_details, **kwargs):
         """
         (Preview) Logs an experiment run batch.
 
@@ -2634,7 +2634,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "log_ai_data_platform_experiment_run_batch got unknown kwargs: {!r}".format(extra_kwargs))
+                "log_experiment_run_batch got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2680,7 +2680,7 @@ class MLOpsClient(object):
                 body=log_experiment_run_batch_details,
                 response_type="LogExperimentRunBatchResponseDetails")
 
-    def log_ai_data_platform_experiment_run_inputs(self, ai_data_platform_id, workspace_key, log_experiment_run_inputs_details, **kwargs):
+    def log_experiment_run_inputs(self, ai_data_platform_id, workspace_key, log_experiment_run_inputs_details, **kwargs):
         """
         (Preview) Logs experiment run inputs.
 
@@ -2736,7 +2736,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "log_ai_data_platform_experiment_run_inputs got unknown kwargs: {!r}".format(extra_kwargs))
+                "log_experiment_run_inputs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2782,7 +2782,7 @@ class MLOpsClient(object):
                 body=log_experiment_run_inputs_details,
                 response_type="LogExperimentRunInputsResponseDetails")
 
-    def log_ai_data_platform_experiment_run_metric(self, ai_data_platform_id, workspace_key, log_experiment_run_metric_details, **kwargs):
+    def log_experiment_run_metric(self, ai_data_platform_id, workspace_key, log_experiment_run_metric_details, **kwargs):
         """
         (Preview) Logs an experiment run metric.
 
@@ -2838,7 +2838,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "log_ai_data_platform_experiment_run_metric got unknown kwargs: {!r}".format(extra_kwargs))
+                "log_experiment_run_metric got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2884,7 +2884,7 @@ class MLOpsClient(object):
                 body=log_experiment_run_metric_details,
                 response_type="LogExperimentRunMetricResponseDetails")
 
-    def log_ai_data_platform_experiment_run_model(self, ai_data_platform_id, workspace_key, log_experiment_run_model_details, **kwargs):
+    def log_experiment_run_model(self, ai_data_platform_id, workspace_key, log_experiment_run_model_details, **kwargs):
         """
         (Preview) Logs an experiment run model.
 
@@ -2940,7 +2940,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "log_ai_data_platform_experiment_run_model got unknown kwargs: {!r}".format(extra_kwargs))
+                "log_experiment_run_model got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2986,7 +2986,7 @@ class MLOpsClient(object):
                 body=log_experiment_run_model_details,
                 response_type="LogExperimentRunModelResponseDetails")
 
-    def log_ai_data_platform_experiment_run_param(self, ai_data_platform_id, workspace_key, log_experiment_run_param_details, **kwargs):
+    def log_experiment_run_param(self, ai_data_platform_id, workspace_key, log_experiment_run_param_details, **kwargs):
         """
         (Preview) Logs an experiment run parameter.
 
@@ -3042,7 +3042,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "log_ai_data_platform_experiment_run_param got unknown kwargs: {!r}".format(extra_kwargs))
+                "log_experiment_run_param got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -3088,7 +3088,7 @@ class MLOpsClient(object):
                 body=log_experiment_run_param_details,
                 response_type="LogExperimentRunParamResponseDetails")
 
-    def rename_ai_data_platform_registered_model(self, ai_data_platform_id, rename_registered_model_details, **kwargs):
+    def rename_registered_model(self, ai_data_platform_id, rename_registered_model_details, **kwargs):
         """
         (Preview) Renames a registered model.
 
@@ -3141,7 +3141,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "rename_ai_data_platform_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
+                "rename_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -3186,7 +3186,7 @@ class MLOpsClient(object):
                 body=rename_registered_model_details,
                 response_type="RenameRegisteredModelResponseDetails")
 
-    def restore_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, restore_experiment_details, **kwargs):
+    def restore_experiment(self, ai_data_platform_id, workspace_key, restore_experiment_details, **kwargs):
         """
         (Preview) Restores an experiment.
 
@@ -3242,7 +3242,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "restore_ai_data_platform_experiment got unknown kwargs: {!r}".format(extra_kwargs))
+                "restore_experiment got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -3288,7 +3288,7 @@ class MLOpsClient(object):
                 body=restore_experiment_details,
                 response_type="RestoreExperimentResponseDetails")
 
-    def restore_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, restore_experiment_run_details, **kwargs):
+    def restore_experiment_run(self, ai_data_platform_id, workspace_key, restore_experiment_run_details, **kwargs):
         """
         (Preview) Restores an experiment run.
 
@@ -3344,7 +3344,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "restore_ai_data_platform_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "restore_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -3390,7 +3390,7 @@ class MLOpsClient(object):
                 body=restore_experiment_run_details,
                 response_type="RestoreExperimentRunResponseDetails")
 
-    def set_ai_data_platform_experiment_run_tag(self, ai_data_platform_id, workspace_key, set_experiment_run_tag_details, **kwargs):
+    def set_experiment_run_tag(self, ai_data_platform_id, workspace_key, set_experiment_run_tag_details, **kwargs):
         """
         (Preview) Sets a tag on an experiment run.
 
@@ -3446,7 +3446,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "set_ai_data_platform_experiment_run_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "set_experiment_run_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -3492,7 +3492,7 @@ class MLOpsClient(object):
                 body=set_experiment_run_tag_details,
                 response_type="SetExperimentRunTagResponseDetails")
 
-    def set_ai_data_platform_experiment_tag(self, ai_data_platform_id, workspace_key, set_experiment_tag_details, **kwargs):
+    def set_experiment_tag(self, ai_data_platform_id, workspace_key, set_experiment_tag_details, **kwargs):
         """
         (Preview) Sets a tag on an experiment.
 
@@ -3548,7 +3548,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "set_ai_data_platform_experiment_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "set_experiment_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -3594,7 +3594,7 @@ class MLOpsClient(object):
                 body=set_experiment_tag_details,
                 response_type="SetExperimentTagResponseDetails")
 
-    def set_ai_data_platform_model_version_tag(self, ai_data_platform_id, set_model_version_tag_details, **kwargs):
+    def set_model_version_tag(self, ai_data_platform_id, set_model_version_tag_details, **kwargs):
         """
         (Preview) Sets a tag on a model version.
 
@@ -3647,7 +3647,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "set_ai_data_platform_model_version_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "set_model_version_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -3692,7 +3692,7 @@ class MLOpsClient(object):
                 body=set_model_version_tag_details,
                 response_type="SetModelVersionTagResponseDetails")
 
-    def set_ai_data_platform_registered_model_tag(self, ai_data_platform_id, set_registered_model_tag_details, **kwargs):
+    def set_registered_model_tag(self, ai_data_platform_id, set_registered_model_tag_details, **kwargs):
         """
         (Preview) Sets a tag on a registered model.
 
@@ -3745,7 +3745,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "set_ai_data_platform_registered_model_tag got unknown kwargs: {!r}".format(extra_kwargs))
+                "set_registered_model_tag got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -3790,7 +3790,7 @@ class MLOpsClient(object):
                 body=set_registered_model_tag_details,
                 response_type="SetRegisteredModelTagResponseDetails")
 
-    def transition_ai_data_platform_model_version_stage(self, ai_data_platform_id, transition_model_version_stage_details, **kwargs):
+    def transition_model_version_stage(self, ai_data_platform_id, transition_model_version_stage_details, **kwargs):
         """
         (Preview) Transitions a model version stage.
 
@@ -3843,7 +3843,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "transition_ai_data_platform_model_version_stage got unknown kwargs: {!r}".format(extra_kwargs))
+                "transition_model_version_stage got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -3888,7 +3888,7 @@ class MLOpsClient(object):
                 body=transition_model_version_stage_details,
                 response_type="TransitionModelVersionStageResponseDetails")
 
-    def update_ai_data_platform_experiment(self, ai_data_platform_id, workspace_key, update_experiment_details, **kwargs):
+    def update_experiment(self, ai_data_platform_id, workspace_key, update_experiment_details, **kwargs):
         """
         (Preview) Updates an experiment.
 
@@ -3944,7 +3944,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_experiment got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_experiment got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -3990,7 +3990,7 @@ class MLOpsClient(object):
                 body=update_experiment_details,
                 response_type="UpdateExperimentResponseDetails")
 
-    def update_ai_data_platform_experiment_run(self, ai_data_platform_id, workspace_key, update_experiment_run_details, **kwargs):
+    def update_experiment_run(self, ai_data_platform_id, workspace_key, update_experiment_run_details, **kwargs):
         """
         (Preview) Updates an experiment run.
 
@@ -4046,7 +4046,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_experiment_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -4092,7 +4092,7 @@ class MLOpsClient(object):
                 body=update_experiment_run_details,
                 response_type="UpdateExperimentRunResponseDetails")
 
-    def update_ai_data_platform_experiment_run_tags(self, ai_data_platform_id, workspace_key, update_experiment_run_tags_details, **kwargs):
+    def update_experiment_run_tags(self, ai_data_platform_id, workspace_key, update_experiment_run_tags_details, **kwargs):
         """
         (Preview) Updates tags on an experiment run.
 
@@ -4148,7 +4148,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_experiment_run_tags got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_experiment_run_tags got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -4194,7 +4194,7 @@ class MLOpsClient(object):
                 body=update_experiment_run_tags_details,
                 response_type="UpdateExperimentRunTagsResponseDetails")
 
-    def update_ai_data_platform_experiment_tags(self, ai_data_platform_id, workspace_key, update_experiment_tags_details, **kwargs):
+    def update_experiment_tags(self, ai_data_platform_id, workspace_key, update_experiment_tags_details, **kwargs):
         """
         (Preview) Updates tags on experiment.
 
@@ -4250,7 +4250,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_experiment_tags got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_experiment_tags got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -4296,7 +4296,7 @@ class MLOpsClient(object):
                 body=update_experiment_tags_details,
                 response_type="UpdateExperimentTagsResponseDetails")
 
-    def update_ai_data_platform_model_version(self, ai_data_platform_id, update_model_version_details, **kwargs):
+    def update_model_version(self, ai_data_platform_id, update_model_version_details, **kwargs):
         """
         (Preview) Updates a model version
 
@@ -4349,7 +4349,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_model_version got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_model_version got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -4394,7 +4394,7 @@ class MLOpsClient(object):
                 body=update_model_version_details,
                 response_type="UpdateModelVersionResponseDetails")
 
-    def update_ai_data_platform_model_version_tags(self, ai_data_platform_id, update_model_version_tags_details, **kwargs):
+    def update_model_version_tags(self, ai_data_platform_id, update_model_version_tags_details, **kwargs):
         """
         (Preview) Updates tags on a model version.
 
@@ -4447,7 +4447,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_model_version_tags got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_model_version_tags got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -4492,7 +4492,7 @@ class MLOpsClient(object):
                 body=update_model_version_tags_details,
                 response_type="UpdateModelVersionTagsResponseDetails")
 
-    def update_ai_data_platform_registered_model(self, ai_data_platform_id, update_registered_model_details, **kwargs):
+    def update_registered_model(self, ai_data_platform_id, update_registered_model_details, **kwargs):
         """
         (Preview) Updates a registered model with the provided details.
 
@@ -4545,7 +4545,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_registered_model got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -4590,7 +4590,7 @@ class MLOpsClient(object):
                 body=update_registered_model_details,
                 response_type="UpdateRegisteredModelResponseDetails")
 
-    def update_ai_data_platform_registered_model_tags(self, ai_data_platform_id, update_registered_model_tags_details, **kwargs):
+    def update_registered_model_tags(self, ai_data_platform_id, update_registered_model_tags_details, **kwargs):
         """
         (Preview) Updates tags on a registered model.
 
@@ -4643,7 +4643,7 @@ class MLOpsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_registered_model_tags got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_registered_model_tags got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id

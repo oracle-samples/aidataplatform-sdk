@@ -66,7 +66,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CancelAiDataPlatformJobRunResponse cancelAiDataPlatformJobRun(CancelAiDataPlatformJobRunRequest request);
+    CancelJobRunResponse cancelJobRun(CancelJobRunRequest request);
     
     /**
      * Cancels all job runs for a given job.
@@ -76,7 +76,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CancelAiDataPlatformJobRunsResponse cancelAiDataPlatformJobRuns(CancelAiDataPlatformJobRunsRequest request);
+    CancelJobRunsResponse cancelJobRuns(CancelJobRunsRequest request);
     
     /**
      * Creates a job in an AI Data Platform Workbench.
@@ -86,7 +86,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformJobResponse createAiDataPlatformJob(CreateAiDataPlatformJobRequest request);
+    CreateJobResponse createJob(CreateJobRequest request);
     
     /**
      * Creates a job run for an AI Data Platform Workbench.
@@ -96,7 +96,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformJobRunResponse createAiDataPlatformJobRun(CreateAiDataPlatformJobRunRequest request);
+    CreateJobRunResponse createJobRun(CreateJobRunRequest request);
     
     /**
      * Deletes a job from an AI Data Platform Workbench.
@@ -106,7 +106,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformJobResponse deleteAiDataPlatformJob(DeleteAiDataPlatformJobRequest request);
+    DeleteJobResponse deleteJob(DeleteJobRequest request);
     
     /**
      * Deletes a job run from an AI Data Platform Workbench.
@@ -116,7 +116,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformJobRunResponse deleteAiDataPlatformJobRun(DeleteAiDataPlatformJobRunRequest request);
+    DeleteJobRunResponse deleteJobRun(DeleteJobRunRequest request);
     
     /**
      * Exports task run output in HTML or ipynb format.
@@ -126,7 +126,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ExportAiDataPlatformTaskRunOutputResponse exportAiDataPlatformTaskRunOutput(ExportAiDataPlatformTaskRunOutputRequest request);
+    ExportTaskRunOutputResponse exportTaskRunOutput(ExportTaskRunOutputRequest request);
     
     /**
      * Fetches the task run output from the runtime engine.
@@ -136,7 +136,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    FetchAiDataPlatformOutputResponse fetchAiDataPlatformOutput(FetchAiDataPlatformOutputRequest request);
+    FetchOutputResponse fetchOutput(FetchOutputRequest request);
     
     /**
      * Returns detailed information about a given job in AI Data Platform Workbench.
@@ -146,7 +146,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformJobResponse getAiDataPlatformJob(GetAiDataPlatformJobRequest request);
+    GetJobResponse getJob(GetJobRequest request);
     
     /**
      * Returns detailed information about a given job run.
@@ -156,7 +156,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformJobRunResponse getAiDataPlatformJobRun(GetAiDataPlatformJobRunRequest request);
+    GetJobRunResponse getJobRun(GetJobRunRequest request);
     
     /**
      * Returns detailed information about a task run with a given task run key.
@@ -166,7 +166,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformTaskRunResponse getAiDataPlatformTaskRun(GetAiDataPlatformTaskRunRequest request);
+    GetTaskRunResponse getTaskRun(GetTaskRunRequest request);
     
     /**
      * Returns a list of job permissions.
@@ -176,7 +176,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformJobPermissionsResponse listAiDataPlatformJobPermissions(ListAiDataPlatformJobPermissionsRequest request);
+    ListJobPermissionsResponse listJobPermissions(ListJobPermissionsRequest request);
     
     /**
      * Returns a detailed list of job runs in an AI Data Platform Workbench.
@@ -186,7 +186,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformJobRunsResponse listAiDataPlatformJobRuns(ListAiDataPlatformJobRunsRequest request);
+    ListJobRunsResponse listJobRuns(ListJobRunsRequest request);
     
     /**
      * Returns a list of jobs for a given AI Data Platform Workbench.
@@ -196,7 +196,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformJobsResponse listAiDataPlatformJobs(ListAiDataPlatformJobsRequest request);
+    ListJobsResponse listJobs(ListJobsRequest request);
     
     /**
      * Returns a list of the latest job runs for a given job key.
@@ -206,7 +206,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRecentJobRunsResponse listAiDataPlatformRecentJobRuns(ListAiDataPlatformRecentJobRunsRequest request);
+    ListRecentJobRunsResponse listRecentJobRuns(ListRecentJobRunsRequest request);
     
     /**
      * Returns a list of tasks run in an AI Data Platform Workbench.
@@ -216,7 +216,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformTaskRunsResponse listAiDataPlatformTaskRuns(ListAiDataPlatformTaskRunsRequest request);
+    ListTaskRunsResponse listTaskRuns(ListTaskRunsRequest request);
     
     /**
      * Update job permissions with the provided details.
@@ -226,7 +226,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformJobPermissionResponse manageAiDataPlatformJobPermission(ManageAiDataPlatformJobPermissionRequest request);
+    ManageJobPermissionResponse manageJobPermission(ManageJobPermissionRequest request);
     
     /**
      * Repairs and reruns a job run.
@@ -236,7 +236,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RepairAiDataPlatformJobRunResponse repairAiDataPlatformJobRun(RepairAiDataPlatformJobRunRequest request);
+    RepairJobRunResponse repairJobRun(RepairJobRunRequest request);
     
     /**
      * Update details for a job in AI Data Platform Workbench.
@@ -246,7 +246,7 @@ public interface Workflow extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformJobResponse updateAiDataPlatformJob(UpdateAiDataPlatformJobRequest request);
+    UpdateJobResponse updateJob(UpdateJobRequest request);
     
 
 }

@@ -67,7 +67,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformDataTableResponse> createAiDataPlatformDataTable(CreateAiDataPlatformDataTableRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformDataTableRequest, CreateAiDataPlatformDataTableResponse> handler);
+    java.util.concurrent.Future<CreateDataTableResponse> createDataTable(CreateDataTableRequest request, com.oracle.bmc.responses.AsyncHandler<CreateDataTableRequest, CreateDataTableResponse> handler);
     
     /**
      * Creates a schema.
@@ -79,7 +79,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformSchemaResponse> createAiDataPlatformSchema(CreateAiDataPlatformSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSchemaRequest, CreateAiDataPlatformSchemaResponse> handler);
+    java.util.concurrent.Future<CreateSchemaResponse> createSchema(CreateSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<CreateSchemaRequest, CreateSchemaResponse> handler);
     
     /**
      * Creates a table.
@@ -91,7 +91,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformTableResponse> createAiDataPlatformTable(CreateAiDataPlatformTableRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformTableRequest, CreateAiDataPlatformTableResponse> handler);
+    java.util.concurrent.Future<CreateTableResponse> createTable(CreateTableRequest request, com.oracle.bmc.responses.AsyncHandler<CreateTableRequest, CreateTableResponse> handler);
     
     /**
      * Creates a view.
@@ -103,7 +103,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformViewResponse> createAiDataPlatformView(CreateAiDataPlatformViewRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformViewRequest, CreateAiDataPlatformViewResponse> handler);
+    java.util.concurrent.Future<CreateViewResponse> createView(CreateViewRequest request, com.oracle.bmc.responses.AsyncHandler<CreateViewRequest, CreateViewResponse> handler);
     
     /**
      * Deletes a schema from an AI Data Platform Workbench.
@@ -115,7 +115,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformSchemaResponse> deleteAiDataPlatformSchema(DeleteAiDataPlatformSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSchemaRequest, DeleteAiDataPlatformSchemaResponse> handler);
+    java.util.concurrent.Future<DeleteSchemaResponse> deleteSchema(DeleteSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteSchemaRequest, DeleteSchemaResponse> handler);
     
     /**
      * Deletes a table from an AI Data Platform Workbench.
@@ -127,7 +127,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformTableResponse> deleteAiDataPlatformTable(DeleteAiDataPlatformTableRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformTableRequest, DeleteAiDataPlatformTableResponse> handler);
+    java.util.concurrent.Future<DeleteTableResponse> deleteTable(DeleteTableRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteTableRequest, DeleteTableResponse> handler);
     
     /**
      * Deletes a view from AI Data Platform Workbench.
@@ -139,7 +139,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformViewResponse> deleteAiDataPlatformView(DeleteAiDataPlatformViewRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformViewRequest, DeleteAiDataPlatformViewResponse> handler);
+    java.util.concurrent.Future<DeleteViewResponse> deleteView(DeleteViewRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteViewRequest, DeleteViewResponse> handler);
     
     /**
      * Generates a URI for uploading a sample file to a temporary folder in a schema.
@@ -151,7 +151,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GenerateAiDataPlatformTempFileUploadTargetResponse> generateAiDataPlatformTempFileUploadTarget(GenerateAiDataPlatformTempFileUploadTargetRequest request, com.oracle.bmc.responses.AsyncHandler<GenerateAiDataPlatformTempFileUploadTargetRequest, GenerateAiDataPlatformTempFileUploadTargetResponse> handler);
+    java.util.concurrent.Future<GenerateTempFileUploadTargetResponse> generateTempFileUploadTarget(GenerateTempFileUploadTargetRequest request, com.oracle.bmc.responses.AsyncHandler<GenerateTempFileUploadTargetRequest, GenerateTempFileUploadTargetResponse> handler);
     
     /**
      * Returns detailed information about a specified schema.
@@ -163,7 +163,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformSchemaResponse> getAiDataPlatformSchema(GetAiDataPlatformSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSchemaRequest, GetAiDataPlatformSchemaResponse> handler);
+    java.util.concurrent.Future<GetSchemaResponse> getSchema(GetSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<GetSchemaRequest, GetSchemaResponse> handler);
     
     /**
      * Returns detailed information about a table.
@@ -175,7 +175,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformTableResponse> getAiDataPlatformTable(GetAiDataPlatformTableRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTableRequest, GetAiDataPlatformTableResponse> handler);
+    java.util.concurrent.Future<GetTableResponse> getTable(GetTableRequest request, com.oracle.bmc.responses.AsyncHandler<GetTableRequest, GetTableResponse> handler);
     
     /**
      * Returns information about a view.
@@ -187,7 +187,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformViewResponse> getAiDataPlatformView(GetAiDataPlatformViewRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformViewRequest, GetAiDataPlatformViewResponse> handler);
+    java.util.concurrent.Future<GetViewResponse> getView(GetViewRequest request, com.oracle.bmc.responses.AsyncHandler<GetViewRequest, GetViewResponse> handler);
     
     /**
      * Returns a list of permissions for a given schema.
@@ -199,7 +199,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformSchemaPermissionsResponse> listAiDataPlatformSchemaPermissions(ListAiDataPlatformSchemaPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemaPermissionsRequest, ListAiDataPlatformSchemaPermissionsResponse> handler);
+    java.util.concurrent.Future<ListSchemaPermissionsResponse> listSchemaPermissions(ListSchemaPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse> handler);
     
     /**
      * Returns a list of schemas in a given AI Data Platform Workbench.
@@ -211,7 +211,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformSchemasResponse> listAiDataPlatformSchemas(ListAiDataPlatformSchemasRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemasRequest, ListAiDataPlatformSchemasResponse> handler);
+    java.util.concurrent.Future<ListSchemasResponse> listSchemas(ListSchemasRequest request, com.oracle.bmc.responses.AsyncHandler<ListSchemasRequest, ListSchemasResponse> handler);
     
     /**
      * Returns a list of permissions for a given table.
@@ -223,7 +223,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformTablePermissionsResponse> listAiDataPlatformTablePermissions(ListAiDataPlatformTablePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablePermissionsRequest, ListAiDataPlatformTablePermissionsResponse> handler);
+    java.util.concurrent.Future<ListTablePermissionsResponse> listTablePermissions(ListTablePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListTablePermissionsRequest, ListTablePermissionsResponse> handler);
     
     /**
      * Returns a list of tables in a schema.
@@ -235,7 +235,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformTablesResponse> listAiDataPlatformTables(ListAiDataPlatformTablesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablesRequest, ListAiDataPlatformTablesResponse> handler);
+    java.util.concurrent.Future<ListTablesResponse> listTables(ListTablesRequest request, com.oracle.bmc.responses.AsyncHandler<ListTablesRequest, ListTablesResponse> handler);
     
     /**
      * Returns a list of view permissions.
@@ -248,7 +248,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformViewPermissionsResponse> listAiDataPlatformViewPermissions(ListAiDataPlatformViewPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewPermissionsRequest, ListAiDataPlatformViewPermissionsResponse> handler);
+    java.util.concurrent.Future<ListViewPermissionsResponse> listViewPermissions(ListViewPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListViewPermissionsRequest, ListViewPermissionsResponse> handler);
     
     /**
      * Returns a list of views in a schema.
@@ -261,7 +261,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformViewsResponse> listAiDataPlatformViews(ListAiDataPlatformViewsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewsRequest, ListAiDataPlatformViewsResponse> handler);
+    java.util.concurrent.Future<ListViewsResponse> listViews(ListViewsRequest request, com.oracle.bmc.responses.AsyncHandler<ListViewsRequest, ListViewsResponse> handler);
     
     /**
      * Updates the permissions for a given schema.
@@ -273,7 +273,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformSchemaPermissionResponse> manageAiDataPlatformSchemaPermission(ManageAiDataPlatformSchemaPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSchemaPermissionRequest, ManageAiDataPlatformSchemaPermissionResponse> handler);
+    java.util.concurrent.Future<ManageSchemaPermissionResponse> manageSchemaPermission(ManageSchemaPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageSchemaPermissionRequest, ManageSchemaPermissionResponse> handler);
     
     /**
      * Updates the permissions for a given table.
@@ -285,7 +285,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformTablePermissionResponse> manageAiDataPlatformTablePermission(ManageAiDataPlatformTablePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformTablePermissionRequest, ManageAiDataPlatformTablePermissionResponse> handler);
+    java.util.concurrent.Future<ManageTablePermissionResponse> manageTablePermission(ManageTablePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageTablePermissionRequest, ManageTablePermissionResponse> handler);
     
     /**
      * Updates permissions on a view.
@@ -297,7 +297,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformViewPermissionResponse> manageAiDataPlatformViewPermission(ManageAiDataPlatformViewPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformViewPermissionRequest, ManageAiDataPlatformViewPermissionResponse> handler);
+    java.util.concurrent.Future<ManageViewPermissionResponse> manageViewPermission(ManageViewPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageViewPermissionRequest, ManageViewPermissionResponse> handler);
     
     /**
      * Returns details of a table schema from the specified location.
@@ -309,7 +309,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<PerformAiDataPlatformInferSchemaResponse> performAiDataPlatformInferSchema(PerformAiDataPlatformInferSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaRequest, PerformAiDataPlatformInferSchemaResponse> handler);
+    java.util.concurrent.Future<PerformInferSchemaResponse> performInferSchema(PerformInferSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaRequest, PerformInferSchemaResponse> handler);
     
     /**
      * Returns table schema and data from the specified location.
@@ -321,7 +321,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<PerformAiDataPlatformInferSchemaWithPreviewResponse> performAiDataPlatformInferSchemaWithPreview(PerformAiDataPlatformInferSchemaWithPreviewRequest request, com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaWithPreviewRequest, PerformAiDataPlatformInferSchemaWithPreviewResponse> handler);
+    java.util.concurrent.Future<PerformInferSchemaWithPreviewResponse> performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request, com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse> handler);
     
     /**
      * Refreshes schema in an AI Data Platform Workbench through the crawler.
@@ -333,7 +333,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RefreshAiDataPlatformSchemaResponse> refreshAiDataPlatformSchema(RefreshAiDataPlatformSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformSchemaRequest, RefreshAiDataPlatformSchemaResponse> handler);
+    java.util.concurrent.Future<RefreshSchemaResponse> refreshSchema(RefreshSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshSchemaRequest, RefreshSchemaResponse> handler);
     
     /**
      * Refreshes a table in an AI Data Platform Workbench through the crawler.
@@ -345,7 +345,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RefreshAiDataPlatformTableResponse> refreshAiDataPlatformTable(RefreshAiDataPlatformTableRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformTableRequest, RefreshAiDataPlatformTableResponse> handler);
+    java.util.concurrent.Future<RefreshTableResponse> refreshTable(RefreshTableRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshTableRequest, RefreshTableResponse> handler);
     
     /**
      * Retrieve PAR for the entities created in AI Data Platform Workbench.
@@ -357,7 +357,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RetrieveAiDataPlatformParResponse> retrieveAiDataPlatformPar(RetrieveAiDataPlatformParRequest request, com.oracle.bmc.responses.AsyncHandler<RetrieveAiDataPlatformParRequest, RetrieveAiDataPlatformParResponse> handler);
+    java.util.concurrent.Future<RetrieveParResponse> retrievePar(RetrieveParRequest request, com.oracle.bmc.responses.AsyncHandler<RetrieveParRequest, RetrieveParResponse> handler);
     
     /**
      * Updates a schema.
@@ -369,7 +369,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformSchemaResponse> updateAiDataPlatformSchema(UpdateAiDataPlatformSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformSchemaRequest, UpdateAiDataPlatformSchemaResponse> handler);
+    java.util.concurrent.Future<UpdateSchemaResponse> updateSchema(UpdateSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateSchemaRequest, UpdateSchemaResponse> handler);
     
     /**
      * Updates a table with provided details.
@@ -381,7 +381,7 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformTableResponse> updateAiDataPlatformTable(UpdateAiDataPlatformTableRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformTableRequest, UpdateAiDataPlatformTableResponse> handler);
+    java.util.concurrent.Future<UpdateTableResponse> updateTable(UpdateTableRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateTableRequest, UpdateTableResponse> handler);
     
     /**
      * Updates a view with given information.
@@ -393,6 +393,6 @@ public interface SchemaAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformViewResponse> updateAiDataPlatformView(UpdateAiDataPlatformViewRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformViewRequest, UpdateAiDataPlatformViewResponse> handler);
+    java.util.concurrent.Future<UpdateViewResponse> updateView(UpdateViewRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateViewRequest, UpdateViewResponse> handler);
     
 }

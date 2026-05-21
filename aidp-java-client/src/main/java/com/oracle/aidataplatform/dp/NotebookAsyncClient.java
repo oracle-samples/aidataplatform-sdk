@@ -83,7 +83,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformContentResponse> createAiDataPlatformContent(CreateAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformContentRequest, CreateAiDataPlatformContentResponse> handler) {
+    public java.util.concurrent.Future<CreateContentResponse> createContent(CreateContentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateContentRequest, CreateContentResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -94,11 +94,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CreateAiDataPlatformContentResponse::builder)
-        .logger(LOG, "createAiDataPlatformContent")
-        .serviceDetails("Notebook", "CreateAiDataPlatformContent", "")
+return clientCall(request, CreateContentResponse::builder)
+        .logger(LOG, "createContent")
+        .serviceDetails("Notebook", "CreateContent", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformContentRequest::builder)
+        .requestBuilder(CreateContentRequest::builder)
         
         
         .basePath("/20260430")
@@ -114,21 +114,21 @@ return clientCall(request, CreateAiDataPlatformContentResponse::builder)
                 .appendHeader("datalake-tenant-id", request.getDatalakeTenantId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, CreateAiDataPlatformContentResponse.Builder::content)
+            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, CreateContentResponse.Builder::content)
                 .handleResponseHeaderString("Location", 
-            CreateAiDataPlatformContentResponse.Builder::location)
+            CreateContentResponse.Builder::location)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformContentResponse.Builder::etag)
+            CreateContentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CreateAiDataPlatformContentResponse.Builder::opcWorkRequestId)
+            CreateContentResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformContentResponse.Builder::opcRequestId)
+            CreateContentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformSessionResponse> createAiDataPlatformSession(CreateAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSessionRequest, CreateAiDataPlatformSessionResponse> handler) {
+    public java.util.concurrent.Future<CreateSessionResponse> createSession(CreateSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateSessionRequest, CreateSessionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -137,11 +137,11 @@ return clientCall(request, CreateAiDataPlatformContentResponse::builder)
         
 
 
-return clientCall(request, CreateAiDataPlatformSessionResponse::builder)
-        .logger(LOG, "createAiDataPlatformSession")
-        .serviceDetails("Notebook", "CreateAiDataPlatformSession", "")
+return clientCall(request, CreateSessionResponse::builder)
+        .logger(LOG, "createSession")
+        .serviceDetails("Notebook", "CreateSession", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformSessionRequest::builder)
+        .requestBuilder(CreateSessionRequest::builder)
         
         
         .basePath("/20260430")
@@ -155,21 +155,21 @@ return clientCall(request, CreateAiDataPlatformSessionResponse::builder)
                 .appendHeader("datalake-tenant-id", request.getDatalakeTenantId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Session.class, CreateAiDataPlatformSessionResponse.Builder::session)
+            .handleBody(com.oracle.aidataplatform.dp.model.Session.class, CreateSessionResponse.Builder::session)
                 .handleResponseHeaderString("Location", 
-            CreateAiDataPlatformSessionResponse.Builder::location)
+            CreateSessionResponse.Builder::location)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformSessionResponse.Builder::etag)
+            CreateSessionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformSessionResponse.Builder::opcRequestId)
+            CreateSessionResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CreateAiDataPlatformSessionResponse.Builder::opcWorkRequestId)
+            CreateSessionResponse.Builder::opcWorkRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformContentResponse> deleteAiDataPlatformContent(DeleteAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformContentRequest, DeleteAiDataPlatformContentResponse> handler) {
+    public java.util.concurrent.Future<DeleteContentResponse> deleteContent(DeleteContentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteContentRequest, DeleteContentResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -178,11 +178,11 @@ return clientCall(request, CreateAiDataPlatformSessionResponse::builder)
         Validate.notBlank(request.getContentPath(), "contentPath must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformContentResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformContent")
-        .serviceDetails("Notebook", "DeleteAiDataPlatformContent", "")
+return clientCall(request, DeleteContentResponse::builder)
+        .logger(LOG, "deleteContent")
+        .serviceDetails("Notebook", "DeleteContent", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformContentRequest::builder)
+        .requestBuilder(DeleteContentRequest::builder)
         
         
         .basePath("/20260430")
@@ -195,17 +195,17 @@ return clientCall(request, DeleteAiDataPlatformContentResponse::builder)
         
         
                 .handleResponseHeaderString("Location", 
-            DeleteAiDataPlatformContentResponse.Builder::location)
+            DeleteContentResponse.Builder::location)
                 .handleResponseHeaderString("opc-work-request-id", 
-            DeleteAiDataPlatformContentResponse.Builder::opcWorkRequestId)
+            DeleteContentResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformContentResponse.Builder::opcRequestId)
+            DeleteContentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformSessionResponse> deleteAiDataPlatformSession(DeleteAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSessionRequest, DeleteAiDataPlatformSessionResponse> handler) {
+    public java.util.concurrent.Future<DeleteSessionResponse> deleteSession(DeleteSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteSessionRequest, DeleteSessionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -214,11 +214,11 @@ return clientCall(request, DeleteAiDataPlatformContentResponse::builder)
         Validate.notBlank(request.getSessionId(), "sessionId must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformSessionResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformSession")
-        .serviceDetails("Notebook", "DeleteAiDataPlatformSession", "")
+return clientCall(request, DeleteSessionResponse::builder)
+        .logger(LOG, "deleteSession")
+        .serviceDetails("Notebook", "DeleteSession", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformSessionRequest::builder)
+        .requestBuilder(DeleteSessionRequest::builder)
         
         
         .basePath("/20260430")
@@ -231,13 +231,13 @@ return clientCall(request, DeleteAiDataPlatformSessionResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformSessionResponse.Builder::opcRequestId)
+            DeleteSessionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ExportAiDataPlatformContentsResponse> exportAiDataPlatformContents(ExportAiDataPlatformContentsRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformContentsRequest, ExportAiDataPlatformContentsResponse> handler) {
+    public java.util.concurrent.Future<ExportContentsResponse> exportContents(ExportContentsRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportContentsRequest, ExportContentsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -248,11 +248,11 @@ return clientCall(request, DeleteAiDataPlatformSessionResponse::builder)
         
 
 
-return clientCall(request, ExportAiDataPlatformContentsResponse::builder)
-        .logger(LOG, "exportAiDataPlatformContents")
-        .serviceDetails("Notebook", "ExportAiDataPlatformContents", "")
+return clientCall(request, ExportContentsResponse::builder)
+        .logger(LOG, "exportContents")
+        .serviceDetails("Notebook", "ExportContents", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ExportAiDataPlatformContentsRequest::builder)
+        .requestBuilder(ExportContentsRequest::builder)
         
         
         .basePath("/20260430")
@@ -262,17 +262,17 @@ return clientCall(request, ExportAiDataPlatformContentsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.ExportedContents.class, ExportAiDataPlatformContentsResponse.Builder::exportedContents)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExportedContents.class, ExportContentsResponse.Builder::exportedContents)
                 .handleResponseHeaderString("etag", 
-            ExportAiDataPlatformContentsResponse.Builder::etag)
+            ExportContentsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            ExportAiDataPlatformContentsResponse.Builder::opcRequestId)
+            ExportContentsResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformContentResponse> getAiDataPlatformContent(GetAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformContentRequest, GetAiDataPlatformContentResponse> handler) {
+    public java.util.concurrent.Future<GetContentResponse> getContent(GetContentRequest request, final com.oracle.bmc.responses.AsyncHandler<GetContentRequest, GetContentResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -281,11 +281,11 @@ return clientCall(request, ExportAiDataPlatformContentsResponse::builder)
         Validate.notBlank(request.getContentPath(), "contentPath must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformContentResponse::builder)
-        .logger(LOG, "getAiDataPlatformContent")
-        .serviceDetails("Notebook", "GetAiDataPlatformContent", "")
+return clientCall(request, GetContentResponse::builder)
+        .logger(LOG, "getContent")
+        .serviceDetails("Notebook", "GetContent", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformContentRequest::builder)
+        .requestBuilder(GetContentRequest::builder)
         
         
         .basePath("/20260430")
@@ -313,19 +313,19 @@ return clientCall(request, GetAiDataPlatformContentResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, GetAiDataPlatformContentResponse.Builder::content)
+            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, GetContentResponse.Builder::content)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformContentResponse.Builder::etag)
+            GetContentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformContentResponse.Builder::opcRequestId)
+            GetContentResponse.Builder::opcRequestId)
                 .handleResponseHeaderDate("Last-Modified", 
-            GetAiDataPlatformContentResponse.Builder::lastModified)
+            GetContentResponse.Builder::lastModified)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformSessionResponse> getAiDataPlatformSession(GetAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSessionRequest, GetAiDataPlatformSessionResponse> handler) {
+    public java.util.concurrent.Future<GetSessionResponse> getSession(GetSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetSessionRequest, GetSessionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -334,11 +334,11 @@ return clientCall(request, GetAiDataPlatformContentResponse::builder)
         Validate.notBlank(request.getSessionId(), "sessionId must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformSessionResponse::builder)
-        .logger(LOG, "getAiDataPlatformSession")
-        .serviceDetails("Notebook", "GetAiDataPlatformSession", "")
+return clientCall(request, GetSessionResponse::builder)
+        .logger(LOG, "getSession")
+        .serviceDetails("Notebook", "GetSession", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformSessionRequest::builder)
+        .requestBuilder(GetSessionRequest::builder)
         
         
         .basePath("/20260430")
@@ -348,28 +348,28 @@ return clientCall(request, GetAiDataPlatformSessionResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Session.class, GetAiDataPlatformSessionResponse.Builder::session)
+            .handleBody(com.oracle.aidataplatform.dp.model.Session.class, GetSessionResponse.Builder::session)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformSessionResponse.Builder::etag)
+            GetSessionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformSessionResponse.Builder::opcRequestId)
+            GetSessionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformSessionsResponse> listAiDataPlatformSessions(ListAiDataPlatformSessionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSessionsRequest, ListAiDataPlatformSessionsResponse> handler) {
+    public java.util.concurrent.Future<ListSessionsResponse> listSessions(ListSessionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSessionsRequest, ListSessionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformSessionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformSessions")
-        .serviceDetails("Notebook", "ListAiDataPlatformSessions", "")
+return clientCall(request, ListSessionsResponse::builder)
+        .logger(LOG, "listSessions")
+        .serviceDetails("Notebook", "ListSessions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformSessionsRequest::builder)
+        .requestBuilder(ListSessionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -391,17 +391,17 @@ return clientCall(request, ListAiDataPlatformSessionsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.SessionCollection.class, ListAiDataPlatformSessionsResponse.Builder::sessionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.SessionCollection.class, ListSessionsResponse.Builder::sessionCollection)
                 .handleResponseHeaderString("etag", 
-            ListAiDataPlatformSessionsResponse.Builder::etag)
+            ListSessionsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformSessionsResponse.Builder::opcRequestId)
+            ListSessionsResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ModifyAiDataPlatformContentResponse> modifyAiDataPlatformContent(ModifyAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<ModifyAiDataPlatformContentRequest, ModifyAiDataPlatformContentResponse> handler) {
+    public java.util.concurrent.Future<ModifyContentResponse> modifyContent(ModifyContentRequest request, final com.oracle.bmc.responses.AsyncHandler<ModifyContentRequest, ModifyContentResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -412,11 +412,11 @@ return clientCall(request, ListAiDataPlatformSessionsResponse::builder)
         
 
 
-return clientCall(request, ModifyAiDataPlatformContentResponse::builder)
-        .logger(LOG, "modifyAiDataPlatformContent")
-        .serviceDetails("Notebook", "ModifyAiDataPlatformContent", "")
+return clientCall(request, ModifyContentResponse::builder)
+        .logger(LOG, "modifyContent")
+        .serviceDetails("Notebook", "ModifyContent", "")
         .method(com.oracle.bmc.http.client.Method.PATCH)
-        .requestBuilder(ModifyAiDataPlatformContentRequest::builder)
+        .requestBuilder(ModifyContentRequest::builder)
         
         
         .basePath("/20260430")
@@ -430,21 +430,21 @@ return clientCall(request, ModifyAiDataPlatformContentResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, ModifyAiDataPlatformContentResponse.Builder::content)
+            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, ModifyContentResponse.Builder::content)
                 .handleResponseHeaderString("Location", 
-            ModifyAiDataPlatformContentResponse.Builder::location)
+            ModifyContentResponse.Builder::location)
                 .handleResponseHeaderString("etag", 
-            ModifyAiDataPlatformContentResponse.Builder::etag)
+            ModifyContentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            ModifyAiDataPlatformContentResponse.Builder::opcWorkRequestId)
+            ModifyContentResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            ModifyAiDataPlatformContentResponse.Builder::opcRequestId)
+            ModifyContentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<PatchAiDataPlatformSessionResponse> patchAiDataPlatformSession(PatchAiDataPlatformSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<PatchAiDataPlatformSessionRequest, PatchAiDataPlatformSessionResponse> handler) {
+    public java.util.concurrent.Future<PatchSessionResponse> patchSession(PatchSessionRequest request, final com.oracle.bmc.responses.AsyncHandler<PatchSessionRequest, PatchSessionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -455,11 +455,11 @@ return clientCall(request, ModifyAiDataPlatformContentResponse::builder)
         
 
 
-return clientCall(request, PatchAiDataPlatformSessionResponse::builder)
-        .logger(LOG, "patchAiDataPlatformSession")
-        .serviceDetails("Notebook", "PatchAiDataPlatformSession", "")
+return clientCall(request, PatchSessionResponse::builder)
+        .logger(LOG, "patchSession")
+        .serviceDetails("Notebook", "PatchSession", "")
         .method(com.oracle.bmc.http.client.Method.PATCH)
-        .requestBuilder(PatchAiDataPlatformSessionRequest::builder)
+        .requestBuilder(PatchSessionRequest::builder)
         
         
         .basePath("/20260430")
@@ -471,17 +471,17 @@ return clientCall(request, PatchAiDataPlatformSessionResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Session.class, PatchAiDataPlatformSessionResponse.Builder::session)
+            .handleBody(com.oracle.aidataplatform.dp.model.Session.class, PatchSessionResponse.Builder::session)
                 .handleResponseHeaderString("etag", 
-            PatchAiDataPlatformSessionResponse.Builder::etag)
+            PatchSessionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            PatchAiDataPlatformSessionResponse.Builder::opcRequestId)
+            PatchSessionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformContentResponse> updateAiDataPlatformContent(UpdateAiDataPlatformContentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformContentRequest, UpdateAiDataPlatformContentResponse> handler) {
+    public java.util.concurrent.Future<UpdateContentResponse> updateContent(UpdateContentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateContentRequest, UpdateContentResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -492,11 +492,11 @@ return clientCall(request, PatchAiDataPlatformSessionResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformContentResponse::builder)
-        .logger(LOG, "updateAiDataPlatformContent")
-        .serviceDetails("Notebook", "UpdateAiDataPlatformContent", "")
+return clientCall(request, UpdateContentResponse::builder)
+        .logger(LOG, "updateContent")
+        .serviceDetails("Notebook", "UpdateContent", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformContentRequest::builder)
+        .requestBuilder(UpdateContentRequest::builder)
         
         
         .basePath("/20260430")
@@ -510,15 +510,15 @@ return clientCall(request, UpdateAiDataPlatformContentResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, UpdateAiDataPlatformContentResponse.Builder::content)
+            .handleBody(com.oracle.aidataplatform.dp.model.Content.class, UpdateContentResponse.Builder::content)
                 .handleResponseHeaderString("Location", 
-            UpdateAiDataPlatformContentResponse.Builder::location)
+            UpdateContentResponse.Builder::location)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformContentResponse.Builder::etag)
+            UpdateContentResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            UpdateAiDataPlatformContentResponse.Builder::opcWorkRequestId)
+            UpdateContentResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformContentResponse.Builder::opcRequestId)
+            UpdateContentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

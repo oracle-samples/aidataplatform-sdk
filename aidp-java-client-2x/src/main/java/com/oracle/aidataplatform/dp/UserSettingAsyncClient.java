@@ -369,21 +369,21 @@ public class UserSettingAsyncClient implements UserSettingAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformUserSettingResponse> createAiDataPlatformUserSetting(CreateAiDataPlatformUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformUserSettingRequest, CreateAiDataPlatformUserSettingResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformUserSetting");
-        final CreateAiDataPlatformUserSettingRequest interceptedRequest = CreateAiDataPlatformUserSettingConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateUserSettingResponse> createUserSetting(CreateUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateUserSettingRequest, CreateUserSettingResponse> handler) {
+        LOG.trace("Called async createUserSetting");
+        final CreateUserSettingRequest interceptedRequest = CreateUserSettingConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateUserSettingConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "CreateAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformUserSettingResponse> transformer = CreateAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "CreateUserSetting", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateUserSettingResponse> transformer = CreateUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformUserSettingRequest, CreateAiDataPlatformUserSettingResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateUserSettingRequest, CreateUserSettingResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformUserSettingRequest, CreateAiDataPlatformUserSettingResponse>, java.util.concurrent.Future<CreateAiDataPlatformUserSettingResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateUserSettingRequest, CreateUserSettingResponse>, java.util.concurrent.Future<CreateUserSettingResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateUserSettingDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformUserSettingRequest, CreateAiDataPlatformUserSettingResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateUserSettingRequest, CreateUserSettingResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,20 +398,20 @@ public class UserSettingAsyncClient implements UserSettingAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformUserSettingResponse> deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformUserSettingRequest, DeleteAiDataPlatformUserSettingResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformUserSetting");
-        final DeleteAiDataPlatformUserSettingRequest interceptedRequest = DeleteAiDataPlatformUserSettingConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "DeleteAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformUserSettingResponse> transformer = DeleteAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteUserSettingResponse> deleteUserSetting(DeleteUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteUserSettingRequest, DeleteUserSettingResponse> handler) {
+        LOG.trace("Called async deleteUserSetting");
+        final DeleteUserSettingRequest interceptedRequest = DeleteUserSettingConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteUserSettingConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "DeleteUserSetting", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteUserSettingResponse> transformer = DeleteUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformUserSettingRequest, DeleteAiDataPlatformUserSettingResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteUserSettingRequest, DeleteUserSettingResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformUserSettingRequest, DeleteAiDataPlatformUserSettingResponse>, java.util.concurrent.Future<DeleteAiDataPlatformUserSettingResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteUserSettingRequest, DeleteUserSettingResponse>, java.util.concurrent.Future<DeleteUserSettingResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformUserSettingRequest, DeleteAiDataPlatformUserSettingResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteUserSettingRequest, DeleteUserSettingResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -426,20 +426,20 @@ public class UserSettingAsyncClient implements UserSettingAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformUserSettingResponse> getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformUserSettingRequest, GetAiDataPlatformUserSettingResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformUserSetting");
-        final GetAiDataPlatformUserSettingRequest interceptedRequest = GetAiDataPlatformUserSettingConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "GetAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformUserSettingResponse> transformer = GetAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetUserSettingResponse> getUserSetting(GetUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<GetUserSettingRequest, GetUserSettingResponse> handler) {
+        LOG.trace("Called async getUserSetting");
+        final GetUserSettingRequest interceptedRequest = GetUserSettingConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetUserSettingConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "GetUserSetting", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetUserSettingResponse> transformer = GetUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformUserSettingRequest, GetAiDataPlatformUserSettingResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetUserSettingRequest, GetUserSettingResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformUserSettingRequest, GetAiDataPlatformUserSettingResponse>, java.util.concurrent.Future<GetAiDataPlatformUserSettingResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetUserSettingRequest, GetUserSettingResponse>, java.util.concurrent.Future<GetUserSettingResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformUserSettingRequest, GetAiDataPlatformUserSettingResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetUserSettingRequest, GetUserSettingResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -454,20 +454,20 @@ public class UserSettingAsyncClient implements UserSettingAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformUserSettingsResponse> listAiDataPlatformUserSettings(ListAiDataPlatformUserSettingsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformUserSettingsRequest, ListAiDataPlatformUserSettingsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformUserSettings");
-        final ListAiDataPlatformUserSettingsRequest interceptedRequest = ListAiDataPlatformUserSettingsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformUserSettingsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "ListAiDataPlatformUserSettings", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformUserSettingsResponse> transformer = ListAiDataPlatformUserSettingsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListUserSettingsResponse> listUserSettings(ListUserSettingsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListUserSettingsRequest, ListUserSettingsResponse> handler) {
+        LOG.trace("Called async listUserSettings");
+        final ListUserSettingsRequest interceptedRequest = ListUserSettingsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListUserSettingsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "ListUserSettings", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListUserSettingsResponse> transformer = ListUserSettingsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformUserSettingsRequest, ListAiDataPlatformUserSettingsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListUserSettingsRequest, ListUserSettingsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformUserSettingsRequest, ListAiDataPlatformUserSettingsResponse>, java.util.concurrent.Future<ListAiDataPlatformUserSettingsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListUserSettingsRequest, ListUserSettingsResponse>, java.util.concurrent.Future<ListUserSettingsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformUserSettingsRequest, ListAiDataPlatformUserSettingsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListUserSettingsRequest, ListUserSettingsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -482,20 +482,20 @@ public class UserSettingAsyncClient implements UserSettingAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformUserSettingResponse> updateAiDataPlatformUserSetting(UpdateAiDataPlatformUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformUserSettingRequest, UpdateAiDataPlatformUserSettingResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformUserSetting");
-        final UpdateAiDataPlatformUserSettingRequest interceptedRequest = UpdateAiDataPlatformUserSettingConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformUserSettingConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "UpdateAiDataPlatformUserSetting", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformUserSettingResponse> transformer = UpdateAiDataPlatformUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateUserSettingResponse> updateUserSetting(UpdateUserSettingRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateUserSettingRequest, UpdateUserSettingResponse> handler) {
+        LOG.trace("Called async updateUserSetting");
+        final UpdateUserSettingRequest interceptedRequest = UpdateUserSettingConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateUserSettingConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("UserSetting", "UpdateUserSetting", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateUserSettingResponse> transformer = UpdateUserSettingConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformUserSettingRequest, UpdateAiDataPlatformUserSettingResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateUserSettingRequest, UpdateUserSettingResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformUserSettingRequest, UpdateAiDataPlatformUserSettingResponse>, java.util.concurrent.Future<UpdateAiDataPlatformUserSettingResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateUserSettingRequest, UpdateUserSettingResponse>, java.util.concurrent.Future<UpdateUserSettingResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateUserSettingDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformUserSettingRequest, UpdateAiDataPlatformUserSettingResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateUserSettingRequest, UpdateUserSettingResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

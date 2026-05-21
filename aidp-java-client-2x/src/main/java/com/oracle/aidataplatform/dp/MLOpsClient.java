@@ -372,16 +372,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public CreateAiDataPlatformExperimentResponse createAiDataPlatformExperiment(CreateAiDataPlatformExperimentRequest request) {
-        LOG.trace("Called createAiDataPlatformExperiment");
-            final CreateAiDataPlatformExperimentRequest interceptedRequest = CreateAiDataPlatformExperimentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public CreateExperimentResponse createExperiment(CreateExperimentRequest request) {
+        LOG.trace("Called createExperiment");
+            final CreateExperimentRequest interceptedRequest = CreateExperimentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateExperimentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformExperimentResponse> transformer = CreateAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateExperiment", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateExperimentResponse> transformer = CreateExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +397,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public CreateAiDataPlatformExperimentRunResponse createAiDataPlatformExperimentRun(CreateAiDataPlatformExperimentRunRequest request) {
-        LOG.trace("Called createAiDataPlatformExperimentRun");
-            final CreateAiDataPlatformExperimentRunRequest interceptedRequest = CreateAiDataPlatformExperimentRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public CreateExperimentRunResponse createExperimentRun(CreateExperimentRunRequest request) {
+        LOG.trace("Called createExperimentRun");
+            final CreateExperimentRunRequest interceptedRequest = CreateExperimentRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateExperimentRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformExperimentRunResponse> transformer = CreateAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateExperimentRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateExperimentRunResponse> transformer = CreateExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,16 +422,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public CreateAiDataPlatformModelVersionResponse createAiDataPlatformModelVersion(CreateAiDataPlatformModelVersionRequest request) {
-        LOG.trace("Called createAiDataPlatformModelVersion");
-            final CreateAiDataPlatformModelVersionRequest interceptedRequest = CreateAiDataPlatformModelVersionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public CreateModelVersionResponse createModelVersion(CreateModelVersionRequest request) {
+        LOG.trace("Called createModelVersion");
+            final CreateModelVersionRequest interceptedRequest = CreateModelVersionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateModelVersionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformModelVersionResponse> transformer = CreateAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateModelVersion", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateModelVersionResponse> transformer = CreateModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -447,16 +447,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public CreateAiDataPlatformRegisteredModelResponse createAiDataPlatformRegisteredModel(CreateAiDataPlatformRegisteredModelRequest request) {
-        LOG.trace("Called createAiDataPlatformRegisteredModel");
-            final CreateAiDataPlatformRegisteredModelRequest interceptedRequest = CreateAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public CreateRegisteredModelResponse createRegisteredModel(CreateRegisteredModelRequest request) {
+        LOG.trace("Called createRegisteredModel");
+            final CreateRegisteredModelRequest interceptedRequest = CreateRegisteredModelConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateRegisteredModelConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformRegisteredModelResponse> transformer = CreateAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateRegisteredModel", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateRegisteredModelResponse> transformer = CreateRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -472,16 +472,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public CreateAiDataPlatformWorkspaceModelVersionResponse createAiDataPlatformWorkspaceModelVersion(CreateAiDataPlatformWorkspaceModelVersionRequest request) {
-        LOG.trace("Called createAiDataPlatformWorkspaceModelVersion");
-            final CreateAiDataPlatformWorkspaceModelVersionRequest interceptedRequest = CreateAiDataPlatformWorkspaceModelVersionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformWorkspaceModelVersionConverter.fromRequest(client, interceptedRequest);
+    public CreateWorkspaceModelVersionResponse createWorkspaceModelVersion(CreateWorkspaceModelVersionRequest request) {
+        LOG.trace("Called createWorkspaceModelVersion");
+            final CreateWorkspaceModelVersionRequest interceptedRequest = CreateWorkspaceModelVersionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateWorkspaceModelVersionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformWorkspaceModelVersion", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformWorkspaceModelVersionResponse> transformer = CreateAiDataPlatformWorkspaceModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateWorkspaceModelVersion", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateWorkspaceModelVersionResponse> transformer = CreateWorkspaceModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -497,16 +497,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformExperimentResponse deleteAiDataPlatformExperiment(DeleteAiDataPlatformExperimentRequest request) {
-        LOG.trace("Called deleteAiDataPlatformExperiment");
-            final DeleteAiDataPlatformExperimentRequest interceptedRequest = DeleteAiDataPlatformExperimentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public DeleteExperimentResponse deleteExperiment(DeleteExperimentRequest request) {
+        LOG.trace("Called deleteExperiment");
+            final DeleteExperimentRequest interceptedRequest = DeleteExperimentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentResponse> transformer = DeleteAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperiment", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentResponse> transformer = DeleteExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -522,16 +522,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformExperimentRunResponse deleteAiDataPlatformExperimentRun(DeleteAiDataPlatformExperimentRunRequest request) {
-        LOG.trace("Called deleteAiDataPlatformExperimentRun");
-            final DeleteAiDataPlatformExperimentRunRequest interceptedRequest = DeleteAiDataPlatformExperimentRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public DeleteExperimentRunResponse deleteExperimentRun(DeleteExperimentRunRequest request) {
+        LOG.trace("Called deleteExperimentRun");
+            final DeleteExperimentRunRequest interceptedRequest = DeleteExperimentRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentRunResponse> transformer = DeleteAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperimentRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentRunResponse> transformer = DeleteExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -547,16 +547,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformExperimentRunTagResponse deleteAiDataPlatformExperimentRunTag(DeleteAiDataPlatformExperimentRunTagRequest request) {
-        LOG.trace("Called deleteAiDataPlatformExperimentRunTag");
-            final DeleteAiDataPlatformExperimentRunTagRequest interceptedRequest = DeleteAiDataPlatformExperimentRunTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentRunTagConverter.fromRequest(client, interceptedRequest);
+    public DeleteExperimentRunTagResponse deleteExperimentRunTag(DeleteExperimentRunTagRequest request) {
+        LOG.trace("Called deleteExperimentRunTag");
+            final DeleteExperimentRunTagRequest interceptedRequest = DeleteExperimentRunTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentRunTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperimentRunTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentRunTagResponse> transformer = DeleteAiDataPlatformExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperimentRunTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentRunTagResponse> transformer = DeleteExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -572,16 +572,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformExperimentTagResponse deleteAiDataPlatformExperimentTag(DeleteAiDataPlatformExperimentTagRequest request) {
-        LOG.trace("Called deleteAiDataPlatformExperimentTag");
-            final DeleteAiDataPlatformExperimentTagRequest interceptedRequest = DeleteAiDataPlatformExperimentTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentTagConverter.fromRequest(client, interceptedRequest);
+    public DeleteExperimentTagResponse deleteExperimentTag(DeleteExperimentTagRequest request) {
+        LOG.trace("Called deleteExperimentTag");
+            final DeleteExperimentTagRequest interceptedRequest = DeleteExperimentTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperimentTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentTagResponse> transformer = DeleteAiDataPlatformExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperimentTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentTagResponse> transformer = DeleteExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -597,16 +597,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformModelVersionResponse deleteAiDataPlatformModelVersion(DeleteAiDataPlatformModelVersionRequest request) {
-        LOG.trace("Called deleteAiDataPlatformModelVersion");
-            final DeleteAiDataPlatformModelVersionRequest interceptedRequest = DeleteAiDataPlatformModelVersionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public DeleteModelVersionResponse deleteModelVersion(DeleteModelVersionRequest request) {
+        LOG.trace("Called deleteModelVersion");
+            final DeleteModelVersionRequest interceptedRequest = DeleteModelVersionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteModelVersionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformModelVersionResponse> transformer = DeleteAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteModelVersion", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteModelVersionResponse> transformer = DeleteModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -622,16 +622,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformModelVersionTagResponse deleteAiDataPlatformModelVersionTag(DeleteAiDataPlatformModelVersionTagRequest request) {
-        LOG.trace("Called deleteAiDataPlatformModelVersionTag");
-            final DeleteAiDataPlatformModelVersionTagRequest interceptedRequest = DeleteAiDataPlatformModelVersionTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformModelVersionTagConverter.fromRequest(client, interceptedRequest);
+    public DeleteModelVersionTagResponse deleteModelVersionTag(DeleteModelVersionTagRequest request) {
+        LOG.trace("Called deleteModelVersionTag");
+            final DeleteModelVersionTagRequest interceptedRequest = DeleteModelVersionTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteModelVersionTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformModelVersionTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformModelVersionTagResponse> transformer = DeleteAiDataPlatformModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteModelVersionTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteModelVersionTagResponse> transformer = DeleteModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -647,16 +647,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformRegisteredModelResponse deleteAiDataPlatformRegisteredModel(DeleteAiDataPlatformRegisteredModelRequest request) {
-        LOG.trace("Called deleteAiDataPlatformRegisteredModel");
-            final DeleteAiDataPlatformRegisteredModelRequest interceptedRequest = DeleteAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public DeleteRegisteredModelResponse deleteRegisteredModel(DeleteRegisteredModelRequest request) {
+        LOG.trace("Called deleteRegisteredModel");
+            final DeleteRegisteredModelRequest interceptedRequest = DeleteRegisteredModelConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRegisteredModelConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRegisteredModelResponse> transformer = DeleteAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteRegisteredModel", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteRegisteredModelResponse> transformer = DeleteRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -672,16 +672,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public DeleteAiDataPlatformRegisteredModelTagResponse deleteAiDataPlatformRegisteredModelTag(DeleteAiDataPlatformRegisteredModelTagRequest request) {
-        LOG.trace("Called deleteAiDataPlatformRegisteredModelTag");
-            final DeleteAiDataPlatformRegisteredModelTagRequest interceptedRequest = DeleteAiDataPlatformRegisteredModelTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
+    public DeleteRegisteredModelTagResponse deleteRegisteredModelTag(DeleteRegisteredModelTagRequest request) {
+        LOG.trace("Called deleteRegisteredModelTag");
+            final DeleteRegisteredModelTagRequest interceptedRequest = DeleteRegisteredModelTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformRegisteredModelTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRegisteredModelTagResponse> transformer = DeleteAiDataPlatformRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteRegisteredModelTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteRegisteredModelTagResponse> transformer = DeleteRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -697,15 +697,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public GetAiDataPlatformExperimentByIdResponse getAiDataPlatformExperimentById(GetAiDataPlatformExperimentByIdRequest request) {
-        LOG.trace("Called getAiDataPlatformExperimentById");
-            final GetAiDataPlatformExperimentByIdRequest interceptedRequest = GetAiDataPlatformExperimentByIdConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentByIdConverter.fromRequest(client, interceptedRequest);
+    public GetExperimentByIdResponse getExperimentById(GetExperimentByIdRequest request) {
+        LOG.trace("Called getExperimentById");
+            final GetExperimentByIdRequest interceptedRequest = GetExperimentByIdConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentByIdConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentById", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentByIdResponse> transformer = GetAiDataPlatformExperimentByIdConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentById", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetExperimentByIdResponse> transformer = GetExperimentByIdConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -721,15 +721,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public GetAiDataPlatformExperimentByNameResponse getAiDataPlatformExperimentByName(GetAiDataPlatformExperimentByNameRequest request) {
-        LOG.trace("Called getAiDataPlatformExperimentByName");
-            final GetAiDataPlatformExperimentByNameRequest interceptedRequest = GetAiDataPlatformExperimentByNameConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentByNameConverter.fromRequest(client, interceptedRequest);
+    public GetExperimentByNameResponse getExperimentByName(GetExperimentByNameRequest request) {
+        LOG.trace("Called getExperimentByName");
+            final GetExperimentByNameRequest interceptedRequest = GetExperimentByNameConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentByNameConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentByName", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentByNameResponse> transformer = GetAiDataPlatformExperimentByNameConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentByName", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetExperimentByNameResponse> transformer = GetExperimentByNameConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -745,15 +745,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public GetAiDataPlatformExperimentRunByIdResponse getAiDataPlatformExperimentRunById(GetAiDataPlatformExperimentRunByIdRequest request) {
-        LOG.trace("Called getAiDataPlatformExperimentRunById");
-            final GetAiDataPlatformExperimentRunByIdRequest interceptedRequest = GetAiDataPlatformExperimentRunByIdConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentRunByIdConverter.fromRequest(client, interceptedRequest);
+    public GetExperimentRunByIdResponse getExperimentRunById(GetExperimentRunByIdRequest request) {
+        LOG.trace("Called getExperimentRunById");
+            final GetExperimentRunByIdRequest interceptedRequest = GetExperimentRunByIdConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentRunByIdConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentRunById", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentRunByIdResponse> transformer = GetAiDataPlatformExperimentRunByIdConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentRunById", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetExperimentRunByIdResponse> transformer = GetExperimentRunByIdConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -769,15 +769,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public GetAiDataPlatformExperimentRunMetricHistoryResponse getAiDataPlatformExperimentRunMetricHistory(GetAiDataPlatformExperimentRunMetricHistoryRequest request) {
-        LOG.trace("Called getAiDataPlatformExperimentRunMetricHistory");
-            final GetAiDataPlatformExperimentRunMetricHistoryRequest interceptedRequest = GetAiDataPlatformExperimentRunMetricHistoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentRunMetricHistoryConverter.fromRequest(client, interceptedRequest);
+    public GetExperimentRunMetricHistoryResponse getExperimentRunMetricHistory(GetExperimentRunMetricHistoryRequest request) {
+        LOG.trace("Called getExperimentRunMetricHistory");
+            final GetExperimentRunMetricHistoryRequest interceptedRequest = GetExperimentRunMetricHistoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentRunMetricHistoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentRunMetricHistory", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentRunMetricHistoryResponse> transformer = GetAiDataPlatformExperimentRunMetricHistoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentRunMetricHistory", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetExperimentRunMetricHistoryResponse> transformer = GetExperimentRunMetricHistoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -793,15 +793,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public GetAiDataPlatformModelVersionResponse getAiDataPlatformModelVersion(GetAiDataPlatformModelVersionRequest request) {
-        LOG.trace("Called getAiDataPlatformModelVersion");
-            final GetAiDataPlatformModelVersionRequest interceptedRequest = GetAiDataPlatformModelVersionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public GetModelVersionResponse getModelVersion(GetModelVersionRequest request) {
+        LOG.trace("Called getModelVersion");
+            final GetModelVersionRequest interceptedRequest = GetModelVersionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetModelVersionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformModelVersionResponse> transformer = GetAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetModelVersion", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetModelVersionResponse> transformer = GetModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -817,15 +817,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public GetAiDataPlatformRegisteredModelResponse getAiDataPlatformRegisteredModel(GetAiDataPlatformRegisteredModelRequest request) {
-        LOG.trace("Called getAiDataPlatformRegisteredModel");
-            final GetAiDataPlatformRegisteredModelRequest interceptedRequest = GetAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public GetRegisteredModelResponse getRegisteredModel(GetRegisteredModelRequest request) {
+        LOG.trace("Called getRegisteredModel");
+            final GetRegisteredModelRequest interceptedRequest = GetRegisteredModelConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetRegisteredModelConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformRegisteredModelResponse> transformer = GetAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetRegisteredModel", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetRegisteredModelResponse> transformer = GetRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -841,15 +841,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public ListAiDataPlatformArtifactsResponse listAiDataPlatformArtifacts(ListAiDataPlatformArtifactsRequest request) {
-        LOG.trace("Called listAiDataPlatformArtifacts");
-            final ListAiDataPlatformArtifactsRequest interceptedRequest = ListAiDataPlatformArtifactsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformArtifactsConverter.fromRequest(client, interceptedRequest);
+    public ListArtifactsResponse listArtifacts(ListArtifactsRequest request) {
+        LOG.trace("Called listArtifacts");
+            final ListArtifactsRequest interceptedRequest = ListArtifactsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListArtifactsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformArtifacts", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformArtifactsResponse> transformer = ListAiDataPlatformArtifactsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListArtifacts", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListArtifactsResponse> transformer = ListArtifactsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -865,15 +865,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public ListAiDataPlatformExperimentRunsResponse listAiDataPlatformExperimentRuns(ListAiDataPlatformExperimentRunsRequest request) {
-        LOG.trace("Called listAiDataPlatformExperimentRuns");
-            final ListAiDataPlatformExperimentRunsRequest interceptedRequest = ListAiDataPlatformExperimentRunsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformExperimentRunsConverter.fromRequest(client, interceptedRequest);
+    public ListExperimentRunsResponse listExperimentRuns(ListExperimentRunsRequest request) {
+        LOG.trace("Called listExperimentRuns");
+            final ListExperimentRunsRequest interceptedRequest = ListExperimentRunsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListExperimentRunsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformExperimentRuns", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformExperimentRunsResponse> transformer = ListAiDataPlatformExperimentRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListExperimentRuns", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListExperimentRunsResponse> transformer = ListExperimentRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -889,15 +889,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public ListAiDataPlatformExperimentsResponse listAiDataPlatformExperiments(ListAiDataPlatformExperimentsRequest request) {
-        LOG.trace("Called listAiDataPlatformExperiments");
-            final ListAiDataPlatformExperimentsRequest interceptedRequest = ListAiDataPlatformExperimentsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformExperimentsConverter.fromRequest(client, interceptedRequest);
+    public ListExperimentsResponse listExperiments(ListExperimentsRequest request) {
+        LOG.trace("Called listExperiments");
+            final ListExperimentsRequest interceptedRequest = ListExperimentsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListExperimentsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformExperiments", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformExperimentsResponse> transformer = ListAiDataPlatformExperimentsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListExperiments", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListExperimentsResponse> transformer = ListExperimentsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -913,15 +913,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public ListAiDataPlatformLoggedModelsResponse listAiDataPlatformLoggedModels(ListAiDataPlatformLoggedModelsRequest request) {
-        LOG.trace("Called listAiDataPlatformLoggedModels");
-            final ListAiDataPlatformLoggedModelsRequest interceptedRequest = ListAiDataPlatformLoggedModelsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformLoggedModelsConverter.fromRequest(client, interceptedRequest);
+    public ListLoggedModelsResponse listLoggedModels(ListLoggedModelsRequest request) {
+        LOG.trace("Called listLoggedModels");
+            final ListLoggedModelsRequest interceptedRequest = ListLoggedModelsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListLoggedModelsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformLoggedModels", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformLoggedModelsResponse> transformer = ListAiDataPlatformLoggedModelsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListLoggedModels", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListLoggedModelsResponse> transformer = ListLoggedModelsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -937,15 +937,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public ListAiDataPlatformModelVersionsResponse listAiDataPlatformModelVersions(ListAiDataPlatformModelVersionsRequest request) {
-        LOG.trace("Called listAiDataPlatformModelVersions");
-            final ListAiDataPlatformModelVersionsRequest interceptedRequest = ListAiDataPlatformModelVersionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformModelVersionsConverter.fromRequest(client, interceptedRequest);
+    public ListModelVersionsResponse listModelVersions(ListModelVersionsRequest request) {
+        LOG.trace("Called listModelVersions");
+            final ListModelVersionsRequest interceptedRequest = ListModelVersionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListModelVersionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformModelVersions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformModelVersionsResponse> transformer = ListAiDataPlatformModelVersionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListModelVersions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListModelVersionsResponse> transformer = ListModelVersionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -961,15 +961,15 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public ListAiDataPlatformRegisteredModelsResponse listAiDataPlatformRegisteredModels(ListAiDataPlatformRegisteredModelsRequest request) {
-        LOG.trace("Called listAiDataPlatformRegisteredModels");
-            final ListAiDataPlatformRegisteredModelsRequest interceptedRequest = ListAiDataPlatformRegisteredModelsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRegisteredModelsConverter.fromRequest(client, interceptedRequest);
+    public ListRegisteredModelsResponse listRegisteredModels(ListRegisteredModelsRequest request) {
+        LOG.trace("Called listRegisteredModels");
+            final ListRegisteredModelsRequest interceptedRequest = ListRegisteredModelsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRegisteredModelsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformRegisteredModels", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRegisteredModelsResponse> transformer = ListAiDataPlatformRegisteredModelsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListRegisteredModels", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRegisteredModelsResponse> transformer = ListRegisteredModelsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -985,16 +985,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public LogAiDataPlatformExperimentRunBatchResponse logAiDataPlatformExperimentRunBatch(LogAiDataPlatformExperimentRunBatchRequest request) {
-        LOG.trace("Called logAiDataPlatformExperimentRunBatch");
-            final LogAiDataPlatformExperimentRunBatchRequest interceptedRequest = LogAiDataPlatformExperimentRunBatchConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunBatchConverter.fromRequest(client, interceptedRequest);
+    public LogExperimentRunBatchResponse logExperimentRunBatch(LogExperimentRunBatchRequest request) {
+        LOG.trace("Called logExperimentRunBatch");
+            final LogExperimentRunBatchRequest interceptedRequest = LogExperimentRunBatchConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunBatchConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunBatch", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunBatchResponse> transformer = LogAiDataPlatformExperimentRunBatchConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunBatch", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunBatchResponse> transformer = LogExperimentRunBatchConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1010,16 +1010,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public LogAiDataPlatformExperimentRunInputsResponse logAiDataPlatformExperimentRunInputs(LogAiDataPlatformExperimentRunInputsRequest request) {
-        LOG.trace("Called logAiDataPlatformExperimentRunInputs");
-            final LogAiDataPlatformExperimentRunInputsRequest interceptedRequest = LogAiDataPlatformExperimentRunInputsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunInputsConverter.fromRequest(client, interceptedRequest);
+    public LogExperimentRunInputsResponse logExperimentRunInputs(LogExperimentRunInputsRequest request) {
+        LOG.trace("Called logExperimentRunInputs");
+            final LogExperimentRunInputsRequest interceptedRequest = LogExperimentRunInputsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunInputsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunInputs", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunInputsResponse> transformer = LogAiDataPlatformExperimentRunInputsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunInputs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunInputsResponse> transformer = LogExperimentRunInputsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1035,16 +1035,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public LogAiDataPlatformExperimentRunMetricResponse logAiDataPlatformExperimentRunMetric(LogAiDataPlatformExperimentRunMetricRequest request) {
-        LOG.trace("Called logAiDataPlatformExperimentRunMetric");
-            final LogAiDataPlatformExperimentRunMetricRequest interceptedRequest = LogAiDataPlatformExperimentRunMetricConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunMetricConverter.fromRequest(client, interceptedRequest);
+    public LogExperimentRunMetricResponse logExperimentRunMetric(LogExperimentRunMetricRequest request) {
+        LOG.trace("Called logExperimentRunMetric");
+            final LogExperimentRunMetricRequest interceptedRequest = LogExperimentRunMetricConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunMetricConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunMetric", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunMetricResponse> transformer = LogAiDataPlatformExperimentRunMetricConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunMetric", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunMetricResponse> transformer = LogExperimentRunMetricConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1060,16 +1060,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public LogAiDataPlatformExperimentRunModelResponse logAiDataPlatformExperimentRunModel(LogAiDataPlatformExperimentRunModelRequest request) {
-        LOG.trace("Called logAiDataPlatformExperimentRunModel");
-            final LogAiDataPlatformExperimentRunModelRequest interceptedRequest = LogAiDataPlatformExperimentRunModelConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunModelConverter.fromRequest(client, interceptedRequest);
+    public LogExperimentRunModelResponse logExperimentRunModel(LogExperimentRunModelRequest request) {
+        LOG.trace("Called logExperimentRunModel");
+            final LogExperimentRunModelRequest interceptedRequest = LogExperimentRunModelConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunModelConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunModel", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunModelResponse> transformer = LogAiDataPlatformExperimentRunModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunModel", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunModelResponse> transformer = LogExperimentRunModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1085,16 +1085,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public LogAiDataPlatformExperimentRunParamResponse logAiDataPlatformExperimentRunParam(LogAiDataPlatformExperimentRunParamRequest request) {
-        LOG.trace("Called logAiDataPlatformExperimentRunParam");
-            final LogAiDataPlatformExperimentRunParamRequest interceptedRequest = LogAiDataPlatformExperimentRunParamConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunParamConverter.fromRequest(client, interceptedRequest);
+    public LogExperimentRunParamResponse logExperimentRunParam(LogExperimentRunParamRequest request) {
+        LOG.trace("Called logExperimentRunParam");
+            final LogExperimentRunParamRequest interceptedRequest = LogExperimentRunParamConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunParamConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunParam", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunParamResponse> transformer = LogAiDataPlatformExperimentRunParamConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunParam", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunParamResponse> transformer = LogExperimentRunParamConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1110,16 +1110,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public RenameAiDataPlatformRegisteredModelResponse renameAiDataPlatformRegisteredModel(RenameAiDataPlatformRegisteredModelRequest request) {
-        LOG.trace("Called renameAiDataPlatformRegisteredModel");
-            final RenameAiDataPlatformRegisteredModelRequest interceptedRequest = RenameAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RenameAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public RenameRegisteredModelResponse renameRegisteredModel(RenameRegisteredModelRequest request) {
+        LOG.trace("Called renameRegisteredModel");
+            final RenameRegisteredModelRequest interceptedRequest = RenameRegisteredModelConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RenameRegisteredModelConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RenameAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RenameAiDataPlatformRegisteredModelResponse> transformer = RenameAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RenameRegisteredModel", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RenameRegisteredModelResponse> transformer = RenameRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1135,16 +1135,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public RestoreAiDataPlatformExperimentResponse restoreAiDataPlatformExperiment(RestoreAiDataPlatformExperimentRequest request) {
-        LOG.trace("Called restoreAiDataPlatformExperiment");
-            final RestoreAiDataPlatformExperimentRequest interceptedRequest = RestoreAiDataPlatformExperimentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public RestoreExperimentResponse restoreExperiment(RestoreExperimentRequest request) {
+        LOG.trace("Called restoreExperiment");
+            final RestoreExperimentRequest interceptedRequest = RestoreExperimentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreExperimentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RestoreAiDataPlatformExperimentResponse> transformer = RestoreAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreExperiment", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RestoreExperimentResponse> transformer = RestoreExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1160,16 +1160,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public RestoreAiDataPlatformExperimentRunResponse restoreAiDataPlatformExperimentRun(RestoreAiDataPlatformExperimentRunRequest request) {
-        LOG.trace("Called restoreAiDataPlatformExperimentRun");
-            final RestoreAiDataPlatformExperimentRunRequest interceptedRequest = RestoreAiDataPlatformExperimentRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public RestoreExperimentRunResponse restoreExperimentRun(RestoreExperimentRunRequest request) {
+        LOG.trace("Called restoreExperimentRun");
+            final RestoreExperimentRunRequest interceptedRequest = RestoreExperimentRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreExperimentRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RestoreAiDataPlatformExperimentRunResponse> transformer = RestoreAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreExperimentRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RestoreExperimentRunResponse> transformer = RestoreExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1185,16 +1185,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public SetAiDataPlatformExperimentRunTagResponse setAiDataPlatformExperimentRunTag(SetAiDataPlatformExperimentRunTagRequest request) {
-        LOG.trace("Called setAiDataPlatformExperimentRunTag");
-            final SetAiDataPlatformExperimentRunTagRequest interceptedRequest = SetAiDataPlatformExperimentRunTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformExperimentRunTagConverter.fromRequest(client, interceptedRequest);
+    public SetExperimentRunTagResponse setExperimentRunTag(SetExperimentRunTagRequest request) {
+        LOG.trace("Called setExperimentRunTag");
+            final SetExperimentRunTagRequest interceptedRequest = SetExperimentRunTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetExperimentRunTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformExperimentRunTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformExperimentRunTagResponse> transformer = SetAiDataPlatformExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetExperimentRunTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SetExperimentRunTagResponse> transformer = SetExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1210,16 +1210,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public SetAiDataPlatformExperimentTagResponse setAiDataPlatformExperimentTag(SetAiDataPlatformExperimentTagRequest request) {
-        LOG.trace("Called setAiDataPlatformExperimentTag");
-            final SetAiDataPlatformExperimentTagRequest interceptedRequest = SetAiDataPlatformExperimentTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformExperimentTagConverter.fromRequest(client, interceptedRequest);
+    public SetExperimentTagResponse setExperimentTag(SetExperimentTagRequest request) {
+        LOG.trace("Called setExperimentTag");
+            final SetExperimentTagRequest interceptedRequest = SetExperimentTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetExperimentTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformExperimentTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformExperimentTagResponse> transformer = SetAiDataPlatformExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetExperimentTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SetExperimentTagResponse> transformer = SetExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1235,16 +1235,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public SetAiDataPlatformModelVersionTagResponse setAiDataPlatformModelVersionTag(SetAiDataPlatformModelVersionTagRequest request) {
-        LOG.trace("Called setAiDataPlatformModelVersionTag");
-            final SetAiDataPlatformModelVersionTagRequest interceptedRequest = SetAiDataPlatformModelVersionTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformModelVersionTagConverter.fromRequest(client, interceptedRequest);
+    public SetModelVersionTagResponse setModelVersionTag(SetModelVersionTagRequest request) {
+        LOG.trace("Called setModelVersionTag");
+            final SetModelVersionTagRequest interceptedRequest = SetModelVersionTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetModelVersionTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformModelVersionTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformModelVersionTagResponse> transformer = SetAiDataPlatformModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetModelVersionTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SetModelVersionTagResponse> transformer = SetModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1260,16 +1260,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public SetAiDataPlatformRegisteredModelTagResponse setAiDataPlatformRegisteredModelTag(SetAiDataPlatformRegisteredModelTagRequest request) {
-        LOG.trace("Called setAiDataPlatformRegisteredModelTag");
-            final SetAiDataPlatformRegisteredModelTagRequest interceptedRequest = SetAiDataPlatformRegisteredModelTagConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
+    public SetRegisteredModelTagResponse setRegisteredModelTag(SetRegisteredModelTagRequest request) {
+        LOG.trace("Called setRegisteredModelTag");
+            final SetRegisteredModelTagRequest interceptedRequest = SetRegisteredModelTagConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformRegisteredModelTag", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformRegisteredModelTagResponse> transformer = SetAiDataPlatformRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetRegisteredModelTag", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SetRegisteredModelTagResponse> transformer = SetRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1285,16 +1285,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public TransitionAiDataPlatformModelVersionStageResponse transitionAiDataPlatformModelVersionStage(TransitionAiDataPlatformModelVersionStageRequest request) {
-        LOG.trace("Called transitionAiDataPlatformModelVersionStage");
-            final TransitionAiDataPlatformModelVersionStageRequest interceptedRequest = TransitionAiDataPlatformModelVersionStageConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = TransitionAiDataPlatformModelVersionStageConverter.fromRequest(client, interceptedRequest);
+    public TransitionModelVersionStageResponse transitionModelVersionStage(TransitionModelVersionStageRequest request) {
+        LOG.trace("Called transitionModelVersionStage");
+            final TransitionModelVersionStageRequest interceptedRequest = TransitionModelVersionStageConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = TransitionModelVersionStageConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "TransitionAiDataPlatformModelVersionStage", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, TransitionAiDataPlatformModelVersionStageResponse> transformer = TransitionAiDataPlatformModelVersionStageConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "TransitionModelVersionStage", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, TransitionModelVersionStageResponse> transformer = TransitionModelVersionStageConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1310,16 +1310,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformExperimentResponse updateAiDataPlatformExperiment(UpdateAiDataPlatformExperimentRequest request) {
-        LOG.trace("Called updateAiDataPlatformExperiment");
-            final UpdateAiDataPlatformExperimentRequest interceptedRequest = UpdateAiDataPlatformExperimentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public UpdateExperimentResponse updateExperiment(UpdateExperimentRequest request) {
+        LOG.trace("Called updateExperiment");
+            final UpdateExperimentRequest interceptedRequest = UpdateExperimentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentResponse> transformer = UpdateAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperiment", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentResponse> transformer = UpdateExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1335,16 +1335,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformExperimentRunResponse updateAiDataPlatformExperimentRun(UpdateAiDataPlatformExperimentRunRequest request) {
-        LOG.trace("Called updateAiDataPlatformExperimentRun");
-            final UpdateAiDataPlatformExperimentRunRequest interceptedRequest = UpdateAiDataPlatformExperimentRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public UpdateExperimentRunResponse updateExperimentRun(UpdateExperimentRunRequest request) {
+        LOG.trace("Called updateExperimentRun");
+            final UpdateExperimentRunRequest interceptedRequest = UpdateExperimentRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentRunResponse> transformer = UpdateAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperimentRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentRunResponse> transformer = UpdateExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1360,16 +1360,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformExperimentRunTagsResponse updateAiDataPlatformExperimentRunTags(UpdateAiDataPlatformExperimentRunTagsRequest request) {
-        LOG.trace("Called updateAiDataPlatformExperimentRunTags");
-            final UpdateAiDataPlatformExperimentRunTagsRequest interceptedRequest = UpdateAiDataPlatformExperimentRunTagsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentRunTagsConverter.fromRequest(client, interceptedRequest);
+    public UpdateExperimentRunTagsResponse updateExperimentRunTags(UpdateExperimentRunTagsRequest request) {
+        LOG.trace("Called updateExperimentRunTags");
+            final UpdateExperimentRunTagsRequest interceptedRequest = UpdateExperimentRunTagsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentRunTagsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperimentRunTags", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentRunTagsResponse> transformer = UpdateAiDataPlatformExperimentRunTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperimentRunTags", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentRunTagsResponse> transformer = UpdateExperimentRunTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1385,16 +1385,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformExperimentTagsResponse updateAiDataPlatformExperimentTags(UpdateAiDataPlatformExperimentTagsRequest request) {
-        LOG.trace("Called updateAiDataPlatformExperimentTags");
-            final UpdateAiDataPlatformExperimentTagsRequest interceptedRequest = UpdateAiDataPlatformExperimentTagsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentTagsConverter.fromRequest(client, interceptedRequest);
+    public UpdateExperimentTagsResponse updateExperimentTags(UpdateExperimentTagsRequest request) {
+        LOG.trace("Called updateExperimentTags");
+            final UpdateExperimentTagsRequest interceptedRequest = UpdateExperimentTagsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentTagsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperimentTags", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentTagsResponse> transformer = UpdateAiDataPlatformExperimentTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperimentTags", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentTagsResponse> transformer = UpdateExperimentTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1410,16 +1410,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformModelVersionResponse updateAiDataPlatformModelVersion(UpdateAiDataPlatformModelVersionRequest request) {
-        LOG.trace("Called updateAiDataPlatformModelVersion");
-            final UpdateAiDataPlatformModelVersionRequest interceptedRequest = UpdateAiDataPlatformModelVersionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public UpdateModelVersionResponse updateModelVersion(UpdateModelVersionRequest request) {
+        LOG.trace("Called updateModelVersion");
+            final UpdateModelVersionRequest interceptedRequest = UpdateModelVersionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateModelVersionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformModelVersionResponse> transformer = UpdateAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateModelVersion", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateModelVersionResponse> transformer = UpdateModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1435,16 +1435,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformModelVersionTagsResponse updateAiDataPlatformModelVersionTags(UpdateAiDataPlatformModelVersionTagsRequest request) {
-        LOG.trace("Called updateAiDataPlatformModelVersionTags");
-            final UpdateAiDataPlatformModelVersionTagsRequest interceptedRequest = UpdateAiDataPlatformModelVersionTagsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformModelVersionTagsConverter.fromRequest(client, interceptedRequest);
+    public UpdateModelVersionTagsResponse updateModelVersionTags(UpdateModelVersionTagsRequest request) {
+        LOG.trace("Called updateModelVersionTags");
+            final UpdateModelVersionTagsRequest interceptedRequest = UpdateModelVersionTagsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateModelVersionTagsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformModelVersionTags", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformModelVersionTagsResponse> transformer = UpdateAiDataPlatformModelVersionTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateModelVersionTags", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateModelVersionTagsResponse> transformer = UpdateModelVersionTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1460,16 +1460,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformRegisteredModelResponse updateAiDataPlatformRegisteredModel(UpdateAiDataPlatformRegisteredModelRequest request) {
-        LOG.trace("Called updateAiDataPlatformRegisteredModel");
-            final UpdateAiDataPlatformRegisteredModelRequest interceptedRequest = UpdateAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public UpdateRegisteredModelResponse updateRegisteredModel(UpdateRegisteredModelRequest request) {
+        LOG.trace("Called updateRegisteredModel");
+            final UpdateRegisteredModelRequest interceptedRequest = UpdateRegisteredModelConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRegisteredModelConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRegisteredModelResponse> transformer = UpdateAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateRegisteredModel", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateRegisteredModelResponse> transformer = UpdateRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1485,16 +1485,16 @@ public class MLOpsClient implements MLOps {
     }
 
     @Override
-    public UpdateAiDataPlatformRegisteredModelTagsResponse updateAiDataPlatformRegisteredModelTags(UpdateAiDataPlatformRegisteredModelTagsRequest request) {
-        LOG.trace("Called updateAiDataPlatformRegisteredModelTags");
-            final UpdateAiDataPlatformRegisteredModelTagsRequest interceptedRequest = UpdateAiDataPlatformRegisteredModelTagsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRegisteredModelTagsConverter.fromRequest(client, interceptedRequest);
+    public UpdateRegisteredModelTagsResponse updateRegisteredModelTags(UpdateRegisteredModelTagsRequest request) {
+        LOG.trace("Called updateRegisteredModelTags");
+            final UpdateRegisteredModelTagsRequest interceptedRequest = UpdateRegisteredModelTagsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRegisteredModelTagsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformRegisteredModelTags", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRegisteredModelTagsResponse> transformer = UpdateAiDataPlatformRegisteredModelTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateRegisteredModelTags", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateRegisteredModelTagsResponse> transformer = UpdateRegisteredModelTagsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

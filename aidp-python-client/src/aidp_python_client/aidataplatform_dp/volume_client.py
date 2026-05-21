@@ -85,7 +85,7 @@ class VolumeClient(object):
         self.base_client = BaseClient("volume", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_volume(self, ai_data_platform_id, create_volume_details, **kwargs):
+    def create_volume(self, ai_data_platform_id, create_volume_details, **kwargs):
         """
         Creates a volume in AI Data Platform Workbench.
 
@@ -138,7 +138,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_volume got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_volume got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -183,7 +183,7 @@ class VolumeClient(object):
                 body=create_volume_details,
                 response_type="Volume")
 
-    def delete_ai_data_platform_dir(self, ai_data_platform_id, volume_key, path, **kwargs):
+    def delete_dir(self, ai_data_platform_id, volume_key, path, **kwargs):
         """
         Deletes a directory in a volume.
 
@@ -235,7 +235,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_dir got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_dir got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -277,7 +277,7 @@ class VolumeClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_file(self, ai_data_platform_id, volume_key, path, **kwargs):
+    def delete_file(self, ai_data_platform_id, volume_key, path, **kwargs):
         """
         Deletes a file or folder in a volume.
 
@@ -321,7 +321,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_file got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_file got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -360,7 +360,7 @@ class VolumeClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_volume(self, ai_data_platform_id, volume_key, **kwargs):
+    def delete_volume(self, ai_data_platform_id, volume_key, **kwargs):
         """
         Deletes a volume.
 
@@ -408,7 +408,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_volume got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_volume got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -447,7 +447,7 @@ class VolumeClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def download_ai_data_platform_file(self, ai_data_platform_id, volume_key, path, **kwargs):
+    def download_file(self, ai_data_platform_id, volume_key, path, **kwargs):
         """
         Downloads a file from a volume.
 
@@ -495,7 +495,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "download_ai_data_platform_file got unknown kwargs: {!r}".format(extra_kwargs))
+                "download_file got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -537,7 +537,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 response_type="stream")
 
-    def download_ai_data_platform_file_with_par(self, ai_data_platform_id, volume_key, path, **kwargs):
+    def download_file_with_par(self, ai_data_platform_id, volume_key, path, **kwargs):
         """
         provide the par info for downloading the file for given path.
 
@@ -593,7 +593,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "download_ai_data_platform_file_with_par got unknown kwargs: {!r}".format(extra_kwargs))
+                "download_file_with_par got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -644,7 +644,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 response_type="DownloadFileWithParResult")
 
-    def get_ai_data_platform_volume(self, ai_data_platform_id, volume_key, **kwargs):
+    def get_volume(self, ai_data_platform_id, volume_key, **kwargs):
         """
         Returns detailed information about a volume.
 
@@ -689,7 +689,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_volume got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_volume got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -730,7 +730,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 response_type="Volume")
 
-    def list_ai_data_platform_files(self, ai_data_platform_id, volume_key, path, **kwargs):
+    def list_files(self, ai_data_platform_id, volume_key, path, **kwargs):
         """
         Returns a list of files in a volume.
 
@@ -819,7 +819,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_files got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_files got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -888,7 +888,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 response_type="VolumeFileCollection")
 
-    def list_ai_data_platform_volume_permissions(self, ai_data_platform_id, volume_key, **kwargs):
+    def list_volume_permissions(self, ai_data_platform_id, volume_key, **kwargs):
         """
         Returns a list of volume permissions.
 
@@ -958,7 +958,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_volume_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_volume_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1022,7 +1022,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 response_type="VolumePermissionCollection")
 
-    def list_ai_data_platform_volumes(self, ai_data_platform_id, catalog_key, schema_key, **kwargs):
+    def list_volumes(self, ai_data_platform_id, catalog_key, schema_key, **kwargs):
         """
         Returns a list of volumes.
 
@@ -1099,7 +1099,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_volumes got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_volumes got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1165,7 +1165,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 response_type="VolumeCollection")
 
-    def make_ai_data_platform_dir(self, ai_data_platform_id, volume_key, path, **kwargs):
+    def make_dir(self, ai_data_platform_id, volume_key, path, **kwargs):
         """
         Creates a directory in a volume.
 
@@ -1225,7 +1225,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "make_ai_data_platform_dir got unknown kwargs: {!r}".format(extra_kwargs))
+                "make_dir got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1275,7 +1275,7 @@ class VolumeClient(object):
                 query_params=query_params,
                 header_params=header_params)
 
-    def manage_ai_data_platform_volume_permission(self, ai_data_platform_id, volume_key, manage_volume_permission_details, **kwargs):
+    def manage_volume_permission(self, ai_data_platform_id, volume_key, manage_volume_permission_details, **kwargs):
         """
         Updates the permissions on a volume.
 
@@ -1326,7 +1326,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_volume_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_volume_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1367,7 +1367,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 body=manage_volume_permission_details)
 
-    def update_ai_data_platform_dir(self, ai_data_platform_id, volume_key, update_dir_details, path, **kwargs):
+    def update_dir(self, ai_data_platform_id, volume_key, update_dir_details, path, **kwargs):
         """
         Updates a directory in volume with the provided information.
 
@@ -1433,7 +1433,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_dir got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_dir got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1479,7 +1479,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 body=update_dir_details)
 
-    def update_ai_data_platform_volume(self, ai_data_platform_id, volume_key, update_volume_details, **kwargs):
+    def update_volume(self, ai_data_platform_id, volume_key, update_volume_details, **kwargs):
         """
         Updates a volume with the provided information.
 
@@ -1534,7 +1534,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_volume got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_volume got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1578,7 +1578,7 @@ class VolumeClient(object):
                 body=update_volume_details,
                 response_type="Volume")
 
-    def upload_ai_data_platform_file(self, ai_data_platform_id, volume_key, upload_file_details, path, **kwargs):
+    def upload_file(self, ai_data_platform_id, volume_key, upload_file_details, path, **kwargs):
         """
         Uploads a file to volume. If the file already exists, it is updated.
 
@@ -1645,7 +1645,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "upload_ai_data_platform_file got unknown kwargs: {!r}".format(extra_kwargs))
+                "upload_file got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1715,7 +1715,7 @@ class VolumeClient(object):
                 header_params=header_params,
                 body=upload_file_details)
 
-    def upload_ai_data_platform_file_with_par(self, ai_data_platform_id, volume_key, upload_file_with_par_details, path, **kwargs):
+    def upload_file_with_par(self, ai_data_platform_id, volume_key, upload_file_with_par_details, path, **kwargs):
         """
         Uploads a volume file by generating PAR. If file exists, then it will be updated.
 
@@ -1782,7 +1782,7 @@ class VolumeClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "upload_ai_data_platform_file_with_par got unknown kwargs: {!r}".format(extra_kwargs))
+                "upload_file_with_par got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

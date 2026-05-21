@@ -67,7 +67,7 @@ public interface CredentialsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformCredentialResponse> createAiDataPlatformCredential(CreateAiDataPlatformCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCredentialRequest, CreateAiDataPlatformCredentialResponse> handler);
+    java.util.concurrent.Future<CreateCredentialResponse> createCredential(CreateCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<CreateCredentialRequest, CreateCredentialResponse> handler);
     
     /**
      * Deletes a credential object. The operation completes synchronously without a response body.
@@ -79,7 +79,7 @@ public interface CredentialsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformCredentialResponse> deleteAiDataPlatformCredential(DeleteAiDataPlatformCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCredentialRequest, DeleteAiDataPlatformCredentialResponse> handler);
+    java.util.concurrent.Future<DeleteCredentialResponse> deleteCredential(DeleteCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteCredentialRequest, DeleteCredentialResponse> handler);
     
     /**
      * Gets detailed information about credential with a given credential key.
@@ -91,7 +91,7 @@ public interface CredentialsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformCredentialResponse> getAiDataPlatformCredential(GetAiDataPlatformCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCredentialRequest, GetAiDataPlatformCredentialResponse> handler);
+    java.util.concurrent.Future<GetCredentialResponse> getCredential(GetCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<GetCredentialRequest, GetCredentialResponse> handler);
     
     /**
      * Returns a list of credentials.
@@ -103,7 +103,7 @@ public interface CredentialsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformCredentialsResponse> listAiDataPlatformCredentials(ListAiDataPlatformCredentialsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCredentialsRequest, ListAiDataPlatformCredentialsResponse> handler);
+    java.util.concurrent.Future<ListCredentialsResponse> listCredentials(ListCredentialsRequest request, com.oracle.bmc.responses.AsyncHandler<ListCredentialsRequest, ListCredentialsResponse> handler);
     
     /**
      * Updates a credential object. The operation completes synchronously; callers can invoke get to confirm the latest state.
@@ -115,6 +115,6 @@ public interface CredentialsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformCredentialResponse> updateAiDataPlatformCredential(UpdateAiDataPlatformCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCredentialRequest, UpdateAiDataPlatformCredentialResponse> handler);
+    java.util.concurrent.Future<UpdateCredentialResponse> updateCredential(UpdateCredentialRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateCredentialRequest, UpdateCredentialResponse> handler);
     
 }

@@ -184,19 +184,19 @@ export class AsyncOperationsClient {
      * Get detailed information for a particular async operation
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformAsyncOperationRequest
-     * @return GetAiDataPlatformAsyncOperationResponse
+     * @param GetAsyncOperationRequest
+     * @return GetAsyncOperationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformAsyncOperation.ts.html |here} to see how to use GetAiDataPlatformAsyncOperation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAsyncOperation.ts.html |here} to see how to use GetAsyncOperation API.
      */
-    public async getAiDataPlatformAsyncOperation (getAiDataPlatformAsyncOperationRequest: requests.GetAiDataPlatformAsyncOperationRequest) : Promise<responses.GetAiDataPlatformAsyncOperationResponse> {
+    public async getAsyncOperation (getAsyncOperationRequest: requests.GetAsyncOperationRequest) : Promise<responses.GetAsyncOperationResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation AsyncOperationsClient#getAiDataPlatformAsyncOperation.");
-        const operationName = "getAiDataPlatformAsyncOperation";
+              this.logger.debug("Calling operation AsyncOperationsClient#getAsyncOperation.");
+        const operationName = "getAsyncOperation";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformAsyncOperationRequest.aiDataPlatformId,
-            "{asyncOperationKey}": getAiDataPlatformAsyncOperationRequest.asyncOperationKey,
+            "{aiDataPlatformId}": getAsyncOperationRequest.aiDataPlatformId,
+            "{asyncOperationKey}": getAsyncOperationRequest.asyncOperationKey,
         };
 
         const queryParams = { 
@@ -204,13 +204,13 @@ export class AsyncOperationsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformAsyncOperationRequest.opcRequestId,
+        'opc-request-id': getAsyncOperationRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformAsyncOperationRequest.retryConfiguration,
+            getAsyncOperationRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -226,7 +226,7 @@ export class AsyncOperationsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformAsyncOperationResponse>{},
+            responseObject: <responses.GetAsyncOperationResponse>{},
                 body: await response.json(),
                 bodyKey: "asyncOperation",
                 bodyModel:  model.AsyncOperation,
@@ -257,41 +257,41 @@ export class AsyncOperationsClient {
 * Filters can be used to narrow the search down.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformAsyncOperationsRequest
-     * @return ListAiDataPlatformAsyncOperationsResponse
+     * @param ListAsyncOperationsRequest
+     * @return ListAsyncOperationsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformAsyncOperations.ts.html |here} to see how to use ListAiDataPlatformAsyncOperations API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAsyncOperations.ts.html |here} to see how to use ListAsyncOperations API.
      */
-    public async listAiDataPlatformAsyncOperations (listAiDataPlatformAsyncOperationsRequest: requests.ListAiDataPlatformAsyncOperationsRequest) : Promise<responses.ListAiDataPlatformAsyncOperationsResponse> {
+    public async listAsyncOperations (listAsyncOperationsRequest: requests.ListAsyncOperationsRequest) : Promise<responses.ListAsyncOperationsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation AsyncOperationsClient#listAiDataPlatformAsyncOperations.");
-        const operationName = "listAiDataPlatformAsyncOperations";
+              this.logger.debug("Calling operation AsyncOperationsClient#listAsyncOperations.");
+        const operationName = "listAsyncOperations";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformAsyncOperationsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listAsyncOperationsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'resourceType': listAiDataPlatformAsyncOperationsRequest.resourceType,
-            'resourceName': listAiDataPlatformAsyncOperationsRequest.resourceName,
-            'matchResourceName': listAiDataPlatformAsyncOperationsRequest.matchResourceName,
-            'status': listAiDataPlatformAsyncOperationsRequest.status,
-            'shouldFilterByCallingPrincipal': listAiDataPlatformAsyncOperationsRequest.shouldFilterByCallingPrincipal,
-            'limit': listAiDataPlatformAsyncOperationsRequest.limit,
-            'page': listAiDataPlatformAsyncOperationsRequest.page,
-            'sortOrder': listAiDataPlatformAsyncOperationsRequest.sortOrder,
-            'sortBy': listAiDataPlatformAsyncOperationsRequest.sortBy,
+            'resourceType': listAsyncOperationsRequest.resourceType,
+            'resourceName': listAsyncOperationsRequest.resourceName,
+            'matchResourceName': listAsyncOperationsRequest.matchResourceName,
+            'status': listAsyncOperationsRequest.status,
+            'shouldFilterByCallingPrincipal': listAsyncOperationsRequest.shouldFilterByCallingPrincipal,
+            'limit': listAsyncOperationsRequest.limit,
+            'page': listAsyncOperationsRequest.page,
+            'sortOrder': listAsyncOperationsRequest.sortOrder,
+            'sortBy': listAsyncOperationsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformAsyncOperationsRequest.opcRequestId,
+        'opc-request-id': listAsyncOperationsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformAsyncOperationsRequest.retryConfiguration,
+            listAsyncOperationsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -307,7 +307,7 @@ export class AsyncOperationsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformAsyncOperationsResponse>{},
+            responseObject: <responses.ListAsyncOperationsResponse>{},
                 body: await response.json(),
                 bodyKey: "asyncOperationCollection",
                 bodyModel:  model.AsyncOperationCollection,
@@ -506,18 +506,18 @@ export class AuditClient {
     /**
      * Manages audit logs for AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformAuditLogsRequest
-     * @return ManageAiDataPlatformAuditLogsResponse
+     * @param ManageAuditLogsRequest
+     * @return ManageAuditLogsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformAuditLogs.ts.html |here} to see how to use ManageAiDataPlatformAuditLogs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAuditLogs.ts.html |here} to see how to use ManageAuditLogs API.
      */
-    public async manageAiDataPlatformAuditLogs (manageAiDataPlatformAuditLogsRequest: requests.ManageAiDataPlatformAuditLogsRequest) : Promise<responses.ManageAiDataPlatformAuditLogsResponse> {
+    public async manageAuditLogs (manageAuditLogsRequest: requests.ManageAuditLogsRequest) : Promise<responses.ManageAuditLogsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation AuditClient#manageAiDataPlatformAuditLogs.");
-        const operationName = "manageAiDataPlatformAuditLogs";
+              this.logger.debug("Calling operation AuditClient#manageAuditLogs.");
+        const operationName = "manageAuditLogs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformAuditLogsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": manageAuditLogsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -525,13 +525,13 @@ export class AuditClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': manageAiDataPlatformAuditLogsRequest.opcRetryToken,'opc-request-id': manageAiDataPlatformAuditLogsRequest.opcRequestId,
+        'opc-retry-token': manageAuditLogsRequest.opcRetryToken,'opc-request-id': manageAuditLogsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformAuditLogsRequest.retryConfiguration,
+            manageAuditLogsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -540,7 +540,7 @@ export class AuditClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/actions/manageAuditLogs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformAuditLogsRequest.manageAuditLogsDetails, "ManageAuditLogsDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageAuditLogsRequest.manageAuditLogsDetails, "ManageAuditLogsDetails"
                             , model.ManageAuditLogsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -550,7 +550,7 @@ export class AuditClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformAuditLogsResponse>{},
+            responseObject: <responses.ManageAuditLogsResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -570,34 +570,34 @@ export class AuditClient {
     /**
      * Searches audit logs for AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SearchAiDataPlatformAuditLogsRequest
-     * @return SearchAiDataPlatformAuditLogsResponse
+     * @param SearchAuditLogsRequest
+     * @return SearchAuditLogsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchAiDataPlatformAuditLogs.ts.html |here} to see how to use SearchAiDataPlatformAuditLogs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchAuditLogs.ts.html |here} to see how to use SearchAuditLogs API.
      */
-    public async searchAiDataPlatformAuditLogs (searchAiDataPlatformAuditLogsRequest: requests.SearchAiDataPlatformAuditLogsRequest) : Promise<responses.SearchAiDataPlatformAuditLogsResponse> {
+    public async searchAuditLogs (searchAuditLogsRequest: requests.SearchAuditLogsRequest) : Promise<responses.SearchAuditLogsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation AuditClient#searchAiDataPlatformAuditLogs.");
-        const operationName = "searchAiDataPlatformAuditLogs";
+              this.logger.debug("Calling operation AuditClient#searchAuditLogs.");
+        const operationName = "searchAuditLogs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": searchAiDataPlatformAuditLogsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": searchAuditLogsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'limit': searchAiDataPlatformAuditLogsRequest.limit,
-            'page': searchAiDataPlatformAuditLogsRequest.page,
+            'limit': searchAuditLogsRequest.limit,
+            'page': searchAuditLogsRequest.page,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': searchAiDataPlatformAuditLogsRequest.opcRetryToken,'opc-request-id': searchAiDataPlatformAuditLogsRequest.opcRequestId,
+        'opc-retry-token': searchAuditLogsRequest.opcRetryToken,'opc-request-id': searchAuditLogsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            searchAiDataPlatformAuditLogsRequest.retryConfiguration,
+            searchAuditLogsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -606,7 +606,7 @@ export class AuditClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/actions/searchAuditLogs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(searchAiDataPlatformAuditLogsRequest.searchAuditLogsDetails, "SearchAuditLogsDetails"
+            bodyContent: common.ObjectSerializer.serialize(searchAuditLogsRequest.searchAuditLogsDetails, "SearchAuditLogsDetails"
                             , model.SearchAuditLogsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -616,7 +616,7 @@ export class AuditClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SearchAiDataPlatformAuditLogsResponse>{},
+            responseObject: <responses.SearchAuditLogsResponse>{},
                 body: await response.json(),
                 bodyKey: "auditLogSearchResultCollection",
                 bodyModel:  model.AuditLogSearchResultCollection,
@@ -893,19 +893,19 @@ Request notes:
 * - `bundledResources` identifies which workspace resources should be included
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformBundleRequest
-     * @return CreateAiDataPlatformBundleResponse
+     * @param CreateBundleRequest
+     * @return CreateBundleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformBundle.ts.html |here} to see how to use CreateAiDataPlatformBundle API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateBundle.ts.html |here} to see how to use CreateBundle API.
      */
-    public async createAiDataPlatformBundle (createAiDataPlatformBundleRequest: requests.CreateAiDataPlatformBundleRequest) : Promise<responses.CreateAiDataPlatformBundleResponse> {
+    public async createBundle (createBundleRequest: requests.CreateBundleRequest) : Promise<responses.CreateBundleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation BundleClient#createAiDataPlatformBundle.");
-        const operationName = "createAiDataPlatformBundle";
+              this.logger.debug("Calling operation BundleClient#createBundle.");
+        const operationName = "createBundle";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformBundleRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformBundleRequest.workspaceKey,
+            "{aiDataPlatformId}": createBundleRequest.aiDataPlatformId,
+            "{workspaceKey}": createBundleRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -913,13 +913,13 @@ Request notes:
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformBundleRequest.opcRetryToken,'opc-request-id': createAiDataPlatformBundleRequest.opcRequestId,
+        'opc-retry-token': createBundleRequest.opcRetryToken,'opc-request-id': createBundleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformBundleRequest.retryConfiguration,
+            createBundleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -928,7 +928,7 @@ Request notes:
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/bundles',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformBundleRequest.createBundleDetails, "CreateBundleDetails"
+            bodyContent: common.ObjectSerializer.serialize(createBundleRequest.createBundleDetails, "CreateBundleDetails"
                             , model.CreateBundleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -938,7 +938,7 @@ Request notes:
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformBundleResponse>{},
+            responseObject: <responses.CreateBundleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -980,19 +980,19 @@ Request notes:
 * - `path` identifies the bundle root folder in the workspace volume
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeployAiDataPlatformBundleRequest
-     * @return DeployAiDataPlatformBundleResponse
+     * @param DeployBundleRequest
+     * @return DeployBundleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeployAiDataPlatformBundle.ts.html |here} to see how to use DeployAiDataPlatformBundle API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeployBundle.ts.html |here} to see how to use DeployBundle API.
      */
-    public async deployAiDataPlatformBundle (deployAiDataPlatformBundleRequest: requests.DeployAiDataPlatformBundleRequest) : Promise<responses.DeployAiDataPlatformBundleResponse> {
+    public async deployBundle (deployBundleRequest: requests.DeployBundleRequest) : Promise<responses.DeployBundleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation BundleClient#deployAiDataPlatformBundle.");
-        const operationName = "deployAiDataPlatformBundle";
+              this.logger.debug("Calling operation BundleClient#deployBundle.");
+        const operationName = "deployBundle";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deployAiDataPlatformBundleRequest.aiDataPlatformId,
-            "{workspaceKey}": deployAiDataPlatformBundleRequest.workspaceKey,
+            "{aiDataPlatformId}": deployBundleRequest.aiDataPlatformId,
+            "{workspaceKey}": deployBundleRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -1000,13 +1000,13 @@ Request notes:
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deployAiDataPlatformBundleRequest.opcRetryToken,'opc-request-id': deployAiDataPlatformBundleRequest.opcRequestId,
+        'opc-retry-token': deployBundleRequest.opcRetryToken,'opc-request-id': deployBundleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deployAiDataPlatformBundleRequest.retryConfiguration,
+            deployBundleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1015,7 +1015,7 @@ Request notes:
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/bundles/actions/deploy',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deployAiDataPlatformBundleRequest.deployBundleDetails, "DeployBundleDetails"
+            bodyContent: common.ObjectSerializer.serialize(deployBundleRequest.deployBundleDetails, "DeployBundleDetails"
                             , model.DeployBundleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1025,7 +1025,7 @@ Request notes:
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeployAiDataPlatformBundleResponse>{},
+            responseObject: <responses.DeployBundleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -1070,19 +1070,19 @@ Request notes:
 * - `path` identifies the bundle root folder in the workspace volume
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param FetchAiDataPlatformBundleDeploymentStatusRequest
-     * @return FetchAiDataPlatformBundleDeploymentStatusResponse
+     * @param FetchBundleDeploymentStatusRequest
+     * @return FetchBundleDeploymentStatusResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/FetchAiDataPlatformBundleDeploymentStatus.ts.html |here} to see how to use FetchAiDataPlatformBundleDeploymentStatus API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/FetchBundleDeploymentStatus.ts.html |here} to see how to use FetchBundleDeploymentStatus API.
      */
-    public async fetchAiDataPlatformBundleDeploymentStatus (fetchAiDataPlatformBundleDeploymentStatusRequest: requests.FetchAiDataPlatformBundleDeploymentStatusRequest) : Promise<responses.FetchAiDataPlatformBundleDeploymentStatusResponse> {
+    public async fetchBundleDeploymentStatus (fetchBundleDeploymentStatusRequest: requests.FetchBundleDeploymentStatusRequest) : Promise<responses.FetchBundleDeploymentStatusResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation BundleClient#fetchAiDataPlatformBundleDeploymentStatus.");
-        const operationName = "fetchAiDataPlatformBundleDeploymentStatus";
+              this.logger.debug("Calling operation BundleClient#fetchBundleDeploymentStatus.");
+        const operationName = "fetchBundleDeploymentStatus";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": fetchAiDataPlatformBundleDeploymentStatusRequest.aiDataPlatformId,
-            "{workspaceKey}": fetchAiDataPlatformBundleDeploymentStatusRequest.workspaceKey,
+            "{aiDataPlatformId}": fetchBundleDeploymentStatusRequest.aiDataPlatformId,
+            "{workspaceKey}": fetchBundleDeploymentStatusRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -1090,13 +1090,13 @@ Request notes:
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': fetchAiDataPlatformBundleDeploymentStatusRequest.opcRequestId,
+        'opc-request-id': fetchBundleDeploymentStatusRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            fetchAiDataPlatformBundleDeploymentStatusRequest.retryConfiguration,
+            fetchBundleDeploymentStatusRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1105,7 +1105,7 @@ Request notes:
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/bundles/actions/getDeploymentStatus',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(fetchAiDataPlatformBundleDeploymentStatusRequest.fetchBundleDeploymentStatusDetails, "FetchBundleDeploymentStatusDetails"
+            bodyContent: common.ObjectSerializer.serialize(fetchBundleDeploymentStatusRequest.fetchBundleDeploymentStatusDetails, "FetchBundleDeploymentStatusDetails"
                             , model.FetchBundleDeploymentStatusDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1115,7 +1115,7 @@ Request notes:
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.FetchAiDataPlatformBundleDeploymentStatusResponse>{},
+            responseObject: <responses.FetchBundleDeploymentStatusResponse>{},
                 body: await response.json(),
                 bodyKey: "bundleDeploymentStatus",
                 bodyModel:  model.BundleDeploymentStatus,
@@ -1154,19 +1154,19 @@ Request notes:
 * - `path` identifies the bundle root folder in the workspace volume
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param PurgeAiDataPlatformBundleRequest
-     * @return PurgeAiDataPlatformBundleResponse
+     * @param PurgeBundleRequest
+     * @return PurgeBundleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PurgeAiDataPlatformBundle.ts.html |here} to see how to use PurgeAiDataPlatformBundle API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PurgeBundle.ts.html |here} to see how to use PurgeBundle API.
      */
-    public async purgeAiDataPlatformBundle (purgeAiDataPlatformBundleRequest: requests.PurgeAiDataPlatformBundleRequest) : Promise<responses.PurgeAiDataPlatformBundleResponse> {
+    public async purgeBundle (purgeBundleRequest: requests.PurgeBundleRequest) : Promise<responses.PurgeBundleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation BundleClient#purgeAiDataPlatformBundle.");
-        const operationName = "purgeAiDataPlatformBundle";
+              this.logger.debug("Calling operation BundleClient#purgeBundle.");
+        const operationName = "purgeBundle";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": purgeAiDataPlatformBundleRequest.aiDataPlatformId,
-            "{workspaceKey}": purgeAiDataPlatformBundleRequest.workspaceKey,
+            "{aiDataPlatformId}": purgeBundleRequest.aiDataPlatformId,
+            "{workspaceKey}": purgeBundleRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -1174,13 +1174,13 @@ Request notes:
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': purgeAiDataPlatformBundleRequest.opcRetryToken,'opc-request-id': purgeAiDataPlatformBundleRequest.opcRequestId,
+        'opc-retry-token': purgeBundleRequest.opcRetryToken,'opc-request-id': purgeBundleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            purgeAiDataPlatformBundleRequest.retryConfiguration,
+            purgeBundleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1189,7 +1189,7 @@ Request notes:
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/bundles/actions/purge',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(purgeAiDataPlatformBundleRequest.purgeBundleDetails, "PurgeBundleDetails"
+            bodyContent: common.ObjectSerializer.serialize(purgeBundleRequest.purgeBundleDetails, "PurgeBundleDetails"
                             , model.PurgeBundleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1199,7 +1199,7 @@ Request notes:
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.PurgeAiDataPlatformBundleResponse>{},
+            responseObject: <responses.PurgeBundleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -1258,19 +1258,19 @@ Request notes:
 * - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SyncAiDataPlatformBundleRequest
-     * @return SyncAiDataPlatformBundleResponse
+     * @param SyncBundleRequest
+     * @return SyncBundleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SyncAiDataPlatformBundle.ts.html |here} to see how to use SyncAiDataPlatformBundle API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SyncBundle.ts.html |here} to see how to use SyncBundle API.
      */
-    public async syncAiDataPlatformBundle (syncAiDataPlatformBundleRequest: requests.SyncAiDataPlatformBundleRequest) : Promise<responses.SyncAiDataPlatformBundleResponse> {
+    public async syncBundle (syncBundleRequest: requests.SyncBundleRequest) : Promise<responses.SyncBundleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation BundleClient#syncAiDataPlatformBundle.");
-        const operationName = "syncAiDataPlatformBundle";
+              this.logger.debug("Calling operation BundleClient#syncBundle.");
+        const operationName = "syncBundle";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": syncAiDataPlatformBundleRequest.aiDataPlatformId,
-            "{workspaceKey}": syncAiDataPlatformBundleRequest.workspaceKey,
+            "{aiDataPlatformId}": syncBundleRequest.aiDataPlatformId,
+            "{workspaceKey}": syncBundleRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -1278,13 +1278,13 @@ Request notes:
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': syncAiDataPlatformBundleRequest.opcRetryToken,'opc-request-id': syncAiDataPlatformBundleRequest.opcRequestId,
+        'opc-retry-token': syncBundleRequest.opcRetryToken,'opc-request-id': syncBundleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            syncAiDataPlatformBundleRequest.retryConfiguration,
+            syncBundleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1293,7 +1293,7 @@ Request notes:
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/bundles/actions/sync',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(syncAiDataPlatformBundleRequest.syncBundleDetails, "SyncBundleDetails"
+            bodyContent: common.ObjectSerializer.serialize(syncBundleRequest.syncBundleDetails, "SyncBundleDetails"
                             , model.SyncBundleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1303,7 +1303,7 @@ Request notes:
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SyncAiDataPlatformBundleResponse>{},
+            responseObject: <responses.SyncBundleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -1498,18 +1498,18 @@ export class CatalogClient {
     /**
      * Test the connection of an AI Data Platform Workbench to an external catalog.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CatalogAiDataPlatformTestConnectionRequest
-     * @return CatalogAiDataPlatformTestConnectionResponse
+     * @param CatalogTestConnectionRequest
+     * @return CatalogTestConnectionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CatalogAiDataPlatformTestConnection.ts.html |here} to see how to use CatalogAiDataPlatformTestConnection API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CatalogTestConnection.ts.html |here} to see how to use CatalogTestConnection API.
      */
-    public async catalogAiDataPlatformTestConnection (catalogAiDataPlatformTestConnectionRequest: requests.CatalogAiDataPlatformTestConnectionRequest) : Promise<responses.CatalogAiDataPlatformTestConnectionResponse> {
+    public async catalogTestConnection (catalogTestConnectionRequest: requests.CatalogTestConnectionRequest) : Promise<responses.CatalogTestConnectionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#catalogAiDataPlatformTestConnection.");
-        const operationName = "catalogAiDataPlatformTestConnection";
+              this.logger.debug("Calling operation CatalogClient#catalogTestConnection.");
+        const operationName = "catalogTestConnection";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": catalogAiDataPlatformTestConnectionRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": catalogTestConnectionRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -1517,13 +1517,13 @@ export class CatalogClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': catalogAiDataPlatformTestConnectionRequest.opcRetryToken,'opc-request-id': catalogAiDataPlatformTestConnectionRequest.opcRequestId,'should-update-recent': catalogAiDataPlatformTestConnectionRequest.shouldUpdateRecent,
+        'opc-retry-token': catalogTestConnectionRequest.opcRetryToken,'opc-request-id': catalogTestConnectionRequest.opcRequestId,'should-update-recent': catalogTestConnectionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            catalogAiDataPlatformTestConnectionRequest.retryConfiguration,
+            catalogTestConnectionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1532,7 +1532,7 @@ export class CatalogClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/actions/testConnection',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(catalogAiDataPlatformTestConnectionRequest.catalogTestConnectionDetails, "CatalogTestConnectionDetails"
+            bodyContent: common.ObjectSerializer.serialize(catalogTestConnectionRequest.catalogTestConnectionDetails, "CatalogTestConnectionDetails"
                             , model.CatalogTestConnectionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1542,7 +1542,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CatalogAiDataPlatformTestConnectionResponse>{},
+            responseObject: <responses.CatalogTestConnectionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -1567,18 +1567,18 @@ export class CatalogClient {
     /**
      * Create a catalog in the AI Data Platform Workbench with the given ID.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformCatalogRequest
-     * @return CreateAiDataPlatformCatalogResponse
+     * @param CreateCatalogRequest
+     * @return CreateCatalogResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformCatalog.ts.html |here} to see how to use CreateAiDataPlatformCatalog API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateCatalog.ts.html |here} to see how to use CreateCatalog API.
      */
-    public async createAiDataPlatformCatalog (createAiDataPlatformCatalogRequest: requests.CreateAiDataPlatformCatalogRequest) : Promise<responses.CreateAiDataPlatformCatalogResponse> {
+    public async createCatalog (createCatalogRequest: requests.CreateCatalogRequest) : Promise<responses.CreateCatalogResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#createAiDataPlatformCatalog.");
-        const operationName = "createAiDataPlatformCatalog";
+              this.logger.debug("Calling operation CatalogClient#createCatalog.");
+        const operationName = "createCatalog";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformCatalogRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createCatalogRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -1586,13 +1586,13 @@ export class CatalogClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformCatalogRequest.opcRetryToken,'opc-request-id': createAiDataPlatformCatalogRequest.opcRequestId,'should-update-recent': createAiDataPlatformCatalogRequest.shouldUpdateRecent,
+        'opc-retry-token': createCatalogRequest.opcRetryToken,'opc-request-id': createCatalogRequest.opcRequestId,'should-update-recent': createCatalogRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformCatalogRequest.retryConfiguration,
+            createCatalogRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1601,7 +1601,7 @@ export class CatalogClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/catalogs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformCatalogRequest.createCatalogDetails, "CreateCatalogDetails"
+            bodyContent: common.ObjectSerializer.serialize(createCatalogRequest.createCatalogDetails, "CreateCatalogDetails"
                             , model.CreateCatalogDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1611,7 +1611,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformCatalogResponse>{},
+            responseObject: <responses.CreateCatalogResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("location"),
@@ -1646,19 +1646,19 @@ export class CatalogClient {
     /**
      * Deletes the specified catalog from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformCatalogRequest
-     * @return DeleteAiDataPlatformCatalogResponse
+     * @param DeleteCatalogRequest
+     * @return DeleteCatalogResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformCatalog.ts.html |here} to see how to use DeleteAiDataPlatformCatalog API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteCatalog.ts.html |here} to see how to use DeleteCatalog API.
      */
-    public async deleteAiDataPlatformCatalog (deleteAiDataPlatformCatalogRequest: requests.DeleteAiDataPlatformCatalogRequest) : Promise<responses.DeleteAiDataPlatformCatalogResponse> {
+    public async deleteCatalog (deleteCatalogRequest: requests.DeleteCatalogRequest) : Promise<responses.DeleteCatalogResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#deleteAiDataPlatformCatalog.");
-        const operationName = "deleteAiDataPlatformCatalog";
+              this.logger.debug("Calling operation CatalogClient#deleteCatalog.");
+        const operationName = "deleteCatalog";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformCatalogRequest.aiDataPlatformId,
-            "{catalogKey}": deleteAiDataPlatformCatalogRequest.catalogKey,
+            "{aiDataPlatformId}": deleteCatalogRequest.aiDataPlatformId,
+            "{catalogKey}": deleteCatalogRequest.catalogKey,
         };
 
         const queryParams = { 
@@ -1666,13 +1666,13 @@ export class CatalogClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'is-forced': deleteAiDataPlatformCatalogRequest.isForced,'if-match': deleteAiDataPlatformCatalogRequest.ifMatch,'opc-request-id': deleteAiDataPlatformCatalogRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformCatalogRequest.shouldUpdateRecent,
+        'is-forced': deleteCatalogRequest.isForced,'if-match': deleteCatalogRequest.ifMatch,'opc-request-id': deleteCatalogRequest.opcRequestId,'should-update-recent': deleteCatalogRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformCatalogRequest.retryConfiguration,
+            deleteCatalogRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1688,7 +1688,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformCatalogResponse>{},
+            responseObject: <responses.DeleteCatalogResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -1713,34 +1713,34 @@ export class CatalogClient {
     /**
      * Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformCatalogRequest
-     * @return GetAiDataPlatformCatalogResponse
+     * @param GetCatalogRequest
+     * @return GetCatalogResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformCatalog.ts.html |here} to see how to use GetAiDataPlatformCatalog API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetCatalog.ts.html |here} to see how to use GetCatalog API.
      */
-    public async getAiDataPlatformCatalog (getAiDataPlatformCatalogRequest: requests.GetAiDataPlatformCatalogRequest) : Promise<responses.GetAiDataPlatformCatalogResponse> {
+    public async getCatalog (getCatalogRequest: requests.GetCatalogRequest) : Promise<responses.GetCatalogResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#getAiDataPlatformCatalog.");
-        const operationName = "getAiDataPlatformCatalog";
+              this.logger.debug("Calling operation CatalogClient#getCatalog.");
+        const operationName = "getCatalog";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformCatalogRequest.aiDataPlatformId,
-            "{catalogKey}": getAiDataPlatformCatalogRequest.catalogKey,
+            "{aiDataPlatformId}": getCatalogRequest.aiDataPlatformId,
+            "{catalogKey}": getCatalogRequest.catalogKey,
         };
 
         const queryParams = { 
-            'isCatalogGuid': getAiDataPlatformCatalogRequest.isCatalogGuid,
+            'isCatalogGuid': getCatalogRequest.isCatalogGuid,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformCatalogRequest.opcRequestId,'should-update-recent': getAiDataPlatformCatalogRequest.shouldUpdateRecent,
+        'opc-request-id': getCatalogRequest.opcRequestId,'should-update-recent': getCatalogRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformCatalogRequest.retryConfiguration,
+            getCatalogRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1756,7 +1756,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformCatalogResponse>{},
+            responseObject: <responses.GetCatalogResponse>{},
                 body: await response.json(),
                 bodyKey: "catalog",
                 bodyModel:  model.Catalog,
@@ -1785,37 +1785,37 @@ export class CatalogClient {
     /**
      * Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformCatalogPermissionsRequest
-     * @return ListAiDataPlatformCatalogPermissionsResponse
+     * @param ListCatalogPermissionsRequest
+     * @return ListCatalogPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformCatalogPermissions.ts.html |here} to see how to use ListAiDataPlatformCatalogPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListCatalogPermissions.ts.html |here} to see how to use ListCatalogPermissions API.
      */
-    public async listAiDataPlatformCatalogPermissions (listAiDataPlatformCatalogPermissionsRequest: requests.ListAiDataPlatformCatalogPermissionsRequest) : Promise<responses.ListAiDataPlatformCatalogPermissionsResponse> {
+    public async listCatalogPermissions (listCatalogPermissionsRequest: requests.ListCatalogPermissionsRequest) : Promise<responses.ListCatalogPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#listAiDataPlatformCatalogPermissions.");
-        const operationName = "listAiDataPlatformCatalogPermissions";
+              this.logger.debug("Calling operation CatalogClient#listCatalogPermissions.");
+        const operationName = "listCatalogPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformCatalogPermissionsRequest.aiDataPlatformId,
-            "{catalogKey}": listAiDataPlatformCatalogPermissionsRequest.catalogKey,
+            "{aiDataPlatformId}": listCatalogPermissionsRequest.aiDataPlatformId,
+            "{catalogKey}": listCatalogPermissionsRequest.catalogKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformCatalogPermissionsRequest.limit,
-            'page': listAiDataPlatformCatalogPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformCatalogPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformCatalogPermissionsRequest.sortBy,
+            'limit': listCatalogPermissionsRequest.limit,
+            'page': listCatalogPermissionsRequest.page,
+            'sortOrder': listCatalogPermissionsRequest.sortOrder,
+            'sortBy': listCatalogPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformCatalogPermissionsRequest.opcRequestId,'should-update-recent': listAiDataPlatformCatalogPermissionsRequest.shouldUpdateRecent,
+        'opc-request-id': listCatalogPermissionsRequest.opcRequestId,'should-update-recent': listCatalogPermissionsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformCatalogPermissionsRequest.retryConfiguration,
+            listCatalogPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1831,7 +1831,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformCatalogPermissionsResponse>{},
+            responseObject: <responses.ListCatalogPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "catalogPermissionCollection",
                 bodyModel:  model.CatalogPermissionCollection,
@@ -1860,39 +1860,39 @@ export class CatalogClient {
     /**
      * Get a list of catalogs in an AI Data Platform Workbench with a given ID.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformCatalogsRequest
-     * @return ListAiDataPlatformCatalogsResponse
+     * @param ListCatalogsRequest
+     * @return ListCatalogsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformCatalogs.ts.html |here} to see how to use ListAiDataPlatformCatalogs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListCatalogs.ts.html |here} to see how to use ListCatalogs API.
      */
-    public async listAiDataPlatformCatalogs (listAiDataPlatformCatalogsRequest: requests.ListAiDataPlatformCatalogsRequest) : Promise<responses.ListAiDataPlatformCatalogsResponse> {
+    public async listCatalogs (listCatalogsRequest: requests.ListCatalogsRequest) : Promise<responses.ListCatalogsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#listAiDataPlatformCatalogs.");
-        const operationName = "listAiDataPlatformCatalogs";
+              this.logger.debug("Calling operation CatalogClient#listCatalogs.");
+        const operationName = "listCatalogs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformCatalogsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listCatalogsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformCatalogsRequest.displayName,
-            'catalogState': listAiDataPlatformCatalogsRequest.catalogState,
-            'catalogType': listAiDataPlatformCatalogsRequest.catalogType,
-            'limit': listAiDataPlatformCatalogsRequest.limit,
-            'page': listAiDataPlatformCatalogsRequest.page,
-            'sortOrder': listAiDataPlatformCatalogsRequest.sortOrder,
-            'sortBy': listAiDataPlatformCatalogsRequest.sortBy,
+            'displayName': listCatalogsRequest.displayName,
+            'catalogState': listCatalogsRequest.catalogState,
+            'catalogType': listCatalogsRequest.catalogType,
+            'limit': listCatalogsRequest.limit,
+            'page': listCatalogsRequest.page,
+            'sortOrder': listCatalogsRequest.sortOrder,
+            'sortBy': listCatalogsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformCatalogsRequest.opcRequestId,
+        'opc-request-id': listCatalogsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformCatalogsRequest.retryConfiguration,
+            listCatalogsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1908,7 +1908,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformCatalogsResponse>{},
+            responseObject: <responses.ListCatalogsResponse>{},
                 body: await response.json(),
                 bodyKey: "catalogCollection",
                 bodyModel:  model.CatalogCollection,
@@ -1937,19 +1937,19 @@ export class CatalogClient {
     /**
      * Update permission details for a catalog in an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformCatalogPermissionRequest
-     * @return ManageAiDataPlatformCatalogPermissionResponse
+     * @param ManageCatalogPermissionRequest
+     * @return ManageCatalogPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformCatalogPermission.ts.html |here} to see how to use ManageAiDataPlatformCatalogPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageCatalogPermission.ts.html |here} to see how to use ManageCatalogPermission API.
      */
-    public async manageAiDataPlatformCatalogPermission (manageAiDataPlatformCatalogPermissionRequest: requests.ManageAiDataPlatformCatalogPermissionRequest) : Promise<responses.ManageAiDataPlatformCatalogPermissionResponse> {
+    public async manageCatalogPermission (manageCatalogPermissionRequest: requests.ManageCatalogPermissionRequest) : Promise<responses.ManageCatalogPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#manageAiDataPlatformCatalogPermission.");
-        const operationName = "manageAiDataPlatformCatalogPermission";
+              this.logger.debug("Calling operation CatalogClient#manageCatalogPermission.");
+        const operationName = "manageCatalogPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformCatalogPermissionRequest.aiDataPlatformId,
-            "{catalogKey}": manageAiDataPlatformCatalogPermissionRequest.catalogKey,
+            "{aiDataPlatformId}": manageCatalogPermissionRequest.aiDataPlatformId,
+            "{catalogKey}": manageCatalogPermissionRequest.catalogKey,
         };
 
         const queryParams = { 
@@ -1957,13 +1957,13 @@ export class CatalogClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformCatalogPermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformCatalogPermissionRequest.opcRequestId,'should-update-recent': manageAiDataPlatformCatalogPermissionRequest.shouldUpdateRecent,
+        'if-match': manageCatalogPermissionRequest.ifMatch,'opc-request-id': manageCatalogPermissionRequest.opcRequestId,'should-update-recent': manageCatalogPermissionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformCatalogPermissionRequest.retryConfiguration,
+            manageCatalogPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -1972,7 +1972,7 @@ export class CatalogClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/catalogs/{catalogKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformCatalogPermissionRequest.manageCatalogPermissionDetails, "ManageCatalogPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageCatalogPermissionRequest.manageCatalogPermissionDetails, "ManageCatalogPermissionDetails"
                             , model.ManageCatalogPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -1982,7 +1982,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformCatalogPermissionResponse>{},
+            responseObject: <responses.ManageCatalogPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -2002,19 +2002,19 @@ export class CatalogClient {
     /**
      * Refresh a catalog in an AI Data Platform Workbench through a crawler.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RefreshAiDataPlatformCatalogRequest
-     * @return RefreshAiDataPlatformCatalogResponse
+     * @param RefreshCatalogRequest
+     * @return RefreshCatalogResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RefreshAiDataPlatformCatalog.ts.html |here} to see how to use RefreshAiDataPlatformCatalog API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RefreshCatalog.ts.html |here} to see how to use RefreshCatalog API.
      */
-    public async refreshAiDataPlatformCatalog (refreshAiDataPlatformCatalogRequest: requests.RefreshAiDataPlatformCatalogRequest) : Promise<responses.RefreshAiDataPlatformCatalogResponse> {
+    public async refreshCatalog (refreshCatalogRequest: requests.RefreshCatalogRequest) : Promise<responses.RefreshCatalogResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#refreshAiDataPlatformCatalog.");
-        const operationName = "refreshAiDataPlatformCatalog";
+              this.logger.debug("Calling operation CatalogClient#refreshCatalog.");
+        const operationName = "refreshCatalog";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": refreshAiDataPlatformCatalogRequest.aiDataPlatformId,
-            "{catalogKey}": refreshAiDataPlatformCatalogRequest.catalogKey,
+            "{aiDataPlatformId}": refreshCatalogRequest.aiDataPlatformId,
+            "{catalogKey}": refreshCatalogRequest.catalogKey,
         };
 
         const queryParams = { 
@@ -2022,13 +2022,13 @@ export class CatalogClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': refreshAiDataPlatformCatalogRequest.ifMatch,'opc-request-id': refreshAiDataPlatformCatalogRequest.opcRequestId,'should-update-recent': refreshAiDataPlatformCatalogRequest.shouldUpdateRecent,'opc-retry-token': refreshAiDataPlatformCatalogRequest.opcRetryToken,
+        'if-match': refreshCatalogRequest.ifMatch,'opc-request-id': refreshCatalogRequest.opcRequestId,'should-update-recent': refreshCatalogRequest.shouldUpdateRecent,'opc-retry-token': refreshCatalogRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            refreshAiDataPlatformCatalogRequest.retryConfiguration,
+            refreshCatalogRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2044,7 +2044,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RefreshAiDataPlatformCatalogResponse>{},
+            responseObject: <responses.RefreshCatalogResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -2069,19 +2069,19 @@ export class CatalogClient {
     /**
      * Update the details of an AI Data Platform Workbench catalog with the given information.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformCatalogRequest
-     * @return UpdateAiDataPlatformCatalogResponse
+     * @param UpdateCatalogRequest
+     * @return UpdateCatalogResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformCatalog.ts.html |here} to see how to use UpdateAiDataPlatformCatalog API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateCatalog.ts.html |here} to see how to use UpdateCatalog API.
      */
-    public async updateAiDataPlatformCatalog (updateAiDataPlatformCatalogRequest: requests.UpdateAiDataPlatformCatalogRequest) : Promise<responses.UpdateAiDataPlatformCatalogResponse> {
+    public async updateCatalog (updateCatalogRequest: requests.UpdateCatalogRequest) : Promise<responses.UpdateCatalogResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CatalogClient#updateAiDataPlatformCatalog.");
-        const operationName = "updateAiDataPlatformCatalog";
+              this.logger.debug("Calling operation CatalogClient#updateCatalog.");
+        const operationName = "updateCatalog";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformCatalogRequest.aiDataPlatformId,
-            "{catalogKey}": updateAiDataPlatformCatalogRequest.catalogKey,
+            "{aiDataPlatformId}": updateCatalogRequest.aiDataPlatformId,
+            "{catalogKey}": updateCatalogRequest.catalogKey,
         };
 
         const queryParams = { 
@@ -2089,13 +2089,13 @@ export class CatalogClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': updateAiDataPlatformCatalogRequest.shouldUpdateRecent,'if-match': updateAiDataPlatformCatalogRequest.ifMatch,'opc-request-id': updateAiDataPlatformCatalogRequest.opcRequestId,
+        'should-update-recent': updateCatalogRequest.shouldUpdateRecent,'if-match': updateCatalogRequest.ifMatch,'opc-request-id': updateCatalogRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformCatalogRequest.retryConfiguration,
+            updateCatalogRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2104,7 +2104,7 @@ export class CatalogClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/catalogs/{catalogKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformCatalogRequest.updateCatalogDetails, "UpdateCatalogDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateCatalogRequest.updateCatalogDetails, "UpdateCatalogDetails"
                             , model.UpdateCatalogDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -2114,7 +2114,7 @@ export class CatalogClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformCatalogResponse>{},
+            responseObject: <responses.UpdateCatalogResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -2309,19 +2309,19 @@ export class ClusterClient {
     /**
      * Creates a new cluster with the provided details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformClusterRequest
-     * @return CreateAiDataPlatformClusterResponse
+     * @param CreateClusterRequest
+     * @return CreateClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformCluster.ts.html |here} to see how to use CreateAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateCluster.ts.html |here} to see how to use CreateCluster API.
      */
-    public async createAiDataPlatformCluster (createAiDataPlatformClusterRequest: requests.CreateAiDataPlatformClusterRequest) : Promise<responses.CreateAiDataPlatformClusterResponse> {
+    public async createCluster (createClusterRequest: requests.CreateClusterRequest) : Promise<responses.CreateClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#createAiDataPlatformCluster.");
-        const operationName = "createAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#createCluster.");
+        const operationName = "createCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformClusterRequest.workspaceKey,
+            "{aiDataPlatformId}": createClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": createClusterRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -2329,13 +2329,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformClusterRequest.opcRetryToken,'opc-request-id': createAiDataPlatformClusterRequest.opcRequestId,'should-update-recent': createAiDataPlatformClusterRequest.shouldUpdateRecent,
+        'opc-retry-token': createClusterRequest.opcRetryToken,'opc-request-id': createClusterRequest.opcRequestId,'should-update-recent': createClusterRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformClusterRequest.retryConfiguration,
+            createClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2344,7 +2344,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformClusterRequest.createClusterDetails, "CreateClusterDetails"
+            bodyContent: common.ObjectSerializer.serialize(createClusterRequest.createClusterDetails, "CreateClusterDetails"
                             , model.CreateClusterDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -2354,7 +2354,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformClusterResponse>{},
+            responseObject: <responses.CreateClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "cluster",
                 bodyModel:  model.Cluster,
@@ -2388,20 +2388,20 @@ export class ClusterClient {
     /**
      * Deletes a cluster from a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformClusterRequest
-     * @return DeleteAiDataPlatformClusterResponse
+     * @param DeleteClusterRequest
+     * @return DeleteClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformCluster.ts.html |here} to see how to use DeleteAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteCluster.ts.html |here} to see how to use DeleteCluster API.
      */
-    public async deleteAiDataPlatformCluster (deleteAiDataPlatformClusterRequest: requests.DeleteAiDataPlatformClusterRequest) : Promise<responses.DeleteAiDataPlatformClusterResponse> {
+    public async deleteCluster (deleteClusterRequest: requests.DeleteClusterRequest) : Promise<responses.DeleteClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#deleteAiDataPlatformCluster.");
-        const operationName = "deleteAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#deleteCluster.");
+        const operationName = "deleteCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformClusterRequest.workspaceKey,
-            "{clusterKey}": deleteAiDataPlatformClusterRequest.clusterKey,
+            "{aiDataPlatformId}": deleteClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteClusterRequest.workspaceKey,
+            "{clusterKey}": deleteClusterRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -2409,13 +2409,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformClusterRequest.ifMatch,'opc-request-id': deleteAiDataPlatformClusterRequest.opcRequestId,
+        'if-match': deleteClusterRequest.ifMatch,'opc-request-id': deleteClusterRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformClusterRequest.retryConfiguration,
+            deleteClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2431,7 +2431,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformClusterResponse>{},
+            responseObject: <responses.DeleteClusterResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -2459,20 +2459,20 @@ export class ClusterClient {
 * and other parameters such as execution context and thread identifiers.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DownloadAiDataPlatformClusterLogsRequest
-     * @return DownloadAiDataPlatformClusterLogsResponse
+     * @param DownloadClusterLogsRequest
+     * @return DownloadClusterLogsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadAiDataPlatformClusterLogs.ts.html |here} to see how to use DownloadAiDataPlatformClusterLogs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadClusterLogs.ts.html |here} to see how to use DownloadClusterLogs API.
      */
-    public async downloadAiDataPlatformClusterLogs (downloadAiDataPlatformClusterLogsRequest: requests.DownloadAiDataPlatformClusterLogsRequest) : Promise<responses.DownloadAiDataPlatformClusterLogsResponse> {
+    public async downloadClusterLogs (downloadClusterLogsRequest: requests.DownloadClusterLogsRequest) : Promise<responses.DownloadClusterLogsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#downloadAiDataPlatformClusterLogs.");
-        const operationName = "downloadAiDataPlatformClusterLogs";
+              this.logger.debug("Calling operation ClusterClient#downloadClusterLogs.");
+        const operationName = "downloadClusterLogs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": downloadAiDataPlatformClusterLogsRequest.aiDataPlatformId,
-            "{workspaceKey}": downloadAiDataPlatformClusterLogsRequest.workspaceKey,
-            "{clusterKey}": downloadAiDataPlatformClusterLogsRequest.clusterKey,
+            "{aiDataPlatformId}": downloadClusterLogsRequest.aiDataPlatformId,
+            "{workspaceKey}": downloadClusterLogsRequest.workspaceKey,
+            "{clusterKey}": downloadClusterLogsRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -2480,13 +2480,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': downloadAiDataPlatformClusterLogsRequest.opcRequestId,'opc-retry-token': downloadAiDataPlatformClusterLogsRequest.opcRetryToken,
+        'opc-request-id': downloadClusterLogsRequest.opcRequestId,'opc-retry-token': downloadClusterLogsRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            downloadAiDataPlatformClusterLogsRequest.retryConfiguration,
+            downloadClusterLogsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2495,7 +2495,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/downloadLogs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(downloadAiDataPlatformClusterLogsRequest.downloadClusterLogsDetails, "DownloadClusterLogsDetails"
+            bodyContent: common.ObjectSerializer.serialize(downloadClusterLogsRequest.downloadClusterLogsDetails, "DownloadClusterLogsDetails"
                             , model.DownloadClusterLogsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -2505,7 +2505,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DownloadAiDataPlatformClusterLogsResponse>{},
+            responseObject: <responses.DownloadClusterLogsResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -2535,20 +2535,20 @@ export class ClusterClient {
     /**
      * Returns detailed information about a cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformClusterRequest
-     * @return GetAiDataPlatformClusterResponse
+     * @param GetClusterRequest
+     * @return GetClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformCluster.ts.html |here} to see how to use GetAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetCluster.ts.html |here} to see how to use GetCluster API.
      */
-    public async getAiDataPlatformCluster (getAiDataPlatformClusterRequest: requests.GetAiDataPlatformClusterRequest) : Promise<responses.GetAiDataPlatformClusterResponse> {
+    public async getCluster (getClusterRequest: requests.GetClusterRequest) : Promise<responses.GetClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#getAiDataPlatformCluster.");
-        const operationName = "getAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#getCluster.");
+        const operationName = "getCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformClusterRequest.workspaceKey,
-            "{clusterKey}": getAiDataPlatformClusterRequest.clusterKey,
+            "{aiDataPlatformId}": getClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": getClusterRequest.workspaceKey,
+            "{clusterKey}": getClusterRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -2556,13 +2556,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformClusterRequest.opcRequestId,'should-update-recent': getAiDataPlatformClusterRequest.shouldUpdateRecent,
+        'opc-request-id': getClusterRequest.opcRequestId,'should-update-recent': getClusterRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformClusterRequest.retryConfiguration,
+            getClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2578,7 +2578,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformClusterResponse>{},
+            responseObject: <responses.GetClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "cluster",
                 bodyModel:  model.Cluster,
@@ -2607,18 +2607,18 @@ export class ClusterClient {
     /**
      * Gets information about the master catalog default cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformDefaultClusterRequest
-     * @return GetAiDataPlatformDefaultClusterResponse
+     * @param GetDefaultClusterRequest
+     * @return GetDefaultClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformDefaultCluster.ts.html |here} to see how to use GetAiDataPlatformDefaultCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetDefaultCluster.ts.html |here} to see how to use GetDefaultCluster API.
      */
-    public async getAiDataPlatformDefaultCluster (getAiDataPlatformDefaultClusterRequest: requests.GetAiDataPlatformDefaultClusterRequest) : Promise<responses.GetAiDataPlatformDefaultClusterResponse> {
+    public async getDefaultCluster (getDefaultClusterRequest: requests.GetDefaultClusterRequest) : Promise<responses.GetDefaultClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#getAiDataPlatformDefaultCluster.");
-        const operationName = "getAiDataPlatformDefaultCluster";
+              this.logger.debug("Calling operation ClusterClient#getDefaultCluster.");
+        const operationName = "getDefaultCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformDefaultClusterRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": getDefaultClusterRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -2626,13 +2626,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformDefaultClusterRequest.opcRequestId,
+        'opc-request-id': getDefaultClusterRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformDefaultClusterRequest.retryConfiguration,
+            getDefaultClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2648,7 +2648,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformDefaultClusterResponse>{},
+            responseObject: <responses.GetDefaultClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "defaultCluster",
                 bodyModel:  model.DefaultCluster,
@@ -2677,39 +2677,39 @@ export class ClusterClient {
     /**
      * Gets a list of libraries installed on a cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformClusterLibrariesRequest
-     * @return ListAiDataPlatformClusterLibrariesResponse
+     * @param ListClusterLibrariesRequest
+     * @return ListClusterLibrariesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformClusterLibraries.ts.html |here} to see how to use ListAiDataPlatformClusterLibraries API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListClusterLibraries.ts.html |here} to see how to use ListClusterLibraries API.
      */
-    public async listAiDataPlatformClusterLibraries (listAiDataPlatformClusterLibrariesRequest: requests.ListAiDataPlatformClusterLibrariesRequest) : Promise<responses.ListAiDataPlatformClusterLibrariesResponse> {
+    public async listClusterLibraries (listClusterLibrariesRequest: requests.ListClusterLibrariesRequest) : Promise<responses.ListClusterLibrariesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#listAiDataPlatformClusterLibraries.");
-        const operationName = "listAiDataPlatformClusterLibraries";
+              this.logger.debug("Calling operation ClusterClient#listClusterLibraries.");
+        const operationName = "listClusterLibraries";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformClusterLibrariesRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformClusterLibrariesRequest.workspaceKey,
-            "{clusterKey}": listAiDataPlatformClusterLibrariesRequest.clusterKey,
+            "{aiDataPlatformId}": listClusterLibrariesRequest.aiDataPlatformId,
+            "{workspaceKey}": listClusterLibrariesRequest.workspaceKey,
+            "{clusterKey}": listClusterLibrariesRequest.clusterKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformClusterLibrariesRequest.displayName,
-            'limit': listAiDataPlatformClusterLibrariesRequest.limit,
-            'page': listAiDataPlatformClusterLibrariesRequest.page,
-            'sortOrder': listAiDataPlatformClusterLibrariesRequest.sortOrder,
-            'sortBy': listAiDataPlatformClusterLibrariesRequest.sortBy,
+            'displayName': listClusterLibrariesRequest.displayName,
+            'limit': listClusterLibrariesRequest.limit,
+            'page': listClusterLibrariesRequest.page,
+            'sortOrder': listClusterLibrariesRequest.sortOrder,
+            'sortBy': listClusterLibrariesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformClusterLibrariesRequest.opcRequestId,
+        'opc-request-id': listClusterLibrariesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformClusterLibrariesRequest.retryConfiguration,
+            listClusterLibrariesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2725,7 +2725,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformClusterLibrariesResponse>{},
+            responseObject: <responses.ListClusterLibrariesResponse>{},
                 body: await response.json(),
                 bodyKey: "clusterLibraryCollection",
                 bodyModel:  model.ClusterLibraryCollection,
@@ -2764,39 +2764,39 @@ export class ClusterClient {
     /**
      * Return a list of permissions for a given cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformClusterPermissionsRequest
-     * @return ListAiDataPlatformClusterPermissionsResponse
+     * @param ListClusterPermissionsRequest
+     * @return ListClusterPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformClusterPermissions.ts.html |here} to see how to use ListAiDataPlatformClusterPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListClusterPermissions.ts.html |here} to see how to use ListClusterPermissions API.
      */
-    public async listAiDataPlatformClusterPermissions (listAiDataPlatformClusterPermissionsRequest: requests.ListAiDataPlatformClusterPermissionsRequest) : Promise<responses.ListAiDataPlatformClusterPermissionsResponse> {
+    public async listClusterPermissions (listClusterPermissionsRequest: requests.ListClusterPermissionsRequest) : Promise<responses.ListClusterPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#listAiDataPlatformClusterPermissions.");
-        const operationName = "listAiDataPlatformClusterPermissions";
+              this.logger.debug("Calling operation ClusterClient#listClusterPermissions.");
+        const operationName = "listClusterPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformClusterPermissionsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformClusterPermissionsRequest.workspaceKey,
-            "{clusterKey}": listAiDataPlatformClusterPermissionsRequest.clusterKey,
+            "{aiDataPlatformId}": listClusterPermissionsRequest.aiDataPlatformId,
+            "{workspaceKey}": listClusterPermissionsRequest.workspaceKey,
+            "{clusterKey}": listClusterPermissionsRequest.clusterKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformClusterPermissionsRequest.displayName,
-            'limit': listAiDataPlatformClusterPermissionsRequest.limit,
-            'page': listAiDataPlatformClusterPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformClusterPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformClusterPermissionsRequest.sortBy,
+            'displayName': listClusterPermissionsRequest.displayName,
+            'limit': listClusterPermissionsRequest.limit,
+            'page': listClusterPermissionsRequest.page,
+            'sortOrder': listClusterPermissionsRequest.sortOrder,
+            'sortBy': listClusterPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformClusterPermissionsRequest.opcRequestId,
+        'opc-request-id': listClusterPermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformClusterPermissionsRequest.retryConfiguration,
+            listClusterPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2812,7 +2812,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformClusterPermissionsResponse>{},
+            responseObject: <responses.ListClusterPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "clusterPermissionCollection",
                 bodyModel:  model.ClusterPermissionCollection,
@@ -2841,41 +2841,41 @@ export class ClusterClient {
     /**
      * Returns a list of all clusters in a given workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformClustersRequest
-     * @return ListAiDataPlatformClustersResponse
+     * @param ListClustersRequest
+     * @return ListClustersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformClusters.ts.html |here} to see how to use ListAiDataPlatformClusters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListClusters.ts.html |here} to see how to use ListClusters API.
      */
-    public async listAiDataPlatformClusters (listAiDataPlatformClustersRequest: requests.ListAiDataPlatformClustersRequest) : Promise<responses.ListAiDataPlatformClustersResponse> {
+    public async listClusters (listClustersRequest: requests.ListClustersRequest) : Promise<responses.ListClustersResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#listAiDataPlatformClusters.");
-        const operationName = "listAiDataPlatformClusters";
+              this.logger.debug("Calling operation ClusterClient#listClusters.");
+        const operationName = "listClusters";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformClustersRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformClustersRequest.workspaceKey,
+            "{aiDataPlatformId}": listClustersRequest.aiDataPlatformId,
+            "{workspaceKey}": listClustersRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'state': listAiDataPlatformClustersRequest.state,
-            'displayName': listAiDataPlatformClustersRequest.displayName,
-            'displayNameContains': listAiDataPlatformClustersRequest.displayNameContains,
-            'type': listAiDataPlatformClustersRequest.type,
-            'limit': listAiDataPlatformClustersRequest.limit,
-            'page': listAiDataPlatformClustersRequest.page,
-            'sortOrder': listAiDataPlatformClustersRequest.sortOrder,
-            'sortBy': listAiDataPlatformClustersRequest.sortBy,
+            'state': listClustersRequest.state,
+            'displayName': listClustersRequest.displayName,
+            'displayNameContains': listClustersRequest.displayNameContains,
+            'type': listClustersRequest.type,
+            'limit': listClustersRequest.limit,
+            'page': listClustersRequest.page,
+            'sortOrder': listClustersRequest.sortOrder,
+            'sortBy': listClustersRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformClustersRequest.opcRequestId,
+        'opc-request-id': listClustersRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformClustersRequest.retryConfiguration,
+            listClustersRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2891,7 +2891,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformClustersResponse>{},
+            responseObject: <responses.ListClustersResponse>{},
                 body: await response.json(),
                 bodyKey: "clusterCollection",
                 bodyModel:  model.ClusterCollection,
@@ -2920,20 +2920,20 @@ export class ClusterClient {
     /**
      * Updates the permissions for a given cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformClusterPermissionRequest
-     * @return ManageAiDataPlatformClusterPermissionResponse
+     * @param ManageClusterPermissionRequest
+     * @return ManageClusterPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformClusterPermission.ts.html |here} to see how to use ManageAiDataPlatformClusterPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageClusterPermission.ts.html |here} to see how to use ManageClusterPermission API.
      */
-    public async manageAiDataPlatformClusterPermission (manageAiDataPlatformClusterPermissionRequest: requests.ManageAiDataPlatformClusterPermissionRequest) : Promise<responses.ManageAiDataPlatformClusterPermissionResponse> {
+    public async manageClusterPermission (manageClusterPermissionRequest: requests.ManageClusterPermissionRequest) : Promise<responses.ManageClusterPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#manageAiDataPlatformClusterPermission.");
-        const operationName = "manageAiDataPlatformClusterPermission";
+              this.logger.debug("Calling operation ClusterClient#manageClusterPermission.");
+        const operationName = "manageClusterPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformClusterPermissionRequest.aiDataPlatformId,
-            "{workspaceKey}": manageAiDataPlatformClusterPermissionRequest.workspaceKey,
-            "{clusterKey}": manageAiDataPlatformClusterPermissionRequest.clusterKey,
+            "{aiDataPlatformId}": manageClusterPermissionRequest.aiDataPlatformId,
+            "{workspaceKey}": manageClusterPermissionRequest.workspaceKey,
+            "{clusterKey}": manageClusterPermissionRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -2941,13 +2941,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformClusterPermissionRequest.ifMatch,'opc-retry-token': manageAiDataPlatformClusterPermissionRequest.opcRetryToken,'opc-request-id': manageAiDataPlatformClusterPermissionRequest.opcRequestId,
+        'if-match': manageClusterPermissionRequest.ifMatch,'opc-retry-token': manageClusterPermissionRequest.opcRetryToken,'opc-request-id': manageClusterPermissionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformClusterPermissionRequest.retryConfiguration,
+            manageClusterPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -2956,7 +2956,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformClusterPermissionRequest.manageClusterPermissionDetails, "ManageClusterPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageClusterPermissionRequest.manageClusterPermissionDetails, "ManageClusterPermissionDetails"
                             , model.ManageClusterPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -2966,7 +2966,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformClusterPermissionResponse>{},
+            responseObject: <responses.ManageClusterPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -2986,20 +2986,20 @@ export class ClusterClient {
     /**
      * Updates libraries of a cluster with the provided patches.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param PatchAiDataPlatformClusterLibraryRequest
-     * @return PatchAiDataPlatformClusterLibraryResponse
+     * @param PatchClusterLibraryRequest
+     * @return PatchClusterLibraryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PatchAiDataPlatformClusterLibrary.ts.html |here} to see how to use PatchAiDataPlatformClusterLibrary API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PatchClusterLibrary.ts.html |here} to see how to use PatchClusterLibrary API.
      */
-    public async patchAiDataPlatformClusterLibrary (patchAiDataPlatformClusterLibraryRequest: requests.PatchAiDataPlatformClusterLibraryRequest) : Promise<responses.PatchAiDataPlatformClusterLibraryResponse> {
+    public async patchClusterLibrary (patchClusterLibraryRequest: requests.PatchClusterLibraryRequest) : Promise<responses.PatchClusterLibraryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#patchAiDataPlatformClusterLibrary.");
-        const operationName = "patchAiDataPlatformClusterLibrary";
+              this.logger.debug("Calling operation ClusterClient#patchClusterLibrary.");
+        const operationName = "patchClusterLibrary";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": patchAiDataPlatformClusterLibraryRequest.aiDataPlatformId,
-            "{workspaceKey}": patchAiDataPlatformClusterLibraryRequest.workspaceKey,
-            "{clusterKey}": patchAiDataPlatformClusterLibraryRequest.clusterKey,
+            "{aiDataPlatformId}": patchClusterLibraryRequest.aiDataPlatformId,
+            "{workspaceKey}": patchClusterLibraryRequest.workspaceKey,
+            "{clusterKey}": patchClusterLibraryRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -3007,13 +3007,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': patchAiDataPlatformClusterLibraryRequest.ifMatch,'opc-request-id': patchAiDataPlatformClusterLibraryRequest.opcRequestId,
+        'if-match': patchClusterLibraryRequest.ifMatch,'opc-request-id': patchClusterLibraryRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            patchAiDataPlatformClusterLibraryRequest.retryConfiguration,
+            patchClusterLibraryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3022,7 +3022,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/libraries',
             method: 'PATCH',
-            bodyContent: common.ObjectSerializer.serialize(patchAiDataPlatformClusterLibraryRequest.patchClusterLibraryDetails, "PatchClusterLibraryDetails"
+            bodyContent: common.ObjectSerializer.serialize(patchClusterLibraryRequest.patchClusterLibraryDetails, "PatchClusterLibraryDetails"
                             , model.PatchClusterLibraryDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3032,7 +3032,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.PatchAiDataPlatformClusterLibraryResponse>{},
+            responseObject: <responses.PatchClusterLibraryResponse>{},
                 body: await response.json(),
                 bodyKey: "clusterLibraryCollection",
                 bodyModel:  model.ClusterLibraryCollection,
@@ -3066,20 +3066,20 @@ export class ClusterClient {
     /**
      * Restarts a running cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RestartAiDataPlatformClusterRequest
-     * @return RestartAiDataPlatformClusterResponse
+     * @param RestartClusterRequest
+     * @return RestartClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RestartAiDataPlatformCluster.ts.html |here} to see how to use RestartAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RestartCluster.ts.html |here} to see how to use RestartCluster API.
      */
-    public async restartAiDataPlatformCluster (restartAiDataPlatformClusterRequest: requests.RestartAiDataPlatformClusterRequest) : Promise<responses.RestartAiDataPlatformClusterResponse> {
+    public async restartCluster (restartClusterRequest: requests.RestartClusterRequest) : Promise<responses.RestartClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#restartAiDataPlatformCluster.");
-        const operationName = "restartAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#restartCluster.");
+        const operationName = "restartCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": restartAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": restartAiDataPlatformClusterRequest.workspaceKey,
-            "{clusterKey}": restartAiDataPlatformClusterRequest.clusterKey,
+            "{aiDataPlatformId}": restartClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": restartClusterRequest.workspaceKey,
+            "{clusterKey}": restartClusterRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -3087,13 +3087,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': restartAiDataPlatformClusterRequest.ifMatch,'opc-retry-token': restartAiDataPlatformClusterRequest.opcRetryToken,'opc-request-id': restartAiDataPlatformClusterRequest.opcRequestId,
+        'if-match': restartClusterRequest.ifMatch,'opc-retry-token': restartClusterRequest.opcRetryToken,'opc-request-id': restartClusterRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            restartAiDataPlatformClusterRequest.retryConfiguration,
+            restartClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3102,7 +3102,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/restart',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(restartAiDataPlatformClusterRequest.restartClusterDetails, "RestartClusterDetails"
+            bodyContent: common.ObjectSerializer.serialize(restartClusterRequest.restartClusterDetails, "RestartClusterDetails"
                             , model.RestartClusterDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3112,7 +3112,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RestartAiDataPlatformClusterResponse>{},
+            responseObject: <responses.RestartClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "cluster",
                 bodyModel:  model.Cluster,
@@ -3147,36 +3147,36 @@ export class ClusterClient {
      * Searches logs within the specified cluster and time range. Supports pagination and filtering.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SearchAiDataPlatformClusterLogsRequest
-     * @return SearchAiDataPlatformClusterLogsResponse
+     * @param SearchClusterLogsRequest
+     * @return SearchClusterLogsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchAiDataPlatformClusterLogs.ts.html |here} to see how to use SearchAiDataPlatformClusterLogs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchClusterLogs.ts.html |here} to see how to use SearchClusterLogs API.
      */
-    public async searchAiDataPlatformClusterLogs (searchAiDataPlatformClusterLogsRequest: requests.SearchAiDataPlatformClusterLogsRequest) : Promise<responses.SearchAiDataPlatformClusterLogsResponse> {
+    public async searchClusterLogs (searchClusterLogsRequest: requests.SearchClusterLogsRequest) : Promise<responses.SearchClusterLogsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#searchAiDataPlatformClusterLogs.");
-        const operationName = "searchAiDataPlatformClusterLogs";
+              this.logger.debug("Calling operation ClusterClient#searchClusterLogs.");
+        const operationName = "searchClusterLogs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": searchAiDataPlatformClusterLogsRequest.aiDataPlatformId,
-            "{workspaceKey}": searchAiDataPlatformClusterLogsRequest.workspaceKey,
-            "{clusterKey}": searchAiDataPlatformClusterLogsRequest.clusterKey,
+            "{aiDataPlatformId}": searchClusterLogsRequest.aiDataPlatformId,
+            "{workspaceKey}": searchClusterLogsRequest.workspaceKey,
+            "{clusterKey}": searchClusterLogsRequest.clusterKey,
         };
 
         const queryParams = { 
-            'limit': searchAiDataPlatformClusterLogsRequest.limit,
-            'page': searchAiDataPlatformClusterLogsRequest.page,
+            'limit': searchClusterLogsRequest.limit,
+            'page': searchClusterLogsRequest.page,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': searchAiDataPlatformClusterLogsRequest.opcRequestId,'opc-retry-token': searchAiDataPlatformClusterLogsRequest.opcRetryToken,'if-match': searchAiDataPlatformClusterLogsRequest.ifMatch,
+        'opc-request-id': searchClusterLogsRequest.opcRequestId,'opc-retry-token': searchClusterLogsRequest.opcRetryToken,'if-match': searchClusterLogsRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            searchAiDataPlatformClusterLogsRequest.retryConfiguration,
+            searchClusterLogsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3185,7 +3185,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/searchLogs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(searchAiDataPlatformClusterLogsRequest.searchClusterLogsDetails, "SearchClusterLogsDetails"
+            bodyContent: common.ObjectSerializer.serialize(searchClusterLogsRequest.searchClusterLogsDetails, "SearchClusterLogsDetails"
                             , model.SearchClusterLogsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3195,7 +3195,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SearchAiDataPlatformClusterLogsResponse>{},
+            responseObject: <responses.SearchClusterLogsResponse>{},
                 body: await response.json(),
                 bodyKey: "clusterLogCollection",
                 bodyModel:  model.ClusterLogCollection,
@@ -3224,20 +3224,20 @@ export class ClusterClient {
     /**
      * Starts a cluster that has halted operation.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param StartAiDataPlatformClusterRequest
-     * @return StartAiDataPlatformClusterResponse
+     * @param StartClusterRequest
+     * @return StartClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/StartAiDataPlatformCluster.ts.html |here} to see how to use StartAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/StartCluster.ts.html |here} to see how to use StartCluster API.
      */
-    public async startAiDataPlatformCluster (startAiDataPlatformClusterRequest: requests.StartAiDataPlatformClusterRequest) : Promise<responses.StartAiDataPlatformClusterResponse> {
+    public async startCluster (startClusterRequest: requests.StartClusterRequest) : Promise<responses.StartClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#startAiDataPlatformCluster.");
-        const operationName = "startAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#startCluster.");
+        const operationName = "startCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": startAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": startAiDataPlatformClusterRequest.workspaceKey,
-            "{clusterKey}": startAiDataPlatformClusterRequest.clusterKey,
+            "{aiDataPlatformId}": startClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": startClusterRequest.workspaceKey,
+            "{clusterKey}": startClusterRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -3245,13 +3245,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': startAiDataPlatformClusterRequest.ifMatch,'opc-retry-token': startAiDataPlatformClusterRequest.opcRetryToken,'opc-request-id': startAiDataPlatformClusterRequest.opcRequestId,
+        'if-match': startClusterRequest.ifMatch,'opc-retry-token': startClusterRequest.opcRetryToken,'opc-request-id': startClusterRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            startAiDataPlatformClusterRequest.retryConfiguration,
+            startClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3260,7 +3260,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/start',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(startAiDataPlatformClusterRequest.startClusterDetails, "StartClusterDetails"
+            bodyContent: common.ObjectSerializer.serialize(startClusterRequest.startClusterDetails, "StartClusterDetails"
                             , model.StartClusterDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3270,7 +3270,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.StartAiDataPlatformClusterResponse>{},
+            responseObject: <responses.StartClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "cluster",
                 bodyModel:  model.Cluster,
@@ -3304,20 +3304,20 @@ export class ClusterClient {
     /**
      * Stops an active cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param StopAiDataPlatformClusterRequest
-     * @return StopAiDataPlatformClusterResponse
+     * @param StopClusterRequest
+     * @return StopClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/StopAiDataPlatformCluster.ts.html |here} to see how to use StopAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/StopCluster.ts.html |here} to see how to use StopCluster API.
      */
-    public async stopAiDataPlatformCluster (stopAiDataPlatformClusterRequest: requests.StopAiDataPlatformClusterRequest) : Promise<responses.StopAiDataPlatformClusterResponse> {
+    public async stopCluster (stopClusterRequest: requests.StopClusterRequest) : Promise<responses.StopClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#stopAiDataPlatformCluster.");
-        const operationName = "stopAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#stopCluster.");
+        const operationName = "stopCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": stopAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": stopAiDataPlatformClusterRequest.workspaceKey,
-            "{clusterKey}": stopAiDataPlatformClusterRequest.clusterKey,
+            "{aiDataPlatformId}": stopClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": stopClusterRequest.workspaceKey,
+            "{clusterKey}": stopClusterRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -3325,13 +3325,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': stopAiDataPlatformClusterRequest.ifMatch,'opc-retry-token': stopAiDataPlatformClusterRequest.opcRetryToken,'opc-request-id': stopAiDataPlatformClusterRequest.opcRequestId,
+        'if-match': stopClusterRequest.ifMatch,'opc-retry-token': stopClusterRequest.opcRetryToken,'opc-request-id': stopClusterRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            stopAiDataPlatformClusterRequest.retryConfiguration,
+            stopClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3340,7 +3340,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/stop',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(stopAiDataPlatformClusterRequest.stopClusterDetails, "StopClusterDetails"
+            bodyContent: common.ObjectSerializer.serialize(stopClusterRequest.stopClusterDetails, "StopClusterDetails"
                             , model.StopClusterDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3350,7 +3350,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.StopAiDataPlatformClusterResponse>{},
+            responseObject: <responses.StopClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "cluster",
                 bodyModel:  model.Cluster,
@@ -3387,20 +3387,20 @@ export class ClusterClient {
 * and aggregation type. The response contains computed metric summaries.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SummarizeAiDataPlatformMetricsDataRequest
-     * @return SummarizeAiDataPlatformMetricsDataResponse
+     * @param SummarizeMetricsDataRequest
+     * @return SummarizeMetricsDataResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SummarizeAiDataPlatformMetricsData.ts.html |here} to see how to use SummarizeAiDataPlatformMetricsData API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SummarizeMetricsData.ts.html |here} to see how to use SummarizeMetricsData API.
      */
-    public async summarizeAiDataPlatformMetricsData (summarizeAiDataPlatformMetricsDataRequest: requests.SummarizeAiDataPlatformMetricsDataRequest) : Promise<responses.SummarizeAiDataPlatformMetricsDataResponse> {
+    public async summarizeMetricsData (summarizeMetricsDataRequest: requests.SummarizeMetricsDataRequest) : Promise<responses.SummarizeMetricsDataResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#summarizeAiDataPlatformMetricsData.");
-        const operationName = "summarizeAiDataPlatformMetricsData";
+              this.logger.debug("Calling operation ClusterClient#summarizeMetricsData.");
+        const operationName = "summarizeMetricsData";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": summarizeAiDataPlatformMetricsDataRequest.aiDataPlatformId,
-            "{workspaceKey}": summarizeAiDataPlatformMetricsDataRequest.workspaceKey,
-            "{clusterKey}": summarizeAiDataPlatformMetricsDataRequest.clusterKey,
+            "{aiDataPlatformId}": summarizeMetricsDataRequest.aiDataPlatformId,
+            "{workspaceKey}": summarizeMetricsDataRequest.workspaceKey,
+            "{clusterKey}": summarizeMetricsDataRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -3408,13 +3408,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': summarizeAiDataPlatformMetricsDataRequest.opcRequestId,'opc-retry-token': summarizeAiDataPlatformMetricsDataRequest.opcRetryToken,'if-match': summarizeAiDataPlatformMetricsDataRequest.ifMatch,
+        'opc-request-id': summarizeMetricsDataRequest.opcRequestId,'opc-retry-token': summarizeMetricsDataRequest.opcRetryToken,'if-match': summarizeMetricsDataRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            summarizeAiDataPlatformMetricsDataRequest.retryConfiguration,
+            summarizeMetricsDataRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3423,7 +3423,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/summarizeMetricsData',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(summarizeAiDataPlatformMetricsDataRequest.summarizeMetricsDataDetails, "SummarizeMetricsDataDetails"
+            bodyContent: common.ObjectSerializer.serialize(summarizeMetricsDataRequest.summarizeMetricsDataDetails, "SummarizeMetricsDataDetails"
                             , model.SummarizeMetricsDataDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3433,7 +3433,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SummarizeAiDataPlatformMetricsDataResponse>{},
+            responseObject: <responses.SummarizeMetricsDataResponse>{},
                 body: await response.json(),
                 bodyKey: "summarizeMetricsResponse",
                 bodyModel:  model.SummarizeMetricsResponse,
@@ -3462,20 +3462,20 @@ export class ClusterClient {
     /**
      * Update the details of a given cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformClusterRequest
-     * @return UpdateAiDataPlatformClusterResponse
+     * @param UpdateClusterRequest
+     * @return UpdateClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformCluster.ts.html |here} to see how to use UpdateAiDataPlatformCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateCluster.ts.html |here} to see how to use UpdateCluster API.
      */
-    public async updateAiDataPlatformCluster (updateAiDataPlatformClusterRequest: requests.UpdateAiDataPlatformClusterRequest) : Promise<responses.UpdateAiDataPlatformClusterResponse> {
+    public async updateCluster (updateClusterRequest: requests.UpdateClusterRequest) : Promise<responses.UpdateClusterResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation ClusterClient#updateAiDataPlatformCluster.");
-        const operationName = "updateAiDataPlatformCluster";
+              this.logger.debug("Calling operation ClusterClient#updateCluster.");
+        const operationName = "updateCluster";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformClusterRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformClusterRequest.workspaceKey,
-            "{clusterKey}": updateAiDataPlatformClusterRequest.clusterKey,
+            "{aiDataPlatformId}": updateClusterRequest.aiDataPlatformId,
+            "{workspaceKey}": updateClusterRequest.workspaceKey,
+            "{clusterKey}": updateClusterRequest.clusterKey,
         };
 
         const queryParams = { 
@@ -3483,13 +3483,13 @@ export class ClusterClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformClusterRequest.ifMatch,'opc-request-id': updateAiDataPlatformClusterRequest.opcRequestId,'should-update-recent': updateAiDataPlatformClusterRequest.shouldUpdateRecent,
+        'if-match': updateClusterRequest.ifMatch,'opc-request-id': updateClusterRequest.opcRequestId,'should-update-recent': updateClusterRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformClusterRequest.retryConfiguration,
+            updateClusterRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3498,7 +3498,7 @@ export class ClusterClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformClusterRequest.updateClusterDetails, "UpdateClusterDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateClusterRequest.updateClusterDetails, "UpdateClusterDetails"
                             , model.UpdateClusterDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3508,7 +3508,7 @@ export class ClusterClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformClusterResponse>{},
+            responseObject: <responses.UpdateClusterResponse>{},
                 body: await response.json(),
                 bodyKey: "cluster",
                 bodyModel:  model.Cluster,
@@ -3712,18 +3712,18 @@ export class CredentialsClient {
     /**
      * Creates a new credential object with the provided details. The operation completes synchronously; callers can invoke list or get to retrieve the resource payload.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformCredentialRequest
-     * @return CreateAiDataPlatformCredentialResponse
+     * @param CreateCredentialRequest
+     * @return CreateCredentialResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformCredential.ts.html |here} to see how to use CreateAiDataPlatformCredential API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateCredential.ts.html |here} to see how to use CreateCredential API.
      */
-    public async createAiDataPlatformCredential (createAiDataPlatformCredentialRequest: requests.CreateAiDataPlatformCredentialRequest) : Promise<responses.CreateAiDataPlatformCredentialResponse> {
+    public async createCredential (createCredentialRequest: requests.CreateCredentialRequest) : Promise<responses.CreateCredentialResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CredentialsClient#createAiDataPlatformCredential.");
-        const operationName = "createAiDataPlatformCredential";
+              this.logger.debug("Calling operation CredentialsClient#createCredential.");
+        const operationName = "createCredential";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformCredentialRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createCredentialRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -3731,13 +3731,13 @@ export class CredentialsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformCredentialRequest.opcRetryToken,'opc-request-id': createAiDataPlatformCredentialRequest.opcRequestId,'should-update-recent': createAiDataPlatformCredentialRequest.shouldUpdateRecent,
+        'opc-retry-token': createCredentialRequest.opcRetryToken,'opc-request-id': createCredentialRequest.opcRequestId,'should-update-recent': createCredentialRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformCredentialRequest.retryConfiguration,
+            createCredentialRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3746,7 +3746,7 @@ export class CredentialsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/credentials',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformCredentialRequest.createDataLakeCredentialDetails, "CreateDataLakeCredentialDetails"
+            bodyContent: common.ObjectSerializer.serialize(createCredentialRequest.createDataLakeCredentialDetails, "CreateDataLakeCredentialDetails"
                             , model.CreateDataLakeCredentialDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -3756,7 +3756,7 @@ export class CredentialsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformCredentialResponse>{},
+            responseObject: <responses.CreateCredentialResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -3776,19 +3776,19 @@ export class CredentialsClient {
     /**
      * Deletes a credential object. The operation completes synchronously without a response body.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformCredentialRequest
-     * @return DeleteAiDataPlatformCredentialResponse
+     * @param DeleteCredentialRequest
+     * @return DeleteCredentialResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformCredential.ts.html |here} to see how to use DeleteAiDataPlatformCredential API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteCredential.ts.html |here} to see how to use DeleteCredential API.
      */
-    public async deleteAiDataPlatformCredential (deleteAiDataPlatformCredentialRequest: requests.DeleteAiDataPlatformCredentialRequest) : Promise<responses.DeleteAiDataPlatformCredentialResponse> {
+    public async deleteCredential (deleteCredentialRequest: requests.DeleteCredentialRequest) : Promise<responses.DeleteCredentialResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CredentialsClient#deleteAiDataPlatformCredential.");
-        const operationName = "deleteAiDataPlatformCredential";
+              this.logger.debug("Calling operation CredentialsClient#deleteCredential.");
+        const operationName = "deleteCredential";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformCredentialRequest.aiDataPlatformId,
-            "{credentialKey}": deleteAiDataPlatformCredentialRequest.credentialKey,
+            "{aiDataPlatformId}": deleteCredentialRequest.aiDataPlatformId,
+            "{credentialKey}": deleteCredentialRequest.credentialKey,
         };
 
         const queryParams = { 
@@ -3796,13 +3796,13 @@ export class CredentialsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformCredentialRequest.ifMatch,'opc-request-id': deleteAiDataPlatformCredentialRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformCredentialRequest.shouldUpdateRecent,
+        'if-match': deleteCredentialRequest.ifMatch,'opc-request-id': deleteCredentialRequest.opcRequestId,'should-update-recent': deleteCredentialRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformCredentialRequest.retryConfiguration,
+            deleteCredentialRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3818,7 +3818,7 @@ export class CredentialsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformCredentialResponse>{},
+            responseObject: <responses.DeleteCredentialResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -3838,19 +3838,19 @@ export class CredentialsClient {
     /**
      * Gets detailed information about credential with a given credential key.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformCredentialRequest
-     * @return GetAiDataPlatformCredentialResponse
+     * @param GetCredentialRequest
+     * @return GetCredentialResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformCredential.ts.html |here} to see how to use GetAiDataPlatformCredential API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetCredential.ts.html |here} to see how to use GetCredential API.
      */
-    public async getAiDataPlatformCredential (getAiDataPlatformCredentialRequest: requests.GetAiDataPlatformCredentialRequest) : Promise<responses.GetAiDataPlatformCredentialResponse> {
+    public async getCredential (getCredentialRequest: requests.GetCredentialRequest) : Promise<responses.GetCredentialResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CredentialsClient#getAiDataPlatformCredential.");
-        const operationName = "getAiDataPlatformCredential";
+              this.logger.debug("Calling operation CredentialsClient#getCredential.");
+        const operationName = "getCredential";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformCredentialRequest.aiDataPlatformId,
-            "{credentialKey}": getAiDataPlatformCredentialRequest.credentialKey,
+            "{aiDataPlatformId}": getCredentialRequest.aiDataPlatformId,
+            "{credentialKey}": getCredentialRequest.credentialKey,
         };
 
         const queryParams = { 
@@ -3858,13 +3858,13 @@ export class CredentialsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformCredentialRequest.opcRequestId,'should-update-recent': getAiDataPlatformCredentialRequest.shouldUpdateRecent,
+        'opc-request-id': getCredentialRequest.opcRequestId,'should-update-recent': getCredentialRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformCredentialRequest.retryConfiguration,
+            getCredentialRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3880,7 +3880,7 @@ export class CredentialsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformCredentialResponse>{},
+            responseObject: <responses.GetCredentialResponse>{},
                 body: await response.json(),
                 bodyKey: "credential",
                 bodyModel:  model.Credential,
@@ -3909,40 +3909,40 @@ export class CredentialsClient {
     /**
      * Returns a list of credentials.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformCredentialsRequest
-     * @return ListAiDataPlatformCredentialsResponse
+     * @param ListCredentialsRequest
+     * @return ListCredentialsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformCredentials.ts.html |here} to see how to use ListAiDataPlatformCredentials API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListCredentials.ts.html |here} to see how to use ListCredentials API.
      */
-    public async listAiDataPlatformCredentials (listAiDataPlatformCredentialsRequest: requests.ListAiDataPlatformCredentialsRequest) : Promise<responses.ListAiDataPlatformCredentialsResponse> {
+    public async listCredentials (listCredentialsRequest: requests.ListCredentialsRequest) : Promise<responses.ListCredentialsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CredentialsClient#listAiDataPlatformCredentials.");
-        const operationName = "listAiDataPlatformCredentials";
+              this.logger.debug("Calling operation CredentialsClient#listCredentials.");
+        const operationName = "listCredentials";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformCredentialsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listCredentialsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformCredentialsRequest.displayName,
-            'displayNameContains': listAiDataPlatformCredentialsRequest.displayNameContains,
-            'lifecycleState': listAiDataPlatformCredentialsRequest.lifecycleState,
-            'limit': listAiDataPlatformCredentialsRequest.limit,
-            'page': listAiDataPlatformCredentialsRequest.page,
-            'sortOrder': listAiDataPlatformCredentialsRequest.sortOrder,
-            'sortBy': listAiDataPlatformCredentialsRequest.sortBy,
-            'credentialType': listAiDataPlatformCredentialsRequest.credentialType,
+            'displayName': listCredentialsRequest.displayName,
+            'displayNameContains': listCredentialsRequest.displayNameContains,
+            'lifecycleState': listCredentialsRequest.lifecycleState,
+            'limit': listCredentialsRequest.limit,
+            'page': listCredentialsRequest.page,
+            'sortOrder': listCredentialsRequest.sortOrder,
+            'sortBy': listCredentialsRequest.sortBy,
+            'credentialType': listCredentialsRequest.credentialType,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformCredentialsRequest.opcRequestId,'should-update-recent': listAiDataPlatformCredentialsRequest.shouldUpdateRecent,
+        'opc-request-id': listCredentialsRequest.opcRequestId,'should-update-recent': listCredentialsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformCredentialsRequest.retryConfiguration,
+            listCredentialsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -3958,7 +3958,7 @@ export class CredentialsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformCredentialsResponse>{},
+            responseObject: <responses.ListCredentialsResponse>{},
                 body: await response.json(),
                 bodyKey: "credentialCollection",
                 bodyModel:  model.CredentialCollection,
@@ -3987,19 +3987,19 @@ export class CredentialsClient {
     /**
      * Updates a credential object. The operation completes synchronously; callers can invoke get to confirm the latest state.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformCredentialRequest
-     * @return UpdateAiDataPlatformCredentialResponse
+     * @param UpdateCredentialRequest
+     * @return UpdateCredentialResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformCredential.ts.html |here} to see how to use UpdateAiDataPlatformCredential API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateCredential.ts.html |here} to see how to use UpdateCredential API.
      */
-    public async updateAiDataPlatformCredential (updateAiDataPlatformCredentialRequest: requests.UpdateAiDataPlatformCredentialRequest) : Promise<responses.UpdateAiDataPlatformCredentialResponse> {
+    public async updateCredential (updateCredentialRequest: requests.UpdateCredentialRequest) : Promise<responses.UpdateCredentialResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation CredentialsClient#updateAiDataPlatformCredential.");
-        const operationName = "updateAiDataPlatformCredential";
+              this.logger.debug("Calling operation CredentialsClient#updateCredential.");
+        const operationName = "updateCredential";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformCredentialRequest.aiDataPlatformId,
-            "{credentialKey}": updateAiDataPlatformCredentialRequest.credentialKey,
+            "{aiDataPlatformId}": updateCredentialRequest.aiDataPlatformId,
+            "{credentialKey}": updateCredentialRequest.credentialKey,
         };
 
         const queryParams = { 
@@ -4007,13 +4007,13 @@ export class CredentialsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': updateAiDataPlatformCredentialRequest.shouldUpdateRecent,'if-match': updateAiDataPlatformCredentialRequest.ifMatch,'opc-request-id': updateAiDataPlatformCredentialRequest.opcRequestId,
+        'should-update-recent': updateCredentialRequest.shouldUpdateRecent,'if-match': updateCredentialRequest.ifMatch,'opc-request-id': updateCredentialRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformCredentialRequest.retryConfiguration,
+            updateCredentialRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4022,7 +4022,7 @@ export class CredentialsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/credentials/{credentialKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformCredentialRequest.updateDataLakeCredentialDetails, "UpdateDataLakeCredentialDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateCredentialRequest.updateDataLakeCredentialDetails, "UpdateDataLakeCredentialDetails"
                             , model.UpdateDataLakeCredentialDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -4032,7 +4032,7 @@ export class CredentialsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformCredentialResponse>{},
+            responseObject: <responses.UpdateCredentialResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -4223,18 +4223,18 @@ export class DeltaShareClient {
      * Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformRecipientRequest
-     * @return CreateAiDataPlatformRecipientResponse
+     * @param CreateRecipientRequest
+     * @return CreateRecipientResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformRecipient.ts.html |here} to see how to use CreateAiDataPlatformRecipient API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateRecipient.ts.html |here} to see how to use CreateRecipient API.
      */
-    public async createAiDataPlatformRecipient (createAiDataPlatformRecipientRequest: requests.CreateAiDataPlatformRecipientRequest) : Promise<responses.CreateAiDataPlatformRecipientResponse> {
+    public async createRecipient (createRecipientRequest: requests.CreateRecipientRequest) : Promise<responses.CreateRecipientResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#createAiDataPlatformRecipient.");
-        const operationName = "createAiDataPlatformRecipient";
+              this.logger.debug("Calling operation DeltaShareClient#createRecipient.");
+        const operationName = "createRecipient";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformRecipientRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createRecipientRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -4242,13 +4242,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformRecipientRequest.opcRetryToken,'opc-request-id': createAiDataPlatformRecipientRequest.opcRequestId,'should-update-recent': createAiDataPlatformRecipientRequest.shouldUpdateRecent,
+        'opc-retry-token': createRecipientRequest.opcRetryToken,'opc-request-id': createRecipientRequest.opcRequestId,'should-update-recent': createRecipientRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformRecipientRequest.retryConfiguration,
+            createRecipientRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4257,7 +4257,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/recipients',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformRecipientRequest.createRecipientDetails, "CreateRecipientDetails"
+            bodyContent: common.ObjectSerializer.serialize(createRecipientRequest.createRecipientDetails, "CreateRecipientDetails"
                             , model.CreateRecipientDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -4267,7 +4267,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformRecipientResponse>{},
+            responseObject: <responses.CreateRecipientResponse>{},
                 body: await response.json(),
                 bodyKey: "recipient",
                 bodyModel:  model.Recipient,
@@ -4297,18 +4297,18 @@ export class DeltaShareClient {
      * Create a Delta Share protocol in AI Data Platform Workbench.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformShareRequest
-     * @return CreateAiDataPlatformShareResponse
+     * @param CreateShareRequest
+     * @return CreateShareResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformShare.ts.html |here} to see how to use CreateAiDataPlatformShare API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateShare.ts.html |here} to see how to use CreateShare API.
      */
-    public async createAiDataPlatformShare (createAiDataPlatformShareRequest: requests.CreateAiDataPlatformShareRequest) : Promise<responses.CreateAiDataPlatformShareResponse> {
+    public async createShare (createShareRequest: requests.CreateShareRequest) : Promise<responses.CreateShareResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#createAiDataPlatformShare.");
-        const operationName = "createAiDataPlatformShare";
+              this.logger.debug("Calling operation DeltaShareClient#createShare.");
+        const operationName = "createShare";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformShareRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createShareRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -4316,13 +4316,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformShareRequest.opcRetryToken,'opc-request-id': createAiDataPlatformShareRequest.opcRequestId,'should-update-recent': createAiDataPlatformShareRequest.shouldUpdateRecent,
+        'opc-retry-token': createShareRequest.opcRetryToken,'opc-request-id': createShareRequest.opcRequestId,'should-update-recent': createShareRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformShareRequest.retryConfiguration,
+            createShareRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4331,7 +4331,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/shares',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformShareRequest.createShareDetails, "CreateShareDetails"
+            bodyContent: common.ObjectSerializer.serialize(createShareRequest.createShareDetails, "CreateShareDetails"
                             , model.CreateShareDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -4341,7 +4341,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformShareResponse>{},
+            responseObject: <responses.CreateShareResponse>{},
                 body: await response.json(),
                 bodyKey: "share",
                 bodyModel:  model.Share,
@@ -4370,19 +4370,19 @@ export class DeltaShareClient {
     /**
      * Deletes a Delta Share recipient from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformRecipientRequest
-     * @return DeleteAiDataPlatformRecipientResponse
+     * @param DeleteRecipientRequest
+     * @return DeleteRecipientResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformRecipient.ts.html |here} to see how to use DeleteAiDataPlatformRecipient API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteRecipient.ts.html |here} to see how to use DeleteRecipient API.
      */
-    public async deleteAiDataPlatformRecipient (deleteAiDataPlatformRecipientRequest: requests.DeleteAiDataPlatformRecipientRequest) : Promise<responses.DeleteAiDataPlatformRecipientResponse> {
+    public async deleteRecipient (deleteRecipientRequest: requests.DeleteRecipientRequest) : Promise<responses.DeleteRecipientResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#deleteAiDataPlatformRecipient.");
-        const operationName = "deleteAiDataPlatformRecipient";
+              this.logger.debug("Calling operation DeltaShareClient#deleteRecipient.");
+        const operationName = "deleteRecipient";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformRecipientRequest.aiDataPlatformId,
-            "{recipientKey}": deleteAiDataPlatformRecipientRequest.recipientKey,
+            "{aiDataPlatformId}": deleteRecipientRequest.aiDataPlatformId,
+            "{recipientKey}": deleteRecipientRequest.recipientKey,
         };
 
         const queryParams = { 
@@ -4390,13 +4390,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformRecipientRequest.ifMatch,'opc-request-id': deleteAiDataPlatformRecipientRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformRecipientRequest.shouldUpdateRecent,
+        'if-match': deleteRecipientRequest.ifMatch,'opc-request-id': deleteRecipientRequest.opcRequestId,'should-update-recent': deleteRecipientRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformRecipientRequest.retryConfiguration,
+            deleteRecipientRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4412,7 +4412,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformRecipientResponse>{},
+            responseObject: <responses.DeleteRecipientResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -4432,19 +4432,19 @@ export class DeltaShareClient {
     /**
      * Deletes a Delta Share from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformShareRequest
-     * @return DeleteAiDataPlatformShareResponse
+     * @param DeleteShareRequest
+     * @return DeleteShareResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformShare.ts.html |here} to see how to use DeleteAiDataPlatformShare API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteShare.ts.html |here} to see how to use DeleteShare API.
      */
-    public async deleteAiDataPlatformShare (deleteAiDataPlatformShareRequest: requests.DeleteAiDataPlatformShareRequest) : Promise<responses.DeleteAiDataPlatformShareResponse> {
+    public async deleteShare (deleteShareRequest: requests.DeleteShareRequest) : Promise<responses.DeleteShareResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#deleteAiDataPlatformShare.");
-        const operationName = "deleteAiDataPlatformShare";
+              this.logger.debug("Calling operation DeltaShareClient#deleteShare.");
+        const operationName = "deleteShare";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformShareRequest.aiDataPlatformId,
-            "{shareKey}": deleteAiDataPlatformShareRequest.shareKey,
+            "{aiDataPlatformId}": deleteShareRequest.aiDataPlatformId,
+            "{shareKey}": deleteShareRequest.shareKey,
         };
 
         const queryParams = { 
@@ -4452,13 +4452,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformShareRequest.ifMatch,'opc-request-id': deleteAiDataPlatformShareRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformShareRequest.shouldUpdateRecent,
+        'if-match': deleteShareRequest.ifMatch,'opc-request-id': deleteShareRequest.opcRequestId,'should-update-recent': deleteShareRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformShareRequest.retryConfiguration,
+            deleteShareRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4474,7 +4474,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformShareResponse>{},
+            responseObject: <responses.DeleteShareResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -4494,19 +4494,19 @@ export class DeltaShareClient {
     /**
      * Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformRecipientRequest
-     * @return GetAiDataPlatformRecipientResponse
+     * @param GetRecipientRequest
+     * @return GetRecipientResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformRecipient.ts.html |here} to see how to use GetAiDataPlatformRecipient API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetRecipient.ts.html |here} to see how to use GetRecipient API.
      */
-    public async getAiDataPlatformRecipient (getAiDataPlatformRecipientRequest: requests.GetAiDataPlatformRecipientRequest) : Promise<responses.GetAiDataPlatformRecipientResponse> {
+    public async getRecipient (getRecipientRequest: requests.GetRecipientRequest) : Promise<responses.GetRecipientResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#getAiDataPlatformRecipient.");
-        const operationName = "getAiDataPlatformRecipient";
+              this.logger.debug("Calling operation DeltaShareClient#getRecipient.");
+        const operationName = "getRecipient";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformRecipientRequest.aiDataPlatformId,
-            "{recipientKey}": getAiDataPlatformRecipientRequest.recipientKey,
+            "{aiDataPlatformId}": getRecipientRequest.aiDataPlatformId,
+            "{recipientKey}": getRecipientRequest.recipientKey,
         };
 
         const queryParams = { 
@@ -4514,13 +4514,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformRecipientRequest.opcRequestId,'should-update-recent': getAiDataPlatformRecipientRequest.shouldUpdateRecent,
+        'opc-request-id': getRecipientRequest.opcRequestId,'should-update-recent': getRecipientRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformRecipientRequest.retryConfiguration,
+            getRecipientRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4536,7 +4536,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformRecipientResponse>{},
+            responseObject: <responses.GetRecipientResponse>{},
                 body: await response.json(),
                 bodyKey: "recipient",
                 bodyModel:  model.Recipient,
@@ -4565,19 +4565,19 @@ export class DeltaShareClient {
     /**
      * Gets detailed information about a Delta Share.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformShareRequest
-     * @return GetAiDataPlatformShareResponse
+     * @param GetShareRequest
+     * @return GetShareResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformShare.ts.html |here} to see how to use GetAiDataPlatformShare API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetShare.ts.html |here} to see how to use GetShare API.
      */
-    public async getAiDataPlatformShare (getAiDataPlatformShareRequest: requests.GetAiDataPlatformShareRequest) : Promise<responses.GetAiDataPlatformShareResponse> {
+    public async getShare (getShareRequest: requests.GetShareRequest) : Promise<responses.GetShareResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#getAiDataPlatformShare.");
-        const operationName = "getAiDataPlatformShare";
+              this.logger.debug("Calling operation DeltaShareClient#getShare.");
+        const operationName = "getShare";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformShareRequest.aiDataPlatformId,
-            "{shareKey}": getAiDataPlatformShareRequest.shareKey,
+            "{aiDataPlatformId}": getShareRequest.aiDataPlatformId,
+            "{shareKey}": getShareRequest.shareKey,
         };
 
         const queryParams = { 
@@ -4585,13 +4585,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformShareRequest.opcRequestId,'should-update-recent': getAiDataPlatformShareRequest.shouldUpdateRecent,
+        'opc-request-id': getShareRequest.opcRequestId,'should-update-recent': getShareRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformShareRequest.retryConfiguration,
+            getShareRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4607,7 +4607,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformShareResponse>{},
+            responseObject: <responses.GetShareResponse>{},
                 body: await response.json(),
                 bodyKey: "share",
                 bodyModel:  model.Share,
@@ -4637,37 +4637,37 @@ export class DeltaShareClient {
      * Gets a detailed list of Delta Share recipient permissions.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRecipientPermissionsRequest
-     * @return ListAiDataPlatformRecipientPermissionsResponse
+     * @param ListRecipientPermissionsRequest
+     * @return ListRecipientPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRecipientPermissions.ts.html |here} to see how to use ListAiDataPlatformRecipientPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRecipientPermissions.ts.html |here} to see how to use ListRecipientPermissions API.
      */
-    public async listAiDataPlatformRecipientPermissions (listAiDataPlatformRecipientPermissionsRequest: requests.ListAiDataPlatformRecipientPermissionsRequest) : Promise<responses.ListAiDataPlatformRecipientPermissionsResponse> {
+    public async listRecipientPermissions (listRecipientPermissionsRequest: requests.ListRecipientPermissionsRequest) : Promise<responses.ListRecipientPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformRecipientPermissions.");
-        const operationName = "listAiDataPlatformRecipientPermissions";
+              this.logger.debug("Calling operation DeltaShareClient#listRecipientPermissions.");
+        const operationName = "listRecipientPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRecipientPermissionsRequest.aiDataPlatformId,
-            "{recipientKey}": listAiDataPlatformRecipientPermissionsRequest.recipientKey,
+            "{aiDataPlatformId}": listRecipientPermissionsRequest.aiDataPlatformId,
+            "{recipientKey}": listRecipientPermissionsRequest.recipientKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformRecipientPermissionsRequest.limit,
-            'page': listAiDataPlatformRecipientPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformRecipientPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformRecipientPermissionsRequest.sortBy,
+            'limit': listRecipientPermissionsRequest.limit,
+            'page': listRecipientPermissionsRequest.page,
+            'sortOrder': listRecipientPermissionsRequest.sortOrder,
+            'sortBy': listRecipientPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRecipientPermissionsRequest.opcRequestId,'should-update-recent': listAiDataPlatformRecipientPermissionsRequest.shouldUpdateRecent,
+        'opc-request-id': listRecipientPermissionsRequest.opcRequestId,'should-update-recent': listRecipientPermissionsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRecipientPermissionsRequest.retryConfiguration,
+            listRecipientPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4683,7 +4683,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRecipientPermissionsResponse>{},
+            responseObject: <responses.ListRecipientPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "recipientPermissionCollection",
                 bodyModel:  model.RecipientPermissionCollection,
@@ -4713,38 +4713,38 @@ export class DeltaShareClient {
      * Returns a list of Delta Shares that the specified recipient has been granted access to.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRecipientSharesRequest
-     * @return ListAiDataPlatformRecipientSharesResponse
+     * @param ListRecipientSharesRequest
+     * @return ListRecipientSharesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRecipientShares.ts.html |here} to see how to use ListAiDataPlatformRecipientShares API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRecipientShares.ts.html |here} to see how to use ListRecipientShares API.
      */
-    public async listAiDataPlatformRecipientShares (listAiDataPlatformRecipientSharesRequest: requests.ListAiDataPlatformRecipientSharesRequest) : Promise<responses.ListAiDataPlatformRecipientSharesResponse> {
+    public async listRecipientShares (listRecipientSharesRequest: requests.ListRecipientSharesRequest) : Promise<responses.ListRecipientSharesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformRecipientShares.");
-        const operationName = "listAiDataPlatformRecipientShares";
+              this.logger.debug("Calling operation DeltaShareClient#listRecipientShares.");
+        const operationName = "listRecipientShares";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRecipientSharesRequest.aiDataPlatformId,
-            "{recipientKey}": listAiDataPlatformRecipientSharesRequest.recipientKey,
+            "{aiDataPlatformId}": listRecipientSharesRequest.aiDataPlatformId,
+            "{recipientKey}": listRecipientSharesRequest.recipientKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformRecipientSharesRequest.displayName,
-            'limit': listAiDataPlatformRecipientSharesRequest.limit,
-            'page': listAiDataPlatformRecipientSharesRequest.page,
-            'sortOrder': listAiDataPlatformRecipientSharesRequest.sortOrder,
-            'sortBy': listAiDataPlatformRecipientSharesRequest.sortBy,
+            'displayName': listRecipientSharesRequest.displayName,
+            'limit': listRecipientSharesRequest.limit,
+            'page': listRecipientSharesRequest.page,
+            'sortOrder': listRecipientSharesRequest.sortOrder,
+            'sortBy': listRecipientSharesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRecipientSharesRequest.opcRequestId,'should-update-recent': listAiDataPlatformRecipientSharesRequest.shouldUpdateRecent,
+        'opc-request-id': listRecipientSharesRequest.opcRequestId,'should-update-recent': listRecipientSharesRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRecipientSharesRequest.retryConfiguration,
+            listRecipientSharesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4760,7 +4760,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRecipientSharesResponse>{},
+            responseObject: <responses.ListRecipientSharesResponse>{},
                 body: await response.json(),
                 bodyKey: "shareCollection",
                 bodyModel:  model.ShareCollection,
@@ -4790,37 +4790,37 @@ export class DeltaShareClient {
      * Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRecipientsRequest
-     * @return ListAiDataPlatformRecipientsResponse
+     * @param ListRecipientsRequest
+     * @return ListRecipientsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRecipients.ts.html |here} to see how to use ListAiDataPlatformRecipients API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRecipients.ts.html |here} to see how to use ListRecipients API.
      */
-    public async listAiDataPlatformRecipients (listAiDataPlatformRecipientsRequest: requests.ListAiDataPlatformRecipientsRequest) : Promise<responses.ListAiDataPlatformRecipientsResponse> {
+    public async listRecipients (listRecipientsRequest: requests.ListRecipientsRequest) : Promise<responses.ListRecipientsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformRecipients.");
-        const operationName = "listAiDataPlatformRecipients";
+              this.logger.debug("Calling operation DeltaShareClient#listRecipients.");
+        const operationName = "listRecipients";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRecipientsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listRecipientsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformRecipientsRequest.displayName,
-            'limit': listAiDataPlatformRecipientsRequest.limit,
-            'page': listAiDataPlatformRecipientsRequest.page,
-            'sortOrder': listAiDataPlatformRecipientsRequest.sortOrder,
-            'sortBy': listAiDataPlatformRecipientsRequest.sortBy,
+            'displayName': listRecipientsRequest.displayName,
+            'limit': listRecipientsRequest.limit,
+            'page': listRecipientsRequest.page,
+            'sortOrder': listRecipientsRequest.sortOrder,
+            'sortBy': listRecipientsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRecipientsRequest.opcRequestId,
+        'opc-request-id': listRecipientsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRecipientsRequest.retryConfiguration,
+            listRecipientsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4836,7 +4836,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRecipientsResponse>{},
+            responseObject: <responses.ListRecipientsResponse>{},
                 body: await response.json(),
                 bodyKey: "recipientCollection",
                 bodyModel:  model.RecipientCollection,
@@ -4866,38 +4866,38 @@ export class DeltaShareClient {
      * Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformShareDataAssetsRequest
-     * @return ListAiDataPlatformShareDataAssetsResponse
+     * @param ListShareDataAssetsRequest
+     * @return ListShareDataAssetsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformShareDataAssets.ts.html |here} to see how to use ListAiDataPlatformShareDataAssets API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListShareDataAssets.ts.html |here} to see how to use ListShareDataAssets API.
      */
-    public async listAiDataPlatformShareDataAssets (listAiDataPlatformShareDataAssetsRequest: requests.ListAiDataPlatformShareDataAssetsRequest) : Promise<responses.ListAiDataPlatformShareDataAssetsResponse> {
+    public async listShareDataAssets (listShareDataAssetsRequest: requests.ListShareDataAssetsRequest) : Promise<responses.ListShareDataAssetsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformShareDataAssets.");
-        const operationName = "listAiDataPlatformShareDataAssets";
+              this.logger.debug("Calling operation DeltaShareClient#listShareDataAssets.");
+        const operationName = "listShareDataAssets";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformShareDataAssetsRequest.aiDataPlatformId,
-            "{shareKey}": listAiDataPlatformShareDataAssetsRequest.shareKey,
+            "{aiDataPlatformId}": listShareDataAssetsRequest.aiDataPlatformId,
+            "{shareKey}": listShareDataAssetsRequest.shareKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformShareDataAssetsRequest.displayName,
-            'limit': listAiDataPlatformShareDataAssetsRequest.limit,
-            'page': listAiDataPlatformShareDataAssetsRequest.page,
-            'sortOrder': listAiDataPlatformShareDataAssetsRequest.sortOrder,
-            'sortBy': listAiDataPlatformShareDataAssetsRequest.sortBy,
+            'displayName': listShareDataAssetsRequest.displayName,
+            'limit': listShareDataAssetsRequest.limit,
+            'page': listShareDataAssetsRequest.page,
+            'sortOrder': listShareDataAssetsRequest.sortOrder,
+            'sortBy': listShareDataAssetsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformShareDataAssetsRequest.opcRequestId,'should-update-recent': listAiDataPlatformShareDataAssetsRequest.shouldUpdateRecent,
+        'opc-request-id': listShareDataAssetsRequest.opcRequestId,'should-update-recent': listShareDataAssetsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformShareDataAssetsRequest.retryConfiguration,
+            listShareDataAssetsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4913,7 +4913,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformShareDataAssetsResponse>{},
+            responseObject: <responses.ListShareDataAssetsResponse>{},
                 body: await response.json(),
                 bodyKey: "shareDataAssetCollection",
                 bodyModel:  model.ShareDataAssetCollection,
@@ -4943,37 +4943,37 @@ export class DeltaShareClient {
      * Returns a list of Delta Shares that the specified recipient has been granted access to.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformSharePermissionsRequest
-     * @return ListAiDataPlatformSharePermissionsResponse
+     * @param ListSharePermissionsRequest
+     * @return ListSharePermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformSharePermissions.ts.html |here} to see how to use ListAiDataPlatformSharePermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListSharePermissions.ts.html |here} to see how to use ListSharePermissions API.
      */
-    public async listAiDataPlatformSharePermissions (listAiDataPlatformSharePermissionsRequest: requests.ListAiDataPlatformSharePermissionsRequest) : Promise<responses.ListAiDataPlatformSharePermissionsResponse> {
+    public async listSharePermissions (listSharePermissionsRequest: requests.ListSharePermissionsRequest) : Promise<responses.ListSharePermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformSharePermissions.");
-        const operationName = "listAiDataPlatformSharePermissions";
+              this.logger.debug("Calling operation DeltaShareClient#listSharePermissions.");
+        const operationName = "listSharePermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformSharePermissionsRequest.aiDataPlatformId,
-            "{shareKey}": listAiDataPlatformSharePermissionsRequest.shareKey,
+            "{aiDataPlatformId}": listSharePermissionsRequest.aiDataPlatformId,
+            "{shareKey}": listSharePermissionsRequest.shareKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformSharePermissionsRequest.limit,
-            'page': listAiDataPlatformSharePermissionsRequest.page,
-            'sortOrder': listAiDataPlatformSharePermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformSharePermissionsRequest.sortBy,
+            'limit': listSharePermissionsRequest.limit,
+            'page': listSharePermissionsRequest.page,
+            'sortOrder': listSharePermissionsRequest.sortOrder,
+            'sortBy': listSharePermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformSharePermissionsRequest.opcRequestId,'should-update-recent': listAiDataPlatformSharePermissionsRequest.shouldUpdateRecent,
+        'opc-request-id': listSharePermissionsRequest.opcRequestId,'should-update-recent': listSharePermissionsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformSharePermissionsRequest.retryConfiguration,
+            listSharePermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -4989,7 +4989,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformSharePermissionsResponse>{},
+            responseObject: <responses.ListSharePermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "sharePermissionCollection",
                 bodyModel:  model.SharePermissionCollection,
@@ -5019,38 +5019,38 @@ export class DeltaShareClient {
      * Gets a list of recipients that have been given access on the specified Delta Share.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformShareRecipientsRequest
-     * @return ListAiDataPlatformShareRecipientsResponse
+     * @param ListShareRecipientsRequest
+     * @return ListShareRecipientsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformShareRecipients.ts.html |here} to see how to use ListAiDataPlatformShareRecipients API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListShareRecipients.ts.html |here} to see how to use ListShareRecipients API.
      */
-    public async listAiDataPlatformShareRecipients (listAiDataPlatformShareRecipientsRequest: requests.ListAiDataPlatformShareRecipientsRequest) : Promise<responses.ListAiDataPlatformShareRecipientsResponse> {
+    public async listShareRecipients (listShareRecipientsRequest: requests.ListShareRecipientsRequest) : Promise<responses.ListShareRecipientsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformShareRecipients.");
-        const operationName = "listAiDataPlatformShareRecipients";
+              this.logger.debug("Calling operation DeltaShareClient#listShareRecipients.");
+        const operationName = "listShareRecipients";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformShareRecipientsRequest.aiDataPlatformId,
-            "{shareKey}": listAiDataPlatformShareRecipientsRequest.shareKey,
+            "{aiDataPlatformId}": listShareRecipientsRequest.aiDataPlatformId,
+            "{shareKey}": listShareRecipientsRequest.shareKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformShareRecipientsRequest.displayName,
-            'limit': listAiDataPlatformShareRecipientsRequest.limit,
-            'page': listAiDataPlatformShareRecipientsRequest.page,
-            'sortOrder': listAiDataPlatformShareRecipientsRequest.sortOrder,
-            'sortBy': listAiDataPlatformShareRecipientsRequest.sortBy,
+            'displayName': listShareRecipientsRequest.displayName,
+            'limit': listShareRecipientsRequest.limit,
+            'page': listShareRecipientsRequest.page,
+            'sortOrder': listShareRecipientsRequest.sortOrder,
+            'sortBy': listShareRecipientsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformShareRecipientsRequest.opcRequestId,'should-update-recent': listAiDataPlatformShareRecipientsRequest.shouldUpdateRecent,
+        'opc-request-id': listShareRecipientsRequest.opcRequestId,'should-update-recent': listShareRecipientsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformShareRecipientsRequest.retryConfiguration,
+            listShareRecipientsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5066,7 +5066,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformShareRecipientsResponse>{},
+            responseObject: <responses.ListShareRecipientsResponse>{},
                 body: await response.json(),
                 bodyKey: "recipientCollection",
                 bodyModel:  model.RecipientCollection,
@@ -5096,37 +5096,37 @@ export class DeltaShareClient {
      * Gets a list of Delta Shares in an AI Data Platform Workbench instance.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformSharesRequest
-     * @return ListAiDataPlatformSharesResponse
+     * @param ListSharesRequest
+     * @return ListSharesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformShares.ts.html |here} to see how to use ListAiDataPlatformShares API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListShares.ts.html |here} to see how to use ListShares API.
      */
-    public async listAiDataPlatformShares (listAiDataPlatformSharesRequest: requests.ListAiDataPlatformSharesRequest) : Promise<responses.ListAiDataPlatformSharesResponse> {
+    public async listShares (listSharesRequest: requests.ListSharesRequest) : Promise<responses.ListSharesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#listAiDataPlatformShares.");
-        const operationName = "listAiDataPlatformShares";
+              this.logger.debug("Calling operation DeltaShareClient#listShares.");
+        const operationName = "listShares";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformSharesRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listSharesRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformSharesRequest.displayName,
-            'limit': listAiDataPlatformSharesRequest.limit,
-            'page': listAiDataPlatformSharesRequest.page,
-            'sortOrder': listAiDataPlatformSharesRequest.sortOrder,
-            'sortBy': listAiDataPlatformSharesRequest.sortBy,
+            'displayName': listSharesRequest.displayName,
+            'limit': listSharesRequest.limit,
+            'page': listSharesRequest.page,
+            'sortOrder': listSharesRequest.sortOrder,
+            'sortBy': listSharesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformSharesRequest.opcRequestId,
+        'opc-request-id': listSharesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformSharesRequest.retryConfiguration,
+            listSharesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5142,7 +5142,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformSharesResponse>{},
+            responseObject: <responses.ListSharesResponse>{},
                 body: await response.json(),
                 bodyKey: "shareCollection",
                 bodyModel:  model.ShareCollection,
@@ -5171,19 +5171,19 @@ export class DeltaShareClient {
     /**
      * Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformRecipientPermissionRequest
-     * @return ManageAiDataPlatformRecipientPermissionResponse
+     * @param ManageRecipientPermissionRequest
+     * @return ManageRecipientPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformRecipientPermission.ts.html |here} to see how to use ManageAiDataPlatformRecipientPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageRecipientPermission.ts.html |here} to see how to use ManageRecipientPermission API.
      */
-    public async manageAiDataPlatformRecipientPermission (manageAiDataPlatformRecipientPermissionRequest: requests.ManageAiDataPlatformRecipientPermissionRequest) : Promise<responses.ManageAiDataPlatformRecipientPermissionResponse> {
+    public async manageRecipientPermission (manageRecipientPermissionRequest: requests.ManageRecipientPermissionRequest) : Promise<responses.ManageRecipientPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#manageAiDataPlatformRecipientPermission.");
-        const operationName = "manageAiDataPlatformRecipientPermission";
+              this.logger.debug("Calling operation DeltaShareClient#manageRecipientPermission.");
+        const operationName = "manageRecipientPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformRecipientPermissionRequest.aiDataPlatformId,
-            "{recipientKey}": manageAiDataPlatformRecipientPermissionRequest.recipientKey,
+            "{aiDataPlatformId}": manageRecipientPermissionRequest.aiDataPlatformId,
+            "{recipientKey}": manageRecipientPermissionRequest.recipientKey,
         };
 
         const queryParams = { 
@@ -5191,13 +5191,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformRecipientPermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformRecipientPermissionRequest.opcRequestId,'should-update-recent': manageAiDataPlatformRecipientPermissionRequest.shouldUpdateRecent,
+        'if-match': manageRecipientPermissionRequest.ifMatch,'opc-request-id': manageRecipientPermissionRequest.opcRequestId,'should-update-recent': manageRecipientPermissionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformRecipientPermissionRequest.retryConfiguration,
+            manageRecipientPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5206,7 +5206,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/recipients/{recipientKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformRecipientPermissionRequest.manageRecipientPermissionDetails, "ManageRecipientPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageRecipientPermissionRequest.manageRecipientPermissionDetails, "ManageRecipientPermissionDetails"
                             , model.ManageRecipientPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5216,7 +5216,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformRecipientPermissionResponse>{},
+            responseObject: <responses.ManageRecipientPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5236,19 +5236,19 @@ export class DeltaShareClient {
     /**
      * Updates consumer-side access on a share for a recipient. A provider user can grant or revoke access on a particular share for a given recipient.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformShareAccessRequest
-     * @return ManageAiDataPlatformShareAccessResponse
+     * @param ManageShareAccessRequest
+     * @return ManageShareAccessResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformShareAccess.ts.html |here} to see how to use ManageAiDataPlatformShareAccess API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageShareAccess.ts.html |here} to see how to use ManageShareAccess API.
      */
-    public async manageAiDataPlatformShareAccess (manageAiDataPlatformShareAccessRequest: requests.ManageAiDataPlatformShareAccessRequest) : Promise<responses.ManageAiDataPlatformShareAccessResponse> {
+    public async manageShareAccess (manageShareAccessRequest: requests.ManageShareAccessRequest) : Promise<responses.ManageShareAccessResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#manageAiDataPlatformShareAccess.");
-        const operationName = "manageAiDataPlatformShareAccess";
+              this.logger.debug("Calling operation DeltaShareClient#manageShareAccess.");
+        const operationName = "manageShareAccess";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformShareAccessRequest.aiDataPlatformId,
-            "{shareKey}": manageAiDataPlatformShareAccessRequest.shareKey,
+            "{aiDataPlatformId}": manageShareAccessRequest.aiDataPlatformId,
+            "{shareKey}": manageShareAccessRequest.shareKey,
         };
 
         const queryParams = { 
@@ -5256,13 +5256,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformShareAccessRequest.ifMatch,'opc-retry-token': manageAiDataPlatformShareAccessRequest.opcRetryToken,'opc-request-id': manageAiDataPlatformShareAccessRequest.opcRequestId,'should-update-recent': manageAiDataPlatformShareAccessRequest.shouldUpdateRecent,
+        'if-match': manageShareAccessRequest.ifMatch,'opc-retry-token': manageShareAccessRequest.opcRetryToken,'opc-request-id': manageShareAccessRequest.opcRequestId,'should-update-recent': manageShareAccessRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformShareAccessRequest.retryConfiguration,
+            manageShareAccessRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5271,7 +5271,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/shares/{shareKey}/actions/manageAccess',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformShareAccessRequest.manageShareAccessDetails, "ManageShareAccessDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageShareAccessRequest.manageShareAccessDetails, "ManageShareAccessDetails"
                             , model.ManageShareAccessDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5281,7 +5281,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformShareAccessResponse>{},
+            responseObject: <responses.ManageShareAccessResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5301,19 +5301,19 @@ export class DeltaShareClient {
     /**
      * Updates data assets on a Delta Share with the provided information.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformShareDataAssetRequest
-     * @return ManageAiDataPlatformShareDataAssetResponse
+     * @param ManageShareDataAssetRequest
+     * @return ManageShareDataAssetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformShareDataAsset.ts.html |here} to see how to use ManageAiDataPlatformShareDataAsset API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageShareDataAsset.ts.html |here} to see how to use ManageShareDataAsset API.
      */
-    public async manageAiDataPlatformShareDataAsset (manageAiDataPlatformShareDataAssetRequest: requests.ManageAiDataPlatformShareDataAssetRequest) : Promise<responses.ManageAiDataPlatformShareDataAssetResponse> {
+    public async manageShareDataAsset (manageShareDataAssetRequest: requests.ManageShareDataAssetRequest) : Promise<responses.ManageShareDataAssetResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#manageAiDataPlatformShareDataAsset.");
-        const operationName = "manageAiDataPlatformShareDataAsset";
+              this.logger.debug("Calling operation DeltaShareClient#manageShareDataAsset.");
+        const operationName = "manageShareDataAsset";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformShareDataAssetRequest.aiDataPlatformId,
-            "{shareKey}": manageAiDataPlatformShareDataAssetRequest.shareKey,
+            "{aiDataPlatformId}": manageShareDataAssetRequest.aiDataPlatformId,
+            "{shareKey}": manageShareDataAssetRequest.shareKey,
         };
 
         const queryParams = { 
@@ -5321,13 +5321,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformShareDataAssetRequest.ifMatch,'opc-request-id': manageAiDataPlatformShareDataAssetRequest.opcRequestId,'should-update-recent': manageAiDataPlatformShareDataAssetRequest.shouldUpdateRecent,
+        'if-match': manageShareDataAssetRequest.ifMatch,'opc-request-id': manageShareDataAssetRequest.opcRequestId,'should-update-recent': manageShareDataAssetRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformShareDataAssetRequest.retryConfiguration,
+            manageShareDataAssetRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5336,7 +5336,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/shares/{shareKey}/actions/manageDataAsset',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformShareDataAssetRequest.manageShareDataAssetDetails, "ManageShareDataAssetDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageShareDataAssetRequest.manageShareDataAssetDetails, "ManageShareDataAssetDetails"
                             , model.ManageShareDataAssetDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5346,7 +5346,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformShareDataAssetResponse>{},
+            responseObject: <responses.ManageShareDataAssetResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5366,19 +5366,19 @@ export class DeltaShareClient {
     /**
      * Updates permissions on a Delta Share.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformSharePermissionRequest
-     * @return ManageAiDataPlatformSharePermissionResponse
+     * @param ManageSharePermissionRequest
+     * @return ManageSharePermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformSharePermission.ts.html |here} to see how to use ManageAiDataPlatformSharePermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageSharePermission.ts.html |here} to see how to use ManageSharePermission API.
      */
-    public async manageAiDataPlatformSharePermission (manageAiDataPlatformSharePermissionRequest: requests.ManageAiDataPlatformSharePermissionRequest) : Promise<responses.ManageAiDataPlatformSharePermissionResponse> {
+    public async manageSharePermission (manageSharePermissionRequest: requests.ManageSharePermissionRequest) : Promise<responses.ManageSharePermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#manageAiDataPlatformSharePermission.");
-        const operationName = "manageAiDataPlatformSharePermission";
+              this.logger.debug("Calling operation DeltaShareClient#manageSharePermission.");
+        const operationName = "manageSharePermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformSharePermissionRequest.aiDataPlatformId,
-            "{shareKey}": manageAiDataPlatformSharePermissionRequest.shareKey,
+            "{aiDataPlatformId}": manageSharePermissionRequest.aiDataPlatformId,
+            "{shareKey}": manageSharePermissionRequest.shareKey,
         };
 
         const queryParams = { 
@@ -5386,13 +5386,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformSharePermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformSharePermissionRequest.opcRequestId,'should-update-recent': manageAiDataPlatformSharePermissionRequest.shouldUpdateRecent,
+        'if-match': manageSharePermissionRequest.ifMatch,'opc-request-id': manageSharePermissionRequest.opcRequestId,'should-update-recent': manageSharePermissionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformSharePermissionRequest.retryConfiguration,
+            manageSharePermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5401,7 +5401,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/shares/{shareKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformSharePermissionRequest.manageSharePermissionDetails, "ManageSharePermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageSharePermissionRequest.manageSharePermissionDetails, "ManageSharePermissionDetails"
                             , model.ManageSharePermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5411,7 +5411,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformSharePermissionResponse>{},
+            responseObject: <responses.ManageSharePermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5431,19 +5431,19 @@ export class DeltaShareClient {
     /**
      * Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformRecipientRequest
-     * @return UpdateAiDataPlatformRecipientResponse
+     * @param UpdateRecipientRequest
+     * @return UpdateRecipientResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformRecipient.ts.html |here} to see how to use UpdateAiDataPlatformRecipient API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateRecipient.ts.html |here} to see how to use UpdateRecipient API.
      */
-    public async updateAiDataPlatformRecipient (updateAiDataPlatformRecipientRequest: requests.UpdateAiDataPlatformRecipientRequest) : Promise<responses.UpdateAiDataPlatformRecipientResponse> {
+    public async updateRecipient (updateRecipientRequest: requests.UpdateRecipientRequest) : Promise<responses.UpdateRecipientResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#updateAiDataPlatformRecipient.");
-        const operationName = "updateAiDataPlatformRecipient";
+              this.logger.debug("Calling operation DeltaShareClient#updateRecipient.");
+        const operationName = "updateRecipient";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformRecipientRequest.aiDataPlatformId,
-            "{recipientKey}": updateAiDataPlatformRecipientRequest.recipientKey,
+            "{aiDataPlatformId}": updateRecipientRequest.aiDataPlatformId,
+            "{recipientKey}": updateRecipientRequest.recipientKey,
         };
 
         const queryParams = { 
@@ -5451,13 +5451,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformRecipientRequest.ifMatch,'opc-request-id': updateAiDataPlatformRecipientRequest.opcRequestId,'should-update-recent': updateAiDataPlatformRecipientRequest.shouldUpdateRecent,
+        'if-match': updateRecipientRequest.ifMatch,'opc-request-id': updateRecipientRequest.opcRequestId,'should-update-recent': updateRecipientRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformRecipientRequest.retryConfiguration,
+            updateRecipientRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5466,7 +5466,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/recipients/{recipientKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformRecipientRequest.updateRecipientDetails, "UpdateRecipientDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateRecipientRequest.updateRecipientDetails, "UpdateRecipientDetails"
                             , model.UpdateRecipientDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5476,7 +5476,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformRecipientResponse>{},
+            responseObject: <responses.UpdateRecipientResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5496,19 +5496,19 @@ export class DeltaShareClient {
     /**
      * Update a Delta Share with the provided metadata.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformShareRequest
-     * @return UpdateAiDataPlatformShareResponse
+     * @param UpdateShareRequest
+     * @return UpdateShareResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformShare.ts.html |here} to see how to use UpdateAiDataPlatformShare API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateShare.ts.html |here} to see how to use UpdateShare API.
      */
-    public async updateAiDataPlatformShare (updateAiDataPlatformShareRequest: requests.UpdateAiDataPlatformShareRequest) : Promise<responses.UpdateAiDataPlatformShareResponse> {
+    public async updateShare (updateShareRequest: requests.UpdateShareRequest) : Promise<responses.UpdateShareResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation DeltaShareClient#updateAiDataPlatformShare.");
-        const operationName = "updateAiDataPlatformShare";
+              this.logger.debug("Calling operation DeltaShareClient#updateShare.");
+        const operationName = "updateShare";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformShareRequest.aiDataPlatformId,
-            "{shareKey}": updateAiDataPlatformShareRequest.shareKey,
+            "{aiDataPlatformId}": updateShareRequest.aiDataPlatformId,
+            "{shareKey}": updateShareRequest.shareKey,
         };
 
         const queryParams = { 
@@ -5516,13 +5516,13 @@ export class DeltaShareClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformShareRequest.ifMatch,'opc-request-id': updateAiDataPlatformShareRequest.opcRequestId,'should-update-recent': updateAiDataPlatformShareRequest.shouldUpdateRecent,
+        'if-match': updateShareRequest.ifMatch,'opc-request-id': updateShareRequest.opcRequestId,'should-update-recent': updateShareRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformShareRequest.retryConfiguration,
+            updateShareRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5531,7 +5531,7 @@ export class DeltaShareClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/shares/{shareKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformShareRequest.updateShareDetails, "UpdateShareDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateShareRequest.updateShareDetails, "UpdateShareDetails"
                             , model.UpdateShareDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5541,7 +5541,7 @@ export class DeltaShareClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformShareResponse>{},
+            responseObject: <responses.UpdateShareResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5732,20 +5732,20 @@ export class GitClient {
      * (Preview) Checks out a remote branch into the specified workspace folder, ensuring the worktree tracks the requested branch HEAD.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CheckoutAiDataPlatformBranchRequest
-     * @return CheckoutAiDataPlatformBranchResponse
+     * @param CheckoutBranchRequest
+     * @return CheckoutBranchResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CheckoutAiDataPlatformBranch.ts.html |here} to see how to use CheckoutAiDataPlatformBranch API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CheckoutBranch.ts.html |here} to see how to use CheckoutBranch API.
      */
-    public async checkoutAiDataPlatformBranch (checkoutAiDataPlatformBranchRequest: requests.CheckoutAiDataPlatformBranchRequest) : Promise<responses.CheckoutAiDataPlatformBranchResponse> {
+    public async checkoutBranch (checkoutBranchRequest: requests.CheckoutBranchRequest) : Promise<responses.CheckoutBranchResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#checkoutAiDataPlatformBranch.");
-        const operationName = "checkoutAiDataPlatformBranch";
+              this.logger.debug("Calling operation GitClient#checkoutBranch.");
+        const operationName = "checkoutBranch";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": checkoutAiDataPlatformBranchRequest.aiDataPlatformId,
-            "{workspaceKey}": checkoutAiDataPlatformBranchRequest.workspaceKey,
-            "{gitRepositoryKey}": checkoutAiDataPlatformBranchRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": checkoutBranchRequest.aiDataPlatformId,
+            "{workspaceKey}": checkoutBranchRequest.workspaceKey,
+            "{gitRepositoryKey}": checkoutBranchRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -5753,13 +5753,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': checkoutAiDataPlatformBranchRequest.opcRetryToken,'opc-request-id': checkoutAiDataPlatformBranchRequest.opcRequestId,'should-update-recent': checkoutAiDataPlatformBranchRequest.shouldUpdateRecent,'if-match': checkoutAiDataPlatformBranchRequest.ifMatch,'dh-user-principal': checkoutAiDataPlatformBranchRequest.dhUserPrincipal,
+        'opc-retry-token': checkoutBranchRequest.opcRetryToken,'opc-request-id': checkoutBranchRequest.opcRequestId,'should-update-recent': checkoutBranchRequest.shouldUpdateRecent,'if-match': checkoutBranchRequest.ifMatch,'dh-user-principal': checkoutBranchRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            checkoutAiDataPlatformBranchRequest.retryConfiguration,
+            checkoutBranchRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5768,7 +5768,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/checkOutBranch',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(checkoutAiDataPlatformBranchRequest.checkoutBranchDetails, "CheckoutBranchDetails"
+            bodyContent: common.ObjectSerializer.serialize(checkoutBranchRequest.checkoutBranchDetails, "CheckoutBranchDetails"
                             , model.CheckoutBranchDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5778,7 +5778,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CheckoutAiDataPlatformBranchResponse>{},
+            responseObject: <responses.CheckoutBranchResponse>{},
                 body: await response.json(),
                 bodyKey: "gitBranch",
                 bodyModel:  model.GitBranch,
@@ -5813,20 +5813,20 @@ export class GitClient {
      * (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CommitPushAiDataPlatformGitRepositoryRequest
-     * @return CommitPushAiDataPlatformGitRepositoryResponse
+     * @param CommitPushGitRepositoryRequest
+     * @return CommitPushGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CommitPushAiDataPlatformGitRepository.ts.html |here} to see how to use CommitPushAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CommitPushGitRepository.ts.html |here} to see how to use CommitPushGitRepository API.
      */
-    public async commitPushAiDataPlatformGitRepository (commitPushAiDataPlatformGitRepositoryRequest: requests.CommitPushAiDataPlatformGitRepositoryRequest) : Promise<responses.CommitPushAiDataPlatformGitRepositoryResponse> {
+    public async commitPushGitRepository (commitPushGitRepositoryRequest: requests.CommitPushGitRepositoryRequest) : Promise<responses.CommitPushGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#commitPushAiDataPlatformGitRepository.");
-        const operationName = "commitPushAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#commitPushGitRepository.");
+        const operationName = "commitPushGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": commitPushAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": commitPushAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": commitPushAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": commitPushGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": commitPushGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": commitPushGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -5834,13 +5834,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': commitPushAiDataPlatformGitRepositoryRequest.opcRetryToken,'opc-request-id': commitPushAiDataPlatformGitRepositoryRequest.opcRequestId,'should-update-recent': commitPushAiDataPlatformGitRepositoryRequest.shouldUpdateRecent,'if-match': commitPushAiDataPlatformGitRepositoryRequest.ifMatch,
+        'opc-retry-token': commitPushGitRepositoryRequest.opcRetryToken,'opc-request-id': commitPushGitRepositoryRequest.opcRequestId,'should-update-recent': commitPushGitRepositoryRequest.shouldUpdateRecent,'if-match': commitPushGitRepositoryRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            commitPushAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            commitPushGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5849,7 +5849,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/commitPush',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(commitPushAiDataPlatformGitRepositoryRequest.commitPushDetails, "CommitPushDetails"
+            bodyContent: common.ObjectSerializer.serialize(commitPushGitRepositoryRequest.commitPushDetails, "CommitPushDetails"
                             , model.CommitPushDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5859,7 +5859,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CommitPushAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.CommitPushGitRepositoryResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -5885,20 +5885,20 @@ export class GitClient {
      * (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformGitBranchRequest
-     * @return CreateAiDataPlatformGitBranchResponse
+     * @param CreateGitBranchRequest
+     * @return CreateGitBranchResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformGitBranch.ts.html |here} to see how to use CreateAiDataPlatformGitBranch API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateGitBranch.ts.html |here} to see how to use CreateGitBranch API.
      */
-    public async createAiDataPlatformGitBranch (createAiDataPlatformGitBranchRequest: requests.CreateAiDataPlatformGitBranchRequest) : Promise<responses.CreateAiDataPlatformGitBranchResponse> {
+    public async createGitBranch (createGitBranchRequest: requests.CreateGitBranchRequest) : Promise<responses.CreateGitBranchResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#createAiDataPlatformGitBranch.");
-        const operationName = "createAiDataPlatformGitBranch";
+              this.logger.debug("Calling operation GitClient#createGitBranch.");
+        const operationName = "createGitBranch";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformGitBranchRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformGitBranchRequest.workspaceKey,
-            "{gitRepositoryKey}": createAiDataPlatformGitBranchRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": createGitBranchRequest.aiDataPlatformId,
+            "{workspaceKey}": createGitBranchRequest.workspaceKey,
+            "{gitRepositoryKey}": createGitBranchRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -5906,13 +5906,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformGitBranchRequest.opcRetryToken,'opc-request-id': createAiDataPlatformGitBranchRequest.opcRequestId,'should-update-recent': createAiDataPlatformGitBranchRequest.shouldUpdateRecent,
+        'opc-retry-token': createGitBranchRequest.opcRetryToken,'opc-request-id': createGitBranchRequest.opcRequestId,'should-update-recent': createGitBranchRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformGitBranchRequest.retryConfiguration,
+            createGitBranchRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -5921,7 +5921,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/gitBranches',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformGitBranchRequest.createGitBranchDetails, "CreateGitBranchDetails"
+            bodyContent: common.ObjectSerializer.serialize(createGitBranchRequest.createGitBranchDetails, "CreateGitBranchDetails"
                             , model.CreateGitBranchDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -5931,7 +5931,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformGitBranchResponse>{},
+            responseObject: <responses.CreateGitBranchResponse>{},
                 body: await response.json(),
                 bodyKey: "createGitBranch",
                 bodyModel:  model.CreateGitBranch,
@@ -5966,39 +5966,39 @@ export class GitClient {
      * (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformGitDiffDetailRequest
-     * @return GetAiDataPlatformGitDiffDetailResponse
+     * @param GetGitDiffDetailRequest
+     * @return GetGitDiffDetailResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformGitDiffDetail.ts.html |here} to see how to use GetAiDataPlatformGitDiffDetail API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetGitDiffDetail.ts.html |here} to see how to use GetGitDiffDetail API.
      */
-    public async getAiDataPlatformGitDiffDetail (getAiDataPlatformGitDiffDetailRequest: requests.GetAiDataPlatformGitDiffDetailRequest) : Promise<responses.GetAiDataPlatformGitDiffDetailResponse> {
+    public async getGitDiffDetail (getGitDiffDetailRequest: requests.GetGitDiffDetailRequest) : Promise<responses.GetGitDiffDetailResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#getAiDataPlatformGitDiffDetail.");
-        const operationName = "getAiDataPlatformGitDiffDetail";
+              this.logger.debug("Calling operation GitClient#getGitDiffDetail.");
+        const operationName = "getGitDiffDetail";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformGitDiffDetailRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformGitDiffDetailRequest.workspaceKey,
-            "{gitRepositoryKey}": getAiDataPlatformGitDiffDetailRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": getGitDiffDetailRequest.aiDataPlatformId,
+            "{workspaceKey}": getGitDiffDetailRequest.workspaceKey,
+            "{gitRepositoryKey}": getGitDiffDetailRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
-            'gitFolderPath': getAiDataPlatformGitDiffDetailRequest.gitFolderPath,
-            'branchName': getAiDataPlatformGitDiffDetailRequest.branchName,
-            'gitFilePath': getAiDataPlatformGitDiffDetailRequest.gitFilePath,
-            'contextLines': getAiDataPlatformGitDiffDetailRequest.contextLines,
-            'maxPatchBytes': getAiDataPlatformGitDiffDetailRequest.maxPatchBytes,
+            'gitFolderPath': getGitDiffDetailRequest.gitFolderPath,
+            'branchName': getGitDiffDetailRequest.branchName,
+            'gitFilePath': getGitDiffDetailRequest.gitFilePath,
+            'contextLines': getGitDiffDetailRequest.contextLines,
+            'maxPatchBytes': getGitDiffDetailRequest.maxPatchBytes,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformGitDiffDetailRequest.opcRequestId,
+        'opc-request-id': getGitDiffDetailRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformGitDiffDetailRequest.retryConfiguration,
+            getGitDiffDetailRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6014,7 +6014,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformGitDiffDetailResponse>{},
+            responseObject: <responses.GetGitDiffDetailResponse>{},
                 body: await response.json(),
                 bodyKey: "gitDiffDetail",
                 bodyModel:  model.GitDiffDetail,
@@ -6039,36 +6039,36 @@ export class GitClient {
      * (Preview) Returns the current Git worktree status\u2014including in-progress operations or detached HEAD indicators\u2014for the workspace folder.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformGitOperationStateRequest
-     * @return GetAiDataPlatformGitOperationStateResponse
+     * @param GetGitOperationStateRequest
+     * @return GetGitOperationStateResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformGitOperationState.ts.html |here} to see how to use GetAiDataPlatformGitOperationState API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetGitOperationState.ts.html |here} to see how to use GetGitOperationState API.
      */
-    public async getAiDataPlatformGitOperationState (getAiDataPlatformGitOperationStateRequest: requests.GetAiDataPlatformGitOperationStateRequest) : Promise<responses.GetAiDataPlatformGitOperationStateResponse> {
+    public async getGitOperationState (getGitOperationStateRequest: requests.GetGitOperationStateRequest) : Promise<responses.GetGitOperationStateResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#getAiDataPlatformGitOperationState.");
-        const operationName = "getAiDataPlatformGitOperationState";
+              this.logger.debug("Calling operation GitClient#getGitOperationState.");
+        const operationName = "getGitOperationState";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformGitOperationStateRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformGitOperationStateRequest.workspaceKey,
-            "{gitRepositoryKey}": getAiDataPlatformGitOperationStateRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": getGitOperationStateRequest.aiDataPlatformId,
+            "{workspaceKey}": getGitOperationStateRequest.workspaceKey,
+            "{gitRepositoryKey}": getGitOperationStateRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
-            'operationName': getAiDataPlatformGitOperationStateRequest.operationName,
-            'branchName': getAiDataPlatformGitOperationStateRequest.branchName,
+            'operationName': getGitOperationStateRequest.operationName,
+            'branchName': getGitOperationStateRequest.branchName,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformGitOperationStateRequest.opcRequestId,
+        'opc-request-id': getGitOperationStateRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformGitOperationStateRequest.retryConfiguration,
+            getGitOperationStateRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6084,7 +6084,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformGitOperationStateResponse>{},
+            responseObject: <responses.GetGitOperationStateResponse>{},
                 body: await response.json(),
                 bodyKey: "gitOperationState",
                 bodyModel:  model.GitOperationState,
@@ -6109,35 +6109,35 @@ export class GitClient {
      * (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformGitRepositoryRequest
-     * @return GetAiDataPlatformGitRepositoryResponse
+     * @param GetGitRepositoryRequest
+     * @return GetGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformGitRepository.ts.html |here} to see how to use GetAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetGitRepository.ts.html |here} to see how to use GetGitRepository API.
      */
-    public async getAiDataPlatformGitRepository (getAiDataPlatformGitRepositoryRequest: requests.GetAiDataPlatformGitRepositoryRequest) : Promise<responses.GetAiDataPlatformGitRepositoryResponse> {
+    public async getGitRepository (getGitRepositoryRequest: requests.GetGitRepositoryRequest) : Promise<responses.GetGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#getAiDataPlatformGitRepository.");
-        const operationName = "getAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#getGitRepository.");
+        const operationName = "getGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": getAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": getGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": getGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": getGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
-            'shouldIncludeCredentialKey': getAiDataPlatformGitRepositoryRequest.shouldIncludeCredentialKey,
+            'shouldIncludeCredentialKey': getGitRepositoryRequest.shouldIncludeCredentialKey,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformGitRepositoryRequest.opcRequestId,
+        'opc-request-id': getGitRepositoryRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            getGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6153,7 +6153,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.GetGitRepositoryResponse>{},
                 body: await response.json(),
                 bodyKey: "gitRepository",
                 bodyModel:  model.GitRepository,
@@ -6183,40 +6183,40 @@ export class GitClient {
      * (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformGitBranchesRequest
-     * @return ListAiDataPlatformGitBranchesResponse
+     * @param ListGitBranchesRequest
+     * @return ListGitBranchesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformGitBranches.ts.html |here} to see how to use ListAiDataPlatformGitBranches API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListGitBranches.ts.html |here} to see how to use ListGitBranches API.
      */
-    public async listAiDataPlatformGitBranches (listAiDataPlatformGitBranchesRequest: requests.ListAiDataPlatformGitBranchesRequest) : Promise<responses.ListAiDataPlatformGitBranchesResponse> {
+    public async listGitBranches (listGitBranchesRequest: requests.ListGitBranchesRequest) : Promise<responses.ListGitBranchesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#listAiDataPlatformGitBranches.");
-        const operationName = "listAiDataPlatformGitBranches";
+              this.logger.debug("Calling operation GitClient#listGitBranches.");
+        const operationName = "listGitBranches";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformGitBranchesRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformGitBranchesRequest.workspaceKey,
-            "{gitRepositoryKey}": listAiDataPlatformGitBranchesRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": listGitBranchesRequest.aiDataPlatformId,
+            "{workspaceKey}": listGitBranchesRequest.workspaceKey,
+            "{gitRepositoryKey}": listGitBranchesRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformGitBranchesRequest.displayName,
-            'displayNameContains': listAiDataPlatformGitBranchesRequest.displayNameContains,
-            'limit': listAiDataPlatformGitBranchesRequest.limit,
-            'page': listAiDataPlatformGitBranchesRequest.page,
-            'sortOrder': listAiDataPlatformGitBranchesRequest.sortOrder,
-            'sortBy': listAiDataPlatformGitBranchesRequest.sortBy,
+            'displayName': listGitBranchesRequest.displayName,
+            'displayNameContains': listGitBranchesRequest.displayNameContains,
+            'limit': listGitBranchesRequest.limit,
+            'page': listGitBranchesRequest.page,
+            'sortOrder': listGitBranchesRequest.sortOrder,
+            'sortBy': listGitBranchesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformGitBranchesRequest.opcRequestId,
+        'opc-request-id': listGitBranchesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformGitBranchesRequest.retryConfiguration,
+            listGitBranchesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6232,7 +6232,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformGitBranchesResponse>{},
+            responseObject: <responses.ListGitBranchesResponse>{},
                 body: await response.json(),
                 bodyKey: "gitBranchCollection",
                 bodyModel:  model.GitBranchCollection,
@@ -6267,43 +6267,43 @@ export class GitClient {
      * (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformGitDiffsRequest
-     * @return ListAiDataPlatformGitDiffsResponse
+     * @param ListGitDiffsRequest
+     * @return ListGitDiffsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformGitDiffs.ts.html |here} to see how to use ListAiDataPlatformGitDiffs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListGitDiffs.ts.html |here} to see how to use ListGitDiffs API.
      */
-    public async listAiDataPlatformGitDiffs (listAiDataPlatformGitDiffsRequest: requests.ListAiDataPlatformGitDiffsRequest) : Promise<responses.ListAiDataPlatformGitDiffsResponse> {
+    public async listGitDiffs (listGitDiffsRequest: requests.ListGitDiffsRequest) : Promise<responses.ListGitDiffsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#listAiDataPlatformGitDiffs.");
-        const operationName = "listAiDataPlatformGitDiffs";
+              this.logger.debug("Calling operation GitClient#listGitDiffs.");
+        const operationName = "listGitDiffs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformGitDiffsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformGitDiffsRequest.workspaceKey,
-            "{gitRepositoryKey}": listAiDataPlatformGitDiffsRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": listGitDiffsRequest.aiDataPlatformId,
+            "{workspaceKey}": listGitDiffsRequest.workspaceKey,
+            "{gitRepositoryKey}": listGitDiffsRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
-            'gitFolderPath': listAiDataPlatformGitDiffsRequest.gitFolderPath,
-            'branchName': listAiDataPlatformGitDiffsRequest.branchName,
-            'compareTo': listAiDataPlatformGitDiffsRequest.compareTo,
-            'filter': listAiDataPlatformGitDiffsRequest.filter,
-            'limit': listAiDataPlatformGitDiffsRequest.limit,
-            'page': listAiDataPlatformGitDiffsRequest.page,
-            'sortOrder': listAiDataPlatformGitDiffsRequest.sortOrder,
-            'sortBy': listAiDataPlatformGitDiffsRequest.sortBy,
-            'displayName': listAiDataPlatformGitDiffsRequest.displayName,
+            'gitFolderPath': listGitDiffsRequest.gitFolderPath,
+            'branchName': listGitDiffsRequest.branchName,
+            'compareTo': listGitDiffsRequest.compareTo,
+            'filter': listGitDiffsRequest.filter,
+            'limit': listGitDiffsRequest.limit,
+            'page': listGitDiffsRequest.page,
+            'sortOrder': listGitDiffsRequest.sortOrder,
+            'sortBy': listGitDiffsRequest.sortBy,
+            'displayName': listGitDiffsRequest.displayName,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformGitDiffsRequest.opcRequestId,
+        'opc-request-id': listGitDiffsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformGitDiffsRequest.retryConfiguration,
+            listGitDiffsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6319,7 +6319,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformGitDiffsResponse>{},
+            responseObject: <responses.ListGitDiffsResponse>{},
                 body: await response.json(),
                 bodyKey: "gitDiffSummaryCollection",
                 bodyModel:  model.GitDiffSummaryCollection,
@@ -6354,20 +6354,20 @@ export class GitClient {
      * (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param MergeAiDataPlatformGitRepositoryRequest
-     * @return MergeAiDataPlatformGitRepositoryResponse
+     * @param MergeGitRepositoryRequest
+     * @return MergeGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/MergeAiDataPlatformGitRepository.ts.html |here} to see how to use MergeAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/MergeGitRepository.ts.html |here} to see how to use MergeGitRepository API.
      */
-    public async mergeAiDataPlatformGitRepository (mergeAiDataPlatformGitRepositoryRequest: requests.MergeAiDataPlatformGitRepositoryRequest) : Promise<responses.MergeAiDataPlatformGitRepositoryResponse> {
+    public async mergeGitRepository (mergeGitRepositoryRequest: requests.MergeGitRepositoryRequest) : Promise<responses.MergeGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#mergeAiDataPlatformGitRepository.");
-        const operationName = "mergeAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#mergeGitRepository.");
+        const operationName = "mergeGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": mergeAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": mergeAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": mergeAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": mergeGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": mergeGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": mergeGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6375,13 +6375,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': mergeAiDataPlatformGitRepositoryRequest.opcRetryToken,'opc-request-id': mergeAiDataPlatformGitRepositoryRequest.opcRequestId,'if-match': mergeAiDataPlatformGitRepositoryRequest.ifMatch,'should-update-recent': mergeAiDataPlatformGitRepositoryRequest.shouldUpdateRecent,
+        'opc-retry-token': mergeGitRepositoryRequest.opcRetryToken,'opc-request-id': mergeGitRepositoryRequest.opcRequestId,'if-match': mergeGitRepositoryRequest.ifMatch,'should-update-recent': mergeGitRepositoryRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            mergeAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            mergeGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6390,7 +6390,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/merge',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(mergeAiDataPlatformGitRepositoryRequest.gitMergeDetails, "GitMergeDetails"
+            bodyContent: common.ObjectSerializer.serialize(mergeGitRepositoryRequest.gitMergeDetails, "GitMergeDetails"
                             , model.GitMergeDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6400,7 +6400,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.MergeAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.MergeGitRepositoryResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -6426,20 +6426,20 @@ export class GitClient {
      * (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param PullAiDataPlatformGitRepositoryRequest
-     * @return PullAiDataPlatformGitRepositoryResponse
+     * @param PullGitRepositoryRequest
+     * @return PullGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PullAiDataPlatformGitRepository.ts.html |here} to see how to use PullAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PullGitRepository.ts.html |here} to see how to use PullGitRepository API.
      */
-    public async pullAiDataPlatformGitRepository (pullAiDataPlatformGitRepositoryRequest: requests.PullAiDataPlatformGitRepositoryRequest) : Promise<responses.PullAiDataPlatformGitRepositoryResponse> {
+    public async pullGitRepository (pullGitRepositoryRequest: requests.PullGitRepositoryRequest) : Promise<responses.PullGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#pullAiDataPlatformGitRepository.");
-        const operationName = "pullAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#pullGitRepository.");
+        const operationName = "pullGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": pullAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": pullAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": pullAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": pullGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": pullGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": pullGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6447,13 +6447,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': pullAiDataPlatformGitRepositoryRequest.opcRetryToken,'opc-request-id': pullAiDataPlatformGitRepositoryRequest.opcRequestId,'if-match': pullAiDataPlatformGitRepositoryRequest.ifMatch,'should-update-recent': pullAiDataPlatformGitRepositoryRequest.shouldUpdateRecent,
+        'opc-retry-token': pullGitRepositoryRequest.opcRetryToken,'opc-request-id': pullGitRepositoryRequest.opcRequestId,'if-match': pullGitRepositoryRequest.ifMatch,'should-update-recent': pullGitRepositoryRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            pullAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            pullGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6462,7 +6462,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/pull',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(pullAiDataPlatformGitRepositoryRequest.gitPullDetails, "GitPullDetails"
+            bodyContent: common.ObjectSerializer.serialize(pullGitRepositoryRequest.gitPullDetails, "GitPullDetails"
                             , model.GitPullDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6472,7 +6472,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.PullAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.PullGitRepositoryResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -6498,20 +6498,20 @@ export class GitClient {
      * (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RebaseAiDataPlatformGitRepositoryRequest
-     * @return RebaseAiDataPlatformGitRepositoryResponse
+     * @param RebaseGitRepositoryRequest
+     * @return RebaseGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RebaseAiDataPlatformGitRepository.ts.html |here} to see how to use RebaseAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RebaseGitRepository.ts.html |here} to see how to use RebaseGitRepository API.
      */
-    public async rebaseAiDataPlatformGitRepository (rebaseAiDataPlatformGitRepositoryRequest: requests.RebaseAiDataPlatformGitRepositoryRequest) : Promise<responses.RebaseAiDataPlatformGitRepositoryResponse> {
+    public async rebaseGitRepository (rebaseGitRepositoryRequest: requests.RebaseGitRepositoryRequest) : Promise<responses.RebaseGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#rebaseAiDataPlatformGitRepository.");
-        const operationName = "rebaseAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#rebaseGitRepository.");
+        const operationName = "rebaseGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": rebaseAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": rebaseAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": rebaseAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": rebaseGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": rebaseGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": rebaseGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6519,13 +6519,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': rebaseAiDataPlatformGitRepositoryRequest.opcRetryToken,'opc-request-id': rebaseAiDataPlatformGitRepositoryRequest.opcRequestId,'if-match': rebaseAiDataPlatformGitRepositoryRequest.ifMatch,'should-update-recent': rebaseAiDataPlatformGitRepositoryRequest.shouldUpdateRecent,
+        'opc-retry-token': rebaseGitRepositoryRequest.opcRetryToken,'opc-request-id': rebaseGitRepositoryRequest.opcRequestId,'if-match': rebaseGitRepositoryRequest.ifMatch,'should-update-recent': rebaseGitRepositoryRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            rebaseAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            rebaseGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6534,7 +6534,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/rebase',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(rebaseAiDataPlatformGitRepositoryRequest.gitRebaseDetails, "GitRebaseDetails"
+            bodyContent: common.ObjectSerializer.serialize(rebaseGitRepositoryRequest.gitRebaseDetails, "GitRebaseDetails"
                             , model.GitRebaseDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6544,7 +6544,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RebaseAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.RebaseGitRepositoryResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -6570,20 +6570,20 @@ export class GitClient {
      * (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ResetAiDataPlatformGitFolderStateRequest
-     * @return ResetAiDataPlatformGitFolderStateResponse
+     * @param ResetGitFolderStateRequest
+     * @return ResetGitFolderStateResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ResetAiDataPlatformGitFolderState.ts.html |here} to see how to use ResetAiDataPlatformGitFolderState API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ResetGitFolderState.ts.html |here} to see how to use ResetGitFolderState API.
      */
-    public async resetAiDataPlatformGitFolderState (resetAiDataPlatformGitFolderStateRequest: requests.ResetAiDataPlatformGitFolderStateRequest) : Promise<responses.ResetAiDataPlatformGitFolderStateResponse> {
+    public async resetGitFolderState (resetGitFolderStateRequest: requests.ResetGitFolderStateRequest) : Promise<responses.ResetGitFolderStateResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#resetAiDataPlatformGitFolderState.");
-        const operationName = "resetAiDataPlatformGitFolderState";
+              this.logger.debug("Calling operation GitClient#resetGitFolderState.");
+        const operationName = "resetGitFolderState";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": resetAiDataPlatformGitFolderStateRequest.aiDataPlatformId,
-            "{workspaceKey}": resetAiDataPlatformGitFolderStateRequest.workspaceKey,
-            "{gitRepositoryKey}": resetAiDataPlatformGitFolderStateRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": resetGitFolderStateRequest.aiDataPlatformId,
+            "{workspaceKey}": resetGitFolderStateRequest.workspaceKey,
+            "{gitRepositoryKey}": resetGitFolderStateRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6591,13 +6591,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': resetAiDataPlatformGitFolderStateRequest.opcRetryToken,'opc-request-id': resetAiDataPlatformGitFolderStateRequest.opcRequestId,'if-match': resetAiDataPlatformGitFolderStateRequest.ifMatch,
+        'opc-retry-token': resetGitFolderStateRequest.opcRetryToken,'opc-request-id': resetGitFolderStateRequest.opcRequestId,'if-match': resetGitFolderStateRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            resetAiDataPlatformGitFolderStateRequest.retryConfiguration,
+            resetGitFolderStateRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6606,7 +6606,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/resetState',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(resetAiDataPlatformGitFolderStateRequest.resetGitFolderStateDetails, "ResetGitFolderStateDetails"
+            bodyContent: common.ObjectSerializer.serialize(resetGitFolderStateRequest.resetGitFolderStateDetails, "ResetGitFolderStateDetails"
                             , model.ResetGitFolderStateDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6616,7 +6616,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ResetAiDataPlatformGitFolderStateResponse>{},
+            responseObject: <responses.ResetGitFolderStateResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -6642,20 +6642,20 @@ export class GitClient {
      * (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ResetAiDataPlatformGitRepositoryRequest
-     * @return ResetAiDataPlatformGitRepositoryResponse
+     * @param ResetGitRepositoryRequest
+     * @return ResetGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ResetAiDataPlatformGitRepository.ts.html |here} to see how to use ResetAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ResetGitRepository.ts.html |here} to see how to use ResetGitRepository API.
      */
-    public async resetAiDataPlatformGitRepository (resetAiDataPlatformGitRepositoryRequest: requests.ResetAiDataPlatformGitRepositoryRequest) : Promise<responses.ResetAiDataPlatformGitRepositoryResponse> {
+    public async resetGitRepository (resetGitRepositoryRequest: requests.ResetGitRepositoryRequest) : Promise<responses.ResetGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#resetAiDataPlatformGitRepository.");
-        const operationName = "resetAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#resetGitRepository.");
+        const operationName = "resetGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": resetAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": resetAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": resetAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": resetGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": resetGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": resetGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6663,13 +6663,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': resetAiDataPlatformGitRepositoryRequest.opcRetryToken,'opc-request-id': resetAiDataPlatformGitRepositoryRequest.opcRequestId,'if-match': resetAiDataPlatformGitRepositoryRequest.ifMatch,'should-update-recent': resetAiDataPlatformGitRepositoryRequest.shouldUpdateRecent,
+        'opc-retry-token': resetGitRepositoryRequest.opcRetryToken,'opc-request-id': resetGitRepositoryRequest.opcRequestId,'if-match': resetGitRepositoryRequest.ifMatch,'should-update-recent': resetGitRepositoryRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            resetAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            resetGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6678,7 +6678,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/reset',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(resetAiDataPlatformGitRepositoryRequest.gitResetDetails, "GitResetDetails"
+            bodyContent: common.ObjectSerializer.serialize(resetGitRepositoryRequest.gitResetDetails, "GitResetDetails"
                             , model.GitResetDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6688,7 +6688,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ResetAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.ResetGitRepositoryResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -6714,20 +6714,20 @@ export class GitClient {
      * (Preview) Accepts conflict resolution instructions\u2014choose source or target versions\u2014and records the resolution back to the repo.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ResolveAiDataPlatformGitConflictsRequest
-     * @return ResolveAiDataPlatformGitConflictsResponse
+     * @param ResolveGitConflictsRequest
+     * @return ResolveGitConflictsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ResolveAiDataPlatformGitConflicts.ts.html |here} to see how to use ResolveAiDataPlatformGitConflicts API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ResolveGitConflicts.ts.html |here} to see how to use ResolveGitConflicts API.
      */
-    public async resolveAiDataPlatformGitConflicts (resolveAiDataPlatformGitConflictsRequest: requests.ResolveAiDataPlatformGitConflictsRequest) : Promise<responses.ResolveAiDataPlatformGitConflictsResponse> {
+    public async resolveGitConflicts (resolveGitConflictsRequest: requests.ResolveGitConflictsRequest) : Promise<responses.ResolveGitConflictsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#resolveAiDataPlatformGitConflicts.");
-        const operationName = "resolveAiDataPlatformGitConflicts";
+              this.logger.debug("Calling operation GitClient#resolveGitConflicts.");
+        const operationName = "resolveGitConflicts";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": resolveAiDataPlatformGitConflictsRequest.aiDataPlatformId,
-            "{workspaceKey}": resolveAiDataPlatformGitConflictsRequest.workspaceKey,
-            "{gitRepositoryKey}": resolveAiDataPlatformGitConflictsRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": resolveGitConflictsRequest.aiDataPlatformId,
+            "{workspaceKey}": resolveGitConflictsRequest.workspaceKey,
+            "{gitRepositoryKey}": resolveGitConflictsRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6735,13 +6735,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': resolveAiDataPlatformGitConflictsRequest.opcRetryToken,'opc-request-id': resolveAiDataPlatformGitConflictsRequest.opcRequestId,'if-match': resolveAiDataPlatformGitConflictsRequest.ifMatch,
+        'opc-retry-token': resolveGitConflictsRequest.opcRetryToken,'opc-request-id': resolveGitConflictsRequest.opcRequestId,'if-match': resolveGitConflictsRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            resolveAiDataPlatformGitConflictsRequest.retryConfiguration,
+            resolveGitConflictsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6750,7 +6750,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}/actions/resolveConflicts',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(resolveAiDataPlatformGitConflictsRequest.conflictResolveDetails, "ConflictResolveDetails"
+            bodyContent: common.ObjectSerializer.serialize(resolveGitConflictsRequest.conflictResolveDetails, "ConflictResolveDetails"
                             , model.ConflictResolveDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6760,7 +6760,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ResolveAiDataPlatformGitConflictsResponse>{},
+            responseObject: <responses.ResolveGitConflictsResponse>{},
                 body: await response.json(),
                 bodyKey: "gitBranch",
                 bodyModel:  model.GitBranch,
@@ -6790,20 +6790,20 @@ export class GitClient {
      * (Preview) Updates stored repository details\u2014such as credentials or default branches\u2014so automation stays aligned with your source control.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformGitRepositoryRequest
-     * @return UpdateAiDataPlatformGitRepositoryResponse
+     * @param UpdateGitRepositoryRequest
+     * @return UpdateGitRepositoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformGitRepository.ts.html |here} to see how to use UpdateAiDataPlatformGitRepository API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateGitRepository.ts.html |here} to see how to use UpdateGitRepository API.
      */
-    public async updateAiDataPlatformGitRepository (updateAiDataPlatformGitRepositoryRequest: requests.UpdateAiDataPlatformGitRepositoryRequest) : Promise<responses.UpdateAiDataPlatformGitRepositoryResponse> {
+    public async updateGitRepository (updateGitRepositoryRequest: requests.UpdateGitRepositoryRequest) : Promise<responses.UpdateGitRepositoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation GitClient#updateAiDataPlatformGitRepository.");
-        const operationName = "updateAiDataPlatformGitRepository";
+              this.logger.debug("Calling operation GitClient#updateGitRepository.");
+        const operationName = "updateGitRepository";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformGitRepositoryRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformGitRepositoryRequest.workspaceKey,
-            "{gitRepositoryKey}": updateAiDataPlatformGitRepositoryRequest.gitRepositoryKey,
+            "{aiDataPlatformId}": updateGitRepositoryRequest.aiDataPlatformId,
+            "{workspaceKey}": updateGitRepositoryRequest.workspaceKey,
+            "{gitRepositoryKey}": updateGitRepositoryRequest.gitRepositoryKey,
         };
 
         const queryParams = { 
@@ -6811,13 +6811,13 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformGitRepositoryRequest.ifMatch,'opc-request-id': updateAiDataPlatformGitRepositoryRequest.opcRequestId,
+        'if-match': updateGitRepositoryRequest.ifMatch,'opc-request-id': updateGitRepositoryRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformGitRepositoryRequest.retryConfiguration,
+            updateGitRepositoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -6826,7 +6826,7 @@ export class GitClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitRepositories/{gitRepositoryKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformGitRepositoryRequest.updateGitRepositoryDetails, "UpdateGitRepositoryDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateGitRepositoryRequest.updateGitRepositoryDetails, "UpdateGitRepositoryDetails"
                             , model.UpdateGitRepositoryDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -6836,7 +6836,7 @@ export class GitClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformGitRepositoryResponse>{},
+            responseObject: <responses.UpdateGitRepositoryResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -7031,19 +7031,19 @@ export class MLOpsClient {
     /**
      * (Preview) Creates an experiment in a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformExperimentRequest
-     * @return CreateAiDataPlatformExperimentResponse
+     * @param CreateExperimentRequest
+     * @return CreateExperimentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformExperiment.ts.html |here} to see how to use CreateAiDataPlatformExperiment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateExperiment.ts.html |here} to see how to use CreateExperiment API.
      */
-    public async createAiDataPlatformExperiment (createAiDataPlatformExperimentRequest: requests.CreateAiDataPlatformExperimentRequest) : Promise<responses.CreateAiDataPlatformExperimentResponse> {
+    public async createExperiment (createExperimentRequest: requests.CreateExperimentRequest) : Promise<responses.CreateExperimentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#createAiDataPlatformExperiment.");
-        const operationName = "createAiDataPlatformExperiment";
+              this.logger.debug("Calling operation MLOpsClient#createExperiment.");
+        const operationName = "createExperiment";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformExperimentRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformExperimentRequest.workspaceKey,
+            "{aiDataPlatformId}": createExperimentRequest.aiDataPlatformId,
+            "{workspaceKey}": createExperimentRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7051,13 +7051,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformExperimentRequest.opcRetryToken,'opc-request-id': createAiDataPlatformExperimentRequest.opcRequestId,'dh-user-principal': createAiDataPlatformExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': createExperimentRequest.opcRetryToken,'opc-request-id': createExperimentRequest.opcRequestId,'dh-user-principal': createExperimentRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformExperimentRequest.retryConfiguration,
+            createExperimentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7066,7 +7066,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/create',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformExperimentRequest.createExperimentDetails, "CreateExperimentDetails"
+            bodyContent: common.ObjectSerializer.serialize(createExperimentRequest.createExperimentDetails, "CreateExperimentDetails"
                             , model.CreateExperimentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7076,7 +7076,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformExperimentResponse>{},
+            responseObject: <responses.CreateExperimentResponse>{},
                 body: await response.json(),
                 bodyKey: "createExperimentResponseDetails",
                 bodyModel:  model.CreateExperimentResponseDetails,
@@ -7105,19 +7105,19 @@ export class MLOpsClient {
     /**
      * (Preview) Creates a new run within an experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformExperimentRunRequest
-     * @return CreateAiDataPlatformExperimentRunResponse
+     * @param CreateExperimentRunRequest
+     * @return CreateExperimentRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformExperimentRun.ts.html |here} to see how to use CreateAiDataPlatformExperimentRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateExperimentRun.ts.html |here} to see how to use CreateExperimentRun API.
      */
-    public async createAiDataPlatformExperimentRun (createAiDataPlatformExperimentRunRequest: requests.CreateAiDataPlatformExperimentRunRequest) : Promise<responses.CreateAiDataPlatformExperimentRunResponse> {
+    public async createExperimentRun (createExperimentRunRequest: requests.CreateExperimentRunRequest) : Promise<responses.CreateExperimentRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#createAiDataPlatformExperimentRun.");
-        const operationName = "createAiDataPlatformExperimentRun";
+              this.logger.debug("Calling operation MLOpsClient#createExperimentRun.");
+        const operationName = "createExperimentRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformExperimentRunRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformExperimentRunRequest.workspaceKey,
+            "{aiDataPlatformId}": createExperimentRunRequest.aiDataPlatformId,
+            "{workspaceKey}": createExperimentRunRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7125,13 +7125,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformExperimentRunRequest.opcRetryToken,'opc-request-id': createAiDataPlatformExperimentRunRequest.opcRequestId,'dh-user-principal': createAiDataPlatformExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': createExperimentRunRequest.opcRetryToken,'opc-request-id': createExperimentRunRequest.opcRequestId,'dh-user-principal': createExperimentRunRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformExperimentRunRequest.retryConfiguration,
+            createExperimentRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7140,7 +7140,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/create',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformExperimentRunRequest.createExperimentRunDetails, "CreateExperimentRunDetails"
+            bodyContent: common.ObjectSerializer.serialize(createExperimentRunRequest.createExperimentRunDetails, "CreateExperimentRunDetails"
                             , model.CreateExperimentRunDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7150,7 +7150,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformExperimentRunResponse>{},
+            responseObject: <responses.CreateExperimentRunResponse>{},
                 body: await response.json(),
                 bodyKey: "createExperimentRunResponseDetails",
                 bodyModel:  model.CreateExperimentRunResponseDetails,
@@ -7179,18 +7179,18 @@ export class MLOpsClient {
     /**
      * (Preview) Creates a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformModelVersionRequest
-     * @return CreateAiDataPlatformModelVersionResponse
+     * @param CreateModelVersionRequest
+     * @return CreateModelVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformModelVersion.ts.html |here} to see how to use CreateAiDataPlatformModelVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateModelVersion.ts.html |here} to see how to use CreateModelVersion API.
      */
-    public async createAiDataPlatformModelVersion (createAiDataPlatformModelVersionRequest: requests.CreateAiDataPlatformModelVersionRequest) : Promise<responses.CreateAiDataPlatformModelVersionResponse> {
+    public async createModelVersion (createModelVersionRequest: requests.CreateModelVersionRequest) : Promise<responses.CreateModelVersionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#createAiDataPlatformModelVersion.");
-        const operationName = "createAiDataPlatformModelVersion";
+              this.logger.debug("Calling operation MLOpsClient#createModelVersion.");
+        const operationName = "createModelVersion";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformModelVersionRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createModelVersionRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -7198,13 +7198,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformModelVersionRequest.opcRetryToken,'opc-request-id': createAiDataPlatformModelVersionRequest.opcRequestId,'dh-user-principal': createAiDataPlatformModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': createModelVersionRequest.opcRetryToken,'opc-request-id': createModelVersionRequest.opcRequestId,'dh-user-principal': createModelVersionRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformModelVersionRequest.retryConfiguration,
+            createModelVersionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7213,7 +7213,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/model-versions/create',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformModelVersionRequest.createModelVersionDetails, "CreateModelVersionDetails"
+            bodyContent: common.ObjectSerializer.serialize(createModelVersionRequest.createModelVersionDetails, "CreateModelVersionDetails"
                             , model.CreateModelVersionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7223,7 +7223,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformModelVersionResponse>{},
+            responseObject: <responses.CreateModelVersionResponse>{},
                 body: await response.json(),
                 bodyKey: "createModelVersionResponseDetails",
                 bodyModel:  model.CreateModelVersionResponseDetails,
@@ -7252,18 +7252,18 @@ export class MLOpsClient {
     /**
      * (Preview) Creates a registered model in a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformRegisteredModelRequest
-     * @return CreateAiDataPlatformRegisteredModelResponse
+     * @param CreateRegisteredModelRequest
+     * @return CreateRegisteredModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformRegisteredModel.ts.html |here} to see how to use CreateAiDataPlatformRegisteredModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateRegisteredModel.ts.html |here} to see how to use CreateRegisteredModel API.
      */
-    public async createAiDataPlatformRegisteredModel (createAiDataPlatformRegisteredModelRequest: requests.CreateAiDataPlatformRegisteredModelRequest) : Promise<responses.CreateAiDataPlatformRegisteredModelResponse> {
+    public async createRegisteredModel (createRegisteredModelRequest: requests.CreateRegisteredModelRequest) : Promise<responses.CreateRegisteredModelResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#createAiDataPlatformRegisteredModel.");
-        const operationName = "createAiDataPlatformRegisteredModel";
+              this.logger.debug("Calling operation MLOpsClient#createRegisteredModel.");
+        const operationName = "createRegisteredModel";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformRegisteredModelRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createRegisteredModelRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -7271,13 +7271,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformRegisteredModelRequest.opcRetryToken,'opc-request-id': createAiDataPlatformRegisteredModelRequest.opcRequestId,'dh-user-principal': createAiDataPlatformRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': createRegisteredModelRequest.opcRetryToken,'opc-request-id': createRegisteredModelRequest.opcRequestId,'dh-user-principal': createRegisteredModelRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformRegisteredModelRequest.retryConfiguration,
+            createRegisteredModelRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7286,7 +7286,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/create',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformRegisteredModelRequest.createRegisteredModelDetails, "CreateRegisteredModelDetails"
+            bodyContent: common.ObjectSerializer.serialize(createRegisteredModelRequest.createRegisteredModelDetails, "CreateRegisteredModelDetails"
                             , model.CreateRegisteredModelDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7296,7 +7296,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformRegisteredModelResponse>{},
+            responseObject: <responses.CreateRegisteredModelResponse>{},
                 body: await response.json(),
                 bodyKey: "createRegisteredModelResponseDetails",
                 bodyModel:  model.CreateRegisteredModelResponseDetails,
@@ -7325,19 +7325,19 @@ export class MLOpsClient {
     /**
      * (Preview) Creates a new model version in a specified workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformWorkspaceModelVersionRequest
-     * @return CreateAiDataPlatformWorkspaceModelVersionResponse
+     * @param CreateWorkspaceModelVersionRequest
+     * @return CreateWorkspaceModelVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformWorkspaceModelVersion.ts.html |here} to see how to use CreateAiDataPlatformWorkspaceModelVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateWorkspaceModelVersion.ts.html |here} to see how to use CreateWorkspaceModelVersion API.
      */
-    public async createAiDataPlatformWorkspaceModelVersion (createAiDataPlatformWorkspaceModelVersionRequest: requests.CreateAiDataPlatformWorkspaceModelVersionRequest) : Promise<responses.CreateAiDataPlatformWorkspaceModelVersionResponse> {
+    public async createWorkspaceModelVersion (createWorkspaceModelVersionRequest: requests.CreateWorkspaceModelVersionRequest) : Promise<responses.CreateWorkspaceModelVersionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#createAiDataPlatformWorkspaceModelVersion.");
-        const operationName = "createAiDataPlatformWorkspaceModelVersion";
+              this.logger.debug("Calling operation MLOpsClient#createWorkspaceModelVersion.");
+        const operationName = "createWorkspaceModelVersion";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformWorkspaceModelVersionRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformWorkspaceModelVersionRequest.workspaceKey,
+            "{aiDataPlatformId}": createWorkspaceModelVersionRequest.aiDataPlatformId,
+            "{workspaceKey}": createWorkspaceModelVersionRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7345,13 +7345,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformWorkspaceModelVersionRequest.opcRetryToken,'opc-request-id': createAiDataPlatformWorkspaceModelVersionRequest.opcRequestId,'dh-user-principal': createAiDataPlatformWorkspaceModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': createWorkspaceModelVersionRequest.opcRetryToken,'opc-request-id': createWorkspaceModelVersionRequest.opcRequestId,'dh-user-principal': createWorkspaceModelVersionRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformWorkspaceModelVersionRequest.retryConfiguration,
+            createWorkspaceModelVersionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7360,7 +7360,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/model-versions/create',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformWorkspaceModelVersionRequest.createModelVersionDetails, "CreateModelVersionDetails"
+            bodyContent: common.ObjectSerializer.serialize(createWorkspaceModelVersionRequest.createModelVersionDetails, "CreateModelVersionDetails"
                             , model.CreateModelVersionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7370,7 +7370,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformWorkspaceModelVersionResponse>{},
+            responseObject: <responses.CreateWorkspaceModelVersionResponse>{},
                 body: await response.json(),
                 bodyKey: "createModelVersionResponseDetails",
                 bodyModel:  model.CreateModelVersionResponseDetails,
@@ -7399,19 +7399,19 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes an experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformExperimentRequest
-     * @return DeleteAiDataPlatformExperimentResponse
+     * @param DeleteExperimentRequest
+     * @return DeleteExperimentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformExperiment.ts.html |here} to see how to use DeleteAiDataPlatformExperiment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteExperiment.ts.html |here} to see how to use DeleteExperiment API.
      */
-    public async deleteAiDataPlatformExperiment (deleteAiDataPlatformExperimentRequest: requests.DeleteAiDataPlatformExperimentRequest) : Promise<responses.DeleteAiDataPlatformExperimentResponse> {
+    public async deleteExperiment (deleteExperimentRequest: requests.DeleteExperimentRequest) : Promise<responses.DeleteExperimentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformExperiment.");
-        const operationName = "deleteAiDataPlatformExperiment";
+              this.logger.debug("Calling operation MLOpsClient#deleteExperiment.");
+        const operationName = "deleteExperiment";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformExperimentRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformExperimentRequest.workspaceKey,
+            "{aiDataPlatformId}": deleteExperimentRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteExperimentRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7419,13 +7419,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformExperimentRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformExperimentRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentRequest.opcRetryToken,'opc-request-id': deleteExperimentRequest.opcRequestId,'dh-user-principal': deleteExperimentRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformExperimentRequest.retryConfiguration,
+            deleteExperimentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7434,7 +7434,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/delete',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformExperimentRequest.deleteExperimentDetails, "DeleteExperimentDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteExperimentRequest.deleteExperimentDetails, "DeleteExperimentDetails"
                             , model.DeleteExperimentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7444,7 +7444,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformExperimentResponse>{},
+            responseObject: <responses.DeleteExperimentResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteExperimentResponseDetails",
                 bodyModel:  model.DeleteExperimentResponseDetails,
@@ -7473,19 +7473,19 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes an experiment run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformExperimentRunRequest
-     * @return DeleteAiDataPlatformExperimentRunResponse
+     * @param DeleteExperimentRunRequest
+     * @return DeleteExperimentRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformExperimentRun.ts.html |here} to see how to use DeleteAiDataPlatformExperimentRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteExperimentRun.ts.html |here} to see how to use DeleteExperimentRun API.
      */
-    public async deleteAiDataPlatformExperimentRun (deleteAiDataPlatformExperimentRunRequest: requests.DeleteAiDataPlatformExperimentRunRequest) : Promise<responses.DeleteAiDataPlatformExperimentRunResponse> {
+    public async deleteExperimentRun (deleteExperimentRunRequest: requests.DeleteExperimentRunRequest) : Promise<responses.DeleteExperimentRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformExperimentRun.");
-        const operationName = "deleteAiDataPlatformExperimentRun";
+              this.logger.debug("Calling operation MLOpsClient#deleteExperimentRun.");
+        const operationName = "deleteExperimentRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformExperimentRunRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformExperimentRunRequest.workspaceKey,
+            "{aiDataPlatformId}": deleteExperimentRunRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteExperimentRunRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7493,13 +7493,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformExperimentRunRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformExperimentRunRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentRunRequest.opcRetryToken,'opc-request-id': deleteExperimentRunRequest.opcRequestId,'dh-user-principal': deleteExperimentRunRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformExperimentRunRequest.retryConfiguration,
+            deleteExperimentRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7508,7 +7508,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/delete',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformExperimentRunRequest.deleteExperimentRunDetails, "DeleteExperimentRunDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteExperimentRunRequest.deleteExperimentRunDetails, "DeleteExperimentRunDetails"
                             , model.DeleteExperimentRunDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7518,7 +7518,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformExperimentRunResponse>{},
+            responseObject: <responses.DeleteExperimentRunResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteExperimentRunResponseDetails",
                 bodyModel:  model.DeleteExperimentRunResponseDetails,
@@ -7547,19 +7547,19 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes a tag on an experiment run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformExperimentRunTagRequest
-     * @return DeleteAiDataPlatformExperimentRunTagResponse
+     * @param DeleteExperimentRunTagRequest
+     * @return DeleteExperimentRunTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformExperimentRunTag.ts.html |here} to see how to use DeleteAiDataPlatformExperimentRunTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteExperimentRunTag.ts.html |here} to see how to use DeleteExperimentRunTag API.
      */
-    public async deleteAiDataPlatformExperimentRunTag (deleteAiDataPlatformExperimentRunTagRequest: requests.DeleteAiDataPlatformExperimentRunTagRequest) : Promise<responses.DeleteAiDataPlatformExperimentRunTagResponse> {
+    public async deleteExperimentRunTag (deleteExperimentRunTagRequest: requests.DeleteExperimentRunTagRequest) : Promise<responses.DeleteExperimentRunTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformExperimentRunTag.");
-        const operationName = "deleteAiDataPlatformExperimentRunTag";
+              this.logger.debug("Calling operation MLOpsClient#deleteExperimentRunTag.");
+        const operationName = "deleteExperimentRunTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformExperimentRunTagRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformExperimentRunTagRequest.workspaceKey,
+            "{aiDataPlatformId}": deleteExperimentRunTagRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteExperimentRunTagRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7567,13 +7567,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformExperimentRunTagRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformExperimentRunTagRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformExperimentRunTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentRunTagRequest.opcRetryToken,'opc-request-id': deleteExperimentRunTagRequest.opcRequestId,'dh-user-principal': deleteExperimentRunTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformExperimentRunTagRequest.retryConfiguration,
+            deleteExperimentRunTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7582,7 +7582,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/delete-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformExperimentRunTagRequest.deleteExperimentRunTagDetails, "DeleteExperimentRunTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteExperimentRunTagRequest.deleteExperimentRunTagDetails, "DeleteExperimentRunTagDetails"
                             , model.DeleteExperimentRunTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7592,7 +7592,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformExperimentRunTagResponse>{},
+            responseObject: <responses.DeleteExperimentRunTagResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteExperimentRunTagResponseDetails",
                 bodyModel:  model.DeleteExperimentRunTagResponseDetails,
@@ -7621,19 +7621,19 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes a tag on an experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformExperimentTagRequest
-     * @return DeleteAiDataPlatformExperimentTagResponse
+     * @param DeleteExperimentTagRequest
+     * @return DeleteExperimentTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformExperimentTag.ts.html |here} to see how to use DeleteAiDataPlatformExperimentTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteExperimentTag.ts.html |here} to see how to use DeleteExperimentTag API.
      */
-    public async deleteAiDataPlatformExperimentTag (deleteAiDataPlatformExperimentTagRequest: requests.DeleteAiDataPlatformExperimentTagRequest) : Promise<responses.DeleteAiDataPlatformExperimentTagResponse> {
+    public async deleteExperimentTag (deleteExperimentTagRequest: requests.DeleteExperimentTagRequest) : Promise<responses.DeleteExperimentTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformExperimentTag.");
-        const operationName = "deleteAiDataPlatformExperimentTag";
+              this.logger.debug("Calling operation MLOpsClient#deleteExperimentTag.");
+        const operationName = "deleteExperimentTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformExperimentTagRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformExperimentTagRequest.workspaceKey,
+            "{aiDataPlatformId}": deleteExperimentTagRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteExperimentTagRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -7641,13 +7641,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformExperimentTagRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformExperimentTagRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformExperimentTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentTagRequest.opcRetryToken,'opc-request-id': deleteExperimentTagRequest.opcRequestId,'dh-user-principal': deleteExperimentTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformExperimentTagRequest.retryConfiguration,
+            deleteExperimentTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7656,7 +7656,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/delete-experiment-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformExperimentTagRequest.deleteExperimentTagDetails, "DeleteExperimentTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteExperimentTagRequest.deleteExperimentTagDetails, "DeleteExperimentTagDetails"
                             , model.DeleteExperimentTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7666,7 +7666,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformExperimentTagResponse>{},
+            responseObject: <responses.DeleteExperimentTagResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteExperimentTagResponseDetails",
                 bodyModel:  model.DeleteExperimentTagResponseDetails,
@@ -7695,18 +7695,18 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformModelVersionRequest
-     * @return DeleteAiDataPlatformModelVersionResponse
+     * @param DeleteModelVersionRequest
+     * @return DeleteModelVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformModelVersion.ts.html |here} to see how to use DeleteAiDataPlatformModelVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteModelVersion.ts.html |here} to see how to use DeleteModelVersion API.
      */
-    public async deleteAiDataPlatformModelVersion (deleteAiDataPlatformModelVersionRequest: requests.DeleteAiDataPlatformModelVersionRequest) : Promise<responses.DeleteAiDataPlatformModelVersionResponse> {
+    public async deleteModelVersion (deleteModelVersionRequest: requests.DeleteModelVersionRequest) : Promise<responses.DeleteModelVersionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformModelVersion.");
-        const operationName = "deleteAiDataPlatformModelVersion";
+              this.logger.debug("Calling operation MLOpsClient#deleteModelVersion.");
+        const operationName = "deleteModelVersion";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformModelVersionRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": deleteModelVersionRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -7714,13 +7714,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformModelVersionRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformModelVersionRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': deleteModelVersionRequest.opcRetryToken,'opc-request-id': deleteModelVersionRequest.opcRequestId,'dh-user-principal': deleteModelVersionRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformModelVersionRequest.retryConfiguration,
+            deleteModelVersionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7729,7 +7729,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/model-versions/delete',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformModelVersionRequest.deleteModelVersionDetails, "DeleteModelVersionDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteModelVersionRequest.deleteModelVersionDetails, "DeleteModelVersionDetails"
                             , model.DeleteModelVersionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7739,7 +7739,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformModelVersionResponse>{},
+            responseObject: <responses.DeleteModelVersionResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteModelVersionResponseDetails",
                 bodyModel:  model.DeleteModelVersionResponseDetails,
@@ -7768,18 +7768,18 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes a tag on a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformModelVersionTagRequest
-     * @return DeleteAiDataPlatformModelVersionTagResponse
+     * @param DeleteModelVersionTagRequest
+     * @return DeleteModelVersionTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformModelVersionTag.ts.html |here} to see how to use DeleteAiDataPlatformModelVersionTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteModelVersionTag.ts.html |here} to see how to use DeleteModelVersionTag API.
      */
-    public async deleteAiDataPlatformModelVersionTag (deleteAiDataPlatformModelVersionTagRequest: requests.DeleteAiDataPlatformModelVersionTagRequest) : Promise<responses.DeleteAiDataPlatformModelVersionTagResponse> {
+    public async deleteModelVersionTag (deleteModelVersionTagRequest: requests.DeleteModelVersionTagRequest) : Promise<responses.DeleteModelVersionTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformModelVersionTag.");
-        const operationName = "deleteAiDataPlatformModelVersionTag";
+              this.logger.debug("Calling operation MLOpsClient#deleteModelVersionTag.");
+        const operationName = "deleteModelVersionTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformModelVersionTagRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": deleteModelVersionTagRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -7787,13 +7787,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformModelVersionTagRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformModelVersionTagRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformModelVersionTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteModelVersionTagRequest.opcRetryToken,'opc-request-id': deleteModelVersionTagRequest.opcRequestId,'dh-user-principal': deleteModelVersionTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformModelVersionTagRequest.retryConfiguration,
+            deleteModelVersionTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7802,7 +7802,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/model-versions/delete-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformModelVersionTagRequest.deleteModelVersionTagDetails, "DeleteModelVersionTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteModelVersionTagRequest.deleteModelVersionTagDetails, "DeleteModelVersionTagDetails"
                             , model.DeleteModelVersionTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7812,7 +7812,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformModelVersionTagResponse>{},
+            responseObject: <responses.DeleteModelVersionTagResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteModelVersionTagResponseDetails",
                 bodyModel:  model.DeleteModelVersionTagResponseDetails,
@@ -7841,18 +7841,18 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes a registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformRegisteredModelRequest
-     * @return DeleteAiDataPlatformRegisteredModelResponse
+     * @param DeleteRegisteredModelRequest
+     * @return DeleteRegisteredModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformRegisteredModel.ts.html |here} to see how to use DeleteAiDataPlatformRegisteredModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteRegisteredModel.ts.html |here} to see how to use DeleteRegisteredModel API.
      */
-    public async deleteAiDataPlatformRegisteredModel (deleteAiDataPlatformRegisteredModelRequest: requests.DeleteAiDataPlatformRegisteredModelRequest) : Promise<responses.DeleteAiDataPlatformRegisteredModelResponse> {
+    public async deleteRegisteredModel (deleteRegisteredModelRequest: requests.DeleteRegisteredModelRequest) : Promise<responses.DeleteRegisteredModelResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformRegisteredModel.");
-        const operationName = "deleteAiDataPlatformRegisteredModel";
+              this.logger.debug("Calling operation MLOpsClient#deleteRegisteredModel.");
+        const operationName = "deleteRegisteredModel";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformRegisteredModelRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": deleteRegisteredModelRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -7860,13 +7860,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformRegisteredModelRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformRegisteredModelRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': deleteRegisteredModelRequest.opcRetryToken,'opc-request-id': deleteRegisteredModelRequest.opcRequestId,'dh-user-principal': deleteRegisteredModelRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformRegisteredModelRequest.retryConfiguration,
+            deleteRegisteredModelRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7875,7 +7875,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/delete',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformRegisteredModelRequest.deleteRegisteredModelDetails, "DeleteRegisteredModelDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteRegisteredModelRequest.deleteRegisteredModelDetails, "DeleteRegisteredModelDetails"
                             , model.DeleteRegisteredModelDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7885,7 +7885,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformRegisteredModelResponse>{},
+            responseObject: <responses.DeleteRegisteredModelResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteRegisteredModelResponseDetails",
                 bodyModel:  model.DeleteRegisteredModelResponseDetails,
@@ -7914,18 +7914,18 @@ export class MLOpsClient {
     /**
      * (Preview) Deletes a tag on a registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformRegisteredModelTagRequest
-     * @return DeleteAiDataPlatformRegisteredModelTagResponse
+     * @param DeleteRegisteredModelTagRequest
+     * @return DeleteRegisteredModelTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformRegisteredModelTag.ts.html |here} to see how to use DeleteAiDataPlatformRegisteredModelTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteRegisteredModelTag.ts.html |here} to see how to use DeleteRegisteredModelTag API.
      */
-    public async deleteAiDataPlatformRegisteredModelTag (deleteAiDataPlatformRegisteredModelTagRequest: requests.DeleteAiDataPlatformRegisteredModelTagRequest) : Promise<responses.DeleteAiDataPlatformRegisteredModelTagResponse> {
+    public async deleteRegisteredModelTag (deleteRegisteredModelTagRequest: requests.DeleteRegisteredModelTagRequest) : Promise<responses.DeleteRegisteredModelTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#deleteAiDataPlatformRegisteredModelTag.");
-        const operationName = "deleteAiDataPlatformRegisteredModelTag";
+              this.logger.debug("Calling operation MLOpsClient#deleteRegisteredModelTag.");
+        const operationName = "deleteRegisteredModelTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformRegisteredModelTagRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": deleteRegisteredModelTagRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -7933,13 +7933,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteAiDataPlatformRegisteredModelTagRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformRegisteredModelTagRequest.opcRequestId,'dh-user-principal': deleteAiDataPlatformRegisteredModelTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteRegisteredModelTagRequest.opcRetryToken,'opc-request-id': deleteRegisteredModelTagRequest.opcRequestId,'dh-user-principal': deleteRegisteredModelTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformRegisteredModelTagRequest.retryConfiguration,
+            deleteRegisteredModelTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -7948,7 +7948,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/delete-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(deleteAiDataPlatformRegisteredModelTagRequest.deleteRegisteredModelTagDetails, "DeleteRegisteredModelTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(deleteRegisteredModelTagRequest.deleteRegisteredModelTagDetails, "DeleteRegisteredModelTagDetails"
                             , model.DeleteRegisteredModelTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -7958,7 +7958,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformRegisteredModelTagResponse>{},
+            responseObject: <responses.DeleteRegisteredModelTagResponse>{},
                 body: await response.json(),
                 bodyKey: "deleteRegisteredModelTagResponseDetails",
                 bodyModel:  model.DeleteRegisteredModelTagResponseDetails,
@@ -7987,34 +7987,34 @@ export class MLOpsClient {
     /**
      * (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformExperimentByIdRequest
-     * @return GetAiDataPlatformExperimentByIdResponse
+     * @param GetExperimentByIdRequest
+     * @return GetExperimentByIdResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformExperimentById.ts.html |here} to see how to use GetAiDataPlatformExperimentById API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetExperimentById.ts.html |here} to see how to use GetExperimentById API.
      */
-    public async getAiDataPlatformExperimentById (getAiDataPlatformExperimentByIdRequest: requests.GetAiDataPlatformExperimentByIdRequest) : Promise<responses.GetAiDataPlatformExperimentByIdResponse> {
+    public async getExperimentById (getExperimentByIdRequest: requests.GetExperimentByIdRequest) : Promise<responses.GetExperimentByIdResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#getAiDataPlatformExperimentById.");
-        const operationName = "getAiDataPlatformExperimentById";
+              this.logger.debug("Calling operation MLOpsClient#getExperimentById.");
+        const operationName = "getExperimentById";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformExperimentByIdRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformExperimentByIdRequest.workspaceKey,
+            "{aiDataPlatformId}": getExperimentByIdRequest.aiDataPlatformId,
+            "{workspaceKey}": getExperimentByIdRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'experiment_id': getAiDataPlatformExperimentByIdRequest.experimentId,
+            'experiment_id': getExperimentByIdRequest.experimentId,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformExperimentByIdRequest.opcRequestId,'dh-user-principal': getAiDataPlatformExperimentByIdRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentByIdRequest.opcRequestId,'dh-user-principal': getExperimentByIdRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformExperimentByIdRequest.retryConfiguration,
+            getExperimentByIdRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8030,7 +8030,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformExperimentByIdResponse>{},
+            responseObject: <responses.GetExperimentByIdResponse>{},
                 body: await response.json(),
                 bodyKey: "experimentResponse",
                 bodyModel:  model.ExperimentResponse,
@@ -8059,34 +8059,34 @@ export class MLOpsClient {
     /**
      * (Preview) Returns experiment metadata for a given name. Returns deleted experiments, but prefers the active experiment if an active and deleted experiment share the same name. If multiple deleted experiments share the same name, the API will return one of them.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformExperimentByNameRequest
-     * @return GetAiDataPlatformExperimentByNameResponse
+     * @param GetExperimentByNameRequest
+     * @return GetExperimentByNameResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformExperimentByName.ts.html |here} to see how to use GetAiDataPlatformExperimentByName API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetExperimentByName.ts.html |here} to see how to use GetExperimentByName API.
      */
-    public async getAiDataPlatformExperimentByName (getAiDataPlatformExperimentByNameRequest: requests.GetAiDataPlatformExperimentByNameRequest) : Promise<responses.GetAiDataPlatformExperimentByNameResponse> {
+    public async getExperimentByName (getExperimentByNameRequest: requests.GetExperimentByNameRequest) : Promise<responses.GetExperimentByNameResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#getAiDataPlatformExperimentByName.");
-        const operationName = "getAiDataPlatformExperimentByName";
+              this.logger.debug("Calling operation MLOpsClient#getExperimentByName.");
+        const operationName = "getExperimentByName";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformExperimentByNameRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformExperimentByNameRequest.workspaceKey,
+            "{aiDataPlatformId}": getExperimentByNameRequest.aiDataPlatformId,
+            "{workspaceKey}": getExperimentByNameRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'experiment_name': getAiDataPlatformExperimentByNameRequest.experimentName,
+            'experiment_name': getExperimentByNameRequest.experimentName,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformExperimentByNameRequest.opcRequestId,'dh-user-principal': getAiDataPlatformExperimentByNameRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentByNameRequest.opcRequestId,'dh-user-principal': getExperimentByNameRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformExperimentByNameRequest.retryConfiguration,
+            getExperimentByNameRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8102,7 +8102,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformExperimentByNameResponse>{},
+            responseObject: <responses.GetExperimentByNameResponse>{},
                 body: await response.json(),
                 bodyKey: "experimentResponse",
                 bodyModel:  model.ExperimentResponse,
@@ -8131,34 +8131,34 @@ export class MLOpsClient {
     /**
      * (Preview) Returns details of an experiment run by ID.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformExperimentRunByIdRequest
-     * @return GetAiDataPlatformExperimentRunByIdResponse
+     * @param GetExperimentRunByIdRequest
+     * @return GetExperimentRunByIdResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformExperimentRunById.ts.html |here} to see how to use GetAiDataPlatformExperimentRunById API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetExperimentRunById.ts.html |here} to see how to use GetExperimentRunById API.
      */
-    public async getAiDataPlatformExperimentRunById (getAiDataPlatformExperimentRunByIdRequest: requests.GetAiDataPlatformExperimentRunByIdRequest) : Promise<responses.GetAiDataPlatformExperimentRunByIdResponse> {
+    public async getExperimentRunById (getExperimentRunByIdRequest: requests.GetExperimentRunByIdRequest) : Promise<responses.GetExperimentRunByIdResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#getAiDataPlatformExperimentRunById.");
-        const operationName = "getAiDataPlatformExperimentRunById";
+              this.logger.debug("Calling operation MLOpsClient#getExperimentRunById.");
+        const operationName = "getExperimentRunById";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformExperimentRunByIdRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformExperimentRunByIdRequest.workspaceKey,
+            "{aiDataPlatformId}": getExperimentRunByIdRequest.aiDataPlatformId,
+            "{workspaceKey}": getExperimentRunByIdRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'run_id': getAiDataPlatformExperimentRunByIdRequest.runId,
+            'run_id': getExperimentRunByIdRequest.runId,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformExperimentRunByIdRequest.opcRequestId,'dh-user-principal': getAiDataPlatformExperimentRunByIdRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentRunByIdRequest.opcRequestId,'dh-user-principal': getExperimentRunByIdRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformExperimentRunByIdRequest.retryConfiguration,
+            getExperimentRunByIdRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8174,7 +8174,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformExperimentRunByIdResponse>{},
+            responseObject: <responses.GetExperimentRunByIdResponse>{},
                 body: await response.json(),
                 bodyKey: "getExperimentRunResponseDetails",
                 bodyModel:  model.GetExperimentRunResponseDetails,
@@ -8203,37 +8203,37 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a history of experiment run metrics.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformExperimentRunMetricHistoryRequest
-     * @return GetAiDataPlatformExperimentRunMetricHistoryResponse
+     * @param GetExperimentRunMetricHistoryRequest
+     * @return GetExperimentRunMetricHistoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformExperimentRunMetricHistory.ts.html |here} to see how to use GetAiDataPlatformExperimentRunMetricHistory API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetExperimentRunMetricHistory.ts.html |here} to see how to use GetExperimentRunMetricHistory API.
      */
-    public async getAiDataPlatformExperimentRunMetricHistory (getAiDataPlatformExperimentRunMetricHistoryRequest: requests.GetAiDataPlatformExperimentRunMetricHistoryRequest) : Promise<responses.GetAiDataPlatformExperimentRunMetricHistoryResponse> {
+    public async getExperimentRunMetricHistory (getExperimentRunMetricHistoryRequest: requests.GetExperimentRunMetricHistoryRequest) : Promise<responses.GetExperimentRunMetricHistoryResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#getAiDataPlatformExperimentRunMetricHistory.");
-        const operationName = "getAiDataPlatformExperimentRunMetricHistory";
+              this.logger.debug("Calling operation MLOpsClient#getExperimentRunMetricHistory.");
+        const operationName = "getExperimentRunMetricHistory";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformExperimentRunMetricHistoryRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformExperimentRunMetricHistoryRequest.workspaceKey,
+            "{aiDataPlatformId}": getExperimentRunMetricHistoryRequest.aiDataPlatformId,
+            "{workspaceKey}": getExperimentRunMetricHistoryRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'run_id': getAiDataPlatformExperimentRunMetricHistoryRequest.runId,
-            'metric_key': getAiDataPlatformExperimentRunMetricHistoryRequest.metricKey,
-            'page_token': getAiDataPlatformExperimentRunMetricHistoryRequest.pageToken,
-            'max_results': getAiDataPlatformExperimentRunMetricHistoryRequest.maxResults,
+            'run_id': getExperimentRunMetricHistoryRequest.runId,
+            'metric_key': getExperimentRunMetricHistoryRequest.metricKey,
+            'page_token': getExperimentRunMetricHistoryRequest.pageToken,
+            'max_results': getExperimentRunMetricHistoryRequest.maxResults,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformExperimentRunMetricHistoryRequest.opcRequestId,'dh-user-principal': getAiDataPlatformExperimentRunMetricHistoryRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentRunMetricHistoryRequest.opcRequestId,'dh-user-principal': getExperimentRunMetricHistoryRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformExperimentRunMetricHistoryRequest.retryConfiguration,
+            getExperimentRunMetricHistoryRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8249,7 +8249,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformExperimentRunMetricHistoryResponse>{},
+            responseObject: <responses.GetExperimentRunMetricHistoryResponse>{},
                 body: await response.json(),
                 bodyKey: "experimentRunMetricHistoryCollection",
                 bodyModel:  model.ExperimentRunMetricHistoryCollection,
@@ -8278,34 +8278,34 @@ export class MLOpsClient {
     /**
      * (Preview)  Returns detailed information for a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformModelVersionRequest
-     * @return GetAiDataPlatformModelVersionResponse
+     * @param GetModelVersionRequest
+     * @return GetModelVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformModelVersion.ts.html |here} to see how to use GetAiDataPlatformModelVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetModelVersion.ts.html |here} to see how to use GetModelVersion API.
      */
-    public async getAiDataPlatformModelVersion (getAiDataPlatformModelVersionRequest: requests.GetAiDataPlatformModelVersionRequest) : Promise<responses.GetAiDataPlatformModelVersionResponse> {
+    public async getModelVersion (getModelVersionRequest: requests.GetModelVersionRequest) : Promise<responses.GetModelVersionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#getAiDataPlatformModelVersion.");
-        const operationName = "getAiDataPlatformModelVersion";
+              this.logger.debug("Calling operation MLOpsClient#getModelVersion.");
+        const operationName = "getModelVersion";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformModelVersionRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": getModelVersionRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'name': getAiDataPlatformModelVersionRequest.name,
-            'version': getAiDataPlatformModelVersionRequest.version,
+            'name': getModelVersionRequest.name,
+            'version': getModelVersionRequest.version,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformModelVersionRequest.opcRequestId,'dh-user-principal': getAiDataPlatformModelVersionRequest.dhUserPrincipal,
+        'opc-request-id': getModelVersionRequest.opcRequestId,'dh-user-principal': getModelVersionRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformModelVersionRequest.retryConfiguration,
+            getModelVersionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8321,7 +8321,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformModelVersionResponse>{},
+            responseObject: <responses.GetModelVersionResponse>{},
                 body: await response.json(),
                 bodyKey: "getModelVersionResponseDetails",
                 bodyModel:  model.GetModelVersionResponseDetails,
@@ -8350,33 +8350,33 @@ export class MLOpsClient {
     /**
      * (Preview) Returns details for a specified registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformRegisteredModelRequest
-     * @return GetAiDataPlatformRegisteredModelResponse
+     * @param GetRegisteredModelRequest
+     * @return GetRegisteredModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformRegisteredModel.ts.html |here} to see how to use GetAiDataPlatformRegisteredModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetRegisteredModel.ts.html |here} to see how to use GetRegisteredModel API.
      */
-    public async getAiDataPlatformRegisteredModel (getAiDataPlatformRegisteredModelRequest: requests.GetAiDataPlatformRegisteredModelRequest) : Promise<responses.GetAiDataPlatformRegisteredModelResponse> {
+    public async getRegisteredModel (getRegisteredModelRequest: requests.GetRegisteredModelRequest) : Promise<responses.GetRegisteredModelResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#getAiDataPlatformRegisteredModel.");
-        const operationName = "getAiDataPlatformRegisteredModel";
+              this.logger.debug("Calling operation MLOpsClient#getRegisteredModel.");
+        const operationName = "getRegisteredModel";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformRegisteredModelRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": getRegisteredModelRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'name': getAiDataPlatformRegisteredModelRequest.name,
+            'name': getRegisteredModelRequest.name,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformRegisteredModelRequest.opcRequestId,'dh-user-principal': getAiDataPlatformRegisteredModelRequest.dhUserPrincipal,
+        'opc-request-id': getRegisteredModelRequest.opcRequestId,'dh-user-principal': getRegisteredModelRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformRegisteredModelRequest.retryConfiguration,
+            getRegisteredModelRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8392,7 +8392,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformRegisteredModelResponse>{},
+            responseObject: <responses.GetRegisteredModelResponse>{},
                 body: await response.json(),
                 bodyKey: "getRegisteredModelResponseDetails",
                 bodyModel:  model.GetRegisteredModelResponseDetails,
@@ -8421,36 +8421,36 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a list of artifacts.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformArtifactsRequest
-     * @return ListAiDataPlatformArtifactsResponse
+     * @param ListArtifactsRequest
+     * @return ListArtifactsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformArtifacts.ts.html |here} to see how to use ListAiDataPlatformArtifacts API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListArtifacts.ts.html |here} to see how to use ListArtifacts API.
      */
-    public async listAiDataPlatformArtifacts (listAiDataPlatformArtifactsRequest: requests.ListAiDataPlatformArtifactsRequest) : Promise<responses.ListAiDataPlatformArtifactsResponse> {
+    public async listArtifacts (listArtifactsRequest: requests.ListArtifactsRequest) : Promise<responses.ListArtifactsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#listAiDataPlatformArtifacts.");
-        const operationName = "listAiDataPlatformArtifacts";
+              this.logger.debug("Calling operation MLOpsClient#listArtifacts.");
+        const operationName = "listArtifacts";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformArtifactsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformArtifactsRequest.workspaceKey,
+            "{aiDataPlatformId}": listArtifactsRequest.aiDataPlatformId,
+            "{workspaceKey}": listArtifactsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'run_id': listAiDataPlatformArtifactsRequest.runId,
-            'path': listAiDataPlatformArtifactsRequest.path,
-            'page_token': listAiDataPlatformArtifactsRequest.pageToken,
+            'run_id': listArtifactsRequest.runId,
+            'path': listArtifactsRequest.path,
+            'page_token': listArtifactsRequest.pageToken,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformArtifactsRequest.opcRequestId,'dh-user-principal': listAiDataPlatformArtifactsRequest.dhUserPrincipal,
+        'opc-request-id': listArtifactsRequest.opcRequestId,'dh-user-principal': listArtifactsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformArtifactsRequest.retryConfiguration,
+            listArtifactsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8466,7 +8466,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformArtifactsResponse>{},
+            responseObject: <responses.ListArtifactsResponse>{},
                 body: await response.json(),
                 bodyKey: "artifactList",
                 bodyModel:  model.ArtifactList,
@@ -8495,19 +8495,19 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a list of experiment runs in a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformExperimentRunsRequest
-     * @return ListAiDataPlatformExperimentRunsResponse
+     * @param ListExperimentRunsRequest
+     * @return ListExperimentRunsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformExperimentRuns.ts.html |here} to see how to use ListAiDataPlatformExperimentRuns API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListExperimentRuns.ts.html |here} to see how to use ListExperimentRuns API.
      */
-    public async listAiDataPlatformExperimentRuns (listAiDataPlatformExperimentRunsRequest: requests.ListAiDataPlatformExperimentRunsRequest) : Promise<responses.ListAiDataPlatformExperimentRunsResponse> {
+    public async listExperimentRuns (listExperimentRunsRequest: requests.ListExperimentRunsRequest) : Promise<responses.ListExperimentRunsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#listAiDataPlatformExperimentRuns.");
-        const operationName = "listAiDataPlatformExperimentRuns";
+              this.logger.debug("Calling operation MLOpsClient#listExperimentRuns.");
+        const operationName = "listExperimentRuns";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformExperimentRunsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformExperimentRunsRequest.workspaceKey,
+            "{aiDataPlatformId}": listExperimentRunsRequest.aiDataPlatformId,
+            "{workspaceKey}": listExperimentRunsRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -8515,13 +8515,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformExperimentRunsRequest.opcRequestId,'dh-user-principal': listAiDataPlatformExperimentRunsRequest.dhUserPrincipal,
+        'opc-request-id': listExperimentRunsRequest.opcRequestId,'dh-user-principal': listExperimentRunsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformExperimentRunsRequest.retryConfiguration,
+            listExperimentRunsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8530,7 +8530,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/search',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(listAiDataPlatformExperimentRunsRequest.listExperimentRunsDetails, "ListExperimentRunsDetails"
+            bodyContent: common.ObjectSerializer.serialize(listExperimentRunsRequest.listExperimentRunsDetails, "ListExperimentRunsDetails"
                             , model.ListExperimentRunsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -8540,7 +8540,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformExperimentRunsResponse>{},
+            responseObject: <responses.ListExperimentRunsResponse>{},
                 body: await response.json(),
                 bodyKey: "experimentRunCollection",
                 bodyModel:  model.ExperimentRunCollection,
@@ -8569,19 +8569,19 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a list of experiments with the given details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformExperimentsRequest
-     * @return ListAiDataPlatformExperimentsResponse
+     * @param ListExperimentsRequest
+     * @return ListExperimentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformExperiments.ts.html |here} to see how to use ListAiDataPlatformExperiments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListExperiments.ts.html |here} to see how to use ListExperiments API.
      */
-    public async listAiDataPlatformExperiments (listAiDataPlatformExperimentsRequest: requests.ListAiDataPlatformExperimentsRequest) : Promise<responses.ListAiDataPlatformExperimentsResponse> {
+    public async listExperiments (listExperimentsRequest: requests.ListExperimentsRequest) : Promise<responses.ListExperimentsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#listAiDataPlatformExperiments.");
-        const operationName = "listAiDataPlatformExperiments";
+              this.logger.debug("Calling operation MLOpsClient#listExperiments.");
+        const operationName = "listExperiments";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformExperimentsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformExperimentsRequest.workspaceKey,
+            "{aiDataPlatformId}": listExperimentsRequest.aiDataPlatformId,
+            "{workspaceKey}": listExperimentsRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -8589,13 +8589,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformExperimentsRequest.opcRequestId,'dh-user-principal': listAiDataPlatformExperimentsRequest.dhUserPrincipal,
+        'opc-request-id': listExperimentsRequest.opcRequestId,'dh-user-principal': listExperimentsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformExperimentsRequest.retryConfiguration,
+            listExperimentsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8604,7 +8604,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/search',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(listAiDataPlatformExperimentsRequest.listExperimentsDetails, "ListExperimentsDetails"
+            bodyContent: common.ObjectSerializer.serialize(listExperimentsRequest.listExperimentsDetails, "ListExperimentsDetails"
                             , model.ListExperimentsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -8614,7 +8614,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformExperimentsResponse>{},
+            responseObject: <responses.ListExperimentsResponse>{},
                 body: await response.json(),
                 bodyKey: "experimentCollection",
                 bodyModel:  model.ExperimentCollection,
@@ -8643,19 +8643,19 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a list of logged models.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformLoggedModelsRequest
-     * @return ListAiDataPlatformLoggedModelsResponse
+     * @param ListLoggedModelsRequest
+     * @return ListLoggedModelsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformLoggedModels.ts.html |here} to see how to use ListAiDataPlatformLoggedModels API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListLoggedModels.ts.html |here} to see how to use ListLoggedModels API.
      */
-    public async listAiDataPlatformLoggedModels (listAiDataPlatformLoggedModelsRequest: requests.ListAiDataPlatformLoggedModelsRequest) : Promise<responses.ListAiDataPlatformLoggedModelsResponse> {
+    public async listLoggedModels (listLoggedModelsRequest: requests.ListLoggedModelsRequest) : Promise<responses.ListLoggedModelsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#listAiDataPlatformLoggedModels.");
-        const operationName = "listAiDataPlatformLoggedModels";
+              this.logger.debug("Calling operation MLOpsClient#listLoggedModels.");
+        const operationName = "listLoggedModels";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformLoggedModelsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformLoggedModelsRequest.workspaceKey,
+            "{aiDataPlatformId}": listLoggedModelsRequest.aiDataPlatformId,
+            "{workspaceKey}": listLoggedModelsRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -8663,13 +8663,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformLoggedModelsRequest.opcRequestId,'dh-user-principal': listAiDataPlatformLoggedModelsRequest.dhUserPrincipal,
+        'opc-request-id': listLoggedModelsRequest.opcRequestId,'dh-user-principal': listLoggedModelsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformLoggedModelsRequest.retryConfiguration,
+            listLoggedModelsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8678,7 +8678,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/logged-models/search',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(listAiDataPlatformLoggedModelsRequest.listLoggedModelsDetails, "ListLoggedModelsDetails"
+            bodyContent: common.ObjectSerializer.serialize(listLoggedModelsRequest.listLoggedModelsDetails, "ListLoggedModelsDetails"
                             , model.ListLoggedModelsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -8688,7 +8688,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformLoggedModelsResponse>{},
+            responseObject: <responses.ListLoggedModelsResponse>{},
                 body: await response.json(),
                 bodyKey: "loggedModelCollection",
                 bodyModel:  model.LoggedModelCollection,
@@ -8717,36 +8717,36 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a list of model versions.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformModelVersionsRequest
-     * @return ListAiDataPlatformModelVersionsResponse
+     * @param ListModelVersionsRequest
+     * @return ListModelVersionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformModelVersions.ts.html |here} to see how to use ListAiDataPlatformModelVersions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListModelVersions.ts.html |here} to see how to use ListModelVersions API.
      */
-    public async listAiDataPlatformModelVersions (listAiDataPlatformModelVersionsRequest: requests.ListAiDataPlatformModelVersionsRequest) : Promise<responses.ListAiDataPlatformModelVersionsResponse> {
+    public async listModelVersions (listModelVersionsRequest: requests.ListModelVersionsRequest) : Promise<responses.ListModelVersionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#listAiDataPlatformModelVersions.");
-        const operationName = "listAiDataPlatformModelVersions";
+              this.logger.debug("Calling operation MLOpsClient#listModelVersions.");
+        const operationName = "listModelVersions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformModelVersionsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listModelVersionsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'filter': listAiDataPlatformModelVersionsRequest.filter,
-            'max_results': listAiDataPlatformModelVersionsRequest.maxResults,
-            'page_token': listAiDataPlatformModelVersionsRequest.pageToken,
-            'order_by': listAiDataPlatformModelVersionsRequest.orderBy,
+            'filter': listModelVersionsRequest.filter,
+            'max_results': listModelVersionsRequest.maxResults,
+            'page_token': listModelVersionsRequest.pageToken,
+            'order_by': listModelVersionsRequest.orderBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformModelVersionsRequest.opcRequestId,'dh-user-principal': listAiDataPlatformModelVersionsRequest.dhUserPrincipal,
+        'opc-request-id': listModelVersionsRequest.opcRequestId,'dh-user-principal': listModelVersionsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformModelVersionsRequest.retryConfiguration,
+            listModelVersionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8762,7 +8762,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformModelVersionsResponse>{},
+            responseObject: <responses.ListModelVersionsResponse>{},
                 body: await response.json(),
                 bodyKey: "modelVersionCollection",
                 bodyModel:  model.ModelVersionCollection,
@@ -8791,36 +8791,36 @@ export class MLOpsClient {
     /**
      * (Preview) Returns a list of registered models in a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRegisteredModelsRequest
-     * @return ListAiDataPlatformRegisteredModelsResponse
+     * @param ListRegisteredModelsRequest
+     * @return ListRegisteredModelsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRegisteredModels.ts.html |here} to see how to use ListAiDataPlatformRegisteredModels API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRegisteredModels.ts.html |here} to see how to use ListRegisteredModels API.
      */
-    public async listAiDataPlatformRegisteredModels (listAiDataPlatformRegisteredModelsRequest: requests.ListAiDataPlatformRegisteredModelsRequest) : Promise<responses.ListAiDataPlatformRegisteredModelsResponse> {
+    public async listRegisteredModels (listRegisteredModelsRequest: requests.ListRegisteredModelsRequest) : Promise<responses.ListRegisteredModelsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#listAiDataPlatformRegisteredModels.");
-        const operationName = "listAiDataPlatformRegisteredModels";
+              this.logger.debug("Calling operation MLOpsClient#listRegisteredModels.");
+        const operationName = "listRegisteredModels";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRegisteredModelsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listRegisteredModelsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'filter': listAiDataPlatformRegisteredModelsRequest.filter,
-            'max_results': listAiDataPlatformRegisteredModelsRequest.maxResults,
-            'page_token': listAiDataPlatformRegisteredModelsRequest.pageToken,
-            'order_by': listAiDataPlatformRegisteredModelsRequest.orderBy,
+            'filter': listRegisteredModelsRequest.filter,
+            'max_results': listRegisteredModelsRequest.maxResults,
+            'page_token': listRegisteredModelsRequest.pageToken,
+            'order_by': listRegisteredModelsRequest.orderBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRegisteredModelsRequest.opcRequestId,'dh-user-principal': listAiDataPlatformRegisteredModelsRequest.dhUserPrincipal,
+        'opc-request-id': listRegisteredModelsRequest.opcRequestId,'dh-user-principal': listRegisteredModelsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRegisteredModelsRequest.retryConfiguration,
+            listRegisteredModelsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8836,7 +8836,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRegisteredModelsResponse>{},
+            responseObject: <responses.ListRegisteredModelsResponse>{},
                 body: await response.json(),
                 bodyKey: "registeredModelCollection",
                 bodyModel:  model.RegisteredModelCollection,
@@ -8865,19 +8865,19 @@ export class MLOpsClient {
     /**
      * (Preview) Logs an experiment run batch.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param LogAiDataPlatformExperimentRunBatchRequest
-     * @return LogAiDataPlatformExperimentRunBatchResponse
+     * @param LogExperimentRunBatchRequest
+     * @return LogExperimentRunBatchResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogAiDataPlatformExperimentRunBatch.ts.html |here} to see how to use LogAiDataPlatformExperimentRunBatch API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogExperimentRunBatch.ts.html |here} to see how to use LogExperimentRunBatch API.
      */
-    public async logAiDataPlatformExperimentRunBatch (logAiDataPlatformExperimentRunBatchRequest: requests.LogAiDataPlatformExperimentRunBatchRequest) : Promise<responses.LogAiDataPlatformExperimentRunBatchResponse> {
+    public async logExperimentRunBatch (logExperimentRunBatchRequest: requests.LogExperimentRunBatchRequest) : Promise<responses.LogExperimentRunBatchResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#logAiDataPlatformExperimentRunBatch.");
-        const operationName = "logAiDataPlatformExperimentRunBatch";
+              this.logger.debug("Calling operation MLOpsClient#logExperimentRunBatch.");
+        const operationName = "logExperimentRunBatch";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": logAiDataPlatformExperimentRunBatchRequest.aiDataPlatformId,
-            "{workspaceKey}": logAiDataPlatformExperimentRunBatchRequest.workspaceKey,
+            "{aiDataPlatformId}": logExperimentRunBatchRequest.aiDataPlatformId,
+            "{workspaceKey}": logExperimentRunBatchRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -8885,13 +8885,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logAiDataPlatformExperimentRunBatchRequest.opcRetryToken,'opc-request-id': logAiDataPlatformExperimentRunBatchRequest.opcRequestId,'dh-user-principal': logAiDataPlatformExperimentRunBatchRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunBatchRequest.opcRetryToken,'opc-request-id': logExperimentRunBatchRequest.opcRequestId,'dh-user-principal': logExperimentRunBatchRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            logAiDataPlatformExperimentRunBatchRequest.retryConfiguration,
+            logExperimentRunBatchRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8900,7 +8900,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/log-batch',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(logAiDataPlatformExperimentRunBatchRequest.logExperimentRunBatchDetails, "LogExperimentRunBatchDetails"
+            bodyContent: common.ObjectSerializer.serialize(logExperimentRunBatchRequest.logExperimentRunBatchDetails, "LogExperimentRunBatchDetails"
                             , model.LogExperimentRunBatchDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -8910,7 +8910,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.LogAiDataPlatformExperimentRunBatchResponse>{},
+            responseObject: <responses.LogExperimentRunBatchResponse>{},
                 body: await response.json(),
                 bodyKey: "logExperimentRunBatchResponseDetails",
                 bodyModel:  model.LogExperimentRunBatchResponseDetails,
@@ -8939,19 +8939,19 @@ export class MLOpsClient {
     /**
      * (Preview) Logs experiment run inputs.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param LogAiDataPlatformExperimentRunInputsRequest
-     * @return LogAiDataPlatformExperimentRunInputsResponse
+     * @param LogExperimentRunInputsRequest
+     * @return LogExperimentRunInputsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogAiDataPlatformExperimentRunInputs.ts.html |here} to see how to use LogAiDataPlatformExperimentRunInputs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogExperimentRunInputs.ts.html |here} to see how to use LogExperimentRunInputs API.
      */
-    public async logAiDataPlatformExperimentRunInputs (logAiDataPlatformExperimentRunInputsRequest: requests.LogAiDataPlatformExperimentRunInputsRequest) : Promise<responses.LogAiDataPlatformExperimentRunInputsResponse> {
+    public async logExperimentRunInputs (logExperimentRunInputsRequest: requests.LogExperimentRunInputsRequest) : Promise<responses.LogExperimentRunInputsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#logAiDataPlatformExperimentRunInputs.");
-        const operationName = "logAiDataPlatformExperimentRunInputs";
+              this.logger.debug("Calling operation MLOpsClient#logExperimentRunInputs.");
+        const operationName = "logExperimentRunInputs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": logAiDataPlatformExperimentRunInputsRequest.aiDataPlatformId,
-            "{workspaceKey}": logAiDataPlatformExperimentRunInputsRequest.workspaceKey,
+            "{aiDataPlatformId}": logExperimentRunInputsRequest.aiDataPlatformId,
+            "{workspaceKey}": logExperimentRunInputsRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -8959,13 +8959,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logAiDataPlatformExperimentRunInputsRequest.opcRetryToken,'opc-request-id': logAiDataPlatformExperimentRunInputsRequest.opcRequestId,'dh-user-principal': logAiDataPlatformExperimentRunInputsRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunInputsRequest.opcRetryToken,'opc-request-id': logExperimentRunInputsRequest.opcRequestId,'dh-user-principal': logExperimentRunInputsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            logAiDataPlatformExperimentRunInputsRequest.retryConfiguration,
+            logExperimentRunInputsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -8974,7 +8974,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/log-inputs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(logAiDataPlatformExperimentRunInputsRequest.logExperimentRunInputsDetails, "LogExperimentRunInputsDetails"
+            bodyContent: common.ObjectSerializer.serialize(logExperimentRunInputsRequest.logExperimentRunInputsDetails, "LogExperimentRunInputsDetails"
                             , model.LogExperimentRunInputsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -8984,7 +8984,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.LogAiDataPlatformExperimentRunInputsResponse>{},
+            responseObject: <responses.LogExperimentRunInputsResponse>{},
                 body: await response.json(),
                 bodyKey: "logExperimentRunInputsResponseDetails",
                 bodyModel:  model.LogExperimentRunInputsResponseDetails,
@@ -9013,19 +9013,19 @@ export class MLOpsClient {
     /**
      * (Preview) Logs an experiment run metric.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param LogAiDataPlatformExperimentRunMetricRequest
-     * @return LogAiDataPlatformExperimentRunMetricResponse
+     * @param LogExperimentRunMetricRequest
+     * @return LogExperimentRunMetricResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogAiDataPlatformExperimentRunMetric.ts.html |here} to see how to use LogAiDataPlatformExperimentRunMetric API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogExperimentRunMetric.ts.html |here} to see how to use LogExperimentRunMetric API.
      */
-    public async logAiDataPlatformExperimentRunMetric (logAiDataPlatformExperimentRunMetricRequest: requests.LogAiDataPlatformExperimentRunMetricRequest) : Promise<responses.LogAiDataPlatformExperimentRunMetricResponse> {
+    public async logExperimentRunMetric (logExperimentRunMetricRequest: requests.LogExperimentRunMetricRequest) : Promise<responses.LogExperimentRunMetricResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#logAiDataPlatformExperimentRunMetric.");
-        const operationName = "logAiDataPlatformExperimentRunMetric";
+              this.logger.debug("Calling operation MLOpsClient#logExperimentRunMetric.");
+        const operationName = "logExperimentRunMetric";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": logAiDataPlatformExperimentRunMetricRequest.aiDataPlatformId,
-            "{workspaceKey}": logAiDataPlatformExperimentRunMetricRequest.workspaceKey,
+            "{aiDataPlatformId}": logExperimentRunMetricRequest.aiDataPlatformId,
+            "{workspaceKey}": logExperimentRunMetricRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9033,13 +9033,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logAiDataPlatformExperimentRunMetricRequest.opcRetryToken,'opc-request-id': logAiDataPlatformExperimentRunMetricRequest.opcRequestId,'dh-user-principal': logAiDataPlatformExperimentRunMetricRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunMetricRequest.opcRetryToken,'opc-request-id': logExperimentRunMetricRequest.opcRequestId,'dh-user-principal': logExperimentRunMetricRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            logAiDataPlatformExperimentRunMetricRequest.retryConfiguration,
+            logExperimentRunMetricRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9048,7 +9048,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/log-metric',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(logAiDataPlatformExperimentRunMetricRequest.logExperimentRunMetricDetails, "LogExperimentRunMetricDetails"
+            bodyContent: common.ObjectSerializer.serialize(logExperimentRunMetricRequest.logExperimentRunMetricDetails, "LogExperimentRunMetricDetails"
                             , model.LogExperimentRunMetricDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9058,7 +9058,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.LogAiDataPlatformExperimentRunMetricResponse>{},
+            responseObject: <responses.LogExperimentRunMetricResponse>{},
                 body: await response.json(),
                 bodyKey: "logExperimentRunMetricResponseDetails",
                 bodyModel:  model.LogExperimentRunMetricResponseDetails,
@@ -9087,19 +9087,19 @@ export class MLOpsClient {
     /**
      * (Preview) Logs an experiment run model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param LogAiDataPlatformExperimentRunModelRequest
-     * @return LogAiDataPlatformExperimentRunModelResponse
+     * @param LogExperimentRunModelRequest
+     * @return LogExperimentRunModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogAiDataPlatformExperimentRunModel.ts.html |here} to see how to use LogAiDataPlatformExperimentRunModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogExperimentRunModel.ts.html |here} to see how to use LogExperimentRunModel API.
      */
-    public async logAiDataPlatformExperimentRunModel (logAiDataPlatformExperimentRunModelRequest: requests.LogAiDataPlatformExperimentRunModelRequest) : Promise<responses.LogAiDataPlatformExperimentRunModelResponse> {
+    public async logExperimentRunModel (logExperimentRunModelRequest: requests.LogExperimentRunModelRequest) : Promise<responses.LogExperimentRunModelResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#logAiDataPlatformExperimentRunModel.");
-        const operationName = "logAiDataPlatformExperimentRunModel";
+              this.logger.debug("Calling operation MLOpsClient#logExperimentRunModel.");
+        const operationName = "logExperimentRunModel";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": logAiDataPlatformExperimentRunModelRequest.aiDataPlatformId,
-            "{workspaceKey}": logAiDataPlatformExperimentRunModelRequest.workspaceKey,
+            "{aiDataPlatformId}": logExperimentRunModelRequest.aiDataPlatformId,
+            "{workspaceKey}": logExperimentRunModelRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9107,13 +9107,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logAiDataPlatformExperimentRunModelRequest.opcRetryToken,'opc-request-id': logAiDataPlatformExperimentRunModelRequest.opcRequestId,'dh-user-principal': logAiDataPlatformExperimentRunModelRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunModelRequest.opcRetryToken,'opc-request-id': logExperimentRunModelRequest.opcRequestId,'dh-user-principal': logExperimentRunModelRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            logAiDataPlatformExperimentRunModelRequest.retryConfiguration,
+            logExperimentRunModelRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9122,7 +9122,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/log-model',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(logAiDataPlatformExperimentRunModelRequest.logExperimentRunModelDetails, "LogExperimentRunModelDetails"
+            bodyContent: common.ObjectSerializer.serialize(logExperimentRunModelRequest.logExperimentRunModelDetails, "LogExperimentRunModelDetails"
                             , model.LogExperimentRunModelDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9132,7 +9132,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.LogAiDataPlatformExperimentRunModelResponse>{},
+            responseObject: <responses.LogExperimentRunModelResponse>{},
                 body: await response.json(),
                 bodyKey: "logExperimentRunModelResponseDetails",
                 bodyModel:  model.LogExperimentRunModelResponseDetails,
@@ -9161,19 +9161,19 @@ export class MLOpsClient {
     /**
      * (Preview) Logs an experiment run parameter.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param LogAiDataPlatformExperimentRunParamRequest
-     * @return LogAiDataPlatformExperimentRunParamResponse
+     * @param LogExperimentRunParamRequest
+     * @return LogExperimentRunParamResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogAiDataPlatformExperimentRunParam.ts.html |here} to see how to use LogAiDataPlatformExperimentRunParam API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/LogExperimentRunParam.ts.html |here} to see how to use LogExperimentRunParam API.
      */
-    public async logAiDataPlatformExperimentRunParam (logAiDataPlatformExperimentRunParamRequest: requests.LogAiDataPlatformExperimentRunParamRequest) : Promise<responses.LogAiDataPlatformExperimentRunParamResponse> {
+    public async logExperimentRunParam (logExperimentRunParamRequest: requests.LogExperimentRunParamRequest) : Promise<responses.LogExperimentRunParamResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#logAiDataPlatformExperimentRunParam.");
-        const operationName = "logAiDataPlatformExperimentRunParam";
+              this.logger.debug("Calling operation MLOpsClient#logExperimentRunParam.");
+        const operationName = "logExperimentRunParam";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": logAiDataPlatformExperimentRunParamRequest.aiDataPlatformId,
-            "{workspaceKey}": logAiDataPlatformExperimentRunParamRequest.workspaceKey,
+            "{aiDataPlatformId}": logExperimentRunParamRequest.aiDataPlatformId,
+            "{workspaceKey}": logExperimentRunParamRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9181,13 +9181,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logAiDataPlatformExperimentRunParamRequest.opcRetryToken,'opc-request-id': logAiDataPlatformExperimentRunParamRequest.opcRequestId,'dh-user-principal': logAiDataPlatformExperimentRunParamRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunParamRequest.opcRetryToken,'opc-request-id': logExperimentRunParamRequest.opcRequestId,'dh-user-principal': logExperimentRunParamRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            logAiDataPlatformExperimentRunParamRequest.retryConfiguration,
+            logExperimentRunParamRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9196,7 +9196,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/log-parameter',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(logAiDataPlatformExperimentRunParamRequest.logExperimentRunParamDetails, "LogExperimentRunParamDetails"
+            bodyContent: common.ObjectSerializer.serialize(logExperimentRunParamRequest.logExperimentRunParamDetails, "LogExperimentRunParamDetails"
                             , model.LogExperimentRunParamDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9206,7 +9206,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.LogAiDataPlatformExperimentRunParamResponse>{},
+            responseObject: <responses.LogExperimentRunParamResponse>{},
                 body: await response.json(),
                 bodyKey: "logExperimentRunParamResponseDetails",
                 bodyModel:  model.LogExperimentRunParamResponseDetails,
@@ -9235,18 +9235,18 @@ export class MLOpsClient {
     /**
      * (Preview) Renames a registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RenameAiDataPlatformRegisteredModelRequest
-     * @return RenameAiDataPlatformRegisteredModelResponse
+     * @param RenameRegisteredModelRequest
+     * @return RenameRegisteredModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RenameAiDataPlatformRegisteredModel.ts.html |here} to see how to use RenameAiDataPlatformRegisteredModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RenameRegisteredModel.ts.html |here} to see how to use RenameRegisteredModel API.
      */
-    public async renameAiDataPlatformRegisteredModel (renameAiDataPlatformRegisteredModelRequest: requests.RenameAiDataPlatformRegisteredModelRequest) : Promise<responses.RenameAiDataPlatformRegisteredModelResponse> {
+    public async renameRegisteredModel (renameRegisteredModelRequest: requests.RenameRegisteredModelRequest) : Promise<responses.RenameRegisteredModelResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#renameAiDataPlatformRegisteredModel.");
-        const operationName = "renameAiDataPlatformRegisteredModel";
+              this.logger.debug("Calling operation MLOpsClient#renameRegisteredModel.");
+        const operationName = "renameRegisteredModel";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": renameAiDataPlatformRegisteredModelRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": renameRegisteredModelRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -9254,13 +9254,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': renameAiDataPlatformRegisteredModelRequest.opcRetryToken,'opc-request-id': renameAiDataPlatformRegisteredModelRequest.opcRequestId,'dh-user-principal': renameAiDataPlatformRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': renameRegisteredModelRequest.opcRetryToken,'opc-request-id': renameRegisteredModelRequest.opcRequestId,'dh-user-principal': renameRegisteredModelRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            renameAiDataPlatformRegisteredModelRequest.retryConfiguration,
+            renameRegisteredModelRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9269,7 +9269,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/rename',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(renameAiDataPlatformRegisteredModelRequest.renameRegisteredModelDetails, "RenameRegisteredModelDetails"
+            bodyContent: common.ObjectSerializer.serialize(renameRegisteredModelRequest.renameRegisteredModelDetails, "RenameRegisteredModelDetails"
                             , model.RenameRegisteredModelDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9279,7 +9279,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RenameAiDataPlatformRegisteredModelResponse>{},
+            responseObject: <responses.RenameRegisteredModelResponse>{},
                 body: await response.json(),
                 bodyKey: "renameRegisteredModelResponseDetails",
                 bodyModel:  model.RenameRegisteredModelResponseDetails,
@@ -9303,19 +9303,19 @@ export class MLOpsClient {
     /**
      * (Preview) Restores an experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RestoreAiDataPlatformExperimentRequest
-     * @return RestoreAiDataPlatformExperimentResponse
+     * @param RestoreExperimentRequest
+     * @return RestoreExperimentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RestoreAiDataPlatformExperiment.ts.html |here} to see how to use RestoreAiDataPlatformExperiment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RestoreExperiment.ts.html |here} to see how to use RestoreExperiment API.
      */
-    public async restoreAiDataPlatformExperiment (restoreAiDataPlatformExperimentRequest: requests.RestoreAiDataPlatformExperimentRequest) : Promise<responses.RestoreAiDataPlatformExperimentResponse> {
+    public async restoreExperiment (restoreExperimentRequest: requests.RestoreExperimentRequest) : Promise<responses.RestoreExperimentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#restoreAiDataPlatformExperiment.");
-        const operationName = "restoreAiDataPlatformExperiment";
+              this.logger.debug("Calling operation MLOpsClient#restoreExperiment.");
+        const operationName = "restoreExperiment";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": restoreAiDataPlatformExperimentRequest.aiDataPlatformId,
-            "{workspaceKey}": restoreAiDataPlatformExperimentRequest.workspaceKey,
+            "{aiDataPlatformId}": restoreExperimentRequest.aiDataPlatformId,
+            "{workspaceKey}": restoreExperimentRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9323,13 +9323,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': restoreAiDataPlatformExperimentRequest.opcRetryToken,'opc-request-id': restoreAiDataPlatformExperimentRequest.opcRequestId,'dh-user-principal': restoreAiDataPlatformExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': restoreExperimentRequest.opcRetryToken,'opc-request-id': restoreExperimentRequest.opcRequestId,'dh-user-principal': restoreExperimentRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            restoreAiDataPlatformExperimentRequest.retryConfiguration,
+            restoreExperimentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9338,7 +9338,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/restore',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(restoreAiDataPlatformExperimentRequest.restoreExperimentDetails, "RestoreExperimentDetails"
+            bodyContent: common.ObjectSerializer.serialize(restoreExperimentRequest.restoreExperimentDetails, "RestoreExperimentDetails"
                             , model.RestoreExperimentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9348,7 +9348,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RestoreAiDataPlatformExperimentResponse>{},
+            responseObject: <responses.RestoreExperimentResponse>{},
                 body: await response.json(),
                 bodyKey: "restoreExperimentResponseDetails",
                 bodyModel:  model.RestoreExperimentResponseDetails,
@@ -9377,19 +9377,19 @@ export class MLOpsClient {
     /**
      * (Preview) Restores an experiment run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RestoreAiDataPlatformExperimentRunRequest
-     * @return RestoreAiDataPlatformExperimentRunResponse
+     * @param RestoreExperimentRunRequest
+     * @return RestoreExperimentRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RestoreAiDataPlatformExperimentRun.ts.html |here} to see how to use RestoreAiDataPlatformExperimentRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RestoreExperimentRun.ts.html |here} to see how to use RestoreExperimentRun API.
      */
-    public async restoreAiDataPlatformExperimentRun (restoreAiDataPlatformExperimentRunRequest: requests.RestoreAiDataPlatformExperimentRunRequest) : Promise<responses.RestoreAiDataPlatformExperimentRunResponse> {
+    public async restoreExperimentRun (restoreExperimentRunRequest: requests.RestoreExperimentRunRequest) : Promise<responses.RestoreExperimentRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#restoreAiDataPlatformExperimentRun.");
-        const operationName = "restoreAiDataPlatformExperimentRun";
+              this.logger.debug("Calling operation MLOpsClient#restoreExperimentRun.");
+        const operationName = "restoreExperimentRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": restoreAiDataPlatformExperimentRunRequest.aiDataPlatformId,
-            "{workspaceKey}": restoreAiDataPlatformExperimentRunRequest.workspaceKey,
+            "{aiDataPlatformId}": restoreExperimentRunRequest.aiDataPlatformId,
+            "{workspaceKey}": restoreExperimentRunRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9397,13 +9397,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': restoreAiDataPlatformExperimentRunRequest.opcRetryToken,'opc-request-id': restoreAiDataPlatformExperimentRunRequest.opcRequestId,'dh-user-principal': restoreAiDataPlatformExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': restoreExperimentRunRequest.opcRetryToken,'opc-request-id': restoreExperimentRunRequest.opcRequestId,'dh-user-principal': restoreExperimentRunRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            restoreAiDataPlatformExperimentRunRequest.retryConfiguration,
+            restoreExperimentRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9412,7 +9412,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/restore',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(restoreAiDataPlatformExperimentRunRequest.restoreExperimentRunDetails, "RestoreExperimentRunDetails"
+            bodyContent: common.ObjectSerializer.serialize(restoreExperimentRunRequest.restoreExperimentRunDetails, "RestoreExperimentRunDetails"
                             , model.RestoreExperimentRunDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9422,7 +9422,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RestoreAiDataPlatformExperimentRunResponse>{},
+            responseObject: <responses.RestoreExperimentRunResponse>{},
                 body: await response.json(),
                 bodyKey: "restoreExperimentRunResponseDetails",
                 bodyModel:  model.RestoreExperimentRunResponseDetails,
@@ -9451,19 +9451,19 @@ export class MLOpsClient {
     /**
      * (Preview) Sets a tag on an experiment run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SetAiDataPlatformExperimentRunTagRequest
-     * @return SetAiDataPlatformExperimentRunTagResponse
+     * @param SetExperimentRunTagRequest
+     * @return SetExperimentRunTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetAiDataPlatformExperimentRunTag.ts.html |here} to see how to use SetAiDataPlatformExperimentRunTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetExperimentRunTag.ts.html |here} to see how to use SetExperimentRunTag API.
      */
-    public async setAiDataPlatformExperimentRunTag (setAiDataPlatformExperimentRunTagRequest: requests.SetAiDataPlatformExperimentRunTagRequest) : Promise<responses.SetAiDataPlatformExperimentRunTagResponse> {
+    public async setExperimentRunTag (setExperimentRunTagRequest: requests.SetExperimentRunTagRequest) : Promise<responses.SetExperimentRunTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#setAiDataPlatformExperimentRunTag.");
-        const operationName = "setAiDataPlatformExperimentRunTag";
+              this.logger.debug("Calling operation MLOpsClient#setExperimentRunTag.");
+        const operationName = "setExperimentRunTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": setAiDataPlatformExperimentRunTagRequest.aiDataPlatformId,
-            "{workspaceKey}": setAiDataPlatformExperimentRunTagRequest.workspaceKey,
+            "{aiDataPlatformId}": setExperimentRunTagRequest.aiDataPlatformId,
+            "{workspaceKey}": setExperimentRunTagRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9471,13 +9471,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setAiDataPlatformExperimentRunTagRequest.opcRetryToken,'opc-request-id': setAiDataPlatformExperimentRunTagRequest.opcRequestId,'dh-user-principal': setAiDataPlatformExperimentRunTagRequest.dhUserPrincipal,
+        'opc-retry-token': setExperimentRunTagRequest.opcRetryToken,'opc-request-id': setExperimentRunTagRequest.opcRequestId,'dh-user-principal': setExperimentRunTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            setAiDataPlatformExperimentRunTagRequest.retryConfiguration,
+            setExperimentRunTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9486,7 +9486,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/set-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(setAiDataPlatformExperimentRunTagRequest.setExperimentRunTagDetails, "SetExperimentRunTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(setExperimentRunTagRequest.setExperimentRunTagDetails, "SetExperimentRunTagDetails"
                             , model.SetExperimentRunTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9496,7 +9496,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SetAiDataPlatformExperimentRunTagResponse>{},
+            responseObject: <responses.SetExperimentRunTagResponse>{},
                 body: await response.json(),
                 bodyKey: "setExperimentRunTagResponseDetails",
                 bodyModel:  model.SetExperimentRunTagResponseDetails,
@@ -9525,19 +9525,19 @@ export class MLOpsClient {
     /**
      * (Preview) Sets a tag on an experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SetAiDataPlatformExperimentTagRequest
-     * @return SetAiDataPlatformExperimentTagResponse
+     * @param SetExperimentTagRequest
+     * @return SetExperimentTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetAiDataPlatformExperimentTag.ts.html |here} to see how to use SetAiDataPlatformExperimentTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetExperimentTag.ts.html |here} to see how to use SetExperimentTag API.
      */
-    public async setAiDataPlatformExperimentTag (setAiDataPlatformExperimentTagRequest: requests.SetAiDataPlatformExperimentTagRequest) : Promise<responses.SetAiDataPlatformExperimentTagResponse> {
+    public async setExperimentTag (setExperimentTagRequest: requests.SetExperimentTagRequest) : Promise<responses.SetExperimentTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#setAiDataPlatformExperimentTag.");
-        const operationName = "setAiDataPlatformExperimentTag";
+              this.logger.debug("Calling operation MLOpsClient#setExperimentTag.");
+        const operationName = "setExperimentTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": setAiDataPlatformExperimentTagRequest.aiDataPlatformId,
-            "{workspaceKey}": setAiDataPlatformExperimentTagRequest.workspaceKey,
+            "{aiDataPlatformId}": setExperimentTagRequest.aiDataPlatformId,
+            "{workspaceKey}": setExperimentTagRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9545,13 +9545,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setAiDataPlatformExperimentTagRequest.opcRetryToken,'opc-request-id': setAiDataPlatformExperimentTagRequest.opcRequestId,'dh-user-principal': setAiDataPlatformExperimentTagRequest.dhUserPrincipal,
+        'opc-retry-token': setExperimentTagRequest.opcRetryToken,'opc-request-id': setExperimentTagRequest.opcRequestId,'dh-user-principal': setExperimentTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            setAiDataPlatformExperimentTagRequest.retryConfiguration,
+            setExperimentTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9560,7 +9560,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/set-experiment-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(setAiDataPlatformExperimentTagRequest.setExperimentTagDetails, "SetExperimentTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(setExperimentTagRequest.setExperimentTagDetails, "SetExperimentTagDetails"
                             , model.SetExperimentTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9570,7 +9570,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SetAiDataPlatformExperimentTagResponse>{},
+            responseObject: <responses.SetExperimentTagResponse>{},
                 body: await response.json(),
                 bodyKey: "setExperimentTagResponseDetails",
                 bodyModel:  model.SetExperimentTagResponseDetails,
@@ -9599,18 +9599,18 @@ export class MLOpsClient {
     /**
      * (Preview) Sets a tag on a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SetAiDataPlatformModelVersionTagRequest
-     * @return SetAiDataPlatformModelVersionTagResponse
+     * @param SetModelVersionTagRequest
+     * @return SetModelVersionTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetAiDataPlatformModelVersionTag.ts.html |here} to see how to use SetAiDataPlatformModelVersionTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetModelVersionTag.ts.html |here} to see how to use SetModelVersionTag API.
      */
-    public async setAiDataPlatformModelVersionTag (setAiDataPlatformModelVersionTagRequest: requests.SetAiDataPlatformModelVersionTagRequest) : Promise<responses.SetAiDataPlatformModelVersionTagResponse> {
+    public async setModelVersionTag (setModelVersionTagRequest: requests.SetModelVersionTagRequest) : Promise<responses.SetModelVersionTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#setAiDataPlatformModelVersionTag.");
-        const operationName = "setAiDataPlatformModelVersionTag";
+              this.logger.debug("Calling operation MLOpsClient#setModelVersionTag.");
+        const operationName = "setModelVersionTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": setAiDataPlatformModelVersionTagRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": setModelVersionTagRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -9618,13 +9618,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setAiDataPlatformModelVersionTagRequest.opcRetryToken,'opc-request-id': setAiDataPlatformModelVersionTagRequest.opcRequestId,'dh-user-principal': setAiDataPlatformModelVersionTagRequest.dhUserPrincipal,
+        'opc-retry-token': setModelVersionTagRequest.opcRetryToken,'opc-request-id': setModelVersionTagRequest.opcRequestId,'dh-user-principal': setModelVersionTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            setAiDataPlatformModelVersionTagRequest.retryConfiguration,
+            setModelVersionTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9633,7 +9633,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/model-versions/set-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(setAiDataPlatformModelVersionTagRequest.setModelVersionTagDetails, "SetModelVersionTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(setModelVersionTagRequest.setModelVersionTagDetails, "SetModelVersionTagDetails"
                             , model.SetModelVersionTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9643,7 +9643,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SetAiDataPlatformModelVersionTagResponse>{},
+            responseObject: <responses.SetModelVersionTagResponse>{},
                 body: await response.json(),
                 bodyKey: "setModelVersionTagResponseDetails",
                 bodyModel:  model.SetModelVersionTagResponseDetails,
@@ -9672,18 +9672,18 @@ export class MLOpsClient {
     /**
      * (Preview) Sets a tag on a registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param SetAiDataPlatformRegisteredModelTagRequest
-     * @return SetAiDataPlatformRegisteredModelTagResponse
+     * @param SetRegisteredModelTagRequest
+     * @return SetRegisteredModelTagResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetAiDataPlatformRegisteredModelTag.ts.html |here} to see how to use SetAiDataPlatformRegisteredModelTag API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SetRegisteredModelTag.ts.html |here} to see how to use SetRegisteredModelTag API.
      */
-    public async setAiDataPlatformRegisteredModelTag (setAiDataPlatformRegisteredModelTagRequest: requests.SetAiDataPlatformRegisteredModelTagRequest) : Promise<responses.SetAiDataPlatformRegisteredModelTagResponse> {
+    public async setRegisteredModelTag (setRegisteredModelTagRequest: requests.SetRegisteredModelTagRequest) : Promise<responses.SetRegisteredModelTagResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#setAiDataPlatformRegisteredModelTag.");
-        const operationName = "setAiDataPlatformRegisteredModelTag";
+              this.logger.debug("Calling operation MLOpsClient#setRegisteredModelTag.");
+        const operationName = "setRegisteredModelTag";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": setAiDataPlatformRegisteredModelTagRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": setRegisteredModelTagRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -9691,13 +9691,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setAiDataPlatformRegisteredModelTagRequest.opcRetryToken,'opc-request-id': setAiDataPlatformRegisteredModelTagRequest.opcRequestId,'dh-user-principal': setAiDataPlatformRegisteredModelTagRequest.dhUserPrincipal,
+        'opc-retry-token': setRegisteredModelTagRequest.opcRetryToken,'opc-request-id': setRegisteredModelTagRequest.opcRequestId,'dh-user-principal': setRegisteredModelTagRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            setAiDataPlatformRegisteredModelTagRequest.retryConfiguration,
+            setRegisteredModelTagRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9706,7 +9706,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/set-tag',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(setAiDataPlatformRegisteredModelTagRequest.setRegisteredModelTagDetails, "SetRegisteredModelTagDetails"
+            bodyContent: common.ObjectSerializer.serialize(setRegisteredModelTagRequest.setRegisteredModelTagDetails, "SetRegisteredModelTagDetails"
                             , model.SetRegisteredModelTagDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9716,7 +9716,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.SetAiDataPlatformRegisteredModelTagResponse>{},
+            responseObject: <responses.SetRegisteredModelTagResponse>{},
                 body: await response.json(),
                 bodyKey: "setRegisteredModelTagResponseDetails",
                 bodyModel:  model.SetRegisteredModelTagResponseDetails,
@@ -9745,18 +9745,18 @@ export class MLOpsClient {
     /**
      * (Preview) Transitions a model version stage.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param TransitionAiDataPlatformModelVersionStageRequest
-     * @return TransitionAiDataPlatformModelVersionStageResponse
+     * @param TransitionModelVersionStageRequest
+     * @return TransitionModelVersionStageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/TransitionAiDataPlatformModelVersionStage.ts.html |here} to see how to use TransitionAiDataPlatformModelVersionStage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/TransitionModelVersionStage.ts.html |here} to see how to use TransitionModelVersionStage API.
      */
-    public async transitionAiDataPlatformModelVersionStage (transitionAiDataPlatformModelVersionStageRequest: requests.TransitionAiDataPlatformModelVersionStageRequest) : Promise<responses.TransitionAiDataPlatformModelVersionStageResponse> {
+    public async transitionModelVersionStage (transitionModelVersionStageRequest: requests.TransitionModelVersionStageRequest) : Promise<responses.TransitionModelVersionStageResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#transitionAiDataPlatformModelVersionStage.");
-        const operationName = "transitionAiDataPlatformModelVersionStage";
+              this.logger.debug("Calling operation MLOpsClient#transitionModelVersionStage.");
+        const operationName = "transitionModelVersionStage";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": transitionAiDataPlatformModelVersionStageRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": transitionModelVersionStageRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -9764,13 +9764,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': transitionAiDataPlatformModelVersionStageRequest.opcRetryToken,'opc-request-id': transitionAiDataPlatformModelVersionStageRequest.opcRequestId,'dh-user-principal': transitionAiDataPlatformModelVersionStageRequest.dhUserPrincipal,
+        'opc-retry-token': transitionModelVersionStageRequest.opcRetryToken,'opc-request-id': transitionModelVersionStageRequest.opcRequestId,'dh-user-principal': transitionModelVersionStageRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            transitionAiDataPlatformModelVersionStageRequest.retryConfiguration,
+            transitionModelVersionStageRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9779,7 +9779,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/model-versions/transition-stage',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(transitionAiDataPlatformModelVersionStageRequest.transitionModelVersionStageDetails, "TransitionModelVersionStageDetails"
+            bodyContent: common.ObjectSerializer.serialize(transitionModelVersionStageRequest.transitionModelVersionStageDetails, "TransitionModelVersionStageDetails"
                             , model.TransitionModelVersionStageDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9789,7 +9789,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.TransitionAiDataPlatformModelVersionStageResponse>{},
+            responseObject: <responses.TransitionModelVersionStageResponse>{},
                 body: await response.json(),
                 bodyKey: "transitionModelVersionStageResponseDetails",
                 bodyModel:  model.TransitionModelVersionStageResponseDetails,
@@ -9818,19 +9818,19 @@ export class MLOpsClient {
     /**
      * (Preview) Updates an experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformExperimentRequest
-     * @return UpdateAiDataPlatformExperimentResponse
+     * @param UpdateExperimentRequest
+     * @return UpdateExperimentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformExperiment.ts.html |here} to see how to use UpdateAiDataPlatformExperiment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateExperiment.ts.html |here} to see how to use UpdateExperiment API.
      */
-    public async updateAiDataPlatformExperiment (updateAiDataPlatformExperimentRequest: requests.UpdateAiDataPlatformExperimentRequest) : Promise<responses.UpdateAiDataPlatformExperimentResponse> {
+    public async updateExperiment (updateExperimentRequest: requests.UpdateExperimentRequest) : Promise<responses.UpdateExperimentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformExperiment.");
-        const operationName = "updateAiDataPlatformExperiment";
+              this.logger.debug("Calling operation MLOpsClient#updateExperiment.");
+        const operationName = "updateExperiment";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformExperimentRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformExperimentRequest.workspaceKey,
+            "{aiDataPlatformId}": updateExperimentRequest.aiDataPlatformId,
+            "{workspaceKey}": updateExperimentRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9838,13 +9838,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformExperimentRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformExperimentRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentRequest.opcRetryToken,'opc-request-id': updateExperimentRequest.opcRequestId,'dh-user-principal': updateExperimentRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformExperimentRequest.retryConfiguration,
+            updateExperimentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9853,7 +9853,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/experiments/update',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformExperimentRequest.updateExperimentDetails, "UpdateExperimentDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateExperimentRequest.updateExperimentDetails, "UpdateExperimentDetails"
                             , model.UpdateExperimentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9863,7 +9863,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformExperimentResponse>{},
+            responseObject: <responses.UpdateExperimentResponse>{},
                 body: await response.json(),
                 bodyKey: "updateExperimentResponseDetails",
                 bodyModel:  model.UpdateExperimentResponseDetails,
@@ -9892,19 +9892,19 @@ export class MLOpsClient {
     /**
      * (Preview) Updates an experiment run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformExperimentRunRequest
-     * @return UpdateAiDataPlatformExperimentRunResponse
+     * @param UpdateExperimentRunRequest
+     * @return UpdateExperimentRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformExperimentRun.ts.html |here} to see how to use UpdateAiDataPlatformExperimentRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateExperimentRun.ts.html |here} to see how to use UpdateExperimentRun API.
      */
-    public async updateAiDataPlatformExperimentRun (updateAiDataPlatformExperimentRunRequest: requests.UpdateAiDataPlatformExperimentRunRequest) : Promise<responses.UpdateAiDataPlatformExperimentRunResponse> {
+    public async updateExperimentRun (updateExperimentRunRequest: requests.UpdateExperimentRunRequest) : Promise<responses.UpdateExperimentRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformExperimentRun.");
-        const operationName = "updateAiDataPlatformExperimentRun";
+              this.logger.debug("Calling operation MLOpsClient#updateExperimentRun.");
+        const operationName = "updateExperimentRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformExperimentRunRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformExperimentRunRequest.workspaceKey,
+            "{aiDataPlatformId}": updateExperimentRunRequest.aiDataPlatformId,
+            "{workspaceKey}": updateExperimentRunRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9912,13 +9912,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformExperimentRunRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformExperimentRunRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentRunRequest.opcRetryToken,'opc-request-id': updateExperimentRunRequest.opcRequestId,'dh-user-principal': updateExperimentRunRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformExperimentRunRequest.retryConfiguration,
+            updateExperimentRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -9927,7 +9927,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/runs/update',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformExperimentRunRequest.updateExperimentRunDetails, "UpdateExperimentRunDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateExperimentRunRequest.updateExperimentRunDetails, "UpdateExperimentRunDetails"
                             , model.UpdateExperimentRunDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -9937,7 +9937,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformExperimentRunResponse>{},
+            responseObject: <responses.UpdateExperimentRunResponse>{},
                 body: await response.json(),
                 bodyKey: "updateExperimentRunResponseDetails",
                 bodyModel:  model.UpdateExperimentRunResponseDetails,
@@ -9966,19 +9966,19 @@ export class MLOpsClient {
     /**
      * (Preview) Updates tags on an experiment run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformExperimentRunTagsRequest
-     * @return UpdateAiDataPlatformExperimentRunTagsResponse
+     * @param UpdateExperimentRunTagsRequest
+     * @return UpdateExperimentRunTagsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformExperimentRunTags.ts.html |here} to see how to use UpdateAiDataPlatformExperimentRunTags API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateExperimentRunTags.ts.html |here} to see how to use UpdateExperimentRunTags API.
      */
-    public async updateAiDataPlatformExperimentRunTags (updateAiDataPlatformExperimentRunTagsRequest: requests.UpdateAiDataPlatformExperimentRunTagsRequest) : Promise<responses.UpdateAiDataPlatformExperimentRunTagsResponse> {
+    public async updateExperimentRunTags (updateExperimentRunTagsRequest: requests.UpdateExperimentRunTagsRequest) : Promise<responses.UpdateExperimentRunTagsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformExperimentRunTags.");
-        const operationName = "updateAiDataPlatformExperimentRunTags";
+              this.logger.debug("Calling operation MLOpsClient#updateExperimentRunTags.");
+        const operationName = "updateExperimentRunTags";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformExperimentRunTagsRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformExperimentRunTagsRequest.workspaceKey,
+            "{aiDataPlatformId}": updateExperimentRunTagsRequest.aiDataPlatformId,
+            "{workspaceKey}": updateExperimentRunTagsRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -9986,13 +9986,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformExperimentRunTagsRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformExperimentRunTagsRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformExperimentRunTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentRunTagsRequest.opcRetryToken,'opc-request-id': updateExperimentRunTagsRequest.opcRequestId,'dh-user-principal': updateExperimentRunTagsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformExperimentRunTagsRequest.retryConfiguration,
+            updateExperimentRunTagsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10001,7 +10001,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/internal/runs/update-tags',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformExperimentRunTagsRequest.updateExperimentRunTagsDetails, "UpdateExperimentRunTagsDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateExperimentRunTagsRequest.updateExperimentRunTagsDetails, "UpdateExperimentRunTagsDetails"
                             , model.UpdateExperimentRunTagsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10011,7 +10011,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformExperimentRunTagsResponse>{},
+            responseObject: <responses.UpdateExperimentRunTagsResponse>{},
                 body: await response.json(),
                 bodyKey: "updateExperimentRunTagsResponseDetails",
                 bodyModel:  model.UpdateExperimentRunTagsResponseDetails,
@@ -10040,19 +10040,19 @@ export class MLOpsClient {
     /**
      * (Preview) Updates tags on experiment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformExperimentTagsRequest
-     * @return UpdateAiDataPlatformExperimentTagsResponse
+     * @param UpdateExperimentTagsRequest
+     * @return UpdateExperimentTagsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformExperimentTags.ts.html |here} to see how to use UpdateAiDataPlatformExperimentTags API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateExperimentTags.ts.html |here} to see how to use UpdateExperimentTags API.
      */
-    public async updateAiDataPlatformExperimentTags (updateAiDataPlatformExperimentTagsRequest: requests.UpdateAiDataPlatformExperimentTagsRequest) : Promise<responses.UpdateAiDataPlatformExperimentTagsResponse> {
+    public async updateExperimentTags (updateExperimentTagsRequest: requests.UpdateExperimentTagsRequest) : Promise<responses.UpdateExperimentTagsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformExperimentTags.");
-        const operationName = "updateAiDataPlatformExperimentTags";
+              this.logger.debug("Calling operation MLOpsClient#updateExperimentTags.");
+        const operationName = "updateExperimentTags";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformExperimentTagsRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformExperimentTagsRequest.workspaceKey,
+            "{aiDataPlatformId}": updateExperimentTagsRequest.aiDataPlatformId,
+            "{workspaceKey}": updateExperimentTagsRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -10060,13 +10060,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformExperimentTagsRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformExperimentTagsRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformExperimentTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentTagsRequest.opcRetryToken,'opc-request-id': updateExperimentTagsRequest.opcRequestId,'dh-user-principal': updateExperimentTagsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformExperimentTagsRequest.retryConfiguration,
+            updateExperimentTagsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10075,7 +10075,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/mlops/api/2.0/mlflow/internal/experiments/update-experiment-tags',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformExperimentTagsRequest.updateExperimentTagsDetails, "UpdateExperimentTagsDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateExperimentTagsRequest.updateExperimentTagsDetails, "UpdateExperimentTagsDetails"
                             , model.UpdateExperimentTagsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10085,7 +10085,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformExperimentTagsResponse>{},
+            responseObject: <responses.UpdateExperimentTagsResponse>{},
                 body: await response.json(),
                 bodyKey: "updateExperimentTagsResponseDetails",
                 bodyModel:  model.UpdateExperimentTagsResponseDetails,
@@ -10114,18 +10114,18 @@ export class MLOpsClient {
     /**
      * (Preview) Updates a model version
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformModelVersionRequest
-     * @return UpdateAiDataPlatformModelVersionResponse
+     * @param UpdateModelVersionRequest
+     * @return UpdateModelVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformModelVersion.ts.html |here} to see how to use UpdateAiDataPlatformModelVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateModelVersion.ts.html |here} to see how to use UpdateModelVersion API.
      */
-    public async updateAiDataPlatformModelVersion (updateAiDataPlatformModelVersionRequest: requests.UpdateAiDataPlatformModelVersionRequest) : Promise<responses.UpdateAiDataPlatformModelVersionResponse> {
+    public async updateModelVersion (updateModelVersionRequest: requests.UpdateModelVersionRequest) : Promise<responses.UpdateModelVersionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformModelVersion.");
-        const operationName = "updateAiDataPlatformModelVersion";
+              this.logger.debug("Calling operation MLOpsClient#updateModelVersion.");
+        const operationName = "updateModelVersion";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformModelVersionRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": updateModelVersionRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -10133,13 +10133,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformModelVersionRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformModelVersionRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': updateModelVersionRequest.opcRetryToken,'opc-request-id': updateModelVersionRequest.opcRequestId,'dh-user-principal': updateModelVersionRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformModelVersionRequest.retryConfiguration,
+            updateModelVersionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10148,7 +10148,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/model-versions/update',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformModelVersionRequest.updateModelVersionDetails, "UpdateModelVersionDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateModelVersionRequest.updateModelVersionDetails, "UpdateModelVersionDetails"
                             , model.UpdateModelVersionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10158,7 +10158,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformModelVersionResponse>{},
+            responseObject: <responses.UpdateModelVersionResponse>{},
                 body: await response.json(),
                 bodyKey: "updateModelVersionResponseDetails",
                 bodyModel:  model.UpdateModelVersionResponseDetails,
@@ -10187,18 +10187,18 @@ export class MLOpsClient {
     /**
      * (Preview) Updates tags on a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformModelVersionTagsRequest
-     * @return UpdateAiDataPlatformModelVersionTagsResponse
+     * @param UpdateModelVersionTagsRequest
+     * @return UpdateModelVersionTagsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformModelVersionTags.ts.html |here} to see how to use UpdateAiDataPlatformModelVersionTags API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateModelVersionTags.ts.html |here} to see how to use UpdateModelVersionTags API.
      */
-    public async updateAiDataPlatformModelVersionTags (updateAiDataPlatformModelVersionTagsRequest: requests.UpdateAiDataPlatformModelVersionTagsRequest) : Promise<responses.UpdateAiDataPlatformModelVersionTagsResponse> {
+    public async updateModelVersionTags (updateModelVersionTagsRequest: requests.UpdateModelVersionTagsRequest) : Promise<responses.UpdateModelVersionTagsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformModelVersionTags.");
-        const operationName = "updateAiDataPlatformModelVersionTags";
+              this.logger.debug("Calling operation MLOpsClient#updateModelVersionTags.");
+        const operationName = "updateModelVersionTags";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformModelVersionTagsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": updateModelVersionTagsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -10206,13 +10206,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformModelVersionTagsRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformModelVersionTagsRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformModelVersionTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateModelVersionTagsRequest.opcRetryToken,'opc-request-id': updateModelVersionTagsRequest.opcRequestId,'dh-user-principal': updateModelVersionTagsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformModelVersionTagsRequest.retryConfiguration,
+            updateModelVersionTagsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10221,7 +10221,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/internal/model-versions/update-tags',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformModelVersionTagsRequest.updateModelVersionTagsDetails, "UpdateModelVersionTagsDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateModelVersionTagsRequest.updateModelVersionTagsDetails, "UpdateModelVersionTagsDetails"
                             , model.UpdateModelVersionTagsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10231,7 +10231,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformModelVersionTagsResponse>{},
+            responseObject: <responses.UpdateModelVersionTagsResponse>{},
                 body: await response.json(),
                 bodyKey: "updateModelVersionTagsResponseDetails",
                 bodyModel:  model.UpdateModelVersionTagsResponseDetails,
@@ -10260,18 +10260,18 @@ export class MLOpsClient {
     /**
      * (Preview) Updates a registered model with the provided details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformRegisteredModelRequest
-     * @return UpdateAiDataPlatformRegisteredModelResponse
+     * @param UpdateRegisteredModelRequest
+     * @return UpdateRegisteredModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformRegisteredModel.ts.html |here} to see how to use UpdateAiDataPlatformRegisteredModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateRegisteredModel.ts.html |here} to see how to use UpdateRegisteredModel API.
      */
-    public async updateAiDataPlatformRegisteredModel (updateAiDataPlatformRegisteredModelRequest: requests.UpdateAiDataPlatformRegisteredModelRequest) : Promise<responses.UpdateAiDataPlatformRegisteredModelResponse> {
+    public async updateRegisteredModel (updateRegisteredModelRequest: requests.UpdateRegisteredModelRequest) : Promise<responses.UpdateRegisteredModelResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformRegisteredModel.");
-        const operationName = "updateAiDataPlatformRegisteredModel";
+              this.logger.debug("Calling operation MLOpsClient#updateRegisteredModel.");
+        const operationName = "updateRegisteredModel";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformRegisteredModelRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": updateRegisteredModelRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -10279,13 +10279,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformRegisteredModelRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformRegisteredModelRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': updateRegisteredModelRequest.opcRetryToken,'opc-request-id': updateRegisteredModelRequest.opcRequestId,'dh-user-principal': updateRegisteredModelRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformRegisteredModelRequest.retryConfiguration,
+            updateRegisteredModelRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10294,7 +10294,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/update',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformRegisteredModelRequest.updateRegisteredModelDetails, "UpdateRegisteredModelDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateRegisteredModelRequest.updateRegisteredModelDetails, "UpdateRegisteredModelDetails"
                             , model.UpdateRegisteredModelDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10304,7 +10304,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformRegisteredModelResponse>{},
+            responseObject: <responses.UpdateRegisteredModelResponse>{},
                 body: await response.json(),
                 bodyKey: "updateRegisteredModelResponseDetails",
                 bodyModel:  model.UpdateRegisteredModelResponseDetails,
@@ -10333,18 +10333,18 @@ export class MLOpsClient {
     /**
      * (Preview) Updates tags on a registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformRegisteredModelTagsRequest
-     * @return UpdateAiDataPlatformRegisteredModelTagsResponse
+     * @param UpdateRegisteredModelTagsRequest
+     * @return UpdateRegisteredModelTagsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformRegisteredModelTags.ts.html |here} to see how to use UpdateAiDataPlatformRegisteredModelTags API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateRegisteredModelTags.ts.html |here} to see how to use UpdateRegisteredModelTags API.
      */
-    public async updateAiDataPlatformRegisteredModelTags (updateAiDataPlatformRegisteredModelTagsRequest: requests.UpdateAiDataPlatformRegisteredModelTagsRequest) : Promise<responses.UpdateAiDataPlatformRegisteredModelTagsResponse> {
+    public async updateRegisteredModelTags (updateRegisteredModelTagsRequest: requests.UpdateRegisteredModelTagsRequest) : Promise<responses.UpdateRegisteredModelTagsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation MLOpsClient#updateAiDataPlatformRegisteredModelTags.");
-        const operationName = "updateAiDataPlatformRegisteredModelTags";
+              this.logger.debug("Calling operation MLOpsClient#updateRegisteredModelTags.");
+        const operationName = "updateRegisteredModelTags";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformRegisteredModelTagsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": updateRegisteredModelTagsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -10352,13 +10352,13 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateAiDataPlatformRegisteredModelTagsRequest.opcRetryToken,'opc-request-id': updateAiDataPlatformRegisteredModelTagsRequest.opcRequestId,'dh-user-principal': updateAiDataPlatformRegisteredModelTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateRegisteredModelTagsRequest.opcRetryToken,'opc-request-id': updateRegisteredModelTagsRequest.opcRequestId,'dh-user-principal': updateRegisteredModelTagsRequest.dhUserPrincipal,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformRegisteredModelTagsRequest.retryConfiguration,
+            updateRegisteredModelTagsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10367,7 +10367,7 @@ export class MLOpsClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/internal/registered-models/update-tags',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformRegisteredModelTagsRequest.updateRegisteredModelTagsDetails, "UpdateRegisteredModelTagsDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateRegisteredModelTagsRequest.updateRegisteredModelTagsDetails, "UpdateRegisteredModelTagsDetails"
                             , model.UpdateRegisteredModelTagsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10377,7 +10377,7 @@ export class MLOpsClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformRegisteredModelTagsResponse>{},
+            responseObject: <responses.UpdateRegisteredModelTagsResponse>{},
                 body: await response.json(),
                 bodyKey: "updateRegisteredModelTagsResponseDetails",
                 bodyModel:  model.UpdateRegisteredModelTagsResponseDetails,
@@ -10576,20 +10576,20 @@ export class NotebookClient {
     /**
      * Creates a new, untitled, empty file or directory, or copies an existing notebook to a specified path. For example, a POST call to /api/contents/path with body containing copy_from set to /path/to/OtherNotebook.ipynb creates a new copy of OtherNotebook at the specified path.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformContentRequest
-     * @return CreateAiDataPlatformContentResponse
+     * @param CreateContentRequest
+     * @return CreateContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformContent.ts.html |here} to see how to use CreateAiDataPlatformContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateContent.ts.html |here} to see how to use CreateContent API.
      */
-    public async createAiDataPlatformContent (createAiDataPlatformContentRequest: requests.CreateAiDataPlatformContentRequest) : Promise<responses.CreateAiDataPlatformContentResponse> {
+    public async createContent (createContentRequest: requests.CreateContentRequest) : Promise<responses.CreateContentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#createAiDataPlatformContent.");
-        const operationName = "createAiDataPlatformContent";
+              this.logger.debug("Calling operation NotebookClient#createContent.");
+        const operationName = "createContent";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformContentRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformContentRequest.workspaceKey,
-            "{contentPath}": createAiDataPlatformContentRequest.contentPath,
+            "{aiDataPlatformId}": createContentRequest.aiDataPlatformId,
+            "{workspaceKey}": createContentRequest.workspaceKey,
+            "{contentPath}": createContentRequest.contentPath,
         };
 
         const queryParams = { 
@@ -10597,13 +10597,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformContentRequest.opcRetryToken,'opc-request-id': createAiDataPlatformContentRequest.opcRequestId,'should-update-recent': createAiDataPlatformContentRequest.shouldUpdateRecent,'datalake-tenant-id': createAiDataPlatformContentRequest.datalakeTenantId,
+        'opc-retry-token': createContentRequest.opcRetryToken,'opc-request-id': createContentRequest.opcRequestId,'should-update-recent': createContentRequest.shouldUpdateRecent,'datalake-tenant-id': createContentRequest.datalakeTenantId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformContentRequest.retryConfiguration,
+            createContentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10612,7 +10612,7 @@ export class NotebookClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/notebook/api/contents/{contentPath}',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformContentRequest.createContentDetails, "CreateContentDetails"
+            bodyContent: common.ObjectSerializer.serialize(createContentRequest.createContentDetails, "CreateContentDetails"
                             , model.CreateContentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10622,7 +10622,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformContentResponse>{},
+            responseObject: <responses.CreateContentResponse>{},
                 body: await response.json(),
                 bodyKey: "content",
                 bodyModel:  model.Content,
@@ -10661,19 +10661,19 @@ export class NotebookClient {
     /**
      * Creates a new session or returns an existing session if a session for the given path already exists.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformSessionRequest
-     * @return CreateAiDataPlatformSessionResponse
+     * @param CreateSessionRequest
+     * @return CreateSessionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformSession.ts.html |here} to see how to use CreateAiDataPlatformSession API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateSession.ts.html |here} to see how to use CreateSession API.
      */
-    public async createAiDataPlatformSession (createAiDataPlatformSessionRequest: requests.CreateAiDataPlatformSessionRequest) : Promise<responses.CreateAiDataPlatformSessionResponse> {
+    public async createSession (createSessionRequest: requests.CreateSessionRequest) : Promise<responses.CreateSessionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#createAiDataPlatformSession.");
-        const operationName = "createAiDataPlatformSession";
+              this.logger.debug("Calling operation NotebookClient#createSession.");
+        const operationName = "createSession";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformSessionRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformSessionRequest.workspaceKey,
+            "{aiDataPlatformId}": createSessionRequest.aiDataPlatformId,
+            "{workspaceKey}": createSessionRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -10681,13 +10681,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformSessionRequest.opcRetryToken,'opc-request-id': createAiDataPlatformSessionRequest.opcRequestId,'datalake-tenant-id': createAiDataPlatformSessionRequest.datalakeTenantId,
+        'opc-retry-token': createSessionRequest.opcRetryToken,'opc-request-id': createSessionRequest.opcRequestId,'datalake-tenant-id': createSessionRequest.datalakeTenantId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformSessionRequest.retryConfiguration,
+            createSessionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10696,7 +10696,7 @@ export class NotebookClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/notebook/api/sessions',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformSessionRequest.createSessionDetails, "CreateSessionDetails"
+            bodyContent: common.ObjectSerializer.serialize(createSessionRequest.createSessionDetails, "CreateSessionDetails"
                             , model.CreateSessionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10706,7 +10706,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformSessionResponse>{},
+            responseObject: <responses.CreateSessionResponse>{},
                 body: await response.json(),
                 bodyKey: "session",
                 bodyModel:  model.Session,
@@ -10745,20 +10745,20 @@ export class NotebookClient {
     /**
      * Deletes a notebook file or directory.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformContentRequest
-     * @return DeleteAiDataPlatformContentResponse
+     * @param DeleteContentRequest
+     * @return DeleteContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformContent.ts.html |here} to see how to use DeleteAiDataPlatformContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteContent.ts.html |here} to see how to use DeleteContent API.
      */
-    public async deleteAiDataPlatformContent (deleteAiDataPlatformContentRequest: requests.DeleteAiDataPlatformContentRequest) : Promise<responses.DeleteAiDataPlatformContentResponse> {
+    public async deleteContent (deleteContentRequest: requests.DeleteContentRequest) : Promise<responses.DeleteContentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#deleteAiDataPlatformContent.");
-        const operationName = "deleteAiDataPlatformContent";
+              this.logger.debug("Calling operation NotebookClient#deleteContent.");
+        const operationName = "deleteContent";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformContentRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformContentRequest.workspaceKey,
-            "{contentPath}": deleteAiDataPlatformContentRequest.contentPath,
+            "{aiDataPlatformId}": deleteContentRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteContentRequest.workspaceKey,
+            "{contentPath}": deleteContentRequest.contentPath,
         };
 
         const queryParams = { 
@@ -10766,13 +10766,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': deleteAiDataPlatformContentRequest.opcRequestId,'if-match': deleteAiDataPlatformContentRequest.ifMatch,
+        'opc-request-id': deleteContentRequest.opcRequestId,'if-match': deleteContentRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformContentRequest.retryConfiguration,
+            deleteContentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10788,7 +10788,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformContentResponse>{},
+            responseObject: <responses.DeleteContentResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("Location"),
@@ -10818,20 +10818,20 @@ export class NotebookClient {
     /**
      * Delete a session with given session ID.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformSessionRequest
-     * @return DeleteAiDataPlatformSessionResponse
+     * @param DeleteSessionRequest
+     * @return DeleteSessionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformSession.ts.html |here} to see how to use DeleteAiDataPlatformSession API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteSession.ts.html |here} to see how to use DeleteSession API.
      */
-    public async deleteAiDataPlatformSession (deleteAiDataPlatformSessionRequest: requests.DeleteAiDataPlatformSessionRequest) : Promise<responses.DeleteAiDataPlatformSessionResponse> {
+    public async deleteSession (deleteSessionRequest: requests.DeleteSessionRequest) : Promise<responses.DeleteSessionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#deleteAiDataPlatformSession.");
-        const operationName = "deleteAiDataPlatformSession";
+              this.logger.debug("Calling operation NotebookClient#deleteSession.");
+        const operationName = "deleteSession";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformSessionRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformSessionRequest.workspaceKey,
-            "{sessionId}": deleteAiDataPlatformSessionRequest.sessionId,
+            "{aiDataPlatformId}": deleteSessionRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteSessionRequest.workspaceKey,
+            "{sessionId}": deleteSessionRequest.sessionId,
         };
 
         const queryParams = { 
@@ -10839,13 +10839,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': deleteAiDataPlatformSessionRequest.opcRequestId,'if-match': deleteAiDataPlatformSessionRequest.ifMatch,
+        'opc-request-id': deleteSessionRequest.opcRequestId,'if-match': deleteSessionRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformSessionRequest.retryConfiguration,
+            deleteSessionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10861,7 +10861,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformSessionResponse>{},
+            responseObject: <responses.DeleteSessionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -10881,20 +10881,20 @@ export class NotebookClient {
     /**
      * Exports the notebook file contents. You can optionally specify HTML or ipynb format through the request payload. If no format is specified, ipynb is used by default.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ExportAiDataPlatformContentsRequest
-     * @return ExportAiDataPlatformContentsResponse
+     * @param ExportContentsRequest
+     * @return ExportContentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportAiDataPlatformContents.ts.html |here} to see how to use ExportAiDataPlatformContents API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportContents.ts.html |here} to see how to use ExportContents API.
      */
-    public async exportAiDataPlatformContents (exportAiDataPlatformContentsRequest: requests.ExportAiDataPlatformContentsRequest) : Promise<responses.ExportAiDataPlatformContentsResponse> {
+    public async exportContents (exportContentsRequest: requests.ExportContentsRequest) : Promise<responses.ExportContentsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#exportAiDataPlatformContents.");
-        const operationName = "exportAiDataPlatformContents";
+              this.logger.debug("Calling operation NotebookClient#exportContents.");
+        const operationName = "exportContents";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": exportAiDataPlatformContentsRequest.aiDataPlatformId,
-            "{workspaceKey}": exportAiDataPlatformContentsRequest.workspaceKey,
-            "{contentPath}": exportAiDataPlatformContentsRequest.contentPath,
+            "{aiDataPlatformId}": exportContentsRequest.aiDataPlatformId,
+            "{workspaceKey}": exportContentsRequest.workspaceKey,
+            "{contentPath}": exportContentsRequest.contentPath,
         };
 
         const queryParams = { 
@@ -10902,13 +10902,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': exportAiDataPlatformContentsRequest.opcRequestId,
+        'opc-request-id': exportContentsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            exportAiDataPlatformContentsRequest.retryConfiguration,
+            exportContentsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -10917,7 +10917,7 @@ export class NotebookClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/notebook/api/actions/export/contents/{contentPath}',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(exportAiDataPlatformContentsRequest.exportContentsDetails, "ExportContentsDetails"
+            bodyContent: common.ObjectSerializer.serialize(exportContentsRequest.exportContentsDetails, "ExportContentsDetails"
                             , model.ExportContentsDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -10927,7 +10927,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ExportAiDataPlatformContentsResponse>{},
+            responseObject: <responses.ExportContentsResponse>{},
                 body: await response.json(),
                 bodyKey: "exportedContents",
                 bodyModel:  model.ExportedContents,
@@ -10960,38 +10960,38 @@ export class NotebookClient {
 * of the Reason field is \u2018bad format\u2019 or \u2018bad type\u2019, depending on what was requested.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformContentRequest
-     * @return GetAiDataPlatformContentResponse
+     * @param GetContentRequest
+     * @return GetContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformContent.ts.html |here} to see how to use GetAiDataPlatformContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetContent.ts.html |here} to see how to use GetContent API.
      */
-    public async getAiDataPlatformContent (getAiDataPlatformContentRequest: requests.GetAiDataPlatformContentRequest) : Promise<responses.GetAiDataPlatformContentResponse> {
+    public async getContent (getContentRequest: requests.GetContentRequest) : Promise<responses.GetContentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#getAiDataPlatformContent.");
-        const operationName = "getAiDataPlatformContent";
+              this.logger.debug("Calling operation NotebookClient#getContent.");
+        const operationName = "getContent";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformContentRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformContentRequest.workspaceKey,
-            "{contentPath}": getAiDataPlatformContentRequest.contentPath,
+            "{aiDataPlatformId}": getContentRequest.aiDataPlatformId,
+            "{workspaceKey}": getContentRequest.workspaceKey,
+            "{contentPath}": getContentRequest.contentPath,
         };
 
         const queryParams = { 
-            'type': getAiDataPlatformContentRequest.type,
-            'format': getAiDataPlatformContentRequest.format,
-            'content': getAiDataPlatformContentRequest.content,
-            'hash': getAiDataPlatformContentRequest.hash,
+            'type': getContentRequest.type,
+            'format': getContentRequest.format,
+            'content': getContentRequest.content,
+            'hash': getContentRequest.hash,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformContentRequest.opcRequestId,'should-update-recent': getAiDataPlatformContentRequest.shouldUpdateRecent,
+        'opc-request-id': getContentRequest.opcRequestId,'should-update-recent': getContentRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformContentRequest.retryConfiguration,
+            getContentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11007,7 +11007,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformContentResponse>{},
+            responseObject: <responses.GetContentResponse>{},
                 body: await response.json(),
                 bodyKey: "content",
                 bodyModel:  model.Content,
@@ -11041,20 +11041,20 @@ export class NotebookClient {
     /**
      * Returns session details for a given session ID.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformSessionRequest
-     * @return GetAiDataPlatformSessionResponse
+     * @param GetSessionRequest
+     * @return GetSessionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformSession.ts.html |here} to see how to use GetAiDataPlatformSession API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetSession.ts.html |here} to see how to use GetSession API.
      */
-    public async getAiDataPlatformSession (getAiDataPlatformSessionRequest: requests.GetAiDataPlatformSessionRequest) : Promise<responses.GetAiDataPlatformSessionResponse> {
+    public async getSession (getSessionRequest: requests.GetSessionRequest) : Promise<responses.GetSessionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#getAiDataPlatformSession.");
-        const operationName = "getAiDataPlatformSession";
+              this.logger.debug("Calling operation NotebookClient#getSession.");
+        const operationName = "getSession";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformSessionRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformSessionRequest.workspaceKey,
-            "{sessionId}": getAiDataPlatformSessionRequest.sessionId,
+            "{aiDataPlatformId}": getSessionRequest.aiDataPlatformId,
+            "{workspaceKey}": getSessionRequest.workspaceKey,
+            "{sessionId}": getSessionRequest.sessionId,
         };
 
         const queryParams = { 
@@ -11062,13 +11062,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformSessionRequest.opcRequestId,
+        'opc-request-id': getSessionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformSessionRequest.retryConfiguration,
+            getSessionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11084,7 +11084,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformSessionResponse>{},
+            responseObject: <responses.GetSessionResponse>{},
                 body: await response.json(),
                 bodyKey: "session",
                 bodyModel:  model.Session,
@@ -11113,36 +11113,36 @@ export class NotebookClient {
     /**
      * Returns a list of all available sessions.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformSessionsRequest
-     * @return ListAiDataPlatformSessionsResponse
+     * @param ListSessionsRequest
+     * @return ListSessionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformSessions.ts.html |here} to see how to use ListAiDataPlatformSessions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListSessions.ts.html |here} to see how to use ListSessions API.
      */
-    public async listAiDataPlatformSessions (listAiDataPlatformSessionsRequest: requests.ListAiDataPlatformSessionsRequest) : Promise<responses.ListAiDataPlatformSessionsResponse> {
+    public async listSessions (listSessionsRequest: requests.ListSessionsRequest) : Promise<responses.ListSessionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#listAiDataPlatformSessions.");
-        const operationName = "listAiDataPlatformSessions";
+              this.logger.debug("Calling operation NotebookClient#listSessions.");
+        const operationName = "listSessions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformSessionsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformSessionsRequest.workspaceKey,
+            "{aiDataPlatformId}": listSessionsRequest.aiDataPlatformId,
+            "{workspaceKey}": listSessionsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'cluster_id': listAiDataPlatformSessionsRequest.clusterId,
-            'path': listAiDataPlatformSessionsRequest.path,
-            'agentFlowKey': listAiDataPlatformSessionsRequest.agentFlowKey,
+            'cluster_id': listSessionsRequest.clusterId,
+            'path': listSessionsRequest.path,
+            'agentFlowKey': listSessionsRequest.agentFlowKey,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformSessionsRequest.opcRequestId,
+        'opc-request-id': listSessionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformSessionsRequest.retryConfiguration,
+            listSessionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11158,7 +11158,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformSessionsResponse>{},
+            responseObject: <responses.ListSessionsResponse>{},
                 body: await response.json(),
                 bodyKey: "sessionCollection",
                 bodyModel:  model.SessionCollection,
@@ -11187,20 +11187,20 @@ export class NotebookClient {
     /**
      * Renames a file or directory without re-uploading content.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ModifyAiDataPlatformContentRequest
-     * @return ModifyAiDataPlatformContentResponse
+     * @param ModifyContentRequest
+     * @return ModifyContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ModifyAiDataPlatformContent.ts.html |here} to see how to use ModifyAiDataPlatformContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ModifyContent.ts.html |here} to see how to use ModifyContent API.
      */
-    public async modifyAiDataPlatformContent (modifyAiDataPlatformContentRequest: requests.ModifyAiDataPlatformContentRequest) : Promise<responses.ModifyAiDataPlatformContentResponse> {
+    public async modifyContent (modifyContentRequest: requests.ModifyContentRequest) : Promise<responses.ModifyContentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#modifyAiDataPlatformContent.");
-        const operationName = "modifyAiDataPlatformContent";
+              this.logger.debug("Calling operation NotebookClient#modifyContent.");
+        const operationName = "modifyContent";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": modifyAiDataPlatformContentRequest.aiDataPlatformId,
-            "{workspaceKey}": modifyAiDataPlatformContentRequest.workspaceKey,
-            "{contentPath}": modifyAiDataPlatformContentRequest.contentPath,
+            "{aiDataPlatformId}": modifyContentRequest.aiDataPlatformId,
+            "{workspaceKey}": modifyContentRequest.workspaceKey,
+            "{contentPath}": modifyContentRequest.contentPath,
         };
 
         const queryParams = { 
@@ -11208,13 +11208,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': modifyAiDataPlatformContentRequest.shouldUpdateRecent,'if-match': modifyAiDataPlatformContentRequest.ifMatch,'opc-request-id': modifyAiDataPlatformContentRequest.opcRequestId,
+        'should-update-recent': modifyContentRequest.shouldUpdateRecent,'if-match': modifyContentRequest.ifMatch,'opc-request-id': modifyContentRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            modifyAiDataPlatformContentRequest.retryConfiguration,
+            modifyContentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11223,7 +11223,7 @@ export class NotebookClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/notebook/api/contents/{contentPath}',
             method: 'PATCH',
-            bodyContent: common.ObjectSerializer.serialize(modifyAiDataPlatformContentRequest.modifyContentDetails, "ModifyContentDetails"
+            bodyContent: common.ObjectSerializer.serialize(modifyContentRequest.modifyContentDetails, "ModifyContentDetails"
                             , model.ModifyContentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -11233,7 +11233,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ModifyAiDataPlatformContentResponse>{},
+            responseObject: <responses.ModifyContentResponse>{},
                 body: await response.json(),
                 bodyKey: "content",
                 bodyModel:  model.Content,
@@ -11272,20 +11272,20 @@ export class NotebookClient {
     /**
      * Patches a session with a given ID with the provided details. You can use this to rename a session.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param PatchAiDataPlatformSessionRequest
-     * @return PatchAiDataPlatformSessionResponse
+     * @param PatchSessionRequest
+     * @return PatchSessionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PatchAiDataPlatformSession.ts.html |here} to see how to use PatchAiDataPlatformSession API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PatchSession.ts.html |here} to see how to use PatchSession API.
      */
-    public async patchAiDataPlatformSession (patchAiDataPlatformSessionRequest: requests.PatchAiDataPlatformSessionRequest) : Promise<responses.PatchAiDataPlatformSessionResponse> {
+    public async patchSession (patchSessionRequest: requests.PatchSessionRequest) : Promise<responses.PatchSessionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#patchAiDataPlatformSession.");
-        const operationName = "patchAiDataPlatformSession";
+              this.logger.debug("Calling operation NotebookClient#patchSession.");
+        const operationName = "patchSession";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": patchAiDataPlatformSessionRequest.aiDataPlatformId,
-            "{workspaceKey}": patchAiDataPlatformSessionRequest.workspaceKey,
-            "{sessionId}": patchAiDataPlatformSessionRequest.sessionId,
+            "{aiDataPlatformId}": patchSessionRequest.aiDataPlatformId,
+            "{workspaceKey}": patchSessionRequest.workspaceKey,
+            "{sessionId}": patchSessionRequest.sessionId,
         };
 
         const queryParams = { 
@@ -11293,13 +11293,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': patchAiDataPlatformSessionRequest.ifMatch,'opc-request-id': patchAiDataPlatformSessionRequest.opcRequestId,
+        'if-match': patchSessionRequest.ifMatch,'opc-request-id': patchSessionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            patchAiDataPlatformSessionRequest.retryConfiguration,
+            patchSessionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11308,7 +11308,7 @@ export class NotebookClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/notebook/api/sessions/{sessionId}',
             method: 'PATCH',
-            bodyContent: common.ObjectSerializer.serialize(patchAiDataPlatformSessionRequest.patchSessionDetails, "PatchSessionDetails"
+            bodyContent: common.ObjectSerializer.serialize(patchSessionRequest.patchSessionDetails, "PatchSessionDetails"
                             , model.PatchSessionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -11318,7 +11318,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.PatchAiDataPlatformSessionResponse>{},
+            responseObject: <responses.PatchSessionResponse>{},
                 body: await response.json(),
                 bodyKey: "session",
                 bodyModel:  model.Session,
@@ -11347,20 +11347,20 @@ export class NotebookClient {
     /**
      * Updates the contents of an existing notebook with the provided details or saves a new notebook.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformContentRequest
-     * @return UpdateAiDataPlatformContentResponse
+     * @param UpdateContentRequest
+     * @return UpdateContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformContent.ts.html |here} to see how to use UpdateAiDataPlatformContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateContent.ts.html |here} to see how to use UpdateContent API.
      */
-    public async updateAiDataPlatformContent (updateAiDataPlatformContentRequest: requests.UpdateAiDataPlatformContentRequest) : Promise<responses.UpdateAiDataPlatformContentResponse> {
+    public async updateContent (updateContentRequest: requests.UpdateContentRequest) : Promise<responses.UpdateContentResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation NotebookClient#updateAiDataPlatformContent.");
-        const operationName = "updateAiDataPlatformContent";
+              this.logger.debug("Calling operation NotebookClient#updateContent.");
+        const operationName = "updateContent";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformContentRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformContentRequest.workspaceKey,
-            "{contentPath}": updateAiDataPlatformContentRequest.contentPath,
+            "{aiDataPlatformId}": updateContentRequest.aiDataPlatformId,
+            "{workspaceKey}": updateContentRequest.workspaceKey,
+            "{contentPath}": updateContentRequest.contentPath,
         };
 
         const queryParams = { 
@@ -11368,13 +11368,13 @@ export class NotebookClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformContentRequest.ifMatch,'should-update-recent': updateAiDataPlatformContentRequest.shouldUpdateRecent,'opc-request-id': updateAiDataPlatformContentRequest.opcRequestId,
+        'if-match': updateContentRequest.ifMatch,'should-update-recent': updateContentRequest.shouldUpdateRecent,'opc-request-id': updateContentRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformContentRequest.retryConfiguration,
+            updateContentRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11383,7 +11383,7 @@ export class NotebookClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/notebook/api/contents/{contentPath}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformContentRequest.updateContentDetails, "UpdateContentDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateContentRequest.updateContentDetails, "UpdateContentDetails"
                             , model.UpdateContentDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -11393,7 +11393,7 @@ export class NotebookClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformContentResponse>{},
+            responseObject: <responses.UpdateContentResponse>{},
                 body: await response.json(),
                 bodyKey: "content",
                 bodyModel:  model.Content,
@@ -11602,19 +11602,19 @@ export class RoleClient {
     /**
      * Assigns a given user/group/principal to a role.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param AddAiDataPlatformMemberToRoleRequest
-     * @return AddAiDataPlatformMemberToRoleResponse
+     * @param AddMemberToRoleRequest
+     * @return AddMemberToRoleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/AddAiDataPlatformMemberToRole.ts.html |here} to see how to use AddAiDataPlatformMemberToRole API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/AddMemberToRole.ts.html |here} to see how to use AddMemberToRole API.
      */
-    public async addAiDataPlatformMemberToRole (addAiDataPlatformMemberToRoleRequest: requests.AddAiDataPlatformMemberToRoleRequest) : Promise<responses.AddAiDataPlatformMemberToRoleResponse> {
+    public async addMemberToRole (addMemberToRoleRequest: requests.AddMemberToRoleRequest) : Promise<responses.AddMemberToRoleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#addAiDataPlatformMemberToRole.");
-        const operationName = "addAiDataPlatformMemberToRole";
+              this.logger.debug("Calling operation RoleClient#addMemberToRole.");
+        const operationName = "addMemberToRole";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": addAiDataPlatformMemberToRoleRequest.aiDataPlatformId,
-            "{roleKey}": addAiDataPlatformMemberToRoleRequest.roleKey,
+            "{aiDataPlatformId}": addMemberToRoleRequest.aiDataPlatformId,
+            "{roleKey}": addMemberToRoleRequest.roleKey,
         };
 
         const queryParams = { 
@@ -11622,13 +11622,13 @@ export class RoleClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': addAiDataPlatformMemberToRoleRequest.ifMatch,'opc-retry-token': addAiDataPlatformMemberToRoleRequest.opcRetryToken,'opc-request-id': addAiDataPlatformMemberToRoleRequest.opcRequestId,
+        'if-match': addMemberToRoleRequest.ifMatch,'opc-retry-token': addMemberToRoleRequest.opcRetryToken,'opc-request-id': addMemberToRoleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            addAiDataPlatformMemberToRoleRequest.retryConfiguration,
+            addMemberToRoleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11637,7 +11637,7 @@ export class RoleClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/roles/{roleKey}/actions/addMember',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(addAiDataPlatformMemberToRoleRequest.addMemberToRoleDetails, "AddMemberToRoleDetails"
+            bodyContent: common.ObjectSerializer.serialize(addMemberToRoleRequest.addMemberToRoleDetails, "AddMemberToRoleDetails"
                             , model.AddMemberToRoleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -11647,7 +11647,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.AddAiDataPlatformMemberToRoleResponse>{},
+            responseObject: <responses.AddMemberToRoleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -11668,18 +11668,18 @@ export class RoleClient {
      * Creates a role.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformRoleRequest
-     * @return CreateAiDataPlatformRoleResponse
+     * @param CreateRoleRequest
+     * @return CreateRoleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformRole.ts.html |here} to see how to use CreateAiDataPlatformRole API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateRole.ts.html |here} to see how to use CreateRole API.
      */
-    public async createAiDataPlatformRole (createAiDataPlatformRoleRequest: requests.CreateAiDataPlatformRoleRequest) : Promise<responses.CreateAiDataPlatformRoleResponse> {
+    public async createRole (createRoleRequest: requests.CreateRoleRequest) : Promise<responses.CreateRoleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#createAiDataPlatformRole.");
-        const operationName = "createAiDataPlatformRole";
+              this.logger.debug("Calling operation RoleClient#createRole.");
+        const operationName = "createRole";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformRoleRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createRoleRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -11687,13 +11687,13 @@ export class RoleClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformRoleRequest.opcRetryToken,'opc-request-id': createAiDataPlatformRoleRequest.opcRequestId,
+        'opc-retry-token': createRoleRequest.opcRetryToken,'opc-request-id': createRoleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformRoleRequest.retryConfiguration,
+            createRoleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11702,7 +11702,7 @@ export class RoleClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/roles',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformRoleRequest.createRoleDetails, "CreateRoleDetails"
+            bodyContent: common.ObjectSerializer.serialize(createRoleRequest.createRoleDetails, "CreateRoleDetails"
                             , model.CreateRoleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -11712,7 +11712,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformRoleResponse>{},
+            responseObject: <responses.CreateRoleResponse>{},
                 body: await response.json(),
                 bodyKey: "role",
                 bodyModel:  model.Role,
@@ -11741,19 +11741,19 @@ export class RoleClient {
     /**
      * Deletes a role.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformRoleRequest
-     * @return DeleteAiDataPlatformRoleResponse
+     * @param DeleteRoleRequest
+     * @return DeleteRoleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformRole.ts.html |here} to see how to use DeleteAiDataPlatformRole API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteRole.ts.html |here} to see how to use DeleteRole API.
      */
-    public async deleteAiDataPlatformRole (deleteAiDataPlatformRoleRequest: requests.DeleteAiDataPlatformRoleRequest) : Promise<responses.DeleteAiDataPlatformRoleResponse> {
+    public async deleteRole (deleteRoleRequest: requests.DeleteRoleRequest) : Promise<responses.DeleteRoleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#deleteAiDataPlatformRole.");
-        const operationName = "deleteAiDataPlatformRole";
+              this.logger.debug("Calling operation RoleClient#deleteRole.");
+        const operationName = "deleteRole";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformRoleRequest.aiDataPlatformId,
-            "{roleKey}": deleteAiDataPlatformRoleRequest.roleKey,
+            "{aiDataPlatformId}": deleteRoleRequest.aiDataPlatformId,
+            "{roleKey}": deleteRoleRequest.roleKey,
         };
 
         const queryParams = { 
@@ -11761,13 +11761,13 @@ export class RoleClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformRoleRequest.ifMatch,'opc-request-id': deleteAiDataPlatformRoleRequest.opcRequestId,
+        'if-match': deleteRoleRequest.ifMatch,'opc-request-id': deleteRoleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformRoleRequest.retryConfiguration,
+            deleteRoleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11783,7 +11783,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformRoleResponse>{},
+            responseObject: <responses.DeleteRoleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -11803,34 +11803,34 @@ export class RoleClient {
     /**
      * Returns detailed information about a role.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformRoleRequest
-     * @return GetAiDataPlatformRoleResponse
+     * @param GetRoleRequest
+     * @return GetRoleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformRole.ts.html |here} to see how to use GetAiDataPlatformRole API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetRole.ts.html |here} to see how to use GetRole API.
      */
-    public async getAiDataPlatformRole (getAiDataPlatformRoleRequest: requests.GetAiDataPlatformRoleRequest) : Promise<responses.GetAiDataPlatformRoleResponse> {
+    public async getRole (getRoleRequest: requests.GetRoleRequest) : Promise<responses.GetRoleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#getAiDataPlatformRole.");
-        const operationName = "getAiDataPlatformRole";
+              this.logger.debug("Calling operation RoleClient#getRole.");
+        const operationName = "getRole";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformRoleRequest.aiDataPlatformId,
-            "{roleKey}": getAiDataPlatformRoleRequest.roleKey,
+            "{aiDataPlatformId}": getRoleRequest.aiDataPlatformId,
+            "{roleKey}": getRoleRequest.roleKey,
         };
 
         const queryParams = { 
-            'roleScope': getAiDataPlatformRoleRequest.roleScope,
+            'roleScope': getRoleRequest.roleScope,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformRoleRequest.opcRequestId,
+        'opc-request-id': getRoleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformRoleRequest.retryConfiguration,
+            getRoleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11846,7 +11846,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformRoleResponse>{},
+            responseObject: <responses.GetRoleResponse>{},
                 body: await response.json(),
                 bodyKey: "role",
                 bodyModel:  model.Role,
@@ -11876,38 +11876,38 @@ export class RoleClient {
      * Returns a list of permissions for a given role.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRolePermissionsRequest
-     * @return ListAiDataPlatformRolePermissionsResponse
+     * @param ListRolePermissionsRequest
+     * @return ListRolePermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRolePermissions.ts.html |here} to see how to use ListAiDataPlatformRolePermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRolePermissions.ts.html |here} to see how to use ListRolePermissions API.
      */
-    public async listAiDataPlatformRolePermissions (listAiDataPlatformRolePermissionsRequest: requests.ListAiDataPlatformRolePermissionsRequest) : Promise<responses.ListAiDataPlatformRolePermissionsResponse> {
+    public async listRolePermissions (listRolePermissionsRequest: requests.ListRolePermissionsRequest) : Promise<responses.ListRolePermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#listAiDataPlatformRolePermissions.");
-        const operationName = "listAiDataPlatformRolePermissions";
+              this.logger.debug("Calling operation RoleClient#listRolePermissions.");
+        const operationName = "listRolePermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRolePermissionsRequest.aiDataPlatformId,
-            "{roleKey}": listAiDataPlatformRolePermissionsRequest.roleKey,
+            "{aiDataPlatformId}": listRolePermissionsRequest.aiDataPlatformId,
+            "{roleKey}": listRolePermissionsRequest.roleKey,
         };
 
         const queryParams = { 
-            'permissionScope': listAiDataPlatformRolePermissionsRequest.permissionScope,
-            'limit': listAiDataPlatformRolePermissionsRequest.limit,
-            'page': listAiDataPlatformRolePermissionsRequest.page,
-            'sortOrder': listAiDataPlatformRolePermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformRolePermissionsRequest.sortBy,
+            'permissionScope': listRolePermissionsRequest.permissionScope,
+            'limit': listRolePermissionsRequest.limit,
+            'page': listRolePermissionsRequest.page,
+            'sortOrder': listRolePermissionsRequest.sortOrder,
+            'sortBy': listRolePermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRolePermissionsRequest.opcRequestId,
+        'opc-request-id': listRolePermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRolePermissionsRequest.retryConfiguration,
+            listRolePermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -11923,7 +11923,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRolePermissionsResponse>{},
+            responseObject: <responses.ListRolePermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "rolePermissionCollection",
                 bodyModel:  model.RolePermissionCollection,
@@ -11953,38 +11953,38 @@ export class RoleClient {
      * Returns a list of roles.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRolesRequest
-     * @return ListAiDataPlatformRolesResponse
+     * @param ListRolesRequest
+     * @return ListRolesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRoles.ts.html |here} to see how to use ListAiDataPlatformRoles API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRoles.ts.html |here} to see how to use ListRoles API.
      */
-    public async listAiDataPlatformRoles (listAiDataPlatformRolesRequest: requests.ListAiDataPlatformRolesRequest) : Promise<responses.ListAiDataPlatformRolesResponse> {
+    public async listRoles (listRolesRequest: requests.ListRolesRequest) : Promise<responses.ListRolesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#listAiDataPlatformRoles.");
-        const operationName = "listAiDataPlatformRoles";
+              this.logger.debug("Calling operation RoleClient#listRoles.");
+        const operationName = "listRoles";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRolesRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listRolesRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'lifecycleState': listAiDataPlatformRolesRequest.lifecycleState,
-            'displayName': listAiDataPlatformRolesRequest.displayName,
-            'limit': listAiDataPlatformRolesRequest.limit,
-            'page': listAiDataPlatformRolesRequest.page,
-            'sortOrder': listAiDataPlatformRolesRequest.sortOrder,
-            'sortBy': listAiDataPlatformRolesRequest.sortBy,
+            'lifecycleState': listRolesRequest.lifecycleState,
+            'displayName': listRolesRequest.displayName,
+            'limit': listRolesRequest.limit,
+            'page': listRolesRequest.page,
+            'sortOrder': listRolesRequest.sortOrder,
+            'sortBy': listRolesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRolesRequest.opcRequestId,
+        'opc-request-id': listRolesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRolesRequest.retryConfiguration,
+            listRolesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12000,7 +12000,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRolesResponse>{},
+            responseObject: <responses.ListRolesResponse>{},
                 body: await response.json(),
                 bodyKey: "roleCollection",
                 bodyModel:  model.RoleCollection,
@@ -12029,19 +12029,19 @@ export class RoleClient {
     /**
      * Revoke a role from a given user or group.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RemoveAiDataPlatformMemberFromRoleRequest
-     * @return RemoveAiDataPlatformMemberFromRoleResponse
+     * @param RemoveMemberFromRoleRequest
+     * @return RemoveMemberFromRoleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RemoveAiDataPlatformMemberFromRole.ts.html |here} to see how to use RemoveAiDataPlatformMemberFromRole API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RemoveMemberFromRole.ts.html |here} to see how to use RemoveMemberFromRole API.
      */
-    public async removeAiDataPlatformMemberFromRole (removeAiDataPlatformMemberFromRoleRequest: requests.RemoveAiDataPlatformMemberFromRoleRequest) : Promise<responses.RemoveAiDataPlatformMemberFromRoleResponse> {
+    public async removeMemberFromRole (removeMemberFromRoleRequest: requests.RemoveMemberFromRoleRequest) : Promise<responses.RemoveMemberFromRoleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#removeAiDataPlatformMemberFromRole.");
-        const operationName = "removeAiDataPlatformMemberFromRole";
+              this.logger.debug("Calling operation RoleClient#removeMemberFromRole.");
+        const operationName = "removeMemberFromRole";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": removeAiDataPlatformMemberFromRoleRequest.aiDataPlatformId,
-            "{roleKey}": removeAiDataPlatformMemberFromRoleRequest.roleKey,
+            "{aiDataPlatformId}": removeMemberFromRoleRequest.aiDataPlatformId,
+            "{roleKey}": removeMemberFromRoleRequest.roleKey,
         };
 
         const queryParams = { 
@@ -12049,13 +12049,13 @@ export class RoleClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': removeAiDataPlatformMemberFromRoleRequest.ifMatch,'opc-retry-token': removeAiDataPlatformMemberFromRoleRequest.opcRetryToken,'opc-request-id': removeAiDataPlatformMemberFromRoleRequest.opcRequestId,
+        'if-match': removeMemberFromRoleRequest.ifMatch,'opc-retry-token': removeMemberFromRoleRequest.opcRetryToken,'opc-request-id': removeMemberFromRoleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            removeAiDataPlatformMemberFromRoleRequest.retryConfiguration,
+            removeMemberFromRoleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12064,7 +12064,7 @@ export class RoleClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/roles/{roleKey}/actions/removeMember',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(removeAiDataPlatformMemberFromRoleRequest.removeMemberFromRoleDetails, "RemoveMemberFromRoleDetails"
+            bodyContent: common.ObjectSerializer.serialize(removeMemberFromRoleRequest.removeMemberFromRoleDetails, "RemoveMemberFromRoleDetails"
                             , model.RemoveMemberFromRoleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -12074,7 +12074,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RemoveAiDataPlatformMemberFromRoleResponse>{},
+            responseObject: <responses.RemoveMemberFromRoleResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -12094,19 +12094,19 @@ export class RoleClient {
     /**
      * Updates a role with the provided information.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformRoleRequest
-     * @return UpdateAiDataPlatformRoleResponse
+     * @param UpdateRoleRequest
+     * @return UpdateRoleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformRole.ts.html |here} to see how to use UpdateAiDataPlatformRole API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateRole.ts.html |here} to see how to use UpdateRole API.
      */
-    public async updateAiDataPlatformRole (updateAiDataPlatformRoleRequest: requests.UpdateAiDataPlatformRoleRequest) : Promise<responses.UpdateAiDataPlatformRoleResponse> {
+    public async updateRole (updateRoleRequest: requests.UpdateRoleRequest) : Promise<responses.UpdateRoleResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation RoleClient#updateAiDataPlatformRole.");
-        const operationName = "updateAiDataPlatformRole";
+              this.logger.debug("Calling operation RoleClient#updateRole.");
+        const operationName = "updateRole";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformRoleRequest.aiDataPlatformId,
-            "{roleKey}": updateAiDataPlatformRoleRequest.roleKey,
+            "{aiDataPlatformId}": updateRoleRequest.aiDataPlatformId,
+            "{roleKey}": updateRoleRequest.roleKey,
         };
 
         const queryParams = { 
@@ -12114,13 +12114,13 @@ export class RoleClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformRoleRequest.ifMatch,'opc-request-id': updateAiDataPlatformRoleRequest.opcRequestId,
+        'if-match': updateRoleRequest.ifMatch,'opc-request-id': updateRoleRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformRoleRequest.retryConfiguration,
+            updateRoleRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12129,7 +12129,7 @@ export class RoleClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/roles/{roleKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformRoleRequest.updateRoleDetails, "UpdateRoleDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateRoleRequest.updateRoleDetails, "UpdateRoleDetails"
                             , model.UpdateRoleDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -12139,7 +12139,7 @@ export class RoleClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformRoleResponse>{},
+            responseObject: <responses.UpdateRoleResponse>{},
                 body: await response.json(),
                 bodyKey: "role",
                 bodyModel:  model.Role,
@@ -12338,18 +12338,18 @@ export class SchemaClient {
     /**
      * Creates a managed table with data loaded from a sample file.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformDataTableRequest
-     * @return CreateAiDataPlatformDataTableResponse
+     * @param CreateDataTableRequest
+     * @return CreateDataTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformDataTable.ts.html |here} to see how to use CreateAiDataPlatformDataTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateDataTable.ts.html |here} to see how to use CreateDataTable API.
      */
-    public async createAiDataPlatformDataTable (createAiDataPlatformDataTableRequest: requests.CreateAiDataPlatformDataTableRequest) : Promise<responses.CreateAiDataPlatformDataTableResponse> {
+    public async createDataTable (createDataTableRequest: requests.CreateDataTableRequest) : Promise<responses.CreateDataTableResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#createAiDataPlatformDataTable.");
-        const operationName = "createAiDataPlatformDataTable";
+              this.logger.debug("Calling operation SchemaClient#createDataTable.");
+        const operationName = "createDataTable";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformDataTableRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createDataTableRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -12357,13 +12357,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformDataTableRequest.opcRetryToken,'opc-request-id': createAiDataPlatformDataTableRequest.opcRequestId,'should-update-recent': createAiDataPlatformDataTableRequest.shouldUpdateRecent,
+        'opc-retry-token': createDataTableRequest.opcRetryToken,'opc-request-id': createDataTableRequest.opcRequestId,'should-update-recent': createDataTableRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformDataTableRequest.retryConfiguration,
+            createDataTableRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12372,7 +12372,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/dataTables',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformDataTableRequest.createDataTableDetails, "CreateDataTableDetails"
+            bodyContent: common.ObjectSerializer.serialize(createDataTableRequest.createDataTableDetails, "CreateDataTableDetails"
                             , model.CreateDataTableDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -12382,7 +12382,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformDataTableResponse>{},
+            responseObject: <responses.CreateDataTableResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-work-request-id"),
@@ -12412,18 +12412,18 @@ export class SchemaClient {
     /**
      * Creates a schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformSchemaRequest
-     * @return CreateAiDataPlatformSchemaResponse
+     * @param CreateSchemaRequest
+     * @return CreateSchemaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformSchema.ts.html |here} to see how to use CreateAiDataPlatformSchema API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateSchema.ts.html |here} to see how to use CreateSchema API.
      */
-    public async createAiDataPlatformSchema (createAiDataPlatformSchemaRequest: requests.CreateAiDataPlatformSchemaRequest) : Promise<responses.CreateAiDataPlatformSchemaResponse> {
+    public async createSchema (createSchemaRequest: requests.CreateSchemaRequest) : Promise<responses.CreateSchemaResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#createAiDataPlatformSchema.");
-        const operationName = "createAiDataPlatformSchema";
+              this.logger.debug("Calling operation SchemaClient#createSchema.");
+        const operationName = "createSchema";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformSchemaRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createSchemaRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -12431,13 +12431,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformSchemaRequest.opcRetryToken,'opc-request-id': createAiDataPlatformSchemaRequest.opcRequestId,'should-update-recent': createAiDataPlatformSchemaRequest.shouldUpdateRecent,
+        'opc-retry-token': createSchemaRequest.opcRetryToken,'opc-request-id': createSchemaRequest.opcRequestId,'should-update-recent': createSchemaRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformSchemaRequest.retryConfiguration,
+            createSchemaRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12446,7 +12446,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/schemas',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformSchemaRequest.createSchemaDetails, "CreateSchemaDetails"
+            bodyContent: common.ObjectSerializer.serialize(createSchemaRequest.createSchemaDetails, "CreateSchemaDetails"
                             , model.CreateSchemaDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -12456,7 +12456,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformSchemaResponse>{},
+            responseObject: <responses.CreateSchemaResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("location"),
@@ -12491,18 +12491,18 @@ export class SchemaClient {
     /**
      * Creates a table.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformTableRequest
-     * @return CreateAiDataPlatformTableResponse
+     * @param CreateTableRequest
+     * @return CreateTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformTable.ts.html |here} to see how to use CreateAiDataPlatformTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateTable.ts.html |here} to see how to use CreateTable API.
      */
-    public async createAiDataPlatformTable (createAiDataPlatformTableRequest: requests.CreateAiDataPlatformTableRequest) : Promise<responses.CreateAiDataPlatformTableResponse> {
+    public async createTable (createTableRequest: requests.CreateTableRequest) : Promise<responses.CreateTableResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#createAiDataPlatformTable.");
-        const operationName = "createAiDataPlatformTable";
+              this.logger.debug("Calling operation SchemaClient#createTable.");
+        const operationName = "createTable";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformTableRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createTableRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -12510,13 +12510,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': createAiDataPlatformTableRequest.shouldUpdateRecent,'opc-retry-token': createAiDataPlatformTableRequest.opcRetryToken,'opc-request-id': createAiDataPlatformTableRequest.opcRequestId,
+        'should-update-recent': createTableRequest.shouldUpdateRecent,'opc-retry-token': createTableRequest.opcRetryToken,'opc-request-id': createTableRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformTableRequest.retryConfiguration,
+            createTableRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12525,7 +12525,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/tables',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformTableRequest.createTableDetails, "CreateTableDetails"
+            bodyContent: common.ObjectSerializer.serialize(createTableRequest.createTableDetails, "CreateTableDetails"
                             , model.CreateTableDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -12535,7 +12535,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformTableResponse>{},
+            responseObject: <responses.CreateTableResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("location"),
@@ -12570,18 +12570,18 @@ export class SchemaClient {
     /**
      * Creates a view.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformViewRequest
-     * @return CreateAiDataPlatformViewResponse
+     * @param CreateViewRequest
+     * @return CreateViewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformView.ts.html |here} to see how to use CreateAiDataPlatformView API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateView.ts.html |here} to see how to use CreateView API.
      */
-    public async createAiDataPlatformView (createAiDataPlatformViewRequest: requests.CreateAiDataPlatformViewRequest) : Promise<responses.CreateAiDataPlatformViewResponse> {
+    public async createView (createViewRequest: requests.CreateViewRequest) : Promise<responses.CreateViewResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#createAiDataPlatformView.");
-        const operationName = "createAiDataPlatformView";
+              this.logger.debug("Calling operation SchemaClient#createView.");
+        const operationName = "createView";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformViewRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createViewRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -12589,13 +12589,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': createAiDataPlatformViewRequest.shouldUpdateRecent,'opc-retry-token': createAiDataPlatformViewRequest.opcRetryToken,'opc-request-id': createAiDataPlatformViewRequest.opcRequestId,
+        'should-update-recent': createViewRequest.shouldUpdateRecent,'opc-retry-token': createViewRequest.opcRetryToken,'opc-request-id': createViewRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformViewRequest.retryConfiguration,
+            createViewRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12604,7 +12604,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/views',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformViewRequest.createViewDetails, "CreateViewDetails"
+            bodyContent: common.ObjectSerializer.serialize(createViewRequest.createViewDetails, "CreateViewDetails"
                             , model.CreateViewDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -12614,7 +12614,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformViewResponse>{},
+            responseObject: <responses.CreateViewResponse>{},
                 body: await response.json(),
                 bodyKey: "view",
                 bodyModel:  model.View,
@@ -12643,19 +12643,19 @@ export class SchemaClient {
     /**
      * Deletes a schema from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformSchemaRequest
-     * @return DeleteAiDataPlatformSchemaResponse
+     * @param DeleteSchemaRequest
+     * @return DeleteSchemaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformSchema.ts.html |here} to see how to use DeleteAiDataPlatformSchema API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteSchema.ts.html |here} to see how to use DeleteSchema API.
      */
-    public async deleteAiDataPlatformSchema (deleteAiDataPlatformSchemaRequest: requests.DeleteAiDataPlatformSchemaRequest) : Promise<responses.DeleteAiDataPlatformSchemaResponse> {
+    public async deleteSchema (deleteSchemaRequest: requests.DeleteSchemaRequest) : Promise<responses.DeleteSchemaResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#deleteAiDataPlatformSchema.");
-        const operationName = "deleteAiDataPlatformSchema";
+              this.logger.debug("Calling operation SchemaClient#deleteSchema.");
+        const operationName = "deleteSchema";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformSchemaRequest.aiDataPlatformId,
-            "{schemaKey}": deleteAiDataPlatformSchemaRequest.schemaKey,
+            "{aiDataPlatformId}": deleteSchemaRequest.aiDataPlatformId,
+            "{schemaKey}": deleteSchemaRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -12663,13 +12663,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'is-forced': deleteAiDataPlatformSchemaRequest.isForced,'if-match': deleteAiDataPlatformSchemaRequest.ifMatch,'opc-request-id': deleteAiDataPlatformSchemaRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformSchemaRequest.shouldUpdateRecent,
+        'is-forced': deleteSchemaRequest.isForced,'if-match': deleteSchemaRequest.ifMatch,'opc-request-id': deleteSchemaRequest.opcRequestId,'should-update-recent': deleteSchemaRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformSchemaRequest.retryConfiguration,
+            deleteSchemaRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12685,7 +12685,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformSchemaResponse>{},
+            responseObject: <responses.DeleteSchemaResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -12710,34 +12710,34 @@ export class SchemaClient {
     /**
      * Deletes a table from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformTableRequest
-     * @return DeleteAiDataPlatformTableResponse
+     * @param DeleteTableRequest
+     * @return DeleteTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformTable.ts.html |here} to see how to use DeleteAiDataPlatformTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteTable.ts.html |here} to see how to use DeleteTable API.
      */
-    public async deleteAiDataPlatformTable (deleteAiDataPlatformTableRequest: requests.DeleteAiDataPlatformTableRequest) : Promise<responses.DeleteAiDataPlatformTableResponse> {
+    public async deleteTable (deleteTableRequest: requests.DeleteTableRequest) : Promise<responses.DeleteTableResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#deleteAiDataPlatformTable.");
-        const operationName = "deleteAiDataPlatformTable";
+              this.logger.debug("Calling operation SchemaClient#deleteTable.");
+        const operationName = "deleteTable";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformTableRequest.aiDataPlatformId,
-            "{tableKey}": deleteAiDataPlatformTableRequest.tableKey,
+            "{aiDataPlatformId}": deleteTableRequest.aiDataPlatformId,
+            "{tableKey}": deleteTableRequest.tableKey,
         };
 
         const queryParams = { 
-            'displayName': deleteAiDataPlatformTableRequest.displayName,
+            'displayName': deleteTableRequest.displayName,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformTableRequest.ifMatch,'opc-request-id': deleteAiDataPlatformTableRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformTableRequest.shouldUpdateRecent,
+        'if-match': deleteTableRequest.ifMatch,'opc-request-id': deleteTableRequest.opcRequestId,'should-update-recent': deleteTableRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformTableRequest.retryConfiguration,
+            deleteTableRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12753,7 +12753,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformTableResponse>{},
+            responseObject: <responses.DeleteTableResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -12778,34 +12778,34 @@ export class SchemaClient {
     /**
      * Deletes a view from AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformViewRequest
-     * @return DeleteAiDataPlatformViewResponse
+     * @param DeleteViewRequest
+     * @return DeleteViewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformView.ts.html |here} to see how to use DeleteAiDataPlatformView API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteView.ts.html |here} to see how to use DeleteView API.
      */
-    public async deleteAiDataPlatformView (deleteAiDataPlatformViewRequest: requests.DeleteAiDataPlatformViewRequest) : Promise<responses.DeleteAiDataPlatformViewResponse> {
+    public async deleteView (deleteViewRequest: requests.DeleteViewRequest) : Promise<responses.DeleteViewResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#deleteAiDataPlatformView.");
-        const operationName = "deleteAiDataPlatformView";
+              this.logger.debug("Calling operation SchemaClient#deleteView.");
+        const operationName = "deleteView";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformViewRequest.aiDataPlatformId,
-            "{viewKey}": deleteAiDataPlatformViewRequest.viewKey,
+            "{aiDataPlatformId}": deleteViewRequest.aiDataPlatformId,
+            "{viewKey}": deleteViewRequest.viewKey,
         };
 
         const queryParams = { 
-            'displayName': deleteAiDataPlatformViewRequest.displayName,
+            'displayName': deleteViewRequest.displayName,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformViewRequest.ifMatch,'opc-request-id': deleteAiDataPlatformViewRequest.opcRequestId,'should-update-recent': deleteAiDataPlatformViewRequest.shouldUpdateRecent,
+        'if-match': deleteViewRequest.ifMatch,'opc-request-id': deleteViewRequest.opcRequestId,'should-update-recent': deleteViewRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformViewRequest.retryConfiguration,
+            deleteViewRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12821,7 +12821,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformViewResponse>{},
+            responseObject: <responses.DeleteViewResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -12841,19 +12841,19 @@ export class SchemaClient {
     /**
      * Generates a URI for uploading a sample file to a temporary folder in a schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GenerateAiDataPlatformTempFileUploadTargetRequest
-     * @return GenerateAiDataPlatformTempFileUploadTargetResponse
+     * @param GenerateTempFileUploadTargetRequest
+     * @return GenerateTempFileUploadTargetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GenerateAiDataPlatformTempFileUploadTarget.ts.html |here} to see how to use GenerateAiDataPlatformTempFileUploadTarget API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GenerateTempFileUploadTarget.ts.html |here} to see how to use GenerateTempFileUploadTarget API.
      */
-    public async generateAiDataPlatformTempFileUploadTarget (generateAiDataPlatformTempFileUploadTargetRequest: requests.GenerateAiDataPlatformTempFileUploadTargetRequest) : Promise<responses.GenerateAiDataPlatformTempFileUploadTargetResponse> {
+    public async generateTempFileUploadTarget (generateTempFileUploadTargetRequest: requests.GenerateTempFileUploadTargetRequest) : Promise<responses.GenerateTempFileUploadTargetResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#generateAiDataPlatformTempFileUploadTarget.");
-        const operationName = "generateAiDataPlatformTempFileUploadTarget";
+              this.logger.debug("Calling operation SchemaClient#generateTempFileUploadTarget.");
+        const operationName = "generateTempFileUploadTarget";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": generateAiDataPlatformTempFileUploadTargetRequest.aiDataPlatformId,
-            "{schemaKey}": generateAiDataPlatformTempFileUploadTargetRequest.schemaKey,
+            "{aiDataPlatformId}": generateTempFileUploadTargetRequest.aiDataPlatformId,
+            "{schemaKey}": generateTempFileUploadTargetRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -12861,13 +12861,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': generateAiDataPlatformTempFileUploadTargetRequest.opcRequestId,'should-update-recent': generateAiDataPlatformTempFileUploadTargetRequest.shouldUpdateRecent,
+        'opc-request-id': generateTempFileUploadTargetRequest.opcRequestId,'should-update-recent': generateTempFileUploadTargetRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            generateAiDataPlatformTempFileUploadTargetRequest.retryConfiguration,
+            generateTempFileUploadTargetRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12883,7 +12883,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GenerateAiDataPlatformTempFileUploadTargetResponse>{},
+            responseObject: <responses.GenerateTempFileUploadTargetResponse>{},
                 body: await response.json(),
                 bodyKey: "generateTempFileUploadTargetResponseDetails",
                 bodyModel:  model.GenerateTempFileUploadTargetResponseDetails,
@@ -12907,19 +12907,19 @@ export class SchemaClient {
     /**
      * Returns detailed information about a specified schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformSchemaRequest
-     * @return GetAiDataPlatformSchemaResponse
+     * @param GetSchemaRequest
+     * @return GetSchemaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformSchema.ts.html |here} to see how to use GetAiDataPlatformSchema API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetSchema.ts.html |here} to see how to use GetSchema API.
      */
-    public async getAiDataPlatformSchema (getAiDataPlatformSchemaRequest: requests.GetAiDataPlatformSchemaRequest) : Promise<responses.GetAiDataPlatformSchemaResponse> {
+    public async getSchema (getSchemaRequest: requests.GetSchemaRequest) : Promise<responses.GetSchemaResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#getAiDataPlatformSchema.");
-        const operationName = "getAiDataPlatformSchema";
+              this.logger.debug("Calling operation SchemaClient#getSchema.");
+        const operationName = "getSchema";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformSchemaRequest.aiDataPlatformId,
-            "{schemaKey}": getAiDataPlatformSchemaRequest.schemaKey,
+            "{aiDataPlatformId}": getSchemaRequest.aiDataPlatformId,
+            "{schemaKey}": getSchemaRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -12927,13 +12927,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformSchemaRequest.opcRequestId,'should-update-recent': getAiDataPlatformSchemaRequest.shouldUpdateRecent,
+        'opc-request-id': getSchemaRequest.opcRequestId,'should-update-recent': getSchemaRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformSchemaRequest.retryConfiguration,
+            getSchemaRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -12949,7 +12949,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformSchemaResponse>{},
+            responseObject: <responses.GetSchemaResponse>{},
                 body: await response.json(),
                 bodyKey: "schema",
                 bodyModel:  model.Schema,
@@ -12978,19 +12978,19 @@ export class SchemaClient {
     /**
      * Returns detailed information about a table.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformTableRequest
-     * @return GetAiDataPlatformTableResponse
+     * @param GetTableRequest
+     * @return GetTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformTable.ts.html |here} to see how to use GetAiDataPlatformTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetTable.ts.html |here} to see how to use GetTable API.
      */
-    public async getAiDataPlatformTable (getAiDataPlatformTableRequest: requests.GetAiDataPlatformTableRequest) : Promise<responses.GetAiDataPlatformTableResponse> {
+    public async getTable (getTableRequest: requests.GetTableRequest) : Promise<responses.GetTableResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#getAiDataPlatformTable.");
-        const operationName = "getAiDataPlatformTable";
+              this.logger.debug("Calling operation SchemaClient#getTable.");
+        const operationName = "getTable";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformTableRequest.aiDataPlatformId,
-            "{tableKey}": getAiDataPlatformTableRequest.tableKey,
+            "{aiDataPlatformId}": getTableRequest.aiDataPlatformId,
+            "{tableKey}": getTableRequest.tableKey,
         };
 
         const queryParams = { 
@@ -12998,13 +12998,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformTableRequest.opcRequestId,'should-update-recent': getAiDataPlatformTableRequest.shouldUpdateRecent,
+        'opc-request-id': getTableRequest.opcRequestId,'should-update-recent': getTableRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformTableRequest.retryConfiguration,
+            getTableRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13020,7 +13020,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformTableResponse>{},
+            responseObject: <responses.GetTableResponse>{},
                 body: await response.json(),
                 bodyKey: "table",
                 bodyModel:  model.Table,
@@ -13049,19 +13049,19 @@ export class SchemaClient {
     /**
      * Returns information about a view.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformViewRequest
-     * @return GetAiDataPlatformViewResponse
+     * @param GetViewRequest
+     * @return GetViewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformView.ts.html |here} to see how to use GetAiDataPlatformView API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetView.ts.html |here} to see how to use GetView API.
      */
-    public async getAiDataPlatformView (getAiDataPlatformViewRequest: requests.GetAiDataPlatformViewRequest) : Promise<responses.GetAiDataPlatformViewResponse> {
+    public async getView (getViewRequest: requests.GetViewRequest) : Promise<responses.GetViewResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#getAiDataPlatformView.");
-        const operationName = "getAiDataPlatformView";
+              this.logger.debug("Calling operation SchemaClient#getView.");
+        const operationName = "getView";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformViewRequest.aiDataPlatformId,
-            "{viewKey}": getAiDataPlatformViewRequest.viewKey,
+            "{aiDataPlatformId}": getViewRequest.aiDataPlatformId,
+            "{viewKey}": getViewRequest.viewKey,
         };
 
         const queryParams = { 
@@ -13069,13 +13069,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformViewRequest.opcRequestId,'should-update-recent': getAiDataPlatformViewRequest.shouldUpdateRecent,
+        'opc-request-id': getViewRequest.opcRequestId,'should-update-recent': getViewRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformViewRequest.retryConfiguration,
+            getViewRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13091,7 +13091,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformViewResponse>{},
+            responseObject: <responses.GetViewResponse>{},
                 body: await response.json(),
                 bodyKey: "view",
                 bodyModel:  model.View,
@@ -13120,37 +13120,37 @@ export class SchemaClient {
     /**
      * Returns a list of permissions for a given schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformSchemaPermissionsRequest
-     * @return ListAiDataPlatformSchemaPermissionsResponse
+     * @param ListSchemaPermissionsRequest
+     * @return ListSchemaPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformSchemaPermissions.ts.html |here} to see how to use ListAiDataPlatformSchemaPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListSchemaPermissions.ts.html |here} to see how to use ListSchemaPermissions API.
      */
-    public async listAiDataPlatformSchemaPermissions (listAiDataPlatformSchemaPermissionsRequest: requests.ListAiDataPlatformSchemaPermissionsRequest) : Promise<responses.ListAiDataPlatformSchemaPermissionsResponse> {
+    public async listSchemaPermissions (listSchemaPermissionsRequest: requests.ListSchemaPermissionsRequest) : Promise<responses.ListSchemaPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#listAiDataPlatformSchemaPermissions.");
-        const operationName = "listAiDataPlatformSchemaPermissions";
+              this.logger.debug("Calling operation SchemaClient#listSchemaPermissions.");
+        const operationName = "listSchemaPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformSchemaPermissionsRequest.aiDataPlatformId,
-            "{schemaKey}": listAiDataPlatformSchemaPermissionsRequest.schemaKey,
+            "{aiDataPlatformId}": listSchemaPermissionsRequest.aiDataPlatformId,
+            "{schemaKey}": listSchemaPermissionsRequest.schemaKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformSchemaPermissionsRequest.limit,
-            'page': listAiDataPlatformSchemaPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformSchemaPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformSchemaPermissionsRequest.sortBy,
+            'limit': listSchemaPermissionsRequest.limit,
+            'page': listSchemaPermissionsRequest.page,
+            'sortOrder': listSchemaPermissionsRequest.sortOrder,
+            'sortBy': listSchemaPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformSchemaPermissionsRequest.opcRequestId,'should-update-recent': listAiDataPlatformSchemaPermissionsRequest.shouldUpdateRecent,
+        'opc-request-id': listSchemaPermissionsRequest.opcRequestId,'should-update-recent': listSchemaPermissionsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformSchemaPermissionsRequest.retryConfiguration,
+            listSchemaPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13166,7 +13166,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformSchemaPermissionsResponse>{},
+            responseObject: <responses.ListSchemaPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "schemaPermissionCollection",
                 bodyModel:  model.SchemaPermissionCollection,
@@ -13195,38 +13195,38 @@ export class SchemaClient {
     /**
      * Returns a list of schemas in a given AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformSchemasRequest
-     * @return ListAiDataPlatformSchemasResponse
+     * @param ListSchemasRequest
+     * @return ListSchemasResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformSchemas.ts.html |here} to see how to use ListAiDataPlatformSchemas API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListSchemas.ts.html |here} to see how to use ListSchemas API.
      */
-    public async listAiDataPlatformSchemas (listAiDataPlatformSchemasRequest: requests.ListAiDataPlatformSchemasRequest) : Promise<responses.ListAiDataPlatformSchemasResponse> {
+    public async listSchemas (listSchemasRequest: requests.ListSchemasRequest) : Promise<responses.ListSchemasResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#listAiDataPlatformSchemas.");
-        const operationName = "listAiDataPlatformSchemas";
+              this.logger.debug("Calling operation SchemaClient#listSchemas.");
+        const operationName = "listSchemas";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformSchemasRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listSchemasRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'catalogKey': listAiDataPlatformSchemasRequest.catalogKey,
-            'displayName': listAiDataPlatformSchemasRequest.displayName,
-            'limit': listAiDataPlatformSchemasRequest.limit,
-            'page': listAiDataPlatformSchemasRequest.page,
-            'sortOrder': listAiDataPlatformSchemasRequest.sortOrder,
-            'sortBy': listAiDataPlatformSchemasRequest.sortBy,
+            'catalogKey': listSchemasRequest.catalogKey,
+            'displayName': listSchemasRequest.displayName,
+            'limit': listSchemasRequest.limit,
+            'page': listSchemasRequest.page,
+            'sortOrder': listSchemasRequest.sortOrder,
+            'sortBy': listSchemasRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformSchemasRequest.opcRequestId,
+        'opc-request-id': listSchemasRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformSchemasRequest.retryConfiguration,
+            listSchemasRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13242,7 +13242,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformSchemasResponse>{},
+            responseObject: <responses.ListSchemasResponse>{},
                 body: await response.json(),
                 bodyKey: "schemaCollection",
                 bodyModel:  model.SchemaCollection,
@@ -13271,37 +13271,37 @@ export class SchemaClient {
     /**
      * Returns a list of permissions for a given table.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformTablePermissionsRequest
-     * @return ListAiDataPlatformTablePermissionsResponse
+     * @param ListTablePermissionsRequest
+     * @return ListTablePermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformTablePermissions.ts.html |here} to see how to use ListAiDataPlatformTablePermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListTablePermissions.ts.html |here} to see how to use ListTablePermissions API.
      */
-    public async listAiDataPlatformTablePermissions (listAiDataPlatformTablePermissionsRequest: requests.ListAiDataPlatformTablePermissionsRequest) : Promise<responses.ListAiDataPlatformTablePermissionsResponse> {
+    public async listTablePermissions (listTablePermissionsRequest: requests.ListTablePermissionsRequest) : Promise<responses.ListTablePermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#listAiDataPlatformTablePermissions.");
-        const operationName = "listAiDataPlatformTablePermissions";
+              this.logger.debug("Calling operation SchemaClient#listTablePermissions.");
+        const operationName = "listTablePermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformTablePermissionsRequest.aiDataPlatformId,
-            "{tableKey}": listAiDataPlatformTablePermissionsRequest.tableKey,
+            "{aiDataPlatformId}": listTablePermissionsRequest.aiDataPlatformId,
+            "{tableKey}": listTablePermissionsRequest.tableKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformTablePermissionsRequest.limit,
-            'page': listAiDataPlatformTablePermissionsRequest.page,
-            'sortOrder': listAiDataPlatformTablePermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformTablePermissionsRequest.sortBy,
+            'limit': listTablePermissionsRequest.limit,
+            'page': listTablePermissionsRequest.page,
+            'sortOrder': listTablePermissionsRequest.sortOrder,
+            'sortBy': listTablePermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformTablePermissionsRequest.opcRequestId,'should-update-recent': listAiDataPlatformTablePermissionsRequest.shouldUpdateRecent,
+        'opc-request-id': listTablePermissionsRequest.opcRequestId,'should-update-recent': listTablePermissionsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformTablePermissionsRequest.retryConfiguration,
+            listTablePermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13317,7 +13317,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformTablePermissionsResponse>{},
+            responseObject: <responses.ListTablePermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "tablePermissionCollection",
                 bodyModel:  model.TablePermissionCollection,
@@ -13346,39 +13346,39 @@ export class SchemaClient {
     /**
      * Returns a list of tables in a schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformTablesRequest
-     * @return ListAiDataPlatformTablesResponse
+     * @param ListTablesRequest
+     * @return ListTablesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformTables.ts.html |here} to see how to use ListAiDataPlatformTables API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListTables.ts.html |here} to see how to use ListTables API.
      */
-    public async listAiDataPlatformTables (listAiDataPlatformTablesRequest: requests.ListAiDataPlatformTablesRequest) : Promise<responses.ListAiDataPlatformTablesResponse> {
+    public async listTables (listTablesRequest: requests.ListTablesRequest) : Promise<responses.ListTablesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#listAiDataPlatformTables.");
-        const operationName = "listAiDataPlatformTables";
+              this.logger.debug("Calling operation SchemaClient#listTables.");
+        const operationName = "listTables";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformTablesRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listTablesRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'catalogKey': listAiDataPlatformTablesRequest.catalogKey,
-            'schemaKey': listAiDataPlatformTablesRequest.schemaKey,
-            'displayName': listAiDataPlatformTablesRequest.displayName,
-            'limit': listAiDataPlatformTablesRequest.limit,
-            'page': listAiDataPlatformTablesRequest.page,
-            'sortOrder': listAiDataPlatformTablesRequest.sortOrder,
-            'sortBy': listAiDataPlatformTablesRequest.sortBy,
+            'catalogKey': listTablesRequest.catalogKey,
+            'schemaKey': listTablesRequest.schemaKey,
+            'displayName': listTablesRequest.displayName,
+            'limit': listTablesRequest.limit,
+            'page': listTablesRequest.page,
+            'sortOrder': listTablesRequest.sortOrder,
+            'sortBy': listTablesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformTablesRequest.opcRequestId,
+        'opc-request-id': listTablesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformTablesRequest.retryConfiguration,
+            listTablesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13394,7 +13394,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformTablesResponse>{},
+            responseObject: <responses.ListTablesResponse>{},
                 body: await response.json(),
                 bodyKey: "tableCollection",
                 bodyModel:  model.TableCollection,
@@ -13424,37 +13424,37 @@ export class SchemaClient {
      * Returns a list of view permissions.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformViewPermissionsRequest
-     * @return ListAiDataPlatformViewPermissionsResponse
+     * @param ListViewPermissionsRequest
+     * @return ListViewPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformViewPermissions.ts.html |here} to see how to use ListAiDataPlatformViewPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListViewPermissions.ts.html |here} to see how to use ListViewPermissions API.
      */
-    public async listAiDataPlatformViewPermissions (listAiDataPlatformViewPermissionsRequest: requests.ListAiDataPlatformViewPermissionsRequest) : Promise<responses.ListAiDataPlatformViewPermissionsResponse> {
+    public async listViewPermissions (listViewPermissionsRequest: requests.ListViewPermissionsRequest) : Promise<responses.ListViewPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#listAiDataPlatformViewPermissions.");
-        const operationName = "listAiDataPlatformViewPermissions";
+              this.logger.debug("Calling operation SchemaClient#listViewPermissions.");
+        const operationName = "listViewPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformViewPermissionsRequest.aiDataPlatformId,
-            "{viewKey}": listAiDataPlatformViewPermissionsRequest.viewKey,
+            "{aiDataPlatformId}": listViewPermissionsRequest.aiDataPlatformId,
+            "{viewKey}": listViewPermissionsRequest.viewKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformViewPermissionsRequest.limit,
-            'page': listAiDataPlatformViewPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformViewPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformViewPermissionsRequest.sortBy,
+            'limit': listViewPermissionsRequest.limit,
+            'page': listViewPermissionsRequest.page,
+            'sortOrder': listViewPermissionsRequest.sortOrder,
+            'sortBy': listViewPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformViewPermissionsRequest.opcRequestId,'should-update-recent': listAiDataPlatformViewPermissionsRequest.shouldUpdateRecent,
+        'opc-request-id': listViewPermissionsRequest.opcRequestId,'should-update-recent': listViewPermissionsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformViewPermissionsRequest.retryConfiguration,
+            listViewPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13470,7 +13470,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformViewPermissionsResponse>{},
+            responseObject: <responses.ListViewPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "viewPermissionCollection",
                 bodyModel:  model.ViewPermissionCollection,
@@ -13500,39 +13500,39 @@ export class SchemaClient {
      * Returns a list of views in a schema.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformViewsRequest
-     * @return ListAiDataPlatformViewsResponse
+     * @param ListViewsRequest
+     * @return ListViewsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformViews.ts.html |here} to see how to use ListAiDataPlatformViews API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListViews.ts.html |here} to see how to use ListViews API.
      */
-    public async listAiDataPlatformViews (listAiDataPlatformViewsRequest: requests.ListAiDataPlatformViewsRequest) : Promise<responses.ListAiDataPlatformViewsResponse> {
+    public async listViews (listViewsRequest: requests.ListViewsRequest) : Promise<responses.ListViewsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#listAiDataPlatformViews.");
-        const operationName = "listAiDataPlatformViews";
+              this.logger.debug("Calling operation SchemaClient#listViews.");
+        const operationName = "listViews";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformViewsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listViewsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'catalogKey': listAiDataPlatformViewsRequest.catalogKey,
-            'schemaKey': listAiDataPlatformViewsRequest.schemaKey,
-            'displayName': listAiDataPlatformViewsRequest.displayName,
-            'limit': listAiDataPlatformViewsRequest.limit,
-            'page': listAiDataPlatformViewsRequest.page,
-            'sortOrder': listAiDataPlatformViewsRequest.sortOrder,
-            'sortBy': listAiDataPlatformViewsRequest.sortBy,
+            'catalogKey': listViewsRequest.catalogKey,
+            'schemaKey': listViewsRequest.schemaKey,
+            'displayName': listViewsRequest.displayName,
+            'limit': listViewsRequest.limit,
+            'page': listViewsRequest.page,
+            'sortOrder': listViewsRequest.sortOrder,
+            'sortBy': listViewsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformViewsRequest.opcRequestId,
+        'opc-request-id': listViewsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformViewsRequest.retryConfiguration,
+            listViewsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13548,7 +13548,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformViewsResponse>{},
+            responseObject: <responses.ListViewsResponse>{},
                 body: await response.json(),
                 bodyKey: "viewCollection",
                 bodyModel:  model.ViewCollection,
@@ -13577,19 +13577,19 @@ export class SchemaClient {
     /**
      * Updates the permissions for a given schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformSchemaPermissionRequest
-     * @return ManageAiDataPlatformSchemaPermissionResponse
+     * @param ManageSchemaPermissionRequest
+     * @return ManageSchemaPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformSchemaPermission.ts.html |here} to see how to use ManageAiDataPlatformSchemaPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageSchemaPermission.ts.html |here} to see how to use ManageSchemaPermission API.
      */
-    public async manageAiDataPlatformSchemaPermission (manageAiDataPlatformSchemaPermissionRequest: requests.ManageAiDataPlatformSchemaPermissionRequest) : Promise<responses.ManageAiDataPlatformSchemaPermissionResponse> {
+    public async manageSchemaPermission (manageSchemaPermissionRequest: requests.ManageSchemaPermissionRequest) : Promise<responses.ManageSchemaPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#manageAiDataPlatformSchemaPermission.");
-        const operationName = "manageAiDataPlatformSchemaPermission";
+              this.logger.debug("Calling operation SchemaClient#manageSchemaPermission.");
+        const operationName = "manageSchemaPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformSchemaPermissionRequest.aiDataPlatformId,
-            "{schemaKey}": manageAiDataPlatformSchemaPermissionRequest.schemaKey,
+            "{aiDataPlatformId}": manageSchemaPermissionRequest.aiDataPlatformId,
+            "{schemaKey}": manageSchemaPermissionRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -13597,13 +13597,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformSchemaPermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformSchemaPermissionRequest.opcRequestId,'should-update-recent': manageAiDataPlatformSchemaPermissionRequest.shouldUpdateRecent,
+        'if-match': manageSchemaPermissionRequest.ifMatch,'opc-request-id': manageSchemaPermissionRequest.opcRequestId,'should-update-recent': manageSchemaPermissionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformSchemaPermissionRequest.retryConfiguration,
+            manageSchemaPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13612,7 +13612,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/schemas/{schemaKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformSchemaPermissionRequest.manageSchemaPermissionDetails, "ManageSchemaPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageSchemaPermissionRequest.manageSchemaPermissionDetails, "ManageSchemaPermissionDetails"
                             , model.ManageSchemaPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -13622,7 +13622,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformSchemaPermissionResponse>{},
+            responseObject: <responses.ManageSchemaPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -13642,19 +13642,19 @@ export class SchemaClient {
     /**
      * Updates the permissions for a given table.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformTablePermissionRequest
-     * @return ManageAiDataPlatformTablePermissionResponse
+     * @param ManageTablePermissionRequest
+     * @return ManageTablePermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformTablePermission.ts.html |here} to see how to use ManageAiDataPlatformTablePermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageTablePermission.ts.html |here} to see how to use ManageTablePermission API.
      */
-    public async manageAiDataPlatformTablePermission (manageAiDataPlatformTablePermissionRequest: requests.ManageAiDataPlatformTablePermissionRequest) : Promise<responses.ManageAiDataPlatformTablePermissionResponse> {
+    public async manageTablePermission (manageTablePermissionRequest: requests.ManageTablePermissionRequest) : Promise<responses.ManageTablePermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#manageAiDataPlatformTablePermission.");
-        const operationName = "manageAiDataPlatformTablePermission";
+              this.logger.debug("Calling operation SchemaClient#manageTablePermission.");
+        const operationName = "manageTablePermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformTablePermissionRequest.aiDataPlatformId,
-            "{tableKey}": manageAiDataPlatformTablePermissionRequest.tableKey,
+            "{aiDataPlatformId}": manageTablePermissionRequest.aiDataPlatformId,
+            "{tableKey}": manageTablePermissionRequest.tableKey,
         };
 
         const queryParams = { 
@@ -13662,13 +13662,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformTablePermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformTablePermissionRequest.opcRequestId,'should-update-recent': manageAiDataPlatformTablePermissionRequest.shouldUpdateRecent,
+        'if-match': manageTablePermissionRequest.ifMatch,'opc-request-id': manageTablePermissionRequest.opcRequestId,'should-update-recent': manageTablePermissionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformTablePermissionRequest.retryConfiguration,
+            manageTablePermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13677,7 +13677,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/tables/{tableKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformTablePermissionRequest.manageTablePermissionDetails, "ManageTablePermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageTablePermissionRequest.manageTablePermissionDetails, "ManageTablePermissionDetails"
                             , model.ManageTablePermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -13687,7 +13687,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformTablePermissionResponse>{},
+            responseObject: <responses.ManageTablePermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -13707,19 +13707,19 @@ export class SchemaClient {
     /**
      * Updates permissions on a view.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformViewPermissionRequest
-     * @return ManageAiDataPlatformViewPermissionResponse
+     * @param ManageViewPermissionRequest
+     * @return ManageViewPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformViewPermission.ts.html |here} to see how to use ManageAiDataPlatformViewPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageViewPermission.ts.html |here} to see how to use ManageViewPermission API.
      */
-    public async manageAiDataPlatformViewPermission (manageAiDataPlatformViewPermissionRequest: requests.ManageAiDataPlatformViewPermissionRequest) : Promise<responses.ManageAiDataPlatformViewPermissionResponse> {
+    public async manageViewPermission (manageViewPermissionRequest: requests.ManageViewPermissionRequest) : Promise<responses.ManageViewPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#manageAiDataPlatformViewPermission.");
-        const operationName = "manageAiDataPlatformViewPermission";
+              this.logger.debug("Calling operation SchemaClient#manageViewPermission.");
+        const operationName = "manageViewPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformViewPermissionRequest.aiDataPlatformId,
-            "{viewKey}": manageAiDataPlatformViewPermissionRequest.viewKey,
+            "{aiDataPlatformId}": manageViewPermissionRequest.aiDataPlatformId,
+            "{viewKey}": manageViewPermissionRequest.viewKey,
         };
 
         const queryParams = { 
@@ -13727,13 +13727,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformViewPermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformViewPermissionRequest.opcRequestId,'should-update-recent': manageAiDataPlatformViewPermissionRequest.shouldUpdateRecent,
+        'if-match': manageViewPermissionRequest.ifMatch,'opc-request-id': manageViewPermissionRequest.opcRequestId,'should-update-recent': manageViewPermissionRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformViewPermissionRequest.retryConfiguration,
+            manageViewPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13742,7 +13742,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/views/{viewKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformViewPermissionRequest.manageViewPermissionDetails, "ManageViewPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageViewPermissionRequest.manageViewPermissionDetails, "ManageViewPermissionDetails"
                             , model.ManageViewPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -13752,7 +13752,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformViewPermissionResponse>{},
+            responseObject: <responses.ManageViewPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -13772,19 +13772,19 @@ export class SchemaClient {
     /**
      * Returns details of a table schema from the specified location.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param PerformAiDataPlatformInferSchemaRequest
-     * @return PerformAiDataPlatformInferSchemaResponse
+     * @param PerformInferSchemaRequest
+     * @return PerformInferSchemaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PerformAiDataPlatformInferSchema.ts.html |here} to see how to use PerformAiDataPlatformInferSchema API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PerformInferSchema.ts.html |here} to see how to use PerformInferSchema API.
      */
-    public async performAiDataPlatformInferSchema (performAiDataPlatformInferSchemaRequest: requests.PerformAiDataPlatformInferSchemaRequest) : Promise<responses.PerformAiDataPlatformInferSchemaResponse> {
+    public async performInferSchema (performInferSchemaRequest: requests.PerformInferSchemaRequest) : Promise<responses.PerformInferSchemaResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#performAiDataPlatformInferSchema.");
-        const operationName = "performAiDataPlatformInferSchema";
+              this.logger.debug("Calling operation SchemaClient#performInferSchema.");
+        const operationName = "performInferSchema";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": performAiDataPlatformInferSchemaRequest.aiDataPlatformId,
-            "{schemaKey}": performAiDataPlatformInferSchemaRequest.schemaKey,
+            "{aiDataPlatformId}": performInferSchemaRequest.aiDataPlatformId,
+            "{schemaKey}": performInferSchemaRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -13792,13 +13792,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': performAiDataPlatformInferSchemaRequest.opcRequestId,'should-update-recent': performAiDataPlatformInferSchemaRequest.shouldUpdateRecent,
+        'opc-request-id': performInferSchemaRequest.opcRequestId,'should-update-recent': performInferSchemaRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            performAiDataPlatformInferSchemaRequest.retryConfiguration,
+            performInferSchemaRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13807,7 +13807,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/schemas/{schemaKey}/actions/inferSchema',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(performAiDataPlatformInferSchemaRequest.performInferSchemaDetails, "PerformInferSchemaDetails"
+            bodyContent: common.ObjectSerializer.serialize(performInferSchemaRequest.performInferSchemaDetails, "PerformInferSchemaDetails"
                             , model.PerformInferSchemaDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -13817,7 +13817,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.PerformAiDataPlatformInferSchemaResponse>{},
+            responseObject: <responses.PerformInferSchemaResponse>{},
                 body: await response.json(),
                 bodyKey: "inferSchema",
                 bodyModel:  model.InferSchema,
@@ -13846,19 +13846,19 @@ export class SchemaClient {
     /**
      * Returns table schema and data from the specified location.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param PerformAiDataPlatformInferSchemaWithPreviewRequest
-     * @return PerformAiDataPlatformInferSchemaWithPreviewResponse
+     * @param PerformInferSchemaWithPreviewRequest
+     * @return PerformInferSchemaWithPreviewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PerformAiDataPlatformInferSchemaWithPreview.ts.html |here} to see how to use PerformAiDataPlatformInferSchemaWithPreview API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PerformInferSchemaWithPreview.ts.html |here} to see how to use PerformInferSchemaWithPreview API.
      */
-    public async performAiDataPlatformInferSchemaWithPreview (performAiDataPlatformInferSchemaWithPreviewRequest: requests.PerformAiDataPlatformInferSchemaWithPreviewRequest) : Promise<responses.PerformAiDataPlatformInferSchemaWithPreviewResponse> {
+    public async performInferSchemaWithPreview (performInferSchemaWithPreviewRequest: requests.PerformInferSchemaWithPreviewRequest) : Promise<responses.PerformInferSchemaWithPreviewResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#performAiDataPlatformInferSchemaWithPreview.");
-        const operationName = "performAiDataPlatformInferSchemaWithPreview";
+              this.logger.debug("Calling operation SchemaClient#performInferSchemaWithPreview.");
+        const operationName = "performInferSchemaWithPreview";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": performAiDataPlatformInferSchemaWithPreviewRequest.aiDataPlatformId,
-            "{schemaKey}": performAiDataPlatformInferSchemaWithPreviewRequest.schemaKey,
+            "{aiDataPlatformId}": performInferSchemaWithPreviewRequest.aiDataPlatformId,
+            "{schemaKey}": performInferSchemaWithPreviewRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -13866,13 +13866,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': performAiDataPlatformInferSchemaWithPreviewRequest.opcRequestId,'should-update-recent': performAiDataPlatformInferSchemaWithPreviewRequest.shouldUpdateRecent,
+        'opc-request-id': performInferSchemaWithPreviewRequest.opcRequestId,'should-update-recent': performInferSchemaWithPreviewRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            performAiDataPlatformInferSchemaWithPreviewRequest.retryConfiguration,
+            performInferSchemaWithPreviewRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13881,7 +13881,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/schemas/{schemaKey}/actions/inferSchemaWithPreview',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(performAiDataPlatformInferSchemaWithPreviewRequest.performInferSchemaDetails, "PerformInferSchemaDetails"
+            bodyContent: common.ObjectSerializer.serialize(performInferSchemaWithPreviewRequest.performInferSchemaDetails, "PerformInferSchemaDetails"
                             , model.PerformInferSchemaDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -13891,7 +13891,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.PerformAiDataPlatformInferSchemaWithPreviewResponse>{},
+            responseObject: <responses.PerformInferSchemaWithPreviewResponse>{},
                 body: await response.json(),
                 bodyKey: "inferSchemaWithPreview",
                 bodyModel:  model.InferSchemaWithPreview,
@@ -13920,19 +13920,19 @@ export class SchemaClient {
     /**
      * Refreshes schema in an AI Data Platform Workbench through the crawler.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RefreshAiDataPlatformSchemaRequest
-     * @return RefreshAiDataPlatformSchemaResponse
+     * @param RefreshSchemaRequest
+     * @return RefreshSchemaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RefreshAiDataPlatformSchema.ts.html |here} to see how to use RefreshAiDataPlatformSchema API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RefreshSchema.ts.html |here} to see how to use RefreshSchema API.
      */
-    public async refreshAiDataPlatformSchema (refreshAiDataPlatformSchemaRequest: requests.RefreshAiDataPlatformSchemaRequest) : Promise<responses.RefreshAiDataPlatformSchemaResponse> {
+    public async refreshSchema (refreshSchemaRequest: requests.RefreshSchemaRequest) : Promise<responses.RefreshSchemaResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#refreshAiDataPlatformSchema.");
-        const operationName = "refreshAiDataPlatformSchema";
+              this.logger.debug("Calling operation SchemaClient#refreshSchema.");
+        const operationName = "refreshSchema";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": refreshAiDataPlatformSchemaRequest.aiDataPlatformId,
-            "{schemaKey}": refreshAiDataPlatformSchemaRequest.schemaKey,
+            "{aiDataPlatformId}": refreshSchemaRequest.aiDataPlatformId,
+            "{schemaKey}": refreshSchemaRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -13940,13 +13940,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': refreshAiDataPlatformSchemaRequest.ifMatch,'opc-request-id': refreshAiDataPlatformSchemaRequest.opcRequestId,'should-update-recent': refreshAiDataPlatformSchemaRequest.shouldUpdateRecent,'opc-retry-token': refreshAiDataPlatformSchemaRequest.opcRetryToken,
+        'if-match': refreshSchemaRequest.ifMatch,'opc-request-id': refreshSchemaRequest.opcRequestId,'should-update-recent': refreshSchemaRequest.shouldUpdateRecent,'opc-retry-token': refreshSchemaRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            refreshAiDataPlatformSchemaRequest.retryConfiguration,
+            refreshSchemaRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -13962,7 +13962,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RefreshAiDataPlatformSchemaResponse>{},
+            responseObject: <responses.RefreshSchemaResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -13987,19 +13987,19 @@ export class SchemaClient {
     /**
      * Refreshes a table in an AI Data Platform Workbench through the crawler.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RefreshAiDataPlatformTableRequest
-     * @return RefreshAiDataPlatformTableResponse
+     * @param RefreshTableRequest
+     * @return RefreshTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RefreshAiDataPlatformTable.ts.html |here} to see how to use RefreshAiDataPlatformTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RefreshTable.ts.html |here} to see how to use RefreshTable API.
      */
-    public async refreshAiDataPlatformTable (refreshAiDataPlatformTableRequest: requests.RefreshAiDataPlatformTableRequest) : Promise<responses.RefreshAiDataPlatformTableResponse> {
+    public async refreshTable (refreshTableRequest: requests.RefreshTableRequest) : Promise<responses.RefreshTableResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#refreshAiDataPlatformTable.");
-        const operationName = "refreshAiDataPlatformTable";
+              this.logger.debug("Calling operation SchemaClient#refreshTable.");
+        const operationName = "refreshTable";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": refreshAiDataPlatformTableRequest.aiDataPlatformId,
-            "{tableKey}": refreshAiDataPlatformTableRequest.tableKey,
+            "{aiDataPlatformId}": refreshTableRequest.aiDataPlatformId,
+            "{tableKey}": refreshTableRequest.tableKey,
         };
 
         const queryParams = { 
@@ -14007,13 +14007,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': refreshAiDataPlatformTableRequest.ifMatch,'opc-request-id': refreshAiDataPlatformTableRequest.opcRequestId,'should-update-recent': refreshAiDataPlatformTableRequest.shouldUpdateRecent,'opc-retry-token': refreshAiDataPlatformTableRequest.opcRetryToken,
+        'if-match': refreshTableRequest.ifMatch,'opc-request-id': refreshTableRequest.opcRequestId,'should-update-recent': refreshTableRequest.shouldUpdateRecent,'opc-retry-token': refreshTableRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            refreshAiDataPlatformTableRequest.retryConfiguration,
+            refreshTableRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14029,7 +14029,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RefreshAiDataPlatformTableResponse>{},
+            responseObject: <responses.RefreshTableResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -14054,19 +14054,19 @@ export class SchemaClient {
     /**
      * Retrieve PAR for the entities created in AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RetrieveAiDataPlatformParRequest
-     * @return RetrieveAiDataPlatformParResponse
+     * @param RetrieveParRequest
+     * @return RetrieveParResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RetrieveAiDataPlatformPar.ts.html |here} to see how to use RetrieveAiDataPlatformPar API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RetrievePar.ts.html |here} to see how to use RetrievePar API.
      */
-    public async retrieveAiDataPlatformPar (retrieveAiDataPlatformParRequest: requests.RetrieveAiDataPlatformParRequest) : Promise<responses.RetrieveAiDataPlatformParResponse> {
+    public async retrievePar (retrieveParRequest: requests.RetrieveParRequest) : Promise<responses.RetrieveParResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#retrieveAiDataPlatformPar.");
-        const operationName = "retrieveAiDataPlatformPar";
+              this.logger.debug("Calling operation SchemaClient#retrievePar.");
+        const operationName = "retrievePar";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": retrieveAiDataPlatformParRequest.aiDataPlatformId,
-            "{tableKey}": retrieveAiDataPlatformParRequest.tableKey,
+            "{aiDataPlatformId}": retrieveParRequest.aiDataPlatformId,
+            "{tableKey}": retrieveParRequest.tableKey,
         };
 
         const queryParams = { 
@@ -14074,13 +14074,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': retrieveAiDataPlatformParRequest.ifMatch,'opc-request-id': retrieveAiDataPlatformParRequest.opcRequestId,'should-update-recent': retrieveAiDataPlatformParRequest.shouldUpdateRecent,
+        'if-match': retrieveParRequest.ifMatch,'opc-request-id': retrieveParRequest.opcRequestId,'should-update-recent': retrieveParRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            retrieveAiDataPlatformParRequest.retryConfiguration,
+            retrieveParRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14096,7 +14096,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RetrieveAiDataPlatformParResponse>{},
+            responseObject: <responses.RetrieveParResponse>{},
                 body: await response.json(),
                 bodyKey: "parDetails",
                 bodyModel:  model.ParDetails,
@@ -14125,19 +14125,19 @@ export class SchemaClient {
     /**
      * Updates a schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformSchemaRequest
-     * @return UpdateAiDataPlatformSchemaResponse
+     * @param UpdateSchemaRequest
+     * @return UpdateSchemaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformSchema.ts.html |here} to see how to use UpdateAiDataPlatformSchema API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateSchema.ts.html |here} to see how to use UpdateSchema API.
      */
-    public async updateAiDataPlatformSchema (updateAiDataPlatformSchemaRequest: requests.UpdateAiDataPlatformSchemaRequest) : Promise<responses.UpdateAiDataPlatformSchemaResponse> {
+    public async updateSchema (updateSchemaRequest: requests.UpdateSchemaRequest) : Promise<responses.UpdateSchemaResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#updateAiDataPlatformSchema.");
-        const operationName = "updateAiDataPlatformSchema";
+              this.logger.debug("Calling operation SchemaClient#updateSchema.");
+        const operationName = "updateSchema";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformSchemaRequest.aiDataPlatformId,
-            "{schemaKey}": updateAiDataPlatformSchemaRequest.schemaKey,
+            "{aiDataPlatformId}": updateSchemaRequest.aiDataPlatformId,
+            "{schemaKey}": updateSchemaRequest.schemaKey,
         };
 
         const queryParams = { 
@@ -14145,13 +14145,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': updateAiDataPlatformSchemaRequest.shouldUpdateRecent,'if-match': updateAiDataPlatformSchemaRequest.ifMatch,'opc-request-id': updateAiDataPlatformSchemaRequest.opcRequestId,
+        'should-update-recent': updateSchemaRequest.shouldUpdateRecent,'if-match': updateSchemaRequest.ifMatch,'opc-request-id': updateSchemaRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformSchemaRequest.retryConfiguration,
+            updateSchemaRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14160,7 +14160,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/schemas/{schemaKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformSchemaRequest.updateSchemaDetails, "UpdateSchemaDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateSchemaRequest.updateSchemaDetails, "UpdateSchemaDetails"
                             , model.UpdateSchemaDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -14170,7 +14170,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformSchemaResponse>{},
+            responseObject: <responses.UpdateSchemaResponse>{},
                 body: await response.json(),
                 bodyKey: "schema",
                 bodyModel:  model.Schema,
@@ -14204,19 +14204,19 @@ export class SchemaClient {
     /**
      * Updates a table with provided details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformTableRequest
-     * @return UpdateAiDataPlatformTableResponse
+     * @param UpdateTableRequest
+     * @return UpdateTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformTable.ts.html |here} to see how to use UpdateAiDataPlatformTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateTable.ts.html |here} to see how to use UpdateTable API.
      */
-    public async updateAiDataPlatformTable (updateAiDataPlatformTableRequest: requests.UpdateAiDataPlatformTableRequest) : Promise<responses.UpdateAiDataPlatformTableResponse> {
+    public async updateTable (updateTableRequest: requests.UpdateTableRequest) : Promise<responses.UpdateTableResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#updateAiDataPlatformTable.");
-        const operationName = "updateAiDataPlatformTable";
+              this.logger.debug("Calling operation SchemaClient#updateTable.");
+        const operationName = "updateTable";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformTableRequest.aiDataPlatformId,
-            "{tableKey}": updateAiDataPlatformTableRequest.tableKey,
+            "{aiDataPlatformId}": updateTableRequest.aiDataPlatformId,
+            "{tableKey}": updateTableRequest.tableKey,
         };
 
         const queryParams = { 
@@ -14224,13 +14224,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': updateAiDataPlatformTableRequest.shouldUpdateRecent,'if-match': updateAiDataPlatformTableRequest.ifMatch,'opc-request-id': updateAiDataPlatformTableRequest.opcRequestId,
+        'should-update-recent': updateTableRequest.shouldUpdateRecent,'if-match': updateTableRequest.ifMatch,'opc-request-id': updateTableRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformTableRequest.retryConfiguration,
+            updateTableRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14239,7 +14239,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/tables/{tableKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformTableRequest.updateTableDetails, "UpdateTableDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateTableRequest.updateTableDetails, "UpdateTableDetails"
                             , model.UpdateTableDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -14249,7 +14249,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformTableResponse>{},
+            responseObject: <responses.UpdateTableResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -14274,19 +14274,19 @@ export class SchemaClient {
     /**
      * Updates a view with given information.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformViewRequest
-     * @return UpdateAiDataPlatformViewResponse
+     * @param UpdateViewRequest
+     * @return UpdateViewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformView.ts.html |here} to see how to use UpdateAiDataPlatformView API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateView.ts.html |here} to see how to use UpdateView API.
      */
-    public async updateAiDataPlatformView (updateAiDataPlatformViewRequest: requests.UpdateAiDataPlatformViewRequest) : Promise<responses.UpdateAiDataPlatformViewResponse> {
+    public async updateView (updateViewRequest: requests.UpdateViewRequest) : Promise<responses.UpdateViewResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation SchemaClient#updateAiDataPlatformView.");
-        const operationName = "updateAiDataPlatformView";
+              this.logger.debug("Calling operation SchemaClient#updateView.");
+        const operationName = "updateView";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformViewRequest.aiDataPlatformId,
-            "{viewKey}": updateAiDataPlatformViewRequest.viewKey,
+            "{aiDataPlatformId}": updateViewRequest.aiDataPlatformId,
+            "{viewKey}": updateViewRequest.viewKey,
         };
 
         const queryParams = { 
@@ -14294,13 +14294,13 @@ export class SchemaClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': updateAiDataPlatformViewRequest.shouldUpdateRecent,'if-match': updateAiDataPlatformViewRequest.ifMatch,'opc-request-id': updateAiDataPlatformViewRequest.opcRequestId,
+        'should-update-recent': updateViewRequest.shouldUpdateRecent,'if-match': updateViewRequest.ifMatch,'opc-request-id': updateViewRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformViewRequest.retryConfiguration,
+            updateViewRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14309,7 +14309,7 @@ export class SchemaClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/views/{viewKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformViewRequest.updateViewDetails, "UpdateViewDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateViewRequest.updateViewDetails, "UpdateViewDetails"
                             , model.UpdateViewDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -14319,7 +14319,7 @@ export class SchemaClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformViewResponse>{},
+            responseObject: <responses.UpdateViewResponse>{},
                 body: await response.json(),
                 bodyKey: "view",
                 bodyModel:  model.View,
@@ -14535,18 +14535,18 @@ export class UserSettingClient {
 * -> Delete a setting
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformUserSettingRequest
-     * @return CreateAiDataPlatformUserSettingResponse
+     * @param CreateUserSettingRequest
+     * @return CreateUserSettingResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformUserSetting.ts.html |here} to see how to use CreateAiDataPlatformUserSetting API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateUserSetting.ts.html |here} to see how to use CreateUserSetting API.
      */
-    public async createAiDataPlatformUserSetting (createAiDataPlatformUserSettingRequest: requests.CreateAiDataPlatformUserSettingRequest) : Promise<responses.CreateAiDataPlatformUserSettingResponse> {
+    public async createUserSetting (createUserSettingRequest: requests.CreateUserSettingRequest) : Promise<responses.CreateUserSettingResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation UserSettingClient#createAiDataPlatformUserSetting.");
-        const operationName = "createAiDataPlatformUserSetting";
+              this.logger.debug("Calling operation UserSettingClient#createUserSetting.");
+        const operationName = "createUserSetting";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformUserSettingRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createUserSettingRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -14554,13 +14554,13 @@ export class UserSettingClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': createAiDataPlatformUserSettingRequest.opcRequestId,'opc-retry-token': createAiDataPlatformUserSettingRequest.opcRetryToken,
+        'opc-request-id': createUserSettingRequest.opcRequestId,'opc-retry-token': createUserSettingRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformUserSettingRequest.retryConfiguration,
+            createUserSettingRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14569,7 +14569,7 @@ export class UserSettingClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/userSettings',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformUserSettingRequest.createUserSettingDetails, "CreateUserSettingDetails"
+            bodyContent: common.ObjectSerializer.serialize(createUserSettingRequest.createUserSettingDetails, "CreateUserSettingDetails"
                             , model.CreateUserSettingDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -14579,7 +14579,7 @@ export class UserSettingClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformUserSettingResponse>{},
+            responseObject: <responses.CreateUserSettingResponse>{},
                 body: await response.json(),
                 bodyKey: "userSetting",
                 bodyModel:  model.UserSetting,
@@ -14609,19 +14609,19 @@ export class UserSettingClient {
      * (Preview) Deletes a user setting and its credentials from this AI Data Platform instance, freeing the default slot for that type.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformUserSettingRequest
-     * @return DeleteAiDataPlatformUserSettingResponse
+     * @param DeleteUserSettingRequest
+     * @return DeleteUserSettingResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformUserSetting.ts.html |here} to see how to use DeleteAiDataPlatformUserSetting API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteUserSetting.ts.html |here} to see how to use DeleteUserSetting API.
      */
-    public async deleteAiDataPlatformUserSetting (deleteAiDataPlatformUserSettingRequest: requests.DeleteAiDataPlatformUserSettingRequest) : Promise<responses.DeleteAiDataPlatformUserSettingResponse> {
+    public async deleteUserSetting (deleteUserSettingRequest: requests.DeleteUserSettingRequest) : Promise<responses.DeleteUserSettingResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation UserSettingClient#deleteAiDataPlatformUserSetting.");
-        const operationName = "deleteAiDataPlatformUserSetting";
+              this.logger.debug("Calling operation UserSettingClient#deleteUserSetting.");
+        const operationName = "deleteUserSetting";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformUserSettingRequest.aiDataPlatformId,
-            "{settingKey}": deleteAiDataPlatformUserSettingRequest.settingKey,
+            "{aiDataPlatformId}": deleteUserSettingRequest.aiDataPlatformId,
+            "{settingKey}": deleteUserSettingRequest.settingKey,
         };
 
         const queryParams = { 
@@ -14629,13 +14629,13 @@ export class UserSettingClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformUserSettingRequest.ifMatch,'opc-request-id': deleteAiDataPlatformUserSettingRequest.opcRequestId,
+        'if-match': deleteUserSettingRequest.ifMatch,'opc-request-id': deleteUserSettingRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformUserSettingRequest.retryConfiguration,
+            deleteUserSettingRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14651,7 +14651,7 @@ export class UserSettingClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformUserSettingResponse>{},
+            responseObject: <responses.DeleteUserSettingResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -14672,19 +14672,19 @@ export class UserSettingClient {
      * (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformUserSettingRequest
-     * @return GetAiDataPlatformUserSettingResponse
+     * @param GetUserSettingRequest
+     * @return GetUserSettingResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformUserSetting.ts.html |here} to see how to use GetAiDataPlatformUserSetting API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetUserSetting.ts.html |here} to see how to use GetUserSetting API.
      */
-    public async getAiDataPlatformUserSetting (getAiDataPlatformUserSettingRequest: requests.GetAiDataPlatformUserSettingRequest) : Promise<responses.GetAiDataPlatformUserSettingResponse> {
+    public async getUserSetting (getUserSettingRequest: requests.GetUserSettingRequest) : Promise<responses.GetUserSettingResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation UserSettingClient#getAiDataPlatformUserSetting.");
-        const operationName = "getAiDataPlatformUserSetting";
+              this.logger.debug("Calling operation UserSettingClient#getUserSetting.");
+        const operationName = "getUserSetting";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformUserSettingRequest.aiDataPlatformId,
-            "{settingKey}": getAiDataPlatformUserSettingRequest.settingKey,
+            "{aiDataPlatformId}": getUserSettingRequest.aiDataPlatformId,
+            "{settingKey}": getUserSettingRequest.settingKey,
         };
 
         const queryParams = { 
@@ -14692,13 +14692,13 @@ export class UserSettingClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformUserSettingRequest.opcRequestId,
+        'opc-request-id': getUserSettingRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformUserSettingRequest.retryConfiguration,
+            getUserSettingRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14714,7 +14714,7 @@ export class UserSettingClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformUserSettingResponse>{},
+            responseObject: <responses.GetUserSettingResponse>{},
                 body: await response.json(),
                 bodyKey: "userSetting",
                 bodyModel:  model.UserSetting,
@@ -14744,39 +14744,39 @@ export class UserSettingClient {
      * (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformUserSettingsRequest
-     * @return ListAiDataPlatformUserSettingsResponse
+     * @param ListUserSettingsRequest
+     * @return ListUserSettingsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformUserSettings.ts.html |here} to see how to use ListAiDataPlatformUserSettings API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListUserSettings.ts.html |here} to see how to use ListUserSettings API.
      */
-    public async listAiDataPlatformUserSettings (listAiDataPlatformUserSettingsRequest: requests.ListAiDataPlatformUserSettingsRequest) : Promise<responses.ListAiDataPlatformUserSettingsResponse> {
+    public async listUserSettings (listUserSettingsRequest: requests.ListUserSettingsRequest) : Promise<responses.ListUserSettingsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation UserSettingClient#listAiDataPlatformUserSettings.");
-        const operationName = "listAiDataPlatformUserSettings";
+              this.logger.debug("Calling operation UserSettingClient#listUserSettings.");
+        const operationName = "listUserSettings";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformUserSettingsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listUserSettingsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'settingType': listAiDataPlatformUserSettingsRequest.settingType,
-            'isDefault': listAiDataPlatformUserSettingsRequest.isDefault,
-            'limit': listAiDataPlatformUserSettingsRequest.limit,
-            'page': listAiDataPlatformUserSettingsRequest.page,
-            'sortOrder': listAiDataPlatformUserSettingsRequest.sortOrder,
-            'sortBy': listAiDataPlatformUserSettingsRequest.sortBy,
-            'displayName': listAiDataPlatformUserSettingsRequest.displayName,
+            'settingType': listUserSettingsRequest.settingType,
+            'isDefault': listUserSettingsRequest.isDefault,
+            'limit': listUserSettingsRequest.limit,
+            'page': listUserSettingsRequest.page,
+            'sortOrder': listUserSettingsRequest.sortOrder,
+            'sortBy': listUserSettingsRequest.sortBy,
+            'displayName': listUserSettingsRequest.displayName,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformUserSettingsRequest.opcRequestId,
+        'opc-request-id': listUserSettingsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformUserSettingsRequest.retryConfiguration,
+            listUserSettingsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14792,7 +14792,7 @@ export class UserSettingClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformUserSettingsResponse>{},
+            responseObject: <responses.ListUserSettingsResponse>{},
                 body: await response.json(),
                 bodyKey: "userSettingCollection",
                 bodyModel:  model.UserSettingCollection,
@@ -14822,19 +14822,19 @@ export class UserSettingClient {
      * (Preview) Updates the metadata or payload of an existing user setting, letting you rotate credentials or change defaults.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformUserSettingRequest
-     * @return UpdateAiDataPlatformUserSettingResponse
+     * @param UpdateUserSettingRequest
+     * @return UpdateUserSettingResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformUserSetting.ts.html |here} to see how to use UpdateAiDataPlatformUserSetting API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateUserSetting.ts.html |here} to see how to use UpdateUserSetting API.
      */
-    public async updateAiDataPlatformUserSetting (updateAiDataPlatformUserSettingRequest: requests.UpdateAiDataPlatformUserSettingRequest) : Promise<responses.UpdateAiDataPlatformUserSettingResponse> {
+    public async updateUserSetting (updateUserSettingRequest: requests.UpdateUserSettingRequest) : Promise<responses.UpdateUserSettingResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation UserSettingClient#updateAiDataPlatformUserSetting.");
-        const operationName = "updateAiDataPlatformUserSetting";
+              this.logger.debug("Calling operation UserSettingClient#updateUserSetting.");
+        const operationName = "updateUserSetting";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformUserSettingRequest.aiDataPlatformId,
-            "{settingKey}": updateAiDataPlatformUserSettingRequest.settingKey,
+            "{aiDataPlatformId}": updateUserSettingRequest.aiDataPlatformId,
+            "{settingKey}": updateUserSettingRequest.settingKey,
         };
 
         const queryParams = { 
@@ -14842,13 +14842,13 @@ export class UserSettingClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': updateAiDataPlatformUserSettingRequest.opcRequestId,'if-match': updateAiDataPlatformUserSettingRequest.ifMatch,
+        'opc-request-id': updateUserSettingRequest.opcRequestId,'if-match': updateUserSettingRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformUserSettingRequest.retryConfiguration,
+            updateUserSettingRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -14857,7 +14857,7 @@ export class UserSettingClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/userSettings/{settingKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformUserSettingRequest.updateUserSettingDetails, "UpdateUserSettingDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateUserSettingRequest.updateUserSettingDetails, "UpdateUserSettingDetails"
                             , model.UpdateUserSettingDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -14867,7 +14867,7 @@ export class UserSettingClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformUserSettingResponse>{},
+            responseObject: <responses.UpdateUserSettingResponse>{},
                 body: await response.json(),
                 bodyKey: "userSetting",
                 bodyModel:  model.UserSetting,
@@ -15067,18 +15067,18 @@ export class VolumeClient {
      * Creates a volume in AI Data Platform Workbench.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformVolumeRequest
-     * @return CreateAiDataPlatformVolumeResponse
+     * @param CreateVolumeRequest
+     * @return CreateVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformVolume.ts.html |here} to see how to use CreateAiDataPlatformVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateVolume.ts.html |here} to see how to use CreateVolume API.
      */
-    public async createAiDataPlatformVolume (createAiDataPlatformVolumeRequest: requests.CreateAiDataPlatformVolumeRequest) : Promise<responses.CreateAiDataPlatformVolumeResponse> {
+    public async createVolume (createVolumeRequest: requests.CreateVolumeRequest) : Promise<responses.CreateVolumeResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#createAiDataPlatformVolume.");
-        const operationName = "createAiDataPlatformVolume";
+              this.logger.debug("Calling operation VolumeClient#createVolume.");
+        const operationName = "createVolume";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformVolumeRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createVolumeRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -15086,13 +15086,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformVolumeRequest.opcRetryToken,'opc-request-id': createAiDataPlatformVolumeRequest.opcRequestId,'should-update-recent': createAiDataPlatformVolumeRequest.shouldUpdateRecent,
+        'opc-retry-token': createVolumeRequest.opcRetryToken,'opc-request-id': createVolumeRequest.opcRequestId,'should-update-recent': createVolumeRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformVolumeRequest.retryConfiguration,
+            createVolumeRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15101,7 +15101,7 @@ export class VolumeClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/volumes',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformVolumeRequest.createVolumeDetails, "CreateVolumeDetails"
+            bodyContent: common.ObjectSerializer.serialize(createVolumeRequest.createVolumeDetails, "CreateVolumeDetails"
                             , model.CreateVolumeDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -15111,7 +15111,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformVolumeResponse>{},
+            responseObject: <responses.CreateVolumeResponse>{},
                 body: await response.json(),
                 bodyKey: "volume",
                 bodyModel:  model.Volume,
@@ -15156,19 +15156,19 @@ export class VolumeClient {
      * Deletes a directory in a volume.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformDirRequest
-     * @return DeleteAiDataPlatformDirResponse
+     * @param DeleteDirRequest
+     * @return DeleteDirResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformDir.ts.html |here} to see how to use DeleteAiDataPlatformDir API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteDir.ts.html |here} to see how to use DeleteDir API.
      */
-    public async deleteAiDataPlatformDir (deleteAiDataPlatformDirRequest: requests.DeleteAiDataPlatformDirRequest) : Promise<responses.DeleteAiDataPlatformDirResponse> {
+    public async deleteDir (deleteDirRequest: requests.DeleteDirRequest) : Promise<responses.DeleteDirResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#deleteAiDataPlatformDir.");
-        const operationName = "deleteAiDataPlatformDir";
+              this.logger.debug("Calling operation VolumeClient#deleteDir.");
+        const operationName = "deleteDir";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformDirRequest.aiDataPlatformId,
-            "{volumeKey}": deleteAiDataPlatformDirRequest.volumeKey,
+            "{aiDataPlatformId}": deleteDirRequest.aiDataPlatformId,
+            "{volumeKey}": deleteDirRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15176,13 +15176,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': deleteAiDataPlatformDirRequest.path,'opc-retry-token': deleteAiDataPlatformDirRequest.opcRetryToken,'opc-request-id': deleteAiDataPlatformDirRequest.opcRequestId,
+        'path': deleteDirRequest.path,'opc-retry-token': deleteDirRequest.opcRetryToken,'opc-request-id': deleteDirRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformDirRequest.retryConfiguration,
+            deleteDirRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15198,7 +15198,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformDirResponse>{},
+            responseObject: <responses.DeleteDirResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-work-request-id"),
@@ -15223,19 +15223,19 @@ export class VolumeClient {
     /**
      * Deletes a file or folder in a volume.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformFileRequest
-     * @return DeleteAiDataPlatformFileResponse
+     * @param DeleteFileRequest
+     * @return DeleteFileResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformFile.ts.html |here} to see how to use DeleteAiDataPlatformFile API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteFile.ts.html |here} to see how to use DeleteFile API.
      */
-    public async deleteAiDataPlatformFile (deleteAiDataPlatformFileRequest: requests.DeleteAiDataPlatformFileRequest) : Promise<responses.DeleteAiDataPlatformFileResponse> {
+    public async deleteFile (deleteFileRequest: requests.DeleteFileRequest) : Promise<responses.DeleteFileResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#deleteAiDataPlatformFile.");
-        const operationName = "deleteAiDataPlatformFile";
+              this.logger.debug("Calling operation VolumeClient#deleteFile.");
+        const operationName = "deleteFile";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformFileRequest.aiDataPlatformId,
-            "{volumeKey}": deleteAiDataPlatformFileRequest.volumeKey,
+            "{aiDataPlatformId}": deleteFileRequest.aiDataPlatformId,
+            "{volumeKey}": deleteFileRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15243,13 +15243,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': deleteAiDataPlatformFileRequest.path,'opc-request-id': deleteAiDataPlatformFileRequest.opcRequestId,
+        'path': deleteFileRequest.path,'opc-request-id': deleteFileRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformFileRequest.retryConfiguration,
+            deleteFileRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15265,7 +15265,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformFileResponse>{},
+            responseObject: <responses.DeleteFileResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-work-request-id"),
@@ -15290,19 +15290,19 @@ export class VolumeClient {
     /**
      * Deletes a volume.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformVolumeRequest
-     * @return DeleteAiDataPlatformVolumeResponse
+     * @param DeleteVolumeRequest
+     * @return DeleteVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformVolume.ts.html |here} to see how to use DeleteAiDataPlatformVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteVolume.ts.html |here} to see how to use DeleteVolume API.
      */
-    public async deleteAiDataPlatformVolume (deleteAiDataPlatformVolumeRequest: requests.DeleteAiDataPlatformVolumeRequest) : Promise<responses.DeleteAiDataPlatformVolumeResponse> {
+    public async deleteVolume (deleteVolumeRequest: requests.DeleteVolumeRequest) : Promise<responses.DeleteVolumeResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#deleteAiDataPlatformVolume.");
-        const operationName = "deleteAiDataPlatformVolume";
+              this.logger.debug("Calling operation VolumeClient#deleteVolume.");
+        const operationName = "deleteVolume";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformVolumeRequest.aiDataPlatformId,
-            "{volumeKey}": deleteAiDataPlatformVolumeRequest.volumeKey,
+            "{aiDataPlatformId}": deleteVolumeRequest.aiDataPlatformId,
+            "{volumeKey}": deleteVolumeRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15310,13 +15310,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformVolumeRequest.ifMatch,'opc-request-id': deleteAiDataPlatformVolumeRequest.opcRequestId,
+        'if-match': deleteVolumeRequest.ifMatch,'opc-request-id': deleteVolumeRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformVolumeRequest.retryConfiguration,
+            deleteVolumeRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15332,7 +15332,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformVolumeResponse>{},
+            responseObject: <responses.DeleteVolumeResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-work-request-id"),
@@ -15357,19 +15357,19 @@ export class VolumeClient {
     /**
      * Downloads a file from a volume.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DownloadAiDataPlatformFileRequest
-     * @return DownloadAiDataPlatformFileResponse
+     * @param DownloadFileRequest
+     * @return DownloadFileResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadAiDataPlatformFile.ts.html |here} to see how to use DownloadAiDataPlatformFile API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadFile.ts.html |here} to see how to use DownloadFile API.
      */
-    public async downloadAiDataPlatformFile (downloadAiDataPlatformFileRequest: requests.DownloadAiDataPlatformFileRequest) : Promise<responses.DownloadAiDataPlatformFileResponse> {
+    public async downloadFile (downloadFileRequest: requests.DownloadFileRequest) : Promise<responses.DownloadFileResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#downloadAiDataPlatformFile.");
-        const operationName = "downloadAiDataPlatformFile";
+              this.logger.debug("Calling operation VolumeClient#downloadFile.");
+        const operationName = "downloadFile";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": downloadAiDataPlatformFileRequest.aiDataPlatformId,
-            "{volumeKey}": downloadAiDataPlatformFileRequest.volumeKey,
+            "{aiDataPlatformId}": downloadFileRequest.aiDataPlatformId,
+            "{volumeKey}": downloadFileRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15377,13 +15377,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': downloadAiDataPlatformFileRequest.path,'opc-request-id': downloadAiDataPlatformFileRequest.opcRequestId,'should-update-recent': downloadAiDataPlatformFileRequest.shouldUpdateRecent,
+        'path': downloadFileRequest.path,'opc-request-id': downloadFileRequest.opcRequestId,'should-update-recent': downloadFileRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            downloadAiDataPlatformFileRequest.retryConfiguration,
+            downloadFileRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15399,7 +15399,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DownloadAiDataPlatformFileResponse>{},
+            responseObject: <responses.DownloadFileResponse>{},
 
                 body: response.body!,
                 bodyKey: "value",
@@ -15424,34 +15424,34 @@ export class VolumeClient {
      * provide the par info for downloading the file for given path.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DownloadAiDataPlatformFileWithParRequest
-     * @return DownloadAiDataPlatformFileWithParResponse
+     * @param DownloadFileWithParRequest
+     * @return DownloadFileWithParResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadAiDataPlatformFileWithPar.ts.html |here} to see how to use DownloadAiDataPlatformFileWithPar API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadFileWithPar.ts.html |here} to see how to use DownloadFileWithPar API.
      */
-    public async downloadAiDataPlatformFileWithPar (downloadAiDataPlatformFileWithParRequest: requests.DownloadAiDataPlatformFileWithParRequest) : Promise<responses.DownloadAiDataPlatformFileWithParResponse> {
+    public async downloadFileWithPar (downloadFileWithParRequest: requests.DownloadFileWithParRequest) : Promise<responses.DownloadFileWithParResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#downloadAiDataPlatformFileWithPar.");
-        const operationName = "downloadAiDataPlatformFileWithPar";
+              this.logger.debug("Calling operation VolumeClient#downloadFileWithPar.");
+        const operationName = "downloadFileWithPar";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": downloadAiDataPlatformFileWithParRequest.aiDataPlatformId,
-            "{volumeKey}": downloadAiDataPlatformFileWithParRequest.volumeKey,
+            "{aiDataPlatformId}": downloadFileWithParRequest.aiDataPlatformId,
+            "{volumeKey}": downloadFileWithParRequest.volumeKey,
         };
 
         const queryParams = { 
-            'shouldGenerateNewPar': downloadAiDataPlatformFileWithParRequest.shouldGenerateNewPar,
+            'shouldGenerateNewPar': downloadFileWithParRequest.shouldGenerateNewPar,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': downloadAiDataPlatformFileWithParRequest.path,'opc-retry-token': downloadAiDataPlatformFileWithParRequest.opcRetryToken,'opc-request-id': downloadAiDataPlatformFileWithParRequest.opcRequestId,
+        'path': downloadFileWithParRequest.path,'opc-retry-token': downloadFileWithParRequest.opcRetryToken,'opc-request-id': downloadFileWithParRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            downloadAiDataPlatformFileWithParRequest.retryConfiguration,
+            downloadFileWithParRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15467,7 +15467,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DownloadAiDataPlatformFileWithParResponse>{},
+            responseObject: <responses.DownloadFileWithParResponse>{},
                 body: await response.json(),
                 bodyKey: "downloadFileWithParResult",
                 bodyModel:  model.DownloadFileWithParResult,
@@ -15506,19 +15506,19 @@ export class VolumeClient {
     /**
      * Returns detailed information about a volume.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformVolumeRequest
-     * @return GetAiDataPlatformVolumeResponse
+     * @param GetVolumeRequest
+     * @return GetVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformVolume.ts.html |here} to see how to use GetAiDataPlatformVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetVolume.ts.html |here} to see how to use GetVolume API.
      */
-    public async getAiDataPlatformVolume (getAiDataPlatformVolumeRequest: requests.GetAiDataPlatformVolumeRequest) : Promise<responses.GetAiDataPlatformVolumeResponse> {
+    public async getVolume (getVolumeRequest: requests.GetVolumeRequest) : Promise<responses.GetVolumeResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#getAiDataPlatformVolume.");
-        const operationName = "getAiDataPlatformVolume";
+              this.logger.debug("Calling operation VolumeClient#getVolume.");
+        const operationName = "getVolume";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformVolumeRequest.aiDataPlatformId,
-            "{volumeKey}": getAiDataPlatformVolumeRequest.volumeKey,
+            "{aiDataPlatformId}": getVolumeRequest.aiDataPlatformId,
+            "{volumeKey}": getVolumeRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15526,13 +15526,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformVolumeRequest.opcRequestId,'should-update-recent': getAiDataPlatformVolumeRequest.shouldUpdateRecent,
+        'opc-request-id': getVolumeRequest.opcRequestId,'should-update-recent': getVolumeRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformVolumeRequest.retryConfiguration,
+            getVolumeRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15548,7 +15548,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformVolumeResponse>{},
+            responseObject: <responses.GetVolumeResponse>{},
                 body: await response.json(),
                 bodyKey: "volume",
                 bodyModel:  model.Volume,
@@ -15578,41 +15578,41 @@ export class VolumeClient {
      * Returns a list of files in a volume.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformFilesRequest
-     * @return ListAiDataPlatformFilesResponse
+     * @param ListFilesRequest
+     * @return ListFilesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformFiles.ts.html |here} to see how to use ListAiDataPlatformFiles API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListFiles.ts.html |here} to see how to use ListFiles API.
      */
-    public async listAiDataPlatformFiles (listAiDataPlatformFilesRequest: requests.ListAiDataPlatformFilesRequest) : Promise<responses.ListAiDataPlatformFilesResponse> {
+    public async listFiles (listFilesRequest: requests.ListFilesRequest) : Promise<responses.ListFilesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#listAiDataPlatformFiles.");
-        const operationName = "listAiDataPlatformFiles";
+              this.logger.debug("Calling operation VolumeClient#listFiles.");
+        const operationName = "listFiles";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformFilesRequest.aiDataPlatformId,
-            "{volumeKey}": listAiDataPlatformFilesRequest.volumeKey,
+            "{aiDataPlatformId}": listFilesRequest.aiDataPlatformId,
+            "{volumeKey}": listFilesRequest.volumeKey,
         };
 
         const queryParams = { 
-            'isRecursive': listAiDataPlatformFilesRequest.isRecursive,
-            'displayName': listAiDataPlatformFilesRequest.displayName,
-            'path': listAiDataPlatformFilesRequest.path,
-            'metadataKeys': listAiDataPlatformFilesRequest.metadataKeys,
-            'limit': listAiDataPlatformFilesRequest.limit,
-            'page': listAiDataPlatformFilesRequest.page,
-            'sortOrder': listAiDataPlatformFilesRequest.sortOrder,
-            'sortBy': listAiDataPlatformFilesRequest.sortBy,
+            'isRecursive': listFilesRequest.isRecursive,
+            'displayName': listFilesRequest.displayName,
+            'path': listFilesRequest.path,
+            'metadataKeys': listFilesRequest.metadataKeys,
+            'limit': listFilesRequest.limit,
+            'page': listFilesRequest.page,
+            'sortOrder': listFilesRequest.sortOrder,
+            'sortBy': listFilesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformFilesRequest.opcRequestId,'should-update-recent': listAiDataPlatformFilesRequest.shouldUpdateRecent,
+        'opc-request-id': listFilesRequest.opcRequestId,'should-update-recent': listFilesRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformFilesRequest.retryConfiguration,
+            listFilesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15628,7 +15628,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformFilesResponse>{},
+            responseObject: <responses.ListFilesResponse>{},
                 body: await response.json(),
                 bodyKey: "volumeFileCollection",
                 bodyModel:  model.VolumeFileCollection,
@@ -15658,37 +15658,37 @@ export class VolumeClient {
      * Returns a list of volume permissions.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformVolumePermissionsRequest
-     * @return ListAiDataPlatformVolumePermissionsResponse
+     * @param ListVolumePermissionsRequest
+     * @return ListVolumePermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformVolumePermissions.ts.html |here} to see how to use ListAiDataPlatformVolumePermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListVolumePermissions.ts.html |here} to see how to use ListVolumePermissions API.
      */
-    public async listAiDataPlatformVolumePermissions (listAiDataPlatformVolumePermissionsRequest: requests.ListAiDataPlatformVolumePermissionsRequest) : Promise<responses.ListAiDataPlatformVolumePermissionsResponse> {
+    public async listVolumePermissions (listVolumePermissionsRequest: requests.ListVolumePermissionsRequest) : Promise<responses.ListVolumePermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#listAiDataPlatformVolumePermissions.");
-        const operationName = "listAiDataPlatformVolumePermissions";
+              this.logger.debug("Calling operation VolumeClient#listVolumePermissions.");
+        const operationName = "listVolumePermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformVolumePermissionsRequest.aiDataPlatformId,
-            "{volumeKey}": listAiDataPlatformVolumePermissionsRequest.volumeKey,
+            "{aiDataPlatformId}": listVolumePermissionsRequest.aiDataPlatformId,
+            "{volumeKey}": listVolumePermissionsRequest.volumeKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformVolumePermissionsRequest.limit,
-            'page': listAiDataPlatformVolumePermissionsRequest.page,
-            'sortOrder': listAiDataPlatformVolumePermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformVolumePermissionsRequest.sortBy,
+            'limit': listVolumePermissionsRequest.limit,
+            'page': listVolumePermissionsRequest.page,
+            'sortOrder': listVolumePermissionsRequest.sortOrder,
+            'sortBy': listVolumePermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformVolumePermissionsRequest.opcRequestId,
+        'opc-request-id': listVolumePermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformVolumePermissionsRequest.retryConfiguration,
+            listVolumePermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15704,7 +15704,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformVolumePermissionsResponse>{},
+            responseObject: <responses.ListVolumePermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "volumePermissionCollection",
                 bodyModel:  model.VolumePermissionCollection,
@@ -15734,39 +15734,39 @@ export class VolumeClient {
      * Returns a list of volumes.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformVolumesRequest
-     * @return ListAiDataPlatformVolumesResponse
+     * @param ListVolumesRequest
+     * @return ListVolumesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformVolumes.ts.html |here} to see how to use ListAiDataPlatformVolumes API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListVolumes.ts.html |here} to see how to use ListVolumes API.
      */
-    public async listAiDataPlatformVolumes (listAiDataPlatformVolumesRequest: requests.ListAiDataPlatformVolumesRequest) : Promise<responses.ListAiDataPlatformVolumesResponse> {
+    public async listVolumes (listVolumesRequest: requests.ListVolumesRequest) : Promise<responses.ListVolumesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#listAiDataPlatformVolumes.");
-        const operationName = "listAiDataPlatformVolumes";
+              this.logger.debug("Calling operation VolumeClient#listVolumes.");
+        const operationName = "listVolumes";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformVolumesRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listVolumesRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'catalogKey': listAiDataPlatformVolumesRequest.catalogKey,
-            'schemaKey': listAiDataPlatformVolumesRequest.schemaKey,
-            'displayName': listAiDataPlatformVolumesRequest.displayName,
-            'limit': listAiDataPlatformVolumesRequest.limit,
-            'page': listAiDataPlatformVolumesRequest.page,
-            'sortOrder': listAiDataPlatformVolumesRequest.sortOrder,
-            'sortBy': listAiDataPlatformVolumesRequest.sortBy,
+            'catalogKey': listVolumesRequest.catalogKey,
+            'schemaKey': listVolumesRequest.schemaKey,
+            'displayName': listVolumesRequest.displayName,
+            'limit': listVolumesRequest.limit,
+            'page': listVolumesRequest.page,
+            'sortOrder': listVolumesRequest.sortOrder,
+            'sortBy': listVolumesRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformVolumesRequest.opcRequestId,
+        'opc-request-id': listVolumesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformVolumesRequest.retryConfiguration,
+            listVolumesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15782,7 +15782,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformVolumesResponse>{},
+            responseObject: <responses.ListVolumesResponse>{},
                 body: await response.json(),
                 bodyKey: "volumeCollection",
                 bodyModel:  model.VolumeCollection,
@@ -15812,34 +15812,34 @@ export class VolumeClient {
      * Creates a directory in a volume.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param MakeAiDataPlatformDirRequest
-     * @return MakeAiDataPlatformDirResponse
+     * @param MakeDirRequest
+     * @return MakeDirResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/MakeAiDataPlatformDir.ts.html |here} to see how to use MakeAiDataPlatformDir API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/MakeDir.ts.html |here} to see how to use MakeDir API.
      */
-    public async makeAiDataPlatformDir (makeAiDataPlatformDirRequest: requests.MakeAiDataPlatformDirRequest) : Promise<responses.MakeAiDataPlatformDirResponse> {
+    public async makeDir (makeDirRequest: requests.MakeDirRequest) : Promise<responses.MakeDirResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#makeAiDataPlatformDir.");
-        const operationName = "makeAiDataPlatformDir";
+              this.logger.debug("Calling operation VolumeClient#makeDir.");
+        const operationName = "makeDir";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": makeAiDataPlatformDirRequest.aiDataPlatformId,
-            "{volumeKey}": makeAiDataPlatformDirRequest.volumeKey,
+            "{aiDataPlatformId}": makeDirRequest.aiDataPlatformId,
+            "{volumeKey}": makeDirRequest.volumeKey,
         };
 
         const queryParams = { 
-            'description': makeAiDataPlatformDirRequest.description,
+            'description': makeDirRequest.description,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': makeAiDataPlatformDirRequest.path,'opc-retry-token': makeAiDataPlatformDirRequest.opcRetryToken,'opc-request-id': makeAiDataPlatformDirRequest.opcRequestId,'should-update-recent': makeAiDataPlatformDirRequest.shouldUpdateRecent,
+        'path': makeDirRequest.path,'opc-retry-token': makeDirRequest.opcRetryToken,'opc-request-id': makeDirRequest.opcRequestId,'should-update-recent': makeDirRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            makeAiDataPlatformDirRequest.retryConfiguration,
+            makeDirRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15855,7 +15855,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.MakeAiDataPlatformDirResponse>{},
+            responseObject: <responses.MakeDirResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("location"),
@@ -15885,19 +15885,19 @@ export class VolumeClient {
     /**
      * Updates the permissions on a volume.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformVolumePermissionRequest
-     * @return ManageAiDataPlatformVolumePermissionResponse
+     * @param ManageVolumePermissionRequest
+     * @return ManageVolumePermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformVolumePermission.ts.html |here} to see how to use ManageAiDataPlatformVolumePermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageVolumePermission.ts.html |here} to see how to use ManageVolumePermission API.
      */
-    public async manageAiDataPlatformVolumePermission (manageAiDataPlatformVolumePermissionRequest: requests.ManageAiDataPlatformVolumePermissionRequest) : Promise<responses.ManageAiDataPlatformVolumePermissionResponse> {
+    public async manageVolumePermission (manageVolumePermissionRequest: requests.ManageVolumePermissionRequest) : Promise<responses.ManageVolumePermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#manageAiDataPlatformVolumePermission.");
-        const operationName = "manageAiDataPlatformVolumePermission";
+              this.logger.debug("Calling operation VolumeClient#manageVolumePermission.");
+        const operationName = "manageVolumePermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformVolumePermissionRequest.aiDataPlatformId,
-            "{volumeKey}": manageAiDataPlatformVolumePermissionRequest.volumeKey,
+            "{aiDataPlatformId}": manageVolumePermissionRequest.aiDataPlatformId,
+            "{volumeKey}": manageVolumePermissionRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15905,13 +15905,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformVolumePermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformVolumePermissionRequest.opcRequestId,
+        'if-match': manageVolumePermissionRequest.ifMatch,'opc-request-id': manageVolumePermissionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformVolumePermissionRequest.retryConfiguration,
+            manageVolumePermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15920,7 +15920,7 @@ export class VolumeClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}/actions/managePermission',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformVolumePermissionRequest.manageVolumePermissionDetails, "ManageVolumePermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageVolumePermissionRequest.manageVolumePermissionDetails, "ManageVolumePermissionDetails"
                             , model.ManageVolumePermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -15930,7 +15930,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformVolumePermissionResponse>{},
+            responseObject: <responses.ManageVolumePermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -15951,19 +15951,19 @@ export class VolumeClient {
      * Updates a directory in volume with the provided information.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformDirRequest
-     * @return UpdateAiDataPlatformDirResponse
+     * @param UpdateDirRequest
+     * @return UpdateDirResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformDir.ts.html |here} to see how to use UpdateAiDataPlatformDir API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateDir.ts.html |here} to see how to use UpdateDir API.
      */
-    public async updateAiDataPlatformDir (updateAiDataPlatformDirRequest: requests.UpdateAiDataPlatformDirRequest) : Promise<responses.UpdateAiDataPlatformDirResponse> {
+    public async updateDir (updateDirRequest: requests.UpdateDirRequest) : Promise<responses.UpdateDirResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#updateAiDataPlatformDir.");
-        const operationName = "updateAiDataPlatformDir";
+              this.logger.debug("Calling operation VolumeClient#updateDir.");
+        const operationName = "updateDir";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformDirRequest.aiDataPlatformId,
-            "{volumeKey}": updateAiDataPlatformDirRequest.volumeKey,
+            "{aiDataPlatformId}": updateDirRequest.aiDataPlatformId,
+            "{volumeKey}": updateDirRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -15971,13 +15971,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': updateAiDataPlatformDirRequest.path,'opc-retry-token': updateAiDataPlatformDirRequest.opcRetryToken,'if-match': updateAiDataPlatformDirRequest.ifMatch,'opc-request-id': updateAiDataPlatformDirRequest.opcRequestId,'should-update-recent': updateAiDataPlatformDirRequest.shouldUpdateRecent,
+        'path': updateDirRequest.path,'opc-retry-token': updateDirRequest.opcRetryToken,'if-match': updateDirRequest.ifMatch,'opc-request-id': updateDirRequest.opcRequestId,'should-update-recent': updateDirRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformDirRequest.retryConfiguration,
+            updateDirRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -15986,7 +15986,7 @@ export class VolumeClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}/actions/updateDir',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformDirRequest.updateDirDetails, "UpdateDirDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateDirRequest.updateDirDetails, "UpdateDirDetails"
                             , model.UpdateDirDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -15996,7 +15996,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformDirResponse>{},
+            responseObject: <responses.UpdateDirResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("location"),
@@ -16026,19 +16026,19 @@ export class VolumeClient {
     /**
      * Updates a volume with the provided information.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformVolumeRequest
-     * @return UpdateAiDataPlatformVolumeResponse
+     * @param UpdateVolumeRequest
+     * @return UpdateVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformVolume.ts.html |here} to see how to use UpdateAiDataPlatformVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateVolume.ts.html |here} to see how to use UpdateVolume API.
      */
-    public async updateAiDataPlatformVolume (updateAiDataPlatformVolumeRequest: requests.UpdateAiDataPlatformVolumeRequest) : Promise<responses.UpdateAiDataPlatformVolumeResponse> {
+    public async updateVolume (updateVolumeRequest: requests.UpdateVolumeRequest) : Promise<responses.UpdateVolumeResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#updateAiDataPlatformVolume.");
-        const operationName = "updateAiDataPlatformVolume";
+              this.logger.debug("Calling operation VolumeClient#updateVolume.");
+        const operationName = "updateVolume";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformVolumeRequest.aiDataPlatformId,
-            "{volumeKey}": updateAiDataPlatformVolumeRequest.volumeKey,
+            "{aiDataPlatformId}": updateVolumeRequest.aiDataPlatformId,
+            "{volumeKey}": updateVolumeRequest.volumeKey,
         };
 
         const queryParams = { 
@@ -16046,13 +16046,13 @@ export class VolumeClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': updateAiDataPlatformVolumeRequest.shouldUpdateRecent,'if-match': updateAiDataPlatformVolumeRequest.ifMatch,'opc-request-id': updateAiDataPlatformVolumeRequest.opcRequestId,
+        'should-update-recent': updateVolumeRequest.shouldUpdateRecent,'if-match': updateVolumeRequest.ifMatch,'opc-request-id': updateVolumeRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformVolumeRequest.retryConfiguration,
+            updateVolumeRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16061,7 +16061,7 @@ export class VolumeClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformVolumeRequest.updateVolumeDetails, "UpdateVolumeDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateVolumeRequest.updateVolumeDetails, "UpdateVolumeDetails"
                             , model.UpdateVolumeDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -16071,7 +16071,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformVolumeResponse>{},
+            responseObject: <responses.UpdateVolumeResponse>{},
                 body: await response.json(),
                 bodyKey: "volume",
                 bodyModel:  model.Volume,
@@ -16106,34 +16106,34 @@ export class VolumeClient {
      * Uploads a file to volume. If the file already exists, it is updated.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UploadAiDataPlatformFileRequest
-     * @return UploadAiDataPlatformFileResponse
+     * @param UploadFileRequest
+     * @return UploadFileResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadAiDataPlatformFile.ts.html |here} to see how to use UploadAiDataPlatformFile API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadFile.ts.html |here} to see how to use UploadFile API.
      */
-    public async uploadAiDataPlatformFile (uploadAiDataPlatformFileRequest: requests.UploadAiDataPlatformFileRequest) : Promise<responses.UploadAiDataPlatformFileResponse> {
+    public async uploadFile (uploadFileRequest: requests.UploadFileRequest) : Promise<responses.UploadFileResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#uploadAiDataPlatformFile.");
-        const operationName = "uploadAiDataPlatformFile";
+              this.logger.debug("Calling operation VolumeClient#uploadFile.");
+        const operationName = "uploadFile";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": uploadAiDataPlatformFileRequest.aiDataPlatformId,
-            "{volumeKey}": uploadAiDataPlatformFileRequest.volumeKey,
+            "{aiDataPlatformId}": uploadFileRequest.aiDataPlatformId,
+            "{volumeKey}": uploadFileRequest.volumeKey,
         };
 
         const queryParams = { 
-            'isOverwrite': uploadAiDataPlatformFileRequest.isOverwrite,
+            'isOverwrite': uploadFileRequest.isOverwrite,
         };
 
         let headerParams = {
         
-        'should-update-recent': uploadAiDataPlatformFileRequest.shouldUpdateRecent,'is-upload-file-base64-encoded': uploadAiDataPlatformFileRequest.isUploadFileBase64Encoded,'path': uploadAiDataPlatformFileRequest.path,'opc-retry-token': uploadAiDataPlatformFileRequest.opcRetryToken,'opc-request-id': uploadAiDataPlatformFileRequest.opcRequestId,
+        'should-update-recent': uploadFileRequest.shouldUpdateRecent,'is-upload-file-base64-encoded': uploadFileRequest.isUploadFileBase64Encoded,'path': uploadFileRequest.path,'opc-retry-token': uploadFileRequest.opcRetryToken,'opc-request-id': uploadFileRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            uploadAiDataPlatformFileRequest.retryConfiguration,
+            uploadFileRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16143,7 +16143,7 @@ export class VolumeClient {
             path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}/actions/uploadFile',
             method: 'POST',
             bodyContent: 
-                         uploadAiDataPlatformFileRequest.uploadFileDetails,
+                         uploadFileRequest.uploadFileDetails,
             pathParams: pathParams,
             headerParams: headerParams,
             backupBinaryBody: retrier.backUpBinaryBody,
@@ -16152,7 +16152,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UploadAiDataPlatformFileResponse>{},
+            responseObject: <responses.UploadFileResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("location"),
@@ -16188,35 +16188,35 @@ export class VolumeClient {
      * Uploads a volume file by generating PAR. If file exists, then it will be updated.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UploadAiDataPlatformFileWithParRequest
-     * @return UploadAiDataPlatformFileWithParResponse
+     * @param UploadFileWithParRequest
+     * @return UploadFileWithParResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadAiDataPlatformFileWithPar.ts.html |here} to see how to use UploadAiDataPlatformFileWithPar API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadFileWithPar.ts.html |here} to see how to use UploadFileWithPar API.
      */
-    public async uploadAiDataPlatformFileWithPar (uploadAiDataPlatformFileWithParRequest: requests.UploadAiDataPlatformFileWithParRequest) : Promise<responses.UploadAiDataPlatformFileWithParResponse> {
+    public async uploadFileWithPar (uploadFileWithParRequest: requests.UploadFileWithParRequest) : Promise<responses.UploadFileWithParResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation VolumeClient#uploadAiDataPlatformFileWithPar.");
-        const operationName = "uploadAiDataPlatformFileWithPar";
+              this.logger.debug("Calling operation VolumeClient#uploadFileWithPar.");
+        const operationName = "uploadFileWithPar";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": uploadAiDataPlatformFileWithParRequest.aiDataPlatformId,
-            "{volumeKey}": uploadAiDataPlatformFileWithParRequest.volumeKey,
+            "{aiDataPlatformId}": uploadFileWithParRequest.aiDataPlatformId,
+            "{volumeKey}": uploadFileWithParRequest.volumeKey,
         };
 
         const queryParams = { 
-            'isOverwrite': uploadAiDataPlatformFileWithParRequest.isOverwrite,
-            'shouldGenerateNewPar': uploadAiDataPlatformFileWithParRequest.shouldGenerateNewPar,
+            'isOverwrite': uploadFileWithParRequest.isOverwrite,
+            'shouldGenerateNewPar': uploadFileWithParRequest.shouldGenerateNewPar,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': uploadAiDataPlatformFileWithParRequest.shouldUpdateRecent,'path': uploadAiDataPlatformFileWithParRequest.path,'opc-retry-token': uploadAiDataPlatformFileWithParRequest.opcRetryToken,'opc-request-id': uploadAiDataPlatformFileWithParRequest.opcRequestId,
+        'should-update-recent': uploadFileWithParRequest.shouldUpdateRecent,'path': uploadFileWithParRequest.path,'opc-retry-token': uploadFileWithParRequest.opcRetryToken,'opc-request-id': uploadFileWithParRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            uploadAiDataPlatformFileWithParRequest.retryConfiguration,
+            uploadFileWithParRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16225,7 +16225,7 @@ export class VolumeClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}/actions/uploadFileMeta',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(uploadAiDataPlatformFileWithParRequest.uploadFileWithParDetails, "UploadFileWithParDetails"
+            bodyContent: common.ObjectSerializer.serialize(uploadFileWithParRequest.uploadFileWithParDetails, "UploadFileWithParDetails"
                             , model.UploadFileWithParDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -16235,7 +16235,7 @@ export class VolumeClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UploadAiDataPlatformFileWithParResponse>{},
+            responseObject: <responses.UploadFileWithParResponse>{},
                 body: await response.json(),
                 bodyKey: "uploadFileWithParResult",
                 bodyModel:  model.UploadFileWithParResult,
@@ -16444,20 +16444,20 @@ export class WorkflowClient {
     /**
      * Cancels a job run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CancelAiDataPlatformJobRunRequest
-     * @return CancelAiDataPlatformJobRunResponse
+     * @param CancelJobRunRequest
+     * @return CancelJobRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CancelAiDataPlatformJobRun.ts.html |here} to see how to use CancelAiDataPlatformJobRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CancelJobRun.ts.html |here} to see how to use CancelJobRun API.
      */
-    public async cancelAiDataPlatformJobRun (cancelAiDataPlatformJobRunRequest: requests.CancelAiDataPlatformJobRunRequest) : Promise<responses.CancelAiDataPlatformJobRunResponse> {
+    public async cancelJobRun (cancelJobRunRequest: requests.CancelJobRunRequest) : Promise<responses.CancelJobRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#cancelAiDataPlatformJobRun.");
-        const operationName = "cancelAiDataPlatformJobRun";
+              this.logger.debug("Calling operation WorkflowClient#cancelJobRun.");
+        const operationName = "cancelJobRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": cancelAiDataPlatformJobRunRequest.aiDataPlatformId,
-            "{workspaceKey}": cancelAiDataPlatformJobRunRequest.workspaceKey,
-            "{jobRunKey}": cancelAiDataPlatformJobRunRequest.jobRunKey,
+            "{aiDataPlatformId}": cancelJobRunRequest.aiDataPlatformId,
+            "{workspaceKey}": cancelJobRunRequest.workspaceKey,
+            "{jobRunKey}": cancelJobRunRequest.jobRunKey,
         };
 
         const queryParams = { 
@@ -16465,13 +16465,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': cancelAiDataPlatformJobRunRequest.ifMatch,'opc-request-id': cancelAiDataPlatformJobRunRequest.opcRequestId,'opc-retry-token': cancelAiDataPlatformJobRunRequest.opcRetryToken,'should-update-recent': cancelAiDataPlatformJobRunRequest.shouldUpdateRecent,
+        'if-match': cancelJobRunRequest.ifMatch,'opc-request-id': cancelJobRunRequest.opcRequestId,'opc-retry-token': cancelJobRunRequest.opcRetryToken,'should-update-recent': cancelJobRunRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            cancelAiDataPlatformJobRunRequest.retryConfiguration,
+            cancelJobRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16487,7 +16487,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CancelAiDataPlatformJobRunResponse>{},
+            responseObject: <responses.CancelJobRunResponse>{},
                 body: await response.json(),
                 bodyKey: "jobRun",
                 bodyModel:  model.JobRun,
@@ -16531,20 +16531,20 @@ export class WorkflowClient {
     /**
      * Cancels all job runs for a given job.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CancelAiDataPlatformJobRunsRequest
-     * @return CancelAiDataPlatformJobRunsResponse
+     * @param CancelJobRunsRequest
+     * @return CancelJobRunsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CancelAiDataPlatformJobRuns.ts.html |here} to see how to use CancelAiDataPlatformJobRuns API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CancelJobRuns.ts.html |here} to see how to use CancelJobRuns API.
      */
-    public async cancelAiDataPlatformJobRuns (cancelAiDataPlatformJobRunsRequest: requests.CancelAiDataPlatformJobRunsRequest) : Promise<responses.CancelAiDataPlatformJobRunsResponse> {
+    public async cancelJobRuns (cancelJobRunsRequest: requests.CancelJobRunsRequest) : Promise<responses.CancelJobRunsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#cancelAiDataPlatformJobRuns.");
-        const operationName = "cancelAiDataPlatformJobRuns";
+              this.logger.debug("Calling operation WorkflowClient#cancelJobRuns.");
+        const operationName = "cancelJobRuns";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": cancelAiDataPlatformJobRunsRequest.aiDataPlatformId,
-            "{workspaceKey}": cancelAiDataPlatformJobRunsRequest.workspaceKey,
-            "{jobKey}": cancelAiDataPlatformJobRunsRequest.jobKey,
+            "{aiDataPlatformId}": cancelJobRunsRequest.aiDataPlatformId,
+            "{workspaceKey}": cancelJobRunsRequest.workspaceKey,
+            "{jobKey}": cancelJobRunsRequest.jobKey,
         };
 
         const queryParams = { 
@@ -16552,13 +16552,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': cancelAiDataPlatformJobRunsRequest.ifMatch,'opc-request-id': cancelAiDataPlatformJobRunsRequest.opcRequestId,'opc-retry-token': cancelAiDataPlatformJobRunsRequest.opcRetryToken,
+        'if-match': cancelJobRunsRequest.ifMatch,'opc-request-id': cancelJobRunsRequest.opcRequestId,'opc-retry-token': cancelJobRunsRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            cancelAiDataPlatformJobRunsRequest.retryConfiguration,
+            cancelJobRunsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16574,7 +16574,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CancelAiDataPlatformJobRunsResponse>{},
+            responseObject: <responses.CancelJobRunsResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-work-request-id"),
@@ -16599,19 +16599,19 @@ export class WorkflowClient {
     /**
      * Creates a job in an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformJobRequest
-     * @return CreateAiDataPlatformJobResponse
+     * @param CreateJobRequest
+     * @return CreateJobResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformJob.ts.html |here} to see how to use CreateAiDataPlatformJob API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateJob.ts.html |here} to see how to use CreateJob API.
      */
-    public async createAiDataPlatformJob (createAiDataPlatformJobRequest: requests.CreateAiDataPlatformJobRequest) : Promise<responses.CreateAiDataPlatformJobResponse> {
+    public async createJob (createJobRequest: requests.CreateJobRequest) : Promise<responses.CreateJobResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#createAiDataPlatformJob.");
-        const operationName = "createAiDataPlatformJob";
+              this.logger.debug("Calling operation WorkflowClient#createJob.");
+        const operationName = "createJob";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformJobRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformJobRequest.workspaceKey,
+            "{aiDataPlatformId}": createJobRequest.aiDataPlatformId,
+            "{workspaceKey}": createJobRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -16619,13 +16619,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformJobRequest.opcRetryToken,'opc-request-id': createAiDataPlatformJobRequest.opcRequestId,'should-update-recent': createAiDataPlatformJobRequest.shouldUpdateRecent,
+        'opc-retry-token': createJobRequest.opcRetryToken,'opc-request-id': createJobRequest.opcRequestId,'should-update-recent': createJobRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformJobRequest.retryConfiguration,
+            createJobRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16634,7 +16634,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/jobs',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformJobRequest.createJobDetails, "CreateJobDetails"
+            bodyContent: common.ObjectSerializer.serialize(createJobRequest.createJobDetails, "CreateJobDetails"
                             , model.CreateJobDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -16644,7 +16644,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformJobResponse>{},
+            responseObject: <responses.CreateJobResponse>{},
                 body: await response.json(),
                 bodyKey: "job",
                 bodyModel:  model.Job,
@@ -16688,19 +16688,19 @@ export class WorkflowClient {
     /**
      * Creates a job run for an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformJobRunRequest
-     * @return CreateAiDataPlatformJobRunResponse
+     * @param CreateJobRunRequest
+     * @return CreateJobRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformJobRun.ts.html |here} to see how to use CreateAiDataPlatformJobRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateJobRun.ts.html |here} to see how to use CreateJobRun API.
      */
-    public async createAiDataPlatformJobRun (createAiDataPlatformJobRunRequest: requests.CreateAiDataPlatformJobRunRequest) : Promise<responses.CreateAiDataPlatformJobRunResponse> {
+    public async createJobRun (createJobRunRequest: requests.CreateJobRunRequest) : Promise<responses.CreateJobRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#createAiDataPlatformJobRun.");
-        const operationName = "createAiDataPlatformJobRun";
+              this.logger.debug("Calling operation WorkflowClient#createJobRun.");
+        const operationName = "createJobRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformJobRunRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformJobRunRequest.workspaceKey,
+            "{aiDataPlatformId}": createJobRunRequest.aiDataPlatformId,
+            "{workspaceKey}": createJobRunRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -16708,13 +16708,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformJobRunRequest.opcRetryToken,'opc-request-id': createAiDataPlatformJobRunRequest.opcRequestId,'should-update-recent': createAiDataPlatformJobRunRequest.shouldUpdateRecent,
+        'opc-retry-token': createJobRunRequest.opcRetryToken,'opc-request-id': createJobRunRequest.opcRequestId,'should-update-recent': createJobRunRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformJobRunRequest.retryConfiguration,
+            createJobRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16723,7 +16723,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/jobRuns',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformJobRunRequest.createJobRunDetails, "CreateJobRunDetails"
+            bodyContent: common.ObjectSerializer.serialize(createJobRunRequest.createJobRunDetails, "CreateJobRunDetails"
                             , model.CreateJobRunDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -16733,7 +16733,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformJobRunResponse>{},
+            responseObject: <responses.CreateJobRunResponse>{},
                 body: await response.json(),
                 bodyKey: "jobRun",
                 bodyModel:  model.JobRun,
@@ -16777,20 +16777,20 @@ export class WorkflowClient {
     /**
      * Deletes a job from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformJobRequest
-     * @return DeleteAiDataPlatformJobResponse
+     * @param DeleteJobRequest
+     * @return DeleteJobResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformJob.ts.html |here} to see how to use DeleteAiDataPlatformJob API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteJob.ts.html |here} to see how to use DeleteJob API.
      */
-    public async deleteAiDataPlatformJob (deleteAiDataPlatformJobRequest: requests.DeleteAiDataPlatformJobRequest) : Promise<responses.DeleteAiDataPlatformJobResponse> {
+    public async deleteJob (deleteJobRequest: requests.DeleteJobRequest) : Promise<responses.DeleteJobResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#deleteAiDataPlatformJob.");
-        const operationName = "deleteAiDataPlatformJob";
+              this.logger.debug("Calling operation WorkflowClient#deleteJob.");
+        const operationName = "deleteJob";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformJobRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformJobRequest.workspaceKey,
-            "{jobKey}": deleteAiDataPlatformJobRequest.jobKey,
+            "{aiDataPlatformId}": deleteJobRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteJobRequest.workspaceKey,
+            "{jobKey}": deleteJobRequest.jobKey,
         };
 
         const queryParams = { 
@@ -16798,13 +16798,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformJobRequest.ifMatch,'opc-request-id': deleteAiDataPlatformJobRequest.opcRequestId,
+        'if-match': deleteJobRequest.ifMatch,'opc-request-id': deleteJobRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformJobRequest.retryConfiguration,
+            deleteJobRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16820,7 +16820,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformJobResponse>{},
+            responseObject: <responses.DeleteJobResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -16840,20 +16840,20 @@ export class WorkflowClient {
     /**
      * Deletes a job run from an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformJobRunRequest
-     * @return DeleteAiDataPlatformJobRunResponse
+     * @param DeleteJobRunRequest
+     * @return DeleteJobRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformJobRun.ts.html |here} to see how to use DeleteAiDataPlatformJobRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteJobRun.ts.html |here} to see how to use DeleteJobRun API.
      */
-    public async deleteAiDataPlatformJobRun (deleteAiDataPlatformJobRunRequest: requests.DeleteAiDataPlatformJobRunRequest) : Promise<responses.DeleteAiDataPlatformJobRunResponse> {
+    public async deleteJobRun (deleteJobRunRequest: requests.DeleteJobRunRequest) : Promise<responses.DeleteJobRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#deleteAiDataPlatformJobRun.");
-        const operationName = "deleteAiDataPlatformJobRun";
+              this.logger.debug("Calling operation WorkflowClient#deleteJobRun.");
+        const operationName = "deleteJobRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformJobRunRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformJobRunRequest.workspaceKey,
-            "{jobRunKey}": deleteAiDataPlatformJobRunRequest.jobRunKey,
+            "{aiDataPlatformId}": deleteJobRunRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteJobRunRequest.workspaceKey,
+            "{jobRunKey}": deleteJobRunRequest.jobRunKey,
         };
 
         const queryParams = { 
@@ -16861,13 +16861,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformJobRunRequest.ifMatch,'opc-request-id': deleteAiDataPlatformJobRunRequest.opcRequestId,
+        'if-match': deleteJobRunRequest.ifMatch,'opc-request-id': deleteJobRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformJobRunRequest.retryConfiguration,
+            deleteJobRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16883,7 +16883,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformJobRunResponse>{},
+            responseObject: <responses.DeleteJobRunResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -16903,21 +16903,21 @@ export class WorkflowClient {
     /**
      * Exports task run output in HTML or ipynb format.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ExportAiDataPlatformTaskRunOutputRequest
-     * @return ExportAiDataPlatformTaskRunOutputResponse
+     * @param ExportTaskRunOutputRequest
+     * @return ExportTaskRunOutputResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportAiDataPlatformTaskRunOutput.ts.html |here} to see how to use ExportAiDataPlatformTaskRunOutput API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportTaskRunOutput.ts.html |here} to see how to use ExportTaskRunOutput API.
      */
-    public async exportAiDataPlatformTaskRunOutput (exportAiDataPlatformTaskRunOutputRequest: requests.ExportAiDataPlatformTaskRunOutputRequest) : Promise<responses.ExportAiDataPlatformTaskRunOutputResponse> {
+    public async exportTaskRunOutput (exportTaskRunOutputRequest: requests.ExportTaskRunOutputRequest) : Promise<responses.ExportTaskRunOutputResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#exportAiDataPlatformTaskRunOutput.");
-        const operationName = "exportAiDataPlatformTaskRunOutput";
+              this.logger.debug("Calling operation WorkflowClient#exportTaskRunOutput.");
+        const operationName = "exportTaskRunOutput";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": exportAiDataPlatformTaskRunOutputRequest.aiDataPlatformId,
-            "{workspaceKey}": exportAiDataPlatformTaskRunOutputRequest.workspaceKey,
-            "{taskRunKey}": exportAiDataPlatformTaskRunOutputRequest.taskRunKey,
-            "{taskRunOutputKey}": exportAiDataPlatformTaskRunOutputRequest.taskRunOutputKey,
+            "{aiDataPlatformId}": exportTaskRunOutputRequest.aiDataPlatformId,
+            "{workspaceKey}": exportTaskRunOutputRequest.workspaceKey,
+            "{taskRunKey}": exportTaskRunOutputRequest.taskRunKey,
+            "{taskRunOutputKey}": exportTaskRunOutputRequest.taskRunOutputKey,
         };
 
         const queryParams = { 
@@ -16925,13 +16925,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': exportAiDataPlatformTaskRunOutputRequest.opcRequestId,
+        'opc-request-id': exportTaskRunOutputRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            exportAiDataPlatformTaskRunOutputRequest.retryConfiguration,
+            exportTaskRunOutputRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -16940,7 +16940,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/taskRuns/{taskRunKey}/outputs/{taskRunOutputKey}/actions/export',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(exportAiDataPlatformTaskRunOutputRequest.exportTaskRunOutputDetails, "ExportTaskRunOutputDetails"
+            bodyContent: common.ObjectSerializer.serialize(exportTaskRunOutputRequest.exportTaskRunOutputDetails, "ExportTaskRunOutputDetails"
                             , model.ExportTaskRunOutputDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -16950,7 +16950,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ExportAiDataPlatformTaskRunOutputResponse>{},
+            responseObject: <responses.ExportTaskRunOutputResponse>{},
                 body: await response.json(),
                 bodyKey: "exportedTaskRunOutputContents",
                 bodyModel:  model.ExportedTaskRunOutputContents,
@@ -16979,20 +16979,20 @@ export class WorkflowClient {
     /**
      * Fetches the task run output from the runtime engine.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param FetchAiDataPlatformOutputRequest
-     * @return FetchAiDataPlatformOutputResponse
+     * @param FetchOutputRequest
+     * @return FetchOutputResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/FetchAiDataPlatformOutput.ts.html |here} to see how to use FetchAiDataPlatformOutput API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/FetchOutput.ts.html |here} to see how to use FetchOutput API.
      */
-    public async fetchAiDataPlatformOutput (fetchAiDataPlatformOutputRequest: requests.FetchAiDataPlatformOutputRequest) : Promise<responses.FetchAiDataPlatformOutputResponse> {
+    public async fetchOutput (fetchOutputRequest: requests.FetchOutputRequest) : Promise<responses.FetchOutputResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#fetchAiDataPlatformOutput.");
-        const operationName = "fetchAiDataPlatformOutput";
+              this.logger.debug("Calling operation WorkflowClient#fetchOutput.");
+        const operationName = "fetchOutput";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": fetchAiDataPlatformOutputRequest.aiDataPlatformId,
-            "{workspaceKey}": fetchAiDataPlatformOutputRequest.workspaceKey,
-            "{taskRunKey}": fetchAiDataPlatformOutputRequest.taskRunKey,
+            "{aiDataPlatformId}": fetchOutputRequest.aiDataPlatformId,
+            "{workspaceKey}": fetchOutputRequest.workspaceKey,
+            "{taskRunKey}": fetchOutputRequest.taskRunKey,
         };
 
         const queryParams = { 
@@ -17000,13 +17000,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': fetchAiDataPlatformOutputRequest.opcRequestId,'opc-retry-token': fetchAiDataPlatformOutputRequest.opcRetryToken,
+        'opc-request-id': fetchOutputRequest.opcRequestId,'opc-retry-token': fetchOutputRequest.opcRetryToken,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            fetchAiDataPlatformOutputRequest.retryConfiguration,
+            fetchOutputRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17015,7 +17015,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/taskRuns/{taskRunKey}/actions/fetchOutput',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(fetchAiDataPlatformOutputRequest.fetchOutputDetails, "FetchOutputDetails"
+            bodyContent: common.ObjectSerializer.serialize(fetchOutputRequest.fetchOutputDetails, "FetchOutputDetails"
                             , model.FetchOutputDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -17025,7 +17025,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.FetchAiDataPlatformOutputResponse>{},
+            responseObject: <responses.FetchOutputResponse>{},
                 body: await response.json(),
                 bodyKey: "taskRunOutput",
                 bodyModel:  model.TaskRunOutput,
@@ -17054,20 +17054,20 @@ export class WorkflowClient {
     /**
      * Returns detailed information about a given job in AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformJobRequest
-     * @return GetAiDataPlatformJobResponse
+     * @param GetJobRequest
+     * @return GetJobResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformJob.ts.html |here} to see how to use GetAiDataPlatformJob API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetJob.ts.html |here} to see how to use GetJob API.
      */
-    public async getAiDataPlatformJob (getAiDataPlatformJobRequest: requests.GetAiDataPlatformJobRequest) : Promise<responses.GetAiDataPlatformJobResponse> {
+    public async getJob (getJobRequest: requests.GetJobRequest) : Promise<responses.GetJobResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#getAiDataPlatformJob.");
-        const operationName = "getAiDataPlatformJob";
+              this.logger.debug("Calling operation WorkflowClient#getJob.");
+        const operationName = "getJob";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformJobRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformJobRequest.workspaceKey,
-            "{jobKey}": getAiDataPlatformJobRequest.jobKey,
+            "{aiDataPlatformId}": getJobRequest.aiDataPlatformId,
+            "{workspaceKey}": getJobRequest.workspaceKey,
+            "{jobKey}": getJobRequest.jobKey,
         };
 
         const queryParams = { 
@@ -17075,13 +17075,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformJobRequest.opcRequestId,'should-update-recent': getAiDataPlatformJobRequest.shouldUpdateRecent,
+        'opc-request-id': getJobRequest.opcRequestId,'should-update-recent': getJobRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformJobRequest.retryConfiguration,
+            getJobRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17097,7 +17097,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformJobResponse>{},
+            responseObject: <responses.GetJobResponse>{},
                 body: await response.json(),
                 bodyKey: "job",
                 bodyModel:  model.Job,
@@ -17126,20 +17126,20 @@ export class WorkflowClient {
     /**
      * Returns detailed information about a given job run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformJobRunRequest
-     * @return GetAiDataPlatformJobRunResponse
+     * @param GetJobRunRequest
+     * @return GetJobRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformJobRun.ts.html |here} to see how to use GetAiDataPlatformJobRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetJobRun.ts.html |here} to see how to use GetJobRun API.
      */
-    public async getAiDataPlatformJobRun (getAiDataPlatformJobRunRequest: requests.GetAiDataPlatformJobRunRequest) : Promise<responses.GetAiDataPlatformJobRunResponse> {
+    public async getJobRun (getJobRunRequest: requests.GetJobRunRequest) : Promise<responses.GetJobRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#getAiDataPlatformJobRun.");
-        const operationName = "getAiDataPlatformJobRun";
+              this.logger.debug("Calling operation WorkflowClient#getJobRun.");
+        const operationName = "getJobRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformJobRunRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformJobRunRequest.workspaceKey,
-            "{jobRunKey}": getAiDataPlatformJobRunRequest.jobRunKey,
+            "{aiDataPlatformId}": getJobRunRequest.aiDataPlatformId,
+            "{workspaceKey}": getJobRunRequest.workspaceKey,
+            "{jobRunKey}": getJobRunRequest.jobRunKey,
         };
 
         const queryParams = { 
@@ -17147,13 +17147,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformJobRunRequest.opcRequestId,'should-update-recent': getAiDataPlatformJobRunRequest.shouldUpdateRecent,
+        'opc-request-id': getJobRunRequest.opcRequestId,'should-update-recent': getJobRunRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformJobRunRequest.retryConfiguration,
+            getJobRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17169,7 +17169,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformJobRunResponse>{},
+            responseObject: <responses.GetJobRunResponse>{},
                 body: await response.json(),
                 bodyKey: "jobRun",
                 bodyModel:  model.JobRun,
@@ -17198,20 +17198,20 @@ export class WorkflowClient {
     /**
      * Returns detailed information about a task run with a given task run key.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformTaskRunRequest
-     * @return GetAiDataPlatformTaskRunResponse
+     * @param GetTaskRunRequest
+     * @return GetTaskRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformTaskRun.ts.html |here} to see how to use GetAiDataPlatformTaskRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetTaskRun.ts.html |here} to see how to use GetTaskRun API.
      */
-    public async getAiDataPlatformTaskRun (getAiDataPlatformTaskRunRequest: requests.GetAiDataPlatformTaskRunRequest) : Promise<responses.GetAiDataPlatformTaskRunResponse> {
+    public async getTaskRun (getTaskRunRequest: requests.GetTaskRunRequest) : Promise<responses.GetTaskRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#getAiDataPlatformTaskRun.");
-        const operationName = "getAiDataPlatformTaskRun";
+              this.logger.debug("Calling operation WorkflowClient#getTaskRun.");
+        const operationName = "getTaskRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformTaskRunRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformTaskRunRequest.workspaceKey,
-            "{taskRunKey}": getAiDataPlatformTaskRunRequest.taskRunKey,
+            "{aiDataPlatformId}": getTaskRunRequest.aiDataPlatformId,
+            "{workspaceKey}": getTaskRunRequest.workspaceKey,
+            "{taskRunKey}": getTaskRunRequest.taskRunKey,
         };
 
         const queryParams = { 
@@ -17219,13 +17219,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformTaskRunRequest.opcRequestId,
+        'opc-request-id': getTaskRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformTaskRunRequest.retryConfiguration,
+            getTaskRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17241,7 +17241,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformTaskRunResponse>{},
+            responseObject: <responses.GetTaskRunResponse>{},
                 body: await response.json(),
                 bodyKey: "taskRun",
                 bodyModel:  model.TaskRun,
@@ -17270,38 +17270,38 @@ export class WorkflowClient {
     /**
      * Returns a list of job permissions.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformJobPermissionsRequest
-     * @return ListAiDataPlatformJobPermissionsResponse
+     * @param ListJobPermissionsRequest
+     * @return ListJobPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformJobPermissions.ts.html |here} to see how to use ListAiDataPlatformJobPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListJobPermissions.ts.html |here} to see how to use ListJobPermissions API.
      */
-    public async listAiDataPlatformJobPermissions (listAiDataPlatformJobPermissionsRequest: requests.ListAiDataPlatformJobPermissionsRequest) : Promise<responses.ListAiDataPlatformJobPermissionsResponse> {
+    public async listJobPermissions (listJobPermissionsRequest: requests.ListJobPermissionsRequest) : Promise<responses.ListJobPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#listAiDataPlatformJobPermissions.");
-        const operationName = "listAiDataPlatformJobPermissions";
+              this.logger.debug("Calling operation WorkflowClient#listJobPermissions.");
+        const operationName = "listJobPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformJobPermissionsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformJobPermissionsRequest.workspaceKey,
-            "{jobKey}": listAiDataPlatformJobPermissionsRequest.jobKey,
+            "{aiDataPlatformId}": listJobPermissionsRequest.aiDataPlatformId,
+            "{workspaceKey}": listJobPermissionsRequest.workspaceKey,
+            "{jobKey}": listJobPermissionsRequest.jobKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformJobPermissionsRequest.limit,
-            'page': listAiDataPlatformJobPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformJobPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformJobPermissionsRequest.sortBy,
+            'limit': listJobPermissionsRequest.limit,
+            'page': listJobPermissionsRequest.page,
+            'sortOrder': listJobPermissionsRequest.sortOrder,
+            'sortBy': listJobPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformJobPermissionsRequest.opcRequestId,
+        'opc-request-id': listJobPermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformJobPermissionsRequest.retryConfiguration,
+            listJobPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17317,7 +17317,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformJobPermissionsResponse>{},
+            responseObject: <responses.ListJobPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "jobPermissionCollection",
                 bodyModel:  model.JobPermissionCollection,
@@ -17346,42 +17346,42 @@ export class WorkflowClient {
     /**
      * Returns a detailed list of job runs in an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformJobRunsRequest
-     * @return ListAiDataPlatformJobRunsResponse
+     * @param ListJobRunsRequest
+     * @return ListJobRunsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformJobRuns.ts.html |here} to see how to use ListAiDataPlatformJobRuns API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListJobRuns.ts.html |here} to see how to use ListJobRuns API.
      */
-    public async listAiDataPlatformJobRuns (listAiDataPlatformJobRunsRequest: requests.ListAiDataPlatformJobRunsRequest) : Promise<responses.ListAiDataPlatformJobRunsResponse> {
+    public async listJobRuns (listJobRunsRequest: requests.ListJobRunsRequest) : Promise<responses.ListJobRunsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#listAiDataPlatformJobRuns.");
-        const operationName = "listAiDataPlatformJobRuns";
+              this.logger.debug("Calling operation WorkflowClient#listJobRuns.");
+        const operationName = "listJobRuns";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformJobRunsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformJobRunsRequest.workspaceKey,
+            "{aiDataPlatformId}": listJobRunsRequest.aiDataPlatformId,
+            "{workspaceKey}": listJobRunsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformJobRunsRequest.displayName,
-            'jobKey': listAiDataPlatformJobRunsRequest.jobKey,
-            'status': listAiDataPlatformJobRunsRequest.status,
-            'timeCreatedGreaterThanOrEqualTo': listAiDataPlatformJobRunsRequest.timeCreatedGreaterThanOrEqualTo,
-            'timeCreatedLessThanOrEqualTo': listAiDataPlatformJobRunsRequest.timeCreatedLessThanOrEqualTo,
-            'limit': listAiDataPlatformJobRunsRequest.limit,
-            'page': listAiDataPlatformJobRunsRequest.page,
-            'sortOrder': listAiDataPlatformJobRunsRequest.sortOrder,
-            'sortBy': listAiDataPlatformJobRunsRequest.sortBy,
+            'displayName': listJobRunsRequest.displayName,
+            'jobKey': listJobRunsRequest.jobKey,
+            'status': listJobRunsRequest.status,
+            'timeCreatedGreaterThanOrEqualTo': listJobRunsRequest.timeCreatedGreaterThanOrEqualTo,
+            'timeCreatedLessThanOrEqualTo': listJobRunsRequest.timeCreatedLessThanOrEqualTo,
+            'limit': listJobRunsRequest.limit,
+            'page': listJobRunsRequest.page,
+            'sortOrder': listJobRunsRequest.sortOrder,
+            'sortBy': listJobRunsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformJobRunsRequest.opcRequestId,
+        'opc-request-id': listJobRunsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformJobRunsRequest.retryConfiguration,
+            listJobRunsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17397,7 +17397,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformJobRunsResponse>{},
+            responseObject: <responses.ListJobRunsResponse>{},
                 body: await response.json(),
                 bodyKey: "jobRunCollection",
                 bodyModel:  model.JobRunCollection,
@@ -17426,42 +17426,42 @@ export class WorkflowClient {
     /**
      * Returns a list of jobs for a given AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformJobsRequest
-     * @return ListAiDataPlatformJobsResponse
+     * @param ListJobsRequest
+     * @return ListJobsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformJobs.ts.html |here} to see how to use ListAiDataPlatformJobs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListJobs.ts.html |here} to see how to use ListJobs API.
      */
-    public async listAiDataPlatformJobs (listAiDataPlatformJobsRequest: requests.ListAiDataPlatformJobsRequest) : Promise<responses.ListAiDataPlatformJobsResponse> {
+    public async listJobs (listJobsRequest: requests.ListJobsRequest) : Promise<responses.ListJobsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#listAiDataPlatformJobs.");
-        const operationName = "listAiDataPlatformJobs";
+              this.logger.debug("Calling operation WorkflowClient#listJobs.");
+        const operationName = "listJobs";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformJobsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformJobsRequest.workspaceKey,
+            "{aiDataPlatformId}": listJobsRequest.aiDataPlatformId,
+            "{workspaceKey}": listJobsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'displayName': listAiDataPlatformJobsRequest.displayName,
-            'displayNameContains': listAiDataPlatformJobsRequest.displayNameContains,
-            'path': listAiDataPlatformJobsRequest.path,
-            'createdBy': listAiDataPlatformJobsRequest.createdBy,
-            'updatedBy': listAiDataPlatformJobsRequest.updatedBy,
-            'limit': listAiDataPlatformJobsRequest.limit,
-            'page': listAiDataPlatformJobsRequest.page,
-            'sortOrder': listAiDataPlatformJobsRequest.sortOrder,
-            'sortBy': listAiDataPlatformJobsRequest.sortBy,
+            'displayName': listJobsRequest.displayName,
+            'displayNameContains': listJobsRequest.displayNameContains,
+            'path': listJobsRequest.path,
+            'createdBy': listJobsRequest.createdBy,
+            'updatedBy': listJobsRequest.updatedBy,
+            'limit': listJobsRequest.limit,
+            'page': listJobsRequest.page,
+            'sortOrder': listJobsRequest.sortOrder,
+            'sortBy': listJobsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformJobsRequest.opcRequestId,
+        'opc-request-id': listJobsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformJobsRequest.retryConfiguration,
+            listJobsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17477,7 +17477,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformJobsResponse>{},
+            responseObject: <responses.ListJobsResponse>{},
                 body: await response.json(),
                 bodyKey: "jobCollection",
                 bodyModel:  model.JobCollection,
@@ -17516,39 +17516,39 @@ export class WorkflowClient {
     /**
      * Returns a list of the latest job runs for a given job key.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformRecentJobRunsRequest
-     * @return ListAiDataPlatformRecentJobRunsResponse
+     * @param ListRecentJobRunsRequest
+     * @return ListRecentJobRunsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformRecentJobRuns.ts.html |here} to see how to use ListAiDataPlatformRecentJobRuns API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRecentJobRuns.ts.html |here} to see how to use ListRecentJobRuns API.
      */
-    public async listAiDataPlatformRecentJobRuns (listAiDataPlatformRecentJobRunsRequest: requests.ListAiDataPlatformRecentJobRunsRequest) : Promise<responses.ListAiDataPlatformRecentJobRunsResponse> {
+    public async listRecentJobRuns (listRecentJobRunsRequest: requests.ListRecentJobRunsRequest) : Promise<responses.ListRecentJobRunsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#listAiDataPlatformRecentJobRuns.");
-        const operationName = "listAiDataPlatformRecentJobRuns";
+              this.logger.debug("Calling operation WorkflowClient#listRecentJobRuns.");
+        const operationName = "listRecentJobRuns";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformRecentJobRunsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformRecentJobRunsRequest.workspaceKey,
+            "{aiDataPlatformId}": listRecentJobRunsRequest.aiDataPlatformId,
+            "{workspaceKey}": listRecentJobRunsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'jobKey': listAiDataPlatformRecentJobRunsRequest.jobKey,
-            'recordCount': listAiDataPlatformRecentJobRunsRequest.recordCount,
-            'limit': listAiDataPlatformRecentJobRunsRequest.limit,
-            'page': listAiDataPlatformRecentJobRunsRequest.page,
-            'sortOrder': listAiDataPlatformRecentJobRunsRequest.sortOrder,
-            'sortBy': listAiDataPlatformRecentJobRunsRequest.sortBy,
+            'jobKey': listRecentJobRunsRequest.jobKey,
+            'recordCount': listRecentJobRunsRequest.recordCount,
+            'limit': listRecentJobRunsRequest.limit,
+            'page': listRecentJobRunsRequest.page,
+            'sortOrder': listRecentJobRunsRequest.sortOrder,
+            'sortBy': listRecentJobRunsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformRecentJobRunsRequest.opcRequestId,
+        'opc-request-id': listRecentJobRunsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformRecentJobRunsRequest.retryConfiguration,
+            listRecentJobRunsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17564,7 +17564,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformRecentJobRunsResponse>{},
+            responseObject: <responses.ListRecentJobRunsResponse>{},
                 body: await response.json(),
                 bodyKey: "jobRunCollection",
                 bodyModel:  model.JobRunCollection,
@@ -17593,42 +17593,42 @@ export class WorkflowClient {
     /**
      * Returns a list of tasks run in an AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformTaskRunsRequest
-     * @return ListAiDataPlatformTaskRunsResponse
+     * @param ListTaskRunsRequest
+     * @return ListTaskRunsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformTaskRuns.ts.html |here} to see how to use ListAiDataPlatformTaskRuns API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListTaskRuns.ts.html |here} to see how to use ListTaskRuns API.
      */
-    public async listAiDataPlatformTaskRuns (listAiDataPlatformTaskRunsRequest: requests.ListAiDataPlatformTaskRunsRequest) : Promise<responses.ListAiDataPlatformTaskRunsResponse> {
+    public async listTaskRuns (listTaskRunsRequest: requests.ListTaskRunsRequest) : Promise<responses.ListTaskRunsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#listAiDataPlatformTaskRuns.");
-        const operationName = "listAiDataPlatformTaskRuns";
+              this.logger.debug("Calling operation WorkflowClient#listTaskRuns.");
+        const operationName = "listTaskRuns";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformTaskRunsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformTaskRunsRequest.workspaceKey,
+            "{aiDataPlatformId}": listTaskRunsRequest.aiDataPlatformId,
+            "{workspaceKey}": listTaskRunsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'jobRunKey': listAiDataPlatformTaskRunsRequest.jobRunKey,
-            'displayName': listAiDataPlatformTaskRunsRequest.displayName,
-            'status': listAiDataPlatformTaskRunsRequest.status,
-            'parentJobRunKey': listAiDataPlatformTaskRunsRequest.parentJobRunKey,
-            'rootJobRunKey': listAiDataPlatformTaskRunsRequest.rootJobRunKey,
-            'limit': listAiDataPlatformTaskRunsRequest.limit,
-            'page': listAiDataPlatformTaskRunsRequest.page,
-            'sortOrder': listAiDataPlatformTaskRunsRequest.sortOrder,
-            'sortBy': listAiDataPlatformTaskRunsRequest.sortBy,
+            'jobRunKey': listTaskRunsRequest.jobRunKey,
+            'displayName': listTaskRunsRequest.displayName,
+            'status': listTaskRunsRequest.status,
+            'parentJobRunKey': listTaskRunsRequest.parentJobRunKey,
+            'rootJobRunKey': listTaskRunsRequest.rootJobRunKey,
+            'limit': listTaskRunsRequest.limit,
+            'page': listTaskRunsRequest.page,
+            'sortOrder': listTaskRunsRequest.sortOrder,
+            'sortBy': listTaskRunsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformTaskRunsRequest.opcRequestId,
+        'opc-request-id': listTaskRunsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformTaskRunsRequest.retryConfiguration,
+            listTaskRunsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17644,7 +17644,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformTaskRunsResponse>{},
+            responseObject: <responses.ListTaskRunsResponse>{},
                 body: await response.json(),
                 bodyKey: "taskRunCollection",
                 bodyModel:  model.TaskRunCollection,
@@ -17673,20 +17673,20 @@ export class WorkflowClient {
     /**
      * Update job permissions with the provided details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformJobPermissionRequest
-     * @return ManageAiDataPlatformJobPermissionResponse
+     * @param ManageJobPermissionRequest
+     * @return ManageJobPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformJobPermission.ts.html |here} to see how to use ManageAiDataPlatformJobPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageJobPermission.ts.html |here} to see how to use ManageJobPermission API.
      */
-    public async manageAiDataPlatformJobPermission (manageAiDataPlatformJobPermissionRequest: requests.ManageAiDataPlatformJobPermissionRequest) : Promise<responses.ManageAiDataPlatformJobPermissionResponse> {
+    public async manageJobPermission (manageJobPermissionRequest: requests.ManageJobPermissionRequest) : Promise<responses.ManageJobPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#manageAiDataPlatformJobPermission.");
-        const operationName = "manageAiDataPlatformJobPermission";
+              this.logger.debug("Calling operation WorkflowClient#manageJobPermission.");
+        const operationName = "manageJobPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformJobPermissionRequest.aiDataPlatformId,
-            "{workspaceKey}": manageAiDataPlatformJobPermissionRequest.workspaceKey,
-            "{jobKey}": manageAiDataPlatformJobPermissionRequest.jobKey,
+            "{aiDataPlatformId}": manageJobPermissionRequest.aiDataPlatformId,
+            "{workspaceKey}": manageJobPermissionRequest.workspaceKey,
+            "{jobKey}": manageJobPermissionRequest.jobKey,
         };
 
         const queryParams = { 
@@ -17694,13 +17694,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformJobPermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformJobPermissionRequest.opcRequestId,
+        'if-match': manageJobPermissionRequest.ifMatch,'opc-request-id': manageJobPermissionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformJobPermissionRequest.retryConfiguration,
+            manageJobPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17709,7 +17709,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/jobs/{jobKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformJobPermissionRequest.manageJobPermissionDetails, "ManageJobPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageJobPermissionRequest.manageJobPermissionDetails, "ManageJobPermissionDetails"
                             , model.ManageJobPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -17719,7 +17719,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformJobPermissionResponse>{},
+            responseObject: <responses.ManageJobPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -17739,20 +17739,20 @@ export class WorkflowClient {
     /**
      * Repairs and reruns a job run.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RepairAiDataPlatformJobRunRequest
-     * @return RepairAiDataPlatformJobRunResponse
+     * @param RepairJobRunRequest
+     * @return RepairJobRunResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RepairAiDataPlatformJobRun.ts.html |here} to see how to use RepairAiDataPlatformJobRun API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RepairJobRun.ts.html |here} to see how to use RepairJobRun API.
      */
-    public async repairAiDataPlatformJobRun (repairAiDataPlatformJobRunRequest: requests.RepairAiDataPlatformJobRunRequest) : Promise<responses.RepairAiDataPlatformJobRunResponse> {
+    public async repairJobRun (repairJobRunRequest: requests.RepairJobRunRequest) : Promise<responses.RepairJobRunResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#repairAiDataPlatformJobRun.");
-        const operationName = "repairAiDataPlatformJobRun";
+              this.logger.debug("Calling operation WorkflowClient#repairJobRun.");
+        const operationName = "repairJobRun";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": repairAiDataPlatformJobRunRequest.aiDataPlatformId,
-            "{workspaceKey}": repairAiDataPlatformJobRunRequest.workspaceKey,
-            "{jobRunKey}": repairAiDataPlatformJobRunRequest.jobRunKey,
+            "{aiDataPlatformId}": repairJobRunRequest.aiDataPlatformId,
+            "{workspaceKey}": repairJobRunRequest.workspaceKey,
+            "{jobRunKey}": repairJobRunRequest.jobRunKey,
         };
 
         const queryParams = { 
@@ -17760,13 +17760,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': repairAiDataPlatformJobRunRequest.opcRetryToken,'should-update-recent': repairAiDataPlatformJobRunRequest.shouldUpdateRecent,'if-match': repairAiDataPlatformJobRunRequest.ifMatch,'opc-request-id': repairAiDataPlatformJobRunRequest.opcRequestId,
+        'opc-retry-token': repairJobRunRequest.opcRetryToken,'should-update-recent': repairJobRunRequest.shouldUpdateRecent,'if-match': repairJobRunRequest.ifMatch,'opc-request-id': repairJobRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            repairAiDataPlatformJobRunRequest.retryConfiguration,
+            repairJobRunRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17775,7 +17775,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/jobRuns/{jobRunKey}/actions/repair',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(repairAiDataPlatformJobRunRequest.repairJobRunDetails, "RepairJobRunDetails"
+            bodyContent: common.ObjectSerializer.serialize(repairJobRunRequest.repairJobRunDetails, "RepairJobRunDetails"
                             , model.RepairJobRunDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -17785,7 +17785,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RepairAiDataPlatformJobRunResponse>{},
+            responseObject: <responses.RepairJobRunResponse>{},
                 body: await response.json(),
                 bodyKey: "jobRun",
                 bodyModel:  model.JobRun,
@@ -17829,20 +17829,20 @@ export class WorkflowClient {
     /**
      * Update details for a job in AI Data Platform Workbench.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformJobRequest
-     * @return UpdateAiDataPlatformJobResponse
+     * @param UpdateJobRequest
+     * @return UpdateJobResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformJob.ts.html |here} to see how to use UpdateAiDataPlatformJob API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateJob.ts.html |here} to see how to use UpdateJob API.
      */
-    public async updateAiDataPlatformJob (updateAiDataPlatformJobRequest: requests.UpdateAiDataPlatformJobRequest) : Promise<responses.UpdateAiDataPlatformJobResponse> {
+    public async updateJob (updateJobRequest: requests.UpdateJobRequest) : Promise<responses.UpdateJobResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkflowClient#updateAiDataPlatformJob.");
-        const operationName = "updateAiDataPlatformJob";
+              this.logger.debug("Calling operation WorkflowClient#updateJob.");
+        const operationName = "updateJob";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformJobRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformJobRequest.workspaceKey,
-            "{jobKey}": updateAiDataPlatformJobRequest.jobKey,
+            "{aiDataPlatformId}": updateJobRequest.aiDataPlatformId,
+            "{workspaceKey}": updateJobRequest.workspaceKey,
+            "{jobKey}": updateJobRequest.jobKey,
         };
 
         const queryParams = { 
@@ -17850,13 +17850,13 @@ export class WorkflowClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformJobRequest.ifMatch,'opc-request-id': updateAiDataPlatformJobRequest.opcRequestId,'should-update-recent': updateAiDataPlatformJobRequest.shouldUpdateRecent,
+        'if-match': updateJobRequest.ifMatch,'opc-request-id': updateJobRequest.opcRequestId,'should-update-recent': updateJobRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformJobRequest.retryConfiguration,
+            updateJobRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -17865,7 +17865,7 @@ export class WorkflowClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/jobs/{jobKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformJobRequest.updateJobDetails, "UpdateJobDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateJobRequest.updateJobDetails, "UpdateJobDetails"
                             , model.UpdateJobDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -17875,7 +17875,7 @@ export class WorkflowClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformJobResponse>{},
+            responseObject: <responses.UpdateJobResponse>{},
                 body: await response.json(),
                 bodyKey: "job",
                 bodyModel:  model.Job,
@@ -18074,19 +18074,19 @@ export class WorkspaceClient {
     /**
      * Creates a git folder in the workspace
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformGitFolderRequest
-     * @return CreateAiDataPlatformGitFolderResponse
+     * @param CreateGitFolderRequest
+     * @return CreateGitFolderResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformGitFolder.ts.html |here} to see how to use CreateAiDataPlatformGitFolder API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateGitFolder.ts.html |here} to see how to use CreateGitFolder API.
      */
-    public async createAiDataPlatformGitFolder (createAiDataPlatformGitFolderRequest: requests.CreateAiDataPlatformGitFolderRequest) : Promise<responses.CreateAiDataPlatformGitFolderResponse> {
+    public async createGitFolder (createGitFolderRequest: requests.CreateGitFolderRequest) : Promise<responses.CreateGitFolderResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#createAiDataPlatformGitFolder.");
-        const operationName = "createAiDataPlatformGitFolder";
+              this.logger.debug("Calling operation WorkspaceClient#createGitFolder.");
+        const operationName = "createGitFolder";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformGitFolderRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformGitFolderRequest.workspaceKey,
+            "{aiDataPlatformId}": createGitFolderRequest.aiDataPlatformId,
+            "{workspaceKey}": createGitFolderRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -18094,13 +18094,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'dh-user-principal': createAiDataPlatformGitFolderRequest.dhUserPrincipal,'opc-retry-token': createAiDataPlatformGitFolderRequest.opcRetryToken,'if-match': createAiDataPlatformGitFolderRequest.ifMatch,'opc-request-id': createAiDataPlatformGitFolderRequest.opcRequestId,
+        'dh-user-principal': createGitFolderRequest.dhUserPrincipal,'opc-retry-token': createGitFolderRequest.opcRetryToken,'if-match': createGitFolderRequest.ifMatch,'opc-request-id': createGitFolderRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformGitFolderRequest.retryConfiguration,
+            createGitFolderRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18109,7 +18109,7 @@ export class WorkspaceClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/gitFolders',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformGitFolderRequest.createGitFolderDetails, "CreateGitFolderDetails"
+            bodyContent: common.ObjectSerializer.serialize(createGitFolderRequest.createGitFolderDetails, "CreateGitFolderDetails"
                             , model.CreateGitFolderDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -18119,7 +18119,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformGitFolderResponse>{},
+            responseObject: <responses.CreateGitFolderResponse>{},
                 body: await response.json(),
                 bodyKey: "gitFolder",
                 bodyModel:  model.GitFolder,
@@ -18154,18 +18154,18 @@ export class WorkspaceClient {
      * Creates a workspace.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformWorkspaceRequest
-     * @return CreateAiDataPlatformWorkspaceResponse
+     * @param CreateWorkspaceRequest
+     * @return CreateWorkspaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformWorkspace.ts.html |here} to see how to use CreateAiDataPlatformWorkspace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateWorkspace.ts.html |here} to see how to use CreateWorkspace API.
      */
-    public async createAiDataPlatformWorkspace (createAiDataPlatformWorkspaceRequest: requests.CreateAiDataPlatformWorkspaceRequest) : Promise<responses.CreateAiDataPlatformWorkspaceResponse> {
+    public async createWorkspace (createWorkspaceRequest: requests.CreateWorkspaceRequest) : Promise<responses.CreateWorkspaceResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#createAiDataPlatformWorkspace.");
-        const operationName = "createAiDataPlatformWorkspace";
+              this.logger.debug("Calling operation WorkspaceClient#createWorkspace.");
+        const operationName = "createWorkspace";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformWorkspaceRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": createWorkspaceRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -18173,13 +18173,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createAiDataPlatformWorkspaceRequest.opcRetryToken,'opc-request-id': createAiDataPlatformWorkspaceRequest.opcRequestId,
+        'opc-retry-token': createWorkspaceRequest.opcRetryToken,'opc-request-id': createWorkspaceRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformWorkspaceRequest.retryConfiguration,
+            createWorkspaceRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18188,7 +18188,7 @@ export class WorkspaceClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(createAiDataPlatformWorkspaceRequest.createWorkspaceDetails, "CreateWorkspaceDetails"
+            bodyContent: common.ObjectSerializer.serialize(createWorkspaceRequest.createWorkspaceDetails, "CreateWorkspaceDetails"
                             , model.CreateWorkspaceDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -18198,7 +18198,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformWorkspaceResponse>{},
+            responseObject: <responses.CreateWorkspaceResponse>{},
                 body: await response.json(),
                 bodyKey: "workspace",
                 bodyModel:  model.Workspace,
@@ -18242,19 +18242,19 @@ export class WorkspaceClient {
     /**
      * Deletes a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformWorkspaceRequest
-     * @return DeleteAiDataPlatformWorkspaceResponse
+     * @param DeleteWorkspaceRequest
+     * @return DeleteWorkspaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformWorkspace.ts.html |here} to see how to use DeleteAiDataPlatformWorkspace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteWorkspace.ts.html |here} to see how to use DeleteWorkspace API.
      */
-    public async deleteAiDataPlatformWorkspace (deleteAiDataPlatformWorkspaceRequest: requests.DeleteAiDataPlatformWorkspaceRequest) : Promise<responses.DeleteAiDataPlatformWorkspaceResponse> {
+    public async deleteWorkspace (deleteWorkspaceRequest: requests.DeleteWorkspaceRequest) : Promise<responses.DeleteWorkspaceResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#deleteAiDataPlatformWorkspace.");
-        const operationName = "deleteAiDataPlatformWorkspace";
+              this.logger.debug("Calling operation WorkspaceClient#deleteWorkspace.");
+        const operationName = "deleteWorkspace";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformWorkspaceRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformWorkspaceRequest.workspaceKey,
+            "{aiDataPlatformId}": deleteWorkspaceRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteWorkspaceRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -18262,13 +18262,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformWorkspaceRequest.ifMatch,'opc-request-id': deleteAiDataPlatformWorkspaceRequest.opcRequestId,'time-data-lake-deletion': deleteAiDataPlatformWorkspaceRequest.timeDataLakeDeletion,
+        'if-match': deleteWorkspaceRequest.ifMatch,'opc-request-id': deleteWorkspaceRequest.opcRequestId,'time-data-lake-deletion': deleteWorkspaceRequest.timeDataLakeDeletion,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformWorkspaceRequest.retryConfiguration,
+            deleteWorkspaceRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18284,7 +18284,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformWorkspaceResponse>{},
+            responseObject: <responses.DeleteWorkspaceResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("aidp-async-operation-key"),
@@ -18309,19 +18309,19 @@ export class WorkspaceClient {
     /**
      * Gets detailed information about a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformWorkspaceRequest
-     * @return GetAiDataPlatformWorkspaceResponse
+     * @param GetWorkspaceRequest
+     * @return GetWorkspaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformWorkspace.ts.html |here} to see how to use GetAiDataPlatformWorkspace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetWorkspace.ts.html |here} to see how to use GetWorkspace API.
      */
-    public async getAiDataPlatformWorkspace (getAiDataPlatformWorkspaceRequest: requests.GetAiDataPlatformWorkspaceRequest) : Promise<responses.GetAiDataPlatformWorkspaceResponse> {
+    public async getWorkspace (getWorkspaceRequest: requests.GetWorkspaceRequest) : Promise<responses.GetWorkspaceResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#getAiDataPlatformWorkspace.");
-        const operationName = "getAiDataPlatformWorkspace";
+              this.logger.debug("Calling operation WorkspaceClient#getWorkspace.");
+        const operationName = "getWorkspace";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformWorkspaceRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformWorkspaceRequest.workspaceKey,
+            "{aiDataPlatformId}": getWorkspaceRequest.aiDataPlatformId,
+            "{workspaceKey}": getWorkspaceRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -18329,13 +18329,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformWorkspaceRequest.opcRequestId,
+        'opc-request-id': getWorkspaceRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformWorkspaceRequest.retryConfiguration,
+            getWorkspaceRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18351,7 +18351,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformWorkspaceResponse>{},
+            responseObject: <responses.GetWorkspaceResponse>{},
                 body: await response.json(),
                 bodyKey: "workspace",
                 bodyModel:  model.Workspace,
@@ -18381,36 +18381,36 @@ export class WorkspaceClient {
      * Gets a list of create workspace permission summary objects.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformCreateWorkspacePermissionsRequest
-     * @return ListAiDataPlatformCreateWorkspacePermissionsResponse
+     * @param ListCreateWorkspacePermissionsRequest
+     * @return ListCreateWorkspacePermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformCreateWorkspacePermissions.ts.html |here} to see how to use ListAiDataPlatformCreateWorkspacePermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListCreateWorkspacePermissions.ts.html |here} to see how to use ListCreateWorkspacePermissions API.
      */
-    public async listAiDataPlatformCreateWorkspacePermissions (listAiDataPlatformCreateWorkspacePermissionsRequest: requests.ListAiDataPlatformCreateWorkspacePermissionsRequest) : Promise<responses.ListAiDataPlatformCreateWorkspacePermissionsResponse> {
+    public async listCreateWorkspacePermissions (listCreateWorkspacePermissionsRequest: requests.ListCreateWorkspacePermissionsRequest) : Promise<responses.ListCreateWorkspacePermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#listAiDataPlatformCreateWorkspacePermissions.");
-        const operationName = "listAiDataPlatformCreateWorkspacePermissions";
+              this.logger.debug("Calling operation WorkspaceClient#listCreateWorkspacePermissions.");
+        const operationName = "listCreateWorkspacePermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformCreateWorkspacePermissionsRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listCreateWorkspacePermissionsRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformCreateWorkspacePermissionsRequest.limit,
-            'page': listAiDataPlatformCreateWorkspacePermissionsRequest.page,
-            'sortOrder': listAiDataPlatformCreateWorkspacePermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformCreateWorkspacePermissionsRequest.sortBy,
+            'limit': listCreateWorkspacePermissionsRequest.limit,
+            'page': listCreateWorkspacePermissionsRequest.page,
+            'sortOrder': listCreateWorkspacePermissionsRequest.sortOrder,
+            'sortBy': listCreateWorkspacePermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformCreateWorkspacePermissionsRequest.opcRequestId,
+        'opc-request-id': listCreateWorkspacePermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformCreateWorkspacePermissionsRequest.retryConfiguration,
+            listCreateWorkspacePermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18426,7 +18426,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformCreateWorkspacePermissionsResponse>{},
+            responseObject: <responses.ListCreateWorkspacePermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "createWorkspacePermissionCollection",
                 bodyModel:  model.CreateWorkspacePermissionCollection,
@@ -18456,37 +18456,37 @@ export class WorkspaceClient {
      * Gets a list of workspace permissions.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformWorkspacePermissionsRequest
-     * @return ListAiDataPlatformWorkspacePermissionsResponse
+     * @param ListWorkspacePermissionsRequest
+     * @return ListWorkspacePermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformWorkspacePermissions.ts.html |here} to see how to use ListAiDataPlatformWorkspacePermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListWorkspacePermissions.ts.html |here} to see how to use ListWorkspacePermissions API.
      */
-    public async listAiDataPlatformWorkspacePermissions (listAiDataPlatformWorkspacePermissionsRequest: requests.ListAiDataPlatformWorkspacePermissionsRequest) : Promise<responses.ListAiDataPlatformWorkspacePermissionsResponse> {
+    public async listWorkspacePermissions (listWorkspacePermissionsRequest: requests.ListWorkspacePermissionsRequest) : Promise<responses.ListWorkspacePermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#listAiDataPlatformWorkspacePermissions.");
-        const operationName = "listAiDataPlatformWorkspacePermissions";
+              this.logger.debug("Calling operation WorkspaceClient#listWorkspacePermissions.");
+        const operationName = "listWorkspacePermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformWorkspacePermissionsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformWorkspacePermissionsRequest.workspaceKey,
+            "{aiDataPlatformId}": listWorkspacePermissionsRequest.aiDataPlatformId,
+            "{workspaceKey}": listWorkspacePermissionsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformWorkspacePermissionsRequest.limit,
-            'page': listAiDataPlatformWorkspacePermissionsRequest.page,
-            'sortOrder': listAiDataPlatformWorkspacePermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformWorkspacePermissionsRequest.sortBy,
+            'limit': listWorkspacePermissionsRequest.limit,
+            'page': listWorkspacePermissionsRequest.page,
+            'sortOrder': listWorkspacePermissionsRequest.sortOrder,
+            'sortBy': listWorkspacePermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformWorkspacePermissionsRequest.opcRequestId,
+        'opc-request-id': listWorkspacePermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformWorkspacePermissionsRequest.retryConfiguration,
+            listWorkspacePermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18502,7 +18502,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformWorkspacePermissionsResponse>{},
+            responseObject: <responses.ListWorkspacePermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "workspacePermissionCollection",
                 bodyModel:  model.WorkspacePermissionCollection,
@@ -18532,41 +18532,41 @@ export class WorkspaceClient {
      * Gets a list of workspaces.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformWorkspacesRequest
-     * @return ListAiDataPlatformWorkspacesResponse
+     * @param ListWorkspacesRequest
+     * @return ListWorkspacesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformWorkspaces.ts.html |here} to see how to use ListAiDataPlatformWorkspaces API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListWorkspaces.ts.html |here} to see how to use ListWorkspaces API.
      */
-    public async listAiDataPlatformWorkspaces (listAiDataPlatformWorkspacesRequest: requests.ListAiDataPlatformWorkspacesRequest) : Promise<responses.ListAiDataPlatformWorkspacesResponse> {
+    public async listWorkspaces (listWorkspacesRequest: requests.ListWorkspacesRequest) : Promise<responses.ListWorkspacesResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#listAiDataPlatformWorkspaces.");
-        const operationName = "listAiDataPlatformWorkspaces";
+              this.logger.debug("Calling operation WorkspaceClient#listWorkspaces.");
+        const operationName = "listWorkspaces";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformWorkspacesRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": listWorkspacesRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
-            'lifecycleState': listAiDataPlatformWorkspacesRequest.lifecycleState,
-            'displayName': listAiDataPlatformWorkspacesRequest.displayName,
-            'displayNameContains': listAiDataPlatformWorkspacesRequest.displayNameContains,
-            'type': listAiDataPlatformWorkspacesRequest.type,
-            'limit': listAiDataPlatformWorkspacesRequest.limit,
-            'page': listAiDataPlatformWorkspacesRequest.page,
-            'sortOrder': listAiDataPlatformWorkspacesRequest.sortOrder,
-            'sortBy': listAiDataPlatformWorkspacesRequest.sortBy,
-            'isPrivateNetworkEnabled': listAiDataPlatformWorkspacesRequest.isPrivateNetworkEnabled,
+            'lifecycleState': listWorkspacesRequest.lifecycleState,
+            'displayName': listWorkspacesRequest.displayName,
+            'displayNameContains': listWorkspacesRequest.displayNameContains,
+            'type': listWorkspacesRequest.type,
+            'limit': listWorkspacesRequest.limit,
+            'page': listWorkspacesRequest.page,
+            'sortOrder': listWorkspacesRequest.sortOrder,
+            'sortBy': listWorkspacesRequest.sortBy,
+            'isPrivateNetworkEnabled': listWorkspacesRequest.isPrivateNetworkEnabled,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformWorkspacesRequest.opcRequestId,
+        'opc-request-id': listWorkspacesRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformWorkspacesRequest.retryConfiguration,
+            listWorkspacesRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18582,7 +18582,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformWorkspacesResponse>{},
+            responseObject: <responses.ListWorkspacesResponse>{},
                 body: await response.json(),
                 bodyKey: "workspaceCollection",
                 bodyModel:  model.WorkspaceCollection,
@@ -18611,18 +18611,18 @@ export class WorkspaceClient {
     /**
      * Updates create workspace permissions on a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformCreateWorkspacePermissionRequest
-     * @return ManageAiDataPlatformCreateWorkspacePermissionResponse
+     * @param ManageCreateWorkspacePermissionRequest
+     * @return ManageCreateWorkspacePermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformCreateWorkspacePermission.ts.html |here} to see how to use ManageAiDataPlatformCreateWorkspacePermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageCreateWorkspacePermission.ts.html |here} to see how to use ManageCreateWorkspacePermission API.
      */
-    public async manageAiDataPlatformCreateWorkspacePermission (manageAiDataPlatformCreateWorkspacePermissionRequest: requests.ManageAiDataPlatformCreateWorkspacePermissionRequest) : Promise<responses.ManageAiDataPlatformCreateWorkspacePermissionResponse> {
+    public async manageCreateWorkspacePermission (manageCreateWorkspacePermissionRequest: requests.ManageCreateWorkspacePermissionRequest) : Promise<responses.ManageCreateWorkspacePermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#manageAiDataPlatformCreateWorkspacePermission.");
-        const operationName = "manageAiDataPlatformCreateWorkspacePermission";
+              this.logger.debug("Calling operation WorkspaceClient#manageCreateWorkspacePermission.");
+        const operationName = "manageCreateWorkspacePermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformCreateWorkspacePermissionRequest.aiDataPlatformId,
+            "{aiDataPlatformId}": manageCreateWorkspacePermissionRequest.aiDataPlatformId,
         };
 
         const queryParams = { 
@@ -18630,13 +18630,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformCreateWorkspacePermissionRequest.ifMatch,'opc-retry-token': manageAiDataPlatformCreateWorkspacePermissionRequest.opcRetryToken,'opc-request-id': manageAiDataPlatformCreateWorkspacePermissionRequest.opcRequestId,
+        'if-match': manageCreateWorkspacePermissionRequest.ifMatch,'opc-retry-token': manageCreateWorkspacePermissionRequest.opcRetryToken,'opc-request-id': manageCreateWorkspacePermissionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformCreateWorkspacePermissionRequest.retryConfiguration,
+            manageCreateWorkspacePermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18645,7 +18645,7 @@ export class WorkspaceClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/actions/manageCreateWorkspacePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformCreateWorkspacePermissionRequest.manageCreateWorkspacePermissionDetails, "ManageCreateWorkspacePermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageCreateWorkspacePermissionRequest.manageCreateWorkspacePermissionDetails, "ManageCreateWorkspacePermissionDetails"
                             , model.ManageCreateWorkspacePermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -18655,7 +18655,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformCreateWorkspacePermissionResponse>{},
+            responseObject: <responses.ManageCreateWorkspacePermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -18675,19 +18675,19 @@ export class WorkspaceClient {
     /**
      * Updates permissions on a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformWorkspacePermissionRequest
-     * @return ManageAiDataPlatformWorkspacePermissionResponse
+     * @param ManageWorkspacePermissionRequest
+     * @return ManageWorkspacePermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformWorkspacePermission.ts.html |here} to see how to use ManageAiDataPlatformWorkspacePermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageWorkspacePermission.ts.html |here} to see how to use ManageWorkspacePermission API.
      */
-    public async manageAiDataPlatformWorkspacePermission (manageAiDataPlatformWorkspacePermissionRequest: requests.ManageAiDataPlatformWorkspacePermissionRequest) : Promise<responses.ManageAiDataPlatformWorkspacePermissionResponse> {
+    public async manageWorkspacePermission (manageWorkspacePermissionRequest: requests.ManageWorkspacePermissionRequest) : Promise<responses.ManageWorkspacePermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#manageAiDataPlatformWorkspacePermission.");
-        const operationName = "manageAiDataPlatformWorkspacePermission";
+              this.logger.debug("Calling operation WorkspaceClient#manageWorkspacePermission.");
+        const operationName = "manageWorkspacePermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformWorkspacePermissionRequest.aiDataPlatformId,
-            "{workspaceKey}": manageAiDataPlatformWorkspacePermissionRequest.workspaceKey,
+            "{aiDataPlatformId}": manageWorkspacePermissionRequest.aiDataPlatformId,
+            "{workspaceKey}": manageWorkspacePermissionRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -18695,13 +18695,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformWorkspacePermissionRequest.ifMatch,'opc-retry-token': manageAiDataPlatformWorkspacePermissionRequest.opcRetryToken,'opc-request-id': manageAiDataPlatformWorkspacePermissionRequest.opcRequestId,
+        'if-match': manageWorkspacePermissionRequest.ifMatch,'opc-retry-token': manageWorkspacePermissionRequest.opcRetryToken,'opc-request-id': manageWorkspacePermissionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformWorkspacePermissionRequest.retryConfiguration,
+            manageWorkspacePermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18710,7 +18710,7 @@ export class WorkspaceClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformWorkspacePermissionRequest.manageWorkspacePermissionDetails, "ManageWorkspacePermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageWorkspacePermissionRequest.manageWorkspacePermissionDetails, "ManageWorkspacePermissionDetails"
                             , model.ManageWorkspacePermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -18720,7 +18720,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformWorkspacePermissionResponse>{},
+            responseObject: <responses.ManageWorkspacePermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -18740,19 +18740,19 @@ export class WorkspaceClient {
     /**
      * Updates the details of a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformWorkspaceRequest
-     * @return UpdateAiDataPlatformWorkspaceResponse
+     * @param UpdateWorkspaceRequest
+     * @return UpdateWorkspaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformWorkspace.ts.html |here} to see how to use UpdateAiDataPlatformWorkspace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateWorkspace.ts.html |here} to see how to use UpdateWorkspace API.
      */
-    public async updateAiDataPlatformWorkspace (updateAiDataPlatformWorkspaceRequest: requests.UpdateAiDataPlatformWorkspaceRequest) : Promise<responses.UpdateAiDataPlatformWorkspaceResponse> {
+    public async updateWorkspace (updateWorkspaceRequest: requests.UpdateWorkspaceRequest) : Promise<responses.UpdateWorkspaceResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#updateAiDataPlatformWorkspace.");
-        const operationName = "updateAiDataPlatformWorkspace";
+              this.logger.debug("Calling operation WorkspaceClient#updateWorkspace.");
+        const operationName = "updateWorkspace";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformWorkspaceRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformWorkspaceRequest.workspaceKey,
+            "{aiDataPlatformId}": updateWorkspaceRequest.aiDataPlatformId,
+            "{workspaceKey}": updateWorkspaceRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -18760,13 +18760,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformWorkspaceRequest.ifMatch,'opc-request-id': updateAiDataPlatformWorkspaceRequest.opcRequestId,
+        'if-match': updateWorkspaceRequest.ifMatch,'opc-request-id': updateWorkspaceRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformWorkspaceRequest.retryConfiguration,
+            updateWorkspaceRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18775,7 +18775,7 @@ export class WorkspaceClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformWorkspaceRequest.updateWorkspaceDetails, "UpdateWorkspaceDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateWorkspaceRequest.updateWorkspaceDetails, "UpdateWorkspaceDetails"
                             , model.UpdateWorkspaceDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -18785,7 +18785,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformWorkspaceResponse>{},
+            responseObject: <responses.UpdateWorkspaceResponse>{},
                 body: await response.json(),
                 bodyKey: "workspace",
                 bodyModel:  model.Workspace,
@@ -18819,20 +18819,20 @@ export class WorkspaceClient {
     /**
      * Updates the status of a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest
-     * @return UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse
+     * @param UpdateWorkspaceAsyncOperationStatusRequest
+     * @return UpdateWorkspaceAsyncOperationStatusResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformWorkspaceAsyncOperationStatus.ts.html |here} to see how to use UpdateAiDataPlatformWorkspaceAsyncOperationStatus API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateWorkspaceAsyncOperationStatus.ts.html |here} to see how to use UpdateWorkspaceAsyncOperationStatus API.
      */
-    public async updateAiDataPlatformWorkspaceAsyncOperationStatus (updateAiDataPlatformWorkspaceAsyncOperationStatusRequest: requests.UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest) : Promise<responses.UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> {
+    public async updateWorkspaceAsyncOperationStatus (updateWorkspaceAsyncOperationStatusRequest: requests.UpdateWorkspaceAsyncOperationStatusRequest) : Promise<responses.UpdateWorkspaceAsyncOperationStatusResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceClient#updateAiDataPlatformWorkspaceAsyncOperationStatus.");
-        const operationName = "updateAiDataPlatformWorkspaceAsyncOperationStatus";
+              this.logger.debug("Calling operation WorkspaceClient#updateWorkspaceAsyncOperationStatus.");
+        const operationName = "updateWorkspaceAsyncOperationStatus";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.workspaceKey,
-            "{asyncOperationKey}": updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.asyncOperationKey,
+            "{aiDataPlatformId}": updateWorkspaceAsyncOperationStatusRequest.aiDataPlatformId,
+            "{workspaceKey}": updateWorkspaceAsyncOperationStatusRequest.workspaceKey,
+            "{asyncOperationKey}": updateWorkspaceAsyncOperationStatusRequest.asyncOperationKey,
         };
 
         const queryParams = { 
@@ -18840,13 +18840,13 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.ifMatch,'opc-request-id': updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.opcRequestId,
+        'if-match': updateWorkspaceAsyncOperationStatusRequest.ifMatch,'opc-request-id': updateWorkspaceAsyncOperationStatusRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.retryConfiguration,
+            updateWorkspaceAsyncOperationStatusRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -18855,7 +18855,7 @@ export class WorkspaceClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/asyncOperations/{asyncOperationKey}/status',
             method: 'PUT',
-            bodyContent: common.ObjectSerializer.serialize(updateAiDataPlatformWorkspaceAsyncOperationStatusRequest.updateWorkspaceAsyncOperationStatusDetails, "UpdateWorkspaceAsyncOperationStatusDetails"
+            bodyContent: common.ObjectSerializer.serialize(updateWorkspaceAsyncOperationStatusRequest.updateWorkspaceAsyncOperationStatusDetails, "UpdateWorkspaceAsyncOperationStatusDetails"
                             , model.UpdateWorkspaceAsyncOperationStatusDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -18865,7 +18865,7 @@ export class WorkspaceClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse>{},
+            responseObject: <responses.UpdateWorkspaceAsyncOperationStatusResponse>{},
                 body: await response.json(),
                 bodyKey: "workspace",
                 bodyModel:  model.Workspace,
@@ -19070,19 +19070,19 @@ export class WorkspaceObjectClient {
      * Copy a workspace object to different location.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CopyAiDataPlatformWorkspaceObjectRequest
-     * @return CopyAiDataPlatformWorkspaceObjectResponse
+     * @param CopyWorkspaceObjectRequest
+     * @return CopyWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CopyAiDataPlatformWorkspaceObject.ts.html |here} to see how to use CopyAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CopyWorkspaceObject.ts.html |here} to see how to use CopyWorkspaceObject API.
      */
-    public async copyAiDataPlatformWorkspaceObject (copyAiDataPlatformWorkspaceObjectRequest: requests.CopyAiDataPlatformWorkspaceObjectRequest) : Promise<responses.CopyAiDataPlatformWorkspaceObjectResponse> {
+    public async copyWorkspaceObject (copyWorkspaceObjectRequest: requests.CopyWorkspaceObjectRequest) : Promise<responses.CopyWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#copyAiDataPlatformWorkspaceObject.");
-        const operationName = "copyAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#copyWorkspaceObject.");
+        const operationName = "copyWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": copyAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": copyAiDataPlatformWorkspaceObjectRequest.workspaceKey,
+            "{aiDataPlatformId}": copyWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": copyWorkspaceObjectRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -19090,13 +19090,13 @@ export class WorkspaceObjectClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': copyAiDataPlatformWorkspaceObjectRequest.ifMatch,'opc-request-id': copyAiDataPlatformWorkspaceObjectRequest.opcRequestId,'should-update-recent': copyAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,
+        'if-match': copyWorkspaceObjectRequest.ifMatch,'opc-request-id': copyWorkspaceObjectRequest.opcRequestId,'should-update-recent': copyWorkspaceObjectRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            copyAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            copyWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19105,7 +19105,7 @@ export class WorkspaceObjectClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/copyObject',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(copyAiDataPlatformWorkspaceObjectRequest.copyWorkspaceObjectDetails, "CopyWorkspaceObjectDetails"
+            bodyContent: common.ObjectSerializer.serialize(copyWorkspaceObjectRequest.copyWorkspaceObjectDetails, "CopyWorkspaceObjectDetails"
                             , model.CopyWorkspaceObjectDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -19115,7 +19115,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CopyAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.CopyWorkspaceObjectResponse>{},
                 body: await response.json(),
                 bodyKey: "workspaceObjectDetails",
                 bodyModel:  model.WorkspaceObjectDetails,
@@ -19150,34 +19150,34 @@ export class WorkspaceObjectClient {
      * Creates a workspace object. You can create a file or folder in the workspace.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAiDataPlatformWorkspaceObjectRequest
-     * @return CreateAiDataPlatformWorkspaceObjectResponse
+     * @param CreateWorkspaceObjectRequest
+     * @return CreateWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateAiDataPlatformWorkspaceObject.ts.html |here} to see how to use CreateAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateWorkspaceObject.ts.html |here} to see how to use CreateWorkspaceObject API.
      */
-    public async createAiDataPlatformWorkspaceObject (createAiDataPlatformWorkspaceObjectRequest: requests.CreateAiDataPlatformWorkspaceObjectRequest) : Promise<responses.CreateAiDataPlatformWorkspaceObjectResponse> {
+    public async createWorkspaceObject (createWorkspaceObjectRequest: requests.CreateWorkspaceObjectRequest) : Promise<responses.CreateWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#createAiDataPlatformWorkspaceObject.");
-        const operationName = "createAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#createWorkspaceObject.");
+        const operationName = "createWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": createAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": createAiDataPlatformWorkspaceObjectRequest.workspaceKey,
+            "{aiDataPlatformId}": createWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": createWorkspaceObjectRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'objectDescription': createAiDataPlatformWorkspaceObjectRequest.objectDescription,
+            'objectDescription': createWorkspaceObjectRequest.objectDescription,
         };
 
         let headerParams = {
         
-        'type': createAiDataPlatformWorkspaceObjectRequest.type,'path': createAiDataPlatformWorkspaceObjectRequest.path,'opc-retry-token': createAiDataPlatformWorkspaceObjectRequest.opcRetryToken,'opc-request-id': createAiDataPlatformWorkspaceObjectRequest.opcRequestId,'should-update-recent': createAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,'is-upload-file-base64-encoded': createAiDataPlatformWorkspaceObjectRequest.isUploadFileBase64Encoded,'is-overwrite': createAiDataPlatformWorkspaceObjectRequest.isOverwrite,
+        'type': createWorkspaceObjectRequest.type,'path': createWorkspaceObjectRequest.path,'opc-retry-token': createWorkspaceObjectRequest.opcRetryToken,'opc-request-id': createWorkspaceObjectRequest.opcRequestId,'should-update-recent': createWorkspaceObjectRequest.shouldUpdateRecent,'is-upload-file-base64-encoded': createWorkspaceObjectRequest.isUploadFileBase64Encoded,'is-overwrite': createWorkspaceObjectRequest.isOverwrite,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            createAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            createWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19187,7 +19187,7 @@ export class WorkspaceObjectClient {
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/objects',
             method: 'POST',
             bodyContent: 
-                         createAiDataPlatformWorkspaceObjectRequest.createWorkspaceObjectDetails,
+                         createWorkspaceObjectRequest.createWorkspaceObjectDetails,
             pathParams: pathParams,
             headerParams: headerParams,
             backupBinaryBody: retrier.backUpBinaryBody,
@@ -19196,7 +19196,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.CreateAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.CreateWorkspaceObjectResponse>{},
 
                 body: response.body!,
                 bodyKey: "value",
@@ -19255,20 +19255,20 @@ export class WorkspaceObjectClient {
     /**
      * Deletes a workspace object.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAiDataPlatformWorkspaceObjectRequest
-     * @return DeleteAiDataPlatformWorkspaceObjectResponse
+     * @param DeleteWorkspaceObjectRequest
+     * @return DeleteWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteAiDataPlatformWorkspaceObject.ts.html |here} to see how to use DeleteAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteWorkspaceObject.ts.html |here} to see how to use DeleteWorkspaceObject API.
      */
-    public async deleteAiDataPlatformWorkspaceObject (deleteAiDataPlatformWorkspaceObjectRequest: requests.DeleteAiDataPlatformWorkspaceObjectRequest) : Promise<responses.DeleteAiDataPlatformWorkspaceObjectResponse> {
+    public async deleteWorkspaceObject (deleteWorkspaceObjectRequest: requests.DeleteWorkspaceObjectRequest) : Promise<responses.DeleteWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#deleteAiDataPlatformWorkspaceObject.");
-        const operationName = "deleteAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#deleteWorkspaceObject.");
+        const operationName = "deleteWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": deleteAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": deleteAiDataPlatformWorkspaceObjectRequest.workspaceKey,
-            "{objectPath}": deleteAiDataPlatformWorkspaceObjectRequest.objectPath,
+            "{aiDataPlatformId}": deleteWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": deleteWorkspaceObjectRequest.workspaceKey,
+            "{objectPath}": deleteWorkspaceObjectRequest.objectPath,
         };
 
         const queryParams = { 
@@ -19276,13 +19276,13 @@ export class WorkspaceObjectClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': deleteAiDataPlatformWorkspaceObjectRequest.ifMatch,'opc-request-id': deleteAiDataPlatformWorkspaceObjectRequest.opcRequestId,
+        'if-match': deleteWorkspaceObjectRequest.ifMatch,'opc-request-id': deleteWorkspaceObjectRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            deleteAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            deleteWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19298,7 +19298,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DeleteAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.DeleteWorkspaceObjectResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-work-request-id"),
@@ -19324,34 +19324,34 @@ export class WorkspaceObjectClient {
      * Downloads a workspace file by providing the PAR info for downloading the file for given path.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DownloadAiDataPlatformWorkspaceObjectWithParRequest
-     * @return DownloadAiDataPlatformWorkspaceObjectWithParResponse
+     * @param DownloadWorkspaceObjectWithParRequest
+     * @return DownloadWorkspaceObjectWithParResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadAiDataPlatformWorkspaceObjectWithPar.ts.html |here} to see how to use DownloadAiDataPlatformWorkspaceObjectWithPar API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DownloadWorkspaceObjectWithPar.ts.html |here} to see how to use DownloadWorkspaceObjectWithPar API.
      */
-    public async downloadAiDataPlatformWorkspaceObjectWithPar (downloadAiDataPlatformWorkspaceObjectWithParRequest: requests.DownloadAiDataPlatformWorkspaceObjectWithParRequest) : Promise<responses.DownloadAiDataPlatformWorkspaceObjectWithParResponse> {
+    public async downloadWorkspaceObjectWithPar (downloadWorkspaceObjectWithParRequest: requests.DownloadWorkspaceObjectWithParRequest) : Promise<responses.DownloadWorkspaceObjectWithParResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#downloadAiDataPlatformWorkspaceObjectWithPar.");
-        const operationName = "downloadAiDataPlatformWorkspaceObjectWithPar";
+              this.logger.debug("Calling operation WorkspaceObjectClient#downloadWorkspaceObjectWithPar.");
+        const operationName = "downloadWorkspaceObjectWithPar";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": downloadAiDataPlatformWorkspaceObjectWithParRequest.aiDataPlatformId,
-            "{workspaceKey}": downloadAiDataPlatformWorkspaceObjectWithParRequest.workspaceKey,
+            "{aiDataPlatformId}": downloadWorkspaceObjectWithParRequest.aiDataPlatformId,
+            "{workspaceKey}": downloadWorkspaceObjectWithParRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'shouldGenerateNewPar': downloadAiDataPlatformWorkspaceObjectWithParRequest.shouldGenerateNewPar,
+            'shouldGenerateNewPar': downloadWorkspaceObjectWithParRequest.shouldGenerateNewPar,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'path': downloadAiDataPlatformWorkspaceObjectWithParRequest.path,'opc-retry-token': downloadAiDataPlatformWorkspaceObjectWithParRequest.opcRetryToken,'opc-request-id': downloadAiDataPlatformWorkspaceObjectWithParRequest.opcRequestId,'type': downloadAiDataPlatformWorkspaceObjectWithParRequest.type,'should-update-recent': downloadAiDataPlatformWorkspaceObjectWithParRequest.shouldUpdateRecent,
+        'path': downloadWorkspaceObjectWithParRequest.path,'opc-retry-token': downloadWorkspaceObjectWithParRequest.opcRetryToken,'opc-request-id': downloadWorkspaceObjectWithParRequest.opcRequestId,'type': downloadWorkspaceObjectWithParRequest.type,'should-update-recent': downloadWorkspaceObjectWithParRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            downloadAiDataPlatformWorkspaceObjectWithParRequest.retryConfiguration,
+            downloadWorkspaceObjectWithParRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19367,7 +19367,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.DownloadAiDataPlatformWorkspaceObjectWithParResponse>{},
+            responseObject: <responses.DownloadWorkspaceObjectWithParResponse>{},
                 body: await response.json(),
                 bodyKey: "downloadFileWithParResult",
                 bodyModel:  model.DownloadFileWithParResult,
@@ -19416,35 +19416,35 @@ export class WorkspaceObjectClient {
     /**
      * Returns detailed information about a workspace object.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAiDataPlatformWorkspaceObjectRequest
-     * @return GetAiDataPlatformWorkspaceObjectResponse
+     * @param GetWorkspaceObjectRequest
+     * @return GetWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetAiDataPlatformWorkspaceObject.ts.html |here} to see how to use GetAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetWorkspaceObject.ts.html |here} to see how to use GetWorkspaceObject API.
      */
-    public async getAiDataPlatformWorkspaceObject (getAiDataPlatformWorkspaceObjectRequest: requests.GetAiDataPlatformWorkspaceObjectRequest) : Promise<responses.GetAiDataPlatformWorkspaceObjectResponse> {
+    public async getWorkspaceObject (getWorkspaceObjectRequest: requests.GetWorkspaceObjectRequest) : Promise<responses.GetWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#getAiDataPlatformWorkspaceObject.");
-        const operationName = "getAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#getWorkspaceObject.");
+        const operationName = "getWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": getAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": getAiDataPlatformWorkspaceObjectRequest.workspaceKey,
-            "{objectPath}": getAiDataPlatformWorkspaceObjectRequest.objectPath,
+            "{aiDataPlatformId}": getWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": getWorkspaceObjectRequest.workspaceKey,
+            "{objectPath}": getWorkspaceObjectRequest.objectPath,
         };
 
         const queryParams = { 
-            'shouldIncludeMetadata': getAiDataPlatformWorkspaceObjectRequest.shouldIncludeMetadata,
+            'shouldIncludeMetadata': getWorkspaceObjectRequest.shouldIncludeMetadata,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getAiDataPlatformWorkspaceObjectRequest.opcRequestId,'should-update-recent': getAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,
+        'opc-request-id': getWorkspaceObjectRequest.opcRequestId,'should-update-recent': getWorkspaceObjectRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            getAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            getWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19460,7 +19460,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.GetAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.GetWorkspaceObjectResponse>{},
 
                 body: response.body!,
                 bodyKey: "value",
@@ -19509,35 +19509,35 @@ export class WorkspaceObjectClient {
     /**
      * Returns metadata about a workspace object. The contents of the file are not retrieved.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param HeadAiDataPlatformWorkspaceObjectRequest
-     * @return HeadAiDataPlatformWorkspaceObjectResponse
+     * @param HeadWorkspaceObjectRequest
+     * @return HeadWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/HeadAiDataPlatformWorkspaceObject.ts.html |here} to see how to use HeadAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/HeadWorkspaceObject.ts.html |here} to see how to use HeadWorkspaceObject API.
      */
-    public async headAiDataPlatformWorkspaceObject (headAiDataPlatformWorkspaceObjectRequest: requests.HeadAiDataPlatformWorkspaceObjectRequest) : Promise<responses.HeadAiDataPlatformWorkspaceObjectResponse> {
+    public async headWorkspaceObject (headWorkspaceObjectRequest: requests.HeadWorkspaceObjectRequest) : Promise<responses.HeadWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#headAiDataPlatformWorkspaceObject.");
-        const operationName = "headAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#headWorkspaceObject.");
+        const operationName = "headWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": headAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": headAiDataPlatformWorkspaceObjectRequest.workspaceKey,
-            "{objectPath}": headAiDataPlatformWorkspaceObjectRequest.objectPath,
+            "{aiDataPlatformId}": headWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": headWorkspaceObjectRequest.workspaceKey,
+            "{objectPath}": headWorkspaceObjectRequest.objectPath,
         };
 
         const queryParams = { 
-            'shouldIncludeMetadata': headAiDataPlatformWorkspaceObjectRequest.shouldIncludeMetadata,
+            'shouldIncludeMetadata': headWorkspaceObjectRequest.shouldIncludeMetadata,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': headAiDataPlatformWorkspaceObjectRequest.opcRequestId,'should-update-recent': headAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,
+        'opc-request-id': headWorkspaceObjectRequest.opcRequestId,'should-update-recent': headWorkspaceObjectRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            headAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            headWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19553,7 +19553,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.HeadAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.HeadWorkspaceObjectResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -19604,38 +19604,38 @@ export class WorkspaceObjectClient {
      * Returns a list of workspace object permissions.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformWorkspaceObjectPermissionsRequest
-     * @return ListAiDataPlatformWorkspaceObjectPermissionsResponse
+     * @param ListWorkspaceObjectPermissionsRequest
+     * @return ListWorkspaceObjectPermissionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformWorkspaceObjectPermissions.ts.html |here} to see how to use ListAiDataPlatformWorkspaceObjectPermissions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListWorkspaceObjectPermissions.ts.html |here} to see how to use ListWorkspaceObjectPermissions API.
      */
-    public async listAiDataPlatformWorkspaceObjectPermissions (listAiDataPlatformWorkspaceObjectPermissionsRequest: requests.ListAiDataPlatformWorkspaceObjectPermissionsRequest) : Promise<responses.ListAiDataPlatformWorkspaceObjectPermissionsResponse> {
+    public async listWorkspaceObjectPermissions (listWorkspaceObjectPermissionsRequest: requests.ListWorkspaceObjectPermissionsRequest) : Promise<responses.ListWorkspaceObjectPermissionsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#listAiDataPlatformWorkspaceObjectPermissions.");
-        const operationName = "listAiDataPlatformWorkspaceObjectPermissions";
+              this.logger.debug("Calling operation WorkspaceObjectClient#listWorkspaceObjectPermissions.");
+        const operationName = "listWorkspaceObjectPermissions";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformWorkspaceObjectPermissionsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformWorkspaceObjectPermissionsRequest.workspaceKey,
-            "{objectKey}": listAiDataPlatformWorkspaceObjectPermissionsRequest.objectKey,
+            "{aiDataPlatformId}": listWorkspaceObjectPermissionsRequest.aiDataPlatformId,
+            "{workspaceKey}": listWorkspaceObjectPermissionsRequest.workspaceKey,
+            "{objectKey}": listWorkspaceObjectPermissionsRequest.objectKey,
         };
 
         const queryParams = { 
-            'limit': listAiDataPlatformWorkspaceObjectPermissionsRequest.limit,
-            'page': listAiDataPlatformWorkspaceObjectPermissionsRequest.page,
-            'sortOrder': listAiDataPlatformWorkspaceObjectPermissionsRequest.sortOrder,
-            'sortBy': listAiDataPlatformWorkspaceObjectPermissionsRequest.sortBy,
+            'limit': listWorkspaceObjectPermissionsRequest.limit,
+            'page': listWorkspaceObjectPermissionsRequest.page,
+            'sortOrder': listWorkspaceObjectPermissionsRequest.sortOrder,
+            'sortBy': listWorkspaceObjectPermissionsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformWorkspaceObjectPermissionsRequest.opcRequestId,
+        'opc-request-id': listWorkspaceObjectPermissionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformWorkspaceObjectPermissionsRequest.retryConfiguration,
+            listWorkspaceObjectPermissionsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19651,7 +19651,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformWorkspaceObjectPermissionsResponse>{},
+            responseObject: <responses.ListWorkspaceObjectPermissionsResponse>{},
                 body: await response.json(),
                 bodyKey: "workspaceObjectPermissionCollection",
                 bodyModel:  model.WorkspaceObjectPermissionCollection,
@@ -19681,41 +19681,41 @@ export class WorkspaceObjectClient {
      * Returns a list of objects in the workspace.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAiDataPlatformWorkspaceObjectsRequest
-     * @return ListAiDataPlatformWorkspaceObjectsResponse
+     * @param ListWorkspaceObjectsRequest
+     * @return ListWorkspaceObjectsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListAiDataPlatformWorkspaceObjects.ts.html |here} to see how to use ListAiDataPlatformWorkspaceObjects API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListWorkspaceObjects.ts.html |here} to see how to use ListWorkspaceObjects API.
      */
-    public async listAiDataPlatformWorkspaceObjects (listAiDataPlatformWorkspaceObjectsRequest: requests.ListAiDataPlatformWorkspaceObjectsRequest) : Promise<responses.ListAiDataPlatformWorkspaceObjectsResponse> {
+    public async listWorkspaceObjects (listWorkspaceObjectsRequest: requests.ListWorkspaceObjectsRequest) : Promise<responses.ListWorkspaceObjectsResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#listAiDataPlatformWorkspaceObjects.");
-        const operationName = "listAiDataPlatformWorkspaceObjects";
+              this.logger.debug("Calling operation WorkspaceObjectClient#listWorkspaceObjects.");
+        const operationName = "listWorkspaceObjects";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": listAiDataPlatformWorkspaceObjectsRequest.aiDataPlatformId,
-            "{workspaceKey}": listAiDataPlatformWorkspaceObjectsRequest.workspaceKey,
+            "{aiDataPlatformId}": listWorkspaceObjectsRequest.aiDataPlatformId,
+            "{workspaceKey}": listWorkspaceObjectsRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'path': listAiDataPlatformWorkspaceObjectsRequest.path,
-            'type': listAiDataPlatformWorkspaceObjectsRequest.type,
-            'displayName': listAiDataPlatformWorkspaceObjectsRequest.displayName,
-            'limit': listAiDataPlatformWorkspaceObjectsRequest.limit,
-            'metadataKeys': listAiDataPlatformWorkspaceObjectsRequest.metadataKeys,
-            'page': listAiDataPlatformWorkspaceObjectsRequest.page,
-            'sortOrder': listAiDataPlatformWorkspaceObjectsRequest.sortOrder,
-            'sortBy': listAiDataPlatformWorkspaceObjectsRequest.sortBy,
+            'path': listWorkspaceObjectsRequest.path,
+            'type': listWorkspaceObjectsRequest.type,
+            'displayName': listWorkspaceObjectsRequest.displayName,
+            'limit': listWorkspaceObjectsRequest.limit,
+            'metadataKeys': listWorkspaceObjectsRequest.metadataKeys,
+            'page': listWorkspaceObjectsRequest.page,
+            'sortOrder': listWorkspaceObjectsRequest.sortOrder,
+            'sortBy': listWorkspaceObjectsRequest.sortBy,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listAiDataPlatformWorkspaceObjectsRequest.opcRequestId,'should-update-recent': listAiDataPlatformWorkspaceObjectsRequest.shouldUpdateRecent,
+        'opc-request-id': listWorkspaceObjectsRequest.opcRequestId,'should-update-recent': listWorkspaceObjectsRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            listAiDataPlatformWorkspaceObjectsRequest.retryConfiguration,
+            listWorkspaceObjectsRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19731,7 +19731,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ListAiDataPlatformWorkspaceObjectsResponse>{},
+            responseObject: <responses.ListWorkspaceObjectsResponse>{},
                 body: await response.json(),
                 bodyKey: "workspaceObjectCollection",
                 bodyModel:  model.WorkspaceObjectCollection,
@@ -19760,20 +19760,20 @@ export class WorkspaceObjectClient {
     /**
      * Updates permissions on a workspace object.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ManageAiDataPlatformWorkspaceObjectPermissionRequest
-     * @return ManageAiDataPlatformWorkspaceObjectPermissionResponse
+     * @param ManageWorkspaceObjectPermissionRequest
+     * @return ManageWorkspaceObjectPermissionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageAiDataPlatformWorkspaceObjectPermission.ts.html |here} to see how to use ManageAiDataPlatformWorkspaceObjectPermission API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageWorkspaceObjectPermission.ts.html |here} to see how to use ManageWorkspaceObjectPermission API.
      */
-    public async manageAiDataPlatformWorkspaceObjectPermission (manageAiDataPlatformWorkspaceObjectPermissionRequest: requests.ManageAiDataPlatformWorkspaceObjectPermissionRequest) : Promise<responses.ManageAiDataPlatformWorkspaceObjectPermissionResponse> {
+    public async manageWorkspaceObjectPermission (manageWorkspaceObjectPermissionRequest: requests.ManageWorkspaceObjectPermissionRequest) : Promise<responses.ManageWorkspaceObjectPermissionResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#manageAiDataPlatformWorkspaceObjectPermission.");
-        const operationName = "manageAiDataPlatformWorkspaceObjectPermission";
+              this.logger.debug("Calling operation WorkspaceObjectClient#manageWorkspaceObjectPermission.");
+        const operationName = "manageWorkspaceObjectPermission";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": manageAiDataPlatformWorkspaceObjectPermissionRequest.aiDataPlatformId,
-            "{workspaceKey}": manageAiDataPlatformWorkspaceObjectPermissionRequest.workspaceKey,
-            "{objectKey}": manageAiDataPlatformWorkspaceObjectPermissionRequest.objectKey,
+            "{aiDataPlatformId}": manageWorkspaceObjectPermissionRequest.aiDataPlatformId,
+            "{workspaceKey}": manageWorkspaceObjectPermissionRequest.workspaceKey,
+            "{objectKey}": manageWorkspaceObjectPermissionRequest.objectKey,
         };
 
         const queryParams = { 
@@ -19781,13 +19781,13 @@ export class WorkspaceObjectClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': manageAiDataPlatformWorkspaceObjectPermissionRequest.ifMatch,'opc-request-id': manageAiDataPlatformWorkspaceObjectPermissionRequest.opcRequestId,
+        'if-match': manageWorkspaceObjectPermissionRequest.ifMatch,'opc-request-id': manageWorkspaceObjectPermissionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            manageAiDataPlatformWorkspaceObjectPermissionRequest.retryConfiguration,
+            manageWorkspaceObjectPermissionRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19796,7 +19796,7 @@ export class WorkspaceObjectClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/objects/{objectKey}/actions/managePermission',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(manageAiDataPlatformWorkspaceObjectPermissionRequest.manageWorkspaceObjectPermissionDetails, "ManageWorkspaceObjectPermissionDetails"
+            bodyContent: common.ObjectSerializer.serialize(manageWorkspaceObjectPermissionRequest.manageWorkspaceObjectPermissionDetails, "ManageWorkspaceObjectPermissionDetails"
                             , model.ManageWorkspaceObjectPermissionDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -19806,7 +19806,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.ManageAiDataPlatformWorkspaceObjectPermissionResponse>{},
+            responseObject: <responses.ManageWorkspaceObjectPermissionResponse>{},
                 responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
@@ -19827,19 +19827,19 @@ export class WorkspaceObjectClient {
      * Moves a workspace object to different location.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param MoveAiDataPlatformWorkspaceObjectRequest
-     * @return MoveAiDataPlatformWorkspaceObjectResponse
+     * @param MoveWorkspaceObjectRequest
+     * @return MoveWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/MoveAiDataPlatformWorkspaceObject.ts.html |here} to see how to use MoveAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/MoveWorkspaceObject.ts.html |here} to see how to use MoveWorkspaceObject API.
      */
-    public async moveAiDataPlatformWorkspaceObject (moveAiDataPlatformWorkspaceObjectRequest: requests.MoveAiDataPlatformWorkspaceObjectRequest) : Promise<responses.MoveAiDataPlatformWorkspaceObjectResponse> {
+    public async moveWorkspaceObject (moveWorkspaceObjectRequest: requests.MoveWorkspaceObjectRequest) : Promise<responses.MoveWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#moveAiDataPlatformWorkspaceObject.");
-        const operationName = "moveAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#moveWorkspaceObject.");
+        const operationName = "moveWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": moveAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": moveAiDataPlatformWorkspaceObjectRequest.workspaceKey,
+            "{aiDataPlatformId}": moveWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": moveWorkspaceObjectRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -19847,13 +19847,13 @@ export class WorkspaceObjectClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'if-match': moveAiDataPlatformWorkspaceObjectRequest.ifMatch,'opc-request-id': moveAiDataPlatformWorkspaceObjectRequest.opcRequestId,'should-update-recent': moveAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,
+        'if-match': moveWorkspaceObjectRequest.ifMatch,'opc-request-id': moveWorkspaceObjectRequest.opcRequestId,'should-update-recent': moveWorkspaceObjectRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            moveAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            moveWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19862,7 +19862,7 @@ export class WorkspaceObjectClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/moveObject',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(moveAiDataPlatformWorkspaceObjectRequest.moveWorkspaceObjectDetails, "MoveWorkspaceObjectDetails"
+            bodyContent: common.ObjectSerializer.serialize(moveWorkspaceObjectRequest.moveWorkspaceObjectDetails, "MoveWorkspaceObjectDetails"
                             , model.MoveWorkspaceObjectDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -19872,7 +19872,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.MoveAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.MoveWorkspaceObjectResponse>{},
                 body: await response.json(),
                 bodyKey: "workspaceObjectDetails",
                 bodyModel:  model.WorkspaceObjectDetails,
@@ -19907,19 +19907,19 @@ export class WorkspaceObjectClient {
      * Renames a workspace object.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param RenameAiDataPlatformWorkspaceObjectRequest
-     * @return RenameAiDataPlatformWorkspaceObjectResponse
+     * @param RenameWorkspaceObjectRequest
+     * @return RenameWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RenameAiDataPlatformWorkspaceObject.ts.html |here} to see how to use RenameAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RenameWorkspaceObject.ts.html |here} to see how to use RenameWorkspaceObject API.
      */
-    public async renameAiDataPlatformWorkspaceObject (renameAiDataPlatformWorkspaceObjectRequest: requests.RenameAiDataPlatformWorkspaceObjectRequest) : Promise<responses.RenameAiDataPlatformWorkspaceObjectResponse> {
+    public async renameWorkspaceObject (renameWorkspaceObjectRequest: requests.RenameWorkspaceObjectRequest) : Promise<responses.RenameWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#renameAiDataPlatformWorkspaceObject.");
-        const operationName = "renameAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#renameWorkspaceObject.");
+        const operationName = "renameWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": renameAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": renameAiDataPlatformWorkspaceObjectRequest.workspaceKey,
+            "{aiDataPlatformId}": renameWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": renameWorkspaceObjectRequest.workspaceKey,
         };
 
         const queryParams = { 
@@ -19927,13 +19927,13 @@ export class WorkspaceObjectClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': renameAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,'if-match': renameAiDataPlatformWorkspaceObjectRequest.ifMatch,'opc-request-id': renameAiDataPlatformWorkspaceObjectRequest.opcRequestId,
+        'should-update-recent': renameWorkspaceObjectRequest.shouldUpdateRecent,'if-match': renameWorkspaceObjectRequest.ifMatch,'opc-request-id': renameWorkspaceObjectRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            renameAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            renameWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -19942,7 +19942,7 @@ export class WorkspaceObjectClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/renameObject',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(renameAiDataPlatformWorkspaceObjectRequest.renameWorkspaceObjectDetails, "RenameWorkspaceObjectDetails"
+            bodyContent: common.ObjectSerializer.serialize(renameWorkspaceObjectRequest.renameWorkspaceObjectDetails, "RenameWorkspaceObjectDetails"
                             , model.RenameWorkspaceObjectDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -19952,7 +19952,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.RenameAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.RenameWorkspaceObjectResponse>{},
                 body: await response.json(),
                 bodyKey: "workspaceObjectDetails",
                 bodyModel:  model.WorkspaceObjectDetails,
@@ -19986,35 +19986,35 @@ export class WorkspaceObjectClient {
     /**
      * Updates a workspace object with the provided information.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAiDataPlatformWorkspaceObjectRequest
-     * @return UpdateAiDataPlatformWorkspaceObjectResponse
+     * @param UpdateWorkspaceObjectRequest
+     * @return UpdateWorkspaceObjectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateAiDataPlatformWorkspaceObject.ts.html |here} to see how to use UpdateAiDataPlatformWorkspaceObject API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateWorkspaceObject.ts.html |here} to see how to use UpdateWorkspaceObject API.
      */
-    public async updateAiDataPlatformWorkspaceObject (updateAiDataPlatformWorkspaceObjectRequest: requests.UpdateAiDataPlatformWorkspaceObjectRequest) : Promise<responses.UpdateAiDataPlatformWorkspaceObjectResponse> {
+    public async updateWorkspaceObject (updateWorkspaceObjectRequest: requests.UpdateWorkspaceObjectRequest) : Promise<responses.UpdateWorkspaceObjectResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#updateAiDataPlatformWorkspaceObject.");
-        const operationName = "updateAiDataPlatformWorkspaceObject";
+              this.logger.debug("Calling operation WorkspaceObjectClient#updateWorkspaceObject.");
+        const operationName = "updateWorkspaceObject";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": updateAiDataPlatformWorkspaceObjectRequest.aiDataPlatformId,
-            "{workspaceKey}": updateAiDataPlatformWorkspaceObjectRequest.workspaceKey,
-            "{objectPath}": updateAiDataPlatformWorkspaceObjectRequest.objectPath,
+            "{aiDataPlatformId}": updateWorkspaceObjectRequest.aiDataPlatformId,
+            "{workspaceKey}": updateWorkspaceObjectRequest.workspaceKey,
+            "{objectPath}": updateWorkspaceObjectRequest.objectPath,
         };
 
         const queryParams = { 
-            'objectDescription': updateAiDataPlatformWorkspaceObjectRequest.objectDescription,
+            'objectDescription': updateWorkspaceObjectRequest.objectDescription,
         };
 
         let headerParams = {
         
-        'if-match': updateAiDataPlatformWorkspaceObjectRequest.ifMatch,'opc-request-id': updateAiDataPlatformWorkspaceObjectRequest.opcRequestId,'should-update-recent': updateAiDataPlatformWorkspaceObjectRequest.shouldUpdateRecent,
+        'if-match': updateWorkspaceObjectRequest.ifMatch,'opc-request-id': updateWorkspaceObjectRequest.opcRequestId,'should-update-recent': updateWorkspaceObjectRequest.shouldUpdateRecent,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            updateAiDataPlatformWorkspaceObjectRequest.retryConfiguration,
+            updateWorkspaceObjectRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -20024,7 +20024,7 @@ export class WorkspaceObjectClient {
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/objects/{objectPath}',
             method: 'PUT',
             bodyContent: 
-                         updateAiDataPlatformWorkspaceObjectRequest.updateWorkspaceObjectDetails,
+                         updateWorkspaceObjectRequest.updateWorkspaceObjectDetails,
             pathParams: pathParams,
             headerParams: headerParams,
             backupBinaryBody: retrier.backUpBinaryBody,
@@ -20033,7 +20033,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UpdateAiDataPlatformWorkspaceObjectResponse>{},
+            responseObject: <responses.UpdateWorkspaceObjectResponse>{},
 
                 body: response.body!,
                 bodyKey: "value",
@@ -20083,36 +20083,36 @@ export class WorkspaceObjectClient {
      * Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UploadAiDataPlatformWorkspaceObjectWithParRequest
-     * @return UploadAiDataPlatformWorkspaceObjectWithParResponse
+     * @param UploadWorkspaceObjectWithParRequest
+     * @return UploadWorkspaceObjectWithParResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadAiDataPlatformWorkspaceObjectWithPar.ts.html |here} to see how to use UploadAiDataPlatformWorkspaceObjectWithPar API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadWorkspaceObjectWithPar.ts.html |here} to see how to use UploadWorkspaceObjectWithPar API.
      */
-    public async uploadAiDataPlatformWorkspaceObjectWithPar (uploadAiDataPlatformWorkspaceObjectWithParRequest: requests.UploadAiDataPlatformWorkspaceObjectWithParRequest) : Promise<responses.UploadAiDataPlatformWorkspaceObjectWithParResponse> {
+    public async uploadWorkspaceObjectWithPar (uploadWorkspaceObjectWithParRequest: requests.UploadWorkspaceObjectWithParRequest) : Promise<responses.UploadWorkspaceObjectWithParResponse> {
         if (this.logger)
-              this.logger.debug("Calling operation WorkspaceObjectClient#uploadAiDataPlatformWorkspaceObjectWithPar.");
-        const operationName = "uploadAiDataPlatformWorkspaceObjectWithPar";
+              this.logger.debug("Calling operation WorkspaceObjectClient#uploadWorkspaceObjectWithPar.");
+        const operationName = "uploadWorkspaceObjectWithPar";
         const apiReferenceLink = "";
         const pathParams = { 
-            "{aiDataPlatformId}": uploadAiDataPlatformWorkspaceObjectWithParRequest.aiDataPlatformId,
-            "{workspaceKey}": uploadAiDataPlatformWorkspaceObjectWithParRequest.workspaceKey,
+            "{aiDataPlatformId}": uploadWorkspaceObjectWithParRequest.aiDataPlatformId,
+            "{workspaceKey}": uploadWorkspaceObjectWithParRequest.workspaceKey,
         };
 
         const queryParams = { 
-            'isOverwrite': uploadAiDataPlatformWorkspaceObjectWithParRequest.isOverwrite,
-            'shouldGenerateNewPar': uploadAiDataPlatformWorkspaceObjectWithParRequest.shouldGenerateNewPar,
-            'objectDescription': uploadAiDataPlatformWorkspaceObjectWithParRequest.objectDescription,
+            'isOverwrite': uploadWorkspaceObjectWithParRequest.isOverwrite,
+            'shouldGenerateNewPar': uploadWorkspaceObjectWithParRequest.shouldGenerateNewPar,
+            'objectDescription': uploadWorkspaceObjectWithParRequest.objectDescription,
         };
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'should-update-recent': uploadAiDataPlatformWorkspaceObjectWithParRequest.shouldUpdateRecent,'path': uploadAiDataPlatformWorkspaceObjectWithParRequest.path,'opc-retry-token': uploadAiDataPlatformWorkspaceObjectWithParRequest.opcRetryToken,'opc-request-id': uploadAiDataPlatformWorkspaceObjectWithParRequest.opcRequestId,'type': uploadAiDataPlatformWorkspaceObjectWithParRequest.type,
+        'should-update-recent': uploadWorkspaceObjectWithParRequest.shouldUpdateRecent,'path': uploadWorkspaceObjectWithParRequest.path,'opc-retry-token': uploadWorkspaceObjectWithParRequest.opcRetryToken,'opc-request-id': uploadWorkspaceObjectWithParRequest.opcRequestId,'type': uploadWorkspaceObjectWithParRequest.type,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
         const retrier = GenericRetrier.createPreferredRetrier(
         this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-            uploadAiDataPlatformWorkspaceObjectWithParRequest.retryConfiguration,
+            uploadWorkspaceObjectWithParRequest.retryConfiguration,
             specRetryConfiguration
         );
         if (this.logger) retrier.logger = this.logger;
@@ -20121,7 +20121,7 @@ export class WorkspaceObjectClient {
             defaultHeaders: this._defaultHeaders,
             path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/uploadFileMeta',
             method: 'POST',
-            bodyContent: common.ObjectSerializer.serialize(uploadAiDataPlatformWorkspaceObjectWithParRequest.uploadFileWithParDetails, "UploadFileWithParDetails"
+            bodyContent: common.ObjectSerializer.serialize(uploadWorkspaceObjectWithParRequest.uploadFileWithParDetails, "UploadFileWithParDetails"
                             , model.UploadFileWithParDetails.getJsonObj)
                          ,
             pathParams: pathParams,
@@ -20131,7 +20131,7 @@ export class WorkspaceObjectClient {
         try {
             const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
             const sdkResponse = composeResponse({
-            responseObject: <responses.UploadAiDataPlatformWorkspaceObjectWithParResponse>{},
+            responseObject: <responses.UploadWorkspaceObjectWithParResponse>{},
                 body: await response.json(),
                 bodyKey: "uploadFileWithParResult",
                 bodyModel:  model.UploadFileWithParResult,

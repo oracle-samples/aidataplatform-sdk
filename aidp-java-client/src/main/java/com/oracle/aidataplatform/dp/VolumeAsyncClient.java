@@ -51,7 +51,7 @@ public class VolumeAsyncClient extends com.oracle.bmc.http.internal.BaseAsyncCli
         if (isStreamWarningEnabled && com.oracle.bmc.util.StreamUtils.isExtraStreamLogsEnabled()) {
              LOG.warn(com.oracle.bmc.util.StreamUtils.getStreamWarningMessage(
                 "VolumeAsyncClient",
-                 "downloadAiDataPlatformFile"
+                 "downloadFile"
                  )
              );
         }
@@ -114,18 +114,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformVolumeResponse> createAiDataPlatformVolume(CreateAiDataPlatformVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformVolumeRequest, CreateAiDataPlatformVolumeResponse> handler) {
+    public java.util.concurrent.Future<CreateVolumeResponse> createVolume(CreateVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateVolumeRequest, CreateVolumeResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateVolumeDetails(), "createVolumeDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformVolumeResponse::builder)
-        .logger(LOG, "createAiDataPlatformVolume")
-        .serviceDetails("Volume", "CreateAiDataPlatformVolume", "")
+return clientCall(request, CreateVolumeResponse::builder)
+        .logger(LOG, "createVolume")
+        .serviceDetails("Volume", "CreateVolume", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformVolumeRequest::builder)
+        .requestBuilder(CreateVolumeRequest::builder)
         
         
         .basePath("/20260430")
@@ -139,23 +139,23 @@ return clientCall(request, CreateAiDataPlatformVolumeResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Volume.class, CreateAiDataPlatformVolumeResponse.Builder::volume)
+            .handleBody(com.oracle.aidataplatform.dp.model.Volume.class, CreateVolumeResponse.Builder::volume)
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformVolumeResponse.Builder::location)
+            CreateVolumeResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformVolumeResponse.Builder::contentLocation)
+            CreateVolumeResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformVolumeResponse.Builder::etag)
+            CreateVolumeResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CreateAiDataPlatformVolumeResponse.Builder::opcWorkRequestId)
+            CreateVolumeResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformVolumeResponse.Builder::opcRequestId)
+            CreateVolumeResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformDirResponse> deleteAiDataPlatformDir(DeleteAiDataPlatformDirRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformDirRequest, DeleteAiDataPlatformDirResponse> handler) {
+    public java.util.concurrent.Future<DeleteDirResponse> deleteDir(DeleteDirRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteDirRequest, DeleteDirResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -164,11 +164,11 @@ return clientCall(request, CreateAiDataPlatformVolumeResponse::builder)
         
 
 
-return clientCall(request, DeleteAiDataPlatformDirResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformDir")
-        .serviceDetails("Volume", "DeleteAiDataPlatformDir", "")
+return clientCall(request, DeleteDirResponse::builder)
+        .logger(LOG, "deleteDir")
+        .serviceDetails("Volume", "DeleteDir", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformDirRequest::builder)
+        .requestBuilder(DeleteDirRequest::builder)
         
         
         .basePath("/20260430")
@@ -183,15 +183,15 @@ return clientCall(request, DeleteAiDataPlatformDirResponse::builder)
         
         
                 .handleResponseHeaderString("opc-work-request-id", 
-            DeleteAiDataPlatformDirResponse.Builder::opcWorkRequestId)
+            DeleteDirResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformDirResponse.Builder::opcRequestId)
+            DeleteDirResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformFileResponse> deleteAiDataPlatformFile(DeleteAiDataPlatformFileRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformFileRequest, DeleteAiDataPlatformFileResponse> handler) {
+    public java.util.concurrent.Future<DeleteFileResponse> deleteFile(DeleteFileRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteFileRequest, DeleteFileResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -200,11 +200,11 @@ return clientCall(request, DeleteAiDataPlatformDirResponse::builder)
         
 
 
-return clientCall(request, DeleteAiDataPlatformFileResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformFile")
-        .serviceDetails("Volume", "DeleteAiDataPlatformFile", "")
+return clientCall(request, DeleteFileResponse::builder)
+        .logger(LOG, "deleteFile")
+        .serviceDetails("Volume", "DeleteFile", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformFileRequest::builder)
+        .requestBuilder(DeleteFileRequest::builder)
         
         
         .basePath("/20260430")
@@ -217,26 +217,26 @@ return clientCall(request, DeleteAiDataPlatformFileResponse::builder)
         
         
                 .handleResponseHeaderString("opc-work-request-id", 
-            DeleteAiDataPlatformFileResponse.Builder::opcWorkRequestId)
+            DeleteFileResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformFileResponse.Builder::opcRequestId)
+            DeleteFileResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformVolumeResponse> deleteAiDataPlatformVolume(DeleteAiDataPlatformVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformVolumeRequest, DeleteAiDataPlatformVolumeResponse> handler) {
+    public java.util.concurrent.Future<DeleteVolumeResponse> deleteVolume(DeleteVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteVolumeRequest, DeleteVolumeResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformVolumeResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformVolume")
-        .serviceDetails("Volume", "DeleteAiDataPlatformVolume", "")
+return clientCall(request, DeleteVolumeResponse::builder)
+        .logger(LOG, "deleteVolume")
+        .serviceDetails("Volume", "DeleteVolume", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformVolumeRequest::builder)
+        .requestBuilder(DeleteVolumeRequest::builder)
         
         
         .basePath("/20260430")
@@ -249,15 +249,15 @@ return clientCall(request, DeleteAiDataPlatformVolumeResponse::builder)
         
         
                 .handleResponseHeaderString("opc-work-request-id", 
-            DeleteAiDataPlatformVolumeResponse.Builder::opcWorkRequestId)
+            DeleteVolumeResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformVolumeResponse.Builder::opcRequestId)
+            DeleteVolumeResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DownloadAiDataPlatformFileResponse> downloadAiDataPlatformFile(DownloadAiDataPlatformFileRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformFileRequest, DownloadAiDataPlatformFileResponse> handler) {
+    public java.util.concurrent.Future<DownloadFileResponse> downloadFile(DownloadFileRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadFileRequest, DownloadFileResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -266,11 +266,11 @@ return clientCall(request, DeleteAiDataPlatformVolumeResponse::builder)
         
 
 
-return clientCall(request, DownloadAiDataPlatformFileResponse::builder)
-        .logger(LOG, "downloadAiDataPlatformFile")
-        .serviceDetails("Volume", "DownloadAiDataPlatformFile", "")
+return clientCall(request, DownloadFileResponse::builder)
+        .logger(LOG, "downloadFile")
+        .serviceDetails("Volume", "DownloadFile", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DownloadAiDataPlatformFileRequest::builder)
+        .requestBuilder(DownloadFileRequest::builder)
         
         
         .basePath("/20260430")
@@ -284,15 +284,15 @@ return clientCall(request, DownloadAiDataPlatformFileResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(java.io.InputStream.class, DownloadAiDataPlatformFileResponse.Builder::inputStream)
+            .handleBody(java.io.InputStream.class, DownloadFileResponse.Builder::inputStream)
                 .handleResponseHeaderString("opc-request-id", 
-            DownloadAiDataPlatformFileResponse.Builder::opcRequestId)
+            DownloadFileResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DownloadAiDataPlatformFileWithParResponse> downloadAiDataPlatformFileWithPar(DownloadAiDataPlatformFileWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformFileWithParRequest, DownloadAiDataPlatformFileWithParResponse> handler) {
+    public java.util.concurrent.Future<DownloadFileWithParResponse> downloadFileWithPar(DownloadFileWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadFileWithParRequest, DownloadFileWithParResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -301,11 +301,11 @@ return clientCall(request, DownloadAiDataPlatformFileResponse::builder)
         
 
 
-return clientCall(request, DownloadAiDataPlatformFileWithParResponse::builder)
-        .logger(LOG, "downloadAiDataPlatformFileWithPar")
-        .serviceDetails("Volume", "DownloadAiDataPlatformFileWithPar", "")
+return clientCall(request, DownloadFileWithParResponse::builder)
+        .logger(LOG, "downloadFileWithPar")
+        .serviceDetails("Volume", "DownloadFileWithPar", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DownloadAiDataPlatformFileWithParRequest::builder)
+        .requestBuilder(DownloadFileWithParRequest::builder)
         
         
         .basePath("/20260430")
@@ -323,32 +323,32 @@ return clientCall(request, DownloadAiDataPlatformFileWithParResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.DownloadFileWithParResult.class, DownloadAiDataPlatformFileWithParResponse.Builder::downloadFileWithParResult)
+            .handleBody(com.oracle.aidataplatform.dp.model.DownloadFileWithParResult.class, DownloadFileWithParResponse.Builder::downloadFileWithParResult)
                 .handleResponseHeaderString("location", 
-            DownloadAiDataPlatformFileWithParResponse.Builder::location)
+            DownloadFileWithParResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            DownloadAiDataPlatformFileWithParResponse.Builder::contentLocation)
+            DownloadFileWithParResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            DownloadAiDataPlatformFileWithParResponse.Builder::etag)
+            DownloadFileWithParResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DownloadAiDataPlatformFileWithParResponse.Builder::opcRequestId)
+            DownloadFileWithParResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformVolumeResponse> getAiDataPlatformVolume(GetAiDataPlatformVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformVolumeRequest, GetAiDataPlatformVolumeResponse> handler) {
+    public java.util.concurrent.Future<GetVolumeResponse> getVolume(GetVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<GetVolumeRequest, GetVolumeResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformVolumeResponse::builder)
-        .logger(LOG, "getAiDataPlatformVolume")
-        .serviceDetails("Volume", "GetAiDataPlatformVolume", "")
+return clientCall(request, GetVolumeResponse::builder)
+        .logger(LOG, "getVolume")
+        .serviceDetails("Volume", "GetVolume", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformVolumeRequest::builder)
+        .requestBuilder(GetVolumeRequest::builder)
         
         
         .basePath("/20260430")
@@ -360,17 +360,17 @@ return clientCall(request, GetAiDataPlatformVolumeResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Volume.class, GetAiDataPlatformVolumeResponse.Builder::volume)
+            .handleBody(com.oracle.aidataplatform.dp.model.Volume.class, GetVolumeResponse.Builder::volume)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformVolumeResponse.Builder::etag)
+            GetVolumeResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformVolumeResponse.Builder::opcRequestId)
+            GetVolumeResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformFilesResponse> listAiDataPlatformFiles(ListAiDataPlatformFilesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformFilesRequest, ListAiDataPlatformFilesResponse> handler) {
+    public java.util.concurrent.Future<ListFilesResponse> listFiles(ListFilesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListFilesRequest, ListFilesResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -379,11 +379,11 @@ return clientCall(request, GetAiDataPlatformVolumeResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformFilesResponse::builder)
-        .logger(LOG, "listAiDataPlatformFiles")
-        .serviceDetails("Volume", "ListAiDataPlatformFiles", "")
+return clientCall(request, ListFilesResponse::builder)
+        .logger(LOG, "listFiles")
+        .serviceDetails("Volume", "ListFiles", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformFilesRequest::builder)
+        .requestBuilder(ListFilesRequest::builder)
         
         
         .basePath("/20260430")
@@ -427,28 +427,28 @@ return clientCall(request, ListAiDataPlatformFilesResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.VolumeFileCollection.class, ListAiDataPlatformFilesResponse.Builder::volumeFileCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.VolumeFileCollection.class, ListFilesResponse.Builder::volumeFileCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformFilesResponse.Builder::opcRequestId)
+            ListFilesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformFilesResponse.Builder::opcNextPage)
+            ListFilesResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformVolumePermissionsResponse> listAiDataPlatformVolumePermissions(ListAiDataPlatformVolumePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformVolumePermissionsRequest, ListAiDataPlatformVolumePermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListVolumePermissionsResponse> listVolumePermissions(ListVolumePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListVolumePermissionsRequest, ListVolumePermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformVolumePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformVolumePermissions")
-        .serviceDetails("Volume", "ListAiDataPlatformVolumePermissions", "")
+return clientCall(request, ListVolumePermissionsResponse::builder)
+        .logger(LOG, "listVolumePermissions")
+        .serviceDetails("Volume", "ListVolumePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformVolumePermissionsRequest::builder)
+        .requestBuilder(ListVolumePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -474,17 +474,17 @@ return clientCall(request, ListAiDataPlatformVolumePermissionsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.VolumePermissionCollection.class, ListAiDataPlatformVolumePermissionsResponse.Builder::volumePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.VolumePermissionCollection.class, ListVolumePermissionsResponse.Builder::volumePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformVolumePermissionsResponse.Builder::opcRequestId)
+            ListVolumePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformVolumePermissionsResponse.Builder::opcNextPage)
+            ListVolumePermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformVolumesResponse> listAiDataPlatformVolumes(ListAiDataPlatformVolumesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformVolumesRequest, ListAiDataPlatformVolumesResponse> handler) {
+    public java.util.concurrent.Future<ListVolumesResponse> listVolumes(ListVolumesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListVolumesRequest, ListVolumesResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCatalogKey(), "catalogKey is required");
@@ -493,11 +493,11 @@ return clientCall(request, ListAiDataPlatformVolumePermissionsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformVolumesResponse::builder)
-        .logger(LOG, "listAiDataPlatformVolumes")
-        .serviceDetails("Volume", "ListAiDataPlatformVolumes", "")
+return clientCall(request, ListVolumesResponse::builder)
+        .logger(LOG, "listVolumes")
+        .serviceDetails("Volume", "ListVolumes", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformVolumesRequest::builder)
+        .requestBuilder(ListVolumesRequest::builder)
         
         
         .basePath("/20260430")
@@ -535,17 +535,17 @@ return clientCall(request, ListAiDataPlatformVolumesResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.VolumeCollection.class, ListAiDataPlatformVolumesResponse.Builder::volumeCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.VolumeCollection.class, ListVolumesResponse.Builder::volumeCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformVolumesResponse.Builder::opcRequestId)
+            ListVolumesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformVolumesResponse.Builder::opcNextPage)
+            ListVolumesResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<MakeAiDataPlatformDirResponse> makeAiDataPlatformDir(MakeAiDataPlatformDirRequest request, final com.oracle.bmc.responses.AsyncHandler<MakeAiDataPlatformDirRequest, MakeAiDataPlatformDirResponse> handler) {
+    public java.util.concurrent.Future<MakeDirResponse> makeDir(MakeDirRequest request, final com.oracle.bmc.responses.AsyncHandler<MakeDirRequest, MakeDirResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -554,11 +554,11 @@ return clientCall(request, ListAiDataPlatformVolumesResponse::builder)
         
 
 
-return clientCall(request, MakeAiDataPlatformDirResponse::builder)
-        .logger(LOG, "makeAiDataPlatformDir")
-        .serviceDetails("Volume", "MakeAiDataPlatformDir", "")
+return clientCall(request, MakeDirResponse::builder)
+        .logger(LOG, "makeDir")
+        .serviceDetails("Volume", "MakeDir", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(MakeAiDataPlatformDirRequest::builder)
+        .requestBuilder(MakeDirRequest::builder)
         
         
         .basePath("/20260430")
@@ -579,17 +579,17 @@ return clientCall(request, MakeAiDataPlatformDirResponse::builder)
         
         
                 .handleResponseHeaderString("location", 
-            MakeAiDataPlatformDirResponse.Builder::location)
+            MakeDirResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            MakeAiDataPlatformDirResponse.Builder::contentLocation)
+            MakeDirResponse.Builder::contentLocation)
                 .handleResponseHeaderString("opc-request-id", 
-            MakeAiDataPlatformDirResponse.Builder::opcRequestId)
+            MakeDirResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformVolumePermissionResponse> manageAiDataPlatformVolumePermission(ManageAiDataPlatformVolumePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformVolumePermissionRequest, ManageAiDataPlatformVolumePermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageVolumePermissionResponse> manageVolumePermission(ManageVolumePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageVolumePermissionRequest, ManageVolumePermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -598,11 +598,11 @@ return clientCall(request, MakeAiDataPlatformDirResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformVolumePermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformVolumePermission")
-        .serviceDetails("Volume", "ManageAiDataPlatformVolumePermission", "")
+return clientCall(request, ManageVolumePermissionResponse::builder)
+        .logger(LOG, "manageVolumePermission")
+        .serviceDetails("Volume", "ManageVolumePermission", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(ManageAiDataPlatformVolumePermissionRequest::builder)
+        .requestBuilder(ManageVolumePermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -615,13 +615,13 @@ return clientCall(request, ManageAiDataPlatformVolumePermissionResponse::builder
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformVolumePermissionResponse.Builder::opcRequestId)
+            ManageVolumePermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformDirResponse> updateAiDataPlatformDir(UpdateAiDataPlatformDirRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformDirRequest, UpdateAiDataPlatformDirResponse> handler) {
+    public java.util.concurrent.Future<UpdateDirResponse> updateDir(UpdateDirRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateDirRequest, UpdateDirResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -632,11 +632,11 @@ return clientCall(request, ManageAiDataPlatformVolumePermissionResponse::builder
         
 
 
-return clientCall(request, UpdateAiDataPlatformDirResponse::builder)
-        .logger(LOG, "updateAiDataPlatformDir")
-        .serviceDetails("Volume", "UpdateAiDataPlatformDir", "")
+return clientCall(request, UpdateDirResponse::builder)
+        .logger(LOG, "updateDir")
+        .serviceDetails("Volume", "UpdateDir", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformDirRequest::builder)
+        .requestBuilder(UpdateDirRequest::builder)
         
         
         .basePath("/20260430")
@@ -655,17 +655,17 @@ return clientCall(request, UpdateAiDataPlatformDirResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("location", 
-            UpdateAiDataPlatformDirResponse.Builder::location)
+            UpdateDirResponse.Builder::location)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformDirResponse.Builder::opcRequestId)
+            UpdateDirResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-work-request-id", 
-            UpdateAiDataPlatformDirResponse.Builder::opcWorkRequestId)
+            UpdateDirResponse.Builder::opcWorkRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformVolumeResponse> updateAiDataPlatformVolume(UpdateAiDataPlatformVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformVolumeRequest, UpdateAiDataPlatformVolumeResponse> handler) {
+    public java.util.concurrent.Future<UpdateVolumeResponse> updateVolume(UpdateVolumeRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateVolumeRequest, UpdateVolumeResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -674,11 +674,11 @@ return clientCall(request, UpdateAiDataPlatformDirResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformVolumeResponse::builder)
-        .logger(LOG, "updateAiDataPlatformVolume")
-        .serviceDetails("Volume", "UpdateAiDataPlatformVolume", "")
+return clientCall(request, UpdateVolumeResponse::builder)
+        .logger(LOG, "updateVolume")
+        .serviceDetails("Volume", "UpdateVolume", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformVolumeRequest::builder)
+        .requestBuilder(UpdateVolumeRequest::builder)
         
         
         .basePath("/20260430")
@@ -692,19 +692,19 @@ return clientCall(request, UpdateAiDataPlatformVolumeResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Volume.class, UpdateAiDataPlatformVolumeResponse.Builder::volume)
+            .handleBody(com.oracle.aidataplatform.dp.model.Volume.class, UpdateVolumeResponse.Builder::volume)
                 .handleResponseHeaderString("opc-work-request-id", 
-            UpdateAiDataPlatformVolumeResponse.Builder::opcWorkRequestId)
+            UpdateVolumeResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformVolumeResponse.Builder::opcRequestId)
+            UpdateVolumeResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformVolumeResponse.Builder::etag)
+            UpdateVolumeResponse.Builder::etag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UploadAiDataPlatformFileResponse> uploadAiDataPlatformFile(UploadAiDataPlatformFileRequest request, final com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformFileRequest, UploadAiDataPlatformFileResponse> handler) {
+    public java.util.concurrent.Future<UploadFileResponse> uploadFile(UploadFileRequest request, final com.oracle.bmc.responses.AsyncHandler<UploadFileRequest, UploadFileResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -715,11 +715,11 @@ return clientCall(request, UpdateAiDataPlatformVolumeResponse::builder)
         
 
 
-return clientCall(request, UploadAiDataPlatformFileResponse::builder)
-        .logger(LOG, "uploadAiDataPlatformFile")
-        .serviceDetails("Volume", "UploadAiDataPlatformFile", "")
+return clientCall(request, UploadFileResponse::builder)
+        .logger(LOG, "uploadFile")
+        .serviceDetails("Volume", "UploadFile", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UploadAiDataPlatformFileRequest::builder)
+        .requestBuilder(UploadFileRequest::builder)
         
         
         .basePath("/20260430")
@@ -742,19 +742,19 @@ return clientCall(request, UploadAiDataPlatformFileResponse::builder)
         .hasBinaryRequestBody()
         .hasBody()
                 .handleResponseHeaderString("location", 
-            UploadAiDataPlatformFileResponse.Builder::location)
+            UploadFileResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            UploadAiDataPlatformFileResponse.Builder::contentLocation)
+            UploadFileResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            UploadAiDataPlatformFileResponse.Builder::etag)
+            UploadFileResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UploadAiDataPlatformFileResponse.Builder::opcRequestId)
+            UploadFileResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UploadAiDataPlatformFileWithParResponse> uploadAiDataPlatformFileWithPar(UploadAiDataPlatformFileWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformFileWithParRequest, UploadAiDataPlatformFileWithParResponse> handler) {
+    public java.util.concurrent.Future<UploadFileWithParResponse> uploadFileWithPar(UploadFileWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<UploadFileWithParRequest, UploadFileWithParResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -765,11 +765,11 @@ return clientCall(request, UploadAiDataPlatformFileResponse::builder)
         
 
 
-return clientCall(request, UploadAiDataPlatformFileWithParResponse::builder)
-        .logger(LOG, "uploadAiDataPlatformFileWithPar")
-        .serviceDetails("Volume", "UploadAiDataPlatformFileWithPar", "")
+return clientCall(request, UploadFileWithParResponse::builder)
+        .logger(LOG, "uploadFileWithPar")
+        .serviceDetails("Volume", "UploadFileWithPar", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UploadAiDataPlatformFileWithParRequest::builder)
+        .requestBuilder(UploadFileWithParRequest::builder)
         
         
         .basePath("/20260430")
@@ -793,15 +793,15 @@ return clientCall(request, UploadAiDataPlatformFileWithParResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UploadFileWithParResult.class, UploadAiDataPlatformFileWithParResponse.Builder::uploadFileWithParResult)
+            .handleBody(com.oracle.aidataplatform.dp.model.UploadFileWithParResult.class, UploadFileWithParResponse.Builder::uploadFileWithParResult)
                 .handleResponseHeaderString("location", 
-            UploadAiDataPlatformFileWithParResponse.Builder::location)
+            UploadFileWithParResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            UploadAiDataPlatformFileWithParResponse.Builder::contentLocation)
+            UploadFileWithParResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            UploadAiDataPlatformFileWithParResponse.Builder::etag)
+            UploadFileWithParResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UploadAiDataPlatformFileWithParResponse.Builder::opcRequestId)
+            UploadFileWithParResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

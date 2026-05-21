@@ -85,7 +85,7 @@ class NotebookClient(object):
         self.base_client = BaseClient("notebook", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_content(self, ai_data_platform_id, workspace_key, content_path, create_content_details, **kwargs):
+    def create_content(self, ai_data_platform_id, workspace_key, content_path, create_content_details, **kwargs):
         """
         Creates a new, untitled, empty file or directory, or copies an existing notebook to a specified path. For example, a POST call to /api/contents/path with body containing copy_from set to /path/to/OtherNotebook.ipynb creates a new copy of OtherNotebook at the specified path.
 
@@ -148,7 +148,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_content got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_content got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -196,7 +196,7 @@ class NotebookClient(object):
                 body=create_content_details,
                 response_type="Content")
 
-    def create_ai_data_platform_session(self, ai_data_platform_id, workspace_key, create_session_details, **kwargs):
+    def create_session(self, ai_data_platform_id, workspace_key, create_session_details, **kwargs):
         """
         Creates a new session or returns an existing session if a session for the given path already exists.
 
@@ -252,7 +252,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_session got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_session got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -298,7 +298,7 @@ class NotebookClient(object):
                 body=create_session_details,
                 response_type="Session")
 
-    def delete_ai_data_platform_content(self, ai_data_platform_id, workspace_key, content_path, **kwargs):
+    def delete_content(self, ai_data_platform_id, workspace_key, content_path, **kwargs):
         """
         Deletes a notebook file or directory.
 
@@ -349,7 +349,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_content got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_content got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -389,7 +389,7 @@ class NotebookClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_session(self, ai_data_platform_id, workspace_key, session_id, **kwargs):
+    def delete_session(self, ai_data_platform_id, workspace_key, session_id, **kwargs):
         """
         Delete a session with given session ID.
 
@@ -440,7 +440,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_session got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_session got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -480,7 +480,7 @@ class NotebookClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def export_ai_data_platform_contents(self, ai_data_platform_id, workspace_key, content_path, export_contents_details, **kwargs):
+    def export_contents(self, ai_data_platform_id, workspace_key, content_path, export_contents_details, **kwargs):
         """
         Exports the notebook file contents. You can optionally specify HTML or ipynb format through the request payload. If no format is specified, ipynb is used by default.
 
@@ -527,7 +527,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "export_ai_data_platform_contents got unknown kwargs: {!r}".format(extra_kwargs))
+                "export_contents got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -570,7 +570,7 @@ class NotebookClient(object):
                 body=export_contents_details,
                 response_type="ExportedContents")
 
-    def get_ai_data_platform_content(self, ai_data_platform_id, workspace_key, content_path, **kwargs):
+    def get_content(self, ai_data_platform_id, workspace_key, content_path, **kwargs):
         """
         Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter.
         When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text
@@ -641,7 +641,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_content got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_content got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -707,7 +707,7 @@ class NotebookClient(object):
                 header_params=header_params,
                 response_type="Content")
 
-    def get_ai_data_platform_session(self, ai_data_platform_id, workspace_key, session_id, **kwargs):
+    def get_session(self, ai_data_platform_id, workspace_key, session_id, **kwargs):
         """
         Returns session details for a given session ID.
 
@@ -751,7 +751,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_session got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_session got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -792,7 +792,7 @@ class NotebookClient(object):
                 header_params=header_params,
                 response_type="Session")
 
-    def list_ai_data_platform_sessions(self, ai_data_platform_id, workspace_key, **kwargs):
+    def list_sessions(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Returns a list of all available sessions.
 
@@ -845,7 +845,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_sessions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_sessions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -894,7 +894,7 @@ class NotebookClient(object):
                 header_params=header_params,
                 response_type="SessionCollection")
 
-    def modify_ai_data_platform_content(self, ai_data_platform_id, workspace_key, content_path, modify_content_details, **kwargs):
+    def modify_content(self, ai_data_platform_id, workspace_key, content_path, modify_content_details, **kwargs):
         """
         Renames a file or directory without re-uploading content.
 
@@ -952,7 +952,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "modify_ai_data_platform_content got unknown kwargs: {!r}".format(extra_kwargs))
+                "modify_content got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -997,7 +997,7 @@ class NotebookClient(object):
                 body=modify_content_details,
                 response_type="Content")
 
-    def patch_ai_data_platform_session(self, ai_data_platform_id, workspace_key, session_id, patch_session_details, **kwargs):
+    def patch_session(self, ai_data_platform_id, workspace_key, session_id, patch_session_details, **kwargs):
         """
         Patches a session with a given ID with the provided details. You can use this to rename a session.
 
@@ -1051,7 +1051,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "patch_ai_data_platform_session got unknown kwargs: {!r}".format(extra_kwargs))
+                "patch_session got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1095,7 +1095,7 @@ class NotebookClient(object):
                 body=patch_session_details,
                 response_type="Session")
 
-    def update_ai_data_platform_content(self, ai_data_platform_id, workspace_key, content_path, update_content_details, **kwargs):
+    def update_content(self, ai_data_platform_id, workspace_key, content_path, update_content_details, **kwargs):
         """
         Updates the contents of an existing notebook with the provided details or saves a new notebook.
 
@@ -1153,7 +1153,7 @@ class NotebookClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_content got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_content got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

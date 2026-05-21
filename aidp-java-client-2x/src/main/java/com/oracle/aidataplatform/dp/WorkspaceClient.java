@@ -23,6 +23,7 @@ public class WorkspaceClient implements Workspace {
         return client;
     }
 
+    private final WorkspaceWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class WorkspaceClient implements Workspace {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public WorkspaceClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class WorkspaceClient implements Workspace {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public WorkspaceClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class WorkspaceClient implements Workspace {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class WorkspaceClient implements Workspace {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected WorkspaceClient(
@@ -196,6 +224,7 @@ public class WorkspaceClient implements Workspace {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class WorkspaceClient implements Workspace {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Workspace-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new WorkspaceWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -256,9 +293,21 @@ public class WorkspaceClient implements Workspace {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, WorkspaceClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -277,6 +326,7 @@ public class WorkspaceClient implements Workspace {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -372,16 +422,16 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public CreateAiDataPlatformGitFolderResponse createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request) {
-        LOG.trace("Called createAiDataPlatformGitFolder");
-            final CreateAiDataPlatformGitFolderRequest interceptedRequest = CreateAiDataPlatformGitFolderConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformGitFolderConverter.fromRequest(client, interceptedRequest);
+    public CreateGitFolderResponse createGitFolder(CreateGitFolderRequest request) {
+        LOG.trace("Called createGitFolder");
+            final CreateGitFolderRequest interceptedRequest = CreateGitFolderConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateGitFolderConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateAiDataPlatformGitFolder", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformGitFolderResponse> transformer = CreateAiDataPlatformGitFolderConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateGitFolder", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateGitFolderResponse> transformer = CreateGitFolderConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +447,16 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public CreateAiDataPlatformWorkspaceResponse createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request) {
-        LOG.trace("Called createAiDataPlatformWorkspace");
-            final CreateAiDataPlatformWorkspaceRequest interceptedRequest = CreateAiDataPlatformWorkspaceConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
+    public CreateWorkspaceResponse createWorkspace(CreateWorkspaceRequest request) {
+        LOG.trace("Called createWorkspace");
+            final CreateWorkspaceRequest interceptedRequest = CreateWorkspaceConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateWorkspaceConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformWorkspaceResponse> transformer = CreateAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "CreateWorkspace", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateWorkspaceResponse> transformer = CreateWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,15 +472,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public DeleteAiDataPlatformWorkspaceResponse deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request) {
-        LOG.trace("Called deleteAiDataPlatformWorkspace");
-            final DeleteAiDataPlatformWorkspaceRequest interceptedRequest = DeleteAiDataPlatformWorkspaceConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
+    public DeleteWorkspaceResponse deleteWorkspace(DeleteWorkspaceRequest request) {
+        LOG.trace("Called deleteWorkspace");
+            final DeleteWorkspaceRequest interceptedRequest = DeleteWorkspaceConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteWorkspaceConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "DeleteAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformWorkspaceResponse> transformer = DeleteAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "DeleteWorkspace", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteWorkspaceResponse> transformer = DeleteWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -446,15 +496,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public GetAiDataPlatformWorkspaceResponse getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request) {
-        LOG.trace("Called getAiDataPlatformWorkspace");
-            final GetAiDataPlatformWorkspaceRequest interceptedRequest = GetAiDataPlatformWorkspaceConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
+    public GetWorkspaceResponse getWorkspace(GetWorkspaceRequest request) {
+        LOG.trace("Called getWorkspace");
+            final GetWorkspaceRequest interceptedRequest = GetWorkspaceConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetWorkspaceConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "GetAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformWorkspaceResponse> transformer = GetAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "GetWorkspace", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetWorkspaceResponse> transformer = GetWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -470,15 +520,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public ListAiDataPlatformCreateWorkspacePermissionsResponse listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformCreateWorkspacePermissions");
-            final ListAiDataPlatformCreateWorkspacePermissionsRequest interceptedRequest = ListAiDataPlatformCreateWorkspacePermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCreateWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListCreateWorkspacePermissionsResponse listCreateWorkspacePermissions(ListCreateWorkspacePermissionsRequest request) {
+        LOG.trace("Called listCreateWorkspacePermissions");
+            final ListCreateWorkspacePermissionsRequest interceptedRequest = ListCreateWorkspacePermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCreateWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListAiDataPlatformCreateWorkspacePermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCreateWorkspacePermissionsResponse> transformer = ListAiDataPlatformCreateWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListCreateWorkspacePermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListCreateWorkspacePermissionsResponse> transformer = ListCreateWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -494,15 +544,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public ListAiDataPlatformWorkspacePermissionsResponse listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformWorkspacePermissions");
-            final ListAiDataPlatformWorkspacePermissionsRequest interceptedRequest = ListAiDataPlatformWorkspacePermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListWorkspacePermissionsResponse listWorkspacePermissions(ListWorkspacePermissionsRequest request) {
+        LOG.trace("Called listWorkspacePermissions");
+            final ListWorkspacePermissionsRequest interceptedRequest = ListWorkspacePermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListWorkspacePermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListAiDataPlatformWorkspacePermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformWorkspacePermissionsResponse> transformer = ListAiDataPlatformWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListWorkspacePermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListWorkspacePermissionsResponse> transformer = ListWorkspacePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -518,15 +568,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public ListAiDataPlatformWorkspacesResponse listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request) {
-        LOG.trace("Called listAiDataPlatformWorkspaces");
-            final ListAiDataPlatformWorkspacesRequest interceptedRequest = ListAiDataPlatformWorkspacesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformWorkspacesConverter.fromRequest(client, interceptedRequest);
+    public ListWorkspacesResponse listWorkspaces(ListWorkspacesRequest request) {
+        LOG.trace("Called listWorkspaces");
+            final ListWorkspacesRequest interceptedRequest = ListWorkspacesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListWorkspacesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListAiDataPlatformWorkspaces", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformWorkspacesResponse> transformer = ListAiDataPlatformWorkspacesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ListWorkspaces", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListWorkspacesResponse> transformer = ListWorkspacesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -542,16 +592,16 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public ManageAiDataPlatformCreateWorkspacePermissionResponse manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformCreateWorkspacePermission");
-            final ManageAiDataPlatformCreateWorkspacePermissionRequest interceptedRequest = ManageAiDataPlatformCreateWorkspacePermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformCreateWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageCreateWorkspacePermissionResponse manageCreateWorkspacePermission(ManageCreateWorkspacePermissionRequest request) {
+        LOG.trace("Called manageCreateWorkspacePermission");
+            final ManageCreateWorkspacePermissionRequest interceptedRequest = ManageCreateWorkspacePermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageCreateWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageAiDataPlatformCreateWorkspacePermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformCreateWorkspacePermissionResponse> transformer = ManageAiDataPlatformCreateWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageCreateWorkspacePermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageCreateWorkspacePermissionResponse> transformer = ManageCreateWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -567,16 +617,16 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public ManageAiDataPlatformWorkspacePermissionResponse manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformWorkspacePermission");
-            final ManageAiDataPlatformWorkspacePermissionRequest interceptedRequest = ManageAiDataPlatformWorkspacePermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageWorkspacePermissionResponse manageWorkspacePermission(ManageWorkspacePermissionRequest request) {
+        LOG.trace("Called manageWorkspacePermission");
+            final ManageWorkspacePermissionRequest interceptedRequest = ManageWorkspacePermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageWorkspacePermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageAiDataPlatformWorkspacePermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformWorkspacePermissionResponse> transformer = ManageAiDataPlatformWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "ManageWorkspacePermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageWorkspacePermissionResponse> transformer = ManageWorkspacePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -592,15 +642,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public UpdateAiDataPlatformWorkspaceResponse updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request) {
-        LOG.trace("Called updateAiDataPlatformWorkspace");
-            final UpdateAiDataPlatformWorkspaceRequest interceptedRequest = UpdateAiDataPlatformWorkspaceConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformWorkspaceConverter.fromRequest(client, interceptedRequest);
+    public UpdateWorkspaceResponse updateWorkspace(UpdateWorkspaceRequest request) {
+        LOG.trace("Called updateWorkspace");
+            final UpdateWorkspaceRequest interceptedRequest = UpdateWorkspaceConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateWorkspaceConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateAiDataPlatformWorkspace", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformWorkspaceResponse> transformer = UpdateAiDataPlatformWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateWorkspace", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateWorkspaceResponse> transformer = UpdateWorkspaceConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -616,15 +666,15 @@ public class WorkspaceClient implements Workspace {
     }
 
     @Override
-    public UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse updateAiDataPlatformWorkspaceAsyncOperationStatus(UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest request) {
-        LOG.trace("Called updateAiDataPlatformWorkspaceAsyncOperationStatus");
-            final UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest interceptedRequest = UpdateAiDataPlatformWorkspaceAsyncOperationStatusConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformWorkspaceAsyncOperationStatusConverter.fromRequest(client, interceptedRequest);
+    public UpdateWorkspaceAsyncOperationStatusResponse updateWorkspaceAsyncOperationStatus(UpdateWorkspaceAsyncOperationStatusRequest request) {
+        LOG.trace("Called updateWorkspaceAsyncOperationStatus");
+            final UpdateWorkspaceAsyncOperationStatusRequest interceptedRequest = UpdateWorkspaceAsyncOperationStatusConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateWorkspaceAsyncOperationStatusConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateAiDataPlatformWorkspaceAsyncOperationStatus", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> transformer = UpdateAiDataPlatformWorkspaceAsyncOperationStatusConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workspace", "UpdateWorkspaceAsyncOperationStatus", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateWorkspaceAsyncOperationStatusResponse> transformer = UpdateWorkspaceAsyncOperationStatusConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -637,6 +687,11 @@ public class WorkspaceClient implements Workspace {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public WorkspaceWaiters getWaiters() {
+        return waiters;
     }
 
 

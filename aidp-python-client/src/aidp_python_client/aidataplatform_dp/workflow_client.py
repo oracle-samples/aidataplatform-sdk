@@ -85,7 +85,7 @@ class WorkflowClient(object):
         self.base_client = BaseClient("workflow", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def cancel_ai_data_platform_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
+    def cancel_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
         Cancels a job run.
 
@@ -148,7 +148,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "cancel_ai_data_platform_job_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "cancel_job_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -194,7 +194,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobRun")
 
-    def cancel_ai_data_platform_job_runs(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
+    def cancel_job_runs(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
         Cancels all job runs for a given job.
 
@@ -253,7 +253,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "cancel_ai_data_platform_job_runs got unknown kwargs: {!r}".format(extra_kwargs))
+                "cancel_job_runs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -296,7 +296,7 @@ class WorkflowClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def create_ai_data_platform_job(self, ai_data_platform_id, workspace_key, create_job_details, **kwargs):
+    def create_job(self, ai_data_platform_id, workspace_key, create_job_details, **kwargs):
         """
         Creates a job in an AI Data Platform Workbench.
 
@@ -352,7 +352,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_job got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_job got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -398,7 +398,7 @@ class WorkflowClient(object):
                 body=create_job_details,
                 response_type="Job")
 
-    def create_ai_data_platform_job_run(self, ai_data_platform_id, workspace_key, create_job_run_details, **kwargs):
+    def create_job_run(self, ai_data_platform_id, workspace_key, create_job_run_details, **kwargs):
         """
         Creates a job run for an AI Data Platform Workbench.
 
@@ -454,7 +454,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_job_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_job_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -500,7 +500,7 @@ class WorkflowClient(object):
                 body=create_job_run_details,
                 response_type="JobRun")
 
-    def delete_ai_data_platform_job(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
+    def delete_job(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
         Deletes a job from an AI Data Platform Workbench.
 
@@ -551,7 +551,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_job got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_job got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -591,7 +591,7 @@ class WorkflowClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
+    def delete_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
         Deletes a job run from an AI Data Platform Workbench.
 
@@ -642,7 +642,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_job_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_job_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -682,7 +682,7 @@ class WorkflowClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def export_ai_data_platform_task_run_output(self, ai_data_platform_id, workspace_key, task_run_key, task_run_output_key, export_task_run_output_details, **kwargs):
+    def export_task_run_output(self, ai_data_platform_id, workspace_key, task_run_key, task_run_output_key, export_task_run_output_details, **kwargs):
         """
         Exports task run output in HTML or ipynb format.
 
@@ -732,7 +732,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "export_ai_data_platform_task_run_output got unknown kwargs: {!r}".format(extra_kwargs))
+                "export_task_run_output got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -776,7 +776,7 @@ class WorkflowClient(object):
                 body=export_task_run_output_details,
                 response_type="ExportedTaskRunOutputContents")
 
-    def fetch_ai_data_platform_output(self, ai_data_platform_id, workspace_key, task_run_key, fetch_output_details, **kwargs):
+    def fetch_output(self, ai_data_platform_id, workspace_key, task_run_key, fetch_output_details, **kwargs):
         """
         Fetches the task run output from the runtime engine.
 
@@ -831,7 +831,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "fetch_ai_data_platform_output got unknown kwargs: {!r}".format(extra_kwargs))
+                "fetch_output got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -877,7 +877,7 @@ class WorkflowClient(object):
                 body=fetch_output_details,
                 response_type="TaskRunOutput")
 
-    def get_ai_data_platform_job(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
+    def get_job(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
         Returns detailed information about a given job in AI Data Platform Workbench.
 
@@ -925,7 +925,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_job got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_job got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -967,7 +967,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="Job")
 
-    def get_ai_data_platform_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
+    def get_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
         Returns detailed information about a given job run.
 
@@ -1015,7 +1015,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_job_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_job_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1057,7 +1057,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobRun")
 
-    def get_ai_data_platform_task_run(self, ai_data_platform_id, workspace_key, task_run_key, **kwargs):
+    def get_task_run(self, ai_data_platform_id, workspace_key, task_run_key, **kwargs):
         """
         Returns detailed information about a task run with a given task run key.
 
@@ -1101,7 +1101,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_task_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_task_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1142,7 +1142,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="TaskRun")
 
-    def list_ai_data_platform_job_permissions(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
+    def list_job_permissions(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
         Returns a list of job permissions.
 
@@ -1214,7 +1214,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_job_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_job_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1279,7 +1279,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobPermissionCollection")
 
-    def list_ai_data_platform_job_runs(self, ai_data_platform_id, workspace_key, **kwargs):
+    def list_job_runs(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Returns a detailed list of job runs in an AI Data Platform Workbench.
 
@@ -1366,7 +1366,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_job_runs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_job_runs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1443,7 +1443,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobRunCollection")
 
-    def list_ai_data_platform_jobs(self, ai_data_platform_id, workspace_key, **kwargs):
+    def list_jobs(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Returns a list of jobs for a given AI Data Platform Workbench.
 
@@ -1532,7 +1532,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_jobs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_jobs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1601,7 +1601,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobCollection")
 
-    def list_ai_data_platform_recent_job_runs(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
+    def list_recent_job_runs(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
         Returns a list of the latest job runs for a given job key.
 
@@ -1673,7 +1673,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_recent_job_runs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_recent_job_runs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1739,7 +1739,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobRunCollection")
 
-    def list_ai_data_platform_task_runs(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
+    def list_task_runs(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
         Returns a list of tasks run in an AI Data Platform Workbench.
 
@@ -1829,7 +1829,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_task_runs got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_task_runs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1906,7 +1906,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="TaskRunCollection")
 
-    def manage_ai_data_platform_job_permission(self, ai_data_platform_id, workspace_key, job_key, manage_job_permission_details, **kwargs):
+    def manage_job_permission(self, ai_data_platform_id, workspace_key, job_key, manage_job_permission_details, **kwargs):
         """
         Update job permissions with the provided details.
 
@@ -1960,7 +1960,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_job_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_job_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2002,7 +2002,7 @@ class WorkflowClient(object):
                 header_params=header_params,
                 body=manage_job_permission_details)
 
-    def repair_ai_data_platform_job_run(self, ai_data_platform_id, workspace_key, job_run_key, repair_job_run_details, **kwargs):
+    def repair_job_run(self, ai_data_platform_id, workspace_key, job_run_key, repair_job_run_details, **kwargs):
         """
         Repairs and reruns a job run.
 
@@ -2068,7 +2068,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "repair_ai_data_platform_job_run got unknown kwargs: {!r}".format(extra_kwargs))
+                "repair_job_run got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2116,7 +2116,7 @@ class WorkflowClient(object):
                 body=repair_job_run_details,
                 response_type="JobRun")
 
-    def update_ai_data_platform_job(self, ai_data_platform_id, workspace_key, job_key, update_job_details, **kwargs):
+    def update_job(self, ai_data_platform_id, workspace_key, job_key, update_job_details, **kwargs):
         """
         Update details for a job in AI Data Platform Workbench.
 
@@ -2174,7 +2174,7 @@ class WorkflowClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_job got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_job got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

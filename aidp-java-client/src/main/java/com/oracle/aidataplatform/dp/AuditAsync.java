@@ -67,7 +67,7 @@ public interface AuditAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformAuditLogsResponse> manageAiDataPlatformAuditLogs(ManageAiDataPlatformAuditLogsRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformAuditLogsRequest, ManageAiDataPlatformAuditLogsResponse> handler);
+    java.util.concurrent.Future<ManageAuditLogsResponse> manageAuditLogs(ManageAuditLogsRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAuditLogsRequest, ManageAuditLogsResponse> handler);
     
     /**
      * Searches audit logs for AI Data Platform Workbench.
@@ -79,6 +79,6 @@ public interface AuditAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<SearchAiDataPlatformAuditLogsResponse> searchAiDataPlatformAuditLogs(SearchAiDataPlatformAuditLogsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchAiDataPlatformAuditLogsRequest, SearchAiDataPlatformAuditLogsResponse> handler);
+    java.util.concurrent.Future<SearchAuditLogsResponse> searchAuditLogs(SearchAuditLogsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchAuditLogsRequest, SearchAuditLogsResponse> handler);
     
 }

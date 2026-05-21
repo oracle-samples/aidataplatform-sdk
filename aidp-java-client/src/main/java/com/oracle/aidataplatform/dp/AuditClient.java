@@ -78,18 +78,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public ManageAiDataPlatformAuditLogsResponse manageAiDataPlatformAuditLogs(ManageAiDataPlatformAuditLogsRequest request) {
+    public ManageAuditLogsResponse manageAuditLogs(ManageAuditLogsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getManageAuditLogsDetails(), "manageAuditLogsDetails is required");
         
 
 
-return clientCall(request, ManageAiDataPlatformAuditLogsResponse::builder)
-        .logger(LOG, "manageAiDataPlatformAuditLogs")
-        .serviceDetails("Audit", "ManageAiDataPlatformAuditLogs", "")
+return clientCall(request, ManageAuditLogsResponse::builder)
+        .logger(LOG, "manageAuditLogs")
+        .serviceDetails("Audit", "ManageAuditLogs", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformAuditLogsRequest::builder)
+        .requestBuilder(ManageAuditLogsRequest::builder)
         
         
         .basePath("/20260430")
@@ -103,25 +103,25 @@ return clientCall(request, ManageAiDataPlatformAuditLogsResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformAuditLogsResponse.Builder::opcRequestId)
+            ManageAuditLogsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public SearchAiDataPlatformAuditLogsResponse searchAiDataPlatformAuditLogs(SearchAiDataPlatformAuditLogsRequest request) {
+    public SearchAuditLogsResponse searchAuditLogs(SearchAuditLogsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getSearchAuditLogsDetails(), "searchAuditLogsDetails is required");
         
 
 
-return clientCall(request, SearchAiDataPlatformAuditLogsResponse::builder)
-        .logger(LOG, "searchAiDataPlatformAuditLogs")
-        .serviceDetails("Audit", "SearchAiDataPlatformAuditLogs", "")
+return clientCall(request, SearchAuditLogsResponse::builder)
+        .logger(LOG, "searchAuditLogs")
+        .serviceDetails("Audit", "SearchAuditLogs", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SearchAiDataPlatformAuditLogsRequest::builder)
+        .requestBuilder(SearchAuditLogsRequest::builder)
         
         
         .basePath("/20260430")
@@ -142,11 +142,11 @@ return clientCall(request, SearchAiDataPlatformAuditLogsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.AuditLogSearchResultCollection.class, SearchAiDataPlatformAuditLogsResponse.Builder::auditLogSearchResultCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.AuditLogSearchResultCollection.class, SearchAuditLogsResponse.Builder::auditLogSearchResultCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            SearchAiDataPlatformAuditLogsResponse.Builder::opcRequestId)
+            SearchAuditLogsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            SearchAiDataPlatformAuditLogsResponse.Builder::opcNextPage)
+            SearchAuditLogsResponse.Builder::opcNextPage)
 
                 .callSync();
     }

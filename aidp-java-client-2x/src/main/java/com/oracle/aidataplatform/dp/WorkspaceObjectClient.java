@@ -243,7 +243,7 @@ public class WorkspaceObjectClient implements WorkspaceObject {
         if (com.oracle.bmc.http.ApacheUtils.isExtraStreamLogsEnabled()) {
              LOG.warn(com.oracle.bmc.http.ApacheUtils.getStreamWarningMessage(
                 "WorkspaceObjectClient",
-                 "createAiDataPlatformWorkspaceObject,getAiDataPlatformWorkspaceObject,updateAiDataPlatformWorkspaceObject"
+                 "createWorkspaceObject,getWorkspaceObject,updateWorkspaceObject"
                  )
              );
         }
@@ -379,15 +379,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public CopyAiDataPlatformWorkspaceObjectResponse copyAiDataPlatformWorkspaceObject(CopyAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called copyAiDataPlatformWorkspaceObject");
-            final CopyAiDataPlatformWorkspaceObjectRequest interceptedRequest = CopyAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CopyAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+    public CopyWorkspaceObjectResponse copyWorkspaceObject(CopyWorkspaceObjectRequest request) {
+        LOG.trace("Called copyWorkspaceObject");
+            final CopyWorkspaceObjectRequest interceptedRequest = CopyWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CopyWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "CopyAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CopyAiDataPlatformWorkspaceObjectResponse> transformer = CopyAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "CopyWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CopyWorkspaceObjectResponse> transformer = CopyWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -403,19 +403,19 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public CreateAiDataPlatformWorkspaceObjectResponse createAiDataPlatformWorkspaceObject(CreateAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called createAiDataPlatformWorkspaceObject");
+    public CreateWorkspaceObjectResponse createWorkspaceObject(CreateWorkspaceObjectRequest request) {
+        LOG.trace("Called createWorkspaceObject");
         try {
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(request.getRetryConfiguration(), retryConfiguration, true);
             if (request.getRetryConfiguration() != null || retryConfiguration != null || shouldRetryBecauseOfWaiterConfiguration(retrier) || authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-                request = com.oracle.bmc.retrier.Retriers.wrapBodyInputStreamIfNecessary(request, CreateAiDataPlatformWorkspaceObjectRequest.builder());
+                request = com.oracle.bmc.retrier.Retriers.wrapBodyInputStreamIfNecessary(request, CreateWorkspaceObjectRequest.builder());
             }
-            final CreateAiDataPlatformWorkspaceObjectRequest interceptedRequest = CreateAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+            final CreateWorkspaceObjectRequest interceptedRequest = CreateWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "CreateAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformWorkspaceObjectResponse> transformer = CreateAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "CreateWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateWorkspaceObjectResponse> transformer = CreateWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -441,15 +441,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public DeleteAiDataPlatformWorkspaceObjectResponse deleteAiDataPlatformWorkspaceObject(DeleteAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called deleteAiDataPlatformWorkspaceObject");
-            final DeleteAiDataPlatformWorkspaceObjectRequest interceptedRequest = DeleteAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+    public DeleteWorkspaceObjectResponse deleteWorkspaceObject(DeleteWorkspaceObjectRequest request) {
+        LOG.trace("Called deleteWorkspaceObject");
+            final DeleteWorkspaceObjectRequest interceptedRequest = DeleteWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "DeleteAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformWorkspaceObjectResponse> transformer = DeleteAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "DeleteWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteWorkspaceObjectResponse> transformer = DeleteWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -465,16 +465,16 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public DownloadAiDataPlatformWorkspaceObjectWithParResponse downloadAiDataPlatformWorkspaceObjectWithPar(DownloadAiDataPlatformWorkspaceObjectWithParRequest request) {
-        LOG.trace("Called downloadAiDataPlatformWorkspaceObjectWithPar");
-            final DownloadAiDataPlatformWorkspaceObjectWithParRequest interceptedRequest = DownloadAiDataPlatformWorkspaceObjectWithParConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadAiDataPlatformWorkspaceObjectWithParConverter.fromRequest(client, interceptedRequest);
+    public DownloadWorkspaceObjectWithParResponse downloadWorkspaceObjectWithPar(DownloadWorkspaceObjectWithParRequest request) {
+        LOG.trace("Called downloadWorkspaceObjectWithPar");
+            final DownloadWorkspaceObjectWithParRequest interceptedRequest = DownloadWorkspaceObjectWithParConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DownloadWorkspaceObjectWithParConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "DownloadAiDataPlatformWorkspaceObjectWithPar", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DownloadAiDataPlatformWorkspaceObjectWithParResponse> transformer = DownloadAiDataPlatformWorkspaceObjectWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "DownloadWorkspaceObjectWithPar", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DownloadWorkspaceObjectWithParResponse> transformer = DownloadWorkspaceObjectWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -490,15 +490,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public GetAiDataPlatformWorkspaceObjectResponse getAiDataPlatformWorkspaceObject(GetAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called getAiDataPlatformWorkspaceObject");
-            final GetAiDataPlatformWorkspaceObjectRequest interceptedRequest = GetAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+    public GetWorkspaceObjectResponse getWorkspaceObject(GetWorkspaceObjectRequest request) {
+        LOG.trace("Called getWorkspaceObject");
+            final GetWorkspaceObjectRequest interceptedRequest = GetWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "GetAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformWorkspaceObjectResponse> transformer = GetAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "GetWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetWorkspaceObjectResponse> transformer = GetWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -514,15 +514,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public HeadAiDataPlatformWorkspaceObjectResponse headAiDataPlatformWorkspaceObject(HeadAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called headAiDataPlatformWorkspaceObject");
-            final HeadAiDataPlatformWorkspaceObjectRequest interceptedRequest = HeadAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = HeadAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+    public HeadWorkspaceObjectResponse headWorkspaceObject(HeadWorkspaceObjectRequest request) {
+        LOG.trace("Called headWorkspaceObject");
+            final HeadWorkspaceObjectRequest interceptedRequest = HeadWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = HeadWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "HeadAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, HeadAiDataPlatformWorkspaceObjectResponse> transformer = HeadAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "HeadWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, HeadWorkspaceObjectResponse> transformer = HeadWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -538,15 +538,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public ListAiDataPlatformWorkspaceObjectPermissionsResponse listAiDataPlatformWorkspaceObjectPermissions(ListAiDataPlatformWorkspaceObjectPermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformWorkspaceObjectPermissions");
-            final ListAiDataPlatformWorkspaceObjectPermissionsRequest interceptedRequest = ListAiDataPlatformWorkspaceObjectPermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformWorkspaceObjectPermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListWorkspaceObjectPermissionsResponse listWorkspaceObjectPermissions(ListWorkspaceObjectPermissionsRequest request) {
+        LOG.trace("Called listWorkspaceObjectPermissions");
+            final ListWorkspaceObjectPermissionsRequest interceptedRequest = ListWorkspaceObjectPermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListWorkspaceObjectPermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "ListAiDataPlatformWorkspaceObjectPermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformWorkspaceObjectPermissionsResponse> transformer = ListAiDataPlatformWorkspaceObjectPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "ListWorkspaceObjectPermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListWorkspaceObjectPermissionsResponse> transformer = ListWorkspaceObjectPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -562,15 +562,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public ListAiDataPlatformWorkspaceObjectsResponse listAiDataPlatformWorkspaceObjects(ListAiDataPlatformWorkspaceObjectsRequest request) {
-        LOG.trace("Called listAiDataPlatformWorkspaceObjects");
-            final ListAiDataPlatformWorkspaceObjectsRequest interceptedRequest = ListAiDataPlatformWorkspaceObjectsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformWorkspaceObjectsConverter.fromRequest(client, interceptedRequest);
+    public ListWorkspaceObjectsResponse listWorkspaceObjects(ListWorkspaceObjectsRequest request) {
+        LOG.trace("Called listWorkspaceObjects");
+            final ListWorkspaceObjectsRequest interceptedRequest = ListWorkspaceObjectsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListWorkspaceObjectsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "ListAiDataPlatformWorkspaceObjects", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformWorkspaceObjectsResponse> transformer = ListAiDataPlatformWorkspaceObjectsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "ListWorkspaceObjects", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListWorkspaceObjectsResponse> transformer = ListWorkspaceObjectsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -586,15 +586,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public ManageAiDataPlatformWorkspaceObjectPermissionResponse manageAiDataPlatformWorkspaceObjectPermission(ManageAiDataPlatformWorkspaceObjectPermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformWorkspaceObjectPermission");
-            final ManageAiDataPlatformWorkspaceObjectPermissionRequest interceptedRequest = ManageAiDataPlatformWorkspaceObjectPermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformWorkspaceObjectPermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageWorkspaceObjectPermissionResponse manageWorkspaceObjectPermission(ManageWorkspaceObjectPermissionRequest request) {
+        LOG.trace("Called manageWorkspaceObjectPermission");
+            final ManageWorkspaceObjectPermissionRequest interceptedRequest = ManageWorkspaceObjectPermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageWorkspaceObjectPermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "ManageAiDataPlatformWorkspaceObjectPermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformWorkspaceObjectPermissionResponse> transformer = ManageAiDataPlatformWorkspaceObjectPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "ManageWorkspaceObjectPermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageWorkspaceObjectPermissionResponse> transformer = ManageWorkspaceObjectPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -610,15 +610,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public MoveAiDataPlatformWorkspaceObjectResponse moveAiDataPlatformWorkspaceObject(MoveAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called moveAiDataPlatformWorkspaceObject");
-            final MoveAiDataPlatformWorkspaceObjectRequest interceptedRequest = MoveAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MoveAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+    public MoveWorkspaceObjectResponse moveWorkspaceObject(MoveWorkspaceObjectRequest request) {
+        LOG.trace("Called moveWorkspaceObject");
+            final MoveWorkspaceObjectRequest interceptedRequest = MoveWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MoveWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "MoveAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, MoveAiDataPlatformWorkspaceObjectResponse> transformer = MoveAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "MoveWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, MoveWorkspaceObjectResponse> transformer = MoveWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -634,15 +634,15 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public RenameAiDataPlatformWorkspaceObjectResponse renameAiDataPlatformWorkspaceObject(RenameAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called renameAiDataPlatformWorkspaceObject");
-            final RenameAiDataPlatformWorkspaceObjectRequest interceptedRequest = RenameAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RenameAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+    public RenameWorkspaceObjectResponse renameWorkspaceObject(RenameWorkspaceObjectRequest request) {
+        LOG.trace("Called renameWorkspaceObject");
+            final RenameWorkspaceObjectRequest interceptedRequest = RenameWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RenameWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "RenameAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RenameAiDataPlatformWorkspaceObjectResponse> transformer = RenameAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "RenameWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RenameWorkspaceObjectResponse> transformer = RenameWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -658,18 +658,18 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public UpdateAiDataPlatformWorkspaceObjectResponse updateAiDataPlatformWorkspaceObject(UpdateAiDataPlatformWorkspaceObjectRequest request) {
-        LOG.trace("Called updateAiDataPlatformWorkspaceObject");
+    public UpdateWorkspaceObjectResponse updateWorkspaceObject(UpdateWorkspaceObjectRequest request) {
+        LOG.trace("Called updateWorkspaceObject");
         try {
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(request.getRetryConfiguration(), retryConfiguration, true);
             if (request.getRetryConfiguration() != null || retryConfiguration != null || shouldRetryBecauseOfWaiterConfiguration(retrier) || authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-                request = com.oracle.bmc.retrier.Retriers.wrapBodyInputStreamIfNecessary(request, UpdateAiDataPlatformWorkspaceObjectRequest.builder());
+                request = com.oracle.bmc.retrier.Retriers.wrapBodyInputStreamIfNecessary(request, UpdateWorkspaceObjectRequest.builder());
             }
-            final UpdateAiDataPlatformWorkspaceObjectRequest interceptedRequest = UpdateAiDataPlatformWorkspaceObjectConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
+            final UpdateWorkspaceObjectRequest interceptedRequest = UpdateWorkspaceObjectConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateWorkspaceObjectConverter.fromRequest(client, interceptedRequest);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "UpdateAiDataPlatformWorkspaceObject", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformWorkspaceObjectResponse> transformer = UpdateAiDataPlatformWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "UpdateWorkspaceObject", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateWorkspaceObjectResponse> transformer = UpdateWorkspaceObjectConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -695,16 +695,16 @@ public class WorkspaceObjectClient implements WorkspaceObject {
     }
 
     @Override
-    public UploadAiDataPlatformWorkspaceObjectWithParResponse uploadAiDataPlatformWorkspaceObjectWithPar(UploadAiDataPlatformWorkspaceObjectWithParRequest request) {
-        LOG.trace("Called uploadAiDataPlatformWorkspaceObjectWithPar");
-            final UploadAiDataPlatformWorkspaceObjectWithParRequest interceptedRequest = UploadAiDataPlatformWorkspaceObjectWithParConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UploadAiDataPlatformWorkspaceObjectWithParConverter.fromRequest(client, interceptedRequest);
+    public UploadWorkspaceObjectWithParResponse uploadWorkspaceObjectWithPar(UploadWorkspaceObjectWithParRequest request) {
+        LOG.trace("Called uploadWorkspaceObjectWithPar");
+            final UploadWorkspaceObjectWithParRequest interceptedRequest = UploadWorkspaceObjectWithParConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UploadWorkspaceObjectWithParConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "UploadAiDataPlatformWorkspaceObjectWithPar", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UploadAiDataPlatformWorkspaceObjectWithParResponse> transformer = UploadAiDataPlatformWorkspaceObjectWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("WorkspaceObject", "UploadWorkspaceObjectWithPar", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UploadWorkspaceObjectWithParResponse> transformer = UploadWorkspaceObjectWithParConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

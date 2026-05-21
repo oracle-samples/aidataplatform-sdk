@@ -66,7 +66,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformDataTableResponse createAiDataPlatformDataTable(CreateAiDataPlatformDataTableRequest request);
+    CreateDataTableResponse createDataTable(CreateDataTableRequest request);
     
     /**
      * Creates a schema.
@@ -76,7 +76,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformSchemaResponse createAiDataPlatformSchema(CreateAiDataPlatformSchemaRequest request);
+    CreateSchemaResponse createSchema(CreateSchemaRequest request);
     
     /**
      * Creates a table.
@@ -86,7 +86,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformTableResponse createAiDataPlatformTable(CreateAiDataPlatformTableRequest request);
+    CreateTableResponse createTable(CreateTableRequest request);
     
     /**
      * Creates a view.
@@ -96,7 +96,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformViewResponse createAiDataPlatformView(CreateAiDataPlatformViewRequest request);
+    CreateViewResponse createView(CreateViewRequest request);
     
     /**
      * Deletes a schema from an AI Data Platform Workbench.
@@ -106,7 +106,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformSchemaResponse deleteAiDataPlatformSchema(DeleteAiDataPlatformSchemaRequest request);
+    DeleteSchemaResponse deleteSchema(DeleteSchemaRequest request);
     
     /**
      * Deletes a table from an AI Data Platform Workbench.
@@ -116,7 +116,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformTableResponse deleteAiDataPlatformTable(DeleteAiDataPlatformTableRequest request);
+    DeleteTableResponse deleteTable(DeleteTableRequest request);
     
     /**
      * Deletes a view from AI Data Platform Workbench.
@@ -126,7 +126,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformViewResponse deleteAiDataPlatformView(DeleteAiDataPlatformViewRequest request);
+    DeleteViewResponse deleteView(DeleteViewRequest request);
     
     /**
      * Generates a URI for uploading a sample file to a temporary folder in a schema.
@@ -136,7 +136,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GenerateAiDataPlatformTempFileUploadTargetResponse generateAiDataPlatformTempFileUploadTarget(GenerateAiDataPlatformTempFileUploadTargetRequest request);
+    GenerateTempFileUploadTargetResponse generateTempFileUploadTarget(GenerateTempFileUploadTargetRequest request);
     
     /**
      * Returns detailed information about a specified schema.
@@ -146,7 +146,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformSchemaResponse getAiDataPlatformSchema(GetAiDataPlatformSchemaRequest request);
+    GetSchemaResponse getSchema(GetSchemaRequest request);
     
     /**
      * Returns detailed information about a table.
@@ -156,7 +156,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformTableResponse getAiDataPlatformTable(GetAiDataPlatformTableRequest request);
+    GetTableResponse getTable(GetTableRequest request);
     
     /**
      * Returns information about a view.
@@ -166,7 +166,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformViewResponse getAiDataPlatformView(GetAiDataPlatformViewRequest request);
+    GetViewResponse getView(GetViewRequest request);
     
     /**
      * Returns a list of permissions for a given schema.
@@ -176,7 +176,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformSchemaPermissionsResponse listAiDataPlatformSchemaPermissions(ListAiDataPlatformSchemaPermissionsRequest request);
+    ListSchemaPermissionsResponse listSchemaPermissions(ListSchemaPermissionsRequest request);
     
     /**
      * Returns a list of schemas in a given AI Data Platform Workbench.
@@ -186,7 +186,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformSchemasResponse listAiDataPlatformSchemas(ListAiDataPlatformSchemasRequest request);
+    ListSchemasResponse listSchemas(ListSchemasRequest request);
     
     /**
      * Returns a list of permissions for a given table.
@@ -196,7 +196,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformTablePermissionsResponse listAiDataPlatformTablePermissions(ListAiDataPlatformTablePermissionsRequest request);
+    ListTablePermissionsResponse listTablePermissions(ListTablePermissionsRequest request);
     
     /**
      * Returns a list of tables in a schema.
@@ -206,7 +206,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformTablesResponse listAiDataPlatformTables(ListAiDataPlatformTablesRequest request);
+    ListTablesResponse listTables(ListTablesRequest request);
     
     /**
      * Returns a list of view permissions.
@@ -217,7 +217,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformViewPermissionsResponse listAiDataPlatformViewPermissions(ListAiDataPlatformViewPermissionsRequest request);
+    ListViewPermissionsResponse listViewPermissions(ListViewPermissionsRequest request);
     
     /**
      * Returns a list of views in a schema.
@@ -228,7 +228,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformViewsResponse listAiDataPlatformViews(ListAiDataPlatformViewsRequest request);
+    ListViewsResponse listViews(ListViewsRequest request);
     
     /**
      * Updates the permissions for a given schema.
@@ -238,7 +238,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformSchemaPermissionResponse manageAiDataPlatformSchemaPermission(ManageAiDataPlatformSchemaPermissionRequest request);
+    ManageSchemaPermissionResponse manageSchemaPermission(ManageSchemaPermissionRequest request);
     
     /**
      * Updates the permissions for a given table.
@@ -248,7 +248,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformTablePermissionResponse manageAiDataPlatformTablePermission(ManageAiDataPlatformTablePermissionRequest request);
+    ManageTablePermissionResponse manageTablePermission(ManageTablePermissionRequest request);
     
     /**
      * Updates permissions on a view.
@@ -258,7 +258,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformViewPermissionResponse manageAiDataPlatformViewPermission(ManageAiDataPlatformViewPermissionRequest request);
+    ManageViewPermissionResponse manageViewPermission(ManageViewPermissionRequest request);
     
     /**
      * Returns details of a table schema from the specified location.
@@ -268,7 +268,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    PerformAiDataPlatformInferSchemaResponse performAiDataPlatformInferSchema(PerformAiDataPlatformInferSchemaRequest request);
+    PerformInferSchemaResponse performInferSchema(PerformInferSchemaRequest request);
     
     /**
      * Returns table schema and data from the specified location.
@@ -278,7 +278,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    PerformAiDataPlatformInferSchemaWithPreviewResponse performAiDataPlatformInferSchemaWithPreview(PerformAiDataPlatformInferSchemaWithPreviewRequest request);
+    PerformInferSchemaWithPreviewResponse performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request);
     
     /**
      * Refreshes schema in an AI Data Platform Workbench through the crawler.
@@ -288,7 +288,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RefreshAiDataPlatformSchemaResponse refreshAiDataPlatformSchema(RefreshAiDataPlatformSchemaRequest request);
+    RefreshSchemaResponse refreshSchema(RefreshSchemaRequest request);
     
     /**
      * Refreshes a table in an AI Data Platform Workbench through the crawler.
@@ -298,7 +298,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RefreshAiDataPlatformTableResponse refreshAiDataPlatformTable(RefreshAiDataPlatformTableRequest request);
+    RefreshTableResponse refreshTable(RefreshTableRequest request);
     
     /**
      * Retrieve PAR for the entities created in AI Data Platform Workbench.
@@ -308,7 +308,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RetrieveAiDataPlatformParResponse retrieveAiDataPlatformPar(RetrieveAiDataPlatformParRequest request);
+    RetrieveParResponse retrievePar(RetrieveParRequest request);
     
     /**
      * Updates a schema.
@@ -318,7 +318,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformSchemaResponse updateAiDataPlatformSchema(UpdateAiDataPlatformSchemaRequest request);
+    UpdateSchemaResponse updateSchema(UpdateSchemaRequest request);
     
     /**
      * Updates a table with provided details.
@@ -328,7 +328,7 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformTableResponse updateAiDataPlatformTable(UpdateAiDataPlatformTableRequest request);
+    UpdateTableResponse updateTable(UpdateTableRequest request);
     
     /**
      * Updates a view with given information.
@@ -338,7 +338,13 @@ public interface Schema extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformViewResponse updateAiDataPlatformView(UpdateAiDataPlatformViewRequest request);
+    UpdateViewResponse updateView(UpdateViewRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    SchemaWaiters getWaiters();
 }

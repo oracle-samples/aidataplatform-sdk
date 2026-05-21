@@ -67,7 +67,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CopyAiDataPlatformWorkspaceObjectResponse copyAiDataPlatformWorkspaceObject(CopyAiDataPlatformWorkspaceObjectRequest request);
+    CopyWorkspaceObjectResponse copyWorkspaceObject(CopyWorkspaceObjectRequest request);
     
     /**
      * Creates a workspace object. You can create a file or folder in the workspace.
@@ -105,7 +105,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformWorkspaceObjectResponse createAiDataPlatformWorkspaceObject(CreateAiDataPlatformWorkspaceObjectRequest request);
+    CreateWorkspaceObjectResponse createWorkspaceObject(CreateWorkspaceObjectRequest request);
     
     /**
      * Deletes a workspace object.
@@ -115,7 +115,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformWorkspaceObjectResponse deleteAiDataPlatformWorkspaceObject(DeleteAiDataPlatformWorkspaceObjectRequest request);
+    DeleteWorkspaceObjectResponse deleteWorkspaceObject(DeleteWorkspaceObjectRequest request);
     
     /**
      * Downloads a workspace file by providing the PAR info for downloading the file for given path.
@@ -126,7 +126,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DownloadAiDataPlatformWorkspaceObjectWithParResponse downloadAiDataPlatformWorkspaceObjectWithPar(DownloadAiDataPlatformWorkspaceObjectWithParRequest request);
+    DownloadWorkspaceObjectWithParResponse downloadWorkspaceObjectWithPar(DownloadWorkspaceObjectWithParRequest request);
     
     /**
      * Returns detailed information about a workspace object.
@@ -136,7 +136,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformWorkspaceObjectResponse getAiDataPlatformWorkspaceObject(GetAiDataPlatformWorkspaceObjectRequest request);
+    GetWorkspaceObjectResponse getWorkspaceObject(GetWorkspaceObjectRequest request);
     
     /**
      * Returns metadata about a workspace object. The contents of the file are not retrieved.
@@ -146,7 +146,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    HeadAiDataPlatformWorkspaceObjectResponse headAiDataPlatformWorkspaceObject(HeadAiDataPlatformWorkspaceObjectRequest request);
+    HeadWorkspaceObjectResponse headWorkspaceObject(HeadWorkspaceObjectRequest request);
     
     /**
      * Returns a list of workspace object permissions.
@@ -157,7 +157,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformWorkspaceObjectPermissionsResponse listAiDataPlatformWorkspaceObjectPermissions(ListAiDataPlatformWorkspaceObjectPermissionsRequest request);
+    ListWorkspaceObjectPermissionsResponse listWorkspaceObjectPermissions(ListWorkspaceObjectPermissionsRequest request);
     
     /**
      * Returns a list of objects in the workspace.
@@ -168,7 +168,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformWorkspaceObjectsResponse listAiDataPlatformWorkspaceObjects(ListAiDataPlatformWorkspaceObjectsRequest request);
+    ListWorkspaceObjectsResponse listWorkspaceObjects(ListWorkspaceObjectsRequest request);
     
     /**
      * Updates permissions on a workspace object.
@@ -178,7 +178,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformWorkspaceObjectPermissionResponse manageAiDataPlatformWorkspaceObjectPermission(ManageAiDataPlatformWorkspaceObjectPermissionRequest request);
+    ManageWorkspaceObjectPermissionResponse manageWorkspaceObjectPermission(ManageWorkspaceObjectPermissionRequest request);
     
     /**
      * Moves a workspace object to different location.
@@ -189,7 +189,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    MoveAiDataPlatformWorkspaceObjectResponse moveAiDataPlatformWorkspaceObject(MoveAiDataPlatformWorkspaceObjectRequest request);
+    MoveWorkspaceObjectResponse moveWorkspaceObject(MoveWorkspaceObjectRequest request);
     
     /**
      * Renames a workspace object.
@@ -200,7 +200,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RenameAiDataPlatformWorkspaceObjectResponse renameAiDataPlatformWorkspaceObject(RenameAiDataPlatformWorkspaceObjectRequest request);
+    RenameWorkspaceObjectResponse renameWorkspaceObject(RenameWorkspaceObjectRequest request);
     
     /**
      * Updates a workspace object with the provided information.
@@ -237,7 +237,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformWorkspaceObjectResponse updateAiDataPlatformWorkspaceObject(UpdateAiDataPlatformWorkspaceObjectRequest request);
+    UpdateWorkspaceObjectResponse updateWorkspaceObject(UpdateWorkspaceObjectRequest request);
     
     /**
      * Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
@@ -248,7 +248,7 @@ public interface WorkspaceObject extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UploadAiDataPlatformWorkspaceObjectWithParResponse uploadAiDataPlatformWorkspaceObjectWithPar(UploadAiDataPlatformWorkspaceObjectWithParRequest request);
+    UploadWorkspaceObjectWithParResponse uploadWorkspaceObjectWithPar(UploadWorkspaceObjectWithParRequest request);
     
 
 }

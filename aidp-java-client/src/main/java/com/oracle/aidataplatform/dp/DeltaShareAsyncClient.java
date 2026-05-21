@@ -83,18 +83,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformRecipientResponse> createAiDataPlatformRecipient(CreateAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRecipientRequest, CreateAiDataPlatformRecipientResponse> handler) {
+    public java.util.concurrent.Future<CreateRecipientResponse> createRecipient(CreateRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateRecipientRequest, CreateRecipientResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateRecipientDetails(), "createRecipientDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformRecipientResponse::builder)
-        .logger(LOG, "createAiDataPlatformRecipient")
-        .serviceDetails("DeltaShare", "CreateAiDataPlatformRecipient", "")
+return clientCall(request, CreateRecipientResponse::builder)
+        .logger(LOG, "createRecipient")
+        .serviceDetails("DeltaShare", "CreateRecipient", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformRecipientRequest::builder)
+        .requestBuilder(CreateRecipientRequest::builder)
         
         
         .basePath("/20260430")
@@ -108,28 +108,28 @@ return clientCall(request, CreateAiDataPlatformRecipientResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Recipient.class, CreateAiDataPlatformRecipientResponse.Builder::recipient)
+            .handleBody(com.oracle.aidataplatform.dp.model.Recipient.class, CreateRecipientResponse.Builder::recipient)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformRecipientResponse.Builder::etag)
+            CreateRecipientResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformRecipientResponse.Builder::opcRequestId)
+            CreateRecipientResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformShareResponse> createAiDataPlatformShare(CreateAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformShareRequest, CreateAiDataPlatformShareResponse> handler) {
+    public java.util.concurrent.Future<CreateShareResponse> createShare(CreateShareRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateShareRequest, CreateShareResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateShareDetails(), "createShareDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformShareResponse::builder)
-        .logger(LOG, "createAiDataPlatformShare")
-        .serviceDetails("DeltaShare", "CreateAiDataPlatformShare", "")
+return clientCall(request, CreateShareResponse::builder)
+        .logger(LOG, "createShare")
+        .serviceDetails("DeltaShare", "CreateShare", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformShareRequest::builder)
+        .requestBuilder(CreateShareRequest::builder)
         
         
         .basePath("/20260430")
@@ -143,28 +143,28 @@ return clientCall(request, CreateAiDataPlatformShareResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Share.class, CreateAiDataPlatformShareResponse.Builder::share)
+            .handleBody(com.oracle.aidataplatform.dp.model.Share.class, CreateShareResponse.Builder::share)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformShareResponse.Builder::etag)
+            CreateShareResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformShareResponse.Builder::opcRequestId)
+            CreateShareResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformRecipientResponse> deleteAiDataPlatformRecipient(DeleteAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRecipientRequest, DeleteAiDataPlatformRecipientResponse> handler) {
+    public java.util.concurrent.Future<DeleteRecipientResponse> deleteRecipient(DeleteRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteRecipientRequest, DeleteRecipientResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRecipientKey(), "recipientKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformRecipientResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformRecipient")
-        .serviceDetails("DeltaShare", "DeleteAiDataPlatformRecipient", "")
+return clientCall(request, DeleteRecipientResponse::builder)
+        .logger(LOG, "deleteRecipient")
+        .serviceDetails("DeltaShare", "DeleteRecipient", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformRecipientRequest::builder)
+        .requestBuilder(DeleteRecipientRequest::builder)
         
         
         .basePath("/20260430")
@@ -179,24 +179,24 @@ return clientCall(request, DeleteAiDataPlatformRecipientResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformRecipientResponse.Builder::opcRequestId)
+            DeleteRecipientResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformShareResponse> deleteAiDataPlatformShare(DeleteAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformShareRequest, DeleteAiDataPlatformShareResponse> handler) {
+    public java.util.concurrent.Future<DeleteShareResponse> deleteShare(DeleteShareRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteShareRequest, DeleteShareResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getShareKey(), "shareKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformShareResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformShare")
-        .serviceDetails("DeltaShare", "DeleteAiDataPlatformShare", "")
+return clientCall(request, DeleteShareResponse::builder)
+        .logger(LOG, "deleteShare")
+        .serviceDetails("DeltaShare", "DeleteShare", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformShareRequest::builder)
+        .requestBuilder(DeleteShareRequest::builder)
         
         
         .basePath("/20260430")
@@ -211,24 +211,24 @@ return clientCall(request, DeleteAiDataPlatformShareResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformShareResponse.Builder::opcRequestId)
+            DeleteShareResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformRecipientResponse> getAiDataPlatformRecipient(GetAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRecipientRequest, GetAiDataPlatformRecipientResponse> handler) {
+    public java.util.concurrent.Future<GetRecipientResponse> getRecipient(GetRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<GetRecipientRequest, GetRecipientResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRecipientKey(), "recipientKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformRecipientResponse::builder)
-        .logger(LOG, "getAiDataPlatformRecipient")
-        .serviceDetails("DeltaShare", "GetAiDataPlatformRecipient", "")
+return clientCall(request, GetRecipientResponse::builder)
+        .logger(LOG, "getRecipient")
+        .serviceDetails("DeltaShare", "GetRecipient", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformRecipientRequest::builder)
+        .requestBuilder(GetRecipientRequest::builder)
         
         
         .basePath("/20260430")
@@ -240,28 +240,28 @@ return clientCall(request, GetAiDataPlatformRecipientResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Recipient.class, GetAiDataPlatformRecipientResponse.Builder::recipient)
+            .handleBody(com.oracle.aidataplatform.dp.model.Recipient.class, GetRecipientResponse.Builder::recipient)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformRecipientResponse.Builder::etag)
+            GetRecipientResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformRecipientResponse.Builder::opcRequestId)
+            GetRecipientResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformShareResponse> getAiDataPlatformShare(GetAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformShareRequest, GetAiDataPlatformShareResponse> handler) {
+    public java.util.concurrent.Future<GetShareResponse> getShare(GetShareRequest request, final com.oracle.bmc.responses.AsyncHandler<GetShareRequest, GetShareResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getShareKey(), "shareKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformShareResponse::builder)
-        .logger(LOG, "getAiDataPlatformShare")
-        .serviceDetails("DeltaShare", "GetAiDataPlatformShare", "")
+return clientCall(request, GetShareResponse::builder)
+        .logger(LOG, "getShare")
+        .serviceDetails("DeltaShare", "GetShare", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformShareRequest::builder)
+        .requestBuilder(GetShareRequest::builder)
         
         
         .basePath("/20260430")
@@ -273,28 +273,28 @@ return clientCall(request, GetAiDataPlatformShareResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Share.class, GetAiDataPlatformShareResponse.Builder::share)
+            .handleBody(com.oracle.aidataplatform.dp.model.Share.class, GetShareResponse.Builder::share)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformShareResponse.Builder::etag)
+            GetShareResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformShareResponse.Builder::opcRequestId)
+            GetShareResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformRecipientPermissionsResponse> listAiDataPlatformRecipientPermissions(ListAiDataPlatformRecipientPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientPermissionsRequest, ListAiDataPlatformRecipientPermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListRecipientPermissionsResponse> listRecipientPermissions(ListRecipientPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecipientPermissionsRequest, ListRecipientPermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRecipientKey(), "recipientKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRecipientPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformRecipientPermissions")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformRecipientPermissions", "")
+return clientCall(request, ListRecipientPermissionsResponse::builder)
+        .logger(LOG, "listRecipientPermissions")
+        .serviceDetails("DeltaShare", "ListRecipientPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRecipientPermissionsRequest::builder)
+        .requestBuilder(ListRecipientPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -322,28 +322,28 @@ return clientCall(request, ListAiDataPlatformRecipientPermissionsResponse::build
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RecipientPermissionCollection.class, ListAiDataPlatformRecipientPermissionsResponse.Builder::recipientPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RecipientPermissionCollection.class, ListRecipientPermissionsResponse.Builder::recipientPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRecipientPermissionsResponse.Builder::opcRequestId)
+            ListRecipientPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRecipientPermissionsResponse.Builder::opcNextPage)
+            ListRecipientPermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformRecipientSharesResponse> listAiDataPlatformRecipientShares(ListAiDataPlatformRecipientSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientSharesRequest, ListAiDataPlatformRecipientSharesResponse> handler) {
+    public java.util.concurrent.Future<ListRecipientSharesResponse> listRecipientShares(ListRecipientSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecipientSharesRequest, ListRecipientSharesResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRecipientKey(), "recipientKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRecipientSharesResponse::builder)
-        .logger(LOG, "listAiDataPlatformRecipientShares")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformRecipientShares", "")
+return clientCall(request, ListRecipientSharesResponse::builder)
+        .logger(LOG, "listRecipientShares")
+        .serviceDetails("DeltaShare", "ListRecipientShares", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRecipientSharesRequest::builder)
+        .requestBuilder(ListRecipientSharesRequest::builder)
         
         
         .basePath("/20260430")
@@ -375,26 +375,26 @@ return clientCall(request, ListAiDataPlatformRecipientSharesResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ShareCollection.class, ListAiDataPlatformRecipientSharesResponse.Builder::shareCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ShareCollection.class, ListRecipientSharesResponse.Builder::shareCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRecipientSharesResponse.Builder::opcRequestId)
+            ListRecipientSharesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRecipientSharesResponse.Builder::opcNextPage)
+            ListRecipientSharesResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformRecipientsResponse> listAiDataPlatformRecipients(ListAiDataPlatformRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientsRequest, ListAiDataPlatformRecipientsResponse> handler) {
+    public java.util.concurrent.Future<ListRecipientsResponse> listRecipients(ListRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecipientsRequest, ListRecipientsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRecipientsResponse::builder)
-        .logger(LOG, "listAiDataPlatformRecipients")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformRecipients", "")
+return clientCall(request, ListRecipientsResponse::builder)
+        .logger(LOG, "listRecipients")
+        .serviceDetails("DeltaShare", "ListRecipients", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRecipientsRequest::builder)
+        .requestBuilder(ListRecipientsRequest::builder)
         
         
         .basePath("/20260430")
@@ -424,28 +424,28 @@ return clientCall(request, ListAiDataPlatformRecipientsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RecipientCollection.class, ListAiDataPlatformRecipientsResponse.Builder::recipientCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RecipientCollection.class, ListRecipientsResponse.Builder::recipientCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRecipientsResponse.Builder::opcRequestId)
+            ListRecipientsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRecipientsResponse.Builder::opcNextPage)
+            ListRecipientsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformShareDataAssetsResponse> listAiDataPlatformShareDataAssets(ListAiDataPlatformShareDataAssetsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareDataAssetsRequest, ListAiDataPlatformShareDataAssetsResponse> handler) {
+    public java.util.concurrent.Future<ListShareDataAssetsResponse> listShareDataAssets(ListShareDataAssetsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListShareDataAssetsRequest, ListShareDataAssetsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getShareKey(), "shareKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformShareDataAssetsResponse::builder)
-        .logger(LOG, "listAiDataPlatformShareDataAssets")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformShareDataAssets", "")
+return clientCall(request, ListShareDataAssetsResponse::builder)
+        .logger(LOG, "listShareDataAssets")
+        .serviceDetails("DeltaShare", "ListShareDataAssets", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformShareDataAssetsRequest::builder)
+        .requestBuilder(ListShareDataAssetsRequest::builder)
         
         
         .basePath("/20260430")
@@ -477,28 +477,28 @@ return clientCall(request, ListAiDataPlatformShareDataAssetsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ShareDataAssetCollection.class, ListAiDataPlatformShareDataAssetsResponse.Builder::shareDataAssetCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ShareDataAssetCollection.class, ListShareDataAssetsResponse.Builder::shareDataAssetCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformShareDataAssetsResponse.Builder::opcRequestId)
+            ListShareDataAssetsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformShareDataAssetsResponse.Builder::opcNextPage)
+            ListShareDataAssetsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformSharePermissionsResponse> listAiDataPlatformSharePermissions(ListAiDataPlatformSharePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharePermissionsRequest, ListAiDataPlatformSharePermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListSharePermissionsResponse> listSharePermissions(ListSharePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSharePermissionsRequest, ListSharePermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getShareKey(), "shareKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformSharePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformSharePermissions")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformSharePermissions", "")
+return clientCall(request, ListSharePermissionsResponse::builder)
+        .logger(LOG, "listSharePermissions")
+        .serviceDetails("DeltaShare", "ListSharePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformSharePermissionsRequest::builder)
+        .requestBuilder(ListSharePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -526,28 +526,28 @@ return clientCall(request, ListAiDataPlatformSharePermissionsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.SharePermissionCollection.class, ListAiDataPlatformSharePermissionsResponse.Builder::sharePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.SharePermissionCollection.class, ListSharePermissionsResponse.Builder::sharePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformSharePermissionsResponse.Builder::opcRequestId)
+            ListSharePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformSharePermissionsResponse.Builder::opcNextPage)
+            ListSharePermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformShareRecipientsResponse> listAiDataPlatformShareRecipients(ListAiDataPlatformShareRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareRecipientsRequest, ListAiDataPlatformShareRecipientsResponse> handler) {
+    public java.util.concurrent.Future<ListShareRecipientsResponse> listShareRecipients(ListShareRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListShareRecipientsRequest, ListShareRecipientsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getShareKey(), "shareKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformShareRecipientsResponse::builder)
-        .logger(LOG, "listAiDataPlatformShareRecipients")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformShareRecipients", "")
+return clientCall(request, ListShareRecipientsResponse::builder)
+        .logger(LOG, "listShareRecipients")
+        .serviceDetails("DeltaShare", "ListShareRecipients", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformShareRecipientsRequest::builder)
+        .requestBuilder(ListShareRecipientsRequest::builder)
         
         
         .basePath("/20260430")
@@ -579,26 +579,26 @@ return clientCall(request, ListAiDataPlatformShareRecipientsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RecipientCollection.class, ListAiDataPlatformShareRecipientsResponse.Builder::recipientCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RecipientCollection.class, ListShareRecipientsResponse.Builder::recipientCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformShareRecipientsResponse.Builder::opcRequestId)
+            ListShareRecipientsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformShareRecipientsResponse.Builder::opcNextPage)
+            ListShareRecipientsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformSharesResponse> listAiDataPlatformShares(ListAiDataPlatformSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharesRequest, ListAiDataPlatformSharesResponse> handler) {
+    public java.util.concurrent.Future<ListSharesResponse> listShares(ListSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSharesRequest, ListSharesResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformSharesResponse::builder)
-        .logger(LOG, "listAiDataPlatformShares")
-        .serviceDetails("DeltaShare", "ListAiDataPlatformShares", "")
+return clientCall(request, ListSharesResponse::builder)
+        .logger(LOG, "listShares")
+        .serviceDetails("DeltaShare", "ListShares", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformSharesRequest::builder)
+        .requestBuilder(ListSharesRequest::builder)
         
         
         .basePath("/20260430")
@@ -628,17 +628,17 @@ return clientCall(request, ListAiDataPlatformSharesResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ShareCollection.class, ListAiDataPlatformSharesResponse.Builder::shareCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ShareCollection.class, ListSharesResponse.Builder::shareCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformSharesResponse.Builder::opcRequestId)
+            ListSharesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformSharesResponse.Builder::opcNextPage)
+            ListSharesResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformRecipientPermissionResponse> manageAiDataPlatformRecipientPermission(ManageAiDataPlatformRecipientPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformRecipientPermissionRequest, ManageAiDataPlatformRecipientPermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageRecipientPermissionResponse> manageRecipientPermission(ManageRecipientPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageRecipientPermissionRequest, ManageRecipientPermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -647,11 +647,11 @@ return clientCall(request, ListAiDataPlatformSharesResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformRecipientPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformRecipientPermission")
-        .serviceDetails("DeltaShare", "ManageAiDataPlatformRecipientPermission", "")
+return clientCall(request, ManageRecipientPermissionResponse::builder)
+        .logger(LOG, "manageRecipientPermission")
+        .serviceDetails("DeltaShare", "ManageRecipientPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformRecipientPermissionRequest::builder)
+        .requestBuilder(ManageRecipientPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -666,13 +666,13 @@ return clientCall(request, ManageAiDataPlatformRecipientPermissionResponse::buil
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformRecipientPermissionResponse.Builder::opcRequestId)
+            ManageRecipientPermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformShareAccessResponse> manageAiDataPlatformShareAccess(ManageAiDataPlatformShareAccessRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareAccessRequest, ManageAiDataPlatformShareAccessResponse> handler) {
+    public java.util.concurrent.Future<ManageShareAccessResponse> manageShareAccess(ManageShareAccessRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageShareAccessRequest, ManageShareAccessResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -681,11 +681,11 @@ return clientCall(request, ManageAiDataPlatformRecipientPermissionResponse::buil
         
 
 
-return clientCall(request, ManageAiDataPlatformShareAccessResponse::builder)
-        .logger(LOG, "manageAiDataPlatformShareAccess")
-        .serviceDetails("DeltaShare", "ManageAiDataPlatformShareAccess", "")
+return clientCall(request, ManageShareAccessResponse::builder)
+        .logger(LOG, "manageShareAccess")
+        .serviceDetails("DeltaShare", "ManageShareAccess", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformShareAccessRequest::builder)
+        .requestBuilder(ManageShareAccessRequest::builder)
         
         
         .basePath("/20260430")
@@ -702,13 +702,13 @@ return clientCall(request, ManageAiDataPlatformShareAccessResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformShareAccessResponse.Builder::opcRequestId)
+            ManageShareAccessResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformShareDataAssetResponse> manageAiDataPlatformShareDataAsset(ManageAiDataPlatformShareDataAssetRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareDataAssetRequest, ManageAiDataPlatformShareDataAssetResponse> handler) {
+    public java.util.concurrent.Future<ManageShareDataAssetResponse> manageShareDataAsset(ManageShareDataAssetRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageShareDataAssetRequest, ManageShareDataAssetResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -717,11 +717,11 @@ return clientCall(request, ManageAiDataPlatformShareAccessResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformShareDataAssetResponse::builder)
-        .logger(LOG, "manageAiDataPlatformShareDataAsset")
-        .serviceDetails("DeltaShare", "ManageAiDataPlatformShareDataAsset", "")
+return clientCall(request, ManageShareDataAssetResponse::builder)
+        .logger(LOG, "manageShareDataAsset")
+        .serviceDetails("DeltaShare", "ManageShareDataAsset", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformShareDataAssetRequest::builder)
+        .requestBuilder(ManageShareDataAssetRequest::builder)
         
         
         .basePath("/20260430")
@@ -736,13 +736,13 @@ return clientCall(request, ManageAiDataPlatformShareDataAssetResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformShareDataAssetResponse.Builder::opcRequestId)
+            ManageShareDataAssetResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformSharePermissionResponse> manageAiDataPlatformSharePermission(ManageAiDataPlatformSharePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSharePermissionRequest, ManageAiDataPlatformSharePermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageSharePermissionResponse> manageSharePermission(ManageSharePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageSharePermissionRequest, ManageSharePermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -751,11 +751,11 @@ return clientCall(request, ManageAiDataPlatformShareDataAssetResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformSharePermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformSharePermission")
-        .serviceDetails("DeltaShare", "ManageAiDataPlatformSharePermission", "")
+return clientCall(request, ManageSharePermissionResponse::builder)
+        .logger(LOG, "manageSharePermission")
+        .serviceDetails("DeltaShare", "ManageSharePermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformSharePermissionRequest::builder)
+        .requestBuilder(ManageSharePermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -770,13 +770,13 @@ return clientCall(request, ManageAiDataPlatformSharePermissionResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformSharePermissionResponse.Builder::opcRequestId)
+            ManageSharePermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformRecipientResponse> updateAiDataPlatformRecipient(UpdateAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRecipientRequest, UpdateAiDataPlatformRecipientResponse> handler) {
+    public java.util.concurrent.Future<UpdateRecipientResponse> updateRecipient(UpdateRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateRecipientRequest, UpdateRecipientResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -785,11 +785,11 @@ return clientCall(request, ManageAiDataPlatformSharePermissionResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformRecipientResponse::builder)
-        .logger(LOG, "updateAiDataPlatformRecipient")
-        .serviceDetails("DeltaShare", "UpdateAiDataPlatformRecipient", "")
+return clientCall(request, UpdateRecipientResponse::builder)
+        .logger(LOG, "updateRecipient")
+        .serviceDetails("DeltaShare", "UpdateRecipient", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformRecipientRequest::builder)
+        .requestBuilder(UpdateRecipientRequest::builder)
         
         
         .basePath("/20260430")
@@ -804,13 +804,13 @@ return clientCall(request, UpdateAiDataPlatformRecipientResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformRecipientResponse.Builder::opcRequestId)
+            UpdateRecipientResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformShareResponse> updateAiDataPlatformShare(UpdateAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformShareRequest, UpdateAiDataPlatformShareResponse> handler) {
+    public java.util.concurrent.Future<UpdateShareResponse> updateShare(UpdateShareRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateShareRequest, UpdateShareResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -819,11 +819,11 @@ return clientCall(request, UpdateAiDataPlatformRecipientResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformShareResponse::builder)
-        .logger(LOG, "updateAiDataPlatformShare")
-        .serviceDetails("DeltaShare", "UpdateAiDataPlatformShare", "")
+return clientCall(request, UpdateShareResponse::builder)
+        .logger(LOG, "updateShare")
+        .serviceDetails("DeltaShare", "UpdateShare", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformShareRequest::builder)
+        .requestBuilder(UpdateShareRequest::builder)
         
         
         .basePath("/20260430")
@@ -838,7 +838,7 @@ return clientCall(request, UpdateAiDataPlatformShareResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformShareResponse.Builder::opcRequestId)
+            UpdateShareResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

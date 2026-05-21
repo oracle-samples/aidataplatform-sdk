@@ -85,7 +85,7 @@ class ClusterClient(object):
         self.base_client = BaseClient("cluster", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, create_cluster_details, **kwargs):
+    def create_cluster(self, ai_data_platform_id, workspace_key, create_cluster_details, **kwargs):
         """
         Creates a new cluster with the provided details.
 
@@ -141,7 +141,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -187,7 +187,7 @@ class ClusterClient(object):
                 body=create_cluster_details,
                 response_type="Cluster")
 
-    def delete_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
+    def delete_cluster(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
         """
         Deletes a cluster from a workspace.
 
@@ -238,7 +238,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -278,7 +278,7 @@ class ClusterClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def download_ai_data_platform_cluster_logs(self, ai_data_platform_id, workspace_key, cluster_key, download_cluster_logs_details, **kwargs):
+    def download_cluster_logs(self, ai_data_platform_id, workspace_key, cluster_key, download_cluster_logs_details, **kwargs):
         """
         Downloads logs within the specified cluster and time range.
         The logs can be filtered by severity (`logLevel`), type (`logContentTypeContains`),
@@ -335,7 +335,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "download_ai_data_platform_cluster_logs got unknown kwargs: {!r}".format(extra_kwargs))
+                "download_cluster_logs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -379,7 +379,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 body=download_cluster_logs_details)
 
-    def get_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
+    def get_cluster(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
         """
         Returns detailed information about a cluster.
 
@@ -427,7 +427,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -469,7 +469,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 response_type="Cluster")
 
-    def get_ai_data_platform_default_cluster(self, ai_data_platform_id, **kwargs):
+    def get_default_cluster(self, ai_data_platform_id, **kwargs):
         """
         Gets information about the master catalog default cluster.
 
@@ -507,7 +507,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_default_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_default_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -546,7 +546,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 response_type="DefaultCluster")
 
-    def list_ai_data_platform_cluster_libraries(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
+    def list_cluster_libraries(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
         """
         Gets a list of libraries installed on a cluster.
 
@@ -622,7 +622,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_cluster_libraries got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_cluster_libraries got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -688,7 +688,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 response_type="ClusterLibraryCollection")
 
-    def list_ai_data_platform_cluster_permissions(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
+    def list_cluster_permissions(self, ai_data_platform_id, workspace_key, cluster_key, **kwargs):
         """
         Return a list of permissions for a given cluster.
 
@@ -764,7 +764,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_cluster_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_cluster_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -830,7 +830,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 response_type="ClusterPermissionCollection")
 
-    def list_ai_data_platform_clusters(self, ai_data_platform_id, workspace_key, **kwargs):
+    def list_clusters(self, ai_data_platform_id, workspace_key, **kwargs):
         """
         Returns a list of all clusters in a given workspace.
 
@@ -918,7 +918,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_clusters got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_clusters got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -993,7 +993,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 response_type="ClusterCollection")
 
-    def manage_ai_data_platform_cluster_permission(self, ai_data_platform_id, workspace_key, cluster_key, manage_cluster_permission_details, **kwargs):
+    def manage_cluster_permission(self, ai_data_platform_id, workspace_key, cluster_key, manage_cluster_permission_details, **kwargs):
         """
         Updates the permissions for a given cluster.
 
@@ -1055,7 +1055,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_cluster_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_cluster_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1100,7 +1100,7 @@ class ClusterClient(object):
                 header_params=header_params,
                 body=manage_cluster_permission_details)
 
-    def patch_ai_data_platform_cluster_library(self, ai_data_platform_id, workspace_key, cluster_key, patch_cluster_library_details, **kwargs):
+    def patch_cluster_library(self, ai_data_platform_id, workspace_key, cluster_key, patch_cluster_library_details, **kwargs):
         """
         Updates libraries of a cluster with the provided patches.
 
@@ -1154,7 +1154,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "patch_ai_data_platform_cluster_library got unknown kwargs: {!r}".format(extra_kwargs))
+                "patch_cluster_library got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1198,7 +1198,7 @@ class ClusterClient(object):
                 body=patch_cluster_library_details,
                 response_type="ClusterLibraryCollection")
 
-    def restart_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, cluster_key, restart_cluster_details, **kwargs):
+    def restart_cluster(self, ai_data_platform_id, workspace_key, cluster_key, restart_cluster_details, **kwargs):
         """
         Restarts a running cluster.
 
@@ -1260,7 +1260,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "restart_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "restart_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1307,7 +1307,7 @@ class ClusterClient(object):
                 body=restart_cluster_details,
                 response_type="Cluster")
 
-    def search_ai_data_platform_cluster_logs(self, ai_data_platform_id, workspace_key, cluster_key, search_cluster_logs_details, **kwargs):
+    def search_cluster_logs(self, ai_data_platform_id, workspace_key, cluster_key, search_cluster_logs_details, **kwargs):
         """
         Searches logs within the specified cluster and time range. Supports pagination and filtering.
 
@@ -1385,7 +1385,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "search_ai_data_platform_cluster_logs got unknown kwargs: {!r}".format(extra_kwargs))
+                "search_cluster_logs got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1440,7 +1440,7 @@ class ClusterClient(object):
                 body=search_cluster_logs_details,
                 response_type="ClusterLogCollection")
 
-    def start_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, cluster_key, start_cluster_details, **kwargs):
+    def start_cluster(self, ai_data_platform_id, workspace_key, cluster_key, start_cluster_details, **kwargs):
         """
         Starts a cluster that has halted operation.
 
@@ -1502,7 +1502,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "start_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "start_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1549,7 +1549,7 @@ class ClusterClient(object):
                 body=start_cluster_details,
                 response_type="Cluster")
 
-    def stop_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, cluster_key, stop_cluster_details, **kwargs):
+    def stop_cluster(self, ai_data_platform_id, workspace_key, cluster_key, stop_cluster_details, **kwargs):
         """
         Stops an active cluster.
 
@@ -1611,7 +1611,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "stop_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "stop_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1658,7 +1658,7 @@ class ClusterClient(object):
                 body=stop_cluster_details,
                 response_type="Cluster")
 
-    def summarize_ai_data_platform_metrics_data(self, ai_data_platform_id, workspace_key, cluster_key, summarize_metrics_data_details, **kwargs):
+    def summarize_metrics_data(self, ai_data_platform_id, workspace_key, cluster_key, summarize_metrics_data_details, **kwargs):
         """
         Provides summarized compute metrics for a compute cluster in the given workspace.
         This API aggregates metric data points based on a specified namespace, metric name,
@@ -1722,7 +1722,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "summarize_ai_data_platform_metrics_data got unknown kwargs: {!r}".format(extra_kwargs))
+                "summarize_metrics_data got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1769,7 +1769,7 @@ class ClusterClient(object):
                 body=summarize_metrics_data_details,
                 response_type="SummarizeMetricsResponse")
 
-    def update_ai_data_platform_cluster(self, ai_data_platform_id, workspace_key, cluster_key, update_cluster_details, **kwargs):
+    def update_cluster(self, ai_data_platform_id, workspace_key, cluster_key, update_cluster_details, **kwargs):
         """
         Update the details of a given cluster.
 
@@ -1827,7 +1827,7 @@ class ClusterClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_cluster got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_cluster got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

@@ -369,21 +369,21 @@ public class CredentialsAsyncClient implements CredentialsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformCredentialResponse> createAiDataPlatformCredential(CreateAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCredentialRequest, CreateAiDataPlatformCredentialResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformCredential");
-        final CreateAiDataPlatformCredentialRequest interceptedRequest = CreateAiDataPlatformCredentialConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformCredentialConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateCredentialResponse> createCredential(CreateCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateCredentialRequest, CreateCredentialResponse> handler) {
+        LOG.trace("Called async createCredential");
+        final CreateCredentialRequest interceptedRequest = CreateCredentialConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateCredentialConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "CreateAiDataPlatformCredential", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformCredentialResponse> transformer = CreateAiDataPlatformCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "CreateCredential", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateCredentialResponse> transformer = CreateCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCredentialRequest, CreateAiDataPlatformCredentialResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateCredentialRequest, CreateCredentialResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCredentialRequest, CreateAiDataPlatformCredentialResponse>, java.util.concurrent.Future<CreateAiDataPlatformCredentialResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateCredentialRequest, CreateCredentialResponse>, java.util.concurrent.Future<CreateCredentialResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateDataLakeCredentialDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformCredentialRequest, CreateAiDataPlatformCredentialResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateCredentialRequest, CreateCredentialResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,20 +398,20 @@ public class CredentialsAsyncClient implements CredentialsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformCredentialResponse> deleteAiDataPlatformCredential(DeleteAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCredentialRequest, DeleteAiDataPlatformCredentialResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformCredential");
-        final DeleteAiDataPlatformCredentialRequest interceptedRequest = DeleteAiDataPlatformCredentialConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformCredentialConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "DeleteAiDataPlatformCredential", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformCredentialResponse> transformer = DeleteAiDataPlatformCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteCredentialResponse> deleteCredential(DeleteCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteCredentialRequest, DeleteCredentialResponse> handler) {
+        LOG.trace("Called async deleteCredential");
+        final DeleteCredentialRequest interceptedRequest = DeleteCredentialConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteCredentialConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "DeleteCredential", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteCredentialResponse> transformer = DeleteCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCredentialRequest, DeleteAiDataPlatformCredentialResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteCredentialRequest, DeleteCredentialResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCredentialRequest, DeleteAiDataPlatformCredentialResponse>, java.util.concurrent.Future<DeleteAiDataPlatformCredentialResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteCredentialRequest, DeleteCredentialResponse>, java.util.concurrent.Future<DeleteCredentialResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformCredentialRequest, DeleteAiDataPlatformCredentialResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteCredentialRequest, DeleteCredentialResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -426,20 +426,20 @@ public class CredentialsAsyncClient implements CredentialsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformCredentialResponse> getAiDataPlatformCredential(GetAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCredentialRequest, GetAiDataPlatformCredentialResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformCredential");
-        final GetAiDataPlatformCredentialRequest interceptedRequest = GetAiDataPlatformCredentialConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformCredentialConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "GetAiDataPlatformCredential", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformCredentialResponse> transformer = GetAiDataPlatformCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetCredentialResponse> getCredential(GetCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<GetCredentialRequest, GetCredentialResponse> handler) {
+        LOG.trace("Called async getCredential");
+        final GetCredentialRequest interceptedRequest = GetCredentialConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetCredentialConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "GetCredential", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetCredentialResponse> transformer = GetCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCredentialRequest, GetAiDataPlatformCredentialResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetCredentialRequest, GetCredentialResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCredentialRequest, GetAiDataPlatformCredentialResponse>, java.util.concurrent.Future<GetAiDataPlatformCredentialResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetCredentialRequest, GetCredentialResponse>, java.util.concurrent.Future<GetCredentialResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformCredentialRequest, GetAiDataPlatformCredentialResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetCredentialRequest, GetCredentialResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -454,20 +454,20 @@ public class CredentialsAsyncClient implements CredentialsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformCredentialsResponse> listAiDataPlatformCredentials(ListAiDataPlatformCredentialsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCredentialsRequest, ListAiDataPlatformCredentialsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformCredentials");
-        final ListAiDataPlatformCredentialsRequest interceptedRequest = ListAiDataPlatformCredentialsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformCredentialsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "ListAiDataPlatformCredentials", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformCredentialsResponse> transformer = ListAiDataPlatformCredentialsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListCredentialsResponse> listCredentials(ListCredentialsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCredentialsRequest, ListCredentialsResponse> handler) {
+        LOG.trace("Called async listCredentials");
+        final ListCredentialsRequest interceptedRequest = ListCredentialsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListCredentialsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "ListCredentials", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListCredentialsResponse> transformer = ListCredentialsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCredentialsRequest, ListAiDataPlatformCredentialsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListCredentialsRequest, ListCredentialsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCredentialsRequest, ListAiDataPlatformCredentialsResponse>, java.util.concurrent.Future<ListAiDataPlatformCredentialsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListCredentialsRequest, ListCredentialsResponse>, java.util.concurrent.Future<ListCredentialsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformCredentialsRequest, ListAiDataPlatformCredentialsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListCredentialsRequest, ListCredentialsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -482,20 +482,20 @@ public class CredentialsAsyncClient implements CredentialsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformCredentialResponse> updateAiDataPlatformCredential(UpdateAiDataPlatformCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCredentialRequest, UpdateAiDataPlatformCredentialResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformCredential");
-        final UpdateAiDataPlatformCredentialRequest interceptedRequest = UpdateAiDataPlatformCredentialConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformCredentialConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "UpdateAiDataPlatformCredential", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformCredentialResponse> transformer = UpdateAiDataPlatformCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateCredentialResponse> updateCredential(UpdateCredentialRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateCredentialRequest, UpdateCredentialResponse> handler) {
+        LOG.trace("Called async updateCredential");
+        final UpdateCredentialRequest interceptedRequest = UpdateCredentialConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateCredentialConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Credentials", "UpdateCredential", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateCredentialResponse> transformer = UpdateCredentialConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCredentialRequest, UpdateAiDataPlatformCredentialResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateCredentialRequest, UpdateCredentialResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCredentialRequest, UpdateAiDataPlatformCredentialResponse>, java.util.concurrent.Future<UpdateAiDataPlatformCredentialResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateCredentialRequest, UpdateCredentialResponse>, java.util.concurrent.Future<UpdateCredentialResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateDataLakeCredentialDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformCredentialRequest, UpdateAiDataPlatformCredentialResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateCredentialRequest, UpdateCredentialResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

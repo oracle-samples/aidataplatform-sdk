@@ -67,7 +67,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformVolumeResponse createAiDataPlatformVolume(CreateAiDataPlatformVolumeRequest request);
+    CreateVolumeResponse createVolume(CreateVolumeRequest request);
     
     /**
      * Deletes a directory in a volume.
@@ -78,7 +78,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformDirResponse deleteAiDataPlatformDir(DeleteAiDataPlatformDirRequest request);
+    DeleteDirResponse deleteDir(DeleteDirRequest request);
     
     /**
      * Deletes a file or folder in a volume.
@@ -88,7 +88,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformFileResponse deleteAiDataPlatformFile(DeleteAiDataPlatformFileRequest request);
+    DeleteFileResponse deleteFile(DeleteFileRequest request);
     
     /**
      * Deletes a volume.
@@ -98,7 +98,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformVolumeResponse deleteAiDataPlatformVolume(DeleteAiDataPlatformVolumeRequest request);
+    DeleteVolumeResponse deleteVolume(DeleteVolumeRequest request);
     
     /**
      * Downloads a file from a volume.
@@ -108,7 +108,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DownloadAiDataPlatformFileResponse downloadAiDataPlatformFile(DownloadAiDataPlatformFileRequest request);
+    DownloadFileResponse downloadFile(DownloadFileRequest request);
     
     /**
      * provide the par info for downloading the file for given path.
@@ -119,7 +119,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DownloadAiDataPlatformFileWithParResponse downloadAiDataPlatformFileWithPar(DownloadAiDataPlatformFileWithParRequest request);
+    DownloadFileWithParResponse downloadFileWithPar(DownloadFileWithParRequest request);
     
     /**
      * Returns detailed information about a volume.
@@ -129,7 +129,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformVolumeResponse getAiDataPlatformVolume(GetAiDataPlatformVolumeRequest request);
+    GetVolumeResponse getVolume(GetVolumeRequest request);
     
     /**
      * Returns a list of files in a volume.
@@ -140,7 +140,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformFilesResponse listAiDataPlatformFiles(ListAiDataPlatformFilesRequest request);
+    ListFilesResponse listFiles(ListFilesRequest request);
     
     /**
      * Returns a list of volume permissions.
@@ -151,7 +151,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformVolumePermissionsResponse listAiDataPlatformVolumePermissions(ListAiDataPlatformVolumePermissionsRequest request);
+    ListVolumePermissionsResponse listVolumePermissions(ListVolumePermissionsRequest request);
     
     /**
      * Returns a list of volumes.
@@ -162,7 +162,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformVolumesResponse listAiDataPlatformVolumes(ListAiDataPlatformVolumesRequest request);
+    ListVolumesResponse listVolumes(ListVolumesRequest request);
     
     /**
      * Creates a directory in a volume.
@@ -173,7 +173,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    MakeAiDataPlatformDirResponse makeAiDataPlatformDir(MakeAiDataPlatformDirRequest request);
+    MakeDirResponse makeDir(MakeDirRequest request);
     
     /**
      * Updates the permissions on a volume.
@@ -183,7 +183,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformVolumePermissionResponse manageAiDataPlatformVolumePermission(ManageAiDataPlatformVolumePermissionRequest request);
+    ManageVolumePermissionResponse manageVolumePermission(ManageVolumePermissionRequest request);
     
     /**
      * Updates a directory in volume with the provided information.
@@ -194,7 +194,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformDirResponse updateAiDataPlatformDir(UpdateAiDataPlatformDirRequest request);
+    UpdateDirResponse updateDir(UpdateDirRequest request);
     
     /**
      * Updates a volume with the provided information.
@@ -204,7 +204,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformVolumeResponse updateAiDataPlatformVolume(UpdateAiDataPlatformVolumeRequest request);
+    UpdateVolumeResponse updateVolume(UpdateVolumeRequest request);
     
     /**
      * Uploads a file to volume. If the file already exists, it is updated.
@@ -242,7 +242,7 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UploadAiDataPlatformFileResponse uploadAiDataPlatformFile(UploadAiDataPlatformFileRequest request);
+    UploadFileResponse uploadFile(UploadFileRequest request);
     
     /**
      * Uploads a volume file by generating PAR. If file exists, then it will be updated.
@@ -253,7 +253,13 @@ public interface Volume extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UploadAiDataPlatformFileWithParResponse uploadAiDataPlatformFileWithPar(UploadAiDataPlatformFileWithParRequest request);
+    UploadFileWithParResponse uploadFileWithPar(UploadFileWithParRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    VolumeWaiters getWaiters();
 }

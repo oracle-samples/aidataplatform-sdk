@@ -85,7 +85,7 @@ class DeltaShareClient(object):
         self.base_client = BaseClient("delta_share", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_recipient(self, ai_data_platform_id, create_recipient_details, **kwargs):
+    def create_recipient(self, ai_data_platform_id, create_recipient_details, **kwargs):
         """
         Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
 
@@ -138,7 +138,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_recipient got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_recipient got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -183,7 +183,7 @@ class DeltaShareClient(object):
                 body=create_recipient_details,
                 response_type="Recipient")
 
-    def create_ai_data_platform_share(self, ai_data_platform_id, create_share_details, **kwargs):
+    def create_share(self, ai_data_platform_id, create_share_details, **kwargs):
         """
         Create a Delta Share protocol in AI Data Platform Workbench.
 
@@ -236,7 +236,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_share got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_share got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -281,7 +281,7 @@ class DeltaShareClient(object):
                 body=create_share_details,
                 response_type="Share")
 
-    def delete_ai_data_platform_recipient(self, ai_data_platform_id, recipient_key, **kwargs):
+    def delete_recipient(self, ai_data_platform_id, recipient_key, **kwargs):
         """
         Deletes a Delta Share recipient from an AI Data Platform Workbench.
 
@@ -333,7 +333,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_recipient got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_recipient got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -373,7 +373,7 @@ class DeltaShareClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_share(self, ai_data_platform_id, share_key, **kwargs):
+    def delete_share(self, ai_data_platform_id, share_key, **kwargs):
         """
         Deletes a Delta Share from an AI Data Platform Workbench.
 
@@ -425,7 +425,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_share got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_share got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -465,7 +465,7 @@ class DeltaShareClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def get_ai_data_platform_recipient(self, ai_data_platform_id, recipient_key, **kwargs):
+    def get_recipient(self, ai_data_platform_id, recipient_key, **kwargs):
         """
         Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
 
@@ -510,7 +510,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_recipient got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_recipient got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -551,7 +551,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="Recipient")
 
-    def get_ai_data_platform_share(self, ai_data_platform_id, share_key, **kwargs):
+    def get_share(self, ai_data_platform_id, share_key, **kwargs):
         """
         Gets detailed information about a Delta Share.
 
@@ -596,7 +596,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_share got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_share got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -637,7 +637,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="Share")
 
-    def list_ai_data_platform_recipient_permissions(self, ai_data_platform_id, recipient_key, **kwargs):
+    def list_recipient_permissions(self, ai_data_platform_id, recipient_key, **kwargs):
         """
         Gets a detailed list of Delta Share recipient permissions.
 
@@ -710,7 +710,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_recipient_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_recipient_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -775,7 +775,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="RecipientPermissionCollection")
 
-    def list_ai_data_platform_recipient_shares(self, ai_data_platform_id, recipient_key, **kwargs):
+    def list_recipient_shares(self, ai_data_platform_id, recipient_key, **kwargs):
         """
         Returns a list of Delta Shares that the specified recipient has been granted access to.
 
@@ -853,7 +853,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_recipient_shares got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_recipient_shares got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -919,7 +919,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="ShareCollection")
 
-    def list_ai_data_platform_recipients(self, ai_data_platform_id, **kwargs):
+    def list_recipients(self, ai_data_platform_id, **kwargs):
         """
         Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
 
@@ -990,7 +990,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_recipients got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_recipients got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1054,7 +1054,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="RecipientCollection")
 
-    def list_ai_data_platform_share_data_assets(self, ai_data_platform_id, share_key, **kwargs):
+    def list_share_data_assets(self, ai_data_platform_id, share_key, **kwargs):
         """
         Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
 
@@ -1132,7 +1132,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_share_data_assets got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_share_data_assets got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1198,7 +1198,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="ShareDataAssetCollection")
 
-    def list_ai_data_platform_share_permissions(self, ai_data_platform_id, share_key, **kwargs):
+    def list_share_permissions(self, ai_data_platform_id, share_key, **kwargs):
         """
         Returns a list of Delta Shares that the specified recipient has been granted access to.
 
@@ -1272,7 +1272,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_share_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_share_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1337,7 +1337,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="SharePermissionCollection")
 
-    def list_ai_data_platform_share_recipients(self, ai_data_platform_id, share_key, **kwargs):
+    def list_share_recipients(self, ai_data_platform_id, share_key, **kwargs):
         """
         Gets a list of recipients that have been given access on the specified Delta Share.
 
@@ -1415,7 +1415,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_share_recipients got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_share_recipients got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1481,7 +1481,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="RecipientCollection")
 
-    def list_ai_data_platform_shares(self, ai_data_platform_id, **kwargs):
+    def list_shares(self, ai_data_platform_id, **kwargs):
         """
         Gets a list of Delta Shares in an AI Data Platform Workbench instance.
 
@@ -1552,7 +1552,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_shares got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_shares got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1616,7 +1616,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 response_type="ShareCollection")
 
-    def manage_ai_data_platform_recipient_permission(self, ai_data_platform_id, recipient_key, manage_recipient_permission_details, **kwargs):
+    def manage_recipient_permission(self, ai_data_platform_id, recipient_key, manage_recipient_permission_details, **kwargs):
         """
         Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
 
@@ -1671,7 +1671,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_recipient_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_recipient_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1713,7 +1713,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 body=manage_recipient_permission_details)
 
-    def manage_ai_data_platform_share_access(self, ai_data_platform_id, share_key, manage_share_access_details, **kwargs):
+    def manage_share_access(self, ai_data_platform_id, share_key, manage_share_access_details, **kwargs):
         """
         Updates consumer-side access on a share for a recipient. A provider user can grant or revoke access on a particular share for a given recipient.
 
@@ -1776,7 +1776,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_share_access got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_share_access got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1821,7 +1821,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 body=manage_share_access_details)
 
-    def manage_ai_data_platform_share_data_asset(self, ai_data_platform_id, share_key, manage_share_data_asset_details, **kwargs):
+    def manage_share_data_asset(self, ai_data_platform_id, share_key, manage_share_data_asset_details, **kwargs):
         """
         Updates data assets on a Delta Share with the provided information.
 
@@ -1876,7 +1876,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_share_data_asset got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_share_data_asset got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1918,7 +1918,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 body=manage_share_data_asset_details)
 
-    def manage_ai_data_platform_share_permission(self, ai_data_platform_id, share_key, manage_share_permission_details, **kwargs):
+    def manage_share_permission(self, ai_data_platform_id, share_key, manage_share_permission_details, **kwargs):
         """
         Updates permissions on a Delta Share.
 
@@ -1973,7 +1973,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_share_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_share_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2015,7 +2015,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 body=manage_share_permission_details)
 
-    def update_ai_data_platform_recipient(self, ai_data_platform_id, recipient_key, update_recipient_details, **kwargs):
+    def update_recipient(self, ai_data_platform_id, recipient_key, update_recipient_details, **kwargs):
         """
         Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
 
@@ -2070,7 +2070,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_recipient got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_recipient got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2112,7 +2112,7 @@ class DeltaShareClient(object):
                 header_params=header_params,
                 body=update_recipient_details)
 
-    def update_ai_data_platform_share(self, ai_data_platform_id, share_key, update_share_details, **kwargs):
+    def update_share(self, ai_data_platform_id, share_key, update_share_details, **kwargs):
         """
         Update a Delta Share with the provided metadata.
 
@@ -2167,7 +2167,7 @@ class DeltaShareClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_share got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_share got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

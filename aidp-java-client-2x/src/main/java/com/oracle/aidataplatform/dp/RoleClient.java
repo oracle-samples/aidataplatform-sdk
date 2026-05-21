@@ -23,6 +23,7 @@ public class RoleClient implements Role {
         return client;
     }
 
+    private final RoleWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class RoleClient implements Role {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public RoleClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class RoleClient implements Role {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public RoleClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class RoleClient implements Role {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class RoleClient implements Role {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected RoleClient(
@@ -196,6 +224,7 @@ public class RoleClient implements Role {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class RoleClient implements Role {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Role-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new RoleWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -256,9 +293,21 @@ public class RoleClient implements Role {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, RoleClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -277,6 +326,7 @@ public class RoleClient implements Role {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -372,16 +422,16 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public AddAiDataPlatformMemberToRoleResponse addAiDataPlatformMemberToRole(AddAiDataPlatformMemberToRoleRequest request) {
-        LOG.trace("Called addAiDataPlatformMemberToRole");
-            final AddAiDataPlatformMemberToRoleRequest interceptedRequest = AddAiDataPlatformMemberToRoleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = AddAiDataPlatformMemberToRoleConverter.fromRequest(client, interceptedRequest);
+    public AddMemberToRoleResponse addMemberToRole(AddMemberToRoleRequest request) {
+        LOG.trace("Called addMemberToRole");
+            final AddMemberToRoleRequest interceptedRequest = AddMemberToRoleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = AddMemberToRoleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "AddAiDataPlatformMemberToRole", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, AddAiDataPlatformMemberToRoleResponse> transformer = AddAiDataPlatformMemberToRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "AddMemberToRole", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, AddMemberToRoleResponse> transformer = AddMemberToRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +447,16 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public CreateAiDataPlatformRoleResponse createAiDataPlatformRole(CreateAiDataPlatformRoleRequest request) {
-        LOG.trace("Called createAiDataPlatformRole");
-            final CreateAiDataPlatformRoleRequest interceptedRequest = CreateAiDataPlatformRoleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
+    public CreateRoleResponse createRole(CreateRoleRequest request) {
+        LOG.trace("Called createRole");
+            final CreateRoleRequest interceptedRequest = CreateRoleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateRoleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "CreateAiDataPlatformRole", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformRoleResponse> transformer = CreateAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "CreateRole", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateRoleResponse> transformer = CreateRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,15 +472,15 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public DeleteAiDataPlatformRoleResponse deleteAiDataPlatformRole(DeleteAiDataPlatformRoleRequest request) {
-        LOG.trace("Called deleteAiDataPlatformRole");
-            final DeleteAiDataPlatformRoleRequest interceptedRequest = DeleteAiDataPlatformRoleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
+    public DeleteRoleResponse deleteRole(DeleteRoleRequest request) {
+        LOG.trace("Called deleteRole");
+            final DeleteRoleRequest interceptedRequest = DeleteRoleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRoleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "DeleteAiDataPlatformRole", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRoleResponse> transformer = DeleteAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "DeleteRole", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteRoleResponse> transformer = DeleteRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -446,15 +496,15 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public GetAiDataPlatformRoleResponse getAiDataPlatformRole(GetAiDataPlatformRoleRequest request) {
-        LOG.trace("Called getAiDataPlatformRole");
-            final GetAiDataPlatformRoleRequest interceptedRequest = GetAiDataPlatformRoleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
+    public GetRoleResponse getRole(GetRoleRequest request) {
+        LOG.trace("Called getRole");
+            final GetRoleRequest interceptedRequest = GetRoleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetRoleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "GetAiDataPlatformRole", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformRoleResponse> transformer = GetAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "GetRole", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetRoleResponse> transformer = GetRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -470,15 +520,15 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public ListAiDataPlatformRolePermissionsResponse listAiDataPlatformRolePermissions(ListAiDataPlatformRolePermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformRolePermissions");
-            final ListAiDataPlatformRolePermissionsRequest interceptedRequest = ListAiDataPlatformRolePermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRolePermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListRolePermissionsResponse listRolePermissions(ListRolePermissionsRequest request) {
+        LOG.trace("Called listRolePermissions");
+            final ListRolePermissionsRequest interceptedRequest = ListRolePermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRolePermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListAiDataPlatformRolePermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRolePermissionsResponse> transformer = ListAiDataPlatformRolePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListRolePermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRolePermissionsResponse> transformer = ListRolePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -494,15 +544,15 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public ListAiDataPlatformRolesResponse listAiDataPlatformRoles(ListAiDataPlatformRolesRequest request) {
-        LOG.trace("Called listAiDataPlatformRoles");
-            final ListAiDataPlatformRolesRequest interceptedRequest = ListAiDataPlatformRolesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRolesConverter.fromRequest(client, interceptedRequest);
+    public ListRolesResponse listRoles(ListRolesRequest request) {
+        LOG.trace("Called listRoles");
+            final ListRolesRequest interceptedRequest = ListRolesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRolesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListAiDataPlatformRoles", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRolesResponse> transformer = ListAiDataPlatformRolesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListRoles", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRolesResponse> transformer = ListRolesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -518,16 +568,16 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public RemoveAiDataPlatformMemberFromRoleResponse removeAiDataPlatformMemberFromRole(RemoveAiDataPlatformMemberFromRoleRequest request) {
-        LOG.trace("Called removeAiDataPlatformMemberFromRole");
-            final RemoveAiDataPlatformMemberFromRoleRequest interceptedRequest = RemoveAiDataPlatformMemberFromRoleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RemoveAiDataPlatformMemberFromRoleConverter.fromRequest(client, interceptedRequest);
+    public RemoveMemberFromRoleResponse removeMemberFromRole(RemoveMemberFromRoleRequest request) {
+        LOG.trace("Called removeMemberFromRole");
+            final RemoveMemberFromRoleRequest interceptedRequest = RemoveMemberFromRoleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RemoveMemberFromRoleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "RemoveAiDataPlatformMemberFromRole", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RemoveAiDataPlatformMemberFromRoleResponse> transformer = RemoveAiDataPlatformMemberFromRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "RemoveMemberFromRole", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RemoveMemberFromRoleResponse> transformer = RemoveMemberFromRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -543,15 +593,15 @@ public class RoleClient implements Role {
     }
 
     @Override
-    public UpdateAiDataPlatformRoleResponse updateAiDataPlatformRole(UpdateAiDataPlatformRoleRequest request) {
-        LOG.trace("Called updateAiDataPlatformRole");
-            final UpdateAiDataPlatformRoleRequest interceptedRequest = UpdateAiDataPlatformRoleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
+    public UpdateRoleResponse updateRole(UpdateRoleRequest request) {
+        LOG.trace("Called updateRole");
+            final UpdateRoleRequest interceptedRequest = UpdateRoleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRoleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "UpdateAiDataPlatformRole", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRoleResponse> transformer = UpdateAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "UpdateRole", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateRoleResponse> transformer = UpdateRoleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -564,6 +614,11 @@ public class RoleClient implements Role {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public RoleWaiters getWaiters() {
+        return waiters;
     }
 
 

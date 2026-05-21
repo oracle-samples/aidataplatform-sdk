@@ -145,7 +145,7 @@ Request notes:
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformBundleResponse> createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse> handler);
+    java.util.concurrent.Future<CreateBundleResponse> createBundle(CreateBundleRequest request, com.oracle.bmc.responses.AsyncHandler<CreateBundleRequest, CreateBundleResponse> handler);
     
     /**
      * (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
@@ -174,7 +174,7 @@ Request notes:
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeployAiDataPlatformBundleResponse> deployAiDataPlatformBundle(DeployAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<DeployAiDataPlatformBundleRequest, DeployAiDataPlatformBundleResponse> handler);
+    java.util.concurrent.Future<DeployBundleResponse> deployBundle(DeployBundleRequest request, com.oracle.bmc.responses.AsyncHandler<DeployBundleRequest, DeployBundleResponse> handler);
     
     /**
      * (Preview) Returns a high-level summary of the most recent deployment activity recorded for the
@@ -206,7 +206,7 @@ Request notes:
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<FetchAiDataPlatformBundleDeploymentStatusResponse> fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request, com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse> handler);
+    java.util.concurrent.Future<FetchBundleDeploymentStatusResponse> fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request, com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse> handler);
     
     /**
      * (Preview) Tears down all resources deployed by the specified bundle in the workspace.
@@ -233,7 +233,7 @@ Request notes:
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<PurgeAiDataPlatformBundleResponse> purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse> handler);
+    java.util.concurrent.Future<PurgeBundleResponse> purgeBundle(PurgeBundleRequest request, com.oracle.bmc.responses.AsyncHandler<PurgeBundleRequest, PurgeBundleResponse> handler);
     
     /**
      * (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
@@ -279,6 +279,6 @@ Request notes:
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<SyncAiDataPlatformBundleResponse> syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request, com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handler);
+    java.util.concurrent.Future<SyncBundleResponse> syncBundle(SyncBundleRequest request, com.oracle.bmc.responses.AsyncHandler<SyncBundleRequest, SyncBundleResponse> handler);
     
 }

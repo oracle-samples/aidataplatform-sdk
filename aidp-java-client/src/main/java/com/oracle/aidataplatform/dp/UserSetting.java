@@ -83,7 +83,7 @@ public interface UserSetting extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformUserSettingResponse createAiDataPlatformUserSetting(CreateAiDataPlatformUserSettingRequest request);
+    CreateUserSettingResponse createUserSetting(CreateUserSettingRequest request);
     
     /**
      * (Preview) Deletes a user setting and its credentials from this AI Data Platform instance, freeing the default slot for that type.
@@ -94,7 +94,7 @@ public interface UserSetting extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformUserSettingResponse deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request);
+    DeleteUserSettingResponse deleteUserSetting(DeleteUserSettingRequest request);
     
     /**
      * (Preview) Returns the full definition of user settings identified by its key, including type-specific payload and default flag.
@@ -105,7 +105,7 @@ public interface UserSetting extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformUserSettingResponse getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request);
+    GetUserSettingResponse getUserSetting(GetUserSettingRequest request);
     
     /**
      * (Preview) Returns a list of all user-specific configurations, with filters for setting type, default flag, and pagination when needed.
@@ -116,7 +116,7 @@ public interface UserSetting extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformUserSettingsResponse listAiDataPlatformUserSettings(ListAiDataPlatformUserSettingsRequest request);
+    ListUserSettingsResponse listUserSettings(ListUserSettingsRequest request);
     
     /**
      * (Preview) Updates the metadata or payload of an existing user setting, letting you rotate credentials or change defaults.
@@ -127,7 +127,7 @@ public interface UserSetting extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformUserSettingResponse updateAiDataPlatformUserSetting(UpdateAiDataPlatformUserSettingRequest request);
+    UpdateUserSettingResponse updateUserSetting(UpdateUserSettingRequest request);
     
 
 }

@@ -67,7 +67,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CancelAiDataPlatformJobRunResponse> cancelAiDataPlatformJobRun(CancelAiDataPlatformJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunRequest, CancelAiDataPlatformJobRunResponse> handler);
+    java.util.concurrent.Future<CancelJobRunResponse> cancelJobRun(CancelJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<CancelJobRunRequest, CancelJobRunResponse> handler);
     
     /**
      * Cancels all job runs for a given job.
@@ -79,7 +79,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CancelAiDataPlatformJobRunsResponse> cancelAiDataPlatformJobRuns(CancelAiDataPlatformJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunsRequest, CancelAiDataPlatformJobRunsResponse> handler);
+    java.util.concurrent.Future<CancelJobRunsResponse> cancelJobRuns(CancelJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<CancelJobRunsRequest, CancelJobRunsResponse> handler);
     
     /**
      * Creates a job in an AI Data Platform Workbench.
@@ -91,7 +91,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformJobResponse> createAiDataPlatformJob(CreateAiDataPlatformJobRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRequest, CreateAiDataPlatformJobResponse> handler);
+    java.util.concurrent.Future<CreateJobResponse> createJob(CreateJobRequest request, com.oracle.bmc.responses.AsyncHandler<CreateJobRequest, CreateJobResponse> handler);
     
     /**
      * Creates a job run for an AI Data Platform Workbench.
@@ -103,7 +103,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformJobRunResponse> createAiDataPlatformJobRun(CreateAiDataPlatformJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRunRequest, CreateAiDataPlatformJobRunResponse> handler);
+    java.util.concurrent.Future<CreateJobRunResponse> createJobRun(CreateJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<CreateJobRunRequest, CreateJobRunResponse> handler);
     
     /**
      * Deletes a job from an AI Data Platform Workbench.
@@ -115,7 +115,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformJobResponse> deleteAiDataPlatformJob(DeleteAiDataPlatformJobRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRequest, DeleteAiDataPlatformJobResponse> handler);
+    java.util.concurrent.Future<DeleteJobResponse> deleteJob(DeleteJobRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteJobRequest, DeleteJobResponse> handler);
     
     /**
      * Deletes a job run from an AI Data Platform Workbench.
@@ -127,7 +127,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformJobRunResponse> deleteAiDataPlatformJobRun(DeleteAiDataPlatformJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRunRequest, DeleteAiDataPlatformJobRunResponse> handler);
+    java.util.concurrent.Future<DeleteJobRunResponse> deleteJobRun(DeleteJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteJobRunRequest, DeleteJobRunResponse> handler);
     
     /**
      * Exports task run output in HTML or ipynb format.
@@ -139,7 +139,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ExportAiDataPlatformTaskRunOutputResponse> exportAiDataPlatformTaskRunOutput(ExportAiDataPlatformTaskRunOutputRequest request, com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformTaskRunOutputRequest, ExportAiDataPlatformTaskRunOutputResponse> handler);
+    java.util.concurrent.Future<ExportTaskRunOutputResponse> exportTaskRunOutput(ExportTaskRunOutputRequest request, com.oracle.bmc.responses.AsyncHandler<ExportTaskRunOutputRequest, ExportTaskRunOutputResponse> handler);
     
     /**
      * Fetches the task run output from the runtime engine.
@@ -151,7 +151,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<FetchAiDataPlatformOutputResponse> fetchAiDataPlatformOutput(FetchAiDataPlatformOutputRequest request, com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformOutputRequest, FetchAiDataPlatformOutputResponse> handler);
+    java.util.concurrent.Future<FetchOutputResponse> fetchOutput(FetchOutputRequest request, com.oracle.bmc.responses.AsyncHandler<FetchOutputRequest, FetchOutputResponse> handler);
     
     /**
      * Returns detailed information about a given job in AI Data Platform Workbench.
@@ -163,7 +163,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformJobResponse> getAiDataPlatformJob(GetAiDataPlatformJobRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRequest, GetAiDataPlatformJobResponse> handler);
+    java.util.concurrent.Future<GetJobResponse> getJob(GetJobRequest request, com.oracle.bmc.responses.AsyncHandler<GetJobRequest, GetJobResponse> handler);
     
     /**
      * Returns detailed information about a given job run.
@@ -175,7 +175,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformJobRunResponse> getAiDataPlatformJobRun(GetAiDataPlatformJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRunRequest, GetAiDataPlatformJobRunResponse> handler);
+    java.util.concurrent.Future<GetJobRunResponse> getJobRun(GetJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<GetJobRunRequest, GetJobRunResponse> handler);
     
     /**
      * Returns detailed information about a task run with a given task run key.
@@ -187,7 +187,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformTaskRunResponse> getAiDataPlatformTaskRun(GetAiDataPlatformTaskRunRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTaskRunRequest, GetAiDataPlatformTaskRunResponse> handler);
+    java.util.concurrent.Future<GetTaskRunResponse> getTaskRun(GetTaskRunRequest request, com.oracle.bmc.responses.AsyncHandler<GetTaskRunRequest, GetTaskRunResponse> handler);
     
     /**
      * Returns a list of job permissions.
@@ -199,7 +199,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformJobPermissionsResponse> listAiDataPlatformJobPermissions(ListAiDataPlatformJobPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobPermissionsRequest, ListAiDataPlatformJobPermissionsResponse> handler);
+    java.util.concurrent.Future<ListJobPermissionsResponse> listJobPermissions(ListJobPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListJobPermissionsRequest, ListJobPermissionsResponse> handler);
     
     /**
      * Returns a detailed list of job runs in an AI Data Platform Workbench.
@@ -211,7 +211,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformJobRunsResponse> listAiDataPlatformJobRuns(ListAiDataPlatformJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobRunsRequest, ListAiDataPlatformJobRunsResponse> handler);
+    java.util.concurrent.Future<ListJobRunsResponse> listJobRuns(ListJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListJobRunsRequest, ListJobRunsResponse> handler);
     
     /**
      * Returns a list of jobs for a given AI Data Platform Workbench.
@@ -223,7 +223,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformJobsResponse> listAiDataPlatformJobs(ListAiDataPlatformJobsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobsRequest, ListAiDataPlatformJobsResponse> handler);
+    java.util.concurrent.Future<ListJobsResponse> listJobs(ListJobsRequest request, com.oracle.bmc.responses.AsyncHandler<ListJobsRequest, ListJobsResponse> handler);
     
     /**
      * Returns a list of the latest job runs for a given job key.
@@ -235,7 +235,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformRecentJobRunsResponse> listAiDataPlatformRecentJobRuns(ListAiDataPlatformRecentJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecentJobRunsRequest, ListAiDataPlatformRecentJobRunsResponse> handler);
+    java.util.concurrent.Future<ListRecentJobRunsResponse> listRecentJobRuns(ListRecentJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListRecentJobRunsRequest, ListRecentJobRunsResponse> handler);
     
     /**
      * Returns a list of tasks run in an AI Data Platform Workbench.
@@ -247,7 +247,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformTaskRunsResponse> listAiDataPlatformTaskRuns(ListAiDataPlatformTaskRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTaskRunsRequest, ListAiDataPlatformTaskRunsResponse> handler);
+    java.util.concurrent.Future<ListTaskRunsResponse> listTaskRuns(ListTaskRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListTaskRunsRequest, ListTaskRunsResponse> handler);
     
     /**
      * Update job permissions with the provided details.
@@ -259,7 +259,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformJobPermissionResponse> manageAiDataPlatformJobPermission(ManageAiDataPlatformJobPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformJobPermissionRequest, ManageAiDataPlatformJobPermissionResponse> handler);
+    java.util.concurrent.Future<ManageJobPermissionResponse> manageJobPermission(ManageJobPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageJobPermissionRequest, ManageJobPermissionResponse> handler);
     
     /**
      * Repairs and reruns a job run.
@@ -271,7 +271,7 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RepairAiDataPlatformJobRunResponse> repairAiDataPlatformJobRun(RepairAiDataPlatformJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<RepairAiDataPlatformJobRunRequest, RepairAiDataPlatformJobRunResponse> handler);
+    java.util.concurrent.Future<RepairJobRunResponse> repairJobRun(RepairJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<RepairJobRunRequest, RepairJobRunResponse> handler);
     
     /**
      * Update details for a job in AI Data Platform Workbench.
@@ -283,6 +283,6 @@ public interface WorkflowAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformJobResponse> updateAiDataPlatformJob(UpdateAiDataPlatformJobRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformJobRequest, UpdateAiDataPlatformJobResponse> handler);
+    java.util.concurrent.Future<UpdateJobResponse> updateJob(UpdateJobRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateJobRequest, UpdateJobResponse> handler);
     
 }

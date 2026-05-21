@@ -83,18 +83,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CatalogAiDataPlatformTestConnectionResponse> catalogAiDataPlatformTestConnection(CatalogAiDataPlatformTestConnectionRequest request, final com.oracle.bmc.responses.AsyncHandler<CatalogAiDataPlatformTestConnectionRequest, CatalogAiDataPlatformTestConnectionResponse> handler) {
+    public java.util.concurrent.Future<CatalogTestConnectionResponse> catalogTestConnection(CatalogTestConnectionRequest request, final com.oracle.bmc.responses.AsyncHandler<CatalogTestConnectionRequest, CatalogTestConnectionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCatalogTestConnectionDetails(), "catalogTestConnectionDetails is required");
         
 
 
-return clientCall(request, CatalogAiDataPlatformTestConnectionResponse::builder)
-        .logger(LOG, "catalogAiDataPlatformTestConnection")
-        .serviceDetails("Catalog", "CatalogAiDataPlatformTestConnection", "")
+return clientCall(request, CatalogTestConnectionResponse::builder)
+        .logger(LOG, "catalogTestConnection")
+        .serviceDetails("Catalog", "CatalogTestConnection", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CatalogAiDataPlatformTestConnectionRequest::builder)
+        .requestBuilder(CatalogTestConnectionRequest::builder)
         
         
         .basePath("/20260430")
@@ -109,26 +109,26 @@ return clientCall(request, CatalogAiDataPlatformTestConnectionResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CatalogAiDataPlatformTestConnectionResponse.Builder::aidpAsyncOperationKey)
+            CatalogTestConnectionResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CatalogAiDataPlatformTestConnectionResponse.Builder::opcRequestId)
+            CatalogTestConnectionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformCatalogResponse> createAiDataPlatformCatalog(CreateAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformCatalogRequest, CreateAiDataPlatformCatalogResponse> handler) {
+    public java.util.concurrent.Future<CreateCatalogResponse> createCatalog(CreateCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateCatalogRequest, CreateCatalogResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateCatalogDetails(), "createCatalogDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformCatalogResponse::builder)
-        .logger(LOG, "createAiDataPlatformCatalog")
-        .serviceDetails("Catalog", "CreateAiDataPlatformCatalog", "")
+return clientCall(request, CreateCatalogResponse::builder)
+        .logger(LOG, "createCatalog")
+        .serviceDetails("Catalog", "CreateCatalog", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformCatalogRequest::builder)
+        .requestBuilder(CreateCatalogRequest::builder)
         
         
         .basePath("/20260430")
@@ -143,30 +143,30 @@ return clientCall(request, CreateAiDataPlatformCatalogResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformCatalogResponse.Builder::location)
+            CreateCatalogResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformCatalogResponse.Builder::contentLocation)
+            CreateCatalogResponse.Builder::contentLocation)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformCatalogResponse.Builder::aidpAsyncOperationKey)
+            CreateCatalogResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformCatalogResponse.Builder::opcRequestId)
+            CreateCatalogResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformCatalogResponse> deleteAiDataPlatformCatalog(DeleteAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformCatalogRequest, DeleteAiDataPlatformCatalogResponse> handler) {
+    public java.util.concurrent.Future<DeleteCatalogResponse> deleteCatalog(DeleteCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteCatalogRequest, DeleteCatalogResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCatalogKey(), "catalogKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformCatalogResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformCatalog")
-        .serviceDetails("Catalog", "DeleteAiDataPlatformCatalog", "")
+return clientCall(request, DeleteCatalogResponse::builder)
+        .logger(LOG, "deleteCatalog")
+        .serviceDetails("Catalog", "DeleteCatalog", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformCatalogRequest::builder)
+        .requestBuilder(DeleteCatalogRequest::builder)
         
         
         .basePath("/20260430")
@@ -183,26 +183,26 @@ return clientCall(request, DeleteAiDataPlatformCatalogResponse::builder)
         
         
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeleteAiDataPlatformCatalogResponse.Builder::aidpAsyncOperationKey)
+            DeleteCatalogResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformCatalogResponse.Builder::opcRequestId)
+            DeleteCatalogResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformCatalogResponse> getAiDataPlatformCatalog(GetAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformCatalogRequest, GetAiDataPlatformCatalogResponse> handler) {
+    public java.util.concurrent.Future<GetCatalogResponse> getCatalog(GetCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<GetCatalogRequest, GetCatalogResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCatalogKey(), "catalogKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformCatalogResponse::builder)
-        .logger(LOG, "getAiDataPlatformCatalog")
-        .serviceDetails("Catalog", "GetAiDataPlatformCatalog", "")
+return clientCall(request, GetCatalogResponse::builder)
+        .logger(LOG, "getCatalog")
+        .serviceDetails("Catalog", "GetCatalog", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformCatalogRequest::builder)
+        .requestBuilder(GetCatalogRequest::builder)
         
         
         .basePath("/20260430")
@@ -218,28 +218,28 @@ return clientCall(request, GetAiDataPlatformCatalogResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Catalog.class, GetAiDataPlatformCatalogResponse.Builder::catalog)
+            .handleBody(com.oracle.aidataplatform.dp.model.Catalog.class, GetCatalogResponse.Builder::catalog)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformCatalogResponse.Builder::etag)
+            GetCatalogResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformCatalogResponse.Builder::opcRequestId)
+            GetCatalogResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformCatalogPermissionsResponse> listAiDataPlatformCatalogPermissions(ListAiDataPlatformCatalogPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogPermissionsRequest, ListAiDataPlatformCatalogPermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListCatalogPermissionsResponse> listCatalogPermissions(ListCatalogPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCatalogKey(), "catalogKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformCatalogPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformCatalogPermissions")
-        .serviceDetails("Catalog", "ListAiDataPlatformCatalogPermissions", "")
+return clientCall(request, ListCatalogPermissionsResponse::builder)
+        .logger(LOG, "listCatalogPermissions")
+        .serviceDetails("Catalog", "ListCatalogPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformCatalogPermissionsRequest::builder)
+        .requestBuilder(ListCatalogPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -267,26 +267,26 @@ return clientCall(request, ListAiDataPlatformCatalogPermissionsResponse::builder
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.CatalogPermissionCollection.class, ListAiDataPlatformCatalogPermissionsResponse.Builder::catalogPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.CatalogPermissionCollection.class, ListCatalogPermissionsResponse.Builder::catalogPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformCatalogPermissionsResponse.Builder::opcRequestId)
+            ListCatalogPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformCatalogPermissionsResponse.Builder::opcNextPage)
+            ListCatalogPermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformCatalogsResponse> listAiDataPlatformCatalogs(ListAiDataPlatformCatalogsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCatalogsRequest, ListAiDataPlatformCatalogsResponse> handler) {
+    public java.util.concurrent.Future<ListCatalogsResponse> listCatalogs(ListCatalogsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListCatalogsRequest, ListCatalogsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformCatalogsResponse::builder)
-        .logger(LOG, "listAiDataPlatformCatalogs")
-        .serviceDetails("Catalog", "ListAiDataPlatformCatalogs", "")
+return clientCall(request, ListCatalogsResponse::builder)
+        .logger(LOG, "listCatalogs")
+        .serviceDetails("Catalog", "ListCatalogs", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformCatalogsRequest::builder)
+        .requestBuilder(ListCatalogsRequest::builder)
         
         
         .basePath("/20260430")
@@ -324,17 +324,17 @@ return clientCall(request, ListAiDataPlatformCatalogsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.CatalogCollection.class, ListAiDataPlatformCatalogsResponse.Builder::catalogCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.CatalogCollection.class, ListCatalogsResponse.Builder::catalogCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformCatalogsResponse.Builder::opcRequestId)
+            ListCatalogsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformCatalogsResponse.Builder::opcNextPage)
+            ListCatalogsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformCatalogPermissionResponse> manageAiDataPlatformCatalogPermission(ManageAiDataPlatformCatalogPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCatalogPermissionRequest, ManageAiDataPlatformCatalogPermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageCatalogPermissionResponse> manageCatalogPermission(ManageCatalogPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -343,11 +343,11 @@ return clientCall(request, ListAiDataPlatformCatalogsResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformCatalogPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformCatalogPermission")
-        .serviceDetails("Catalog", "ManageAiDataPlatformCatalogPermission", "")
+return clientCall(request, ManageCatalogPermissionResponse::builder)
+        .logger(LOG, "manageCatalogPermission")
+        .serviceDetails("Catalog", "ManageCatalogPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformCatalogPermissionRequest::builder)
+        .requestBuilder(ManageCatalogPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -362,24 +362,24 @@ return clientCall(request, ManageAiDataPlatformCatalogPermissionResponse::builde
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformCatalogPermissionResponse.Builder::opcRequestId)
+            ManageCatalogPermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RefreshAiDataPlatformCatalogResponse> refreshAiDataPlatformCatalog(RefreshAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformCatalogRequest, RefreshAiDataPlatformCatalogResponse> handler) {
+    public java.util.concurrent.Future<RefreshCatalogResponse> refreshCatalog(RefreshCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshCatalogRequest, RefreshCatalogResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getCatalogKey(), "catalogKey must not be blank");
 
 
-return clientCall(request, RefreshAiDataPlatformCatalogResponse::builder)
-        .logger(LOG, "refreshAiDataPlatformCatalog")
-        .serviceDetails("Catalog", "RefreshAiDataPlatformCatalog", "")
+return clientCall(request, RefreshCatalogResponse::builder)
+        .logger(LOG, "refreshCatalog")
+        .serviceDetails("Catalog", "RefreshCatalog", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RefreshAiDataPlatformCatalogRequest::builder)
+        .requestBuilder(RefreshCatalogRequest::builder)
         
         
         .basePath("/20260430")
@@ -396,15 +396,15 @@ return clientCall(request, RefreshAiDataPlatformCatalogResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            RefreshAiDataPlatformCatalogResponse.Builder::opcRequestId)
+            RefreshCatalogResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            RefreshAiDataPlatformCatalogResponse.Builder::aidpAsyncOperationKey)
+            RefreshCatalogResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformCatalogResponse> updateAiDataPlatformCatalog(UpdateAiDataPlatformCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformCatalogRequest, UpdateAiDataPlatformCatalogResponse> handler) {
+    public java.util.concurrent.Future<UpdateCatalogResponse> updateCatalog(UpdateCatalogRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateCatalogRequest, UpdateCatalogResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -413,11 +413,11 @@ return clientCall(request, RefreshAiDataPlatformCatalogResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformCatalogResponse::builder)
-        .logger(LOG, "updateAiDataPlatformCatalog")
-        .serviceDetails("Catalog", "UpdateAiDataPlatformCatalog", "")
+return clientCall(request, UpdateCatalogResponse::builder)
+        .logger(LOG, "updateCatalog")
+        .serviceDetails("Catalog", "UpdateCatalog", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformCatalogRequest::builder)
+        .requestBuilder(UpdateCatalogRequest::builder)
         
         
         .basePath("/20260430")
@@ -432,9 +432,9 @@ return clientCall(request, UpdateAiDataPlatformCatalogResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            UpdateAiDataPlatformCatalogResponse.Builder::aidpAsyncOperationKey)
+            UpdateCatalogResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformCatalogResponse.Builder::opcRequestId)
+            UpdateCatalogResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

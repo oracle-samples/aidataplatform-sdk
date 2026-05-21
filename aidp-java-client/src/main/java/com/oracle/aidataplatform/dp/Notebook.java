@@ -66,7 +66,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformContentResponse createAiDataPlatformContent(CreateAiDataPlatformContentRequest request);
+    CreateContentResponse createContent(CreateContentRequest request);
     
     /**
      * Creates a new session or returns an existing session if a session for the given path already exists.
@@ -76,7 +76,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformSessionResponse createAiDataPlatformSession(CreateAiDataPlatformSessionRequest request);
+    CreateSessionResponse createSession(CreateSessionRequest request);
     
     /**
      * Deletes a notebook file or directory.
@@ -86,7 +86,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformContentResponse deleteAiDataPlatformContent(DeleteAiDataPlatformContentRequest request);
+    DeleteContentResponse deleteContent(DeleteContentRequest request);
     
     /**
      * Delete a session with given session ID.
@@ -96,7 +96,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformSessionResponse deleteAiDataPlatformSession(DeleteAiDataPlatformSessionRequest request);
+    DeleteSessionResponse deleteSession(DeleteSessionRequest request);
     
     /**
      * Exports the notebook file contents. You can optionally specify HTML or ipynb format through the request payload. If no format is specified, ipynb is used by default.
@@ -106,7 +106,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ExportAiDataPlatformContentsResponse exportAiDataPlatformContents(ExportAiDataPlatformContentsRequest request);
+    ExportContentsResponse exportContents(ExportContentsRequest request);
     
     /**
      * Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter.
@@ -120,7 +120,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformContentResponse getAiDataPlatformContent(GetAiDataPlatformContentRequest request);
+    GetContentResponse getContent(GetContentRequest request);
     
     /**
      * Returns session details for a given session ID.
@@ -130,7 +130,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformSessionResponse getAiDataPlatformSession(GetAiDataPlatformSessionRequest request);
+    GetSessionResponse getSession(GetSessionRequest request);
     
     /**
      * Returns a list of all available sessions.
@@ -140,7 +140,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformSessionsResponse listAiDataPlatformSessions(ListAiDataPlatformSessionsRequest request);
+    ListSessionsResponse listSessions(ListSessionsRequest request);
     
     /**
      * Renames a file or directory without re-uploading content.
@@ -150,7 +150,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ModifyAiDataPlatformContentResponse modifyAiDataPlatformContent(ModifyAiDataPlatformContentRequest request);
+    ModifyContentResponse modifyContent(ModifyContentRequest request);
     
     /**
      * Patches a session with a given ID with the provided details. You can use this to rename a session.
@@ -160,7 +160,7 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    PatchAiDataPlatformSessionResponse patchAiDataPlatformSession(PatchAiDataPlatformSessionRequest request);
+    PatchSessionResponse patchSession(PatchSessionRequest request);
     
     /**
      * Updates the contents of an existing notebook with the provided details or saves a new notebook.
@@ -170,7 +170,13 @@ public interface Notebook extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformContentResponse updateAiDataPlatformContent(UpdateAiDataPlatformContentRequest request);
+    UpdateContentResponse updateContent(UpdateContentRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    NotebookWaiters getWaiters();
 }

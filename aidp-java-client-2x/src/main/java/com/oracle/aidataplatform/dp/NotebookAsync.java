@@ -67,7 +67,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformContentResponse> createAiDataPlatformContent(CreateAiDataPlatformContentRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformContentRequest, CreateAiDataPlatformContentResponse> handler);
+    java.util.concurrent.Future<CreateContentResponse> createContent(CreateContentRequest request, com.oracle.bmc.responses.AsyncHandler<CreateContentRequest, CreateContentResponse> handler);
     
     /**
      * Creates a new session or returns an existing session if a session for the given path already exists.
@@ -79,7 +79,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformSessionResponse> createAiDataPlatformSession(CreateAiDataPlatformSessionRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSessionRequest, CreateAiDataPlatformSessionResponse> handler);
+    java.util.concurrent.Future<CreateSessionResponse> createSession(CreateSessionRequest request, com.oracle.bmc.responses.AsyncHandler<CreateSessionRequest, CreateSessionResponse> handler);
     
     /**
      * Deletes a notebook file or directory.
@@ -91,7 +91,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformContentResponse> deleteAiDataPlatformContent(DeleteAiDataPlatformContentRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformContentRequest, DeleteAiDataPlatformContentResponse> handler);
+    java.util.concurrent.Future<DeleteContentResponse> deleteContent(DeleteContentRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteContentRequest, DeleteContentResponse> handler);
     
     /**
      * Delete a session with given session ID.
@@ -103,7 +103,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformSessionResponse> deleteAiDataPlatformSession(DeleteAiDataPlatformSessionRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSessionRequest, DeleteAiDataPlatformSessionResponse> handler);
+    java.util.concurrent.Future<DeleteSessionResponse> deleteSession(DeleteSessionRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteSessionRequest, DeleteSessionResponse> handler);
     
     /**
      * Exports the notebook file contents. You can optionally specify HTML or ipynb format through the request payload. If no format is specified, ipynb is used by default.
@@ -115,7 +115,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ExportAiDataPlatformContentsResponse> exportAiDataPlatformContents(ExportAiDataPlatformContentsRequest request, com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformContentsRequest, ExportAiDataPlatformContentsResponse> handler);
+    java.util.concurrent.Future<ExportContentsResponse> exportContents(ExportContentsRequest request, com.oracle.bmc.responses.AsyncHandler<ExportContentsRequest, ExportContentsResponse> handler);
     
     /**
      * Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter.
@@ -131,7 +131,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformContentResponse> getAiDataPlatformContent(GetAiDataPlatformContentRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformContentRequest, GetAiDataPlatformContentResponse> handler);
+    java.util.concurrent.Future<GetContentResponse> getContent(GetContentRequest request, com.oracle.bmc.responses.AsyncHandler<GetContentRequest, GetContentResponse> handler);
     
     /**
      * Returns session details for a given session ID.
@@ -143,7 +143,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformSessionResponse> getAiDataPlatformSession(GetAiDataPlatformSessionRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSessionRequest, GetAiDataPlatformSessionResponse> handler);
+    java.util.concurrent.Future<GetSessionResponse> getSession(GetSessionRequest request, com.oracle.bmc.responses.AsyncHandler<GetSessionRequest, GetSessionResponse> handler);
     
     /**
      * Returns a list of all available sessions.
@@ -155,7 +155,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformSessionsResponse> listAiDataPlatformSessions(ListAiDataPlatformSessionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSessionsRequest, ListAiDataPlatformSessionsResponse> handler);
+    java.util.concurrent.Future<ListSessionsResponse> listSessions(ListSessionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListSessionsRequest, ListSessionsResponse> handler);
     
     /**
      * Renames a file or directory without re-uploading content.
@@ -167,7 +167,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ModifyAiDataPlatformContentResponse> modifyAiDataPlatformContent(ModifyAiDataPlatformContentRequest request, com.oracle.bmc.responses.AsyncHandler<ModifyAiDataPlatformContentRequest, ModifyAiDataPlatformContentResponse> handler);
+    java.util.concurrent.Future<ModifyContentResponse> modifyContent(ModifyContentRequest request, com.oracle.bmc.responses.AsyncHandler<ModifyContentRequest, ModifyContentResponse> handler);
     
     /**
      * Patches a session with a given ID with the provided details. You can use this to rename a session.
@@ -179,7 +179,7 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<PatchAiDataPlatformSessionResponse> patchAiDataPlatformSession(PatchAiDataPlatformSessionRequest request, com.oracle.bmc.responses.AsyncHandler<PatchAiDataPlatformSessionRequest, PatchAiDataPlatformSessionResponse> handler);
+    java.util.concurrent.Future<PatchSessionResponse> patchSession(PatchSessionRequest request, com.oracle.bmc.responses.AsyncHandler<PatchSessionRequest, PatchSessionResponse> handler);
     
     /**
      * Updates the contents of an existing notebook with the provided details or saves a new notebook.
@@ -191,6 +191,6 @@ public interface NotebookAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformContentResponse> updateAiDataPlatformContent(UpdateAiDataPlatformContentRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformContentRequest, UpdateAiDataPlatformContentResponse> handler);
+    java.util.concurrent.Future<UpdateContentResponse> updateContent(UpdateContentRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateContentRequest, UpdateContentResponse> handler);
     
 }

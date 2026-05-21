@@ -369,21 +369,21 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<AddAiDataPlatformMemberToRoleResponse> addAiDataPlatformMemberToRole(AddAiDataPlatformMemberToRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<AddAiDataPlatformMemberToRoleRequest, AddAiDataPlatformMemberToRoleResponse> handler) {
-        LOG.trace("Called async addAiDataPlatformMemberToRole");
-        final AddAiDataPlatformMemberToRoleRequest interceptedRequest = AddAiDataPlatformMemberToRoleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = AddAiDataPlatformMemberToRoleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<AddMemberToRoleResponse> addMemberToRole(AddMemberToRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<AddMemberToRoleRequest, AddMemberToRoleResponse> handler) {
+        LOG.trace("Called async addMemberToRole");
+        final AddMemberToRoleRequest interceptedRequest = AddMemberToRoleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = AddMemberToRoleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "AddAiDataPlatformMemberToRole", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, AddAiDataPlatformMemberToRoleResponse> transformer = AddAiDataPlatformMemberToRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "AddMemberToRole", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, AddMemberToRoleResponse> transformer = AddMemberToRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<AddAiDataPlatformMemberToRoleRequest, AddAiDataPlatformMemberToRoleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<AddMemberToRoleRequest, AddMemberToRoleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<AddAiDataPlatformMemberToRoleRequest, AddAiDataPlatformMemberToRoleResponse>, java.util.concurrent.Future<AddAiDataPlatformMemberToRoleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<AddMemberToRoleRequest, AddMemberToRoleResponse>, java.util.concurrent.Future<AddMemberToRoleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getAddMemberToRoleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<AddAiDataPlatformMemberToRoleRequest, AddAiDataPlatformMemberToRoleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<AddMemberToRoleRequest, AddMemberToRoleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformRoleResponse> createAiDataPlatformRole(CreateAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRoleRequest, CreateAiDataPlatformRoleResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformRole");
-        final CreateAiDataPlatformRoleRequest interceptedRequest = CreateAiDataPlatformRoleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateRoleResponse> createRole(CreateRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateRoleRequest, CreateRoleResponse> handler) {
+        LOG.trace("Called async createRole");
+        final CreateRoleRequest interceptedRequest = CreateRoleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateRoleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "CreateAiDataPlatformRole", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformRoleResponse> transformer = CreateAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "CreateRole", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateRoleResponse> transformer = CreateRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRoleRequest, CreateAiDataPlatformRoleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateRoleRequest, CreateRoleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRoleRequest, CreateAiDataPlatformRoleResponse>, java.util.concurrent.Future<CreateAiDataPlatformRoleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateRoleRequest, CreateRoleResponse>, java.util.concurrent.Future<CreateRoleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateRoleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformRoleRequest, CreateAiDataPlatformRoleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateRoleRequest, CreateRoleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,20 +427,20 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformRoleResponse> deleteAiDataPlatformRole(DeleteAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRoleRequest, DeleteAiDataPlatformRoleResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformRole");
-        final DeleteAiDataPlatformRoleRequest interceptedRequest = DeleteAiDataPlatformRoleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "DeleteAiDataPlatformRole", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRoleResponse> transformer = DeleteAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteRoleResponse> deleteRole(DeleteRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteRoleRequest, DeleteRoleResponse> handler) {
+        LOG.trace("Called async deleteRole");
+        final DeleteRoleRequest interceptedRequest = DeleteRoleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRoleConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "DeleteRole", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteRoleResponse> transformer = DeleteRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRoleRequest, DeleteAiDataPlatformRoleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteRoleRequest, DeleteRoleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRoleRequest, DeleteAiDataPlatformRoleResponse>, java.util.concurrent.Future<DeleteAiDataPlatformRoleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteRoleRequest, DeleteRoleResponse>, java.util.concurrent.Future<DeleteRoleResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformRoleRequest, DeleteAiDataPlatformRoleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteRoleRequest, DeleteRoleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -455,20 +455,20 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformRoleResponse> getAiDataPlatformRole(GetAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRoleRequest, GetAiDataPlatformRoleResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformRole");
-        final GetAiDataPlatformRoleRequest interceptedRequest = GetAiDataPlatformRoleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "GetAiDataPlatformRole", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformRoleResponse> transformer = GetAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetRoleResponse> getRole(GetRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<GetRoleRequest, GetRoleResponse> handler) {
+        LOG.trace("Called async getRole");
+        final GetRoleRequest interceptedRequest = GetRoleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetRoleConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "GetRole", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetRoleResponse> transformer = GetRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRoleRequest, GetAiDataPlatformRoleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetRoleRequest, GetRoleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRoleRequest, GetAiDataPlatformRoleResponse>, java.util.concurrent.Future<GetAiDataPlatformRoleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetRoleRequest, GetRoleResponse>, java.util.concurrent.Future<GetRoleResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformRoleRequest, GetAiDataPlatformRoleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetRoleRequest, GetRoleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -483,20 +483,20 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRolePermissionsResponse> listAiDataPlatformRolePermissions(ListAiDataPlatformRolePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolePermissionsRequest, ListAiDataPlatformRolePermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRolePermissions");
-        final ListAiDataPlatformRolePermissionsRequest interceptedRequest = ListAiDataPlatformRolePermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRolePermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListAiDataPlatformRolePermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRolePermissionsResponse> transformer = ListAiDataPlatformRolePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRolePermissionsResponse> listRolePermissions(ListRolePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRolePermissionsRequest, ListRolePermissionsResponse> handler) {
+        LOG.trace("Called async listRolePermissions");
+        final ListRolePermissionsRequest interceptedRequest = ListRolePermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRolePermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListRolePermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRolePermissionsResponse> transformer = ListRolePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolePermissionsRequest, ListAiDataPlatformRolePermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRolePermissionsRequest, ListRolePermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolePermissionsRequest, ListAiDataPlatformRolePermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformRolePermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRolePermissionsRequest, ListRolePermissionsResponse>, java.util.concurrent.Future<ListRolePermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRolePermissionsRequest, ListAiDataPlatformRolePermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRolePermissionsRequest, ListRolePermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -511,20 +511,20 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRolesResponse> listAiDataPlatformRoles(ListAiDataPlatformRolesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolesRequest, ListAiDataPlatformRolesResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRoles");
-        final ListAiDataPlatformRolesRequest interceptedRequest = ListAiDataPlatformRolesConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRolesConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListAiDataPlatformRoles", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRolesResponse> transformer = ListAiDataPlatformRolesConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRolesResponse> listRoles(ListRolesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRolesRequest, ListRolesResponse> handler) {
+        LOG.trace("Called async listRoles");
+        final ListRolesRequest interceptedRequest = ListRolesConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRolesConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "ListRoles", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRolesResponse> transformer = ListRolesConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolesRequest, ListAiDataPlatformRolesResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRolesRequest, ListRolesResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolesRequest, ListAiDataPlatformRolesResponse>, java.util.concurrent.Future<ListAiDataPlatformRolesResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRolesRequest, ListRolesResponse>, java.util.concurrent.Future<ListRolesResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRolesRequest, ListAiDataPlatformRolesResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRolesRequest, ListRolesResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -539,21 +539,21 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RemoveAiDataPlatformMemberFromRoleResponse> removeAiDataPlatformMemberFromRole(RemoveAiDataPlatformMemberFromRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<RemoveAiDataPlatformMemberFromRoleRequest, RemoveAiDataPlatformMemberFromRoleResponse> handler) {
-        LOG.trace("Called async removeAiDataPlatformMemberFromRole");
-        final RemoveAiDataPlatformMemberFromRoleRequest interceptedRequest = RemoveAiDataPlatformMemberFromRoleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RemoveAiDataPlatformMemberFromRoleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RemoveMemberFromRoleResponse> removeMemberFromRole(RemoveMemberFromRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<RemoveMemberFromRoleRequest, RemoveMemberFromRoleResponse> handler) {
+        LOG.trace("Called async removeMemberFromRole");
+        final RemoveMemberFromRoleRequest interceptedRequest = RemoveMemberFromRoleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RemoveMemberFromRoleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "RemoveAiDataPlatformMemberFromRole", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RemoveAiDataPlatformMemberFromRoleResponse> transformer = RemoveAiDataPlatformMemberFromRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "RemoveMemberFromRole", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RemoveMemberFromRoleResponse> transformer = RemoveMemberFromRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RemoveAiDataPlatformMemberFromRoleRequest, RemoveAiDataPlatformMemberFromRoleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RemoveMemberFromRoleRequest, RemoveMemberFromRoleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RemoveAiDataPlatformMemberFromRoleRequest, RemoveAiDataPlatformMemberFromRoleResponse>, java.util.concurrent.Future<RemoveAiDataPlatformMemberFromRoleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RemoveMemberFromRoleRequest, RemoveMemberFromRoleResponse>, java.util.concurrent.Future<RemoveMemberFromRoleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getRemoveMemberFromRoleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RemoveAiDataPlatformMemberFromRoleRequest, RemoveAiDataPlatformMemberFromRoleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RemoveMemberFromRoleRequest, RemoveMemberFromRoleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -568,20 +568,20 @@ public class RoleAsyncClient implements RoleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformRoleResponse> updateAiDataPlatformRole(UpdateAiDataPlatformRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRoleRequest, UpdateAiDataPlatformRoleResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformRole");
-        final UpdateAiDataPlatformRoleRequest interceptedRequest = UpdateAiDataPlatformRoleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRoleConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "UpdateAiDataPlatformRole", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRoleResponse> transformer = UpdateAiDataPlatformRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateRoleResponse> updateRole(UpdateRoleRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateRoleRequest, UpdateRoleResponse> handler) {
+        LOG.trace("Called async updateRole");
+        final UpdateRoleRequest interceptedRequest = UpdateRoleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRoleConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Role", "UpdateRole", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateRoleResponse> transformer = UpdateRoleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRoleRequest, UpdateAiDataPlatformRoleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateRoleRequest, UpdateRoleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRoleRequest, UpdateAiDataPlatformRoleResponse>, java.util.concurrent.Future<UpdateAiDataPlatformRoleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateRoleRequest, UpdateRoleResponse>, java.util.concurrent.Future<UpdateRoleResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateRoleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformRoleRequest, UpdateAiDataPlatformRoleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateRoleRequest, UpdateRoleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

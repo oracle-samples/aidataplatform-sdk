@@ -83,7 +83,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CancelAiDataPlatformJobRunResponse> cancelAiDataPlatformJobRun(CancelAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunRequest, CancelAiDataPlatformJobRunResponse> handler) {
+    public java.util.concurrent.Future<CancelJobRunResponse> cancelJobRun(CancelJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelJobRunRequest, CancelJobRunResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -92,11 +92,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         Validate.notBlank(request.getJobRunKey(), "jobRunKey must not be blank");
 
 
-return clientCall(request, CancelAiDataPlatformJobRunResponse::builder)
-        .logger(LOG, "cancelAiDataPlatformJobRun")
-        .serviceDetails("Workflow", "CancelAiDataPlatformJobRun", "")
+return clientCall(request, CancelJobRunResponse::builder)
+        .logger(LOG, "cancelJobRun")
+        .serviceDetails("Workflow", "CancelJobRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CancelAiDataPlatformJobRunRequest::builder)
+        .requestBuilder(CancelJobRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -112,23 +112,23 @@ return clientCall(request, CancelAiDataPlatformJobRunResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, CancelAiDataPlatformJobRunResponse.Builder::jobRun)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, CancelJobRunResponse.Builder::jobRun)
                 .handleResponseHeaderString("location", 
-            CancelAiDataPlatformJobRunResponse.Builder::location)
+            CancelJobRunResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CancelAiDataPlatformJobRunResponse.Builder::contentLocation)
+            CancelJobRunResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            CancelAiDataPlatformJobRunResponse.Builder::etag)
+            CancelJobRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CancelAiDataPlatformJobRunResponse.Builder::opcWorkRequestId)
+            CancelJobRunResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CancelAiDataPlatformJobRunResponse.Builder::opcRequestId)
+            CancelJobRunResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CancelAiDataPlatformJobRunsResponse> cancelAiDataPlatformJobRuns(CancelAiDataPlatformJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunsRequest, CancelAiDataPlatformJobRunsResponse> handler) {
+    public java.util.concurrent.Future<CancelJobRunsResponse> cancelJobRuns(CancelJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelJobRunsRequest, CancelJobRunsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -137,11 +137,11 @@ return clientCall(request, CancelAiDataPlatformJobRunResponse::builder)
         Validate.notBlank(request.getJobKey(), "jobKey must not be blank");
 
 
-return clientCall(request, CancelAiDataPlatformJobRunsResponse::builder)
-        .logger(LOG, "cancelAiDataPlatformJobRuns")
-        .serviceDetails("Workflow", "CancelAiDataPlatformJobRuns", "")
+return clientCall(request, CancelJobRunsResponse::builder)
+        .logger(LOG, "cancelJobRuns")
+        .serviceDetails("Workflow", "CancelJobRuns", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CancelAiDataPlatformJobRunsRequest::builder)
+        .requestBuilder(CancelJobRunsRequest::builder)
         
         
         .basePath("/20260430")
@@ -156,15 +156,15 @@ return clientCall(request, CancelAiDataPlatformJobRunsResponse::builder)
         
         
                 .handleResponseHeaderString("opc-work-request-id", 
-            CancelAiDataPlatformJobRunsResponse.Builder::opcWorkRequestId)
+            CancelJobRunsResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CancelAiDataPlatformJobRunsResponse.Builder::opcRequestId)
+            CancelJobRunsResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformJobResponse> createAiDataPlatformJob(CreateAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRequest, CreateAiDataPlatformJobResponse> handler) {
+    public java.util.concurrent.Future<CreateJobResponse> createJob(CreateJobRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateJobRequest, CreateJobResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -173,11 +173,11 @@ return clientCall(request, CancelAiDataPlatformJobRunsResponse::builder)
         
 
 
-return clientCall(request, CreateAiDataPlatformJobResponse::builder)
-        .logger(LOG, "createAiDataPlatformJob")
-        .serviceDetails("Workflow", "CreateAiDataPlatformJob", "")
+return clientCall(request, CreateJobResponse::builder)
+        .logger(LOG, "createJob")
+        .serviceDetails("Workflow", "CreateJob", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformJobRequest::builder)
+        .requestBuilder(CreateJobRequest::builder)
         
         
         .basePath("/20260430")
@@ -191,23 +191,23 @@ return clientCall(request, CreateAiDataPlatformJobResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Job.class, CreateAiDataPlatformJobResponse.Builder::job)
+            .handleBody(com.oracle.aidataplatform.dp.model.Job.class, CreateJobResponse.Builder::job)
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformJobResponse.Builder::location)
+            CreateJobResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformJobResponse.Builder::contentLocation)
+            CreateJobResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformJobResponse.Builder::etag)
+            CreateJobResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CreateAiDataPlatformJobResponse.Builder::opcWorkRequestId)
+            CreateJobResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformJobResponse.Builder::opcRequestId)
+            CreateJobResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformJobRunResponse> createAiDataPlatformJobRun(CreateAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRunRequest, CreateAiDataPlatformJobRunResponse> handler) {
+    public java.util.concurrent.Future<CreateJobRunResponse> createJobRun(CreateJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateJobRunRequest, CreateJobRunResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -216,11 +216,11 @@ return clientCall(request, CreateAiDataPlatformJobResponse::builder)
         
 
 
-return clientCall(request, CreateAiDataPlatformJobRunResponse::builder)
-        .logger(LOG, "createAiDataPlatformJobRun")
-        .serviceDetails("Workflow", "CreateAiDataPlatformJobRun", "")
+return clientCall(request, CreateJobRunResponse::builder)
+        .logger(LOG, "createJobRun")
+        .serviceDetails("Workflow", "CreateJobRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformJobRunRequest::builder)
+        .requestBuilder(CreateJobRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -234,23 +234,23 @@ return clientCall(request, CreateAiDataPlatformJobRunResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, CreateAiDataPlatformJobRunResponse.Builder::jobRun)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, CreateJobRunResponse.Builder::jobRun)
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformJobRunResponse.Builder::location)
+            CreateJobRunResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformJobRunResponse.Builder::contentLocation)
+            CreateJobRunResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformJobRunResponse.Builder::etag)
+            CreateJobRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CreateAiDataPlatformJobRunResponse.Builder::opcWorkRequestId)
+            CreateJobRunResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformJobRunResponse.Builder::opcRequestId)
+            CreateJobRunResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformJobResponse> deleteAiDataPlatformJob(DeleteAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRequest, DeleteAiDataPlatformJobResponse> handler) {
+    public java.util.concurrent.Future<DeleteJobResponse> deleteJob(DeleteJobRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteJobRequest, DeleteJobResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -259,11 +259,11 @@ return clientCall(request, CreateAiDataPlatformJobRunResponse::builder)
         Validate.notBlank(request.getJobKey(), "jobKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformJobResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformJob")
-        .serviceDetails("Workflow", "DeleteAiDataPlatformJob", "")
+return clientCall(request, DeleteJobResponse::builder)
+        .logger(LOG, "deleteJob")
+        .serviceDetails("Workflow", "DeleteJob", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformJobRequest::builder)
+        .requestBuilder(DeleteJobRequest::builder)
         
         
         .basePath("/20260430")
@@ -276,13 +276,13 @@ return clientCall(request, DeleteAiDataPlatformJobResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformJobResponse.Builder::opcRequestId)
+            DeleteJobResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformJobRunResponse> deleteAiDataPlatformJobRun(DeleteAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRunRequest, DeleteAiDataPlatformJobRunResponse> handler) {
+    public java.util.concurrent.Future<DeleteJobRunResponse> deleteJobRun(DeleteJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteJobRunRequest, DeleteJobRunResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -291,11 +291,11 @@ return clientCall(request, DeleteAiDataPlatformJobResponse::builder)
         Validate.notBlank(request.getJobRunKey(), "jobRunKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformJobRunResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformJobRun")
-        .serviceDetails("Workflow", "DeleteAiDataPlatformJobRun", "")
+return clientCall(request, DeleteJobRunResponse::builder)
+        .logger(LOG, "deleteJobRun")
+        .serviceDetails("Workflow", "DeleteJobRun", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformJobRunRequest::builder)
+        .requestBuilder(DeleteJobRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -308,13 +308,13 @@ return clientCall(request, DeleteAiDataPlatformJobRunResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformJobRunResponse.Builder::opcRequestId)
+            DeleteJobRunResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ExportAiDataPlatformTaskRunOutputResponse> exportAiDataPlatformTaskRunOutput(ExportAiDataPlatformTaskRunOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformTaskRunOutputRequest, ExportAiDataPlatformTaskRunOutputResponse> handler) {
+    public java.util.concurrent.Future<ExportTaskRunOutputResponse> exportTaskRunOutput(ExportTaskRunOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportTaskRunOutputRequest, ExportTaskRunOutputResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -327,11 +327,11 @@ return clientCall(request, DeleteAiDataPlatformJobRunResponse::builder)
         
 
 
-return clientCall(request, ExportAiDataPlatformTaskRunOutputResponse::builder)
-        .logger(LOG, "exportAiDataPlatformTaskRunOutput")
-        .serviceDetails("Workflow", "ExportAiDataPlatformTaskRunOutput", "")
+return clientCall(request, ExportTaskRunOutputResponse::builder)
+        .logger(LOG, "exportTaskRunOutput")
+        .serviceDetails("Workflow", "ExportTaskRunOutput", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ExportAiDataPlatformTaskRunOutputRequest::builder)
+        .requestBuilder(ExportTaskRunOutputRequest::builder)
         
         
         .basePath("/20260430")
@@ -341,17 +341,17 @@ return clientCall(request, ExportAiDataPlatformTaskRunOutputResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.ExportedTaskRunOutputContents.class, ExportAiDataPlatformTaskRunOutputResponse.Builder::exportedTaskRunOutputContents)
+            .handleBody(com.oracle.aidataplatform.dp.model.ExportedTaskRunOutputContents.class, ExportTaskRunOutputResponse.Builder::exportedTaskRunOutputContents)
                 .handleResponseHeaderString("etag", 
-            ExportAiDataPlatformTaskRunOutputResponse.Builder::etag)
+            ExportTaskRunOutputResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            ExportAiDataPlatformTaskRunOutputResponse.Builder::opcRequestId)
+            ExportTaskRunOutputResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<FetchAiDataPlatformOutputResponse> fetchAiDataPlatformOutput(FetchAiDataPlatformOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformOutputRequest, FetchAiDataPlatformOutputResponse> handler) {
+    public java.util.concurrent.Future<FetchOutputResponse> fetchOutput(FetchOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchOutputRequest, FetchOutputResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -362,11 +362,11 @@ return clientCall(request, ExportAiDataPlatformTaskRunOutputResponse::builder)
         
 
 
-return clientCall(request, FetchAiDataPlatformOutputResponse::builder)
-        .logger(LOG, "fetchAiDataPlatformOutput")
-        .serviceDetails("Workflow", "FetchAiDataPlatformOutput", "")
+return clientCall(request, FetchOutputResponse::builder)
+        .logger(LOG, "fetchOutput")
+        .serviceDetails("Workflow", "FetchOutput", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(FetchAiDataPlatformOutputRequest::builder)
+        .requestBuilder(FetchOutputRequest::builder)
         
         
         .basePath("/20260430")
@@ -378,17 +378,17 @@ return clientCall(request, FetchAiDataPlatformOutputResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.TaskRunOutput.class, FetchAiDataPlatformOutputResponse.Builder::taskRunOutput)
+            .handleBody(com.oracle.aidataplatform.dp.model.TaskRunOutput.class, FetchOutputResponse.Builder::taskRunOutput)
                 .handleResponseHeaderString("opc-request-id", 
-            FetchAiDataPlatformOutputResponse.Builder::opcRequestId)
+            FetchOutputResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            FetchAiDataPlatformOutputResponse.Builder::etag)
+            FetchOutputResponse.Builder::etag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformJobResponse> getAiDataPlatformJob(GetAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRequest, GetAiDataPlatformJobResponse> handler) {
+    public java.util.concurrent.Future<GetJobResponse> getJob(GetJobRequest request, final com.oracle.bmc.responses.AsyncHandler<GetJobRequest, GetJobResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -397,11 +397,11 @@ return clientCall(request, FetchAiDataPlatformOutputResponse::builder)
         Validate.notBlank(request.getJobKey(), "jobKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformJobResponse::builder)
-        .logger(LOG, "getAiDataPlatformJob")
-        .serviceDetails("Workflow", "GetAiDataPlatformJob", "")
+return clientCall(request, GetJobResponse::builder)
+        .logger(LOG, "getJob")
+        .serviceDetails("Workflow", "GetJob", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformJobRequest::builder)
+        .requestBuilder(GetJobRequest::builder)
         
         
         .basePath("/20260430")
@@ -413,17 +413,17 @@ return clientCall(request, GetAiDataPlatformJobResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Job.class, GetAiDataPlatformJobResponse.Builder::job)
+            .handleBody(com.oracle.aidataplatform.dp.model.Job.class, GetJobResponse.Builder::job)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformJobResponse.Builder::etag)
+            GetJobResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformJobResponse.Builder::opcRequestId)
+            GetJobResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformJobRunResponse> getAiDataPlatformJobRun(GetAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRunRequest, GetAiDataPlatformJobRunResponse> handler) {
+    public java.util.concurrent.Future<GetJobRunResponse> getJobRun(GetJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetJobRunRequest, GetJobRunResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -432,11 +432,11 @@ return clientCall(request, GetAiDataPlatformJobResponse::builder)
         Validate.notBlank(request.getJobRunKey(), "jobRunKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformJobRunResponse::builder)
-        .logger(LOG, "getAiDataPlatformJobRun")
-        .serviceDetails("Workflow", "GetAiDataPlatformJobRun", "")
+return clientCall(request, GetJobRunResponse::builder)
+        .logger(LOG, "getJobRun")
+        .serviceDetails("Workflow", "GetJobRun", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformJobRunRequest::builder)
+        .requestBuilder(GetJobRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -448,17 +448,17 @@ return clientCall(request, GetAiDataPlatformJobRunResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, GetAiDataPlatformJobRunResponse.Builder::jobRun)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, GetJobRunResponse.Builder::jobRun)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformJobRunResponse.Builder::etag)
+            GetJobRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformJobRunResponse.Builder::opcRequestId)
+            GetJobRunResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformTaskRunResponse> getAiDataPlatformTaskRun(GetAiDataPlatformTaskRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTaskRunRequest, GetAiDataPlatformTaskRunResponse> handler) {
+    public java.util.concurrent.Future<GetTaskRunResponse> getTaskRun(GetTaskRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetTaskRunRequest, GetTaskRunResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -467,11 +467,11 @@ return clientCall(request, GetAiDataPlatformJobRunResponse::builder)
         Validate.notBlank(request.getTaskRunKey(), "taskRunKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformTaskRunResponse::builder)
-        .logger(LOG, "getAiDataPlatformTaskRun")
-        .serviceDetails("Workflow", "GetAiDataPlatformTaskRun", "")
+return clientCall(request, GetTaskRunResponse::builder)
+        .logger(LOG, "getTaskRun")
+        .serviceDetails("Workflow", "GetTaskRun", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformTaskRunRequest::builder)
+        .requestBuilder(GetTaskRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -481,17 +481,17 @@ return clientCall(request, GetAiDataPlatformTaskRunResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.TaskRun.class, GetAiDataPlatformTaskRunResponse.Builder::taskRun)
+            .handleBody(com.oracle.aidataplatform.dp.model.TaskRun.class, GetTaskRunResponse.Builder::taskRun)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformTaskRunResponse.Builder::etag)
+            GetTaskRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformTaskRunResponse.Builder::opcRequestId)
+            GetTaskRunResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformJobPermissionsResponse> listAiDataPlatformJobPermissions(ListAiDataPlatformJobPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobPermissionsRequest, ListAiDataPlatformJobPermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListJobPermissionsResponse> listJobPermissions(ListJobPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListJobPermissionsRequest, ListJobPermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -500,11 +500,11 @@ return clientCall(request, GetAiDataPlatformTaskRunResponse::builder)
         Validate.notBlank(request.getJobKey(), "jobKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformJobPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformJobPermissions")
-        .serviceDetails("Workflow", "ListAiDataPlatformJobPermissions", "")
+return clientCall(request, ListJobPermissionsResponse::builder)
+        .logger(LOG, "listJobPermissions")
+        .serviceDetails("Workflow", "ListJobPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformJobPermissionsRequest::builder)
+        .requestBuilder(ListJobPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -530,28 +530,28 @@ return clientCall(request, ListAiDataPlatformJobPermissionsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.JobPermissionCollection.class, ListAiDataPlatformJobPermissionsResponse.Builder::jobPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobPermissionCollection.class, ListJobPermissionsResponse.Builder::jobPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformJobPermissionsResponse.Builder::opcRequestId)
+            ListJobPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformJobPermissionsResponse.Builder::opcNextPage)
+            ListJobPermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformJobRunsResponse> listAiDataPlatformJobRuns(ListAiDataPlatformJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobRunsRequest, ListAiDataPlatformJobRunsResponse> handler) {
+    public java.util.concurrent.Future<ListJobRunsResponse> listJobRuns(ListJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListJobRunsRequest, ListJobRunsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformJobRunsResponse::builder)
-        .logger(LOG, "listAiDataPlatformJobRuns")
-        .serviceDetails("Workflow", "ListAiDataPlatformJobRuns", "")
+return clientCall(request, ListJobRunsResponse::builder)
+        .logger(LOG, "listJobRuns")
+        .serviceDetails("Workflow", "ListJobRuns", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformJobRunsRequest::builder)
+        .requestBuilder(ListJobRunsRequest::builder)
         
         
         .basePath("/20260430")
@@ -593,28 +593,28 @@ return clientCall(request, ListAiDataPlatformJobRunsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.JobRunCollection.class, ListAiDataPlatformJobRunsResponse.Builder::jobRunCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobRunCollection.class, ListJobRunsResponse.Builder::jobRunCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformJobRunsResponse.Builder::opcRequestId)
+            ListJobRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformJobRunsResponse.Builder::opcNextPage)
+            ListJobRunsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformJobsResponse> listAiDataPlatformJobs(ListAiDataPlatformJobsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobsRequest, ListAiDataPlatformJobsResponse> handler) {
+    public java.util.concurrent.Future<ListJobsResponse> listJobs(ListJobsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListJobsRequest, ListJobsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformJobsResponse::builder)
-        .logger(LOG, "listAiDataPlatformJobs")
-        .serviceDetails("Workflow", "ListAiDataPlatformJobs", "")
+return clientCall(request, ListJobsResponse::builder)
+        .logger(LOG, "listJobs")
+        .serviceDetails("Workflow", "ListJobs", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformJobsRequest::builder)
+        .requestBuilder(ListJobsRequest::builder)
         
         
         .basePath("/20260430")
@@ -660,21 +660,21 @@ return clientCall(request, ListAiDataPlatformJobsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.JobCollection.class, ListAiDataPlatformJobsResponse.Builder::jobCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobCollection.class, ListJobsResponse.Builder::jobCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformJobsResponse.Builder::opcRequestId)
+            ListJobsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformJobsResponse.Builder::opcNextPage)
+            ListJobsResponse.Builder::opcNextPage)
                 .handleResponseHeaderString("opc-prev-page", 
-            ListAiDataPlatformJobsResponse.Builder::opcPrevPage)
+            ListJobsResponse.Builder::opcPrevPage)
                 .handleResponseHeaderInteger("opc-total-items", 
-            ListAiDataPlatformJobsResponse.Builder::opcTotalItems)
+            ListJobsResponse.Builder::opcTotalItems)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformRecentJobRunsResponse> listAiDataPlatformRecentJobRuns(ListAiDataPlatformRecentJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecentJobRunsRequest, ListAiDataPlatformRecentJobRunsResponse> handler) {
+    public java.util.concurrent.Future<ListRecentJobRunsResponse> listRecentJobRuns(ListRecentJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecentJobRunsRequest, ListRecentJobRunsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -683,11 +683,11 @@ return clientCall(request, ListAiDataPlatformJobsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformRecentJobRunsResponse::builder)
-        .logger(LOG, "listAiDataPlatformRecentJobRuns")
-        .serviceDetails("Workflow", "ListAiDataPlatformRecentJobRuns", "")
+return clientCall(request, ListRecentJobRunsResponse::builder)
+        .logger(LOG, "listRecentJobRuns")
+        .serviceDetails("Workflow", "ListRecentJobRuns", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRecentJobRunsRequest::builder)
+        .requestBuilder(ListRecentJobRunsRequest::builder)
         
         
         .basePath("/20260430")
@@ -719,17 +719,17 @@ return clientCall(request, ListAiDataPlatformRecentJobRunsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.JobRunCollection.class, ListAiDataPlatformRecentJobRunsResponse.Builder::jobRunCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobRunCollection.class, ListRecentJobRunsResponse.Builder::jobRunCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRecentJobRunsResponse.Builder::opcRequestId)
+            ListRecentJobRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRecentJobRunsResponse.Builder::opcNextPage)
+            ListRecentJobRunsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformTaskRunsResponse> listAiDataPlatformTaskRuns(ListAiDataPlatformTaskRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTaskRunsRequest, ListAiDataPlatformTaskRunsResponse> handler) {
+    public java.util.concurrent.Future<ListTaskRunsResponse> listTaskRuns(ListTaskRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTaskRunsRequest, ListTaskRunsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -738,11 +738,11 @@ return clientCall(request, ListAiDataPlatformRecentJobRunsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformTaskRunsResponse::builder)
-        .logger(LOG, "listAiDataPlatformTaskRuns")
-        .serviceDetails("Workflow", "ListAiDataPlatformTaskRuns", "")
+return clientCall(request, ListTaskRunsResponse::builder)
+        .logger(LOG, "listTaskRuns")
+        .serviceDetails("Workflow", "ListTaskRuns", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformTaskRunsRequest::builder)
+        .requestBuilder(ListTaskRunsRequest::builder)
         
         
         .basePath("/20260430")
@@ -786,17 +786,17 @@ return clientCall(request, ListAiDataPlatformTaskRunsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.TaskRunCollection.class, ListAiDataPlatformTaskRunsResponse.Builder::taskRunCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.TaskRunCollection.class, ListTaskRunsResponse.Builder::taskRunCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformTaskRunsResponse.Builder::opcRequestId)
+            ListTaskRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformTaskRunsResponse.Builder::opcNextPage)
+            ListTaskRunsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformJobPermissionResponse> manageAiDataPlatformJobPermission(ManageAiDataPlatformJobPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformJobPermissionRequest, ManageAiDataPlatformJobPermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageJobPermissionResponse> manageJobPermission(ManageJobPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageJobPermissionRequest, ManageJobPermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -807,11 +807,11 @@ return clientCall(request, ListAiDataPlatformTaskRunsResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformJobPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformJobPermission")
-        .serviceDetails("Workflow", "ManageAiDataPlatformJobPermission", "")
+return clientCall(request, ManageJobPermissionResponse::builder)
+        .logger(LOG, "manageJobPermission")
+        .serviceDetails("Workflow", "ManageJobPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformJobPermissionRequest::builder)
+        .requestBuilder(ManageJobPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -824,13 +824,13 @@ return clientCall(request, ManageAiDataPlatformJobPermissionResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformJobPermissionResponse.Builder::opcRequestId)
+            ManageJobPermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RepairAiDataPlatformJobRunResponse> repairAiDataPlatformJobRun(RepairAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<RepairAiDataPlatformJobRunRequest, RepairAiDataPlatformJobRunResponse> handler) {
+    public java.util.concurrent.Future<RepairJobRunResponse> repairJobRun(RepairJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<RepairJobRunRequest, RepairJobRunResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -841,11 +841,11 @@ return clientCall(request, ManageAiDataPlatformJobPermissionResponse::builder)
         
 
 
-return clientCall(request, RepairAiDataPlatformJobRunResponse::builder)
-        .logger(LOG, "repairAiDataPlatformJobRun")
-        .serviceDetails("Workflow", "RepairAiDataPlatformJobRun", "")
+return clientCall(request, RepairJobRunResponse::builder)
+        .logger(LOG, "repairJobRun")
+        .serviceDetails("Workflow", "RepairJobRun", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RepairAiDataPlatformJobRunRequest::builder)
+        .requestBuilder(RepairJobRunRequest::builder)
         
         
         .basePath("/20260430")
@@ -861,23 +861,23 @@ return clientCall(request, RepairAiDataPlatformJobRunResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, RepairAiDataPlatformJobRunResponse.Builder::jobRun)
+            .handleBody(com.oracle.aidataplatform.dp.model.JobRun.class, RepairJobRunResponse.Builder::jobRun)
                 .handleResponseHeaderString("location", 
-            RepairAiDataPlatformJobRunResponse.Builder::location)
+            RepairJobRunResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            RepairAiDataPlatformJobRunResponse.Builder::contentLocation)
+            RepairJobRunResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            RepairAiDataPlatformJobRunResponse.Builder::etag)
+            RepairJobRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-work-request-id", 
-            RepairAiDataPlatformJobRunResponse.Builder::opcWorkRequestId)
+            RepairJobRunResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            RepairAiDataPlatformJobRunResponse.Builder::opcRequestId)
+            RepairJobRunResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformJobResponse> updateAiDataPlatformJob(UpdateAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformJobRequest, UpdateAiDataPlatformJobResponse> handler) {
+    public java.util.concurrent.Future<UpdateJobResponse> updateJob(UpdateJobRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateJobRequest, UpdateJobResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -888,11 +888,11 @@ return clientCall(request, RepairAiDataPlatformJobRunResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformJobResponse::builder)
-        .logger(LOG, "updateAiDataPlatformJob")
-        .serviceDetails("Workflow", "UpdateAiDataPlatformJob", "")
+return clientCall(request, UpdateJobResponse::builder)
+        .logger(LOG, "updateJob")
+        .serviceDetails("Workflow", "UpdateJob", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformJobRequest::builder)
+        .requestBuilder(UpdateJobRequest::builder)
         
         
         .basePath("/20260430")
@@ -906,11 +906,11 @@ return clientCall(request, UpdateAiDataPlatformJobResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Job.class, UpdateAiDataPlatformJobResponse.Builder::job)
+            .handleBody(com.oracle.aidataplatform.dp.model.Job.class, UpdateJobResponse.Builder::job)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformJobResponse.Builder::opcRequestId)
+            UpdateJobResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformJobResponse.Builder::etag)
+            UpdateJobResponse.Builder::etag)
 .callAsync(handler);
     }
 

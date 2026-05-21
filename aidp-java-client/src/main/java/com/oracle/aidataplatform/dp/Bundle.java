@@ -144,7 +144,7 @@ Request notes:
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformBundleResponse createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request);
+    CreateBundleResponse createBundle(CreateBundleRequest request);
     
     /**
      * (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
@@ -171,7 +171,7 @@ Request notes:
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeployAiDataPlatformBundleResponse deployAiDataPlatformBundle(DeployAiDataPlatformBundleRequest request);
+    DeployBundleResponse deployBundle(DeployBundleRequest request);
     
     /**
      * (Preview) Returns a high-level summary of the most recent deployment activity recorded for the
@@ -201,7 +201,7 @@ Request notes:
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    FetchAiDataPlatformBundleDeploymentStatusResponse fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request);
+    FetchBundleDeploymentStatusResponse fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request);
     
     /**
      * (Preview) Tears down all resources deployed by the specified bundle in the workspace.
@@ -226,7 +226,7 @@ Request notes:
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    PurgeAiDataPlatformBundleResponse purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request);
+    PurgeBundleResponse purgeBundle(PurgeBundleRequest request);
     
     /**
      * (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
@@ -270,7 +270,7 @@ Request notes:
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SyncAiDataPlatformBundleResponse syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request);
+    SyncBundleResponse syncBundle(SyncBundleRequest request);
     
 
 }

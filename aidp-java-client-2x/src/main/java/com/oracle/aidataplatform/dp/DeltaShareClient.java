@@ -23,6 +23,7 @@ public class DeltaShareClient implements DeltaShare {
         return client;
     }
 
+    private final DeltaShareWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public DeltaShareClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class DeltaShareClient implements DeltaShare {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public DeltaShareClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class DeltaShareClient implements DeltaShare {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class DeltaShareClient implements DeltaShare {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected DeltaShareClient(
@@ -196,6 +224,7 @@ public class DeltaShareClient implements DeltaShare {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class DeltaShareClient implements DeltaShare {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("DeltaShare-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new DeltaShareWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -256,9 +293,21 @@ public class DeltaShareClient implements DeltaShare {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, DeltaShareClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -277,6 +326,7 @@ public class DeltaShareClient implements DeltaShare {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -372,16 +422,16 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public CreateAiDataPlatformRecipientResponse createAiDataPlatformRecipient(CreateAiDataPlatformRecipientRequest request) {
-        LOG.trace("Called createAiDataPlatformRecipient");
-            final CreateAiDataPlatformRecipientRequest interceptedRequest = CreateAiDataPlatformRecipientConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
+    public CreateRecipientResponse createRecipient(CreateRecipientRequest request) {
+        LOG.trace("Called createRecipient");
+            final CreateRecipientRequest interceptedRequest = CreateRecipientConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateRecipientConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformRecipientResponse> transformer = CreateAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateRecipient", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateRecipientResponse> transformer = CreateRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +447,16 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public CreateAiDataPlatformShareResponse createAiDataPlatformShare(CreateAiDataPlatformShareRequest request) {
-        LOG.trace("Called createAiDataPlatformShare");
-            final CreateAiDataPlatformShareRequest interceptedRequest = CreateAiDataPlatformShareConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
+    public CreateShareResponse createShare(CreateShareRequest request) {
+        LOG.trace("Called createShare");
+            final CreateShareRequest interceptedRequest = CreateShareConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateShareConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateAiDataPlatformShare", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformShareResponse> transformer = CreateAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateShare", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateShareResponse> transformer = CreateShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,15 +472,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public DeleteAiDataPlatformRecipientResponse deleteAiDataPlatformRecipient(DeleteAiDataPlatformRecipientRequest request) {
-        LOG.trace("Called deleteAiDataPlatformRecipient");
-            final DeleteAiDataPlatformRecipientRequest interceptedRequest = DeleteAiDataPlatformRecipientConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
+    public DeleteRecipientResponse deleteRecipient(DeleteRecipientRequest request) {
+        LOG.trace("Called deleteRecipient");
+            final DeleteRecipientRequest interceptedRequest = DeleteRecipientConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRecipientConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRecipientResponse> transformer = DeleteAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteRecipient", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteRecipientResponse> transformer = DeleteRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -446,15 +496,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public DeleteAiDataPlatformShareResponse deleteAiDataPlatformShare(DeleteAiDataPlatformShareRequest request) {
-        LOG.trace("Called deleteAiDataPlatformShare");
-            final DeleteAiDataPlatformShareRequest interceptedRequest = DeleteAiDataPlatformShareConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
+    public DeleteShareResponse deleteShare(DeleteShareRequest request) {
+        LOG.trace("Called deleteShare");
+            final DeleteShareRequest interceptedRequest = DeleteShareConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteShareConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteAiDataPlatformShare", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformShareResponse> transformer = DeleteAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteShare", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteShareResponse> transformer = DeleteShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -470,15 +520,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public GetAiDataPlatformRecipientResponse getAiDataPlatformRecipient(GetAiDataPlatformRecipientRequest request) {
-        LOG.trace("Called getAiDataPlatformRecipient");
-            final GetAiDataPlatformRecipientRequest interceptedRequest = GetAiDataPlatformRecipientConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
+    public GetRecipientResponse getRecipient(GetRecipientRequest request) {
+        LOG.trace("Called getRecipient");
+            final GetRecipientRequest interceptedRequest = GetRecipientConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetRecipientConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformRecipientResponse> transformer = GetAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetRecipient", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetRecipientResponse> transformer = GetRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -494,15 +544,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public GetAiDataPlatformShareResponse getAiDataPlatformShare(GetAiDataPlatformShareRequest request) {
-        LOG.trace("Called getAiDataPlatformShare");
-            final GetAiDataPlatformShareRequest interceptedRequest = GetAiDataPlatformShareConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
+    public GetShareResponse getShare(GetShareRequest request) {
+        LOG.trace("Called getShare");
+            final GetShareRequest interceptedRequest = GetShareConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetShareConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetAiDataPlatformShare", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformShareResponse> transformer = GetAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetShare", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetShareResponse> transformer = GetShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -518,15 +568,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformRecipientPermissionsResponse listAiDataPlatformRecipientPermissions(ListAiDataPlatformRecipientPermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformRecipientPermissions");
-            final ListAiDataPlatformRecipientPermissionsRequest interceptedRequest = ListAiDataPlatformRecipientPermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecipientPermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListRecipientPermissionsResponse listRecipientPermissions(ListRecipientPermissionsRequest request) {
+        LOG.trace("Called listRecipientPermissions");
+            final ListRecipientPermissionsRequest interceptedRequest = ListRecipientPermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecipientPermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformRecipientPermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecipientPermissionsResponse> transformer = ListAiDataPlatformRecipientPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListRecipientPermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRecipientPermissionsResponse> transformer = ListRecipientPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -542,15 +592,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformRecipientSharesResponse listAiDataPlatformRecipientShares(ListAiDataPlatformRecipientSharesRequest request) {
-        LOG.trace("Called listAiDataPlatformRecipientShares");
-            final ListAiDataPlatformRecipientSharesRequest interceptedRequest = ListAiDataPlatformRecipientSharesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecipientSharesConverter.fromRequest(client, interceptedRequest);
+    public ListRecipientSharesResponse listRecipientShares(ListRecipientSharesRequest request) {
+        LOG.trace("Called listRecipientShares");
+            final ListRecipientSharesRequest interceptedRequest = ListRecipientSharesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecipientSharesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformRecipientShares", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecipientSharesResponse> transformer = ListAiDataPlatformRecipientSharesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListRecipientShares", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRecipientSharesResponse> transformer = ListRecipientSharesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -566,15 +616,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformRecipientsResponse listAiDataPlatformRecipients(ListAiDataPlatformRecipientsRequest request) {
-        LOG.trace("Called listAiDataPlatformRecipients");
-            final ListAiDataPlatformRecipientsRequest interceptedRequest = ListAiDataPlatformRecipientsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecipientsConverter.fromRequest(client, interceptedRequest);
+    public ListRecipientsResponse listRecipients(ListRecipientsRequest request) {
+        LOG.trace("Called listRecipients");
+            final ListRecipientsRequest interceptedRequest = ListRecipientsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecipientsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformRecipients", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecipientsResponse> transformer = ListAiDataPlatformRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListRecipients", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRecipientsResponse> transformer = ListRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -590,15 +640,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformShareDataAssetsResponse listAiDataPlatformShareDataAssets(ListAiDataPlatformShareDataAssetsRequest request) {
-        LOG.trace("Called listAiDataPlatformShareDataAssets");
-            final ListAiDataPlatformShareDataAssetsRequest interceptedRequest = ListAiDataPlatformShareDataAssetsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformShareDataAssetsConverter.fromRequest(client, interceptedRequest);
+    public ListShareDataAssetsResponse listShareDataAssets(ListShareDataAssetsRequest request) {
+        LOG.trace("Called listShareDataAssets");
+            final ListShareDataAssetsRequest interceptedRequest = ListShareDataAssetsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListShareDataAssetsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformShareDataAssets", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformShareDataAssetsResponse> transformer = ListAiDataPlatformShareDataAssetsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListShareDataAssets", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListShareDataAssetsResponse> transformer = ListShareDataAssetsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -614,15 +664,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformSharePermissionsResponse listAiDataPlatformSharePermissions(ListAiDataPlatformSharePermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformSharePermissions");
-            final ListAiDataPlatformSharePermissionsRequest interceptedRequest = ListAiDataPlatformSharePermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSharePermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListSharePermissionsResponse listSharePermissions(ListSharePermissionsRequest request) {
+        LOG.trace("Called listSharePermissions");
+            final ListSharePermissionsRequest interceptedRequest = ListSharePermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSharePermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformSharePermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSharePermissionsResponse> transformer = ListAiDataPlatformSharePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListSharePermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListSharePermissionsResponse> transformer = ListSharePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -638,15 +688,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformShareRecipientsResponse listAiDataPlatformShareRecipients(ListAiDataPlatformShareRecipientsRequest request) {
-        LOG.trace("Called listAiDataPlatformShareRecipients");
-            final ListAiDataPlatformShareRecipientsRequest interceptedRequest = ListAiDataPlatformShareRecipientsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformShareRecipientsConverter.fromRequest(client, interceptedRequest);
+    public ListShareRecipientsResponse listShareRecipients(ListShareRecipientsRequest request) {
+        LOG.trace("Called listShareRecipients");
+            final ListShareRecipientsRequest interceptedRequest = ListShareRecipientsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListShareRecipientsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformShareRecipients", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformShareRecipientsResponse> transformer = ListAiDataPlatformShareRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListShareRecipients", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListShareRecipientsResponse> transformer = ListShareRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -662,15 +712,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ListAiDataPlatformSharesResponse listAiDataPlatformShares(ListAiDataPlatformSharesRequest request) {
-        LOG.trace("Called listAiDataPlatformShares");
-            final ListAiDataPlatformSharesRequest interceptedRequest = ListAiDataPlatformSharesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSharesConverter.fromRequest(client, interceptedRequest);
+    public ListSharesResponse listShares(ListSharesRequest request) {
+        LOG.trace("Called listShares");
+            final ListSharesRequest interceptedRequest = ListSharesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSharesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformShares", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSharesResponse> transformer = ListAiDataPlatformSharesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListShares", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListSharesResponse> transformer = ListSharesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -686,15 +736,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ManageAiDataPlatformRecipientPermissionResponse manageAiDataPlatformRecipientPermission(ManageAiDataPlatformRecipientPermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformRecipientPermission");
-            final ManageAiDataPlatformRecipientPermissionRequest interceptedRequest = ManageAiDataPlatformRecipientPermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformRecipientPermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageRecipientPermissionResponse manageRecipientPermission(ManageRecipientPermissionRequest request) {
+        LOG.trace("Called manageRecipientPermission");
+            final ManageRecipientPermissionRequest interceptedRequest = ManageRecipientPermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageRecipientPermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformRecipientPermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformRecipientPermissionResponse> transformer = ManageAiDataPlatformRecipientPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageRecipientPermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageRecipientPermissionResponse> transformer = ManageRecipientPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -710,16 +760,16 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ManageAiDataPlatformShareAccessResponse manageAiDataPlatformShareAccess(ManageAiDataPlatformShareAccessRequest request) {
-        LOG.trace("Called manageAiDataPlatformShareAccess");
-            final ManageAiDataPlatformShareAccessRequest interceptedRequest = ManageAiDataPlatformShareAccessConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformShareAccessConverter.fromRequest(client, interceptedRequest);
+    public ManageShareAccessResponse manageShareAccess(ManageShareAccessRequest request) {
+        LOG.trace("Called manageShareAccess");
+            final ManageShareAccessRequest interceptedRequest = ManageShareAccessConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageShareAccessConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformShareAccess", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformShareAccessResponse> transformer = ManageAiDataPlatformShareAccessConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageShareAccess", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageShareAccessResponse> transformer = ManageShareAccessConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -735,15 +785,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ManageAiDataPlatformShareDataAssetResponse manageAiDataPlatformShareDataAsset(ManageAiDataPlatformShareDataAssetRequest request) {
-        LOG.trace("Called manageAiDataPlatformShareDataAsset");
-            final ManageAiDataPlatformShareDataAssetRequest interceptedRequest = ManageAiDataPlatformShareDataAssetConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformShareDataAssetConverter.fromRequest(client, interceptedRequest);
+    public ManageShareDataAssetResponse manageShareDataAsset(ManageShareDataAssetRequest request) {
+        LOG.trace("Called manageShareDataAsset");
+            final ManageShareDataAssetRequest interceptedRequest = ManageShareDataAssetConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageShareDataAssetConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformShareDataAsset", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformShareDataAssetResponse> transformer = ManageAiDataPlatformShareDataAssetConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageShareDataAsset", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageShareDataAssetResponse> transformer = ManageShareDataAssetConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -759,15 +809,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public ManageAiDataPlatformSharePermissionResponse manageAiDataPlatformSharePermission(ManageAiDataPlatformSharePermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformSharePermission");
-            final ManageAiDataPlatformSharePermissionRequest interceptedRequest = ManageAiDataPlatformSharePermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformSharePermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageSharePermissionResponse manageSharePermission(ManageSharePermissionRequest request) {
+        LOG.trace("Called manageSharePermission");
+            final ManageSharePermissionRequest interceptedRequest = ManageSharePermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageSharePermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformSharePermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformSharePermissionResponse> transformer = ManageAiDataPlatformSharePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageSharePermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageSharePermissionResponse> transformer = ManageSharePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -783,15 +833,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public UpdateAiDataPlatformRecipientResponse updateAiDataPlatformRecipient(UpdateAiDataPlatformRecipientRequest request) {
-        LOG.trace("Called updateAiDataPlatformRecipient");
-            final UpdateAiDataPlatformRecipientRequest interceptedRequest = UpdateAiDataPlatformRecipientConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
+    public UpdateRecipientResponse updateRecipient(UpdateRecipientRequest request) {
+        LOG.trace("Called updateRecipient");
+            final UpdateRecipientRequest interceptedRequest = UpdateRecipientConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRecipientConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRecipientResponse> transformer = UpdateAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateRecipient", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateRecipientResponse> transformer = UpdateRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -807,15 +857,15 @@ public class DeltaShareClient implements DeltaShare {
     }
 
     @Override
-    public UpdateAiDataPlatformShareResponse updateAiDataPlatformShare(UpdateAiDataPlatformShareRequest request) {
-        LOG.trace("Called updateAiDataPlatformShare");
-            final UpdateAiDataPlatformShareRequest interceptedRequest = UpdateAiDataPlatformShareConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
+    public UpdateShareResponse updateShare(UpdateShareRequest request) {
+        LOG.trace("Called updateShare");
+            final UpdateShareRequest interceptedRequest = UpdateShareConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateShareConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateAiDataPlatformShare", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformShareResponse> transformer = UpdateAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateShare", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateShareResponse> transformer = UpdateShareConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -828,6 +878,11 @@ public class DeltaShareClient implements DeltaShare {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public DeltaShareWaiters getWaiters() {
+        return waiters;
     }
 
 

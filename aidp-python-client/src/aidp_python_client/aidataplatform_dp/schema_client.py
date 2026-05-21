@@ -85,7 +85,7 @@ class SchemaClient(object):
         self.base_client = BaseClient("schema", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_data_table(self, ai_data_platform_id, create_data_table_details, **kwargs):
+    def create_data_table(self, ai_data_platform_id, create_data_table_details, **kwargs):
         """
         Creates a managed table with data loaded from a sample file.
 
@@ -138,7 +138,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_data_table got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_data_table got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -181,7 +181,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=create_data_table_details)
 
-    def create_ai_data_platform_schema(self, ai_data_platform_id, create_schema_details, **kwargs):
+    def create_schema(self, ai_data_platform_id, create_schema_details, **kwargs):
         """
         Creates a schema.
 
@@ -234,7 +234,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_schema got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_schema got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -277,7 +277,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=create_schema_details)
 
-    def create_ai_data_platform_table(self, ai_data_platform_id, create_table_details, **kwargs):
+    def create_table(self, ai_data_platform_id, create_table_details, **kwargs):
         """
         Creates a table.
 
@@ -330,7 +330,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_table got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_table got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -373,7 +373,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=create_table_details)
 
-    def create_ai_data_platform_view(self, ai_data_platform_id, create_view_details, **kwargs):
+    def create_view(self, ai_data_platform_id, create_view_details, **kwargs):
         """
         Creates a view.
 
@@ -426,7 +426,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_view got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_view got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -471,7 +471,7 @@ class SchemaClient(object):
                 body=create_view_details,
                 response_type="View")
 
-    def delete_ai_data_platform_schema(self, ai_data_platform_id, schema_key, **kwargs):
+    def delete_schema(self, ai_data_platform_id, schema_key, **kwargs):
         """
         Deletes a schema from an AI Data Platform Workbench.
 
@@ -527,7 +527,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_schema got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_schema got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -568,7 +568,7 @@ class SchemaClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_table(self, ai_data_platform_id, table_key, **kwargs):
+    def delete_table(self, ai_data_platform_id, table_key, **kwargs):
         """
         Deletes a table from an AI Data Platform Workbench.
 
@@ -624,7 +624,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_table got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_table got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -671,7 +671,7 @@ class SchemaClient(object):
                 query_params=query_params,
                 header_params=header_params)
 
-    def delete_ai_data_platform_view(self, ai_data_platform_id, view_key, **kwargs):
+    def delete_view(self, ai_data_platform_id, view_key, **kwargs):
         """
         Deletes a view from AI Data Platform Workbench.
 
@@ -727,7 +727,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_view got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_view got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -774,7 +774,7 @@ class SchemaClient(object):
                 query_params=query_params,
                 header_params=header_params)
 
-    def generate_ai_data_platform_temp_file_upload_target(self, ai_data_platform_id, schema_key, **kwargs):
+    def generate_temp_file_upload_target(self, ai_data_platform_id, schema_key, **kwargs):
         """
         Generates a URI for uploading a sample file to a temporary folder in a schema.
 
@@ -819,7 +819,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "generate_ai_data_platform_temp_file_upload_target got unknown kwargs: {!r}".format(extra_kwargs))
+                "generate_temp_file_upload_target got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -860,7 +860,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="GenerateTempFileUploadTargetResponseDetails")
 
-    def get_ai_data_platform_schema(self, ai_data_platform_id, schema_key, **kwargs):
+    def get_schema(self, ai_data_platform_id, schema_key, **kwargs):
         """
         Returns detailed information about a specified schema.
 
@@ -905,7 +905,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_schema got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_schema got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -946,7 +946,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="Schema")
 
-    def get_ai_data_platform_table(self, ai_data_platform_id, table_key, **kwargs):
+    def get_table(self, ai_data_platform_id, table_key, **kwargs):
         """
         Returns detailed information about a table.
 
@@ -991,7 +991,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_table got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_table got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1032,7 +1032,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="Table")
 
-    def get_ai_data_platform_view(self, ai_data_platform_id, view_key, **kwargs):
+    def get_view(self, ai_data_platform_id, view_key, **kwargs):
         """
         Returns information about a view.
 
@@ -1077,7 +1077,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_view got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_view got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1118,7 +1118,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="View")
 
-    def list_ai_data_platform_schema_permissions(self, ai_data_platform_id, schema_key, **kwargs):
+    def list_schema_permissions(self, ai_data_platform_id, schema_key, **kwargs):
         """
         Returns a list of permissions for a given schema.
 
@@ -1191,7 +1191,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_schema_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_schema_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1256,7 +1256,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="SchemaPermissionCollection")
 
-    def list_ai_data_platform_schemas(self, ai_data_platform_id, catalog_key, **kwargs):
+    def list_schemas(self, ai_data_platform_id, catalog_key, **kwargs):
         """
         Returns a list of schemas in a given AI Data Platform Workbench.
 
@@ -1329,7 +1329,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_schemas got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_schemas got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1394,7 +1394,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="SchemaCollection")
 
-    def list_ai_data_platform_table_permissions(self, ai_data_platform_id, table_key, **kwargs):
+    def list_table_permissions(self, ai_data_platform_id, table_key, **kwargs):
         """
         Returns a list of permissions for a given table.
 
@@ -1467,7 +1467,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_table_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_table_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1532,7 +1532,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="TablePermissionCollection")
 
-    def list_ai_data_platform_tables(self, ai_data_platform_id, catalog_key, schema_key, **kwargs):
+    def list_tables(self, ai_data_platform_id, catalog_key, schema_key, **kwargs):
         """
         Returns a list of tables in a schema.
 
@@ -1608,7 +1608,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_tables got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_tables got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1674,7 +1674,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="TableCollection")
 
-    def list_ai_data_platform_view_permissions(self, ai_data_platform_id, view_key, **kwargs):
+    def list_view_permissions(self, ai_data_platform_id, view_key, **kwargs):
         """
         Returns a list of view permissions.
 
@@ -1747,7 +1747,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_view_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_view_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1812,7 +1812,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="ViewPermissionCollection")
 
-    def list_ai_data_platform_views(self, ai_data_platform_id, catalog_key, schema_key, **kwargs):
+    def list_views(self, ai_data_platform_id, catalog_key, schema_key, **kwargs):
         """
         Returns a list of views in a schema.
 
@@ -1888,7 +1888,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_views got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_views got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -1954,7 +1954,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="ViewCollection")
 
-    def manage_ai_data_platform_schema_permission(self, ai_data_platform_id, schema_key, manage_schema_permission_details, **kwargs):
+    def manage_schema_permission(self, ai_data_platform_id, schema_key, manage_schema_permission_details, **kwargs):
         """
         Updates the permissions for a given schema.
 
@@ -2009,7 +2009,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_schema_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_schema_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2051,7 +2051,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=manage_schema_permission_details)
 
-    def manage_ai_data_platform_table_permission(self, ai_data_platform_id, table_key, manage_table_permission_details, **kwargs):
+    def manage_table_permission(self, ai_data_platform_id, table_key, manage_table_permission_details, **kwargs):
         """
         Updates the permissions for a given table.
 
@@ -2106,7 +2106,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_table_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_table_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2148,7 +2148,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=manage_table_permission_details)
 
-    def manage_ai_data_platform_view_permission(self, ai_data_platform_id, view_key, manage_view_permission_details, **kwargs):
+    def manage_view_permission(self, ai_data_platform_id, view_key, manage_view_permission_details, **kwargs):
         """
         Updates permissions on a view.
 
@@ -2203,7 +2203,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_view_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_view_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2245,7 +2245,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=manage_view_permission_details)
 
-    def perform_ai_data_platform_infer_schema(self, ai_data_platform_id, schema_key, perform_infer_schema_details, **kwargs):
+    def perform_infer_schema(self, ai_data_platform_id, schema_key, perform_infer_schema_details, **kwargs):
         """
         Returns details of a table schema from the specified location.
 
@@ -2293,7 +2293,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "perform_ai_data_platform_infer_schema got unknown kwargs: {!r}".format(extra_kwargs))
+                "perform_infer_schema got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2336,7 +2336,7 @@ class SchemaClient(object):
                 body=perform_infer_schema_details,
                 response_type="InferSchema")
 
-    def perform_ai_data_platform_infer_schema_with_preview(self, ai_data_platform_id, schema_key, perform_infer_schema_details, **kwargs):
+    def perform_infer_schema_with_preview(self, ai_data_platform_id, schema_key, perform_infer_schema_details, **kwargs):
         """
         Returns table schema and data from the specified location.
 
@@ -2384,7 +2384,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "perform_ai_data_platform_infer_schema_with_preview got unknown kwargs: {!r}".format(extra_kwargs))
+                "perform_infer_schema_with_preview got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2427,7 +2427,7 @@ class SchemaClient(object):
                 body=perform_infer_schema_details,
                 response_type="InferSchemaWithPreview")
 
-    def refresh_ai_data_platform_schema(self, ai_data_platform_id, schema_key, **kwargs):
+    def refresh_schema(self, ai_data_platform_id, schema_key, **kwargs):
         """
         Refreshes schema in an AI Data Platform Workbench through the crawler.
 
@@ -2487,7 +2487,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "refresh_ai_data_platform_schema got unknown kwargs: {!r}".format(extra_kwargs))
+                "refresh_schema got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2530,7 +2530,7 @@ class SchemaClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def refresh_ai_data_platform_table(self, ai_data_platform_id, table_key, **kwargs):
+    def refresh_table(self, ai_data_platform_id, table_key, **kwargs):
         """
         Refreshes a table in an AI Data Platform Workbench through the crawler.
 
@@ -2590,7 +2590,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "refresh_ai_data_platform_table got unknown kwargs: {!r}".format(extra_kwargs))
+                "refresh_table got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2633,7 +2633,7 @@ class SchemaClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def retrieve_ai_data_platform_par(self, ai_data_platform_id, table_key, **kwargs):
+    def retrieve_par(self, ai_data_platform_id, table_key, **kwargs):
         """
         Retrieve PAR for the entities created in AI Data Platform Workbench.
 
@@ -2685,7 +2685,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "retrieve_ai_data_platform_par got unknown kwargs: {!r}".format(extra_kwargs))
+                "retrieve_par got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2727,7 +2727,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 response_type="ParDetails")
 
-    def update_ai_data_platform_schema(self, ai_data_platform_id, schema_key, update_schema_details, **kwargs):
+    def update_schema(self, ai_data_platform_id, schema_key, update_schema_details, **kwargs):
         """
         Updates a schema.
 
@@ -2782,7 +2782,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_schema got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_schema got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2826,7 +2826,7 @@ class SchemaClient(object):
                 body=update_schema_details,
                 response_type="Schema")
 
-    def update_ai_data_platform_table(self, ai_data_platform_id, table_key, update_table_details, **kwargs):
+    def update_table(self, ai_data_platform_id, table_key, update_table_details, **kwargs):
         """
         Updates a table with provided details.
 
@@ -2881,7 +2881,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_table got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_table got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -2923,7 +2923,7 @@ class SchemaClient(object):
                 header_params=header_params,
                 body=update_table_details)
 
-    def update_ai_data_platform_view(self, ai_data_platform_id, view_key, update_view_details, **kwargs):
+    def update_view(self, ai_data_platform_id, view_key, update_view_details, **kwargs):
         """
         Updates a view with given information.
 
@@ -2978,7 +2978,7 @@ class SchemaClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_view got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_view got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

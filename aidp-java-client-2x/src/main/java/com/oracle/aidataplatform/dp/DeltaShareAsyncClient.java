@@ -369,21 +369,21 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformRecipientResponse> createAiDataPlatformRecipient(CreateAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRecipientRequest, CreateAiDataPlatformRecipientResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformRecipient");
-        final CreateAiDataPlatformRecipientRequest interceptedRequest = CreateAiDataPlatformRecipientConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateRecipientResponse> createRecipient(CreateRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateRecipientRequest, CreateRecipientResponse> handler) {
+        LOG.trace("Called async createRecipient");
+        final CreateRecipientRequest interceptedRequest = CreateRecipientConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateRecipientConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformRecipientResponse> transformer = CreateAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateRecipient", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateRecipientResponse> transformer = CreateRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRecipientRequest, CreateAiDataPlatformRecipientResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateRecipientRequest, CreateRecipientResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRecipientRequest, CreateAiDataPlatformRecipientResponse>, java.util.concurrent.Future<CreateAiDataPlatformRecipientResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateRecipientRequest, CreateRecipientResponse>, java.util.concurrent.Future<CreateRecipientResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateRecipientDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformRecipientRequest, CreateAiDataPlatformRecipientResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateRecipientRequest, CreateRecipientResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformShareResponse> createAiDataPlatformShare(CreateAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformShareRequest, CreateAiDataPlatformShareResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformShare");
-        final CreateAiDataPlatformShareRequest interceptedRequest = CreateAiDataPlatformShareConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateShareResponse> createShare(CreateShareRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateShareRequest, CreateShareResponse> handler) {
+        LOG.trace("Called async createShare");
+        final CreateShareRequest interceptedRequest = CreateShareConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateShareConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateAiDataPlatformShare", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformShareResponse> transformer = CreateAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "CreateShare", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateShareResponse> transformer = CreateShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformShareRequest, CreateAiDataPlatformShareResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateShareRequest, CreateShareResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformShareRequest, CreateAiDataPlatformShareResponse>, java.util.concurrent.Future<CreateAiDataPlatformShareResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateShareRequest, CreateShareResponse>, java.util.concurrent.Future<CreateShareResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateShareDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformShareRequest, CreateAiDataPlatformShareResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateShareRequest, CreateShareResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,20 +427,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformRecipientResponse> deleteAiDataPlatformRecipient(DeleteAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRecipientRequest, DeleteAiDataPlatformRecipientResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformRecipient");
-        final DeleteAiDataPlatformRecipientRequest interceptedRequest = DeleteAiDataPlatformRecipientConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRecipientResponse> transformer = DeleteAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteRecipientResponse> deleteRecipient(DeleteRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteRecipientRequest, DeleteRecipientResponse> handler) {
+        LOG.trace("Called async deleteRecipient");
+        final DeleteRecipientRequest interceptedRequest = DeleteRecipientConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRecipientConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteRecipient", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteRecipientResponse> transformer = DeleteRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRecipientRequest, DeleteAiDataPlatformRecipientResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteRecipientRequest, DeleteRecipientResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRecipientRequest, DeleteAiDataPlatformRecipientResponse>, java.util.concurrent.Future<DeleteAiDataPlatformRecipientResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteRecipientRequest, DeleteRecipientResponse>, java.util.concurrent.Future<DeleteRecipientResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformRecipientRequest, DeleteAiDataPlatformRecipientResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteRecipientRequest, DeleteRecipientResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -455,20 +455,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformShareResponse> deleteAiDataPlatformShare(DeleteAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformShareRequest, DeleteAiDataPlatformShareResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformShare");
-        final DeleteAiDataPlatformShareRequest interceptedRequest = DeleteAiDataPlatformShareConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteAiDataPlatformShare", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformShareResponse> transformer = DeleteAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteShareResponse> deleteShare(DeleteShareRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteShareRequest, DeleteShareResponse> handler) {
+        LOG.trace("Called async deleteShare");
+        final DeleteShareRequest interceptedRequest = DeleteShareConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteShareConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "DeleteShare", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteShareResponse> transformer = DeleteShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformShareRequest, DeleteAiDataPlatformShareResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteShareRequest, DeleteShareResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformShareRequest, DeleteAiDataPlatformShareResponse>, java.util.concurrent.Future<DeleteAiDataPlatformShareResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteShareRequest, DeleteShareResponse>, java.util.concurrent.Future<DeleteShareResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformShareRequest, DeleteAiDataPlatformShareResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteShareRequest, DeleteShareResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -483,20 +483,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformRecipientResponse> getAiDataPlatformRecipient(GetAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRecipientRequest, GetAiDataPlatformRecipientResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformRecipient");
-        final GetAiDataPlatformRecipientRequest interceptedRequest = GetAiDataPlatformRecipientConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformRecipientResponse> transformer = GetAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetRecipientResponse> getRecipient(GetRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<GetRecipientRequest, GetRecipientResponse> handler) {
+        LOG.trace("Called async getRecipient");
+        final GetRecipientRequest interceptedRequest = GetRecipientConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetRecipientConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetRecipient", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetRecipientResponse> transformer = GetRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRecipientRequest, GetAiDataPlatformRecipientResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetRecipientRequest, GetRecipientResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRecipientRequest, GetAiDataPlatformRecipientResponse>, java.util.concurrent.Future<GetAiDataPlatformRecipientResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetRecipientRequest, GetRecipientResponse>, java.util.concurrent.Future<GetRecipientResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformRecipientRequest, GetAiDataPlatformRecipientResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetRecipientRequest, GetRecipientResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -511,20 +511,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformShareResponse> getAiDataPlatformShare(GetAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformShareRequest, GetAiDataPlatformShareResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformShare");
-        final GetAiDataPlatformShareRequest interceptedRequest = GetAiDataPlatformShareConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetAiDataPlatformShare", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformShareResponse> transformer = GetAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetShareResponse> getShare(GetShareRequest request, final com.oracle.bmc.responses.AsyncHandler<GetShareRequest, GetShareResponse> handler) {
+        LOG.trace("Called async getShare");
+        final GetShareRequest interceptedRequest = GetShareConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetShareConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "GetShare", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetShareResponse> transformer = GetShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformShareRequest, GetAiDataPlatformShareResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetShareRequest, GetShareResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformShareRequest, GetAiDataPlatformShareResponse>, java.util.concurrent.Future<GetAiDataPlatformShareResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetShareRequest, GetShareResponse>, java.util.concurrent.Future<GetShareResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformShareRequest, GetAiDataPlatformShareResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetShareRequest, GetShareResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -539,20 +539,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRecipientPermissionsResponse> listAiDataPlatformRecipientPermissions(ListAiDataPlatformRecipientPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientPermissionsRequest, ListAiDataPlatformRecipientPermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRecipientPermissions");
-        final ListAiDataPlatformRecipientPermissionsRequest interceptedRequest = ListAiDataPlatformRecipientPermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecipientPermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformRecipientPermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecipientPermissionsResponse> transformer = ListAiDataPlatformRecipientPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRecipientPermissionsResponse> listRecipientPermissions(ListRecipientPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecipientPermissionsRequest, ListRecipientPermissionsResponse> handler) {
+        LOG.trace("Called async listRecipientPermissions");
+        final ListRecipientPermissionsRequest interceptedRequest = ListRecipientPermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecipientPermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListRecipientPermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRecipientPermissionsResponse> transformer = ListRecipientPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientPermissionsRequest, ListAiDataPlatformRecipientPermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRecipientPermissionsRequest, ListRecipientPermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientPermissionsRequest, ListAiDataPlatformRecipientPermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformRecipientPermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRecipientPermissionsRequest, ListRecipientPermissionsResponse>, java.util.concurrent.Future<ListRecipientPermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRecipientPermissionsRequest, ListAiDataPlatformRecipientPermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRecipientPermissionsRequest, ListRecipientPermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -567,20 +567,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRecipientSharesResponse> listAiDataPlatformRecipientShares(ListAiDataPlatformRecipientSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientSharesRequest, ListAiDataPlatformRecipientSharesResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRecipientShares");
-        final ListAiDataPlatformRecipientSharesRequest interceptedRequest = ListAiDataPlatformRecipientSharesConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecipientSharesConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformRecipientShares", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecipientSharesResponse> transformer = ListAiDataPlatformRecipientSharesConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRecipientSharesResponse> listRecipientShares(ListRecipientSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecipientSharesRequest, ListRecipientSharesResponse> handler) {
+        LOG.trace("Called async listRecipientShares");
+        final ListRecipientSharesRequest interceptedRequest = ListRecipientSharesConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecipientSharesConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListRecipientShares", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRecipientSharesResponse> transformer = ListRecipientSharesConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientSharesRequest, ListAiDataPlatformRecipientSharesResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRecipientSharesRequest, ListRecipientSharesResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientSharesRequest, ListAiDataPlatformRecipientSharesResponse>, java.util.concurrent.Future<ListAiDataPlatformRecipientSharesResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRecipientSharesRequest, ListRecipientSharesResponse>, java.util.concurrent.Future<ListRecipientSharesResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRecipientSharesRequest, ListAiDataPlatformRecipientSharesResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRecipientSharesRequest, ListRecipientSharesResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -595,20 +595,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRecipientsResponse> listAiDataPlatformRecipients(ListAiDataPlatformRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientsRequest, ListAiDataPlatformRecipientsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRecipients");
-        final ListAiDataPlatformRecipientsRequest interceptedRequest = ListAiDataPlatformRecipientsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecipientsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformRecipients", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecipientsResponse> transformer = ListAiDataPlatformRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRecipientsResponse> listRecipients(ListRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecipientsRequest, ListRecipientsResponse> handler) {
+        LOG.trace("Called async listRecipients");
+        final ListRecipientsRequest interceptedRequest = ListRecipientsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecipientsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListRecipients", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRecipientsResponse> transformer = ListRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientsRequest, ListAiDataPlatformRecipientsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRecipientsRequest, ListRecipientsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecipientsRequest, ListAiDataPlatformRecipientsResponse>, java.util.concurrent.Future<ListAiDataPlatformRecipientsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRecipientsRequest, ListRecipientsResponse>, java.util.concurrent.Future<ListRecipientsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRecipientsRequest, ListAiDataPlatformRecipientsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRecipientsRequest, ListRecipientsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -623,20 +623,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformShareDataAssetsResponse> listAiDataPlatformShareDataAssets(ListAiDataPlatformShareDataAssetsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareDataAssetsRequest, ListAiDataPlatformShareDataAssetsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformShareDataAssets");
-        final ListAiDataPlatformShareDataAssetsRequest interceptedRequest = ListAiDataPlatformShareDataAssetsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformShareDataAssetsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformShareDataAssets", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformShareDataAssetsResponse> transformer = ListAiDataPlatformShareDataAssetsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListShareDataAssetsResponse> listShareDataAssets(ListShareDataAssetsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListShareDataAssetsRequest, ListShareDataAssetsResponse> handler) {
+        LOG.trace("Called async listShareDataAssets");
+        final ListShareDataAssetsRequest interceptedRequest = ListShareDataAssetsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListShareDataAssetsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListShareDataAssets", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListShareDataAssetsResponse> transformer = ListShareDataAssetsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareDataAssetsRequest, ListAiDataPlatformShareDataAssetsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListShareDataAssetsRequest, ListShareDataAssetsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareDataAssetsRequest, ListAiDataPlatformShareDataAssetsResponse>, java.util.concurrent.Future<ListAiDataPlatformShareDataAssetsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListShareDataAssetsRequest, ListShareDataAssetsResponse>, java.util.concurrent.Future<ListShareDataAssetsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformShareDataAssetsRequest, ListAiDataPlatformShareDataAssetsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListShareDataAssetsRequest, ListShareDataAssetsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -651,20 +651,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformSharePermissionsResponse> listAiDataPlatformSharePermissions(ListAiDataPlatformSharePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharePermissionsRequest, ListAiDataPlatformSharePermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformSharePermissions");
-        final ListAiDataPlatformSharePermissionsRequest interceptedRequest = ListAiDataPlatformSharePermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSharePermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformSharePermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSharePermissionsResponse> transformer = ListAiDataPlatformSharePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListSharePermissionsResponse> listSharePermissions(ListSharePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSharePermissionsRequest, ListSharePermissionsResponse> handler) {
+        LOG.trace("Called async listSharePermissions");
+        final ListSharePermissionsRequest interceptedRequest = ListSharePermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSharePermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListSharePermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListSharePermissionsResponse> transformer = ListSharePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharePermissionsRequest, ListAiDataPlatformSharePermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListSharePermissionsRequest, ListSharePermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharePermissionsRequest, ListAiDataPlatformSharePermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformSharePermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListSharePermissionsRequest, ListSharePermissionsResponse>, java.util.concurrent.Future<ListSharePermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformSharePermissionsRequest, ListAiDataPlatformSharePermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListSharePermissionsRequest, ListSharePermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -679,20 +679,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformShareRecipientsResponse> listAiDataPlatformShareRecipients(ListAiDataPlatformShareRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareRecipientsRequest, ListAiDataPlatformShareRecipientsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformShareRecipients");
-        final ListAiDataPlatformShareRecipientsRequest interceptedRequest = ListAiDataPlatformShareRecipientsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformShareRecipientsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformShareRecipients", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformShareRecipientsResponse> transformer = ListAiDataPlatformShareRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListShareRecipientsResponse> listShareRecipients(ListShareRecipientsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListShareRecipientsRequest, ListShareRecipientsResponse> handler) {
+        LOG.trace("Called async listShareRecipients");
+        final ListShareRecipientsRequest interceptedRequest = ListShareRecipientsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListShareRecipientsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListShareRecipients", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListShareRecipientsResponse> transformer = ListShareRecipientsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareRecipientsRequest, ListAiDataPlatformShareRecipientsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListShareRecipientsRequest, ListShareRecipientsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformShareRecipientsRequest, ListAiDataPlatformShareRecipientsResponse>, java.util.concurrent.Future<ListAiDataPlatformShareRecipientsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListShareRecipientsRequest, ListShareRecipientsResponse>, java.util.concurrent.Future<ListShareRecipientsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformShareRecipientsRequest, ListAiDataPlatformShareRecipientsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListShareRecipientsRequest, ListShareRecipientsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -707,20 +707,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformSharesResponse> listAiDataPlatformShares(ListAiDataPlatformSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharesRequest, ListAiDataPlatformSharesResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformShares");
-        final ListAiDataPlatformSharesRequest interceptedRequest = ListAiDataPlatformSharesConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSharesConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListAiDataPlatformShares", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSharesResponse> transformer = ListAiDataPlatformSharesConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListSharesResponse> listShares(ListSharesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSharesRequest, ListSharesResponse> handler) {
+        LOG.trace("Called async listShares");
+        final ListSharesRequest interceptedRequest = ListSharesConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSharesConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ListShares", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListSharesResponse> transformer = ListSharesConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharesRequest, ListAiDataPlatformSharesResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListSharesRequest, ListSharesResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSharesRequest, ListAiDataPlatformSharesResponse>, java.util.concurrent.Future<ListAiDataPlatformSharesResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListSharesRequest, ListSharesResponse>, java.util.concurrent.Future<ListSharesResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformSharesRequest, ListAiDataPlatformSharesResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListSharesRequest, ListSharesResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -735,20 +735,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformRecipientPermissionResponse> manageAiDataPlatformRecipientPermission(ManageAiDataPlatformRecipientPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformRecipientPermissionRequest, ManageAiDataPlatformRecipientPermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformRecipientPermission");
-        final ManageAiDataPlatformRecipientPermissionRequest interceptedRequest = ManageAiDataPlatformRecipientPermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformRecipientPermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformRecipientPermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformRecipientPermissionResponse> transformer = ManageAiDataPlatformRecipientPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageRecipientPermissionResponse> manageRecipientPermission(ManageRecipientPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageRecipientPermissionRequest, ManageRecipientPermissionResponse> handler) {
+        LOG.trace("Called async manageRecipientPermission");
+        final ManageRecipientPermissionRequest interceptedRequest = ManageRecipientPermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageRecipientPermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageRecipientPermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageRecipientPermissionResponse> transformer = ManageRecipientPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformRecipientPermissionRequest, ManageAiDataPlatformRecipientPermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageRecipientPermissionRequest, ManageRecipientPermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformRecipientPermissionRequest, ManageAiDataPlatformRecipientPermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformRecipientPermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageRecipientPermissionRequest, ManageRecipientPermissionResponse>, java.util.concurrent.Future<ManageRecipientPermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageRecipientPermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformRecipientPermissionRequest, ManageAiDataPlatformRecipientPermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageRecipientPermissionRequest, ManageRecipientPermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -763,21 +763,21 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformShareAccessResponse> manageAiDataPlatformShareAccess(ManageAiDataPlatformShareAccessRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareAccessRequest, ManageAiDataPlatformShareAccessResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformShareAccess");
-        final ManageAiDataPlatformShareAccessRequest interceptedRequest = ManageAiDataPlatformShareAccessConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformShareAccessConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ManageShareAccessResponse> manageShareAccess(ManageShareAccessRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageShareAccessRequest, ManageShareAccessResponse> handler) {
+        LOG.trace("Called async manageShareAccess");
+        final ManageShareAccessRequest interceptedRequest = ManageShareAccessConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageShareAccessConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformShareAccess", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformShareAccessResponse> transformer = ManageAiDataPlatformShareAccessConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageShareAccess", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageShareAccessResponse> transformer = ManageShareAccessConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareAccessRequest, ManageAiDataPlatformShareAccessResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageShareAccessRequest, ManageShareAccessResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareAccessRequest, ManageAiDataPlatformShareAccessResponse>, java.util.concurrent.Future<ManageAiDataPlatformShareAccessResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageShareAccessRequest, ManageShareAccessResponse>, java.util.concurrent.Future<ManageShareAccessResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageShareAccessDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformShareAccessRequest, ManageAiDataPlatformShareAccessResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageShareAccessRequest, ManageShareAccessResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -792,20 +792,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformShareDataAssetResponse> manageAiDataPlatformShareDataAsset(ManageAiDataPlatformShareDataAssetRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareDataAssetRequest, ManageAiDataPlatformShareDataAssetResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformShareDataAsset");
-        final ManageAiDataPlatformShareDataAssetRequest interceptedRequest = ManageAiDataPlatformShareDataAssetConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformShareDataAssetConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformShareDataAsset", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformShareDataAssetResponse> transformer = ManageAiDataPlatformShareDataAssetConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageShareDataAssetResponse> manageShareDataAsset(ManageShareDataAssetRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageShareDataAssetRequest, ManageShareDataAssetResponse> handler) {
+        LOG.trace("Called async manageShareDataAsset");
+        final ManageShareDataAssetRequest interceptedRequest = ManageShareDataAssetConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageShareDataAssetConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageShareDataAsset", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageShareDataAssetResponse> transformer = ManageShareDataAssetConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareDataAssetRequest, ManageAiDataPlatformShareDataAssetResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageShareDataAssetRequest, ManageShareDataAssetResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformShareDataAssetRequest, ManageAiDataPlatformShareDataAssetResponse>, java.util.concurrent.Future<ManageAiDataPlatformShareDataAssetResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageShareDataAssetRequest, ManageShareDataAssetResponse>, java.util.concurrent.Future<ManageShareDataAssetResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageShareDataAssetDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformShareDataAssetRequest, ManageAiDataPlatformShareDataAssetResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageShareDataAssetRequest, ManageShareDataAssetResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -820,20 +820,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformSharePermissionResponse> manageAiDataPlatformSharePermission(ManageAiDataPlatformSharePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSharePermissionRequest, ManageAiDataPlatformSharePermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformSharePermission");
-        final ManageAiDataPlatformSharePermissionRequest interceptedRequest = ManageAiDataPlatformSharePermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformSharePermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageAiDataPlatformSharePermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformSharePermissionResponse> transformer = ManageAiDataPlatformSharePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageSharePermissionResponse> manageSharePermission(ManageSharePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageSharePermissionRequest, ManageSharePermissionResponse> handler) {
+        LOG.trace("Called async manageSharePermission");
+        final ManageSharePermissionRequest interceptedRequest = ManageSharePermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageSharePermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "ManageSharePermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageSharePermissionResponse> transformer = ManageSharePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSharePermissionRequest, ManageAiDataPlatformSharePermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageSharePermissionRequest, ManageSharePermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSharePermissionRequest, ManageAiDataPlatformSharePermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformSharePermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageSharePermissionRequest, ManageSharePermissionResponse>, java.util.concurrent.Future<ManageSharePermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageSharePermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformSharePermissionRequest, ManageAiDataPlatformSharePermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageSharePermissionRequest, ManageSharePermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -848,20 +848,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformRecipientResponse> updateAiDataPlatformRecipient(UpdateAiDataPlatformRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRecipientRequest, UpdateAiDataPlatformRecipientResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformRecipient");
-        final UpdateAiDataPlatformRecipientRequest interceptedRequest = UpdateAiDataPlatformRecipientConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRecipientConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateAiDataPlatformRecipient", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRecipientResponse> transformer = UpdateAiDataPlatformRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateRecipientResponse> updateRecipient(UpdateRecipientRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateRecipientRequest, UpdateRecipientResponse> handler) {
+        LOG.trace("Called async updateRecipient");
+        final UpdateRecipientRequest interceptedRequest = UpdateRecipientConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRecipientConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateRecipient", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateRecipientResponse> transformer = UpdateRecipientConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRecipientRequest, UpdateAiDataPlatformRecipientResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateRecipientRequest, UpdateRecipientResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRecipientRequest, UpdateAiDataPlatformRecipientResponse>, java.util.concurrent.Future<UpdateAiDataPlatformRecipientResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateRecipientRequest, UpdateRecipientResponse>, java.util.concurrent.Future<UpdateRecipientResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateRecipientDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformRecipientRequest, UpdateAiDataPlatformRecipientResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateRecipientRequest, UpdateRecipientResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -876,20 +876,20 @@ public class DeltaShareAsyncClient implements DeltaShareAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformShareResponse> updateAiDataPlatformShare(UpdateAiDataPlatformShareRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformShareRequest, UpdateAiDataPlatformShareResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformShare");
-        final UpdateAiDataPlatformShareRequest interceptedRequest = UpdateAiDataPlatformShareConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformShareConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateAiDataPlatformShare", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformShareResponse> transformer = UpdateAiDataPlatformShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateShareResponse> updateShare(UpdateShareRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateShareRequest, UpdateShareResponse> handler) {
+        LOG.trace("Called async updateShare");
+        final UpdateShareRequest interceptedRequest = UpdateShareConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateShareConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("DeltaShare", "UpdateShare", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateShareResponse> transformer = UpdateShareConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformShareRequest, UpdateAiDataPlatformShareResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateShareRequest, UpdateShareResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformShareRequest, UpdateAiDataPlatformShareResponse>, java.util.concurrent.Future<UpdateAiDataPlatformShareResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateShareRequest, UpdateShareResponse>, java.util.concurrent.Future<UpdateShareResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateShareDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformShareRequest, UpdateAiDataPlatformShareResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateShareRequest, UpdateShareResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

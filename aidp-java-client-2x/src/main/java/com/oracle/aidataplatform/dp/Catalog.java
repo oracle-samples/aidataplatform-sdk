@@ -66,7 +66,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CatalogAiDataPlatformTestConnectionResponse catalogAiDataPlatformTestConnection(CatalogAiDataPlatformTestConnectionRequest request);
+    CatalogTestConnectionResponse catalogTestConnection(CatalogTestConnectionRequest request);
     
     /**
      * Create a catalog in the AI Data Platform Workbench with the given ID.
@@ -76,7 +76,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformCatalogResponse createAiDataPlatformCatalog(CreateAiDataPlatformCatalogRequest request);
+    CreateCatalogResponse createCatalog(CreateCatalogRequest request);
     
     /**
      * Deletes the specified catalog from an AI Data Platform Workbench.
@@ -86,7 +86,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformCatalogResponse deleteAiDataPlatformCatalog(DeleteAiDataPlatformCatalogRequest request);
+    DeleteCatalogResponse deleteCatalog(DeleteCatalogRequest request);
     
     /**
      * Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
@@ -96,7 +96,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformCatalogResponse getAiDataPlatformCatalog(GetAiDataPlatformCatalogRequest request);
+    GetCatalogResponse getCatalog(GetCatalogRequest request);
     
     /**
      * Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
@@ -106,7 +106,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformCatalogPermissionsResponse listAiDataPlatformCatalogPermissions(ListAiDataPlatformCatalogPermissionsRequest request);
+    ListCatalogPermissionsResponse listCatalogPermissions(ListCatalogPermissionsRequest request);
     
     /**
      * Get a list of catalogs in an AI Data Platform Workbench with a given ID.
@@ -116,7 +116,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformCatalogsResponse listAiDataPlatformCatalogs(ListAiDataPlatformCatalogsRequest request);
+    ListCatalogsResponse listCatalogs(ListCatalogsRequest request);
     
     /**
      * Update permission details for a catalog in an AI Data Platform Workbench.
@@ -126,7 +126,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformCatalogPermissionResponse manageAiDataPlatformCatalogPermission(ManageAiDataPlatformCatalogPermissionRequest request);
+    ManageCatalogPermissionResponse manageCatalogPermission(ManageCatalogPermissionRequest request);
     
     /**
      * Refresh a catalog in an AI Data Platform Workbench through a crawler.
@@ -136,7 +136,7 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RefreshAiDataPlatformCatalogResponse refreshAiDataPlatformCatalog(RefreshAiDataPlatformCatalogRequest request);
+    RefreshCatalogResponse refreshCatalog(RefreshCatalogRequest request);
     
     /**
      * Update the details of an AI Data Platform Workbench catalog with the given information.
@@ -146,7 +146,13 @@ public interface Catalog extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformCatalogResponse updateAiDataPlatformCatalog(UpdateAiDataPlatformCatalogRequest request);
+    UpdateCatalogResponse updateCatalog(UpdateCatalogRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    CatalogWaiters getWaiters();
 }

@@ -51,7 +51,7 @@ public class WorkspaceObjectAsyncClient extends com.oracle.bmc.http.internal.Bas
         if (isStreamWarningEnabled && com.oracle.bmc.util.StreamUtils.isExtraStreamLogsEnabled()) {
              LOG.warn(com.oracle.bmc.util.StreamUtils.getStreamWarningMessage(
                 "WorkspaceObjectAsyncClient",
-                 "createAiDataPlatformWorkspaceObject,getAiDataPlatformWorkspaceObject,updateAiDataPlatformWorkspaceObject"
+                 "createWorkspaceObject,getWorkspaceObject,updateWorkspaceObject"
                  )
              );
         }
@@ -114,7 +114,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CopyAiDataPlatformWorkspaceObjectResponse> copyAiDataPlatformWorkspaceObject(CopyAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<CopyAiDataPlatformWorkspaceObjectRequest, CopyAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<CopyWorkspaceObjectResponse> copyWorkspaceObject(CopyWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<CopyWorkspaceObjectRequest, CopyWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -123,11 +123,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CopyAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "copyAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "CopyAiDataPlatformWorkspaceObject", "")
+return clientCall(request, CopyWorkspaceObjectResponse::builder)
+        .logger(LOG, "copyWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "CopyWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CopyAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(CopyWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -141,19 +141,19 @@ return clientCall(request, CopyAiDataPlatformWorkspaceObjectResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectDetails.class, CopyAiDataPlatformWorkspaceObjectResponse.Builder::workspaceObjectDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectDetails.class, CopyWorkspaceObjectResponse.Builder::workspaceObjectDetails)
                 .handleResponseHeaderString("opc-work-request-id", 
-            CopyAiDataPlatformWorkspaceObjectResponse.Builder::opcWorkRequestId)
+            CopyWorkspaceObjectResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CopyAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            CopyWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            CopyAiDataPlatformWorkspaceObjectResponse.Builder::etag)
+            CopyWorkspaceObjectResponse.Builder::etag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformWorkspaceObjectResponse> createAiDataPlatformWorkspaceObject(CreateAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceObjectRequest, CreateAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<CreateWorkspaceObjectResponse> createWorkspaceObject(CreateWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceObjectRequest, CreateWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -164,11 +164,11 @@ return clientCall(request, CopyAiDataPlatformWorkspaceObjectResponse::builder)
         
 
 
-return clientCall(request, CreateAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "createAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "CreateAiDataPlatformWorkspaceObject", "")
+return clientCall(request, CreateWorkspaceObjectResponse::builder)
+        .logger(LOG, "createWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "CreateWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(CreateWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -194,29 +194,29 @@ return clientCall(request, CreateAiDataPlatformWorkspaceObjectResponse::builder)
                 .appendHeader("is-overwrite", request.getIsOverwrite())
         .hasBinaryRequestBody()
         .hasBody()
-            .handleBody(java.io.InputStream.class, CreateAiDataPlatformWorkspaceObjectResponse.Builder::inputStream)
+            .handleBody(java.io.InputStream.class, CreateWorkspaceObjectResponse.Builder::inputStream)
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::location)
+            CreateWorkspaceObjectResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::contentLocation)
+            CreateWorkspaceObjectResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::etag)
+            CreateWorkspaceObjectResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            CreateWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("object-key", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::objectKey)
+            CreateWorkspaceObjectResponse.Builder::objectKey)
                 .handleResponseHeaderString("path", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::path)
+            CreateWorkspaceObjectResponse.Builder::path)
                 .handleResponseHeaderString("type", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::type)
+            CreateWorkspaceObjectResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
-            CreateAiDataPlatformWorkspaceObjectResponse.Builder::timeUpdated)
+            CreateWorkspaceObjectResponse.Builder::timeUpdated)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformWorkspaceObjectResponse> deleteAiDataPlatformWorkspaceObject(DeleteAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformWorkspaceObjectRequest, DeleteAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<DeleteWorkspaceObjectResponse> deleteWorkspaceObject(DeleteWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteWorkspaceObjectRequest, DeleteWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -225,11 +225,11 @@ return clientCall(request, CreateAiDataPlatformWorkspaceObjectResponse::builder)
         Validate.notBlank(request.getObjectPath(), "objectPath must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "DeleteAiDataPlatformWorkspaceObject", "")
+return clientCall(request, DeleteWorkspaceObjectResponse::builder)
+        .logger(LOG, "deleteWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "DeleteWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(DeleteWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -242,15 +242,15 @@ return clientCall(request, DeleteAiDataPlatformWorkspaceObjectResponse::builder)
         
         
                 .handleResponseHeaderString("opc-work-request-id", 
-            DeleteAiDataPlatformWorkspaceObjectResponse.Builder::opcWorkRequestId)
+            DeleteWorkspaceObjectResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            DeleteWorkspaceObjectResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DownloadAiDataPlatformWorkspaceObjectWithParResponse> downloadAiDataPlatformWorkspaceObjectWithPar(DownloadAiDataPlatformWorkspaceObjectWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformWorkspaceObjectWithParRequest, DownloadAiDataPlatformWorkspaceObjectWithParResponse> handler) {
+    public java.util.concurrent.Future<DownloadWorkspaceObjectWithParResponse> downloadWorkspaceObjectWithPar(DownloadWorkspaceObjectWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<DownloadWorkspaceObjectWithParRequest, DownloadWorkspaceObjectWithParResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -259,11 +259,11 @@ return clientCall(request, DeleteAiDataPlatformWorkspaceObjectResponse::builder)
         
 
 
-return clientCall(request, DownloadAiDataPlatformWorkspaceObjectWithParResponse::builder)
-        .logger(LOG, "downloadAiDataPlatformWorkspaceObjectWithPar")
-        .serviceDetails("WorkspaceObject", "DownloadAiDataPlatformWorkspaceObjectWithPar", "")
+return clientCall(request, DownloadWorkspaceObjectWithParResponse::builder)
+        .logger(LOG, "downloadWorkspaceObjectWithPar")
+        .serviceDetails("WorkspaceObject", "DownloadWorkspaceObjectWithPar", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DownloadAiDataPlatformWorkspaceObjectWithParRequest::builder)
+        .requestBuilder(DownloadWorkspaceObjectWithParRequest::builder)
         
         
         .basePath("/20260430")
@@ -285,25 +285,25 @@ return clientCall(request, DownloadAiDataPlatformWorkspaceObjectWithParResponse:
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.DownloadFileWithParResult.class, DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::downloadFileWithParResult)
+            .handleBody(com.oracle.aidataplatform.dp.model.DownloadFileWithParResult.class, DownloadWorkspaceObjectWithParResponse.Builder::downloadFileWithParResult)
                 .handleResponseHeaderString("etag", 
-            DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::etag)
+            DownloadWorkspaceObjectWithParResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::opcRequestId)
+            DownloadWorkspaceObjectWithParResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("object-key", 
-            DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::objectKey)
+            DownloadWorkspaceObjectWithParResponse.Builder::objectKey)
                 .handleResponseHeaderString("path", 
-            DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::path)
+            DownloadWorkspaceObjectWithParResponse.Builder::path)
                 .handleResponseHeaderString("type", 
-            DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::type)
+            DownloadWorkspaceObjectWithParResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
-            DownloadAiDataPlatformWorkspaceObjectWithParResponse.Builder::timeUpdated)
+            DownloadWorkspaceObjectWithParResponse.Builder::timeUpdated)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformWorkspaceObjectResponse> getAiDataPlatformWorkspaceObject(GetAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformWorkspaceObjectRequest, GetAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<GetWorkspaceObjectResponse> getWorkspaceObject(GetWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<GetWorkspaceObjectRequest, GetWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -312,11 +312,11 @@ return clientCall(request, DownloadAiDataPlatformWorkspaceObjectWithParResponse:
         Validate.notBlank(request.getObjectPath(), "objectPath must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "getAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "GetAiDataPlatformWorkspaceObject", "")
+return clientCall(request, GetWorkspaceObjectResponse::builder)
+        .logger(LOG, "getWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "GetWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(GetWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -332,25 +332,25 @@ return clientCall(request, GetAiDataPlatformWorkspaceObjectResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(java.io.InputStream.class, GetAiDataPlatformWorkspaceObjectResponse.Builder::inputStream)
+            .handleBody(java.io.InputStream.class, GetWorkspaceObjectResponse.Builder::inputStream)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformWorkspaceObjectResponse.Builder::etag)
+            GetWorkspaceObjectResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            GetWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("object-key", 
-            GetAiDataPlatformWorkspaceObjectResponse.Builder::objectKey)
+            GetWorkspaceObjectResponse.Builder::objectKey)
                 .handleResponseHeaderString("path", 
-            GetAiDataPlatformWorkspaceObjectResponse.Builder::path)
+            GetWorkspaceObjectResponse.Builder::path)
                 .handleResponseHeaderString("type", 
-            GetAiDataPlatformWorkspaceObjectResponse.Builder::type)
+            GetWorkspaceObjectResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
-            GetAiDataPlatformWorkspaceObjectResponse.Builder::timeUpdated)
+            GetWorkspaceObjectResponse.Builder::timeUpdated)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<HeadAiDataPlatformWorkspaceObjectResponse> headAiDataPlatformWorkspaceObject(HeadAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<HeadAiDataPlatformWorkspaceObjectRequest, HeadAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<HeadWorkspaceObjectResponse> headWorkspaceObject(HeadWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<HeadWorkspaceObjectRequest, HeadWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -359,11 +359,11 @@ return clientCall(request, GetAiDataPlatformWorkspaceObjectResponse::builder)
         Validate.notBlank(request.getObjectPath(), "objectPath must not be blank");
 
 
-return clientCall(request, HeadAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "headAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "HeadAiDataPlatformWorkspaceObject", "")
+return clientCall(request, HeadWorkspaceObjectResponse::builder)
+        .logger(LOG, "headWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "HeadWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.HEAD)
-        .requestBuilder(HeadAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(HeadWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -380,25 +380,25 @@ return clientCall(request, HeadAiDataPlatformWorkspaceObjectResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            HeadWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("object-key", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::objectKey)
+            HeadWorkspaceObjectResponse.Builder::objectKey)
                 .handleResponseHeaderString("path", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::path)
+            HeadWorkspaceObjectResponse.Builder::path)
                 .handleResponseHeaderString("type", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::type)
+            HeadWorkspaceObjectResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::timeUpdated)
+            HeadWorkspaceObjectResponse.Builder::timeUpdated)
                 .handleResponseHeaderString("file-metadata", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::fileMetadata)
+            HeadWorkspaceObjectResponse.Builder::fileMetadata)
                 .handleResponseHeaderString("composite-etag", 
-            HeadAiDataPlatformWorkspaceObjectResponse.Builder::compositeEtag)
+            HeadWorkspaceObjectResponse.Builder::compositeEtag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformWorkspaceObjectPermissionsResponse> listAiDataPlatformWorkspaceObjectPermissions(ListAiDataPlatformWorkspaceObjectPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspaceObjectPermissionsRequest, ListAiDataPlatformWorkspaceObjectPermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListWorkspaceObjectPermissionsResponse> listWorkspaceObjectPermissions(ListWorkspaceObjectPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListWorkspaceObjectPermissionsRequest, ListWorkspaceObjectPermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -407,11 +407,11 @@ return clientCall(request, HeadAiDataPlatformWorkspaceObjectResponse::builder)
         Validate.notBlank(request.getObjectKey(), "objectKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformWorkspaceObjectPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformWorkspaceObjectPermissions")
-        .serviceDetails("WorkspaceObject", "ListAiDataPlatformWorkspaceObjectPermissions", "")
+return clientCall(request, ListWorkspaceObjectPermissionsResponse::builder)
+        .logger(LOG, "listWorkspaceObjectPermissions")
+        .serviceDetails("WorkspaceObject", "ListWorkspaceObjectPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformWorkspaceObjectPermissionsRequest::builder)
+        .requestBuilder(ListWorkspaceObjectPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -437,17 +437,17 @@ return clientCall(request, ListAiDataPlatformWorkspaceObjectPermissionsResponse:
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectPermissionCollection.class, ListAiDataPlatformWorkspaceObjectPermissionsResponse.Builder::workspaceObjectPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectPermissionCollection.class, ListWorkspaceObjectPermissionsResponse.Builder::workspaceObjectPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformWorkspaceObjectPermissionsResponse.Builder::opcRequestId)
+            ListWorkspaceObjectPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformWorkspaceObjectPermissionsResponse.Builder::opcNextPage)
+            ListWorkspaceObjectPermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformWorkspaceObjectsResponse> listAiDataPlatformWorkspaceObjects(ListAiDataPlatformWorkspaceObjectsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspaceObjectsRequest, ListAiDataPlatformWorkspaceObjectsResponse> handler) {
+    public java.util.concurrent.Future<ListWorkspaceObjectsResponse> listWorkspaceObjects(ListWorkspaceObjectsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListWorkspaceObjectsRequest, ListWorkspaceObjectsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -456,11 +456,11 @@ return clientCall(request, ListAiDataPlatformWorkspaceObjectPermissionsResponse:
         
 
 
-return clientCall(request, ListAiDataPlatformWorkspaceObjectsResponse::builder)
-        .logger(LOG, "listAiDataPlatformWorkspaceObjects")
-        .serviceDetails("WorkspaceObject", "ListAiDataPlatformWorkspaceObjects", "")
+return clientCall(request, ListWorkspaceObjectsResponse::builder)
+        .logger(LOG, "listWorkspaceObjects")
+        .serviceDetails("WorkspaceObject", "ListWorkspaceObjects", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformWorkspaceObjectsRequest::builder)
+        .requestBuilder(ListWorkspaceObjectsRequest::builder)
         
         
         .basePath("/20260430")
@@ -504,17 +504,17 @@ return clientCall(request, ListAiDataPlatformWorkspaceObjectsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectCollection.class, ListAiDataPlatformWorkspaceObjectsResponse.Builder::workspaceObjectCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectCollection.class, ListWorkspaceObjectsResponse.Builder::workspaceObjectCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformWorkspaceObjectsResponse.Builder::opcRequestId)
+            ListWorkspaceObjectsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformWorkspaceObjectsResponse.Builder::opcNextPage)
+            ListWorkspaceObjectsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformWorkspaceObjectPermissionResponse> manageAiDataPlatformWorkspaceObjectPermission(ManageAiDataPlatformWorkspaceObjectPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformWorkspaceObjectPermissionRequest, ManageAiDataPlatformWorkspaceObjectPermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageWorkspaceObjectPermissionResponse> manageWorkspaceObjectPermission(ManageWorkspaceObjectPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageWorkspaceObjectPermissionRequest, ManageWorkspaceObjectPermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -525,11 +525,11 @@ return clientCall(request, ListAiDataPlatformWorkspaceObjectsResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformWorkspaceObjectPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformWorkspaceObjectPermission")
-        .serviceDetails("WorkspaceObject", "ManageAiDataPlatformWorkspaceObjectPermission", "")
+return clientCall(request, ManageWorkspaceObjectPermissionResponse::builder)
+        .logger(LOG, "manageWorkspaceObjectPermission")
+        .serviceDetails("WorkspaceObject", "ManageWorkspaceObjectPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformWorkspaceObjectPermissionRequest::builder)
+        .requestBuilder(ManageWorkspaceObjectPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -542,13 +542,13 @@ return clientCall(request, ManageAiDataPlatformWorkspaceObjectPermissionResponse
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformWorkspaceObjectPermissionResponse.Builder::opcRequestId)
+            ManageWorkspaceObjectPermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<MoveAiDataPlatformWorkspaceObjectResponse> moveAiDataPlatformWorkspaceObject(MoveAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<MoveAiDataPlatformWorkspaceObjectRequest, MoveAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<MoveWorkspaceObjectResponse> moveWorkspaceObject(MoveWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<MoveWorkspaceObjectRequest, MoveWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -557,11 +557,11 @@ return clientCall(request, ManageAiDataPlatformWorkspaceObjectPermissionResponse
         
 
 
-return clientCall(request, MoveAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "moveAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "MoveAiDataPlatformWorkspaceObject", "")
+return clientCall(request, MoveWorkspaceObjectResponse::builder)
+        .logger(LOG, "moveWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "MoveWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(MoveAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(MoveWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -575,19 +575,19 @@ return clientCall(request, MoveAiDataPlatformWorkspaceObjectResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectDetails.class, MoveAiDataPlatformWorkspaceObjectResponse.Builder::workspaceObjectDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectDetails.class, MoveWorkspaceObjectResponse.Builder::workspaceObjectDetails)
                 .handleResponseHeaderString("opc-work-request-id", 
-            MoveAiDataPlatformWorkspaceObjectResponse.Builder::opcWorkRequestId)
+            MoveWorkspaceObjectResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            MoveAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            MoveWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            MoveAiDataPlatformWorkspaceObjectResponse.Builder::etag)
+            MoveWorkspaceObjectResponse.Builder::etag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RenameAiDataPlatformWorkspaceObjectResponse> renameAiDataPlatformWorkspaceObject(RenameAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<RenameAiDataPlatformWorkspaceObjectRequest, RenameAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<RenameWorkspaceObjectResponse> renameWorkspaceObject(RenameWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<RenameWorkspaceObjectRequest, RenameWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -596,11 +596,11 @@ return clientCall(request, MoveAiDataPlatformWorkspaceObjectResponse::builder)
         
 
 
-return clientCall(request, RenameAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "renameAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "RenameAiDataPlatformWorkspaceObject", "")
+return clientCall(request, RenameWorkspaceObjectResponse::builder)
+        .logger(LOG, "renameWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "RenameWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RenameAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(RenameWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -614,19 +614,19 @@ return clientCall(request, RenameAiDataPlatformWorkspaceObjectResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectDetails.class, RenameAiDataPlatformWorkspaceObjectResponse.Builder::workspaceObjectDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceObjectDetails.class, RenameWorkspaceObjectResponse.Builder::workspaceObjectDetails)
                 .handleResponseHeaderString("opc-work-request-id", 
-            RenameAiDataPlatformWorkspaceObjectResponse.Builder::opcWorkRequestId)
+            RenameWorkspaceObjectResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            RenameAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            RenameWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            RenameAiDataPlatformWorkspaceObjectResponse.Builder::etag)
+            RenameWorkspaceObjectResponse.Builder::etag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceObjectResponse> updateAiDataPlatformWorkspaceObject(UpdateAiDataPlatformWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceObjectRequest, UpdateAiDataPlatformWorkspaceObjectResponse> handler) {
+    public java.util.concurrent.Future<UpdateWorkspaceObjectResponse> updateWorkspaceObject(UpdateWorkspaceObjectRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceObjectRequest, UpdateWorkspaceObjectResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -637,11 +637,11 @@ return clientCall(request, RenameAiDataPlatformWorkspaceObjectResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformWorkspaceObjectResponse::builder)
-        .logger(LOG, "updateAiDataPlatformWorkspaceObject")
-        .serviceDetails("WorkspaceObject", "UpdateAiDataPlatformWorkspaceObject", "")
+return clientCall(request, UpdateWorkspaceObjectResponse::builder)
+        .logger(LOG, "updateWorkspaceObject")
+        .serviceDetails("WorkspaceObject", "UpdateWorkspaceObject", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformWorkspaceObjectRequest::builder)
+        .requestBuilder(UpdateWorkspaceObjectRequest::builder)
         
         
         .basePath("/20260430")
@@ -659,25 +659,25 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceObjectResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         .hasBinaryRequestBody()
         .hasBody()
-            .handleBody(java.io.InputStream.class, UpdateAiDataPlatformWorkspaceObjectResponse.Builder::inputStream)
+            .handleBody(java.io.InputStream.class, UpdateWorkspaceObjectResponse.Builder::inputStream)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformWorkspaceObjectResponse.Builder::opcRequestId)
+            UpdateWorkspaceObjectResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformWorkspaceObjectResponse.Builder::etag)
+            UpdateWorkspaceObjectResponse.Builder::etag)
                 .handleResponseHeaderString("object-key", 
-            UpdateAiDataPlatformWorkspaceObjectResponse.Builder::objectKey)
+            UpdateWorkspaceObjectResponse.Builder::objectKey)
                 .handleResponseHeaderString("path", 
-            UpdateAiDataPlatformWorkspaceObjectResponse.Builder::path)
+            UpdateWorkspaceObjectResponse.Builder::path)
                 .handleResponseHeaderString("type", 
-            UpdateAiDataPlatformWorkspaceObjectResponse.Builder::type)
+            UpdateWorkspaceObjectResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
-            UpdateAiDataPlatformWorkspaceObjectResponse.Builder::timeUpdated)
+            UpdateWorkspaceObjectResponse.Builder::timeUpdated)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UploadAiDataPlatformWorkspaceObjectWithParResponse> uploadAiDataPlatformWorkspaceObjectWithPar(UploadAiDataPlatformWorkspaceObjectWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformWorkspaceObjectWithParRequest, UploadAiDataPlatformWorkspaceObjectWithParResponse> handler) {
+    public java.util.concurrent.Future<UploadWorkspaceObjectWithParResponse> uploadWorkspaceObjectWithPar(UploadWorkspaceObjectWithParRequest request, final com.oracle.bmc.responses.AsyncHandler<UploadWorkspaceObjectWithParRequest, UploadWorkspaceObjectWithParResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -688,11 +688,11 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceObjectResponse::builder)
         
 
 
-return clientCall(request, UploadAiDataPlatformWorkspaceObjectWithParResponse::builder)
-        .logger(LOG, "uploadAiDataPlatformWorkspaceObjectWithPar")
-        .serviceDetails("WorkspaceObject", "UploadAiDataPlatformWorkspaceObjectWithPar", "")
+return clientCall(request, UploadWorkspaceObjectWithParResponse::builder)
+        .logger(LOG, "uploadWorkspaceObjectWithPar")
+        .serviceDetails("WorkspaceObject", "UploadWorkspaceObjectWithPar", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(UploadAiDataPlatformWorkspaceObjectWithParRequest::builder)
+        .requestBuilder(UploadWorkspaceObjectWithParRequest::builder)
         
         
         .basePath("/20260430")
@@ -722,19 +722,19 @@ return clientCall(request, UploadAiDataPlatformWorkspaceObjectWithParResponse::b
                 .appendHeader("type", request.getType())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UploadFileWithParResult.class, UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::uploadFileWithParResult)
+            .handleBody(com.oracle.aidataplatform.dp.model.UploadFileWithParResult.class, UploadWorkspaceObjectWithParResponse.Builder::uploadFileWithParResult)
                 .handleResponseHeaderString("etag", 
-            UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::etag)
+            UploadWorkspaceObjectWithParResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::opcRequestId)
+            UploadWorkspaceObjectWithParResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("object-key", 
-            UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::objectKey)
+            UploadWorkspaceObjectWithParResponse.Builder::objectKey)
                 .handleResponseHeaderString("path", 
-            UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::path)
+            UploadWorkspaceObjectWithParResponse.Builder::path)
                 .handleResponseHeaderString("type", 
-            UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::type)
+            UploadWorkspaceObjectWithParResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
-            UploadAiDataPlatformWorkspaceObjectWithParResponse.Builder::timeUpdated)
+            UploadWorkspaceObjectWithParResponse.Builder::timeUpdated)
 .callAsync(handler);
     }
 

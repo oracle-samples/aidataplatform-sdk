@@ -83,18 +83,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformDataTableResponse> createAiDataPlatformDataTable(CreateAiDataPlatformDataTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformDataTableRequest, CreateAiDataPlatformDataTableResponse> handler) {
+    public java.util.concurrent.Future<CreateDataTableResponse> createDataTable(CreateDataTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateDataTableRequest, CreateDataTableResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateDataTableDetails(), "createDataTableDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformDataTableResponse::builder)
-        .logger(LOG, "createAiDataPlatformDataTable")
-        .serviceDetails("Schema", "CreateAiDataPlatformDataTable", "")
+return clientCall(request, CreateDataTableResponse::builder)
+        .logger(LOG, "createDataTable")
+        .serviceDetails("Schema", "CreateDataTable", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformDataTableRequest::builder)
+        .requestBuilder(CreateDataTableRequest::builder)
         
         
         .basePath("/20260430")
@@ -109,28 +109,28 @@ return clientCall(request, CreateAiDataPlatformDataTableResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-work-request-id", 
-            CreateAiDataPlatformDataTableResponse.Builder::opcWorkRequestId)
+            CreateDataTableResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformDataTableResponse.Builder::opcRequestId)
+            CreateDataTableResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformDataTableResponse.Builder::aidpAsyncOperationKey)
+            CreateDataTableResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformSchemaResponse> createAiDataPlatformSchema(CreateAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformSchemaRequest, CreateAiDataPlatformSchemaResponse> handler) {
+    public java.util.concurrent.Future<CreateSchemaResponse> createSchema(CreateSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateSchemaRequest, CreateSchemaResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateSchemaDetails(), "createSchemaDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformSchemaResponse::builder)
-        .logger(LOG, "createAiDataPlatformSchema")
-        .serviceDetails("Schema", "CreateAiDataPlatformSchema", "")
+return clientCall(request, CreateSchemaResponse::builder)
+        .logger(LOG, "createSchema")
+        .serviceDetails("Schema", "CreateSchema", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformSchemaRequest::builder)
+        .requestBuilder(CreateSchemaRequest::builder)
         
         
         .basePath("/20260430")
@@ -145,30 +145,30 @@ return clientCall(request, CreateAiDataPlatformSchemaResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformSchemaResponse.Builder::location)
+            CreateSchemaResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformSchemaResponse.Builder::contentLocation)
+            CreateSchemaResponse.Builder::contentLocation)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformSchemaResponse.Builder::aidpAsyncOperationKey)
+            CreateSchemaResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformSchemaResponse.Builder::opcRequestId)
+            CreateSchemaResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformTableResponse> createAiDataPlatformTable(CreateAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformTableRequest, CreateAiDataPlatformTableResponse> handler) {
+    public java.util.concurrent.Future<CreateTableResponse> createTable(CreateTableRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateTableRequest, CreateTableResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateTableDetails(), "createTableDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformTableResponse::builder)
-        .logger(LOG, "createAiDataPlatformTable")
-        .serviceDetails("Schema", "CreateAiDataPlatformTable", "")
+return clientCall(request, CreateTableResponse::builder)
+        .logger(LOG, "createTable")
+        .serviceDetails("Schema", "CreateTable", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformTableRequest::builder)
+        .requestBuilder(CreateTableRequest::builder)
         
         
         .basePath("/20260430")
@@ -183,30 +183,30 @@ return clientCall(request, CreateAiDataPlatformTableResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformTableResponse.Builder::location)
+            CreateTableResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformTableResponse.Builder::contentLocation)
+            CreateTableResponse.Builder::contentLocation)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformTableResponse.Builder::aidpAsyncOperationKey)
+            CreateTableResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformTableResponse.Builder::opcRequestId)
+            CreateTableResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<CreateAiDataPlatformViewResponse> createAiDataPlatformView(CreateAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformViewRequest, CreateAiDataPlatformViewResponse> handler) {
+    public java.util.concurrent.Future<CreateViewResponse> createView(CreateViewRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateViewRequest, CreateViewResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateViewDetails(), "createViewDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformViewResponse::builder)
-        .logger(LOG, "createAiDataPlatformView")
-        .serviceDetails("Schema", "CreateAiDataPlatformView", "")
+return clientCall(request, CreateViewResponse::builder)
+        .logger(LOG, "createView")
+        .serviceDetails("Schema", "CreateView", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformViewRequest::builder)
+        .requestBuilder(CreateViewRequest::builder)
         
         
         .basePath("/20260430")
@@ -220,28 +220,28 @@ return clientCall(request, CreateAiDataPlatformViewResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.View.class, CreateAiDataPlatformViewResponse.Builder::view)
+            .handleBody(com.oracle.aidataplatform.dp.model.View.class, CreateViewResponse.Builder::view)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformViewResponse.Builder::etag)
+            CreateViewResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformViewResponse.Builder::opcRequestId)
+            CreateViewResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformSchemaResponse> deleteAiDataPlatformSchema(DeleteAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformSchemaRequest, DeleteAiDataPlatformSchemaResponse> handler) {
+    public java.util.concurrent.Future<DeleteSchemaResponse> deleteSchema(DeleteSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteSchemaRequest, DeleteSchemaResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSchemaKey(), "schemaKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformSchemaResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformSchema")
-        .serviceDetails("Schema", "DeleteAiDataPlatformSchema", "")
+return clientCall(request, DeleteSchemaResponse::builder)
+        .logger(LOG, "deleteSchema")
+        .serviceDetails("Schema", "DeleteSchema", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformSchemaRequest::builder)
+        .requestBuilder(DeleteSchemaRequest::builder)
         
         
         .basePath("/20260430")
@@ -258,26 +258,26 @@ return clientCall(request, DeleteAiDataPlatformSchemaResponse::builder)
         
         
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeleteAiDataPlatformSchemaResponse.Builder::aidpAsyncOperationKey)
+            DeleteSchemaResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformSchemaResponse.Builder::opcRequestId)
+            DeleteSchemaResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformTableResponse> deleteAiDataPlatformTable(DeleteAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformTableRequest, DeleteAiDataPlatformTableResponse> handler) {
+    public java.util.concurrent.Future<DeleteTableResponse> deleteTable(DeleteTableRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteTableRequest, DeleteTableResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getTableKey(), "tableKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformTableResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformTable")
-        .serviceDetails("Schema", "DeleteAiDataPlatformTable", "")
+return clientCall(request, DeleteTableResponse::builder)
+        .logger(LOG, "deleteTable")
+        .serviceDetails("Schema", "DeleteTable", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformTableRequest::builder)
+        .requestBuilder(DeleteTableRequest::builder)
         
         
         .basePath("/20260430")
@@ -296,26 +296,26 @@ return clientCall(request, DeleteAiDataPlatformTableResponse::builder)
         
         
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeleteAiDataPlatformTableResponse.Builder::aidpAsyncOperationKey)
+            DeleteTableResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformTableResponse.Builder::opcRequestId)
+            DeleteTableResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<DeleteAiDataPlatformViewResponse> deleteAiDataPlatformView(DeleteAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformViewRequest, DeleteAiDataPlatformViewResponse> handler) {
+    public java.util.concurrent.Future<DeleteViewResponse> deleteView(DeleteViewRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteViewRequest, DeleteViewResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getViewKey(), "viewKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformViewResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformView")
-        .serviceDetails("Schema", "DeleteAiDataPlatformView", "")
+return clientCall(request, DeleteViewResponse::builder)
+        .logger(LOG, "deleteView")
+        .serviceDetails("Schema", "DeleteView", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformViewRequest::builder)
+        .requestBuilder(DeleteViewRequest::builder)
         
         
         .basePath("/20260430")
@@ -334,24 +334,24 @@ return clientCall(request, DeleteAiDataPlatformViewResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformViewResponse.Builder::opcRequestId)
+            DeleteViewResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GenerateAiDataPlatformTempFileUploadTargetResponse> generateAiDataPlatformTempFileUploadTarget(GenerateAiDataPlatformTempFileUploadTargetRequest request, final com.oracle.bmc.responses.AsyncHandler<GenerateAiDataPlatformTempFileUploadTargetRequest, GenerateAiDataPlatformTempFileUploadTargetResponse> handler) {
+    public java.util.concurrent.Future<GenerateTempFileUploadTargetResponse> generateTempFileUploadTarget(GenerateTempFileUploadTargetRequest request, final com.oracle.bmc.responses.AsyncHandler<GenerateTempFileUploadTargetRequest, GenerateTempFileUploadTargetResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSchemaKey(), "schemaKey must not be blank");
 
 
-return clientCall(request, GenerateAiDataPlatformTempFileUploadTargetResponse::builder)
-        .logger(LOG, "generateAiDataPlatformTempFileUploadTarget")
-        .serviceDetails("Schema", "GenerateAiDataPlatformTempFileUploadTarget", "")
+return clientCall(request, GenerateTempFileUploadTargetResponse::builder)
+        .logger(LOG, "generateTempFileUploadTarget")
+        .serviceDetails("Schema", "GenerateTempFileUploadTarget", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(GenerateAiDataPlatformTempFileUploadTargetRequest::builder)
+        .requestBuilder(GenerateTempFileUploadTargetRequest::builder)
         
         
         .basePath("/20260430")
@@ -363,26 +363,26 @@ return clientCall(request, GenerateAiDataPlatformTempFileUploadTargetResponse::b
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GenerateTempFileUploadTargetResponseDetails.class, GenerateAiDataPlatformTempFileUploadTargetResponse.Builder::generateTempFileUploadTargetResponseDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.GenerateTempFileUploadTargetResponseDetails.class, GenerateTempFileUploadTargetResponse.Builder::generateTempFileUploadTargetResponseDetails)
                 .handleResponseHeaderString("opc-request-id", 
-            GenerateAiDataPlatformTempFileUploadTargetResponse.Builder::opcRequestId)
+            GenerateTempFileUploadTargetResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformSchemaResponse> getAiDataPlatformSchema(GetAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformSchemaRequest, GetAiDataPlatformSchemaResponse> handler) {
+    public java.util.concurrent.Future<GetSchemaResponse> getSchema(GetSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<GetSchemaRequest, GetSchemaResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSchemaKey(), "schemaKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformSchemaResponse::builder)
-        .logger(LOG, "getAiDataPlatformSchema")
-        .serviceDetails("Schema", "GetAiDataPlatformSchema", "")
+return clientCall(request, GetSchemaResponse::builder)
+        .logger(LOG, "getSchema")
+        .serviceDetails("Schema", "GetSchema", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformSchemaRequest::builder)
+        .requestBuilder(GetSchemaRequest::builder)
         
         
         .basePath("/20260430")
@@ -394,28 +394,28 @@ return clientCall(request, GetAiDataPlatformSchemaResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Schema.class, GetAiDataPlatformSchemaResponse.Builder::schema)
+            .handleBody(com.oracle.aidataplatform.dp.model.Schema.class, GetSchemaResponse.Builder::schema)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformSchemaResponse.Builder::etag)
+            GetSchemaResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformSchemaResponse.Builder::opcRequestId)
+            GetSchemaResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformTableResponse> getAiDataPlatformTable(GetAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTableRequest, GetAiDataPlatformTableResponse> handler) {
+    public java.util.concurrent.Future<GetTableResponse> getTable(GetTableRequest request, final com.oracle.bmc.responses.AsyncHandler<GetTableRequest, GetTableResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getTableKey(), "tableKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformTableResponse::builder)
-        .logger(LOG, "getAiDataPlatformTable")
-        .serviceDetails("Schema", "GetAiDataPlatformTable", "")
+return clientCall(request, GetTableResponse::builder)
+        .logger(LOG, "getTable")
+        .serviceDetails("Schema", "GetTable", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformTableRequest::builder)
+        .requestBuilder(GetTableRequest::builder)
         
         
         .basePath("/20260430")
@@ -427,28 +427,28 @@ return clientCall(request, GetAiDataPlatformTableResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Table.class, GetAiDataPlatformTableResponse.Builder::table)
+            .handleBody(com.oracle.aidataplatform.dp.model.Table.class, GetTableResponse.Builder::table)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformTableResponse.Builder::etag)
+            GetTableResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformTableResponse.Builder::opcRequestId)
+            GetTableResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<GetAiDataPlatformViewResponse> getAiDataPlatformView(GetAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformViewRequest, GetAiDataPlatformViewResponse> handler) {
+    public java.util.concurrent.Future<GetViewResponse> getView(GetViewRequest request, final com.oracle.bmc.responses.AsyncHandler<GetViewRequest, GetViewResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getViewKey(), "viewKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformViewResponse::builder)
-        .logger(LOG, "getAiDataPlatformView")
-        .serviceDetails("Schema", "GetAiDataPlatformView", "")
+return clientCall(request, GetViewResponse::builder)
+        .logger(LOG, "getView")
+        .serviceDetails("Schema", "GetView", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformViewRequest::builder)
+        .requestBuilder(GetViewRequest::builder)
         
         
         .basePath("/20260430")
@@ -460,28 +460,28 @@ return clientCall(request, GetAiDataPlatformViewResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.View.class, GetAiDataPlatformViewResponse.Builder::view)
+            .handleBody(com.oracle.aidataplatform.dp.model.View.class, GetViewResponse.Builder::view)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformViewResponse.Builder::etag)
+            GetViewResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformViewResponse.Builder::opcRequestId)
+            GetViewResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformSchemaPermissionsResponse> listAiDataPlatformSchemaPermissions(ListAiDataPlatformSchemaPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemaPermissionsRequest, ListAiDataPlatformSchemaPermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListSchemaPermissionsResponse> listSchemaPermissions(ListSchemaPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSchemaKey(), "schemaKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformSchemaPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformSchemaPermissions")
-        .serviceDetails("Schema", "ListAiDataPlatformSchemaPermissions", "")
+return clientCall(request, ListSchemaPermissionsResponse::builder)
+        .logger(LOG, "listSchemaPermissions")
+        .serviceDetails("Schema", "ListSchemaPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformSchemaPermissionsRequest::builder)
+        .requestBuilder(ListSchemaPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -509,28 +509,28 @@ return clientCall(request, ListAiDataPlatformSchemaPermissionsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.SchemaPermissionCollection.class, ListAiDataPlatformSchemaPermissionsResponse.Builder::schemaPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.SchemaPermissionCollection.class, ListSchemaPermissionsResponse.Builder::schemaPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformSchemaPermissionsResponse.Builder::opcRequestId)
+            ListSchemaPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformSchemaPermissionsResponse.Builder::opcNextPage)
+            ListSchemaPermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformSchemasResponse> listAiDataPlatformSchemas(ListAiDataPlatformSchemasRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformSchemasRequest, ListAiDataPlatformSchemasResponse> handler) {
+    public java.util.concurrent.Future<ListSchemasResponse> listSchemas(ListSchemasRequest request, final com.oracle.bmc.responses.AsyncHandler<ListSchemasRequest, ListSchemasResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCatalogKey(), "catalogKey is required");
         
 
 
-return clientCall(request, ListAiDataPlatformSchemasResponse::builder)
-        .logger(LOG, "listAiDataPlatformSchemas")
-        .serviceDetails("Schema", "ListAiDataPlatformSchemas", "")
+return clientCall(request, ListSchemasResponse::builder)
+        .logger(LOG, "listSchemas")
+        .serviceDetails("Schema", "ListSchemas", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformSchemasRequest::builder)
+        .requestBuilder(ListSchemasRequest::builder)
         
         
         .basePath("/20260430")
@@ -564,28 +564,28 @@ return clientCall(request, ListAiDataPlatformSchemasResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.SchemaCollection.class, ListAiDataPlatformSchemasResponse.Builder::schemaCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.SchemaCollection.class, ListSchemasResponse.Builder::schemaCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformSchemasResponse.Builder::opcRequestId)
+            ListSchemasResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformSchemasResponse.Builder::opcNextPage)
+            ListSchemasResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformTablePermissionsResponse> listAiDataPlatformTablePermissions(ListAiDataPlatformTablePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablePermissionsRequest, ListAiDataPlatformTablePermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListTablePermissionsResponse> listTablePermissions(ListTablePermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTablePermissionsRequest, ListTablePermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getTableKey(), "tableKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformTablePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformTablePermissions")
-        .serviceDetails("Schema", "ListAiDataPlatformTablePermissions", "")
+return clientCall(request, ListTablePermissionsResponse::builder)
+        .logger(LOG, "listTablePermissions")
+        .serviceDetails("Schema", "ListTablePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformTablePermissionsRequest::builder)
+        .requestBuilder(ListTablePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -613,17 +613,17 @@ return clientCall(request, ListAiDataPlatformTablePermissionsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.TablePermissionCollection.class, ListAiDataPlatformTablePermissionsResponse.Builder::tablePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.TablePermissionCollection.class, ListTablePermissionsResponse.Builder::tablePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformTablePermissionsResponse.Builder::opcRequestId)
+            ListTablePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformTablePermissionsResponse.Builder::opcNextPage)
+            ListTablePermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformTablesResponse> listAiDataPlatformTables(ListAiDataPlatformTablesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTablesRequest, ListAiDataPlatformTablesResponse> handler) {
+    public java.util.concurrent.Future<ListTablesResponse> listTables(ListTablesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTablesRequest, ListTablesResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCatalogKey(), "catalogKey is required");
@@ -632,11 +632,11 @@ return clientCall(request, ListAiDataPlatformTablePermissionsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformTablesResponse::builder)
-        .logger(LOG, "listAiDataPlatformTables")
-        .serviceDetails("Schema", "ListAiDataPlatformTables", "")
+return clientCall(request, ListTablesResponse::builder)
+        .logger(LOG, "listTables")
+        .serviceDetails("Schema", "ListTables", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformTablesRequest::builder)
+        .requestBuilder(ListTablesRequest::builder)
         
         
         .basePath("/20260430")
@@ -674,28 +674,28 @@ return clientCall(request, ListAiDataPlatformTablesResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.TableCollection.class, ListAiDataPlatformTablesResponse.Builder::tableCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.TableCollection.class, ListTablesResponse.Builder::tableCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformTablesResponse.Builder::opcRequestId)
+            ListTablesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformTablesResponse.Builder::opcNextPage)
+            ListTablesResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformViewPermissionsResponse> listAiDataPlatformViewPermissions(ListAiDataPlatformViewPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewPermissionsRequest, ListAiDataPlatformViewPermissionsResponse> handler) {
+    public java.util.concurrent.Future<ListViewPermissionsResponse> listViewPermissions(ListViewPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListViewPermissionsRequest, ListViewPermissionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getViewKey(), "viewKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformViewPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformViewPermissions")
-        .serviceDetails("Schema", "ListAiDataPlatformViewPermissions", "")
+return clientCall(request, ListViewPermissionsResponse::builder)
+        .logger(LOG, "listViewPermissions")
+        .serviceDetails("Schema", "ListViewPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformViewPermissionsRequest::builder)
+        .requestBuilder(ListViewPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -723,17 +723,17 @@ return clientCall(request, ListAiDataPlatformViewPermissionsResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ViewPermissionCollection.class, ListAiDataPlatformViewPermissionsResponse.Builder::viewPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ViewPermissionCollection.class, ListViewPermissionsResponse.Builder::viewPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformViewPermissionsResponse.Builder::opcRequestId)
+            ListViewPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformViewPermissionsResponse.Builder::opcNextPage)
+            ListViewPermissionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ListAiDataPlatformViewsResponse> listAiDataPlatformViews(ListAiDataPlatformViewsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformViewsRequest, ListAiDataPlatformViewsResponse> handler) {
+    public java.util.concurrent.Future<ListViewsResponse> listViews(ListViewsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListViewsRequest, ListViewsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCatalogKey(), "catalogKey is required");
@@ -742,11 +742,11 @@ return clientCall(request, ListAiDataPlatformViewPermissionsResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformViewsResponse::builder)
-        .logger(LOG, "listAiDataPlatformViews")
-        .serviceDetails("Schema", "ListAiDataPlatformViews", "")
+return clientCall(request, ListViewsResponse::builder)
+        .logger(LOG, "listViews")
+        .serviceDetails("Schema", "ListViews", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformViewsRequest::builder)
+        .requestBuilder(ListViewsRequest::builder)
         
         
         .basePath("/20260430")
@@ -784,17 +784,17 @@ return clientCall(request, ListAiDataPlatformViewsResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ViewCollection.class, ListAiDataPlatformViewsResponse.Builder::viewCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ViewCollection.class, ListViewsResponse.Builder::viewCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformViewsResponse.Builder::opcRequestId)
+            ListViewsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformViewsResponse.Builder::opcNextPage)
+            ListViewsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformSchemaPermissionResponse> manageAiDataPlatformSchemaPermission(ManageAiDataPlatformSchemaPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformSchemaPermissionRequest, ManageAiDataPlatformSchemaPermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageSchemaPermissionResponse> manageSchemaPermission(ManageSchemaPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageSchemaPermissionRequest, ManageSchemaPermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -803,11 +803,11 @@ return clientCall(request, ListAiDataPlatformViewsResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformSchemaPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformSchemaPermission")
-        .serviceDetails("Schema", "ManageAiDataPlatformSchemaPermission", "")
+return clientCall(request, ManageSchemaPermissionResponse::builder)
+        .logger(LOG, "manageSchemaPermission")
+        .serviceDetails("Schema", "ManageSchemaPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformSchemaPermissionRequest::builder)
+        .requestBuilder(ManageSchemaPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -822,13 +822,13 @@ return clientCall(request, ManageAiDataPlatformSchemaPermissionResponse::builder
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformSchemaPermissionResponse.Builder::opcRequestId)
+            ManageSchemaPermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformTablePermissionResponse> manageAiDataPlatformTablePermission(ManageAiDataPlatformTablePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformTablePermissionRequest, ManageAiDataPlatformTablePermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageTablePermissionResponse> manageTablePermission(ManageTablePermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageTablePermissionRequest, ManageTablePermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -837,11 +837,11 @@ return clientCall(request, ManageAiDataPlatformSchemaPermissionResponse::builder
         
 
 
-return clientCall(request, ManageAiDataPlatformTablePermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformTablePermission")
-        .serviceDetails("Schema", "ManageAiDataPlatformTablePermission", "")
+return clientCall(request, ManageTablePermissionResponse::builder)
+        .logger(LOG, "manageTablePermission")
+        .serviceDetails("Schema", "ManageTablePermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformTablePermissionRequest::builder)
+        .requestBuilder(ManageTablePermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -856,13 +856,13 @@ return clientCall(request, ManageAiDataPlatformTablePermissionResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformTablePermissionResponse.Builder::opcRequestId)
+            ManageTablePermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<ManageAiDataPlatformViewPermissionResponse> manageAiDataPlatformViewPermission(ManageAiDataPlatformViewPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformViewPermissionRequest, ManageAiDataPlatformViewPermissionResponse> handler) {
+    public java.util.concurrent.Future<ManageViewPermissionResponse> manageViewPermission(ManageViewPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageViewPermissionRequest, ManageViewPermissionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -871,11 +871,11 @@ return clientCall(request, ManageAiDataPlatformTablePermissionResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformViewPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformViewPermission")
-        .serviceDetails("Schema", "ManageAiDataPlatformViewPermission", "")
+return clientCall(request, ManageViewPermissionResponse::builder)
+        .logger(LOG, "manageViewPermission")
+        .serviceDetails("Schema", "ManageViewPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformViewPermissionRequest::builder)
+        .requestBuilder(ManageViewPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -890,13 +890,13 @@ return clientCall(request, ManageAiDataPlatformViewPermissionResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformViewPermissionResponse.Builder::opcRequestId)
+            ManageViewPermissionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<PerformAiDataPlatformInferSchemaResponse> performAiDataPlatformInferSchema(PerformAiDataPlatformInferSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaRequest, PerformAiDataPlatformInferSchemaResponse> handler) {
+    public java.util.concurrent.Future<PerformInferSchemaResponse> performInferSchema(PerformInferSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaRequest, PerformInferSchemaResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -905,11 +905,11 @@ return clientCall(request, ManageAiDataPlatformViewPermissionResponse::builder)
         
 
 
-return clientCall(request, PerformAiDataPlatformInferSchemaResponse::builder)
-        .logger(LOG, "performAiDataPlatformInferSchema")
-        .serviceDetails("Schema", "PerformAiDataPlatformInferSchema", "")
+return clientCall(request, PerformInferSchemaResponse::builder)
+        .logger(LOG, "performInferSchema")
+        .serviceDetails("Schema", "PerformInferSchema", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(PerformAiDataPlatformInferSchemaRequest::builder)
+        .requestBuilder(PerformInferSchemaRequest::builder)
         
         
         .basePath("/20260430")
@@ -921,17 +921,17 @@ return clientCall(request, PerformAiDataPlatformInferSchemaResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.InferSchema.class, PerformAiDataPlatformInferSchemaResponse.Builder::inferSchema)
+            .handleBody(com.oracle.aidataplatform.dp.model.InferSchema.class, PerformInferSchemaResponse.Builder::inferSchema)
                 .handleResponseHeaderString("etag", 
-            PerformAiDataPlatformInferSchemaResponse.Builder::etag)
+            PerformInferSchemaResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            PerformAiDataPlatformInferSchemaResponse.Builder::opcRequestId)
+            PerformInferSchemaResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<PerformAiDataPlatformInferSchemaWithPreviewResponse> performAiDataPlatformInferSchemaWithPreview(PerformAiDataPlatformInferSchemaWithPreviewRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformAiDataPlatformInferSchemaWithPreviewRequest, PerformAiDataPlatformInferSchemaWithPreviewResponse> handler) {
+    public java.util.concurrent.Future<PerformInferSchemaWithPreviewResponse> performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request, final com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -940,11 +940,11 @@ return clientCall(request, PerformAiDataPlatformInferSchemaResponse::builder)
         
 
 
-return clientCall(request, PerformAiDataPlatformInferSchemaWithPreviewResponse::builder)
-        .logger(LOG, "performAiDataPlatformInferSchemaWithPreview")
-        .serviceDetails("Schema", "PerformAiDataPlatformInferSchemaWithPreview", "")
+return clientCall(request, PerformInferSchemaWithPreviewResponse::builder)
+        .logger(LOG, "performInferSchemaWithPreview")
+        .serviceDetails("Schema", "PerformInferSchemaWithPreview", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(PerformAiDataPlatformInferSchemaWithPreviewRequest::builder)
+        .requestBuilder(PerformInferSchemaWithPreviewRequest::builder)
         
         
         .basePath("/20260430")
@@ -956,28 +956,28 @@ return clientCall(request, PerformAiDataPlatformInferSchemaWithPreviewResponse::
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.InferSchemaWithPreview.class, PerformAiDataPlatformInferSchemaWithPreviewResponse.Builder::inferSchemaWithPreview)
+            .handleBody(com.oracle.aidataplatform.dp.model.InferSchemaWithPreview.class, PerformInferSchemaWithPreviewResponse.Builder::inferSchemaWithPreview)
                 .handleResponseHeaderString("etag", 
-            PerformAiDataPlatformInferSchemaWithPreviewResponse.Builder::etag)
+            PerformInferSchemaWithPreviewResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            PerformAiDataPlatformInferSchemaWithPreviewResponse.Builder::opcRequestId)
+            PerformInferSchemaWithPreviewResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RefreshAiDataPlatformSchemaResponse> refreshAiDataPlatformSchema(RefreshAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformSchemaRequest, RefreshAiDataPlatformSchemaResponse> handler) {
+    public java.util.concurrent.Future<RefreshSchemaResponse> refreshSchema(RefreshSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshSchemaRequest, RefreshSchemaResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSchemaKey(), "schemaKey must not be blank");
 
 
-return clientCall(request, RefreshAiDataPlatformSchemaResponse::builder)
-        .logger(LOG, "refreshAiDataPlatformSchema")
-        .serviceDetails("Schema", "RefreshAiDataPlatformSchema", "")
+return clientCall(request, RefreshSchemaResponse::builder)
+        .logger(LOG, "refreshSchema")
+        .serviceDetails("Schema", "RefreshSchema", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RefreshAiDataPlatformSchemaRequest::builder)
+        .requestBuilder(RefreshSchemaRequest::builder)
         
         
         .basePath("/20260430")
@@ -994,26 +994,26 @@ return clientCall(request, RefreshAiDataPlatformSchemaResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            RefreshAiDataPlatformSchemaResponse.Builder::opcRequestId)
+            RefreshSchemaResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            RefreshAiDataPlatformSchemaResponse.Builder::aidpAsyncOperationKey)
+            RefreshSchemaResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RefreshAiDataPlatformTableResponse> refreshAiDataPlatformTable(RefreshAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshAiDataPlatformTableRequest, RefreshAiDataPlatformTableResponse> handler) {
+    public java.util.concurrent.Future<RefreshTableResponse> refreshTable(RefreshTableRequest request, final com.oracle.bmc.responses.AsyncHandler<RefreshTableRequest, RefreshTableResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getTableKey(), "tableKey must not be blank");
 
 
-return clientCall(request, RefreshAiDataPlatformTableResponse::builder)
-        .logger(LOG, "refreshAiDataPlatformTable")
-        .serviceDetails("Schema", "RefreshAiDataPlatformTable", "")
+return clientCall(request, RefreshTableResponse::builder)
+        .logger(LOG, "refreshTable")
+        .serviceDetails("Schema", "RefreshTable", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RefreshAiDataPlatformTableRequest::builder)
+        .requestBuilder(RefreshTableRequest::builder)
         
         
         .basePath("/20260430")
@@ -1030,26 +1030,26 @@ return clientCall(request, RefreshAiDataPlatformTableResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            RefreshAiDataPlatformTableResponse.Builder::opcRequestId)
+            RefreshTableResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            RefreshAiDataPlatformTableResponse.Builder::aidpAsyncOperationKey)
+            RefreshTableResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<RetrieveAiDataPlatformParResponse> retrieveAiDataPlatformPar(RetrieveAiDataPlatformParRequest request, final com.oracle.bmc.responses.AsyncHandler<RetrieveAiDataPlatformParRequest, RetrieveAiDataPlatformParResponse> handler) {
+    public java.util.concurrent.Future<RetrieveParResponse> retrievePar(RetrieveParRequest request, final com.oracle.bmc.responses.AsyncHandler<RetrieveParRequest, RetrieveParResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getTableKey(), "tableKey must not be blank");
 
 
-return clientCall(request, RetrieveAiDataPlatformParResponse::builder)
-        .logger(LOG, "retrieveAiDataPlatformPar")
-        .serviceDetails("Schema", "RetrieveAiDataPlatformPar", "")
+return clientCall(request, RetrieveParResponse::builder)
+        .logger(LOG, "retrievePar")
+        .serviceDetails("Schema", "RetrievePar", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RetrieveAiDataPlatformParRequest::builder)
+        .requestBuilder(RetrieveParRequest::builder)
         
         
         .basePath("/20260430")
@@ -1063,17 +1063,17 @@ return clientCall(request, RetrieveAiDataPlatformParResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ParDetails.class, RetrieveAiDataPlatformParResponse.Builder::parDetails)
+            .handleBody(com.oracle.aidataplatform.dp.model.ParDetails.class, RetrieveParResponse.Builder::parDetails)
                 .handleResponseHeaderString("etag", 
-            RetrieveAiDataPlatformParResponse.Builder::etag)
+            RetrieveParResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            RetrieveAiDataPlatformParResponse.Builder::opcRequestId)
+            RetrieveParResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformSchemaResponse> updateAiDataPlatformSchema(UpdateAiDataPlatformSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformSchemaRequest, UpdateAiDataPlatformSchemaResponse> handler) {
+    public java.util.concurrent.Future<UpdateSchemaResponse> updateSchema(UpdateSchemaRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateSchemaRequest, UpdateSchemaResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1082,11 +1082,11 @@ return clientCall(request, RetrieveAiDataPlatformParResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformSchemaResponse::builder)
-        .logger(LOG, "updateAiDataPlatformSchema")
-        .serviceDetails("Schema", "UpdateAiDataPlatformSchema", "")
+return clientCall(request, UpdateSchemaResponse::builder)
+        .logger(LOG, "updateSchema")
+        .serviceDetails("Schema", "UpdateSchema", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformSchemaRequest::builder)
+        .requestBuilder(UpdateSchemaRequest::builder)
         
         
         .basePath("/20260430")
@@ -1100,19 +1100,19 @@ return clientCall(request, UpdateAiDataPlatformSchemaResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Schema.class, UpdateAiDataPlatformSchemaResponse.Builder::schema)
+            .handleBody(com.oracle.aidataplatform.dp.model.Schema.class, UpdateSchemaResponse.Builder::schema)
                 .handleResponseHeaderString("opc-work-request-id", 
-            UpdateAiDataPlatformSchemaResponse.Builder::opcWorkRequestId)
+            UpdateSchemaResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformSchemaResponse.Builder::opcRequestId)
+            UpdateSchemaResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformSchemaResponse.Builder::etag)
+            UpdateSchemaResponse.Builder::etag)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformTableResponse> updateAiDataPlatformTable(UpdateAiDataPlatformTableRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformTableRequest, UpdateAiDataPlatformTableResponse> handler) {
+    public java.util.concurrent.Future<UpdateTableResponse> updateTable(UpdateTableRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateTableRequest, UpdateTableResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1121,11 +1121,11 @@ return clientCall(request, UpdateAiDataPlatformSchemaResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformTableResponse::builder)
-        .logger(LOG, "updateAiDataPlatformTable")
-        .serviceDetails("Schema", "UpdateAiDataPlatformTable", "")
+return clientCall(request, UpdateTableResponse::builder)
+        .logger(LOG, "updateTable")
+        .serviceDetails("Schema", "UpdateTable", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformTableRequest::builder)
+        .requestBuilder(UpdateTableRequest::builder)
         
         
         .basePath("/20260430")
@@ -1140,15 +1140,15 @@ return clientCall(request, UpdateAiDataPlatformTableResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            UpdateAiDataPlatformTableResponse.Builder::aidpAsyncOperationKey)
+            UpdateTableResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformTableResponse.Builder::opcRequestId)
+            UpdateTableResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
     @Override
     
-    public java.util.concurrent.Future<UpdateAiDataPlatformViewResponse> updateAiDataPlatformView(UpdateAiDataPlatformViewRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformViewRequest, UpdateAiDataPlatformViewResponse> handler) {
+    public java.util.concurrent.Future<UpdateViewResponse> updateView(UpdateViewRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateViewRequest, UpdateViewResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -1157,11 +1157,11 @@ return clientCall(request, UpdateAiDataPlatformTableResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformViewResponse::builder)
-        .logger(LOG, "updateAiDataPlatformView")
-        .serviceDetails("Schema", "UpdateAiDataPlatformView", "")
+return clientCall(request, UpdateViewResponse::builder)
+        .logger(LOG, "updateView")
+        .serviceDetails("Schema", "UpdateView", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformViewRequest::builder)
+        .requestBuilder(UpdateViewRequest::builder)
         
         
         .basePath("/20260430")
@@ -1175,11 +1175,11 @@ return clientCall(request, UpdateAiDataPlatformViewResponse::builder)
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.View.class, UpdateAiDataPlatformViewResponse.Builder::view)
+            .handleBody(com.oracle.aidataplatform.dp.model.View.class, UpdateViewResponse.Builder::view)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformViewResponse.Builder::etag)
+            UpdateViewResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformViewResponse.Builder::opcRequestId)
+            UpdateViewResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

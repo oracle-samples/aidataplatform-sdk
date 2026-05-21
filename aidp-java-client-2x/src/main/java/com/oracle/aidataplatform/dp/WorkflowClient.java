@@ -372,16 +372,16 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public CancelAiDataPlatformJobRunResponse cancelAiDataPlatformJobRun(CancelAiDataPlatformJobRunRequest request) {
-        LOG.trace("Called cancelAiDataPlatformJobRun");
-            final CancelAiDataPlatformJobRunRequest interceptedRequest = CancelAiDataPlatformJobRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public CancelJobRunResponse cancelJobRun(CancelJobRunRequest request) {
+        LOG.trace("Called cancelJobRun");
+            final CancelJobRunRequest interceptedRequest = CancelJobRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelJobRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CancelAiDataPlatformJobRunResponse> transformer = CancelAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelJobRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CancelJobRunResponse> transformer = CancelJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +397,16 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public CancelAiDataPlatformJobRunsResponse cancelAiDataPlatformJobRuns(CancelAiDataPlatformJobRunsRequest request) {
-        LOG.trace("Called cancelAiDataPlatformJobRuns");
-            final CancelAiDataPlatformJobRunsRequest interceptedRequest = CancelAiDataPlatformJobRunsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelAiDataPlatformJobRunsConverter.fromRequest(client, interceptedRequest);
+    public CancelJobRunsResponse cancelJobRuns(CancelJobRunsRequest request) {
+        LOG.trace("Called cancelJobRuns");
+            final CancelJobRunsRequest interceptedRequest = CancelJobRunsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelJobRunsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelAiDataPlatformJobRuns", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CancelAiDataPlatformJobRunsResponse> transformer = CancelAiDataPlatformJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelJobRuns", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CancelJobRunsResponse> transformer = CancelJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,16 +422,16 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public CreateAiDataPlatformJobResponse createAiDataPlatformJob(CreateAiDataPlatformJobRequest request) {
-        LOG.trace("Called createAiDataPlatformJob");
-            final CreateAiDataPlatformJobRequest interceptedRequest = CreateAiDataPlatformJobConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
+    public CreateJobResponse createJob(CreateJobRequest request) {
+        LOG.trace("Called createJob");
+            final CreateJobRequest interceptedRequest = CreateJobConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateJobConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateAiDataPlatformJob", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformJobResponse> transformer = CreateAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateJob", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateJobResponse> transformer = CreateJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -447,16 +447,16 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public CreateAiDataPlatformJobRunResponse createAiDataPlatformJobRun(CreateAiDataPlatformJobRunRequest request) {
-        LOG.trace("Called createAiDataPlatformJobRun");
-            final CreateAiDataPlatformJobRunRequest interceptedRequest = CreateAiDataPlatformJobRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public CreateJobRunResponse createJobRun(CreateJobRunRequest request) {
+        LOG.trace("Called createJobRun");
+            final CreateJobRunRequest interceptedRequest = CreateJobRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateJobRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformJobRunResponse> transformer = CreateAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateJobRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateJobRunResponse> transformer = CreateJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -472,15 +472,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public DeleteAiDataPlatformJobResponse deleteAiDataPlatformJob(DeleteAiDataPlatformJobRequest request) {
-        LOG.trace("Called deleteAiDataPlatformJob");
-            final DeleteAiDataPlatformJobRequest interceptedRequest = DeleteAiDataPlatformJobConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
+    public DeleteJobResponse deleteJob(DeleteJobRequest request) {
+        LOG.trace("Called deleteJob");
+            final DeleteJobRequest interceptedRequest = DeleteJobConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteJobConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteAiDataPlatformJob", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformJobResponse> transformer = DeleteAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteJob", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteJobResponse> transformer = DeleteJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -496,15 +496,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public DeleteAiDataPlatformJobRunResponse deleteAiDataPlatformJobRun(DeleteAiDataPlatformJobRunRequest request) {
-        LOG.trace("Called deleteAiDataPlatformJobRun");
-            final DeleteAiDataPlatformJobRunRequest interceptedRequest = DeleteAiDataPlatformJobRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public DeleteJobRunResponse deleteJobRun(DeleteJobRunRequest request) {
+        LOG.trace("Called deleteJobRun");
+            final DeleteJobRunRequest interceptedRequest = DeleteJobRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteJobRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformJobRunResponse> transformer = DeleteAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteJobRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteJobRunResponse> transformer = DeleteJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -520,15 +520,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ExportAiDataPlatformTaskRunOutputResponse exportAiDataPlatformTaskRunOutput(ExportAiDataPlatformTaskRunOutputRequest request) {
-        LOG.trace("Called exportAiDataPlatformTaskRunOutput");
-            final ExportAiDataPlatformTaskRunOutputRequest interceptedRequest = ExportAiDataPlatformTaskRunOutputConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportAiDataPlatformTaskRunOutputConverter.fromRequest(client, interceptedRequest);
+    public ExportTaskRunOutputResponse exportTaskRunOutput(ExportTaskRunOutputRequest request) {
+        LOG.trace("Called exportTaskRunOutput");
+            final ExportTaskRunOutputRequest interceptedRequest = ExportTaskRunOutputConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportTaskRunOutputConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ExportAiDataPlatformTaskRunOutput", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ExportAiDataPlatformTaskRunOutputResponse> transformer = ExportAiDataPlatformTaskRunOutputConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ExportTaskRunOutput", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ExportTaskRunOutputResponse> transformer = ExportTaskRunOutputConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -544,16 +544,16 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public FetchAiDataPlatformOutputResponse fetchAiDataPlatformOutput(FetchAiDataPlatformOutputRequest request) {
-        LOG.trace("Called fetchAiDataPlatformOutput");
-            final FetchAiDataPlatformOutputRequest interceptedRequest = FetchAiDataPlatformOutputConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchAiDataPlatformOutputConverter.fromRequest(client, interceptedRequest);
+    public FetchOutputResponse fetchOutput(FetchOutputRequest request) {
+        LOG.trace("Called fetchOutput");
+            final FetchOutputRequest interceptedRequest = FetchOutputConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchOutputConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "FetchAiDataPlatformOutput", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, FetchAiDataPlatformOutputResponse> transformer = FetchAiDataPlatformOutputConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "FetchOutput", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, FetchOutputResponse> transformer = FetchOutputConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -569,15 +569,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public GetAiDataPlatformJobResponse getAiDataPlatformJob(GetAiDataPlatformJobRequest request) {
-        LOG.trace("Called getAiDataPlatformJob");
-            final GetAiDataPlatformJobRequest interceptedRequest = GetAiDataPlatformJobConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
+    public GetJobResponse getJob(GetJobRequest request) {
+        LOG.trace("Called getJob");
+            final GetJobRequest interceptedRequest = GetJobConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetJobConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetAiDataPlatformJob", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformJobResponse> transformer = GetAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetJob", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetJobResponse> transformer = GetJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -593,15 +593,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public GetAiDataPlatformJobRunResponse getAiDataPlatformJobRun(GetAiDataPlatformJobRunRequest request) {
-        LOG.trace("Called getAiDataPlatformJobRun");
-            final GetAiDataPlatformJobRunRequest interceptedRequest = GetAiDataPlatformJobRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public GetJobRunResponse getJobRun(GetJobRunRequest request) {
+        LOG.trace("Called getJobRun");
+            final GetJobRunRequest interceptedRequest = GetJobRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetJobRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformJobRunResponse> transformer = GetAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetJobRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetJobRunResponse> transformer = GetJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -617,15 +617,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public GetAiDataPlatformTaskRunResponse getAiDataPlatformTaskRun(GetAiDataPlatformTaskRunRequest request) {
-        LOG.trace("Called getAiDataPlatformTaskRun");
-            final GetAiDataPlatformTaskRunRequest interceptedRequest = GetAiDataPlatformTaskRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformTaskRunConverter.fromRequest(client, interceptedRequest);
+    public GetTaskRunResponse getTaskRun(GetTaskRunRequest request) {
+        LOG.trace("Called getTaskRun");
+            final GetTaskRunRequest interceptedRequest = GetTaskRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetTaskRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetAiDataPlatformTaskRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformTaskRunResponse> transformer = GetAiDataPlatformTaskRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetTaskRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetTaskRunResponse> transformer = GetTaskRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -641,15 +641,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ListAiDataPlatformJobPermissionsResponse listAiDataPlatformJobPermissions(ListAiDataPlatformJobPermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformJobPermissions");
-            final ListAiDataPlatformJobPermissionsRequest interceptedRequest = ListAiDataPlatformJobPermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformJobPermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListJobPermissionsResponse listJobPermissions(ListJobPermissionsRequest request) {
+        LOG.trace("Called listJobPermissions");
+            final ListJobPermissionsRequest interceptedRequest = ListJobPermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListJobPermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformJobPermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformJobPermissionsResponse> transformer = ListAiDataPlatformJobPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListJobPermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListJobPermissionsResponse> transformer = ListJobPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -665,15 +665,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ListAiDataPlatformJobRunsResponse listAiDataPlatformJobRuns(ListAiDataPlatformJobRunsRequest request) {
-        LOG.trace("Called listAiDataPlatformJobRuns");
-            final ListAiDataPlatformJobRunsRequest interceptedRequest = ListAiDataPlatformJobRunsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformJobRunsConverter.fromRequest(client, interceptedRequest);
+    public ListJobRunsResponse listJobRuns(ListJobRunsRequest request) {
+        LOG.trace("Called listJobRuns");
+            final ListJobRunsRequest interceptedRequest = ListJobRunsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListJobRunsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformJobRuns", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformJobRunsResponse> transformer = ListAiDataPlatformJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListJobRuns", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListJobRunsResponse> transformer = ListJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -689,15 +689,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ListAiDataPlatformJobsResponse listAiDataPlatformJobs(ListAiDataPlatformJobsRequest request) {
-        LOG.trace("Called listAiDataPlatformJobs");
-            final ListAiDataPlatformJobsRequest interceptedRequest = ListAiDataPlatformJobsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformJobsConverter.fromRequest(client, interceptedRequest);
+    public ListJobsResponse listJobs(ListJobsRequest request) {
+        LOG.trace("Called listJobs");
+            final ListJobsRequest interceptedRequest = ListJobsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListJobsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformJobs", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformJobsResponse> transformer = ListAiDataPlatformJobsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListJobs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListJobsResponse> transformer = ListJobsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -713,15 +713,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ListAiDataPlatformRecentJobRunsResponse listAiDataPlatformRecentJobRuns(ListAiDataPlatformRecentJobRunsRequest request) {
-        LOG.trace("Called listAiDataPlatformRecentJobRuns");
-            final ListAiDataPlatformRecentJobRunsRequest interceptedRequest = ListAiDataPlatformRecentJobRunsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecentJobRunsConverter.fromRequest(client, interceptedRequest);
+    public ListRecentJobRunsResponse listRecentJobRuns(ListRecentJobRunsRequest request) {
+        LOG.trace("Called listRecentJobRuns");
+            final ListRecentJobRunsRequest interceptedRequest = ListRecentJobRunsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecentJobRunsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformRecentJobRuns", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecentJobRunsResponse> transformer = ListAiDataPlatformRecentJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListRecentJobRuns", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListRecentJobRunsResponse> transformer = ListRecentJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -737,15 +737,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ListAiDataPlatformTaskRunsResponse listAiDataPlatformTaskRuns(ListAiDataPlatformTaskRunsRequest request) {
-        LOG.trace("Called listAiDataPlatformTaskRuns");
-            final ListAiDataPlatformTaskRunsRequest interceptedRequest = ListAiDataPlatformTaskRunsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformTaskRunsConverter.fromRequest(client, interceptedRequest);
+    public ListTaskRunsResponse listTaskRuns(ListTaskRunsRequest request) {
+        LOG.trace("Called listTaskRuns");
+            final ListTaskRunsRequest interceptedRequest = ListTaskRunsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListTaskRunsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformTaskRuns", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformTaskRunsResponse> transformer = ListAiDataPlatformTaskRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListTaskRuns", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListTaskRunsResponse> transformer = ListTaskRunsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -761,15 +761,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public ManageAiDataPlatformJobPermissionResponse manageAiDataPlatformJobPermission(ManageAiDataPlatformJobPermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformJobPermission");
-            final ManageAiDataPlatformJobPermissionRequest interceptedRequest = ManageAiDataPlatformJobPermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformJobPermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageJobPermissionResponse manageJobPermission(ManageJobPermissionRequest request) {
+        LOG.trace("Called manageJobPermission");
+            final ManageJobPermissionRequest interceptedRequest = ManageJobPermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageJobPermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ManageAiDataPlatformJobPermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformJobPermissionResponse> transformer = ManageAiDataPlatformJobPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ManageJobPermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageJobPermissionResponse> transformer = ManageJobPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -785,16 +785,16 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public RepairAiDataPlatformJobRunResponse repairAiDataPlatformJobRun(RepairAiDataPlatformJobRunRequest request) {
-        LOG.trace("Called repairAiDataPlatformJobRun");
-            final RepairAiDataPlatformJobRunRequest interceptedRequest = RepairAiDataPlatformJobRunConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RepairAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public RepairJobRunResponse repairJobRun(RepairJobRunRequest request) {
+        LOG.trace("Called repairJobRun");
+            final RepairJobRunRequest interceptedRequest = RepairJobRunConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RepairJobRunConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "RepairAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RepairAiDataPlatformJobRunResponse> transformer = RepairAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "RepairJobRun", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RepairJobRunResponse> transformer = RepairJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -810,15 +810,15 @@ public class WorkflowClient implements Workflow {
     }
 
     @Override
-    public UpdateAiDataPlatformJobResponse updateAiDataPlatformJob(UpdateAiDataPlatformJobRequest request) {
-        LOG.trace("Called updateAiDataPlatformJob");
-            final UpdateAiDataPlatformJobRequest interceptedRequest = UpdateAiDataPlatformJobConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
+    public UpdateJobResponse updateJob(UpdateJobRequest request) {
+        LOG.trace("Called updateJob");
+            final UpdateJobRequest interceptedRequest = UpdateJobConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateJobConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "UpdateAiDataPlatformJob", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformJobResponse> transformer = UpdateAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "UpdateJob", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateJobResponse> transformer = UpdateJobConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

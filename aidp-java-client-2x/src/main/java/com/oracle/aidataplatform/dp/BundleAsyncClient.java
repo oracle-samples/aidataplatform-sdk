@@ -369,21 +369,21 @@ public class BundleAsyncClient implements BundleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformBundleResponse> createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformBundle");
-        final CreateAiDataPlatformBundleRequest interceptedRequest = CreateAiDataPlatformBundleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateBundleResponse> createBundle(CreateBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateBundleRequest, CreateBundleResponse> handler) {
+        LOG.trace("Called async createBundle");
+        final CreateBundleRequest interceptedRequest = CreateBundleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateBundleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "CreateAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformBundleResponse> transformer = CreateAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "CreateBundle", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateBundleResponse> transformer = CreateBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateBundleRequest, CreateBundleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse>, java.util.concurrent.Future<CreateAiDataPlatformBundleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateBundleRequest, CreateBundleResponse>, java.util.concurrent.Future<CreateBundleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateBundleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformBundleRequest, CreateAiDataPlatformBundleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateBundleRequest, CreateBundleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class BundleAsyncClient implements BundleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeployAiDataPlatformBundleResponse> deployAiDataPlatformBundle(DeployAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeployAiDataPlatformBundleRequest, DeployAiDataPlatformBundleResponse> handler) {
-        LOG.trace("Called async deployAiDataPlatformBundle");
-        final DeployAiDataPlatformBundleRequest interceptedRequest = DeployAiDataPlatformBundleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeployAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeployBundleResponse> deployBundle(DeployBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeployBundleRequest, DeployBundleResponse> handler) {
+        LOG.trace("Called async deployBundle");
+        final DeployBundleRequest interceptedRequest = DeployBundleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeployBundleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "DeployAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeployAiDataPlatformBundleResponse> transformer = DeployAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "DeployBundle", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeployBundleResponse> transformer = DeployBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeployAiDataPlatformBundleRequest, DeployAiDataPlatformBundleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeployBundleRequest, DeployBundleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeployAiDataPlatformBundleRequest, DeployAiDataPlatformBundleResponse>, java.util.concurrent.Future<DeployAiDataPlatformBundleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeployBundleRequest, DeployBundleResponse>, java.util.concurrent.Future<DeployBundleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeployBundleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeployAiDataPlatformBundleRequest, DeployAiDataPlatformBundleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeployBundleRequest, DeployBundleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,20 +427,20 @@ public class BundleAsyncClient implements BundleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<FetchAiDataPlatformBundleDeploymentStatusResponse> fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse> handler) {
-        LOG.trace("Called async fetchAiDataPlatformBundleDeploymentStatus");
-        final FetchAiDataPlatformBundleDeploymentStatusRequest interceptedRequest = FetchAiDataPlatformBundleDeploymentStatusConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchAiDataPlatformBundleDeploymentStatusConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "FetchAiDataPlatformBundleDeploymentStatus", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, FetchAiDataPlatformBundleDeploymentStatusResponse> transformer = FetchAiDataPlatformBundleDeploymentStatusConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<FetchBundleDeploymentStatusResponse> fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse> handler) {
+        LOG.trace("Called async fetchBundleDeploymentStatus");
+        final FetchBundleDeploymentStatusRequest interceptedRequest = FetchBundleDeploymentStatusConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchBundleDeploymentStatusConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "FetchBundleDeploymentStatus", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, FetchBundleDeploymentStatusResponse> transformer = FetchBundleDeploymentStatusConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse>, java.util.concurrent.Future<FetchAiDataPlatformBundleDeploymentStatusResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse>, java.util.concurrent.Future<FetchBundleDeploymentStatusResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getFetchBundleDeploymentStatusDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<FetchAiDataPlatformBundleDeploymentStatusRequest, FetchAiDataPlatformBundleDeploymentStatusResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -455,21 +455,21 @@ public class BundleAsyncClient implements BundleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<PurgeAiDataPlatformBundleResponse> purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse> handler) {
-        LOG.trace("Called async purgeAiDataPlatformBundle");
-        final PurgeAiDataPlatformBundleRequest interceptedRequest = PurgeAiDataPlatformBundleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PurgeAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<PurgeBundleResponse> purgeBundle(PurgeBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<PurgeBundleRequest, PurgeBundleResponse> handler) {
+        LOG.trace("Called async purgeBundle");
+        final PurgeBundleRequest interceptedRequest = PurgeBundleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PurgeBundleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "PurgeAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, PurgeAiDataPlatformBundleResponse> transformer = PurgeAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "PurgeBundle", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, PurgeBundleResponse> transformer = PurgeBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<PurgeBundleRequest, PurgeBundleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse>, java.util.concurrent.Future<PurgeAiDataPlatformBundleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PurgeBundleRequest, PurgeBundleResponse>, java.util.concurrent.Future<PurgeBundleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getPurgeBundleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PurgeAiDataPlatformBundleRequest, PurgeAiDataPlatformBundleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PurgeBundleRequest, PurgeBundleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -484,21 +484,21 @@ public class BundleAsyncClient implements BundleAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<SyncAiDataPlatformBundleResponse> syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handler) {
-        LOG.trace("Called async syncAiDataPlatformBundle");
-        final SyncAiDataPlatformBundleRequest interceptedRequest = SyncAiDataPlatformBundleConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SyncAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<SyncBundleResponse> syncBundle(SyncBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncBundleRequest, SyncBundleResponse> handler) {
+        LOG.trace("Called async syncBundle");
+        final SyncBundleRequest interceptedRequest = SyncBundleConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SyncBundleConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "SyncAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, SyncAiDataPlatformBundleResponse> transformer = SyncAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "SyncBundle", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SyncBundleResponse> transformer = SyncBundleConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<SyncBundleRequest, SyncBundleResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse>, java.util.concurrent.Future<SyncAiDataPlatformBundleResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SyncBundleRequest, SyncBundleResponse>, java.util.concurrent.Future<SyncBundleResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getSyncBundleDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SyncAiDataPlatformBundleRequest, SyncAiDataPlatformBundleResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SyncBundleRequest, SyncBundleResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

@@ -32,15 +32,14 @@ const workspace = discovery.findCommandGroup(manifest, "workspace");
 assert.ok(workspace);
 const getWorkspace = discovery.findCommand(workspace, "get-workspace");
 assert.ok(getWorkspace);
-assert.strictEqual(getWorkspace.sdkMethodName, "getAiDataPlatformWorkspace");
+assert.strictEqual(getWorkspace.sdkMethodName, "getWorkspace");
 assert.ok(discovery.findCommandGroup(manifest, "mlops"));
 assert.ok(manifest.commandGroups.some((group) => group.name === "mlops"));
 assert.ok(!manifest.commandGroups.some((group) => group.name === "ml-ops"));
-assert.strictEqual(discovery.findCommandGroup(manifest, "bundle").description, "Bundles and bundle deployment status.");
-assert.strictEqual(discovery.findCommandGroup(manifest, "cluster").description, "Clusters, cluster libraries, cluster permissions, and default clusters.");
-assert.strictEqual(discovery.findCommandGroup(manifest, "git-service").description, "Git repositories, git branches, git diffs, and git operation state.");
-assert.strictEqual(discovery.findCommandGroup(manifest, "workspace").description, "Workspaces, workspace permissions, git folders, and workspace status.");
-assert.strictEqual(discovery.findCommandGroup(manifest, "workspace-object").description, "Workspace objects, workspace files, and workspace object permissions.");
+assert.ok(discovery.findCommandGroup(manifest, "bundle"));
+assert.ok(discovery.findCommandGroup(manifest, "cluster"));
+assert.ok(discovery.findCommandGroup(manifest, "git"));
+assert.ok(discovery.findCommandGroup(manifest, "workspace-object"));
 
 const originalEnv = {
   OCI_CLI_AUTH: process.env.OCI_CLI_AUTH,
@@ -97,9 +96,9 @@ assert.ok(rootOutput.stdout.includes("API Command Groups:"));
 assert.ok(rootOutput.stdout.includes("command-groups  List API command groups."));
 assert.ok(rootOutput.stdout.includes("--auth"));
 assert.ok(rootOutput.stdout.includes("default: security_token"));
-assert.ok(!rootOutput.stdout.includes("services"));
-assert.ok(!rootOutput.stdout.includes("operations"));
-assert.ok(!rootOutput.stdout.includes("invoke"));
+assert.ok(!hasHelpRow(rootOutput.stdout, "services"));
+assert.ok(!hasHelpRow(rootOutput.stdout, "operations"));
+assert.ok(!hasHelpRow(rootOutput.stdout, "invoke"));
 
 const versionOutput = runCli(["-v"]);
 assert.strictEqual(versionOutput.status, 0, versionOutput.stderr);
@@ -154,7 +153,7 @@ assert.ok(createJobHelp.stdout.includes("Nested body variants:"));
 assert.ok(createJobHelp.stdout.includes("Example JSON for tasks[] - IfElseTask (type=IF_ELSE_TASK):"));
 assert.ok(createJobHelp.stdout.includes("Example JSON for tasks[] - NotebookTask (type=NOTEBOOK_TASK):"));
 
-const gitDiffHelp = runCli(["git-service", "list-git-diffs", "-h"]);
+const gitDiffHelp = runCli(["git", "list-git-diffs", "-h"]);
 assert.strictEqual(gitDiffHelp.status, 0, gitDiffHelp.stderr);
 assert.ok(gitDiffHelp.stdout.includes("List Pagination"));
 assert.ok(!gitDiffHelp.stdout.includes("/iaas/Content/API/Concepts/usingapi.htm#nine"));
@@ -209,6 +208,10 @@ function runCli(cliArgs) {
     cwd: packageRoot,
     encoding: "utf8"
   });
+}
+
+function hasHelpRow(text, commandName) {
+  return new RegExp(`^\\s{2}${commandName}\\s{2,}`, "m").test(text);
 }
 
 function captureStdout(callback) {

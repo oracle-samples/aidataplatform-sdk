@@ -369,21 +369,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CheckoutAiDataPlatformBranchResponse> checkoutAiDataPlatformBranch(CheckoutAiDataPlatformBranchRequest request, final com.oracle.bmc.responses.AsyncHandler<CheckoutAiDataPlatformBranchRequest, CheckoutAiDataPlatformBranchResponse> handler) {
-        LOG.trace("Called async checkoutAiDataPlatformBranch");
-        final CheckoutAiDataPlatformBranchRequest interceptedRequest = CheckoutAiDataPlatformBranchConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CheckoutAiDataPlatformBranchConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CheckoutBranchResponse> checkoutBranch(CheckoutBranchRequest request, final com.oracle.bmc.responses.AsyncHandler<CheckoutBranchRequest, CheckoutBranchResponse> handler) {
+        LOG.trace("Called async checkoutBranch");
+        final CheckoutBranchRequest interceptedRequest = CheckoutBranchConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CheckoutBranchConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CheckoutAiDataPlatformBranch", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CheckoutAiDataPlatformBranchResponse> transformer = CheckoutAiDataPlatformBranchConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CheckoutBranch", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CheckoutBranchResponse> transformer = CheckoutBranchConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CheckoutAiDataPlatformBranchRequest, CheckoutAiDataPlatformBranchResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CheckoutBranchRequest, CheckoutBranchResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CheckoutAiDataPlatformBranchRequest, CheckoutAiDataPlatformBranchResponse>, java.util.concurrent.Future<CheckoutAiDataPlatformBranchResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CheckoutBranchRequest, CheckoutBranchResponse>, java.util.concurrent.Future<CheckoutBranchResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCheckoutBranchDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CheckoutAiDataPlatformBranchRequest, CheckoutAiDataPlatformBranchResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CheckoutBranchRequest, CheckoutBranchResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CommitPushAiDataPlatformGitRepositoryResponse> commitPushAiDataPlatformGitRepository(CommitPushAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<CommitPushAiDataPlatformGitRepositoryRequest, CommitPushAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async commitPushAiDataPlatformGitRepository");
-        final CommitPushAiDataPlatformGitRepositoryRequest interceptedRequest = CommitPushAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CommitPushAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CommitPushGitRepositoryResponse> commitPushGitRepository(CommitPushGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<CommitPushGitRepositoryRequest, CommitPushGitRepositoryResponse> handler) {
+        LOG.trace("Called async commitPushGitRepository");
+        final CommitPushGitRepositoryRequest interceptedRequest = CommitPushGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CommitPushGitRepositoryConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CommitPushAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CommitPushAiDataPlatformGitRepositoryResponse> transformer = CommitPushAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CommitPushGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CommitPushGitRepositoryResponse> transformer = CommitPushGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CommitPushAiDataPlatformGitRepositoryRequest, CommitPushAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CommitPushGitRepositoryRequest, CommitPushGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CommitPushAiDataPlatformGitRepositoryRequest, CommitPushAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<CommitPushAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CommitPushGitRepositoryRequest, CommitPushGitRepositoryResponse>, java.util.concurrent.Future<CommitPushGitRepositoryResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCommitPushDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CommitPushAiDataPlatformGitRepositoryRequest, CommitPushAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CommitPushGitRepositoryRequest, CommitPushGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,21 +427,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformGitBranchResponse> createAiDataPlatformGitBranch(CreateAiDataPlatformGitBranchRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitBranchRequest, CreateAiDataPlatformGitBranchResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformGitBranch");
-        final CreateAiDataPlatformGitBranchRequest interceptedRequest = CreateAiDataPlatformGitBranchConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformGitBranchConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateGitBranchResponse> createGitBranch(CreateGitBranchRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateGitBranchRequest, CreateGitBranchResponse> handler) {
+        LOG.trace("Called async createGitBranch");
+        final CreateGitBranchRequest interceptedRequest = CreateGitBranchConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateGitBranchConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CreateAiDataPlatformGitBranch", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformGitBranchResponse> transformer = CreateAiDataPlatformGitBranchConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CreateGitBranch", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateGitBranchResponse> transformer = CreateGitBranchConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitBranchRequest, CreateAiDataPlatformGitBranchResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateGitBranchRequest, CreateGitBranchResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitBranchRequest, CreateAiDataPlatformGitBranchResponse>, java.util.concurrent.Future<CreateAiDataPlatformGitBranchResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateGitBranchRequest, CreateGitBranchResponse>, java.util.concurrent.Future<CreateGitBranchResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateGitBranchDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformGitBranchRequest, CreateAiDataPlatformGitBranchResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateGitBranchRequest, CreateGitBranchResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -456,20 +456,20 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformGitDiffDetailResponse> getAiDataPlatformGitDiffDetail(GetAiDataPlatformGitDiffDetailRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitDiffDetailRequest, GetAiDataPlatformGitDiffDetailResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformGitDiffDetail");
-        final GetAiDataPlatformGitDiffDetailRequest interceptedRequest = GetAiDataPlatformGitDiffDetailConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformGitDiffDetailConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetAiDataPlatformGitDiffDetail", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformGitDiffDetailResponse> transformer = GetAiDataPlatformGitDiffDetailConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetGitDiffDetailResponse> getGitDiffDetail(GetGitDiffDetailRequest request, final com.oracle.bmc.responses.AsyncHandler<GetGitDiffDetailRequest, GetGitDiffDetailResponse> handler) {
+        LOG.trace("Called async getGitDiffDetail");
+        final GetGitDiffDetailRequest interceptedRequest = GetGitDiffDetailConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetGitDiffDetailConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetGitDiffDetail", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetGitDiffDetailResponse> transformer = GetGitDiffDetailConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitDiffDetailRequest, GetAiDataPlatformGitDiffDetailResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetGitDiffDetailRequest, GetGitDiffDetailResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitDiffDetailRequest, GetAiDataPlatformGitDiffDetailResponse>, java.util.concurrent.Future<GetAiDataPlatformGitDiffDetailResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetGitDiffDetailRequest, GetGitDiffDetailResponse>, java.util.concurrent.Future<GetGitDiffDetailResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformGitDiffDetailRequest, GetAiDataPlatformGitDiffDetailResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetGitDiffDetailRequest, GetGitDiffDetailResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -484,20 +484,20 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformGitOperationStateResponse> getAiDataPlatformGitOperationState(GetAiDataPlatformGitOperationStateRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitOperationStateRequest, GetAiDataPlatformGitOperationStateResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformGitOperationState");
-        final GetAiDataPlatformGitOperationStateRequest interceptedRequest = GetAiDataPlatformGitOperationStateConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformGitOperationStateConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetAiDataPlatformGitOperationState", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformGitOperationStateResponse> transformer = GetAiDataPlatformGitOperationStateConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetGitOperationStateResponse> getGitOperationState(GetGitOperationStateRequest request, final com.oracle.bmc.responses.AsyncHandler<GetGitOperationStateRequest, GetGitOperationStateResponse> handler) {
+        LOG.trace("Called async getGitOperationState");
+        final GetGitOperationStateRequest interceptedRequest = GetGitOperationStateConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetGitOperationStateConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetGitOperationState", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetGitOperationStateResponse> transformer = GetGitOperationStateConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitOperationStateRequest, GetAiDataPlatformGitOperationStateResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetGitOperationStateRequest, GetGitOperationStateResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitOperationStateRequest, GetAiDataPlatformGitOperationStateResponse>, java.util.concurrent.Future<GetAiDataPlatformGitOperationStateResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetGitOperationStateRequest, GetGitOperationStateResponse>, java.util.concurrent.Future<GetGitOperationStateResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformGitOperationStateRequest, GetAiDataPlatformGitOperationStateResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetGitOperationStateRequest, GetGitOperationStateResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -512,20 +512,20 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformGitRepositoryResponse> getAiDataPlatformGitRepository(GetAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitRepositoryRequest, GetAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformGitRepository");
-        final GetAiDataPlatformGitRepositoryRequest interceptedRequest = GetAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformGitRepositoryResponse> transformer = GetAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetGitRepositoryResponse> getGitRepository(GetGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<GetGitRepositoryRequest, GetGitRepositoryResponse> handler) {
+        LOG.trace("Called async getGitRepository");
+        final GetGitRepositoryRequest interceptedRequest = GetGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetGitRepositoryConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetGitRepositoryResponse> transformer = GetGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitRepositoryRequest, GetAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetGitRepositoryRequest, GetGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformGitRepositoryRequest, GetAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<GetAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetGitRepositoryRequest, GetGitRepositoryResponse>, java.util.concurrent.Future<GetGitRepositoryResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformGitRepositoryRequest, GetAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetGitRepositoryRequest, GetGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -540,20 +540,20 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformGitBranchesResponse> listAiDataPlatformGitBranches(ListAiDataPlatformGitBranchesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitBranchesRequest, ListAiDataPlatformGitBranchesResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformGitBranches");
-        final ListAiDataPlatformGitBranchesRequest interceptedRequest = ListAiDataPlatformGitBranchesConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformGitBranchesConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListAiDataPlatformGitBranches", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformGitBranchesResponse> transformer = ListAiDataPlatformGitBranchesConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListGitBranchesResponse> listGitBranches(ListGitBranchesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListGitBranchesRequest, ListGitBranchesResponse> handler) {
+        LOG.trace("Called async listGitBranches");
+        final ListGitBranchesRequest interceptedRequest = ListGitBranchesConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListGitBranchesConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListGitBranches", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListGitBranchesResponse> transformer = ListGitBranchesConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitBranchesRequest, ListAiDataPlatformGitBranchesResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListGitBranchesRequest, ListGitBranchesResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitBranchesRequest, ListAiDataPlatformGitBranchesResponse>, java.util.concurrent.Future<ListAiDataPlatformGitBranchesResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListGitBranchesRequest, ListGitBranchesResponse>, java.util.concurrent.Future<ListGitBranchesResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformGitBranchesRequest, ListAiDataPlatformGitBranchesResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListGitBranchesRequest, ListGitBranchesResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -568,20 +568,20 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformGitDiffsResponse> listAiDataPlatformGitDiffs(ListAiDataPlatformGitDiffsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitDiffsRequest, ListAiDataPlatformGitDiffsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformGitDiffs");
-        final ListAiDataPlatformGitDiffsRequest interceptedRequest = ListAiDataPlatformGitDiffsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformGitDiffsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListAiDataPlatformGitDiffs", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformGitDiffsResponse> transformer = ListAiDataPlatformGitDiffsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListGitDiffsResponse> listGitDiffs(ListGitDiffsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListGitDiffsRequest, ListGitDiffsResponse> handler) {
+        LOG.trace("Called async listGitDiffs");
+        final ListGitDiffsRequest interceptedRequest = ListGitDiffsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListGitDiffsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListGitDiffs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListGitDiffsResponse> transformer = ListGitDiffsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitDiffsRequest, ListAiDataPlatformGitDiffsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListGitDiffsRequest, ListGitDiffsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformGitDiffsRequest, ListAiDataPlatformGitDiffsResponse>, java.util.concurrent.Future<ListAiDataPlatformGitDiffsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListGitDiffsRequest, ListGitDiffsResponse>, java.util.concurrent.Future<ListGitDiffsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformGitDiffsRequest, ListAiDataPlatformGitDiffsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListGitDiffsRequest, ListGitDiffsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -596,21 +596,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<MergeAiDataPlatformGitRepositoryResponse> mergeAiDataPlatformGitRepository(MergeAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<MergeAiDataPlatformGitRepositoryRequest, MergeAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async mergeAiDataPlatformGitRepository");
-        final MergeAiDataPlatformGitRepositoryRequest interceptedRequest = MergeAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MergeAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<MergeGitRepositoryResponse> mergeGitRepository(MergeGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<MergeGitRepositoryRequest, MergeGitRepositoryResponse> handler) {
+        LOG.trace("Called async mergeGitRepository");
+        final MergeGitRepositoryRequest interceptedRequest = MergeGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MergeGitRepositoryConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "MergeAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, MergeAiDataPlatformGitRepositoryResponse> transformer = MergeAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "MergeGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, MergeGitRepositoryResponse> transformer = MergeGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<MergeAiDataPlatformGitRepositoryRequest, MergeAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<MergeGitRepositoryRequest, MergeGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<MergeAiDataPlatformGitRepositoryRequest, MergeAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<MergeAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<MergeGitRepositoryRequest, MergeGitRepositoryResponse>, java.util.concurrent.Future<MergeGitRepositoryResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getGitMergeDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<MergeAiDataPlatformGitRepositoryRequest, MergeAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<MergeGitRepositoryRequest, MergeGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -625,21 +625,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<PullAiDataPlatformGitRepositoryResponse> pullAiDataPlatformGitRepository(PullAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<PullAiDataPlatformGitRepositoryRequest, PullAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async pullAiDataPlatformGitRepository");
-        final PullAiDataPlatformGitRepositoryRequest interceptedRequest = PullAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PullAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<PullGitRepositoryResponse> pullGitRepository(PullGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<PullGitRepositoryRequest, PullGitRepositoryResponse> handler) {
+        LOG.trace("Called async pullGitRepository");
+        final PullGitRepositoryRequest interceptedRequest = PullGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PullGitRepositoryConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "PullAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, PullAiDataPlatformGitRepositoryResponse> transformer = PullAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "PullGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, PullGitRepositoryResponse> transformer = PullGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<PullAiDataPlatformGitRepositoryRequest, PullAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<PullGitRepositoryRequest, PullGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PullAiDataPlatformGitRepositoryRequest, PullAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<PullAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<PullGitRepositoryRequest, PullGitRepositoryResponse>, java.util.concurrent.Future<PullGitRepositoryResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getGitPullDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PullAiDataPlatformGitRepositoryRequest, PullAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<PullGitRepositoryRequest, PullGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -654,21 +654,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RebaseAiDataPlatformGitRepositoryResponse> rebaseAiDataPlatformGitRepository(RebaseAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<RebaseAiDataPlatformGitRepositoryRequest, RebaseAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async rebaseAiDataPlatformGitRepository");
-        final RebaseAiDataPlatformGitRepositoryRequest interceptedRequest = RebaseAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RebaseAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RebaseGitRepositoryResponse> rebaseGitRepository(RebaseGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<RebaseGitRepositoryRequest, RebaseGitRepositoryResponse> handler) {
+        LOG.trace("Called async rebaseGitRepository");
+        final RebaseGitRepositoryRequest interceptedRequest = RebaseGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RebaseGitRepositoryConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "RebaseAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RebaseAiDataPlatformGitRepositoryResponse> transformer = RebaseAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "RebaseGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RebaseGitRepositoryResponse> transformer = RebaseGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RebaseAiDataPlatformGitRepositoryRequest, RebaseAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RebaseGitRepositoryRequest, RebaseGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RebaseAiDataPlatformGitRepositoryRequest, RebaseAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<RebaseAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RebaseGitRepositoryRequest, RebaseGitRepositoryResponse>, java.util.concurrent.Future<RebaseGitRepositoryResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getGitRebaseDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RebaseAiDataPlatformGitRepositoryRequest, RebaseAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RebaseGitRepositoryRequest, RebaseGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -683,21 +683,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ResetAiDataPlatformGitFolderStateResponse> resetAiDataPlatformGitFolderState(ResetAiDataPlatformGitFolderStateRequest request, final com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitFolderStateRequest, ResetAiDataPlatformGitFolderStateResponse> handler) {
-        LOG.trace("Called async resetAiDataPlatformGitFolderState");
-        final ResetAiDataPlatformGitFolderStateRequest interceptedRequest = ResetAiDataPlatformGitFolderStateConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetAiDataPlatformGitFolderStateConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ResetGitFolderStateResponse> resetGitFolderState(ResetGitFolderStateRequest request, final com.oracle.bmc.responses.AsyncHandler<ResetGitFolderStateRequest, ResetGitFolderStateResponse> handler) {
+        LOG.trace("Called async resetGitFolderState");
+        final ResetGitFolderStateRequest interceptedRequest = ResetGitFolderStateConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetGitFolderStateConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetAiDataPlatformGitFolderState", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ResetAiDataPlatformGitFolderStateResponse> transformer = ResetAiDataPlatformGitFolderStateConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetGitFolderState", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ResetGitFolderStateResponse> transformer = ResetGitFolderStateConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitFolderStateRequest, ResetAiDataPlatformGitFolderStateResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ResetGitFolderStateRequest, ResetGitFolderStateResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitFolderStateRequest, ResetAiDataPlatformGitFolderStateResponse>, java.util.concurrent.Future<ResetAiDataPlatformGitFolderStateResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ResetGitFolderStateRequest, ResetGitFolderStateResponse>, java.util.concurrent.Future<ResetGitFolderStateResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getResetGitFolderStateDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ResetAiDataPlatformGitFolderStateRequest, ResetAiDataPlatformGitFolderStateResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ResetGitFolderStateRequest, ResetGitFolderStateResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -712,21 +712,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ResetAiDataPlatformGitRepositoryResponse> resetAiDataPlatformGitRepository(ResetAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitRepositoryRequest, ResetAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async resetAiDataPlatformGitRepository");
-        final ResetAiDataPlatformGitRepositoryRequest interceptedRequest = ResetAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ResetGitRepositoryResponse> resetGitRepository(ResetGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<ResetGitRepositoryRequest, ResetGitRepositoryResponse> handler) {
+        LOG.trace("Called async resetGitRepository");
+        final ResetGitRepositoryRequest interceptedRequest = ResetGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetGitRepositoryConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ResetAiDataPlatformGitRepositoryResponse> transformer = ResetAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ResetGitRepositoryResponse> transformer = ResetGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitRepositoryRequest, ResetAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ResetGitRepositoryRequest, ResetGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ResetAiDataPlatformGitRepositoryRequest, ResetAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<ResetAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ResetGitRepositoryRequest, ResetGitRepositoryResponse>, java.util.concurrent.Future<ResetGitRepositoryResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getGitResetDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ResetAiDataPlatformGitRepositoryRequest, ResetAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ResetGitRepositoryRequest, ResetGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -741,21 +741,21 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ResolveAiDataPlatformGitConflictsResponse> resolveAiDataPlatformGitConflicts(ResolveAiDataPlatformGitConflictsRequest request, final com.oracle.bmc.responses.AsyncHandler<ResolveAiDataPlatformGitConflictsRequest, ResolveAiDataPlatformGitConflictsResponse> handler) {
-        LOG.trace("Called async resolveAiDataPlatformGitConflicts");
-        final ResolveAiDataPlatformGitConflictsRequest interceptedRequest = ResolveAiDataPlatformGitConflictsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResolveAiDataPlatformGitConflictsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<ResolveGitConflictsResponse> resolveGitConflicts(ResolveGitConflictsRequest request, final com.oracle.bmc.responses.AsyncHandler<ResolveGitConflictsRequest, ResolveGitConflictsResponse> handler) {
+        LOG.trace("Called async resolveGitConflicts");
+        final ResolveGitConflictsRequest interceptedRequest = ResolveGitConflictsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResolveGitConflictsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResolveAiDataPlatformGitConflicts", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ResolveAiDataPlatformGitConflictsResponse> transformer = ResolveAiDataPlatformGitConflictsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResolveGitConflicts", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ResolveGitConflictsResponse> transformer = ResolveGitConflictsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ResolveAiDataPlatformGitConflictsRequest, ResolveAiDataPlatformGitConflictsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ResolveGitConflictsRequest, ResolveGitConflictsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ResolveAiDataPlatformGitConflictsRequest, ResolveAiDataPlatformGitConflictsResponse>, java.util.concurrent.Future<ResolveAiDataPlatformGitConflictsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ResolveGitConflictsRequest, ResolveGitConflictsResponse>, java.util.concurrent.Future<ResolveGitConflictsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getConflictResolveDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ResolveAiDataPlatformGitConflictsRequest, ResolveAiDataPlatformGitConflictsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ResolveGitConflictsRequest, ResolveGitConflictsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -770,20 +770,20 @@ public class GitAsyncClient implements GitAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformGitRepositoryResponse> updateAiDataPlatformGitRepository(UpdateAiDataPlatformGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformGitRepositoryRequest, UpdateAiDataPlatformGitRepositoryResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformGitRepository");
-        final UpdateAiDataPlatformGitRepositoryRequest interceptedRequest = UpdateAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "UpdateAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformGitRepositoryResponse> transformer = UpdateAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateGitRepositoryResponse> updateGitRepository(UpdateGitRepositoryRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateGitRepositoryRequest, UpdateGitRepositoryResponse> handler) {
+        LOG.trace("Called async updateGitRepository");
+        final UpdateGitRepositoryRequest interceptedRequest = UpdateGitRepositoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateGitRepositoryConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "UpdateGitRepository", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateGitRepositoryResponse> transformer = UpdateGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformGitRepositoryRequest, UpdateAiDataPlatformGitRepositoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateGitRepositoryRequest, UpdateGitRepositoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformGitRepositoryRequest, UpdateAiDataPlatformGitRepositoryResponse>, java.util.concurrent.Future<UpdateAiDataPlatformGitRepositoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateGitRepositoryRequest, UpdateGitRepositoryResponse>, java.util.concurrent.Future<UpdateGitRepositoryResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateGitRepositoryDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformGitRepositoryRequest, UpdateAiDataPlatformGitRepositoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateGitRepositoryRequest, UpdateGitRepositoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

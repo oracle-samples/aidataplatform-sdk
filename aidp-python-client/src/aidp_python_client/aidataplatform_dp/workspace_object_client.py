@@ -85,7 +85,7 @@ class WorkspaceObjectClient(object):
         self.base_client = BaseClient("workspace_object", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def copy_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, copy_workspace_object_details, **kwargs):
+    def copy_workspace_object(self, ai_data_platform_id, workspace_key, copy_workspace_object_details, **kwargs):
         """
         Copy a workspace object to different location.
 
@@ -140,7 +140,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "copy_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "copy_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -184,7 +184,7 @@ class WorkspaceObjectClient(object):
                 body=copy_workspace_object_details,
                 response_type="WorkspaceObjectDetails")
 
-    def create_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, create_workspace_object_details, path, **kwargs):
+    def create_workspace_object(self, ai_data_platform_id, workspace_key, create_workspace_object_details, path, **kwargs):
         """
         Creates a workspace object. You can create a file or folder in the workspace.
 
@@ -259,7 +259,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -333,7 +333,7 @@ class WorkspaceObjectClient(object):
                 body=create_workspace_object_details,
                 response_type="stream")
 
-    def delete_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, object_path, **kwargs):
+    def delete_workspace_object(self, ai_data_platform_id, workspace_key, object_path, **kwargs):
         """
         Deletes a workspace object.
 
@@ -384,7 +384,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -424,7 +424,7 @@ class WorkspaceObjectClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def download_ai_data_platform_workspace_object_with_par(self, ai_data_platform_id, workspace_key, path, **kwargs):
+    def download_workspace_object_with_par(self, ai_data_platform_id, workspace_key, path, **kwargs):
         """
         Downloads a workspace file by providing the PAR info for downloading the file for given path.
 
@@ -488,7 +488,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "download_ai_data_platform_workspace_object_with_par got unknown kwargs: {!r}".format(extra_kwargs))
+                "download_workspace_object_with_par got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -541,7 +541,7 @@ class WorkspaceObjectClient(object):
                 header_params=header_params,
                 response_type="DownloadFileWithParResult")
 
-    def get_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, object_path, **kwargs):
+    def get_workspace_object(self, ai_data_platform_id, workspace_key, object_path, **kwargs):
         """
         Returns detailed information about a workspace object.
 
@@ -593,7 +593,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -642,7 +642,7 @@ class WorkspaceObjectClient(object):
                 header_params=header_params,
                 response_type="stream")
 
-    def head_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, object_path, **kwargs):
+    def head_workspace_object(self, ai_data_platform_id, workspace_key, object_path, **kwargs):
         """
         Returns metadata about a workspace object. The contents of the file are not retrieved.
 
@@ -694,7 +694,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "head_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "head_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -741,7 +741,7 @@ class WorkspaceObjectClient(object):
                 query_params=query_params,
                 header_params=header_params)
 
-    def list_ai_data_platform_workspace_object_permissions(self, ai_data_platform_id, workspace_key, object_key, **kwargs):
+    def list_workspace_object_permissions(self, ai_data_platform_id, workspace_key, object_key, **kwargs):
         """
         Returns a list of workspace object permissions.
 
@@ -814,7 +814,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_workspace_object_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_workspace_object_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -879,7 +879,7 @@ class WorkspaceObjectClient(object):
                 header_params=header_params,
                 response_type="WorkspaceObjectPermissionCollection")
 
-    def list_ai_data_platform_workspace_objects(self, ai_data_platform_id, workspace_key, path, **kwargs):
+    def list_workspace_objects(self, ai_data_platform_id, workspace_key, path, **kwargs):
         """
         Returns a list of objects in the workspace.
 
@@ -968,7 +968,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_workspace_objects got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_workspace_objects got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1037,7 +1037,7 @@ class WorkspaceObjectClient(object):
                 header_params=header_params,
                 response_type="WorkspaceObjectCollection")
 
-    def manage_ai_data_platform_workspace_object_permission(self, ai_data_platform_id, workspace_key, object_key, manage_workspace_object_permission_details, **kwargs):
+    def manage_workspace_object_permission(self, ai_data_platform_id, workspace_key, object_key, manage_workspace_object_permission_details, **kwargs):
         """
         Updates permissions on a workspace object.
 
@@ -1091,7 +1091,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "manage_ai_data_platform_workspace_object_permission got unknown kwargs: {!r}".format(extra_kwargs))
+                "manage_workspace_object_permission got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1133,7 +1133,7 @@ class WorkspaceObjectClient(object):
                 header_params=header_params,
                 body=manage_workspace_object_permission_details)
 
-    def move_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, move_workspace_object_details, **kwargs):
+    def move_workspace_object(self, ai_data_platform_id, workspace_key, move_workspace_object_details, **kwargs):
         """
         Moves a workspace object to different location.
 
@@ -1188,7 +1188,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "move_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "move_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1232,7 +1232,7 @@ class WorkspaceObjectClient(object):
                 body=move_workspace_object_details,
                 response_type="WorkspaceObjectDetails")
 
-    def rename_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, rename_workspace_object_details, **kwargs):
+    def rename_workspace_object(self, ai_data_platform_id, workspace_key, rename_workspace_object_details, **kwargs):
         """
         Renames a workspace object.
 
@@ -1287,7 +1287,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "rename_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "rename_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1331,7 +1331,7 @@ class WorkspaceObjectClient(object):
                 body=rename_workspace_object_details,
                 response_type="WorkspaceObjectDetails")
 
-    def update_ai_data_platform_workspace_object(self, ai_data_platform_id, workspace_key, object_path, update_workspace_object_details, **kwargs):
+    def update_workspace_object(self, ai_data_platform_id, workspace_key, object_path, update_workspace_object_details, **kwargs):
         """
         Updates a workspace object with the provided information.
 
@@ -1393,7 +1393,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_workspace_object got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -1462,7 +1462,7 @@ class WorkspaceObjectClient(object):
                 body=update_workspace_object_details,
                 response_type="stream")
 
-    def upload_ai_data_platform_workspace_object_with_par(self, ai_data_platform_id, workspace_key, upload_file_with_par_details, path, **kwargs):
+    def upload_workspace_object_with_par(self, ai_data_platform_id, workspace_key, upload_file_with_par_details, path, **kwargs):
         """
         Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 
@@ -1537,7 +1537,7 @@ class WorkspaceObjectClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "upload_ai_data_platform_workspace_object_with_par got unknown kwargs: {!r}".format(extra_kwargs))
+                "upload_workspace_object_with_par got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

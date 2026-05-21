@@ -23,6 +23,7 @@ public class NotebookClient implements Notebook {
         return client;
     }
 
+    private final NotebookWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class NotebookClient implements Notebook {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public NotebookClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class NotebookClient implements Notebook {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public NotebookClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class NotebookClient implements Notebook {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class NotebookClient implements Notebook {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected NotebookClient(
@@ -196,6 +224,7 @@ public class NotebookClient implements Notebook {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class NotebookClient implements Notebook {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Notebook-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new NotebookWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -256,9 +293,21 @@ public class NotebookClient implements Notebook {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, NotebookClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -277,6 +326,7 @@ public class NotebookClient implements Notebook {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -372,16 +422,16 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public CreateAiDataPlatformContentResponse createAiDataPlatformContent(CreateAiDataPlatformContentRequest request) {
-        LOG.trace("Called createAiDataPlatformContent");
-            final CreateAiDataPlatformContentRequest interceptedRequest = CreateAiDataPlatformContentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
+    public CreateContentResponse createContent(CreateContentRequest request) {
+        LOG.trace("Called createContent");
+            final CreateContentRequest interceptedRequest = CreateContentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateContentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateAiDataPlatformContent", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformContentResponse> transformer = CreateAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateContent", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateContentResponse> transformer = CreateContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +447,16 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public CreateAiDataPlatformSessionResponse createAiDataPlatformSession(CreateAiDataPlatformSessionRequest request) {
-        LOG.trace("Called createAiDataPlatformSession");
-            final CreateAiDataPlatformSessionRequest interceptedRequest = CreateAiDataPlatformSessionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
+    public CreateSessionResponse createSession(CreateSessionRequest request) {
+        LOG.trace("Called createSession");
+            final CreateSessionRequest interceptedRequest = CreateSessionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateSessionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateAiDataPlatformSession", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformSessionResponse> transformer = CreateAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "CreateSession", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateSessionResponse> transformer = CreateSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,15 +472,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public DeleteAiDataPlatformContentResponse deleteAiDataPlatformContent(DeleteAiDataPlatformContentRequest request) {
-        LOG.trace("Called deleteAiDataPlatformContent");
-            final DeleteAiDataPlatformContentRequest interceptedRequest = DeleteAiDataPlatformContentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
+    public DeleteContentResponse deleteContent(DeleteContentRequest request) {
+        LOG.trace("Called deleteContent");
+            final DeleteContentRequest interceptedRequest = DeleteContentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteContentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteAiDataPlatformContent", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformContentResponse> transformer = DeleteAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteContent", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteContentResponse> transformer = DeleteContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -446,15 +496,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public DeleteAiDataPlatformSessionResponse deleteAiDataPlatformSession(DeleteAiDataPlatformSessionRequest request) {
-        LOG.trace("Called deleteAiDataPlatformSession");
-            final DeleteAiDataPlatformSessionRequest interceptedRequest = DeleteAiDataPlatformSessionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
+    public DeleteSessionResponse deleteSession(DeleteSessionRequest request) {
+        LOG.trace("Called deleteSession");
+            final DeleteSessionRequest interceptedRequest = DeleteSessionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteSessionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteAiDataPlatformSession", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformSessionResponse> transformer = DeleteAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "DeleteSession", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteSessionResponse> transformer = DeleteSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -470,15 +520,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public ExportAiDataPlatformContentsResponse exportAiDataPlatformContents(ExportAiDataPlatformContentsRequest request) {
-        LOG.trace("Called exportAiDataPlatformContents");
-            final ExportAiDataPlatformContentsRequest interceptedRequest = ExportAiDataPlatformContentsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportAiDataPlatformContentsConverter.fromRequest(client, interceptedRequest);
+    public ExportContentsResponse exportContents(ExportContentsRequest request) {
+        LOG.trace("Called exportContents");
+            final ExportContentsRequest interceptedRequest = ExportContentsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportContentsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ExportAiDataPlatformContents", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ExportAiDataPlatformContentsResponse> transformer = ExportAiDataPlatformContentsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ExportContents", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ExportContentsResponse> transformer = ExportContentsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -494,15 +544,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public GetAiDataPlatformContentResponse getAiDataPlatformContent(GetAiDataPlatformContentRequest request) {
-        LOG.trace("Called getAiDataPlatformContent");
-            final GetAiDataPlatformContentRequest interceptedRequest = GetAiDataPlatformContentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
+    public GetContentResponse getContent(GetContentRequest request) {
+        LOG.trace("Called getContent");
+            final GetContentRequest interceptedRequest = GetContentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetContentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetAiDataPlatformContent", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformContentResponse> transformer = GetAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetContent", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetContentResponse> transformer = GetContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -518,15 +568,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public GetAiDataPlatformSessionResponse getAiDataPlatformSession(GetAiDataPlatformSessionRequest request) {
-        LOG.trace("Called getAiDataPlatformSession");
-            final GetAiDataPlatformSessionRequest interceptedRequest = GetAiDataPlatformSessionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
+    public GetSessionResponse getSession(GetSessionRequest request) {
+        LOG.trace("Called getSession");
+            final GetSessionRequest interceptedRequest = GetSessionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetSessionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetAiDataPlatformSession", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformSessionResponse> transformer = GetAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "GetSession", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetSessionResponse> transformer = GetSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -542,15 +592,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public ListAiDataPlatformSessionsResponse listAiDataPlatformSessions(ListAiDataPlatformSessionsRequest request) {
-        LOG.trace("Called listAiDataPlatformSessions");
-            final ListAiDataPlatformSessionsRequest interceptedRequest = ListAiDataPlatformSessionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSessionsConverter.fromRequest(client, interceptedRequest);
+    public ListSessionsResponse listSessions(ListSessionsRequest request) {
+        LOG.trace("Called listSessions");
+            final ListSessionsRequest interceptedRequest = ListSessionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSessionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ListAiDataPlatformSessions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSessionsResponse> transformer = ListAiDataPlatformSessionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ListSessions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListSessionsResponse> transformer = ListSessionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -566,15 +616,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public ModifyAiDataPlatformContentResponse modifyAiDataPlatformContent(ModifyAiDataPlatformContentRequest request) {
-        LOG.trace("Called modifyAiDataPlatformContent");
-            final ModifyAiDataPlatformContentRequest interceptedRequest = ModifyAiDataPlatformContentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ModifyAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
+    public ModifyContentResponse modifyContent(ModifyContentRequest request) {
+        LOG.trace("Called modifyContent");
+            final ModifyContentRequest interceptedRequest = ModifyContentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ModifyContentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ModifyAiDataPlatformContent", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ModifyAiDataPlatformContentResponse> transformer = ModifyAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "ModifyContent", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ModifyContentResponse> transformer = ModifyContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -590,15 +640,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public PatchAiDataPlatformSessionResponse patchAiDataPlatformSession(PatchAiDataPlatformSessionRequest request) {
-        LOG.trace("Called patchAiDataPlatformSession");
-            final PatchAiDataPlatformSessionRequest interceptedRequest = PatchAiDataPlatformSessionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PatchAiDataPlatformSessionConverter.fromRequest(client, interceptedRequest);
+    public PatchSessionResponse patchSession(PatchSessionRequest request) {
+        LOG.trace("Called patchSession");
+            final PatchSessionRequest interceptedRequest = PatchSessionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PatchSessionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "PatchAiDataPlatformSession", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, PatchAiDataPlatformSessionResponse> transformer = PatchAiDataPlatformSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "PatchSession", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, PatchSessionResponse> transformer = PatchSessionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -614,15 +664,15 @@ public class NotebookClient implements Notebook {
     }
 
     @Override
-    public UpdateAiDataPlatformContentResponse updateAiDataPlatformContent(UpdateAiDataPlatformContentRequest request) {
-        LOG.trace("Called updateAiDataPlatformContent");
-            final UpdateAiDataPlatformContentRequest interceptedRequest = UpdateAiDataPlatformContentConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformContentConverter.fromRequest(client, interceptedRequest);
+    public UpdateContentResponse updateContent(UpdateContentRequest request) {
+        LOG.trace("Called updateContent");
+            final UpdateContentRequest interceptedRequest = UpdateContentConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateContentConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "UpdateAiDataPlatformContent", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformContentResponse> transformer = UpdateAiDataPlatformContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Notebook", "UpdateContent", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateContentResponse> transformer = UpdateContentConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -635,6 +685,11 @@ public class NotebookClient implements Notebook {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public NotebookWaiters getWaiters() {
+        return waiters;
     }
 
 

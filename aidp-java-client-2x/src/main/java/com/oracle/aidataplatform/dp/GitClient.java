@@ -372,16 +372,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public CheckoutAiDataPlatformBranchResponse checkoutAiDataPlatformBranch(CheckoutAiDataPlatformBranchRequest request) {
-        LOG.trace("Called checkoutAiDataPlatformBranch");
-            final CheckoutAiDataPlatformBranchRequest interceptedRequest = CheckoutAiDataPlatformBranchConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CheckoutAiDataPlatformBranchConverter.fromRequest(client, interceptedRequest);
+    public CheckoutBranchResponse checkoutBranch(CheckoutBranchRequest request) {
+        LOG.trace("Called checkoutBranch");
+            final CheckoutBranchRequest interceptedRequest = CheckoutBranchConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CheckoutBranchConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CheckoutAiDataPlatformBranch", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CheckoutAiDataPlatformBranchResponse> transformer = CheckoutAiDataPlatformBranchConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CheckoutBranch", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CheckoutBranchResponse> transformer = CheckoutBranchConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +397,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public CommitPushAiDataPlatformGitRepositoryResponse commitPushAiDataPlatformGitRepository(CommitPushAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called commitPushAiDataPlatformGitRepository");
-            final CommitPushAiDataPlatformGitRepositoryRequest interceptedRequest = CommitPushAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CommitPushAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public CommitPushGitRepositoryResponse commitPushGitRepository(CommitPushGitRepositoryRequest request) {
+        LOG.trace("Called commitPushGitRepository");
+            final CommitPushGitRepositoryRequest interceptedRequest = CommitPushGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CommitPushGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CommitPushAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CommitPushAiDataPlatformGitRepositoryResponse> transformer = CommitPushAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CommitPushGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CommitPushGitRepositoryResponse> transformer = CommitPushGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,16 +422,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public CreateAiDataPlatformGitBranchResponse createAiDataPlatformGitBranch(CreateAiDataPlatformGitBranchRequest request) {
-        LOG.trace("Called createAiDataPlatformGitBranch");
-            final CreateAiDataPlatformGitBranchRequest interceptedRequest = CreateAiDataPlatformGitBranchConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformGitBranchConverter.fromRequest(client, interceptedRequest);
+    public CreateGitBranchResponse createGitBranch(CreateGitBranchRequest request) {
+        LOG.trace("Called createGitBranch");
+            final CreateGitBranchRequest interceptedRequest = CreateGitBranchConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateGitBranchConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CreateAiDataPlatformGitBranch", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformGitBranchResponse> transformer = CreateAiDataPlatformGitBranchConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "CreateGitBranch", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateGitBranchResponse> transformer = CreateGitBranchConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -447,15 +447,15 @@ public class GitClient implements Git {
     }
 
     @Override
-    public GetAiDataPlatformGitDiffDetailResponse getAiDataPlatformGitDiffDetail(GetAiDataPlatformGitDiffDetailRequest request) {
-        LOG.trace("Called getAiDataPlatformGitDiffDetail");
-            final GetAiDataPlatformGitDiffDetailRequest interceptedRequest = GetAiDataPlatformGitDiffDetailConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformGitDiffDetailConverter.fromRequest(client, interceptedRequest);
+    public GetGitDiffDetailResponse getGitDiffDetail(GetGitDiffDetailRequest request) {
+        LOG.trace("Called getGitDiffDetail");
+            final GetGitDiffDetailRequest interceptedRequest = GetGitDiffDetailConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetGitDiffDetailConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetAiDataPlatformGitDiffDetail", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformGitDiffDetailResponse> transformer = GetAiDataPlatformGitDiffDetailConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetGitDiffDetail", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetGitDiffDetailResponse> transformer = GetGitDiffDetailConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -471,15 +471,15 @@ public class GitClient implements Git {
     }
 
     @Override
-    public GetAiDataPlatformGitOperationStateResponse getAiDataPlatformGitOperationState(GetAiDataPlatformGitOperationStateRequest request) {
-        LOG.trace("Called getAiDataPlatformGitOperationState");
-            final GetAiDataPlatformGitOperationStateRequest interceptedRequest = GetAiDataPlatformGitOperationStateConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformGitOperationStateConverter.fromRequest(client, interceptedRequest);
+    public GetGitOperationStateResponse getGitOperationState(GetGitOperationStateRequest request) {
+        LOG.trace("Called getGitOperationState");
+            final GetGitOperationStateRequest interceptedRequest = GetGitOperationStateConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetGitOperationStateConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetAiDataPlatformGitOperationState", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformGitOperationStateResponse> transformer = GetAiDataPlatformGitOperationStateConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetGitOperationState", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetGitOperationStateResponse> transformer = GetGitOperationStateConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -495,15 +495,15 @@ public class GitClient implements Git {
     }
 
     @Override
-    public GetAiDataPlatformGitRepositoryResponse getAiDataPlatformGitRepository(GetAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called getAiDataPlatformGitRepository");
-            final GetAiDataPlatformGitRepositoryRequest interceptedRequest = GetAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public GetGitRepositoryResponse getGitRepository(GetGitRepositoryRequest request) {
+        LOG.trace("Called getGitRepository");
+            final GetGitRepositoryRequest interceptedRequest = GetGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformGitRepositoryResponse> transformer = GetAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "GetGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetGitRepositoryResponse> transformer = GetGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -519,15 +519,15 @@ public class GitClient implements Git {
     }
 
     @Override
-    public ListAiDataPlatformGitBranchesResponse listAiDataPlatformGitBranches(ListAiDataPlatformGitBranchesRequest request) {
-        LOG.trace("Called listAiDataPlatformGitBranches");
-            final ListAiDataPlatformGitBranchesRequest interceptedRequest = ListAiDataPlatformGitBranchesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformGitBranchesConverter.fromRequest(client, interceptedRequest);
+    public ListGitBranchesResponse listGitBranches(ListGitBranchesRequest request) {
+        LOG.trace("Called listGitBranches");
+            final ListGitBranchesRequest interceptedRequest = ListGitBranchesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListGitBranchesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListAiDataPlatformGitBranches", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformGitBranchesResponse> transformer = ListAiDataPlatformGitBranchesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListGitBranches", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListGitBranchesResponse> transformer = ListGitBranchesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -543,15 +543,15 @@ public class GitClient implements Git {
     }
 
     @Override
-    public ListAiDataPlatformGitDiffsResponse listAiDataPlatformGitDiffs(ListAiDataPlatformGitDiffsRequest request) {
-        LOG.trace("Called listAiDataPlatformGitDiffs");
-            final ListAiDataPlatformGitDiffsRequest interceptedRequest = ListAiDataPlatformGitDiffsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformGitDiffsConverter.fromRequest(client, interceptedRequest);
+    public ListGitDiffsResponse listGitDiffs(ListGitDiffsRequest request) {
+        LOG.trace("Called listGitDiffs");
+            final ListGitDiffsRequest interceptedRequest = ListGitDiffsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListGitDiffsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListAiDataPlatformGitDiffs", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformGitDiffsResponse> transformer = ListAiDataPlatformGitDiffsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ListGitDiffs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListGitDiffsResponse> transformer = ListGitDiffsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -567,16 +567,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public MergeAiDataPlatformGitRepositoryResponse mergeAiDataPlatformGitRepository(MergeAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called mergeAiDataPlatformGitRepository");
-            final MergeAiDataPlatformGitRepositoryRequest interceptedRequest = MergeAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MergeAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public MergeGitRepositoryResponse mergeGitRepository(MergeGitRepositoryRequest request) {
+        LOG.trace("Called mergeGitRepository");
+            final MergeGitRepositoryRequest interceptedRequest = MergeGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = MergeGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "MergeAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, MergeAiDataPlatformGitRepositoryResponse> transformer = MergeAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "MergeGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, MergeGitRepositoryResponse> transformer = MergeGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -592,16 +592,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public PullAiDataPlatformGitRepositoryResponse pullAiDataPlatformGitRepository(PullAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called pullAiDataPlatformGitRepository");
-            final PullAiDataPlatformGitRepositoryRequest interceptedRequest = PullAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PullAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public PullGitRepositoryResponse pullGitRepository(PullGitRepositoryRequest request) {
+        LOG.trace("Called pullGitRepository");
+            final PullGitRepositoryRequest interceptedRequest = PullGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PullGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "PullAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, PullAiDataPlatformGitRepositoryResponse> transformer = PullAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "PullGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, PullGitRepositoryResponse> transformer = PullGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -617,16 +617,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public RebaseAiDataPlatformGitRepositoryResponse rebaseAiDataPlatformGitRepository(RebaseAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called rebaseAiDataPlatformGitRepository");
-            final RebaseAiDataPlatformGitRepositoryRequest interceptedRequest = RebaseAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RebaseAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public RebaseGitRepositoryResponse rebaseGitRepository(RebaseGitRepositoryRequest request) {
+        LOG.trace("Called rebaseGitRepository");
+            final RebaseGitRepositoryRequest interceptedRequest = RebaseGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RebaseGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "RebaseAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RebaseAiDataPlatformGitRepositoryResponse> transformer = RebaseAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "RebaseGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RebaseGitRepositoryResponse> transformer = RebaseGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -642,16 +642,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public ResetAiDataPlatformGitFolderStateResponse resetAiDataPlatformGitFolderState(ResetAiDataPlatformGitFolderStateRequest request) {
-        LOG.trace("Called resetAiDataPlatformGitFolderState");
-            final ResetAiDataPlatformGitFolderStateRequest interceptedRequest = ResetAiDataPlatformGitFolderStateConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetAiDataPlatformGitFolderStateConverter.fromRequest(client, interceptedRequest);
+    public ResetGitFolderStateResponse resetGitFolderState(ResetGitFolderStateRequest request) {
+        LOG.trace("Called resetGitFolderState");
+            final ResetGitFolderStateRequest interceptedRequest = ResetGitFolderStateConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetGitFolderStateConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetAiDataPlatformGitFolderState", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ResetAiDataPlatformGitFolderStateResponse> transformer = ResetAiDataPlatformGitFolderStateConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetGitFolderState", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ResetGitFolderStateResponse> transformer = ResetGitFolderStateConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -667,16 +667,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public ResetAiDataPlatformGitRepositoryResponse resetAiDataPlatformGitRepository(ResetAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called resetAiDataPlatformGitRepository");
-            final ResetAiDataPlatformGitRepositoryRequest interceptedRequest = ResetAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public ResetGitRepositoryResponse resetGitRepository(ResetGitRepositoryRequest request) {
+        LOG.trace("Called resetGitRepository");
+            final ResetGitRepositoryRequest interceptedRequest = ResetGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResetGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ResetAiDataPlatformGitRepositoryResponse> transformer = ResetAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResetGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ResetGitRepositoryResponse> transformer = ResetGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -692,16 +692,16 @@ public class GitClient implements Git {
     }
 
     @Override
-    public ResolveAiDataPlatformGitConflictsResponse resolveAiDataPlatformGitConflicts(ResolveAiDataPlatformGitConflictsRequest request) {
-        LOG.trace("Called resolveAiDataPlatformGitConflicts");
-            final ResolveAiDataPlatformGitConflictsRequest interceptedRequest = ResolveAiDataPlatformGitConflictsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResolveAiDataPlatformGitConflictsConverter.fromRequest(client, interceptedRequest);
+    public ResolveGitConflictsResponse resolveGitConflicts(ResolveGitConflictsRequest request) {
+        LOG.trace("Called resolveGitConflicts");
+            final ResolveGitConflictsRequest interceptedRequest = ResolveGitConflictsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ResolveGitConflictsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResolveAiDataPlatformGitConflicts", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ResolveAiDataPlatformGitConflictsResponse> transformer = ResolveAiDataPlatformGitConflictsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "ResolveGitConflicts", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ResolveGitConflictsResponse> transformer = ResolveGitConflictsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -717,15 +717,15 @@ public class GitClient implements Git {
     }
 
     @Override
-    public UpdateAiDataPlatformGitRepositoryResponse updateAiDataPlatformGitRepository(UpdateAiDataPlatformGitRepositoryRequest request) {
-        LOG.trace("Called updateAiDataPlatformGitRepository");
-            final UpdateAiDataPlatformGitRepositoryRequest interceptedRequest = UpdateAiDataPlatformGitRepositoryConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformGitRepositoryConverter.fromRequest(client, interceptedRequest);
+    public UpdateGitRepositoryResponse updateGitRepository(UpdateGitRepositoryRequest request) {
+        LOG.trace("Called updateGitRepository");
+            final UpdateGitRepositoryRequest interceptedRequest = UpdateGitRepositoryConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateGitRepositoryConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "UpdateAiDataPlatformGitRepository", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformGitRepositoryResponse> transformer = UpdateAiDataPlatformGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Git", "UpdateGitRepository", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateGitRepositoryResponse> transformer = UpdateGitRepositoryConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

@@ -372,16 +372,16 @@ public class AuditClient implements Audit {
     }
 
     @Override
-    public ManageAiDataPlatformAuditLogsResponse manageAiDataPlatformAuditLogs(ManageAiDataPlatformAuditLogsRequest request) {
-        LOG.trace("Called manageAiDataPlatformAuditLogs");
-            final ManageAiDataPlatformAuditLogsRequest interceptedRequest = ManageAiDataPlatformAuditLogsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformAuditLogsConverter.fromRequest(client, interceptedRequest);
+    public ManageAuditLogsResponse manageAuditLogs(ManageAuditLogsRequest request) {
+        LOG.trace("Called manageAuditLogs");
+            final ManageAuditLogsRequest interceptedRequest = ManageAuditLogsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAuditLogsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "ManageAiDataPlatformAuditLogs", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformAuditLogsResponse> transformer = ManageAiDataPlatformAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "ManageAuditLogs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageAuditLogsResponse> transformer = ManageAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +397,16 @@ public class AuditClient implements Audit {
     }
 
     @Override
-    public SearchAiDataPlatformAuditLogsResponse searchAiDataPlatformAuditLogs(SearchAiDataPlatformAuditLogsRequest request) {
-        LOG.trace("Called searchAiDataPlatformAuditLogs");
-            final SearchAiDataPlatformAuditLogsRequest interceptedRequest = SearchAiDataPlatformAuditLogsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SearchAiDataPlatformAuditLogsConverter.fromRequest(client, interceptedRequest);
+    public SearchAuditLogsResponse searchAuditLogs(SearchAuditLogsRequest request) {
+        LOG.trace("Called searchAuditLogs");
+            final SearchAuditLogsRequest interceptedRequest = SearchAuditLogsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SearchAuditLogsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "SearchAiDataPlatformAuditLogs", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, SearchAiDataPlatformAuditLogsResponse> transformer = SearchAiDataPlatformAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Audit", "SearchAuditLogs", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SearchAuditLogsResponse> transformer = SearchAuditLogsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

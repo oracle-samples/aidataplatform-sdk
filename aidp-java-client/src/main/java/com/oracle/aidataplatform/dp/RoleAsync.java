@@ -67,7 +67,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<AddAiDataPlatformMemberToRoleResponse> addAiDataPlatformMemberToRole(AddAiDataPlatformMemberToRoleRequest request, com.oracle.bmc.responses.AsyncHandler<AddAiDataPlatformMemberToRoleRequest, AddAiDataPlatformMemberToRoleResponse> handler);
+    java.util.concurrent.Future<AddMemberToRoleResponse> addMemberToRole(AddMemberToRoleRequest request, com.oracle.bmc.responses.AsyncHandler<AddMemberToRoleRequest, AddMemberToRoleResponse> handler);
     
     /**
      * Creates a role.
@@ -80,7 +80,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformRoleResponse> createAiDataPlatformRole(CreateAiDataPlatformRoleRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRoleRequest, CreateAiDataPlatformRoleResponse> handler);
+    java.util.concurrent.Future<CreateRoleResponse> createRole(CreateRoleRequest request, com.oracle.bmc.responses.AsyncHandler<CreateRoleRequest, CreateRoleResponse> handler);
     
     /**
      * Deletes a role.
@@ -92,7 +92,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformRoleResponse> deleteAiDataPlatformRole(DeleteAiDataPlatformRoleRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRoleRequest, DeleteAiDataPlatformRoleResponse> handler);
+    java.util.concurrent.Future<DeleteRoleResponse> deleteRole(DeleteRoleRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteRoleRequest, DeleteRoleResponse> handler);
     
     /**
      * Returns detailed information about a role.
@@ -104,7 +104,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformRoleResponse> getAiDataPlatformRole(GetAiDataPlatformRoleRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRoleRequest, GetAiDataPlatformRoleResponse> handler);
+    java.util.concurrent.Future<GetRoleResponse> getRole(GetRoleRequest request, com.oracle.bmc.responses.AsyncHandler<GetRoleRequest, GetRoleResponse> handler);
     
     /**
      * Returns a list of permissions for a given role.
@@ -117,7 +117,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformRolePermissionsResponse> listAiDataPlatformRolePermissions(ListAiDataPlatformRolePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolePermissionsRequest, ListAiDataPlatformRolePermissionsResponse> handler);
+    java.util.concurrent.Future<ListRolePermissionsResponse> listRolePermissions(ListRolePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListRolePermissionsRequest, ListRolePermissionsResponse> handler);
     
     /**
      * Returns a list of roles.
@@ -130,7 +130,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformRolesResponse> listAiDataPlatformRoles(ListAiDataPlatformRolesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRolesRequest, ListAiDataPlatformRolesResponse> handler);
+    java.util.concurrent.Future<ListRolesResponse> listRoles(ListRolesRequest request, com.oracle.bmc.responses.AsyncHandler<ListRolesRequest, ListRolesResponse> handler);
     
     /**
      * Revoke a role from a given user or group.
@@ -142,7 +142,7 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<RemoveAiDataPlatformMemberFromRoleResponse> removeAiDataPlatformMemberFromRole(RemoveAiDataPlatformMemberFromRoleRequest request, com.oracle.bmc.responses.AsyncHandler<RemoveAiDataPlatformMemberFromRoleRequest, RemoveAiDataPlatformMemberFromRoleResponse> handler);
+    java.util.concurrent.Future<RemoveMemberFromRoleResponse> removeMemberFromRole(RemoveMemberFromRoleRequest request, com.oracle.bmc.responses.AsyncHandler<RemoveMemberFromRoleRequest, RemoveMemberFromRoleResponse> handler);
     
     /**
      * Updates a role with the provided information.
@@ -154,6 +154,6 @@ public interface RoleAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformRoleResponse> updateAiDataPlatformRole(UpdateAiDataPlatformRoleRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRoleRequest, UpdateAiDataPlatformRoleResponse> handler);
+    java.util.concurrent.Future<UpdateRoleResponse> updateRole(UpdateRoleRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateRoleRequest, UpdateRoleResponse> handler);
     
 }

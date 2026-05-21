@@ -68,7 +68,7 @@ public interface AsyncOperationsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformAsyncOperationResponse> getAiDataPlatformAsyncOperation(GetAiDataPlatformAsyncOperationRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformAsyncOperationRequest, GetAiDataPlatformAsyncOperationResponse> handler);
+    java.util.concurrent.Future<GetAsyncOperationResponse> getAsyncOperation(GetAsyncOperationRequest request, com.oracle.bmc.responses.AsyncHandler<GetAsyncOperationRequest, GetAsyncOperationResponse> handler);
     
     /**
      * List all async operations for a resource type.
@@ -82,6 +82,6 @@ public interface AsyncOperationsAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformAsyncOperationsResponse> listAiDataPlatformAsyncOperations(ListAiDataPlatformAsyncOperationsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformAsyncOperationsRequest, ListAiDataPlatformAsyncOperationsResponse> handler);
+    java.util.concurrent.Future<ListAsyncOperationsResponse> listAsyncOperations(ListAsyncOperationsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAsyncOperationsRequest, ListAsyncOperationsResponse> handler);
     
 }

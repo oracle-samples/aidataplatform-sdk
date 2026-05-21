@@ -78,7 +78,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CreateAiDataPlatformBundleResponse createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request) {
+    public CreateBundleResponse createBundle(CreateBundleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -87,11 +87,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CreateAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "createAiDataPlatformBundle")
-        .serviceDetails("Bundle", "CreateAiDataPlatformBundle", "")
+return clientCall(request, CreateBundleResponse::builder)
+        .logger(LOG, "createBundle")
+        .serviceDetails("Bundle", "CreateBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformBundleRequest::builder)
+        .requestBuilder(CreateBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -105,16 +105,16 @@ return clientCall(request, CreateAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformBundleResponse.Builder::opcRequestId)
+            CreateBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            CreateBundleResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public DeployAiDataPlatformBundleResponse deployAiDataPlatformBundle(DeployAiDataPlatformBundleRequest request) {
+    public DeployBundleResponse deployBundle(DeployBundleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -123,11 +123,11 @@ return clientCall(request, CreateAiDataPlatformBundleResponse::builder)
         
 
 
-return clientCall(request, DeployAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "deployAiDataPlatformBundle")
-        .serviceDetails("Bundle", "DeployAiDataPlatformBundle", "")
+return clientCall(request, DeployBundleResponse::builder)
+        .logger(LOG, "deployBundle")
+        .serviceDetails("Bundle", "DeployBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DeployAiDataPlatformBundleRequest::builder)
+        .requestBuilder(DeployBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -141,16 +141,16 @@ return clientCall(request, DeployAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            DeployAiDataPlatformBundleResponse.Builder::opcRequestId)
+            DeployBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeployAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            DeployBundleResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public FetchAiDataPlatformBundleDeploymentStatusResponse fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request) {
+    public FetchBundleDeploymentStatusResponse fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -159,11 +159,11 @@ return clientCall(request, DeployAiDataPlatformBundleResponse::builder)
         
 
 
-return clientCall(request, FetchAiDataPlatformBundleDeploymentStatusResponse::builder)
-        .logger(LOG, "fetchAiDataPlatformBundleDeploymentStatus")
-        .serviceDetails("Bundle", "FetchAiDataPlatformBundleDeploymentStatus", "")
+return clientCall(request, FetchBundleDeploymentStatusResponse::builder)
+        .logger(LOG, "fetchBundleDeploymentStatus")
+        .serviceDetails("Bundle", "FetchBundleDeploymentStatus", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(FetchAiDataPlatformBundleDeploymentStatusRequest::builder)
+        .requestBuilder(FetchBundleDeploymentStatusRequest::builder)
         
         
         .basePath("/20260430")
@@ -174,16 +174,16 @@ return clientCall(request, FetchAiDataPlatformBundleDeploymentStatusResponse::bu
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.BundleDeploymentStatus.class, FetchAiDataPlatformBundleDeploymentStatusResponse.Builder::bundleDeploymentStatus)
+            .handleBody(com.oracle.aidataplatform.dp.model.BundleDeploymentStatus.class, FetchBundleDeploymentStatusResponse.Builder::bundleDeploymentStatus)
                 .handleResponseHeaderString("opc-request-id", 
-            FetchAiDataPlatformBundleDeploymentStatusResponse.Builder::opcRequestId)
+            FetchBundleDeploymentStatusResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public PurgeAiDataPlatformBundleResponse purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request) {
+    public PurgeBundleResponse purgeBundle(PurgeBundleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -192,11 +192,11 @@ return clientCall(request, FetchAiDataPlatformBundleDeploymentStatusResponse::bu
         
 
 
-return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "purgeAiDataPlatformBundle")
-        .serviceDetails("Bundle", "PurgeAiDataPlatformBundle", "")
+return clientCall(request, PurgeBundleResponse::builder)
+        .logger(LOG, "purgeBundle")
+        .serviceDetails("Bundle", "PurgeBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(PurgeAiDataPlatformBundleRequest::builder)
+        .requestBuilder(PurgeBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -210,16 +210,16 @@ return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            PurgeAiDataPlatformBundleResponse.Builder::opcRequestId)
+            PurgeBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            PurgeAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            PurgeBundleResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public SyncAiDataPlatformBundleResponse syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request) {
+    public SyncBundleResponse syncBundle(SyncBundleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -228,11 +228,11 @@ return clientCall(request, PurgeAiDataPlatformBundleResponse::builder)
         
 
 
-return clientCall(request, SyncAiDataPlatformBundleResponse::builder)
-        .logger(LOG, "syncAiDataPlatformBundle")
-        .serviceDetails("Bundle", "SyncAiDataPlatformBundle", "")
+return clientCall(request, SyncBundleResponse::builder)
+        .logger(LOG, "syncBundle")
+        .serviceDetails("Bundle", "SyncBundle", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SyncAiDataPlatformBundleRequest::builder)
+        .requestBuilder(SyncBundleRequest::builder)
         
         
         .basePath("/20260430")
@@ -246,9 +246,9 @@ return clientCall(request, SyncAiDataPlatformBundleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            SyncAiDataPlatformBundleResponse.Builder::opcRequestId)
+            SyncBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            SyncAiDataPlatformBundleResponse.Builder::aidpAsyncOperationKey)
+            SyncBundleResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }

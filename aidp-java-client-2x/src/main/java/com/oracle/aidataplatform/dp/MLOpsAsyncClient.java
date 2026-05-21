@@ -369,21 +369,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformExperimentResponse> createAiDataPlatformExperiment(CreateAiDataPlatformExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformExperimentRequest, CreateAiDataPlatformExperimentResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformExperiment");
-        final CreateAiDataPlatformExperimentRequest interceptedRequest = CreateAiDataPlatformExperimentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateExperimentResponse> createExperiment(CreateExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateExperimentRequest, CreateExperimentResponse> handler) {
+        LOG.trace("Called async createExperiment");
+        final CreateExperimentRequest interceptedRequest = CreateExperimentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateExperimentConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformExperimentResponse> transformer = CreateAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateExperiment", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateExperimentResponse> transformer = CreateExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformExperimentRequest, CreateAiDataPlatformExperimentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateExperimentRequest, CreateExperimentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformExperimentRequest, CreateAiDataPlatformExperimentResponse>, java.util.concurrent.Future<CreateAiDataPlatformExperimentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateExperimentRequest, CreateExperimentResponse>, java.util.concurrent.Future<CreateExperimentResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateExperimentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformExperimentRequest, CreateAiDataPlatformExperimentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateExperimentRequest, CreateExperimentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformExperimentRunResponse> createAiDataPlatformExperimentRun(CreateAiDataPlatformExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformExperimentRunRequest, CreateAiDataPlatformExperimentRunResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformExperimentRun");
-        final CreateAiDataPlatformExperimentRunRequest interceptedRequest = CreateAiDataPlatformExperimentRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateExperimentRunResponse> createExperimentRun(CreateExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateExperimentRunRequest, CreateExperimentRunResponse> handler) {
+        LOG.trace("Called async createExperimentRun");
+        final CreateExperimentRunRequest interceptedRequest = CreateExperimentRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateExperimentRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformExperimentRunResponse> transformer = CreateAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateExperimentRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateExperimentRunResponse> transformer = CreateExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformExperimentRunRequest, CreateAiDataPlatformExperimentRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateExperimentRunRequest, CreateExperimentRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformExperimentRunRequest, CreateAiDataPlatformExperimentRunResponse>, java.util.concurrent.Future<CreateAiDataPlatformExperimentRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateExperimentRunRequest, CreateExperimentRunResponse>, java.util.concurrent.Future<CreateExperimentRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateExperimentRunDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformExperimentRunRequest, CreateAiDataPlatformExperimentRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateExperimentRunRequest, CreateExperimentRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,21 +427,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformModelVersionResponse> createAiDataPlatformModelVersion(CreateAiDataPlatformModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformModelVersionRequest, CreateAiDataPlatformModelVersionResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformModelVersion");
-        final CreateAiDataPlatformModelVersionRequest interceptedRequest = CreateAiDataPlatformModelVersionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateModelVersionResponse> createModelVersion(CreateModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateModelVersionRequest, CreateModelVersionResponse> handler) {
+        LOG.trace("Called async createModelVersion");
+        final CreateModelVersionRequest interceptedRequest = CreateModelVersionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateModelVersionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformModelVersionResponse> transformer = CreateAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateModelVersion", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateModelVersionResponse> transformer = CreateModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformModelVersionRequest, CreateAiDataPlatformModelVersionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateModelVersionRequest, CreateModelVersionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformModelVersionRequest, CreateAiDataPlatformModelVersionResponse>, java.util.concurrent.Future<CreateAiDataPlatformModelVersionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateModelVersionRequest, CreateModelVersionResponse>, java.util.concurrent.Future<CreateModelVersionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateModelVersionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformModelVersionRequest, CreateAiDataPlatformModelVersionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateModelVersionRequest, CreateModelVersionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -456,21 +456,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformRegisteredModelResponse> createAiDataPlatformRegisteredModel(CreateAiDataPlatformRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRegisteredModelRequest, CreateAiDataPlatformRegisteredModelResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformRegisteredModel");
-        final CreateAiDataPlatformRegisteredModelRequest interceptedRequest = CreateAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateRegisteredModelResponse> createRegisteredModel(CreateRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateRegisteredModelRequest, CreateRegisteredModelResponse> handler) {
+        LOG.trace("Called async createRegisteredModel");
+        final CreateRegisteredModelRequest interceptedRequest = CreateRegisteredModelConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateRegisteredModelConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformRegisteredModelResponse> transformer = CreateAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateRegisteredModel", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateRegisteredModelResponse> transformer = CreateRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRegisteredModelRequest, CreateAiDataPlatformRegisteredModelResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateRegisteredModelRequest, CreateRegisteredModelResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformRegisteredModelRequest, CreateAiDataPlatformRegisteredModelResponse>, java.util.concurrent.Future<CreateAiDataPlatformRegisteredModelResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateRegisteredModelRequest, CreateRegisteredModelResponse>, java.util.concurrent.Future<CreateRegisteredModelResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateRegisteredModelDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformRegisteredModelRequest, CreateAiDataPlatformRegisteredModelResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateRegisteredModelRequest, CreateRegisteredModelResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -485,21 +485,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformWorkspaceModelVersionResponse> createAiDataPlatformWorkspaceModelVersion(CreateAiDataPlatformWorkspaceModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceModelVersionRequest, CreateAiDataPlatformWorkspaceModelVersionResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformWorkspaceModelVersion");
-        final CreateAiDataPlatformWorkspaceModelVersionRequest interceptedRequest = CreateAiDataPlatformWorkspaceModelVersionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformWorkspaceModelVersionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateWorkspaceModelVersionResponse> createWorkspaceModelVersion(CreateWorkspaceModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceModelVersionRequest, CreateWorkspaceModelVersionResponse> handler) {
+        LOG.trace("Called async createWorkspaceModelVersion");
+        final CreateWorkspaceModelVersionRequest interceptedRequest = CreateWorkspaceModelVersionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateWorkspaceModelVersionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateAiDataPlatformWorkspaceModelVersion", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformWorkspaceModelVersionResponse> transformer = CreateAiDataPlatformWorkspaceModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "CreateWorkspaceModelVersion", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateWorkspaceModelVersionResponse> transformer = CreateWorkspaceModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceModelVersionRequest, CreateAiDataPlatformWorkspaceModelVersionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceModelVersionRequest, CreateWorkspaceModelVersionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceModelVersionRequest, CreateAiDataPlatformWorkspaceModelVersionResponse>, java.util.concurrent.Future<CreateAiDataPlatformWorkspaceModelVersionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceModelVersionRequest, CreateWorkspaceModelVersionResponse>, java.util.concurrent.Future<CreateWorkspaceModelVersionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateModelVersionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformWorkspaceModelVersionRequest, CreateAiDataPlatformWorkspaceModelVersionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateWorkspaceModelVersionRequest, CreateWorkspaceModelVersionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -514,21 +514,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformExperimentResponse> deleteAiDataPlatformExperiment(DeleteAiDataPlatformExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRequest, DeleteAiDataPlatformExperimentResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformExperiment");
-        final DeleteAiDataPlatformExperimentRequest interceptedRequest = DeleteAiDataPlatformExperimentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteExperimentResponse> deleteExperiment(DeleteExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRequest, DeleteExperimentResponse> handler) {
+        LOG.trace("Called async deleteExperiment");
+        final DeleteExperimentRequest interceptedRequest = DeleteExperimentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentResponse> transformer = DeleteAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperiment", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentResponse> transformer = DeleteExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRequest, DeleteAiDataPlatformExperimentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRequest, DeleteExperimentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRequest, DeleteAiDataPlatformExperimentResponse>, java.util.concurrent.Future<DeleteAiDataPlatformExperimentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRequest, DeleteExperimentResponse>, java.util.concurrent.Future<DeleteExperimentResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteExperimentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformExperimentRequest, DeleteAiDataPlatformExperimentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteExperimentRequest, DeleteExperimentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -543,21 +543,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformExperimentRunResponse> deleteAiDataPlatformExperimentRun(DeleteAiDataPlatformExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRunRequest, DeleteAiDataPlatformExperimentRunResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformExperimentRun");
-        final DeleteAiDataPlatformExperimentRunRequest interceptedRequest = DeleteAiDataPlatformExperimentRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteExperimentRunResponse> deleteExperimentRun(DeleteExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRunRequest, DeleteExperimentRunResponse> handler) {
+        LOG.trace("Called async deleteExperimentRun");
+        final DeleteExperimentRunRequest interceptedRequest = DeleteExperimentRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentRunResponse> transformer = DeleteAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperimentRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentRunResponse> transformer = DeleteExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRunRequest, DeleteAiDataPlatformExperimentRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRunRequest, DeleteExperimentRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRunRequest, DeleteAiDataPlatformExperimentRunResponse>, java.util.concurrent.Future<DeleteAiDataPlatformExperimentRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRunRequest, DeleteExperimentRunResponse>, java.util.concurrent.Future<DeleteExperimentRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteExperimentRunDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformExperimentRunRequest, DeleteAiDataPlatformExperimentRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteExperimentRunRequest, DeleteExperimentRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -572,21 +572,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformExperimentRunTagResponse> deleteAiDataPlatformExperimentRunTag(DeleteAiDataPlatformExperimentRunTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRunTagRequest, DeleteAiDataPlatformExperimentRunTagResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformExperimentRunTag");
-        final DeleteAiDataPlatformExperimentRunTagRequest interceptedRequest = DeleteAiDataPlatformExperimentRunTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentRunTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteExperimentRunTagResponse> deleteExperimentRunTag(DeleteExperimentRunTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRunTagRequest, DeleteExperimentRunTagResponse> handler) {
+        LOG.trace("Called async deleteExperimentRunTag");
+        final DeleteExperimentRunTagRequest interceptedRequest = DeleteExperimentRunTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentRunTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperimentRunTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentRunTagResponse> transformer = DeleteAiDataPlatformExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperimentRunTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentRunTagResponse> transformer = DeleteExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRunTagRequest, DeleteAiDataPlatformExperimentRunTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRunTagRequest, DeleteExperimentRunTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentRunTagRequest, DeleteAiDataPlatformExperimentRunTagResponse>, java.util.concurrent.Future<DeleteAiDataPlatformExperimentRunTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteExperimentRunTagRequest, DeleteExperimentRunTagResponse>, java.util.concurrent.Future<DeleteExperimentRunTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteExperimentRunTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformExperimentRunTagRequest, DeleteAiDataPlatformExperimentRunTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteExperimentRunTagRequest, DeleteExperimentRunTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -601,21 +601,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformExperimentTagResponse> deleteAiDataPlatformExperimentTag(DeleteAiDataPlatformExperimentTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentTagRequest, DeleteAiDataPlatformExperimentTagResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformExperimentTag");
-        final DeleteAiDataPlatformExperimentTagRequest interceptedRequest = DeleteAiDataPlatformExperimentTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformExperimentTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteExperimentTagResponse> deleteExperimentTag(DeleteExperimentTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteExperimentTagRequest, DeleteExperimentTagResponse> handler) {
+        LOG.trace("Called async deleteExperimentTag");
+        final DeleteExperimentTagRequest interceptedRequest = DeleteExperimentTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteExperimentTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformExperimentTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformExperimentTagResponse> transformer = DeleteAiDataPlatformExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteExperimentTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteExperimentTagResponse> transformer = DeleteExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentTagRequest, DeleteAiDataPlatformExperimentTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteExperimentTagRequest, DeleteExperimentTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformExperimentTagRequest, DeleteAiDataPlatformExperimentTagResponse>, java.util.concurrent.Future<DeleteAiDataPlatformExperimentTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteExperimentTagRequest, DeleteExperimentTagResponse>, java.util.concurrent.Future<DeleteExperimentTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteExperimentTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformExperimentTagRequest, DeleteAiDataPlatformExperimentTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteExperimentTagRequest, DeleteExperimentTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -630,21 +630,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformModelVersionResponse> deleteAiDataPlatformModelVersion(DeleteAiDataPlatformModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformModelVersionRequest, DeleteAiDataPlatformModelVersionResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformModelVersion");
-        final DeleteAiDataPlatformModelVersionRequest interceptedRequest = DeleteAiDataPlatformModelVersionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteModelVersionResponse> deleteModelVersion(DeleteModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteModelVersionRequest, DeleteModelVersionResponse> handler) {
+        LOG.trace("Called async deleteModelVersion");
+        final DeleteModelVersionRequest interceptedRequest = DeleteModelVersionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteModelVersionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformModelVersionResponse> transformer = DeleteAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteModelVersion", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteModelVersionResponse> transformer = DeleteModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformModelVersionRequest, DeleteAiDataPlatformModelVersionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteModelVersionRequest, DeleteModelVersionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformModelVersionRequest, DeleteAiDataPlatformModelVersionResponse>, java.util.concurrent.Future<DeleteAiDataPlatformModelVersionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteModelVersionRequest, DeleteModelVersionResponse>, java.util.concurrent.Future<DeleteModelVersionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteModelVersionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformModelVersionRequest, DeleteAiDataPlatformModelVersionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteModelVersionRequest, DeleteModelVersionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -659,21 +659,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformModelVersionTagResponse> deleteAiDataPlatformModelVersionTag(DeleteAiDataPlatformModelVersionTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformModelVersionTagRequest, DeleteAiDataPlatformModelVersionTagResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformModelVersionTag");
-        final DeleteAiDataPlatformModelVersionTagRequest interceptedRequest = DeleteAiDataPlatformModelVersionTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformModelVersionTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteModelVersionTagResponse> deleteModelVersionTag(DeleteModelVersionTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteModelVersionTagRequest, DeleteModelVersionTagResponse> handler) {
+        LOG.trace("Called async deleteModelVersionTag");
+        final DeleteModelVersionTagRequest interceptedRequest = DeleteModelVersionTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteModelVersionTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformModelVersionTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformModelVersionTagResponse> transformer = DeleteAiDataPlatformModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteModelVersionTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteModelVersionTagResponse> transformer = DeleteModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformModelVersionTagRequest, DeleteAiDataPlatformModelVersionTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteModelVersionTagRequest, DeleteModelVersionTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformModelVersionTagRequest, DeleteAiDataPlatformModelVersionTagResponse>, java.util.concurrent.Future<DeleteAiDataPlatformModelVersionTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteModelVersionTagRequest, DeleteModelVersionTagResponse>, java.util.concurrent.Future<DeleteModelVersionTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteModelVersionTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformModelVersionTagRequest, DeleteAiDataPlatformModelVersionTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteModelVersionTagRequest, DeleteModelVersionTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -688,21 +688,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformRegisteredModelResponse> deleteAiDataPlatformRegisteredModel(DeleteAiDataPlatformRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRegisteredModelRequest, DeleteAiDataPlatformRegisteredModelResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformRegisteredModel");
-        final DeleteAiDataPlatformRegisteredModelRequest interceptedRequest = DeleteAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteRegisteredModelResponse> deleteRegisteredModel(DeleteRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelRequest, DeleteRegisteredModelResponse> handler) {
+        LOG.trace("Called async deleteRegisteredModel");
+        final DeleteRegisteredModelRequest interceptedRequest = DeleteRegisteredModelConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRegisteredModelConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRegisteredModelResponse> transformer = DeleteAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteRegisteredModel", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteRegisteredModelResponse> transformer = DeleteRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRegisteredModelRequest, DeleteAiDataPlatformRegisteredModelResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelRequest, DeleteRegisteredModelResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRegisteredModelRequest, DeleteAiDataPlatformRegisteredModelResponse>, java.util.concurrent.Future<DeleteAiDataPlatformRegisteredModelResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelRequest, DeleteRegisteredModelResponse>, java.util.concurrent.Future<DeleteRegisteredModelResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteRegisteredModelDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformRegisteredModelRequest, DeleteAiDataPlatformRegisteredModelResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteRegisteredModelRequest, DeleteRegisteredModelResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -717,21 +717,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformRegisteredModelTagResponse> deleteAiDataPlatformRegisteredModelTag(DeleteAiDataPlatformRegisteredModelTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRegisteredModelTagRequest, DeleteAiDataPlatformRegisteredModelTagResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformRegisteredModelTag");
-        final DeleteAiDataPlatformRegisteredModelTagRequest interceptedRequest = DeleteAiDataPlatformRegisteredModelTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<DeleteRegisteredModelTagResponse> deleteRegisteredModelTag(DeleteRegisteredModelTagRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelTagRequest, DeleteRegisteredModelTagResponse> handler) {
+        LOG.trace("Called async deleteRegisteredModelTag");
+        final DeleteRegisteredModelTagRequest interceptedRequest = DeleteRegisteredModelTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteAiDataPlatformRegisteredModelTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformRegisteredModelTagResponse> transformer = DeleteAiDataPlatformRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "DeleteRegisteredModelTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteRegisteredModelTagResponse> transformer = DeleteRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRegisteredModelTagRequest, DeleteAiDataPlatformRegisteredModelTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelTagRequest, DeleteRegisteredModelTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformRegisteredModelTagRequest, DeleteAiDataPlatformRegisteredModelTagResponse>, java.util.concurrent.Future<DeleteAiDataPlatformRegisteredModelTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelTagRequest, DeleteRegisteredModelTagResponse>, java.util.concurrent.Future<DeleteRegisteredModelTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getDeleteRegisteredModelTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformRegisteredModelTagRequest, DeleteAiDataPlatformRegisteredModelTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteRegisteredModelTagRequest, DeleteRegisteredModelTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -746,20 +746,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformExperimentByIdResponse> getAiDataPlatformExperimentById(GetAiDataPlatformExperimentByIdRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentByIdRequest, GetAiDataPlatformExperimentByIdResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformExperimentById");
-        final GetAiDataPlatformExperimentByIdRequest interceptedRequest = GetAiDataPlatformExperimentByIdConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentByIdConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentById", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentByIdResponse> transformer = GetAiDataPlatformExperimentByIdConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetExperimentByIdResponse> getExperimentById(GetExperimentByIdRequest request, final com.oracle.bmc.responses.AsyncHandler<GetExperimentByIdRequest, GetExperimentByIdResponse> handler) {
+        LOG.trace("Called async getExperimentById");
+        final GetExperimentByIdRequest interceptedRequest = GetExperimentByIdConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentByIdConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentById", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetExperimentByIdResponse> transformer = GetExperimentByIdConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentByIdRequest, GetAiDataPlatformExperimentByIdResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetExperimentByIdRequest, GetExperimentByIdResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentByIdRequest, GetAiDataPlatformExperimentByIdResponse>, java.util.concurrent.Future<GetAiDataPlatformExperimentByIdResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetExperimentByIdRequest, GetExperimentByIdResponse>, java.util.concurrent.Future<GetExperimentByIdResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformExperimentByIdRequest, GetAiDataPlatformExperimentByIdResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetExperimentByIdRequest, GetExperimentByIdResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -774,20 +774,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformExperimentByNameResponse> getAiDataPlatformExperimentByName(GetAiDataPlatformExperimentByNameRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentByNameRequest, GetAiDataPlatformExperimentByNameResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformExperimentByName");
-        final GetAiDataPlatformExperimentByNameRequest interceptedRequest = GetAiDataPlatformExperimentByNameConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentByNameConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentByName", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentByNameResponse> transformer = GetAiDataPlatformExperimentByNameConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetExperimentByNameResponse> getExperimentByName(GetExperimentByNameRequest request, final com.oracle.bmc.responses.AsyncHandler<GetExperimentByNameRequest, GetExperimentByNameResponse> handler) {
+        LOG.trace("Called async getExperimentByName");
+        final GetExperimentByNameRequest interceptedRequest = GetExperimentByNameConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentByNameConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentByName", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetExperimentByNameResponse> transformer = GetExperimentByNameConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentByNameRequest, GetAiDataPlatformExperimentByNameResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetExperimentByNameRequest, GetExperimentByNameResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentByNameRequest, GetAiDataPlatformExperimentByNameResponse>, java.util.concurrent.Future<GetAiDataPlatformExperimentByNameResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetExperimentByNameRequest, GetExperimentByNameResponse>, java.util.concurrent.Future<GetExperimentByNameResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformExperimentByNameRequest, GetAiDataPlatformExperimentByNameResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetExperimentByNameRequest, GetExperimentByNameResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -802,20 +802,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformExperimentRunByIdResponse> getAiDataPlatformExperimentRunById(GetAiDataPlatformExperimentRunByIdRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentRunByIdRequest, GetAiDataPlatformExperimentRunByIdResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformExperimentRunById");
-        final GetAiDataPlatformExperimentRunByIdRequest interceptedRequest = GetAiDataPlatformExperimentRunByIdConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentRunByIdConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentRunById", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentRunByIdResponse> transformer = GetAiDataPlatformExperimentRunByIdConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetExperimentRunByIdResponse> getExperimentRunById(GetExperimentRunByIdRequest request, final com.oracle.bmc.responses.AsyncHandler<GetExperimentRunByIdRequest, GetExperimentRunByIdResponse> handler) {
+        LOG.trace("Called async getExperimentRunById");
+        final GetExperimentRunByIdRequest interceptedRequest = GetExperimentRunByIdConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentRunByIdConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentRunById", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetExperimentRunByIdResponse> transformer = GetExperimentRunByIdConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentRunByIdRequest, GetAiDataPlatformExperimentRunByIdResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetExperimentRunByIdRequest, GetExperimentRunByIdResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentRunByIdRequest, GetAiDataPlatformExperimentRunByIdResponse>, java.util.concurrent.Future<GetAiDataPlatformExperimentRunByIdResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetExperimentRunByIdRequest, GetExperimentRunByIdResponse>, java.util.concurrent.Future<GetExperimentRunByIdResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformExperimentRunByIdRequest, GetAiDataPlatformExperimentRunByIdResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetExperimentRunByIdRequest, GetExperimentRunByIdResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -830,20 +830,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformExperimentRunMetricHistoryResponse> getAiDataPlatformExperimentRunMetricHistory(GetAiDataPlatformExperimentRunMetricHistoryRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentRunMetricHistoryRequest, GetAiDataPlatformExperimentRunMetricHistoryResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformExperimentRunMetricHistory");
-        final GetAiDataPlatformExperimentRunMetricHistoryRequest interceptedRequest = GetAiDataPlatformExperimentRunMetricHistoryConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformExperimentRunMetricHistoryConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformExperimentRunMetricHistory", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformExperimentRunMetricHistoryResponse> transformer = GetAiDataPlatformExperimentRunMetricHistoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetExperimentRunMetricHistoryResponse> getExperimentRunMetricHistory(GetExperimentRunMetricHistoryRequest request, final com.oracle.bmc.responses.AsyncHandler<GetExperimentRunMetricHistoryRequest, GetExperimentRunMetricHistoryResponse> handler) {
+        LOG.trace("Called async getExperimentRunMetricHistory");
+        final GetExperimentRunMetricHistoryRequest interceptedRequest = GetExperimentRunMetricHistoryConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetExperimentRunMetricHistoryConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetExperimentRunMetricHistory", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetExperimentRunMetricHistoryResponse> transformer = GetExperimentRunMetricHistoryConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentRunMetricHistoryRequest, GetAiDataPlatformExperimentRunMetricHistoryResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetExperimentRunMetricHistoryRequest, GetExperimentRunMetricHistoryResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformExperimentRunMetricHistoryRequest, GetAiDataPlatformExperimentRunMetricHistoryResponse>, java.util.concurrent.Future<GetAiDataPlatformExperimentRunMetricHistoryResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetExperimentRunMetricHistoryRequest, GetExperimentRunMetricHistoryResponse>, java.util.concurrent.Future<GetExperimentRunMetricHistoryResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformExperimentRunMetricHistoryRequest, GetAiDataPlatformExperimentRunMetricHistoryResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetExperimentRunMetricHistoryRequest, GetExperimentRunMetricHistoryResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -858,20 +858,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformModelVersionResponse> getAiDataPlatformModelVersion(GetAiDataPlatformModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformModelVersionRequest, GetAiDataPlatformModelVersionResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformModelVersion");
-        final GetAiDataPlatformModelVersionRequest interceptedRequest = GetAiDataPlatformModelVersionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformModelVersionResponse> transformer = GetAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetModelVersionResponse> getModelVersion(GetModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetModelVersionRequest, GetModelVersionResponse> handler) {
+        LOG.trace("Called async getModelVersion");
+        final GetModelVersionRequest interceptedRequest = GetModelVersionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetModelVersionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetModelVersion", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetModelVersionResponse> transformer = GetModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformModelVersionRequest, GetAiDataPlatformModelVersionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetModelVersionRequest, GetModelVersionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformModelVersionRequest, GetAiDataPlatformModelVersionResponse>, java.util.concurrent.Future<GetAiDataPlatformModelVersionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetModelVersionRequest, GetModelVersionResponse>, java.util.concurrent.Future<GetModelVersionResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformModelVersionRequest, GetAiDataPlatformModelVersionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetModelVersionRequest, GetModelVersionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -886,20 +886,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformRegisteredModelResponse> getAiDataPlatformRegisteredModel(GetAiDataPlatformRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRegisteredModelRequest, GetAiDataPlatformRegisteredModelResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformRegisteredModel");
-        final GetAiDataPlatformRegisteredModelRequest interceptedRequest = GetAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformRegisteredModelResponse> transformer = GetAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetRegisteredModelResponse> getRegisteredModel(GetRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<GetRegisteredModelRequest, GetRegisteredModelResponse> handler) {
+        LOG.trace("Called async getRegisteredModel");
+        final GetRegisteredModelRequest interceptedRequest = GetRegisteredModelConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetRegisteredModelConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "GetRegisteredModel", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetRegisteredModelResponse> transformer = GetRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRegisteredModelRequest, GetAiDataPlatformRegisteredModelResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetRegisteredModelRequest, GetRegisteredModelResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformRegisteredModelRequest, GetAiDataPlatformRegisteredModelResponse>, java.util.concurrent.Future<GetAiDataPlatformRegisteredModelResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetRegisteredModelRequest, GetRegisteredModelResponse>, java.util.concurrent.Future<GetRegisteredModelResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformRegisteredModelRequest, GetAiDataPlatformRegisteredModelResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetRegisteredModelRequest, GetRegisteredModelResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -914,20 +914,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformArtifactsResponse> listAiDataPlatformArtifacts(ListAiDataPlatformArtifactsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformArtifactsRequest, ListAiDataPlatformArtifactsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformArtifacts");
-        final ListAiDataPlatformArtifactsRequest interceptedRequest = ListAiDataPlatformArtifactsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformArtifactsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformArtifacts", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformArtifactsResponse> transformer = ListAiDataPlatformArtifactsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListArtifactsResponse> listArtifacts(ListArtifactsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListArtifactsRequest, ListArtifactsResponse> handler) {
+        LOG.trace("Called async listArtifacts");
+        final ListArtifactsRequest interceptedRequest = ListArtifactsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListArtifactsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListArtifacts", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListArtifactsResponse> transformer = ListArtifactsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformArtifactsRequest, ListAiDataPlatformArtifactsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListArtifactsRequest, ListArtifactsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformArtifactsRequest, ListAiDataPlatformArtifactsResponse>, java.util.concurrent.Future<ListAiDataPlatformArtifactsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListArtifactsRequest, ListArtifactsResponse>, java.util.concurrent.Future<ListArtifactsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformArtifactsRequest, ListAiDataPlatformArtifactsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListArtifactsRequest, ListArtifactsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -942,20 +942,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformExperimentRunsResponse> listAiDataPlatformExperimentRuns(ListAiDataPlatformExperimentRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformExperimentRunsRequest, ListAiDataPlatformExperimentRunsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformExperimentRuns");
-        final ListAiDataPlatformExperimentRunsRequest interceptedRequest = ListAiDataPlatformExperimentRunsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformExperimentRunsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformExperimentRuns", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformExperimentRunsResponse> transformer = ListAiDataPlatformExperimentRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListExperimentRunsResponse> listExperimentRuns(ListExperimentRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListExperimentRunsRequest, ListExperimentRunsResponse> handler) {
+        LOG.trace("Called async listExperimentRuns");
+        final ListExperimentRunsRequest interceptedRequest = ListExperimentRunsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListExperimentRunsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListExperimentRuns", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListExperimentRunsResponse> transformer = ListExperimentRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformExperimentRunsRequest, ListAiDataPlatformExperimentRunsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListExperimentRunsRequest, ListExperimentRunsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformExperimentRunsRequest, ListAiDataPlatformExperimentRunsResponse>, java.util.concurrent.Future<ListAiDataPlatformExperimentRunsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListExperimentRunsRequest, ListExperimentRunsResponse>, java.util.concurrent.Future<ListExperimentRunsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getListExperimentRunsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformExperimentRunsRequest, ListAiDataPlatformExperimentRunsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListExperimentRunsRequest, ListExperimentRunsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -970,20 +970,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformExperimentsResponse> listAiDataPlatformExperiments(ListAiDataPlatformExperimentsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformExperimentsRequest, ListAiDataPlatformExperimentsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformExperiments");
-        final ListAiDataPlatformExperimentsRequest interceptedRequest = ListAiDataPlatformExperimentsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformExperimentsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformExperiments", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformExperimentsResponse> transformer = ListAiDataPlatformExperimentsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListExperimentsResponse> listExperiments(ListExperimentsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListExperimentsRequest, ListExperimentsResponse> handler) {
+        LOG.trace("Called async listExperiments");
+        final ListExperimentsRequest interceptedRequest = ListExperimentsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListExperimentsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListExperiments", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListExperimentsResponse> transformer = ListExperimentsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformExperimentsRequest, ListAiDataPlatformExperimentsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListExperimentsRequest, ListExperimentsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformExperimentsRequest, ListAiDataPlatformExperimentsResponse>, java.util.concurrent.Future<ListAiDataPlatformExperimentsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListExperimentsRequest, ListExperimentsResponse>, java.util.concurrent.Future<ListExperimentsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getListExperimentsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformExperimentsRequest, ListAiDataPlatformExperimentsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListExperimentsRequest, ListExperimentsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -998,20 +998,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformLoggedModelsResponse> listAiDataPlatformLoggedModels(ListAiDataPlatformLoggedModelsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformLoggedModelsRequest, ListAiDataPlatformLoggedModelsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformLoggedModels");
-        final ListAiDataPlatformLoggedModelsRequest interceptedRequest = ListAiDataPlatformLoggedModelsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformLoggedModelsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformLoggedModels", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformLoggedModelsResponse> transformer = ListAiDataPlatformLoggedModelsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListLoggedModelsResponse> listLoggedModels(ListLoggedModelsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListLoggedModelsRequest, ListLoggedModelsResponse> handler) {
+        LOG.trace("Called async listLoggedModels");
+        final ListLoggedModelsRequest interceptedRequest = ListLoggedModelsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListLoggedModelsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListLoggedModels", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListLoggedModelsResponse> transformer = ListLoggedModelsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformLoggedModelsRequest, ListAiDataPlatformLoggedModelsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListLoggedModelsRequest, ListLoggedModelsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformLoggedModelsRequest, ListAiDataPlatformLoggedModelsResponse>, java.util.concurrent.Future<ListAiDataPlatformLoggedModelsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListLoggedModelsRequest, ListLoggedModelsResponse>, java.util.concurrent.Future<ListLoggedModelsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getListLoggedModelsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformLoggedModelsRequest, ListAiDataPlatformLoggedModelsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListLoggedModelsRequest, ListLoggedModelsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1026,20 +1026,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformModelVersionsResponse> listAiDataPlatformModelVersions(ListAiDataPlatformModelVersionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformModelVersionsRequest, ListAiDataPlatformModelVersionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformModelVersions");
-        final ListAiDataPlatformModelVersionsRequest interceptedRequest = ListAiDataPlatformModelVersionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformModelVersionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformModelVersions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformModelVersionsResponse> transformer = ListAiDataPlatformModelVersionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListModelVersionsResponse> listModelVersions(ListModelVersionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListModelVersionsRequest, ListModelVersionsResponse> handler) {
+        LOG.trace("Called async listModelVersions");
+        final ListModelVersionsRequest interceptedRequest = ListModelVersionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListModelVersionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListModelVersions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListModelVersionsResponse> transformer = ListModelVersionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformModelVersionsRequest, ListAiDataPlatformModelVersionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListModelVersionsRequest, ListModelVersionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformModelVersionsRequest, ListAiDataPlatformModelVersionsResponse>, java.util.concurrent.Future<ListAiDataPlatformModelVersionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListModelVersionsRequest, ListModelVersionsResponse>, java.util.concurrent.Future<ListModelVersionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformModelVersionsRequest, ListAiDataPlatformModelVersionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListModelVersionsRequest, ListModelVersionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1054,20 +1054,20 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRegisteredModelsResponse> listAiDataPlatformRegisteredModels(ListAiDataPlatformRegisteredModelsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRegisteredModelsRequest, ListAiDataPlatformRegisteredModelsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRegisteredModels");
-        final ListAiDataPlatformRegisteredModelsRequest interceptedRequest = ListAiDataPlatformRegisteredModelsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRegisteredModelsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListAiDataPlatformRegisteredModels", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRegisteredModelsResponse> transformer = ListAiDataPlatformRegisteredModelsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRegisteredModelsResponse> listRegisteredModels(ListRegisteredModelsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRegisteredModelsRequest, ListRegisteredModelsResponse> handler) {
+        LOG.trace("Called async listRegisteredModels");
+        final ListRegisteredModelsRequest interceptedRequest = ListRegisteredModelsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRegisteredModelsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "ListRegisteredModels", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRegisteredModelsResponse> transformer = ListRegisteredModelsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRegisteredModelsRequest, ListAiDataPlatformRegisteredModelsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRegisteredModelsRequest, ListRegisteredModelsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRegisteredModelsRequest, ListAiDataPlatformRegisteredModelsResponse>, java.util.concurrent.Future<ListAiDataPlatformRegisteredModelsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRegisteredModelsRequest, ListRegisteredModelsResponse>, java.util.concurrent.Future<ListRegisteredModelsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRegisteredModelsRequest, ListAiDataPlatformRegisteredModelsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRegisteredModelsRequest, ListRegisteredModelsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1082,21 +1082,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<LogAiDataPlatformExperimentRunBatchResponse> logAiDataPlatformExperimentRunBatch(LogAiDataPlatformExperimentRunBatchRequest request, final com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunBatchRequest, LogAiDataPlatformExperimentRunBatchResponse> handler) {
-        LOG.trace("Called async logAiDataPlatformExperimentRunBatch");
-        final LogAiDataPlatformExperimentRunBatchRequest interceptedRequest = LogAiDataPlatformExperimentRunBatchConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunBatchConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<LogExperimentRunBatchResponse> logExperimentRunBatch(LogExperimentRunBatchRequest request, final com.oracle.bmc.responses.AsyncHandler<LogExperimentRunBatchRequest, LogExperimentRunBatchResponse> handler) {
+        LOG.trace("Called async logExperimentRunBatch");
+        final LogExperimentRunBatchRequest interceptedRequest = LogExperimentRunBatchConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunBatchConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunBatch", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunBatchResponse> transformer = LogAiDataPlatformExperimentRunBatchConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunBatch", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunBatchResponse> transformer = LogExperimentRunBatchConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunBatchRequest, LogAiDataPlatformExperimentRunBatchResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<LogExperimentRunBatchRequest, LogExperimentRunBatchResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunBatchRequest, LogAiDataPlatformExperimentRunBatchResponse>, java.util.concurrent.Future<LogAiDataPlatformExperimentRunBatchResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogExperimentRunBatchRequest, LogExperimentRunBatchResponse>, java.util.concurrent.Future<LogExperimentRunBatchResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getLogExperimentRunBatchDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogAiDataPlatformExperimentRunBatchRequest, LogAiDataPlatformExperimentRunBatchResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogExperimentRunBatchRequest, LogExperimentRunBatchResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1111,21 +1111,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<LogAiDataPlatformExperimentRunInputsResponse> logAiDataPlatformExperimentRunInputs(LogAiDataPlatformExperimentRunInputsRequest request, final com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunInputsRequest, LogAiDataPlatformExperimentRunInputsResponse> handler) {
-        LOG.trace("Called async logAiDataPlatformExperimentRunInputs");
-        final LogAiDataPlatformExperimentRunInputsRequest interceptedRequest = LogAiDataPlatformExperimentRunInputsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunInputsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<LogExperimentRunInputsResponse> logExperimentRunInputs(LogExperimentRunInputsRequest request, final com.oracle.bmc.responses.AsyncHandler<LogExperimentRunInputsRequest, LogExperimentRunInputsResponse> handler) {
+        LOG.trace("Called async logExperimentRunInputs");
+        final LogExperimentRunInputsRequest interceptedRequest = LogExperimentRunInputsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunInputsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunInputs", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunInputsResponse> transformer = LogAiDataPlatformExperimentRunInputsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunInputs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunInputsResponse> transformer = LogExperimentRunInputsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunInputsRequest, LogAiDataPlatformExperimentRunInputsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<LogExperimentRunInputsRequest, LogExperimentRunInputsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunInputsRequest, LogAiDataPlatformExperimentRunInputsResponse>, java.util.concurrent.Future<LogAiDataPlatformExperimentRunInputsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogExperimentRunInputsRequest, LogExperimentRunInputsResponse>, java.util.concurrent.Future<LogExperimentRunInputsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getLogExperimentRunInputsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogAiDataPlatformExperimentRunInputsRequest, LogAiDataPlatformExperimentRunInputsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogExperimentRunInputsRequest, LogExperimentRunInputsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1140,21 +1140,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<LogAiDataPlatformExperimentRunMetricResponse> logAiDataPlatformExperimentRunMetric(LogAiDataPlatformExperimentRunMetricRequest request, final com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunMetricRequest, LogAiDataPlatformExperimentRunMetricResponse> handler) {
-        LOG.trace("Called async logAiDataPlatformExperimentRunMetric");
-        final LogAiDataPlatformExperimentRunMetricRequest interceptedRequest = LogAiDataPlatformExperimentRunMetricConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunMetricConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<LogExperimentRunMetricResponse> logExperimentRunMetric(LogExperimentRunMetricRequest request, final com.oracle.bmc.responses.AsyncHandler<LogExperimentRunMetricRequest, LogExperimentRunMetricResponse> handler) {
+        LOG.trace("Called async logExperimentRunMetric");
+        final LogExperimentRunMetricRequest interceptedRequest = LogExperimentRunMetricConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunMetricConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunMetric", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunMetricResponse> transformer = LogAiDataPlatformExperimentRunMetricConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunMetric", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunMetricResponse> transformer = LogExperimentRunMetricConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunMetricRequest, LogAiDataPlatformExperimentRunMetricResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<LogExperimentRunMetricRequest, LogExperimentRunMetricResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunMetricRequest, LogAiDataPlatformExperimentRunMetricResponse>, java.util.concurrent.Future<LogAiDataPlatformExperimentRunMetricResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogExperimentRunMetricRequest, LogExperimentRunMetricResponse>, java.util.concurrent.Future<LogExperimentRunMetricResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getLogExperimentRunMetricDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogAiDataPlatformExperimentRunMetricRequest, LogAiDataPlatformExperimentRunMetricResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogExperimentRunMetricRequest, LogExperimentRunMetricResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1169,21 +1169,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<LogAiDataPlatformExperimentRunModelResponse> logAiDataPlatformExperimentRunModel(LogAiDataPlatformExperimentRunModelRequest request, final com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunModelRequest, LogAiDataPlatformExperimentRunModelResponse> handler) {
-        LOG.trace("Called async logAiDataPlatformExperimentRunModel");
-        final LogAiDataPlatformExperimentRunModelRequest interceptedRequest = LogAiDataPlatformExperimentRunModelConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunModelConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<LogExperimentRunModelResponse> logExperimentRunModel(LogExperimentRunModelRequest request, final com.oracle.bmc.responses.AsyncHandler<LogExperimentRunModelRequest, LogExperimentRunModelResponse> handler) {
+        LOG.trace("Called async logExperimentRunModel");
+        final LogExperimentRunModelRequest interceptedRequest = LogExperimentRunModelConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunModelConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunModel", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunModelResponse> transformer = LogAiDataPlatformExperimentRunModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunModel", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunModelResponse> transformer = LogExperimentRunModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunModelRequest, LogAiDataPlatformExperimentRunModelResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<LogExperimentRunModelRequest, LogExperimentRunModelResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunModelRequest, LogAiDataPlatformExperimentRunModelResponse>, java.util.concurrent.Future<LogAiDataPlatformExperimentRunModelResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogExperimentRunModelRequest, LogExperimentRunModelResponse>, java.util.concurrent.Future<LogExperimentRunModelResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getLogExperimentRunModelDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogAiDataPlatformExperimentRunModelRequest, LogAiDataPlatformExperimentRunModelResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogExperimentRunModelRequest, LogExperimentRunModelResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1198,21 +1198,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<LogAiDataPlatformExperimentRunParamResponse> logAiDataPlatformExperimentRunParam(LogAiDataPlatformExperimentRunParamRequest request, final com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunParamRequest, LogAiDataPlatformExperimentRunParamResponse> handler) {
-        LOG.trace("Called async logAiDataPlatformExperimentRunParam");
-        final LogAiDataPlatformExperimentRunParamRequest interceptedRequest = LogAiDataPlatformExperimentRunParamConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogAiDataPlatformExperimentRunParamConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<LogExperimentRunParamResponse> logExperimentRunParam(LogExperimentRunParamRequest request, final com.oracle.bmc.responses.AsyncHandler<LogExperimentRunParamRequest, LogExperimentRunParamResponse> handler) {
+        LOG.trace("Called async logExperimentRunParam");
+        final LogExperimentRunParamRequest interceptedRequest = LogExperimentRunParamConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = LogExperimentRunParamConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogAiDataPlatformExperimentRunParam", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, LogAiDataPlatformExperimentRunParamResponse> transformer = LogAiDataPlatformExperimentRunParamConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "LogExperimentRunParam", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, LogExperimentRunParamResponse> transformer = LogExperimentRunParamConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunParamRequest, LogAiDataPlatformExperimentRunParamResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<LogExperimentRunParamRequest, LogExperimentRunParamResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogAiDataPlatformExperimentRunParamRequest, LogAiDataPlatformExperimentRunParamResponse>, java.util.concurrent.Future<LogAiDataPlatformExperimentRunParamResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<LogExperimentRunParamRequest, LogExperimentRunParamResponse>, java.util.concurrent.Future<LogExperimentRunParamResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getLogExperimentRunParamDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogAiDataPlatformExperimentRunParamRequest, LogAiDataPlatformExperimentRunParamResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<LogExperimentRunParamRequest, LogExperimentRunParamResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1227,21 +1227,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RenameAiDataPlatformRegisteredModelResponse> renameAiDataPlatformRegisteredModel(RenameAiDataPlatformRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<RenameAiDataPlatformRegisteredModelRequest, RenameAiDataPlatformRegisteredModelResponse> handler) {
-        LOG.trace("Called async renameAiDataPlatformRegisteredModel");
-        final RenameAiDataPlatformRegisteredModelRequest interceptedRequest = RenameAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RenameAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RenameRegisteredModelResponse> renameRegisteredModel(RenameRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<RenameRegisteredModelRequest, RenameRegisteredModelResponse> handler) {
+        LOG.trace("Called async renameRegisteredModel");
+        final RenameRegisteredModelRequest interceptedRequest = RenameRegisteredModelConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RenameRegisteredModelConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RenameAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RenameAiDataPlatformRegisteredModelResponse> transformer = RenameAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RenameRegisteredModel", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RenameRegisteredModelResponse> transformer = RenameRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RenameAiDataPlatformRegisteredModelRequest, RenameAiDataPlatformRegisteredModelResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RenameRegisteredModelRequest, RenameRegisteredModelResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RenameAiDataPlatformRegisteredModelRequest, RenameAiDataPlatformRegisteredModelResponse>, java.util.concurrent.Future<RenameAiDataPlatformRegisteredModelResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RenameRegisteredModelRequest, RenameRegisteredModelResponse>, java.util.concurrent.Future<RenameRegisteredModelResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getRenameRegisteredModelDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RenameAiDataPlatformRegisteredModelRequest, RenameAiDataPlatformRegisteredModelResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RenameRegisteredModelRequest, RenameRegisteredModelResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1256,21 +1256,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RestoreAiDataPlatformExperimentResponse> restoreAiDataPlatformExperiment(RestoreAiDataPlatformExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<RestoreAiDataPlatformExperimentRequest, RestoreAiDataPlatformExperimentResponse> handler) {
-        LOG.trace("Called async restoreAiDataPlatformExperiment");
-        final RestoreAiDataPlatformExperimentRequest interceptedRequest = RestoreAiDataPlatformExperimentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RestoreExperimentResponse> restoreExperiment(RestoreExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRequest, RestoreExperimentResponse> handler) {
+        LOG.trace("Called async restoreExperiment");
+        final RestoreExperimentRequest interceptedRequest = RestoreExperimentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreExperimentConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RestoreAiDataPlatformExperimentResponse> transformer = RestoreAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreExperiment", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RestoreExperimentResponse> transformer = RestoreExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RestoreAiDataPlatformExperimentRequest, RestoreAiDataPlatformExperimentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRequest, RestoreExperimentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RestoreAiDataPlatformExperimentRequest, RestoreAiDataPlatformExperimentResponse>, java.util.concurrent.Future<RestoreAiDataPlatformExperimentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRequest, RestoreExperimentResponse>, java.util.concurrent.Future<RestoreExperimentResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getRestoreExperimentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RestoreAiDataPlatformExperimentRequest, RestoreAiDataPlatformExperimentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RestoreExperimentRequest, RestoreExperimentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1285,21 +1285,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RestoreAiDataPlatformExperimentRunResponse> restoreAiDataPlatformExperimentRun(RestoreAiDataPlatformExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<RestoreAiDataPlatformExperimentRunRequest, RestoreAiDataPlatformExperimentRunResponse> handler) {
-        LOG.trace("Called async restoreAiDataPlatformExperimentRun");
-        final RestoreAiDataPlatformExperimentRunRequest interceptedRequest = RestoreAiDataPlatformExperimentRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RestoreExperimentRunResponse> restoreExperimentRun(RestoreExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRunRequest, RestoreExperimentRunResponse> handler) {
+        LOG.trace("Called async restoreExperimentRun");
+        final RestoreExperimentRunRequest interceptedRequest = RestoreExperimentRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RestoreExperimentRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RestoreAiDataPlatformExperimentRunResponse> transformer = RestoreAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "RestoreExperimentRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RestoreExperimentRunResponse> transformer = RestoreExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RestoreAiDataPlatformExperimentRunRequest, RestoreAiDataPlatformExperimentRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRunRequest, RestoreExperimentRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RestoreAiDataPlatformExperimentRunRequest, RestoreAiDataPlatformExperimentRunResponse>, java.util.concurrent.Future<RestoreAiDataPlatformExperimentRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRunRequest, RestoreExperimentRunResponse>, java.util.concurrent.Future<RestoreExperimentRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getRestoreExperimentRunDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RestoreAiDataPlatformExperimentRunRequest, RestoreAiDataPlatformExperimentRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RestoreExperimentRunRequest, RestoreExperimentRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1314,21 +1314,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<SetAiDataPlatformExperimentRunTagResponse> setAiDataPlatformExperimentRunTag(SetAiDataPlatformExperimentRunTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformExperimentRunTagRequest, SetAiDataPlatformExperimentRunTagResponse> handler) {
-        LOG.trace("Called async setAiDataPlatformExperimentRunTag");
-        final SetAiDataPlatformExperimentRunTagRequest interceptedRequest = SetAiDataPlatformExperimentRunTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformExperimentRunTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<SetExperimentRunTagResponse> setExperimentRunTag(SetExperimentRunTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetExperimentRunTagRequest, SetExperimentRunTagResponse> handler) {
+        LOG.trace("Called async setExperimentRunTag");
+        final SetExperimentRunTagRequest interceptedRequest = SetExperimentRunTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetExperimentRunTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformExperimentRunTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformExperimentRunTagResponse> transformer = SetAiDataPlatformExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetExperimentRunTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SetExperimentRunTagResponse> transformer = SetExperimentRunTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformExperimentRunTagRequest, SetAiDataPlatformExperimentRunTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<SetExperimentRunTagRequest, SetExperimentRunTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformExperimentRunTagRequest, SetAiDataPlatformExperimentRunTagResponse>, java.util.concurrent.Future<SetAiDataPlatformExperimentRunTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetExperimentRunTagRequest, SetExperimentRunTagResponse>, java.util.concurrent.Future<SetExperimentRunTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getSetExperimentRunTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetAiDataPlatformExperimentRunTagRequest, SetAiDataPlatformExperimentRunTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetExperimentRunTagRequest, SetExperimentRunTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1343,21 +1343,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<SetAiDataPlatformExperimentTagResponse> setAiDataPlatformExperimentTag(SetAiDataPlatformExperimentTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformExperimentTagRequest, SetAiDataPlatformExperimentTagResponse> handler) {
-        LOG.trace("Called async setAiDataPlatformExperimentTag");
-        final SetAiDataPlatformExperimentTagRequest interceptedRequest = SetAiDataPlatformExperimentTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformExperimentTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<SetExperimentTagResponse> setExperimentTag(SetExperimentTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetExperimentTagRequest, SetExperimentTagResponse> handler) {
+        LOG.trace("Called async setExperimentTag");
+        final SetExperimentTagRequest interceptedRequest = SetExperimentTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetExperimentTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformExperimentTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformExperimentTagResponse> transformer = SetAiDataPlatformExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetExperimentTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SetExperimentTagResponse> transformer = SetExperimentTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformExperimentTagRequest, SetAiDataPlatformExperimentTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<SetExperimentTagRequest, SetExperimentTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformExperimentTagRequest, SetAiDataPlatformExperimentTagResponse>, java.util.concurrent.Future<SetAiDataPlatformExperimentTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetExperimentTagRequest, SetExperimentTagResponse>, java.util.concurrent.Future<SetExperimentTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getSetExperimentTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetAiDataPlatformExperimentTagRequest, SetAiDataPlatformExperimentTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetExperimentTagRequest, SetExperimentTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1372,21 +1372,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<SetAiDataPlatformModelVersionTagResponse> setAiDataPlatformModelVersionTag(SetAiDataPlatformModelVersionTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformModelVersionTagRequest, SetAiDataPlatformModelVersionTagResponse> handler) {
-        LOG.trace("Called async setAiDataPlatformModelVersionTag");
-        final SetAiDataPlatformModelVersionTagRequest interceptedRequest = SetAiDataPlatformModelVersionTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformModelVersionTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<SetModelVersionTagResponse> setModelVersionTag(SetModelVersionTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetModelVersionTagRequest, SetModelVersionTagResponse> handler) {
+        LOG.trace("Called async setModelVersionTag");
+        final SetModelVersionTagRequest interceptedRequest = SetModelVersionTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetModelVersionTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformModelVersionTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformModelVersionTagResponse> transformer = SetAiDataPlatformModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetModelVersionTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SetModelVersionTagResponse> transformer = SetModelVersionTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformModelVersionTagRequest, SetAiDataPlatformModelVersionTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<SetModelVersionTagRequest, SetModelVersionTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformModelVersionTagRequest, SetAiDataPlatformModelVersionTagResponse>, java.util.concurrent.Future<SetAiDataPlatformModelVersionTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetModelVersionTagRequest, SetModelVersionTagResponse>, java.util.concurrent.Future<SetModelVersionTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getSetModelVersionTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetAiDataPlatformModelVersionTagRequest, SetAiDataPlatformModelVersionTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetModelVersionTagRequest, SetModelVersionTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1401,21 +1401,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<SetAiDataPlatformRegisteredModelTagResponse> setAiDataPlatformRegisteredModelTag(SetAiDataPlatformRegisteredModelTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformRegisteredModelTagRequest, SetAiDataPlatformRegisteredModelTagResponse> handler) {
-        LOG.trace("Called async setAiDataPlatformRegisteredModelTag");
-        final SetAiDataPlatformRegisteredModelTagRequest interceptedRequest = SetAiDataPlatformRegisteredModelTagConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetAiDataPlatformRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<SetRegisteredModelTagResponse> setRegisteredModelTag(SetRegisteredModelTagRequest request, final com.oracle.bmc.responses.AsyncHandler<SetRegisteredModelTagRequest, SetRegisteredModelTagResponse> handler) {
+        LOG.trace("Called async setRegisteredModelTag");
+        final SetRegisteredModelTagRequest interceptedRequest = SetRegisteredModelTagConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SetRegisteredModelTagConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetAiDataPlatformRegisteredModelTag", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, SetAiDataPlatformRegisteredModelTagResponse> transformer = SetAiDataPlatformRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "SetRegisteredModelTag", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, SetRegisteredModelTagResponse> transformer = SetRegisteredModelTagConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformRegisteredModelTagRequest, SetAiDataPlatformRegisteredModelTagResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<SetRegisteredModelTagRequest, SetRegisteredModelTagResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetAiDataPlatformRegisteredModelTagRequest, SetAiDataPlatformRegisteredModelTagResponse>, java.util.concurrent.Future<SetAiDataPlatformRegisteredModelTagResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<SetRegisteredModelTagRequest, SetRegisteredModelTagResponse>, java.util.concurrent.Future<SetRegisteredModelTagResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getSetRegisteredModelTagDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetAiDataPlatformRegisteredModelTagRequest, SetAiDataPlatformRegisteredModelTagResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<SetRegisteredModelTagRequest, SetRegisteredModelTagResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1430,21 +1430,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<TransitionAiDataPlatformModelVersionStageResponse> transitionAiDataPlatformModelVersionStage(TransitionAiDataPlatformModelVersionStageRequest request, final com.oracle.bmc.responses.AsyncHandler<TransitionAiDataPlatformModelVersionStageRequest, TransitionAiDataPlatformModelVersionStageResponse> handler) {
-        LOG.trace("Called async transitionAiDataPlatformModelVersionStage");
-        final TransitionAiDataPlatformModelVersionStageRequest interceptedRequest = TransitionAiDataPlatformModelVersionStageConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = TransitionAiDataPlatformModelVersionStageConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<TransitionModelVersionStageResponse> transitionModelVersionStage(TransitionModelVersionStageRequest request, final com.oracle.bmc.responses.AsyncHandler<TransitionModelVersionStageRequest, TransitionModelVersionStageResponse> handler) {
+        LOG.trace("Called async transitionModelVersionStage");
+        final TransitionModelVersionStageRequest interceptedRequest = TransitionModelVersionStageConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = TransitionModelVersionStageConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "TransitionAiDataPlatformModelVersionStage", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, TransitionAiDataPlatformModelVersionStageResponse> transformer = TransitionAiDataPlatformModelVersionStageConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "TransitionModelVersionStage", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, TransitionModelVersionStageResponse> transformer = TransitionModelVersionStageConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<TransitionAiDataPlatformModelVersionStageRequest, TransitionAiDataPlatformModelVersionStageResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<TransitionModelVersionStageRequest, TransitionModelVersionStageResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<TransitionAiDataPlatformModelVersionStageRequest, TransitionAiDataPlatformModelVersionStageResponse>, java.util.concurrent.Future<TransitionAiDataPlatformModelVersionStageResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<TransitionModelVersionStageRequest, TransitionModelVersionStageResponse>, java.util.concurrent.Future<TransitionModelVersionStageResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getTransitionModelVersionStageDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<TransitionAiDataPlatformModelVersionStageRequest, TransitionAiDataPlatformModelVersionStageResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<TransitionModelVersionStageRequest, TransitionModelVersionStageResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1459,21 +1459,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformExperimentResponse> updateAiDataPlatformExperiment(UpdateAiDataPlatformExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRequest, UpdateAiDataPlatformExperimentResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformExperiment");
-        final UpdateAiDataPlatformExperimentRequest interceptedRequest = UpdateAiDataPlatformExperimentConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateExperimentResponse> updateExperiment(UpdateExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRequest, UpdateExperimentResponse> handler) {
+        LOG.trace("Called async updateExperiment");
+        final UpdateExperimentRequest interceptedRequest = UpdateExperimentConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperiment", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentResponse> transformer = UpdateAiDataPlatformExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperiment", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentResponse> transformer = UpdateExperimentConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRequest, UpdateAiDataPlatformExperimentResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRequest, UpdateExperimentResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRequest, UpdateAiDataPlatformExperimentResponse>, java.util.concurrent.Future<UpdateAiDataPlatformExperimentResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRequest, UpdateExperimentResponse>, java.util.concurrent.Future<UpdateExperimentResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateExperimentDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformExperimentRequest, UpdateAiDataPlatformExperimentResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateExperimentRequest, UpdateExperimentResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1488,21 +1488,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformExperimentRunResponse> updateAiDataPlatformExperimentRun(UpdateAiDataPlatformExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRunRequest, UpdateAiDataPlatformExperimentRunResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformExperimentRun");
-        final UpdateAiDataPlatformExperimentRunRequest interceptedRequest = UpdateAiDataPlatformExperimentRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateExperimentRunResponse> updateExperimentRun(UpdateExperimentRunRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRunRequest, UpdateExperimentRunResponse> handler) {
+        LOG.trace("Called async updateExperimentRun");
+        final UpdateExperimentRunRequest interceptedRequest = UpdateExperimentRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperimentRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentRunResponse> transformer = UpdateAiDataPlatformExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperimentRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentRunResponse> transformer = UpdateExperimentRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRunRequest, UpdateAiDataPlatformExperimentRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRunRequest, UpdateExperimentRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRunRequest, UpdateAiDataPlatformExperimentRunResponse>, java.util.concurrent.Future<UpdateAiDataPlatformExperimentRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRunRequest, UpdateExperimentRunResponse>, java.util.concurrent.Future<UpdateExperimentRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateExperimentRunDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformExperimentRunRequest, UpdateAiDataPlatformExperimentRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateExperimentRunRequest, UpdateExperimentRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1517,21 +1517,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformExperimentRunTagsResponse> updateAiDataPlatformExperimentRunTags(UpdateAiDataPlatformExperimentRunTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRunTagsRequest, UpdateAiDataPlatformExperimentRunTagsResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformExperimentRunTags");
-        final UpdateAiDataPlatformExperimentRunTagsRequest interceptedRequest = UpdateAiDataPlatformExperimentRunTagsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentRunTagsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateExperimentRunTagsResponse> updateExperimentRunTags(UpdateExperimentRunTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRunTagsRequest, UpdateExperimentRunTagsResponse> handler) {
+        LOG.trace("Called async updateExperimentRunTags");
+        final UpdateExperimentRunTagsRequest interceptedRequest = UpdateExperimentRunTagsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentRunTagsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperimentRunTags", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentRunTagsResponse> transformer = UpdateAiDataPlatformExperimentRunTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperimentRunTags", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentRunTagsResponse> transformer = UpdateExperimentRunTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRunTagsRequest, UpdateAiDataPlatformExperimentRunTagsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRunTagsRequest, UpdateExperimentRunTagsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentRunTagsRequest, UpdateAiDataPlatformExperimentRunTagsResponse>, java.util.concurrent.Future<UpdateAiDataPlatformExperimentRunTagsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateExperimentRunTagsRequest, UpdateExperimentRunTagsResponse>, java.util.concurrent.Future<UpdateExperimentRunTagsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateExperimentRunTagsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformExperimentRunTagsRequest, UpdateAiDataPlatformExperimentRunTagsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateExperimentRunTagsRequest, UpdateExperimentRunTagsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1546,21 +1546,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformExperimentTagsResponse> updateAiDataPlatformExperimentTags(UpdateAiDataPlatformExperimentTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentTagsRequest, UpdateAiDataPlatformExperimentTagsResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformExperimentTags");
-        final UpdateAiDataPlatformExperimentTagsRequest interceptedRequest = UpdateAiDataPlatformExperimentTagsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformExperimentTagsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateExperimentTagsResponse> updateExperimentTags(UpdateExperimentTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateExperimentTagsRequest, UpdateExperimentTagsResponse> handler) {
+        LOG.trace("Called async updateExperimentTags");
+        final UpdateExperimentTagsRequest interceptedRequest = UpdateExperimentTagsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateExperimentTagsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformExperimentTags", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformExperimentTagsResponse> transformer = UpdateAiDataPlatformExperimentTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateExperimentTags", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateExperimentTagsResponse> transformer = UpdateExperimentTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentTagsRequest, UpdateAiDataPlatformExperimentTagsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateExperimentTagsRequest, UpdateExperimentTagsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformExperimentTagsRequest, UpdateAiDataPlatformExperimentTagsResponse>, java.util.concurrent.Future<UpdateAiDataPlatformExperimentTagsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateExperimentTagsRequest, UpdateExperimentTagsResponse>, java.util.concurrent.Future<UpdateExperimentTagsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateExperimentTagsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformExperimentTagsRequest, UpdateAiDataPlatformExperimentTagsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateExperimentTagsRequest, UpdateExperimentTagsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1575,21 +1575,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformModelVersionResponse> updateAiDataPlatformModelVersion(UpdateAiDataPlatformModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformModelVersionRequest, UpdateAiDataPlatformModelVersionResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformModelVersion");
-        final UpdateAiDataPlatformModelVersionRequest interceptedRequest = UpdateAiDataPlatformModelVersionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformModelVersionConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateModelVersionResponse> updateModelVersion(UpdateModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateModelVersionRequest, UpdateModelVersionResponse> handler) {
+        LOG.trace("Called async updateModelVersion");
+        final UpdateModelVersionRequest interceptedRequest = UpdateModelVersionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateModelVersionConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformModelVersion", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformModelVersionResponse> transformer = UpdateAiDataPlatformModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateModelVersion", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateModelVersionResponse> transformer = UpdateModelVersionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformModelVersionRequest, UpdateAiDataPlatformModelVersionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateModelVersionRequest, UpdateModelVersionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformModelVersionRequest, UpdateAiDataPlatformModelVersionResponse>, java.util.concurrent.Future<UpdateAiDataPlatformModelVersionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateModelVersionRequest, UpdateModelVersionResponse>, java.util.concurrent.Future<UpdateModelVersionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateModelVersionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformModelVersionRequest, UpdateAiDataPlatformModelVersionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateModelVersionRequest, UpdateModelVersionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1604,21 +1604,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformModelVersionTagsResponse> updateAiDataPlatformModelVersionTags(UpdateAiDataPlatformModelVersionTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformModelVersionTagsRequest, UpdateAiDataPlatformModelVersionTagsResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformModelVersionTags");
-        final UpdateAiDataPlatformModelVersionTagsRequest interceptedRequest = UpdateAiDataPlatformModelVersionTagsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformModelVersionTagsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateModelVersionTagsResponse> updateModelVersionTags(UpdateModelVersionTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateModelVersionTagsRequest, UpdateModelVersionTagsResponse> handler) {
+        LOG.trace("Called async updateModelVersionTags");
+        final UpdateModelVersionTagsRequest interceptedRequest = UpdateModelVersionTagsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateModelVersionTagsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformModelVersionTags", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformModelVersionTagsResponse> transformer = UpdateAiDataPlatformModelVersionTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateModelVersionTags", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateModelVersionTagsResponse> transformer = UpdateModelVersionTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformModelVersionTagsRequest, UpdateAiDataPlatformModelVersionTagsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateModelVersionTagsRequest, UpdateModelVersionTagsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformModelVersionTagsRequest, UpdateAiDataPlatformModelVersionTagsResponse>, java.util.concurrent.Future<UpdateAiDataPlatformModelVersionTagsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateModelVersionTagsRequest, UpdateModelVersionTagsResponse>, java.util.concurrent.Future<UpdateModelVersionTagsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateModelVersionTagsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformModelVersionTagsRequest, UpdateAiDataPlatformModelVersionTagsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateModelVersionTagsRequest, UpdateModelVersionTagsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1633,21 +1633,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformRegisteredModelResponse> updateAiDataPlatformRegisteredModel(UpdateAiDataPlatformRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRegisteredModelRequest, UpdateAiDataPlatformRegisteredModelResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformRegisteredModel");
-        final UpdateAiDataPlatformRegisteredModelRequest interceptedRequest = UpdateAiDataPlatformRegisteredModelConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRegisteredModelConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateRegisteredModelResponse> updateRegisteredModel(UpdateRegisteredModelRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateRegisteredModelRequest, UpdateRegisteredModelResponse> handler) {
+        LOG.trace("Called async updateRegisteredModel");
+        final UpdateRegisteredModelRequest interceptedRequest = UpdateRegisteredModelConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRegisteredModelConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformRegisteredModel", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRegisteredModelResponse> transformer = UpdateAiDataPlatformRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateRegisteredModel", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateRegisteredModelResponse> transformer = UpdateRegisteredModelConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRegisteredModelRequest, UpdateAiDataPlatformRegisteredModelResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateRegisteredModelRequest, UpdateRegisteredModelResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRegisteredModelRequest, UpdateAiDataPlatformRegisteredModelResponse>, java.util.concurrent.Future<UpdateAiDataPlatformRegisteredModelResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateRegisteredModelRequest, UpdateRegisteredModelResponse>, java.util.concurrent.Future<UpdateRegisteredModelResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateRegisteredModelDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformRegisteredModelRequest, UpdateAiDataPlatformRegisteredModelResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateRegisteredModelRequest, UpdateRegisteredModelResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -1662,21 +1662,21 @@ public class MLOpsAsyncClient implements MLOpsAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformRegisteredModelTagsResponse> updateAiDataPlatformRegisteredModelTags(UpdateAiDataPlatformRegisteredModelTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRegisteredModelTagsRequest, UpdateAiDataPlatformRegisteredModelTagsResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformRegisteredModelTags");
-        final UpdateAiDataPlatformRegisteredModelTagsRequest interceptedRequest = UpdateAiDataPlatformRegisteredModelTagsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformRegisteredModelTagsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<UpdateRegisteredModelTagsResponse> updateRegisteredModelTags(UpdateRegisteredModelTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateRegisteredModelTagsRequest, UpdateRegisteredModelTagsResponse> handler) {
+        LOG.trace("Called async updateRegisteredModelTags");
+        final UpdateRegisteredModelTagsRequest interceptedRequest = UpdateRegisteredModelTagsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateRegisteredModelTagsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateAiDataPlatformRegisteredModelTags", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformRegisteredModelTagsResponse> transformer = UpdateAiDataPlatformRegisteredModelTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("MLOps", "UpdateRegisteredModelTags", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateRegisteredModelTagsResponse> transformer = UpdateRegisteredModelTagsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRegisteredModelTagsRequest, UpdateAiDataPlatformRegisteredModelTagsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateRegisteredModelTagsRequest, UpdateRegisteredModelTagsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformRegisteredModelTagsRequest, UpdateAiDataPlatformRegisteredModelTagsResponse>, java.util.concurrent.Future<UpdateAiDataPlatformRegisteredModelTagsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateRegisteredModelTagsRequest, UpdateRegisteredModelTagsResponse>, java.util.concurrent.Future<UpdateRegisteredModelTagsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getUpdateRegisteredModelTagsDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformRegisteredModelTagsRequest, UpdateAiDataPlatformRegisteredModelTagsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateRegisteredModelTagsRequest, UpdateRegisteredModelTagsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

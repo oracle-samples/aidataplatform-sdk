@@ -67,7 +67,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformRecipientResponse createAiDataPlatformRecipient(CreateAiDataPlatformRecipientRequest request);
+    CreateRecipientResponse createRecipient(CreateRecipientRequest request);
     
     /**
      * Create a Delta Share protocol in AI Data Platform Workbench.
@@ -78,7 +78,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformShareResponse createAiDataPlatformShare(CreateAiDataPlatformShareRequest request);
+    CreateShareResponse createShare(CreateShareRequest request);
     
     /**
      * Deletes a Delta Share recipient from an AI Data Platform Workbench.
@@ -88,7 +88,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformRecipientResponse deleteAiDataPlatformRecipient(DeleteAiDataPlatformRecipientRequest request);
+    DeleteRecipientResponse deleteRecipient(DeleteRecipientRequest request);
     
     /**
      * Deletes a Delta Share from an AI Data Platform Workbench.
@@ -98,7 +98,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformShareResponse deleteAiDataPlatformShare(DeleteAiDataPlatformShareRequest request);
+    DeleteShareResponse deleteShare(DeleteShareRequest request);
     
     /**
      * Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
@@ -108,7 +108,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformRecipientResponse getAiDataPlatformRecipient(GetAiDataPlatformRecipientRequest request);
+    GetRecipientResponse getRecipient(GetRecipientRequest request);
     
     /**
      * Gets detailed information about a Delta Share.
@@ -118,7 +118,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformShareResponse getAiDataPlatformShare(GetAiDataPlatformShareRequest request);
+    GetShareResponse getShare(GetShareRequest request);
     
     /**
      * Gets a detailed list of Delta Share recipient permissions.
@@ -129,7 +129,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRecipientPermissionsResponse listAiDataPlatformRecipientPermissions(ListAiDataPlatformRecipientPermissionsRequest request);
+    ListRecipientPermissionsResponse listRecipientPermissions(ListRecipientPermissionsRequest request);
     
     /**
      * Returns a list of Delta Shares that the specified recipient has been granted access to.
@@ -140,7 +140,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRecipientSharesResponse listAiDataPlatformRecipientShares(ListAiDataPlatformRecipientSharesRequest request);
+    ListRecipientSharesResponse listRecipientShares(ListRecipientSharesRequest request);
     
     /**
      * Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
@@ -151,7 +151,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRecipientsResponse listAiDataPlatformRecipients(ListAiDataPlatformRecipientsRequest request);
+    ListRecipientsResponse listRecipients(ListRecipientsRequest request);
     
     /**
      * Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
@@ -162,7 +162,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformShareDataAssetsResponse listAiDataPlatformShareDataAssets(ListAiDataPlatformShareDataAssetsRequest request);
+    ListShareDataAssetsResponse listShareDataAssets(ListShareDataAssetsRequest request);
     
     /**
      * Returns a list of Delta Shares that the specified recipient has been granted access to.
@@ -173,7 +173,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformSharePermissionsResponse listAiDataPlatformSharePermissions(ListAiDataPlatformSharePermissionsRequest request);
+    ListSharePermissionsResponse listSharePermissions(ListSharePermissionsRequest request);
     
     /**
      * Gets a list of recipients that have been given access on the specified Delta Share.
@@ -184,7 +184,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformShareRecipientsResponse listAiDataPlatformShareRecipients(ListAiDataPlatformShareRecipientsRequest request);
+    ListShareRecipientsResponse listShareRecipients(ListShareRecipientsRequest request);
     
     /**
      * Gets a list of Delta Shares in an AI Data Platform Workbench instance.
@@ -195,7 +195,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformSharesResponse listAiDataPlatformShares(ListAiDataPlatformSharesRequest request);
+    ListSharesResponse listShares(ListSharesRequest request);
     
     /**
      * Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
@@ -205,7 +205,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformRecipientPermissionResponse manageAiDataPlatformRecipientPermission(ManageAiDataPlatformRecipientPermissionRequest request);
+    ManageRecipientPermissionResponse manageRecipientPermission(ManageRecipientPermissionRequest request);
     
     /**
      * Updates consumer-side access on a share for a recipient. A provider user can grant or revoke access on a particular share for a given recipient.
@@ -215,7 +215,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformShareAccessResponse manageAiDataPlatformShareAccess(ManageAiDataPlatformShareAccessRequest request);
+    ManageShareAccessResponse manageShareAccess(ManageShareAccessRequest request);
     
     /**
      * Updates data assets on a Delta Share with the provided information.
@@ -225,7 +225,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformShareDataAssetResponse manageAiDataPlatformShareDataAsset(ManageAiDataPlatformShareDataAssetRequest request);
+    ManageShareDataAssetResponse manageShareDataAsset(ManageShareDataAssetRequest request);
     
     /**
      * Updates permissions on a Delta Share.
@@ -235,7 +235,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformSharePermissionResponse manageAiDataPlatformSharePermission(ManageAiDataPlatformSharePermissionRequest request);
+    ManageSharePermissionResponse manageSharePermission(ManageSharePermissionRequest request);
     
     /**
      * Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
@@ -245,7 +245,7 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformRecipientResponse updateAiDataPlatformRecipient(UpdateAiDataPlatformRecipientRequest request);
+    UpdateRecipientResponse updateRecipient(UpdateRecipientRequest request);
     
     /**
      * Update a Delta Share with the provided metadata.
@@ -255,7 +255,13 @@ public interface DeltaShare extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformShareResponse updateAiDataPlatformShare(UpdateAiDataPlatformShareRequest request);
+    UpdateShareResponse updateShare(UpdateShareRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    DeltaShareWaiters getWaiters();
 }

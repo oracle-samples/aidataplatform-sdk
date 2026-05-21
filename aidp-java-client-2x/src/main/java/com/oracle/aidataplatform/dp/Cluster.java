@@ -66,7 +66,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformClusterResponse createAiDataPlatformCluster(CreateAiDataPlatformClusterRequest request);
+    CreateClusterResponse createCluster(CreateClusterRequest request);
     
     /**
      * Deletes a cluster from a workspace.
@@ -76,7 +76,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformClusterResponse deleteAiDataPlatformCluster(DeleteAiDataPlatformClusterRequest request);
+    DeleteClusterResponse deleteCluster(DeleteClusterRequest request);
     
     /**
      * Downloads logs within the specified cluster and time range.
@@ -89,7 +89,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DownloadAiDataPlatformClusterLogsResponse downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request);
+    DownloadClusterLogsResponse downloadClusterLogs(DownloadClusterLogsRequest request);
     
     /**
      * Returns detailed information about a cluster.
@@ -99,7 +99,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformClusterResponse getAiDataPlatformCluster(GetAiDataPlatformClusterRequest request);
+    GetClusterResponse getCluster(GetClusterRequest request);
     
     /**
      * Gets information about the master catalog default cluster.
@@ -109,7 +109,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformDefaultClusterResponse getAiDataPlatformDefaultCluster(GetAiDataPlatformDefaultClusterRequest request);
+    GetDefaultClusterResponse getDefaultCluster(GetDefaultClusterRequest request);
     
     /**
      * Gets a list of libraries installed on a cluster.
@@ -119,7 +119,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformClusterLibrariesResponse listAiDataPlatformClusterLibraries(ListAiDataPlatformClusterLibrariesRequest request);
+    ListClusterLibrariesResponse listClusterLibraries(ListClusterLibrariesRequest request);
     
     /**
      * Return a list of permissions for a given cluster.
@@ -129,7 +129,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformClusterPermissionsResponse listAiDataPlatformClusterPermissions(ListAiDataPlatformClusterPermissionsRequest request);
+    ListClusterPermissionsResponse listClusterPermissions(ListClusterPermissionsRequest request);
     
     /**
      * Returns a list of all clusters in a given workspace.
@@ -139,7 +139,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformClustersResponse listAiDataPlatformClusters(ListAiDataPlatformClustersRequest request);
+    ListClustersResponse listClusters(ListClustersRequest request);
     
     /**
      * Updates the permissions for a given cluster.
@@ -149,7 +149,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ManageAiDataPlatformClusterPermissionResponse manageAiDataPlatformClusterPermission(ManageAiDataPlatformClusterPermissionRequest request);
+    ManageClusterPermissionResponse manageClusterPermission(ManageClusterPermissionRequest request);
     
     /**
      * Updates libraries of a cluster with the provided patches.
@@ -159,7 +159,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    PatchAiDataPlatformClusterLibraryResponse patchAiDataPlatformClusterLibrary(PatchAiDataPlatformClusterLibraryRequest request);
+    PatchClusterLibraryResponse patchClusterLibrary(PatchClusterLibraryRequest request);
     
     /**
      * Restarts a running cluster.
@@ -169,7 +169,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RestartAiDataPlatformClusterResponse restartAiDataPlatformCluster(RestartAiDataPlatformClusterRequest request);
+    RestartClusterResponse restartCluster(RestartClusterRequest request);
     
     /**
      * Searches logs within the specified cluster and time range. Supports pagination and filtering.
@@ -180,7 +180,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SearchAiDataPlatformClusterLogsResponse searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request);
+    SearchClusterLogsResponse searchClusterLogs(SearchClusterLogsRequest request);
     
     /**
      * Starts a cluster that has halted operation.
@@ -190,7 +190,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    StartAiDataPlatformClusterResponse startAiDataPlatformCluster(StartAiDataPlatformClusterRequest request);
+    StartClusterResponse startCluster(StartClusterRequest request);
     
     /**
      * Stops an active cluster.
@@ -200,7 +200,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    StopAiDataPlatformClusterResponse stopAiDataPlatformCluster(StopAiDataPlatformClusterRequest request);
+    StopClusterResponse stopCluster(StopClusterRequest request);
     
     /**
      * Provides summarized compute metrics for a compute cluster in the given workspace.
@@ -213,7 +213,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    SummarizeAiDataPlatformMetricsDataResponse summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request);
+    SummarizeMetricsDataResponse summarizeMetricsData(SummarizeMetricsDataRequest request);
     
     /**
      * Update the details of a given cluster.
@@ -223,7 +223,7 @@ public interface Cluster extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformClusterResponse updateAiDataPlatformCluster(UpdateAiDataPlatformClusterRequest request);
+    UpdateClusterResponse updateCluster(UpdateClusterRequest request);
     
 
 }

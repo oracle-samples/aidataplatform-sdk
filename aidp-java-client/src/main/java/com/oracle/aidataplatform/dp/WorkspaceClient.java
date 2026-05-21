@@ -20,11 +20,12 @@ public class WorkspaceClient extends com.oracle.bmc.http.internal.BaseSyncClient
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(WorkspaceClient.class);
 
 
+    private final WorkspaceWaiters waiters;
 
     WorkspaceClient(
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider
-            ) {
+            , java.util.concurrent.ExecutorService executorService) {
         super(
             builder,
             authenticationDetailsProvider,
@@ -32,7 +33,15 @@ public class WorkspaceClient extends com.oracle.bmc.http.internal.BaseSyncClient
             
         );
 
-    }
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Workspace-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new WorkspaceWaiters(executorService, this);
+            }
 
 
     
@@ -49,6 +58,8 @@ public class WorkspaceClient extends com.oracle.bmc.http.internal.BaseSyncClient
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, WorkspaceClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             final String packageName = "dp";
@@ -57,12 +68,22 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         }
 
         /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
+        }
+
+        /**
          * Build the client.
          * @param authenticationDetailsProvider authentication details provider
          * @return the client
          */
         public WorkspaceClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
-            return new WorkspaceClient(this, authenticationDetailsProvider);
+            return new WorkspaceClient(this, authenticationDetailsProvider, executorService);
         }
     }
 
@@ -78,7 +99,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CreateAiDataPlatformGitFolderResponse createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request) {
+    public CreateGitFolderResponse createGitFolder(CreateGitFolderRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -87,11 +108,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CreateAiDataPlatformGitFolderResponse::builder)
-        .logger(LOG, "createAiDataPlatformGitFolder")
-        .serviceDetails("Workspace", "CreateAiDataPlatformGitFolder", "")
+return clientCall(request, CreateGitFolderResponse::builder)
+        .logger(LOG, "createGitFolder")
+        .serviceDetails("Workspace", "CreateGitFolder", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformGitFolderRequest::builder)
+        .requestBuilder(CreateGitFolderRequest::builder)
         
         
         .basePath("/20260430")
@@ -108,31 +129,31 @@ return clientCall(request, CreateAiDataPlatformGitFolderResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.GitFolder.class, CreateAiDataPlatformGitFolderResponse.Builder::gitFolder)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitFolder.class, CreateGitFolderResponse.Builder::gitFolder)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformGitFolderResponse.Builder::aidpAsyncOperationKey)
+            CreateGitFolderResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformGitFolderResponse.Builder::opcRequestId)
+            CreateGitFolderResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformGitFolderResponse.Builder::etag)
+            CreateGitFolderResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformWorkspaceResponse createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request) {
+    public CreateWorkspaceResponse createWorkspace(CreateWorkspaceRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateWorkspaceDetails(), "createWorkspaceDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformWorkspaceResponse::builder)
-        .logger(LOG, "createAiDataPlatformWorkspace")
-        .serviceDetails("Workspace", "CreateAiDataPlatformWorkspace", "")
+return clientCall(request, CreateWorkspaceResponse::builder)
+        .logger(LOG, "createWorkspace")
+        .serviceDetails("Workspace", "CreateWorkspace", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformWorkspaceRequest::builder)
+        .requestBuilder(CreateWorkspaceRequest::builder)
         
         
         .basePath("/20260430")
@@ -145,35 +166,35 @@ return clientCall(request, CreateAiDataPlatformWorkspaceResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, CreateAiDataPlatformWorkspaceResponse.Builder::workspace)
+            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, CreateWorkspaceResponse.Builder::workspace)
                 .handleResponseHeaderString("location", 
-            CreateAiDataPlatformWorkspaceResponse.Builder::location)
+            CreateWorkspaceResponse.Builder::location)
                 .handleResponseHeaderString("content-location", 
-            CreateAiDataPlatformWorkspaceResponse.Builder::contentLocation)
+            CreateWorkspaceResponse.Builder::contentLocation)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformWorkspaceResponse.Builder::etag)
+            CreateWorkspaceResponse.Builder::etag)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformWorkspaceResponse.Builder::aidpAsyncOperationKey)
+            CreateWorkspaceResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformWorkspaceResponse.Builder::opcRequestId)
+            CreateWorkspaceResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformWorkspaceResponse deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request) {
+    public DeleteWorkspaceResponse deleteWorkspace(DeleteWorkspaceRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformWorkspaceResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformWorkspace")
-        .serviceDetails("Workspace", "DeleteAiDataPlatformWorkspace", "")
+return clientCall(request, DeleteWorkspaceResponse::builder)
+        .logger(LOG, "deleteWorkspace")
+        .serviceDetails("Workspace", "DeleteWorkspace", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformWorkspaceRequest::builder)
+        .requestBuilder(DeleteWorkspaceRequest::builder)
         
         
         .basePath("/20260430")
@@ -189,27 +210,27 @@ return clientCall(request, DeleteAiDataPlatformWorkspaceResponse::builder)
         
         
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeleteAiDataPlatformWorkspaceResponse.Builder::aidpAsyncOperationKey)
+            DeleteWorkspaceResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformWorkspaceResponse.Builder::opcRequestId)
+            DeleteWorkspaceResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformWorkspaceResponse getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request) {
+    public GetWorkspaceResponse getWorkspace(GetWorkspaceRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformWorkspaceResponse::builder)
-        .logger(LOG, "getAiDataPlatformWorkspace")
-        .serviceDetails("Workspace", "GetAiDataPlatformWorkspace", "")
+return clientCall(request, GetWorkspaceResponse::builder)
+        .logger(LOG, "getWorkspace")
+        .serviceDetails("Workspace", "GetWorkspace", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformWorkspaceRequest::builder)
+        .requestBuilder(GetWorkspaceRequest::builder)
         
         
         .basePath("/20260430")
@@ -220,27 +241,27 @@ return clientCall(request, GetAiDataPlatformWorkspaceResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, GetAiDataPlatformWorkspaceResponse.Builder::workspace)
+            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, GetWorkspaceResponse.Builder::workspace)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformWorkspaceResponse.Builder::etag)
+            GetWorkspaceResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformWorkspaceResponse.Builder::opcRequestId)
+            GetWorkspaceResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformCreateWorkspacePermissionsResponse listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request) {
+    public ListCreateWorkspacePermissionsResponse listCreateWorkspacePermissions(ListCreateWorkspacePermissionsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformCreateWorkspacePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformCreateWorkspacePermissions")
-        .serviceDetails("Workspace", "ListAiDataPlatformCreateWorkspacePermissions", "")
+return clientCall(request, ListCreateWorkspacePermissionsResponse::builder)
+        .logger(LOG, "listCreateWorkspacePermissions")
+        .serviceDetails("Workspace", "ListCreateWorkspacePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformCreateWorkspacePermissionsRequest::builder)
+        .requestBuilder(ListCreateWorkspacePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -267,29 +288,29 @@ return clientCall(request, ListAiDataPlatformCreateWorkspacePermissionsResponse:
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateWorkspacePermissionCollection.class, ListAiDataPlatformCreateWorkspacePermissionsResponse.Builder::createWorkspacePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateWorkspacePermissionCollection.class, ListCreateWorkspacePermissionsResponse.Builder::createWorkspacePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformCreateWorkspacePermissionsResponse.Builder::opcRequestId)
+            ListCreateWorkspacePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformCreateWorkspacePermissionsResponse.Builder::opcNextPage)
+            ListCreateWorkspacePermissionsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformWorkspacePermissionsResponse listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request) {
+    public ListWorkspacePermissionsResponse listWorkspacePermissions(ListWorkspacePermissionsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformWorkspacePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformWorkspacePermissions")
-        .serviceDetails("Workspace", "ListAiDataPlatformWorkspacePermissions", "")
+return clientCall(request, ListWorkspacePermissionsResponse::builder)
+        .logger(LOG, "listWorkspacePermissions")
+        .serviceDetails("Workspace", "ListWorkspacePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformWorkspacePermissionsRequest::builder)
+        .requestBuilder(ListWorkspacePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -316,27 +337,27 @@ return clientCall(request, ListAiDataPlatformWorkspacePermissionsResponse::build
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspacePermissionCollection.class, ListAiDataPlatformWorkspacePermissionsResponse.Builder::workspacePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspacePermissionCollection.class, ListWorkspacePermissionsResponse.Builder::workspacePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformWorkspacePermissionsResponse.Builder::opcRequestId)
+            ListWorkspacePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformWorkspacePermissionsResponse.Builder::opcNextPage)
+            ListWorkspacePermissionsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformWorkspacesResponse listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request) {
+    public ListWorkspacesResponse listWorkspaces(ListWorkspacesRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformWorkspacesResponse::builder)
-        .logger(LOG, "listAiDataPlatformWorkspaces")
-        .serviceDetails("Workspace", "ListAiDataPlatformWorkspaces", "")
+return clientCall(request, ListWorkspacesResponse::builder)
+        .logger(LOG, "listWorkspaces")
+        .serviceDetails("Workspace", "ListWorkspaces", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformWorkspacesRequest::builder)
+        .requestBuilder(ListWorkspacesRequest::builder)
         
         
         .basePath("/20260430")
@@ -383,29 +404,29 @@ return clientCall(request, ListAiDataPlatformWorkspacesResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceCollection.class, ListAiDataPlatformWorkspacesResponse.Builder::workspaceCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.WorkspaceCollection.class, ListWorkspacesResponse.Builder::workspaceCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformWorkspacesResponse.Builder::opcRequestId)
+            ListWorkspacesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformWorkspacesResponse.Builder::opcNextPage)
+            ListWorkspacesResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ManageAiDataPlatformCreateWorkspacePermissionResponse manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request) {
+    public ManageCreateWorkspacePermissionResponse manageCreateWorkspacePermission(ManageCreateWorkspacePermissionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getManageCreateWorkspacePermissionDetails(), "manageCreateWorkspacePermissionDetails is required");
         
 
 
-return clientCall(request, ManageAiDataPlatformCreateWorkspacePermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformCreateWorkspacePermission")
-        .serviceDetails("Workspace", "ManageAiDataPlatformCreateWorkspacePermission", "")
+return clientCall(request, ManageCreateWorkspacePermissionResponse::builder)
+        .logger(LOG, "manageCreateWorkspacePermission")
+        .serviceDetails("Workspace", "ManageCreateWorkspacePermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformCreateWorkspacePermissionRequest::builder)
+        .requestBuilder(ManageCreateWorkspacePermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -421,14 +442,14 @@ return clientCall(request, ManageAiDataPlatformCreateWorkspacePermissionResponse
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformCreateWorkspacePermissionResponse.Builder::opcRequestId)
+            ManageCreateWorkspacePermissionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ManageAiDataPlatformWorkspacePermissionResponse manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request) {
+    public ManageWorkspacePermissionResponse manageWorkspacePermission(ManageWorkspacePermissionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -437,11 +458,11 @@ return clientCall(request, ManageAiDataPlatformCreateWorkspacePermissionResponse
         
 
 
-return clientCall(request, ManageAiDataPlatformWorkspacePermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformWorkspacePermission")
-        .serviceDetails("Workspace", "ManageAiDataPlatformWorkspacePermission", "")
+return clientCall(request, ManageWorkspacePermissionResponse::builder)
+        .logger(LOG, "manageWorkspacePermission")
+        .serviceDetails("Workspace", "ManageWorkspacePermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformWorkspacePermissionRequest::builder)
+        .requestBuilder(ManageWorkspacePermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -457,14 +478,14 @@ return clientCall(request, ManageAiDataPlatformWorkspacePermissionResponse::buil
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformWorkspacePermissionResponse.Builder::opcRequestId)
+            ManageWorkspacePermissionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformWorkspaceResponse updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request) {
+    public UpdateWorkspaceResponse updateWorkspace(UpdateWorkspaceRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -473,11 +494,11 @@ return clientCall(request, ManageAiDataPlatformWorkspacePermissionResponse::buil
         
 
 
-return clientCall(request, UpdateAiDataPlatformWorkspaceResponse::builder)
-        .logger(LOG, "updateAiDataPlatformWorkspace")
-        .serviceDetails("Workspace", "UpdateAiDataPlatformWorkspace", "")
+return clientCall(request, UpdateWorkspaceResponse::builder)
+        .logger(LOG, "updateWorkspace")
+        .serviceDetails("Workspace", "UpdateWorkspace", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformWorkspaceRequest::builder)
+        .requestBuilder(UpdateWorkspaceRequest::builder)
         
         
         .basePath("/20260430")
@@ -490,20 +511,20 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, UpdateAiDataPlatformWorkspaceResponse.Builder::workspace)
+            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, UpdateWorkspaceResponse.Builder::workspace)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            UpdateAiDataPlatformWorkspaceResponse.Builder::aidpAsyncOperationKey)
+            UpdateWorkspaceResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformWorkspaceResponse.Builder::opcRequestId)
+            UpdateWorkspaceResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformWorkspaceResponse.Builder::etag)
+            UpdateWorkspaceResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse updateAiDataPlatformWorkspaceAsyncOperationStatus(UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest request) {
+    public UpdateWorkspaceAsyncOperationStatusResponse updateWorkspaceAsyncOperationStatus(UpdateWorkspaceAsyncOperationStatusRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -514,11 +535,11 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse::builder)
-        .logger(LOG, "updateAiDataPlatformWorkspaceAsyncOperationStatus")
-        .serviceDetails("Workspace", "UpdateAiDataPlatformWorkspaceAsyncOperationStatus", "")
+return clientCall(request, UpdateWorkspaceAsyncOperationStatusResponse::builder)
+        .logger(LOG, "updateWorkspaceAsyncOperationStatus")
+        .serviceDetails("Workspace", "UpdateWorkspaceAsyncOperationStatus", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest::builder)
+        .requestBuilder(UpdateWorkspaceAsyncOperationStatusRequest::builder)
         
         
         .basePath("/20260430")
@@ -531,15 +552,20 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse.Builder::workspace)
+            .handleBody(com.oracle.aidataplatform.dp.model.Workspace.class, UpdateWorkspaceAsyncOperationStatusResponse.Builder::workspace)
                 .handleResponseHeaderString("opc-work-request-id", 
-            UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse.Builder::opcWorkRequestId)
+            UpdateWorkspaceAsyncOperationStatusResponse.Builder::opcWorkRequestId)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse.Builder::opcRequestId)
+            UpdateWorkspaceAsyncOperationStatusResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse.Builder::etag)
+            UpdateWorkspaceAsyncOperationStatusResponse.Builder::etag)
 
                 .callSync();
+    }
+
+    @Override
+    public WorkspaceWaiters getWaiters() {
+        return waiters;
     }
 
 
@@ -554,7 +580,8 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
     public WorkspaceClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider) {
         this(
             builder(),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -570,7 +597,8 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
         this(
             builder()
                 .configuration(configuration),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -588,7 +616,8 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
             builder()
                 .configuration(configuration)
                 .clientConfigurator(clientConfigurator),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -612,7 +641,8 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
                 .configuration(configuration)
                 .clientConfigurator(clientConfigurator)
                 .requestSignerFactory(defaultRequestSignerFactory),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -639,7 +669,8 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
                 .clientConfigurator(clientConfigurator)
                 .requestSignerFactory(defaultRequestSignerFactory)
                 .additionalClientConfigurators(additionalClientConfigurators),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -669,7 +700,8 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
                 .requestSignerFactory(defaultRequestSignerFactory)
                 .additionalClientConfigurators(additionalClientConfigurators)
                 .endpoint(endpoint),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -702,7 +734,44 @@ return clientCall(request, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResp
                 .additionalClientConfigurators(additionalClientConfigurators)
                 .endpoint(endpoint)
                 .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @param endpoint {@link Builder#endpoint}
+     * @param signingStrategyRequestSignerFactories {@link Builder#signingStrategyRequestSignerFactories}
+     * @param executorService {@link Builder#executorService}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public WorkspaceClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators)
+                .endpoint(endpoint)
+                .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
+            authenticationDetailsProvider,
+            executorService
         );
     }
 }

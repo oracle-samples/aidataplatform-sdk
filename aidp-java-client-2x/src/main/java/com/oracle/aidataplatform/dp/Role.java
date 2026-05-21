@@ -66,7 +66,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    AddAiDataPlatformMemberToRoleResponse addAiDataPlatformMemberToRole(AddAiDataPlatformMemberToRoleRequest request);
+    AddMemberToRoleResponse addMemberToRole(AddMemberToRoleRequest request);
     
     /**
      * Creates a role.
@@ -77,7 +77,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformRoleResponse createAiDataPlatformRole(CreateAiDataPlatformRoleRequest request);
+    CreateRoleResponse createRole(CreateRoleRequest request);
     
     /**
      * Deletes a role.
@@ -87,7 +87,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    DeleteAiDataPlatformRoleResponse deleteAiDataPlatformRole(DeleteAiDataPlatformRoleRequest request);
+    DeleteRoleResponse deleteRole(DeleteRoleRequest request);
     
     /**
      * Returns detailed information about a role.
@@ -97,7 +97,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformRoleResponse getAiDataPlatformRole(GetAiDataPlatformRoleRequest request);
+    GetRoleResponse getRole(GetRoleRequest request);
     
     /**
      * Returns a list of permissions for a given role.
@@ -108,7 +108,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRolePermissionsResponse listAiDataPlatformRolePermissions(ListAiDataPlatformRolePermissionsRequest request);
+    ListRolePermissionsResponse listRolePermissions(ListRolePermissionsRequest request);
     
     /**
      * Returns a list of roles.
@@ -119,7 +119,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformRolesResponse listAiDataPlatformRoles(ListAiDataPlatformRolesRequest request);
+    ListRolesResponse listRoles(ListRolesRequest request);
     
     /**
      * Revoke a role from a given user or group.
@@ -129,7 +129,7 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RemoveAiDataPlatformMemberFromRoleResponse removeAiDataPlatformMemberFromRole(RemoveAiDataPlatformMemberFromRoleRequest request);
+    RemoveMemberFromRoleResponse removeMemberFromRole(RemoveMemberFromRoleRequest request);
     
     /**
      * Updates a role with the provided information.
@@ -139,7 +139,13 @@ public interface Role extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformRoleResponse updateAiDataPlatformRole(UpdateAiDataPlatformRoleRequest request);
+    UpdateRoleResponse updateRole(UpdateRoleRequest request);
     
 
+    /**
+     * Gets the pre-configured waiters available for resources for this service.
+     *
+     * @return The service waiters.
+     */
+    RoleWaiters getWaiters();
 }

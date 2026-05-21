@@ -85,7 +85,7 @@ class CredentialsClient(object):
         self.base_client = BaseClient("credentials", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def create_ai_data_platform_credential(self, ai_data_platform_id, create_data_lake_credential_details, **kwargs):
+    def create_credential(self, ai_data_platform_id, create_data_lake_credential_details, **kwargs):
         """
         Creates a new credential object with the provided details. The operation completes synchronously; callers can invoke list or get to retrieve the resource payload.
 
@@ -138,7 +138,7 @@ class CredentialsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_credential got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_credential got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -181,7 +181,7 @@ class CredentialsClient(object):
                 header_params=header_params,
                 body=create_data_lake_credential_details)
 
-    def delete_ai_data_platform_credential(self, ai_data_platform_id, credential_key, **kwargs):
+    def delete_credential(self, ai_data_platform_id, credential_key, **kwargs):
         """
         Deletes a credential object. The operation completes synchronously without a response body.
 
@@ -233,7 +233,7 @@ class CredentialsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_credential got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_credential got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -273,7 +273,7 @@ class CredentialsClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def get_ai_data_platform_credential(self, ai_data_platform_id, credential_key, **kwargs):
+    def get_credential(self, ai_data_platform_id, credential_key, **kwargs):
         """
         Gets detailed information about credential with a given credential key.
 
@@ -318,7 +318,7 @@ class CredentialsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_credential got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_credential got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -359,7 +359,7 @@ class CredentialsClient(object):
                 header_params=header_params,
                 response_type="Credential")
 
-    def list_ai_data_platform_credentials(self, ai_data_platform_id, **kwargs):
+    def list_credentials(self, ai_data_platform_id, **kwargs):
         """
         Returns a list of credentials.
 
@@ -447,7 +447,7 @@ class CredentialsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_credentials got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_credentials got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -522,7 +522,7 @@ class CredentialsClient(object):
                 header_params=header_params,
                 response_type="CredentialCollection")
 
-    def update_ai_data_platform_credential(self, ai_data_platform_id, credential_key, update_data_lake_credential_details, **kwargs):
+    def update_credential(self, ai_data_platform_id, credential_key, update_data_lake_credential_details, **kwargs):
         """
         Updates a credential object. The operation completes synchronously; callers can invoke get to confirm the latest state.
 
@@ -577,7 +577,7 @@ class CredentialsClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_credential got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_credential got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

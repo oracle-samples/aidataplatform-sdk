@@ -68,7 +68,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformVolumeResponse> createAiDataPlatformVolume(CreateAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformVolumeRequest, CreateAiDataPlatformVolumeResponse> handler);
+    java.util.concurrent.Future<CreateVolumeResponse> createVolume(CreateVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<CreateVolumeRequest, CreateVolumeResponse> handler);
     
     /**
      * Deletes a directory in a volume.
@@ -81,7 +81,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformDirResponse> deleteAiDataPlatformDir(DeleteAiDataPlatformDirRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformDirRequest, DeleteAiDataPlatformDirResponse> handler);
+    java.util.concurrent.Future<DeleteDirResponse> deleteDir(DeleteDirRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteDirRequest, DeleteDirResponse> handler);
     
     /**
      * Deletes a file or folder in a volume.
@@ -93,7 +93,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformFileResponse> deleteAiDataPlatformFile(DeleteAiDataPlatformFileRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformFileRequest, DeleteAiDataPlatformFileResponse> handler);
+    java.util.concurrent.Future<DeleteFileResponse> deleteFile(DeleteFileRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteFileRequest, DeleteFileResponse> handler);
     
     /**
      * Deletes a volume.
@@ -105,7 +105,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformVolumeResponse> deleteAiDataPlatformVolume(DeleteAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformVolumeRequest, DeleteAiDataPlatformVolumeResponse> handler);
+    java.util.concurrent.Future<DeleteVolumeResponse> deleteVolume(DeleteVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteVolumeRequest, DeleteVolumeResponse> handler);
     
     /**
      * Downloads a file from a volume.
@@ -117,7 +117,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DownloadAiDataPlatformFileResponse> downloadAiDataPlatformFile(DownloadAiDataPlatformFileRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformFileRequest, DownloadAiDataPlatformFileResponse> handler);
+    java.util.concurrent.Future<DownloadFileResponse> downloadFile(DownloadFileRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadFileRequest, DownloadFileResponse> handler);
     
     /**
      * provide the par info for downloading the file for given path.
@@ -130,7 +130,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DownloadAiDataPlatformFileWithParResponse> downloadAiDataPlatformFileWithPar(DownloadAiDataPlatformFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadAiDataPlatformFileWithParRequest, DownloadAiDataPlatformFileWithParResponse> handler);
+    java.util.concurrent.Future<DownloadFileWithParResponse> downloadFileWithPar(DownloadFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadFileWithParRequest, DownloadFileWithParResponse> handler);
     
     /**
      * Returns detailed information about a volume.
@@ -142,7 +142,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformVolumeResponse> getAiDataPlatformVolume(GetAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformVolumeRequest, GetAiDataPlatformVolumeResponse> handler);
+    java.util.concurrent.Future<GetVolumeResponse> getVolume(GetVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<GetVolumeRequest, GetVolumeResponse> handler);
     
     /**
      * Returns a list of files in a volume.
@@ -155,7 +155,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformFilesResponse> listAiDataPlatformFiles(ListAiDataPlatformFilesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformFilesRequest, ListAiDataPlatformFilesResponse> handler);
+    java.util.concurrent.Future<ListFilesResponse> listFiles(ListFilesRequest request, com.oracle.bmc.responses.AsyncHandler<ListFilesRequest, ListFilesResponse> handler);
     
     /**
      * Returns a list of volume permissions.
@@ -168,7 +168,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformVolumePermissionsResponse> listAiDataPlatformVolumePermissions(ListAiDataPlatformVolumePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformVolumePermissionsRequest, ListAiDataPlatformVolumePermissionsResponse> handler);
+    java.util.concurrent.Future<ListVolumePermissionsResponse> listVolumePermissions(ListVolumePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListVolumePermissionsRequest, ListVolumePermissionsResponse> handler);
     
     /**
      * Returns a list of volumes.
@@ -181,7 +181,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformVolumesResponse> listAiDataPlatformVolumes(ListAiDataPlatformVolumesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformVolumesRequest, ListAiDataPlatformVolumesResponse> handler);
+    java.util.concurrent.Future<ListVolumesResponse> listVolumes(ListVolumesRequest request, com.oracle.bmc.responses.AsyncHandler<ListVolumesRequest, ListVolumesResponse> handler);
     
     /**
      * Creates a directory in a volume.
@@ -194,7 +194,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<MakeAiDataPlatformDirResponse> makeAiDataPlatformDir(MakeAiDataPlatformDirRequest request, com.oracle.bmc.responses.AsyncHandler<MakeAiDataPlatformDirRequest, MakeAiDataPlatformDirResponse> handler);
+    java.util.concurrent.Future<MakeDirResponse> makeDir(MakeDirRequest request, com.oracle.bmc.responses.AsyncHandler<MakeDirRequest, MakeDirResponse> handler);
     
     /**
      * Updates the permissions on a volume.
@@ -206,7 +206,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformVolumePermissionResponse> manageAiDataPlatformVolumePermission(ManageAiDataPlatformVolumePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformVolumePermissionRequest, ManageAiDataPlatformVolumePermissionResponse> handler);
+    java.util.concurrent.Future<ManageVolumePermissionResponse> manageVolumePermission(ManageVolumePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageVolumePermissionRequest, ManageVolumePermissionResponse> handler);
     
     /**
      * Updates a directory in volume with the provided information.
@@ -219,7 +219,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformDirResponse> updateAiDataPlatformDir(UpdateAiDataPlatformDirRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformDirRequest, UpdateAiDataPlatformDirResponse> handler);
+    java.util.concurrent.Future<UpdateDirResponse> updateDir(UpdateDirRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateDirRequest, UpdateDirResponse> handler);
     
     /**
      * Updates a volume with the provided information.
@@ -231,7 +231,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformVolumeResponse> updateAiDataPlatformVolume(UpdateAiDataPlatformVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformVolumeRequest, UpdateAiDataPlatformVolumeResponse> handler);
+    java.util.concurrent.Future<UpdateVolumeResponse> updateVolume(UpdateVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateVolumeRequest, UpdateVolumeResponse> handler);
     
     /**
      * Uploads a file to volume. If the file already exists, it is updated.
@@ -244,7 +244,7 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UploadAiDataPlatformFileResponse> uploadAiDataPlatformFile(UploadAiDataPlatformFileRequest request, com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformFileRequest, UploadAiDataPlatformFileResponse> handler);
+    java.util.concurrent.Future<UploadFileResponse> uploadFile(UploadFileRequest request, com.oracle.bmc.responses.AsyncHandler<UploadFileRequest, UploadFileResponse> handler);
     
     /**
      * Uploads a volume file by generating PAR. If file exists, then it will be updated.
@@ -257,6 +257,6 @@ public interface VolumeAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UploadAiDataPlatformFileWithParResponse> uploadAiDataPlatformFileWithPar(UploadAiDataPlatformFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<UploadAiDataPlatformFileWithParRequest, UploadAiDataPlatformFileWithParResponse> handler);
+    java.util.concurrent.Future<UploadFileWithParResponse> uploadFileWithPar(UploadFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<UploadFileWithParRequest, UploadFileWithParResponse> handler);
     
 }

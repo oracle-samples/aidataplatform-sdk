@@ -78,7 +78,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CheckoutAiDataPlatformBranchResponse checkoutAiDataPlatformBranch(CheckoutAiDataPlatformBranchRequest request) {
+    public CheckoutBranchResponse checkoutBranch(CheckoutBranchRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -89,11 +89,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CheckoutAiDataPlatformBranchResponse::builder)
-        .logger(LOG, "checkoutAiDataPlatformBranch")
-        .serviceDetails("Git", "CheckoutAiDataPlatformBranch", "")
+return clientCall(request, CheckoutBranchResponse::builder)
+        .logger(LOG, "checkoutBranch")
+        .serviceDetails("Git", "CheckoutBranch", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CheckoutAiDataPlatformBranchRequest::builder)
+        .requestBuilder(CheckoutBranchRequest::builder)
         
         
         .basePath("/20260430")
@@ -112,20 +112,20 @@ return clientCall(request, CheckoutAiDataPlatformBranchResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.GitBranch.class, CheckoutAiDataPlatformBranchResponse.Builder::gitBranch)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitBranch.class, CheckoutBranchResponse.Builder::gitBranch)
                 .handleResponseHeaderString("etag", 
-            CheckoutAiDataPlatformBranchResponse.Builder::etag)
+            CheckoutBranchResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CheckoutAiDataPlatformBranchResponse.Builder::opcRequestId)
+            CheckoutBranchResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CheckoutAiDataPlatformBranchResponse.Builder::aidpAsyncOperationKey)
+            CheckoutBranchResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public CommitPushAiDataPlatformGitRepositoryResponse commitPushAiDataPlatformGitRepository(CommitPushAiDataPlatformGitRepositoryRequest request) {
+    public CommitPushGitRepositoryResponse commitPushGitRepository(CommitPushGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -136,11 +136,11 @@ return clientCall(request, CheckoutAiDataPlatformBranchResponse::builder)
         
 
 
-return clientCall(request, CommitPushAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "commitPushAiDataPlatformGitRepository")
-        .serviceDetails("Git", "CommitPushAiDataPlatformGitRepository", "")
+return clientCall(request, CommitPushGitRepositoryResponse::builder)
+        .logger(LOG, "commitPushGitRepository")
+        .serviceDetails("Git", "CommitPushGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CommitPushAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(CommitPushGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -158,16 +158,16 @@ return clientCall(request, CommitPushAiDataPlatformGitRepositoryResponse::builde
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            CommitPushAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            CommitPushGitRepositoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CommitPushAiDataPlatformGitRepositoryResponse.Builder::aidpAsyncOperationKey)
+            CommitPushGitRepositoryResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformGitBranchResponse createAiDataPlatformGitBranch(CreateAiDataPlatformGitBranchRequest request) {
+    public CreateGitBranchResponse createGitBranch(CreateGitBranchRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -178,11 +178,11 @@ return clientCall(request, CommitPushAiDataPlatformGitRepositoryResponse::builde
         
 
 
-return clientCall(request, CreateAiDataPlatformGitBranchResponse::builder)
-        .logger(LOG, "createAiDataPlatformGitBranch")
-        .serviceDetails("Git", "CreateAiDataPlatformGitBranch", "")
+return clientCall(request, CreateGitBranchResponse::builder)
+        .logger(LOG, "createGitBranch")
+        .serviceDetails("Git", "CreateGitBranch", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformGitBranchRequest::builder)
+        .requestBuilder(CreateGitBranchRequest::builder)
         
         
         .basePath("/20260430")
@@ -197,20 +197,20 @@ return clientCall(request, CreateAiDataPlatformGitBranchResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.CreateGitBranch.class, CreateAiDataPlatformGitBranchResponse.Builder::createGitBranch)
+            .handleBody(com.oracle.aidataplatform.dp.model.CreateGitBranch.class, CreateGitBranchResponse.Builder::createGitBranch)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformGitBranchResponse.Builder::etag)
+            CreateGitBranchResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformGitBranchResponse.Builder::opcRequestId)
+            CreateGitBranchResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformGitBranchResponse.Builder::aidpAsyncOperationKey)
+            CreateGitBranchResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformGitDiffDetailResponse getAiDataPlatformGitDiffDetail(GetAiDataPlatformGitDiffDetailRequest request) {
+    public GetGitDiffDetailResponse getGitDiffDetail(GetGitDiffDetailRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -225,11 +225,11 @@ return clientCall(request, CreateAiDataPlatformGitBranchResponse::builder)
         
 
 
-return clientCall(request, GetAiDataPlatformGitDiffDetailResponse::builder)
-        .logger(LOG, "getAiDataPlatformGitDiffDetail")
-        .serviceDetails("Git", "GetAiDataPlatformGitDiffDetail", "")
+return clientCall(request, GetGitDiffDetailResponse::builder)
+        .logger(LOG, "getGitDiffDetail")
+        .serviceDetails("Git", "GetGitDiffDetail", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformGitDiffDetailRequest::builder)
+        .requestBuilder(GetGitDiffDetailRequest::builder)
         
         
         .basePath("/20260430")
@@ -260,16 +260,16 @@ return clientCall(request, GetAiDataPlatformGitDiffDetailResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GitDiffDetail.class, GetAiDataPlatformGitDiffDetailResponse.Builder::gitDiffDetail)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitDiffDetail.class, GetGitDiffDetailResponse.Builder::gitDiffDetail)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformGitDiffDetailResponse.Builder::opcRequestId)
+            GetGitDiffDetailResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformGitOperationStateResponse getAiDataPlatformGitOperationState(GetAiDataPlatformGitOperationStateRequest request) {
+    public GetGitOperationStateResponse getGitOperationState(GetGitOperationStateRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -278,11 +278,11 @@ return clientCall(request, GetAiDataPlatformGitDiffDetailResponse::builder)
         Validate.notBlank(request.getGitRepositoryKey(), "gitRepositoryKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformGitOperationStateResponse::builder)
-        .logger(LOG, "getAiDataPlatformGitOperationState")
-        .serviceDetails("Git", "GetAiDataPlatformGitOperationState", "")
+return clientCall(request, GetGitOperationStateResponse::builder)
+        .logger(LOG, "getGitOperationState")
+        .serviceDetails("Git", "GetGitOperationState", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformGitOperationStateRequest::builder)
+        .requestBuilder(GetGitOperationStateRequest::builder)
         
         
         .basePath("/20260430")
@@ -301,16 +301,16 @@ return clientCall(request, GetAiDataPlatformGitOperationStateResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GitOperationState.class, GetAiDataPlatformGitOperationStateResponse.Builder::gitOperationState)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitOperationState.class, GetGitOperationStateResponse.Builder::gitOperationState)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformGitOperationStateResponse.Builder::opcRequestId)
+            GetGitOperationStateResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformGitRepositoryResponse getAiDataPlatformGitRepository(GetAiDataPlatformGitRepositoryRequest request) {
+    public GetGitRepositoryResponse getGitRepository(GetGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -319,11 +319,11 @@ return clientCall(request, GetAiDataPlatformGitOperationStateResponse::builder)
         Validate.notBlank(request.getGitRepositoryKey(), "gitRepositoryKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "getAiDataPlatformGitRepository")
-        .serviceDetails("Git", "GetAiDataPlatformGitRepository", "")
+return clientCall(request, GetGitRepositoryResponse::builder)
+        .logger(LOG, "getGitRepository")
+        .serviceDetails("Git", "GetGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(GetGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -338,18 +338,18 @@ return clientCall(request, GetAiDataPlatformGitRepositoryResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GitRepository.class, GetAiDataPlatformGitRepositoryResponse.Builder::gitRepository)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitRepository.class, GetGitRepositoryResponse.Builder::gitRepository)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            GetGitRepositoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformGitRepositoryResponse.Builder::etag)
+            GetGitRepositoryResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformGitBranchesResponse listAiDataPlatformGitBranches(ListAiDataPlatformGitBranchesRequest request) {
+    public ListGitBranchesResponse listGitBranches(ListGitBranchesRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -358,11 +358,11 @@ return clientCall(request, GetAiDataPlatformGitRepositoryResponse::builder)
         Validate.notBlank(request.getGitRepositoryKey(), "gitRepositoryKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformGitBranchesResponse::builder)
-        .logger(LOG, "listAiDataPlatformGitBranches")
-        .serviceDetails("Git", "ListAiDataPlatformGitBranches", "")
+return clientCall(request, ListGitBranchesResponse::builder)
+        .logger(LOG, "listGitBranches")
+        .serviceDetails("Git", "ListGitBranches", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformGitBranchesRequest::builder)
+        .requestBuilder(ListGitBranchesRequest::builder)
         
         
         .basePath("/20260430")
@@ -397,20 +397,20 @@ return clientCall(request, ListAiDataPlatformGitBranchesResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GitBranchCollection.class, ListAiDataPlatformGitBranchesResponse.Builder::gitBranchCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitBranchCollection.class, ListGitBranchesResponse.Builder::gitBranchCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformGitBranchesResponse.Builder::opcRequestId)
+            ListGitBranchesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformGitBranchesResponse.Builder::opcNextPage)
+            ListGitBranchesResponse.Builder::opcNextPage)
                 .handleResponseHeaderInteger("opc-total-items", 
-            ListAiDataPlatformGitBranchesResponse.Builder::opcTotalItems)
+            ListGitBranchesResponse.Builder::opcTotalItems)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformGitDiffsResponse listAiDataPlatformGitDiffs(ListAiDataPlatformGitDiffsRequest request) {
+    public ListGitDiffsResponse listGitDiffs(ListGitDiffsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -423,11 +423,11 @@ return clientCall(request, ListAiDataPlatformGitBranchesResponse::builder)
         
 
 
-return clientCall(request, ListAiDataPlatformGitDiffsResponse::builder)
-        .logger(LOG, "listAiDataPlatformGitDiffs")
-        .serviceDetails("Git", "ListAiDataPlatformGitDiffs", "")
+return clientCall(request, ListGitDiffsResponse::builder)
+        .logger(LOG, "listGitDiffs")
+        .serviceDetails("Git", "ListGitDiffs", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformGitDiffsRequest::builder)
+        .requestBuilder(ListGitDiffsRequest::builder)
         
         
         .basePath("/20260430")
@@ -474,20 +474,20 @@ return clientCall(request, ListAiDataPlatformGitDiffsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.GitDiffSummaryCollection.class, ListAiDataPlatformGitDiffsResponse.Builder::gitDiffSummaryCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitDiffSummaryCollection.class, ListGitDiffsResponse.Builder::gitDiffSummaryCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformGitDiffsResponse.Builder::opcRequestId)
+            ListGitDiffsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformGitDiffsResponse.Builder::opcNextPage)
+            ListGitDiffsResponse.Builder::opcNextPage)
                 .handleResponseHeaderInteger("opc-total-items", 
-            ListAiDataPlatformGitDiffsResponse.Builder::opcTotalItems)
+            ListGitDiffsResponse.Builder::opcTotalItems)
 
                 .callSync();
     }
 
     @Override
     
-    public MergeAiDataPlatformGitRepositoryResponse mergeAiDataPlatformGitRepository(MergeAiDataPlatformGitRepositoryRequest request) {
+    public MergeGitRepositoryResponse mergeGitRepository(MergeGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -498,11 +498,11 @@ return clientCall(request, ListAiDataPlatformGitDiffsResponse::builder)
         
 
 
-return clientCall(request, MergeAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "mergeAiDataPlatformGitRepository")
-        .serviceDetails("Git", "MergeAiDataPlatformGitRepository", "")
+return clientCall(request, MergeGitRepositoryResponse::builder)
+        .logger(LOG, "mergeGitRepository")
+        .serviceDetails("Git", "MergeGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(MergeAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(MergeGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -520,16 +520,16 @@ return clientCall(request, MergeAiDataPlatformGitRepositoryResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            MergeAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            MergeGitRepositoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            MergeAiDataPlatformGitRepositoryResponse.Builder::aidpAsyncOperationKey)
+            MergeGitRepositoryResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public PullAiDataPlatformGitRepositoryResponse pullAiDataPlatformGitRepository(PullAiDataPlatformGitRepositoryRequest request) {
+    public PullGitRepositoryResponse pullGitRepository(PullGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -540,11 +540,11 @@ return clientCall(request, MergeAiDataPlatformGitRepositoryResponse::builder)
         
 
 
-return clientCall(request, PullAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "pullAiDataPlatformGitRepository")
-        .serviceDetails("Git", "PullAiDataPlatformGitRepository", "")
+return clientCall(request, PullGitRepositoryResponse::builder)
+        .logger(LOG, "pullGitRepository")
+        .serviceDetails("Git", "PullGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(PullAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(PullGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -562,16 +562,16 @@ return clientCall(request, PullAiDataPlatformGitRepositoryResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            PullAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            PullGitRepositoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            PullAiDataPlatformGitRepositoryResponse.Builder::aidpAsyncOperationKey)
+            PullGitRepositoryResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public RebaseAiDataPlatformGitRepositoryResponse rebaseAiDataPlatformGitRepository(RebaseAiDataPlatformGitRepositoryRequest request) {
+    public RebaseGitRepositoryResponse rebaseGitRepository(RebaseGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -582,11 +582,11 @@ return clientCall(request, PullAiDataPlatformGitRepositoryResponse::builder)
         
 
 
-return clientCall(request, RebaseAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "rebaseAiDataPlatformGitRepository")
-        .serviceDetails("Git", "RebaseAiDataPlatformGitRepository", "")
+return clientCall(request, RebaseGitRepositoryResponse::builder)
+        .logger(LOG, "rebaseGitRepository")
+        .serviceDetails("Git", "RebaseGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RebaseAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(RebaseGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -604,16 +604,16 @@ return clientCall(request, RebaseAiDataPlatformGitRepositoryResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            RebaseAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            RebaseGitRepositoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            RebaseAiDataPlatformGitRepositoryResponse.Builder::aidpAsyncOperationKey)
+            RebaseGitRepositoryResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public ResetAiDataPlatformGitFolderStateResponse resetAiDataPlatformGitFolderState(ResetAiDataPlatformGitFolderStateRequest request) {
+    public ResetGitFolderStateResponse resetGitFolderState(ResetGitFolderStateRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -624,11 +624,11 @@ return clientCall(request, RebaseAiDataPlatformGitRepositoryResponse::builder)
         
 
 
-return clientCall(request, ResetAiDataPlatformGitFolderStateResponse::builder)
-        .logger(LOG, "resetAiDataPlatformGitFolderState")
-        .serviceDetails("Git", "ResetAiDataPlatformGitFolderState", "")
+return clientCall(request, ResetGitFolderStateResponse::builder)
+        .logger(LOG, "resetGitFolderState")
+        .serviceDetails("Git", "ResetGitFolderState", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ResetAiDataPlatformGitFolderStateRequest::builder)
+        .requestBuilder(ResetGitFolderStateRequest::builder)
         
         
         .basePath("/20260430")
@@ -644,16 +644,16 @@ return clientCall(request, ResetAiDataPlatformGitFolderStateResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ResetAiDataPlatformGitFolderStateResponse.Builder::opcRequestId)
+            ResetGitFolderStateResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            ResetAiDataPlatformGitFolderStateResponse.Builder::aidpAsyncOperationKey)
+            ResetGitFolderStateResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public ResetAiDataPlatformGitRepositoryResponse resetAiDataPlatformGitRepository(ResetAiDataPlatformGitRepositoryRequest request) {
+    public ResetGitRepositoryResponse resetGitRepository(ResetGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -664,11 +664,11 @@ return clientCall(request, ResetAiDataPlatformGitFolderStateResponse::builder)
         
 
 
-return clientCall(request, ResetAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "resetAiDataPlatformGitRepository")
-        .serviceDetails("Git", "ResetAiDataPlatformGitRepository", "")
+return clientCall(request, ResetGitRepositoryResponse::builder)
+        .logger(LOG, "resetGitRepository")
+        .serviceDetails("Git", "ResetGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ResetAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(ResetGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -686,16 +686,16 @@ return clientCall(request, ResetAiDataPlatformGitRepositoryResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ResetAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            ResetGitRepositoryResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            ResetAiDataPlatformGitRepositoryResponse.Builder::aidpAsyncOperationKey)
+            ResetGitRepositoryResponse.Builder::aidpAsyncOperationKey)
 
                 .callSync();
     }
 
     @Override
     
-    public ResolveAiDataPlatformGitConflictsResponse resolveAiDataPlatformGitConflicts(ResolveAiDataPlatformGitConflictsRequest request) {
+    public ResolveGitConflictsResponse resolveGitConflicts(ResolveGitConflictsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -706,11 +706,11 @@ return clientCall(request, ResetAiDataPlatformGitRepositoryResponse::builder)
         
 
 
-return clientCall(request, ResolveAiDataPlatformGitConflictsResponse::builder)
-        .logger(LOG, "resolveAiDataPlatformGitConflicts")
-        .serviceDetails("Git", "ResolveAiDataPlatformGitConflicts", "")
+return clientCall(request, ResolveGitConflictsResponse::builder)
+        .logger(LOG, "resolveGitConflicts")
+        .serviceDetails("Git", "ResolveGitConflicts", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ResolveAiDataPlatformGitConflictsRequest::builder)
+        .requestBuilder(ResolveGitConflictsRequest::builder)
         
         
         .basePath("/20260430")
@@ -725,18 +725,18 @@ return clientCall(request, ResolveAiDataPlatformGitConflictsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.GitBranch.class, ResolveAiDataPlatformGitConflictsResponse.Builder::gitBranch)
+            .handleBody(com.oracle.aidataplatform.dp.model.GitBranch.class, ResolveGitConflictsResponse.Builder::gitBranch)
                 .handleResponseHeaderString("etag", 
-            ResolveAiDataPlatformGitConflictsResponse.Builder::etag)
+            ResolveGitConflictsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            ResolveAiDataPlatformGitConflictsResponse.Builder::opcRequestId)
+            ResolveGitConflictsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformGitRepositoryResponse updateAiDataPlatformGitRepository(UpdateAiDataPlatformGitRepositoryRequest request) {
+    public UpdateGitRepositoryResponse updateGitRepository(UpdateGitRepositoryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -747,11 +747,11 @@ return clientCall(request, ResolveAiDataPlatformGitConflictsResponse::builder)
         Validate.notBlank(request.getGitRepositoryKey(), "gitRepositoryKey must not be blank");
 
 
-return clientCall(request, UpdateAiDataPlatformGitRepositoryResponse::builder)
-        .logger(LOG, "updateAiDataPlatformGitRepository")
-        .serviceDetails("Git", "UpdateAiDataPlatformGitRepository", "")
+return clientCall(request, UpdateGitRepositoryResponse::builder)
+        .logger(LOG, "updateGitRepository")
+        .serviceDetails("Git", "UpdateGitRepository", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformGitRepositoryRequest::builder)
+        .requestBuilder(UpdateGitRepositoryRequest::builder)
         
         
         .basePath("/20260430")
@@ -765,9 +765,9 @@ return clientCall(request, UpdateAiDataPlatformGitRepositoryResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            UpdateAiDataPlatformGitRepositoryResponse.Builder::aidpAsyncOperationKey)
+            UpdateGitRepositoryResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformGitRepositoryResponse.Builder::opcRequestId)
+            UpdateGitRepositoryResponse.Builder::opcRequestId)
 
                 .callSync();
     }

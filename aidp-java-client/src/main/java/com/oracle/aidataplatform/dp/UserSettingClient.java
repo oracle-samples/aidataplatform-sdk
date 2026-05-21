@@ -78,18 +78,18 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CreateAiDataPlatformUserSettingResponse createAiDataPlatformUserSetting(CreateAiDataPlatformUserSettingRequest request) {
+    public CreateUserSettingResponse createUserSetting(CreateUserSettingRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateUserSettingDetails(), "createUserSettingDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformUserSettingResponse::builder)
-        .logger(LOG, "createAiDataPlatformUserSetting")
-        .serviceDetails("UserSetting", "CreateAiDataPlatformUserSetting", "")
+return clientCall(request, CreateUserSettingResponse::builder)
+        .logger(LOG, "createUserSetting")
+        .serviceDetails("UserSetting", "CreateUserSetting", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformUserSettingRequest::builder)
+        .requestBuilder(CreateUserSettingRequest::builder)
         
         
         .basePath("/20260430")
@@ -102,29 +102,29 @@ return clientCall(request, CreateAiDataPlatformUserSettingResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UserSetting.class, CreateAiDataPlatformUserSettingResponse.Builder::userSetting)
+            .handleBody(com.oracle.aidataplatform.dp.model.UserSetting.class, CreateUserSettingResponse.Builder::userSetting)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformUserSettingResponse.Builder::etag)
+            CreateUserSettingResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformUserSettingResponse.Builder::opcRequestId)
+            CreateUserSettingResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformUserSettingResponse deleteAiDataPlatformUserSetting(DeleteAiDataPlatformUserSettingRequest request) {
+    public DeleteUserSettingResponse deleteUserSetting(DeleteUserSettingRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSettingKey(), "settingKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformUserSettingResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformUserSetting")
-        .serviceDetails("UserSetting", "DeleteAiDataPlatformUserSetting", "")
+return clientCall(request, DeleteUserSettingResponse::builder)
+        .logger(LOG, "deleteUserSetting")
+        .serviceDetails("UserSetting", "DeleteUserSetting", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformUserSettingRequest::builder)
+        .requestBuilder(DeleteUserSettingRequest::builder)
         
         
         .basePath("/20260430")
@@ -138,25 +138,25 @@ return clientCall(request, DeleteAiDataPlatformUserSettingResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformUserSettingResponse.Builder::opcRequestId)
+            DeleteUserSettingResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformUserSettingResponse getAiDataPlatformUserSetting(GetAiDataPlatformUserSettingRequest request) {
+    public GetUserSettingResponse getUserSetting(GetUserSettingRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getSettingKey(), "settingKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformUserSettingResponse::builder)
-        .logger(LOG, "getAiDataPlatformUserSetting")
-        .serviceDetails("UserSetting", "GetAiDataPlatformUserSetting", "")
+return clientCall(request, GetUserSettingResponse::builder)
+        .logger(LOG, "getUserSetting")
+        .serviceDetails("UserSetting", "GetUserSetting", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformUserSettingRequest::builder)
+        .requestBuilder(GetUserSettingRequest::builder)
         
         
         .basePath("/20260430")
@@ -167,27 +167,27 @@ return clientCall(request, GetAiDataPlatformUserSettingResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.UserSetting.class, GetAiDataPlatformUserSettingResponse.Builder::userSetting)
+            .handleBody(com.oracle.aidataplatform.dp.model.UserSetting.class, GetUserSettingResponse.Builder::userSetting)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformUserSettingResponse.Builder::etag)
+            GetUserSettingResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformUserSettingResponse.Builder::opcRequestId)
+            GetUserSettingResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformUserSettingsResponse listAiDataPlatformUserSettings(ListAiDataPlatformUserSettingsRequest request) {
+    public ListUserSettingsResponse listUserSettings(ListUserSettingsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformUserSettingsResponse::builder)
-        .logger(LOG, "listAiDataPlatformUserSettings")
-        .serviceDetails("UserSetting", "ListAiDataPlatformUserSettings", "")
+return clientCall(request, ListUserSettingsResponse::builder)
+        .logger(LOG, "listUserSettings")
+        .serviceDetails("UserSetting", "ListUserSettings", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformUserSettingsRequest::builder)
+        .requestBuilder(ListUserSettingsRequest::builder)
         
         
         .basePath("/20260430")
@@ -226,18 +226,18 @@ return clientCall(request, ListAiDataPlatformUserSettingsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.UserSettingCollection.class, ListAiDataPlatformUserSettingsResponse.Builder::userSettingCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.UserSettingCollection.class, ListUserSettingsResponse.Builder::userSettingCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformUserSettingsResponse.Builder::opcRequestId)
+            ListUserSettingsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformUserSettingsResponse.Builder::opcNextPage)
+            ListUserSettingsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformUserSettingResponse updateAiDataPlatformUserSetting(UpdateAiDataPlatformUserSettingRequest request) {
+    public UpdateUserSettingResponse updateUserSetting(UpdateUserSettingRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -246,11 +246,11 @@ return clientCall(request, ListAiDataPlatformUserSettingsResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformUserSettingResponse::builder)
-        .logger(LOG, "updateAiDataPlatformUserSetting")
-        .serviceDetails("UserSetting", "UpdateAiDataPlatformUserSetting", "")
+return clientCall(request, UpdateUserSettingResponse::builder)
+        .logger(LOG, "updateUserSetting")
+        .serviceDetails("UserSetting", "UpdateUserSetting", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformUserSettingRequest::builder)
+        .requestBuilder(UpdateUserSettingRequest::builder)
         
         
         .basePath("/20260430")
@@ -263,11 +263,11 @@ return clientCall(request, UpdateAiDataPlatformUserSettingResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.UserSetting.class, UpdateAiDataPlatformUserSettingResponse.Builder::userSetting)
+            .handleBody(com.oracle.aidataplatform.dp.model.UserSetting.class, UpdateUserSettingResponse.Builder::userSetting)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformUserSettingResponse.Builder::etag)
+            UpdateUserSettingResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformUserSettingResponse.Builder::opcRequestId)
+            UpdateUserSettingResponse.Builder::opcRequestId)
 
                 .callSync();
     }

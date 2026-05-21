@@ -67,7 +67,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CheckoutAiDataPlatformBranchResponse checkoutAiDataPlatformBranch(CheckoutAiDataPlatformBranchRequest request);
+    CheckoutBranchResponse checkoutBranch(CheckoutBranchRequest request);
     
     /**
      * (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
@@ -78,7 +78,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CommitPushAiDataPlatformGitRepositoryResponse commitPushAiDataPlatformGitRepository(CommitPushAiDataPlatformGitRepositoryRequest request);
+    CommitPushGitRepositoryResponse commitPushGitRepository(CommitPushGitRepositoryRequest request);
     
     /**
      * (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
@@ -89,7 +89,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    CreateAiDataPlatformGitBranchResponse createAiDataPlatformGitBranch(CreateAiDataPlatformGitBranchRequest request);
+    CreateGitBranchResponse createGitBranch(CreateGitBranchRequest request);
     
     /**
      * (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
@@ -100,7 +100,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformGitDiffDetailResponse getAiDataPlatformGitDiffDetail(GetAiDataPlatformGitDiffDetailRequest request);
+    GetGitDiffDetailResponse getGitDiffDetail(GetGitDiffDetailRequest request);
     
     /**
      * (Preview) Returns the current Git worktree status\u2014including in-progress operations or detached HEAD indicators\u2014for the workspace folder.
@@ -111,7 +111,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformGitOperationStateResponse getAiDataPlatformGitOperationState(GetAiDataPlatformGitOperationStateRequest request);
+    GetGitOperationStateResponse getGitOperationState(GetGitOperationStateRequest request);
     
     /**
      * (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
@@ -122,7 +122,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    GetAiDataPlatformGitRepositoryResponse getAiDataPlatformGitRepository(GetAiDataPlatformGitRepositoryRequest request);
+    GetGitRepositoryResponse getGitRepository(GetGitRepositoryRequest request);
     
     /**
      * (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
@@ -133,7 +133,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformGitBranchesResponse listAiDataPlatformGitBranches(ListAiDataPlatformGitBranchesRequest request);
+    ListGitBranchesResponse listGitBranches(ListGitBranchesRequest request);
     
     /**
      * (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
@@ -144,7 +144,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ListAiDataPlatformGitDiffsResponse listAiDataPlatformGitDiffs(ListAiDataPlatformGitDiffsRequest request);
+    ListGitDiffsResponse listGitDiffs(ListGitDiffsRequest request);
     
     /**
      * (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
@@ -155,7 +155,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    MergeAiDataPlatformGitRepositoryResponse mergeAiDataPlatformGitRepository(MergeAiDataPlatformGitRepositoryRequest request);
+    MergeGitRepositoryResponse mergeGitRepository(MergeGitRepositoryRequest request);
     
     /**
      * (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
@@ -166,7 +166,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    PullAiDataPlatformGitRepositoryResponse pullAiDataPlatformGitRepository(PullAiDataPlatformGitRepositoryRequest request);
+    PullGitRepositoryResponse pullGitRepository(PullGitRepositoryRequest request);
     
     /**
      * (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
@@ -177,7 +177,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    RebaseAiDataPlatformGitRepositoryResponse rebaseAiDataPlatformGitRepository(RebaseAiDataPlatformGitRepositoryRequest request);
+    RebaseGitRepositoryResponse rebaseGitRepository(RebaseGitRepositoryRequest request);
     
     /**
      * (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
@@ -188,7 +188,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ResetAiDataPlatformGitFolderStateResponse resetAiDataPlatformGitFolderState(ResetAiDataPlatformGitFolderStateRequest request);
+    ResetGitFolderStateResponse resetGitFolderState(ResetGitFolderStateRequest request);
     
     /**
      * (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
@@ -199,7 +199,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ResetAiDataPlatformGitRepositoryResponse resetAiDataPlatformGitRepository(ResetAiDataPlatformGitRepositoryRequest request);
+    ResetGitRepositoryResponse resetGitRepository(ResetGitRepositoryRequest request);
     
     /**
      * (Preview) Accepts conflict resolution instructions\u2014choose source or target versions\u2014and records the resolution back to the repo.
@@ -210,7 +210,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    ResolveAiDataPlatformGitConflictsResponse resolveAiDataPlatformGitConflicts(ResolveAiDataPlatformGitConflictsRequest request);
+    ResolveGitConflictsResponse resolveGitConflicts(ResolveGitConflictsRequest request);
     
     /**
      * (Preview) Updates stored repository details\u2014such as credentials or default branches\u2014so automation stays aligned with your source control.
@@ -221,7 +221,7 @@ public interface Git extends AutoCloseable {
      * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
-    UpdateAiDataPlatformGitRepositoryResponse updateAiDataPlatformGitRepository(UpdateAiDataPlatformGitRepositoryRequest request);
+    UpdateGitRepositoryResponse updateGitRepository(UpdateGitRepositoryRequest request);
     
 
 }

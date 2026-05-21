@@ -369,21 +369,21 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CancelAiDataPlatformJobRunResponse> cancelAiDataPlatformJobRun(CancelAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunRequest, CancelAiDataPlatformJobRunResponse> handler) {
-        LOG.trace("Called async cancelAiDataPlatformJobRun");
-        final CancelAiDataPlatformJobRunRequest interceptedRequest = CancelAiDataPlatformJobRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CancelJobRunResponse> cancelJobRun(CancelJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelJobRunRequest, CancelJobRunResponse> handler) {
+        LOG.trace("Called async cancelJobRun");
+        final CancelJobRunRequest interceptedRequest = CancelJobRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelJobRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CancelAiDataPlatformJobRunResponse> transformer = CancelAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelJobRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CancelJobRunResponse> transformer = CancelJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunRequest, CancelAiDataPlatformJobRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CancelJobRunRequest, CancelJobRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunRequest, CancelAiDataPlatformJobRunResponse>, java.util.concurrent.Future<CancelAiDataPlatformJobRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CancelJobRunRequest, CancelJobRunResponse>, java.util.concurrent.Future<CancelJobRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CancelAiDataPlatformJobRunRequest, CancelAiDataPlatformJobRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CancelJobRunRequest, CancelJobRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -398,21 +398,21 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CancelAiDataPlatformJobRunsResponse> cancelAiDataPlatformJobRuns(CancelAiDataPlatformJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunsRequest, CancelAiDataPlatformJobRunsResponse> handler) {
-        LOG.trace("Called async cancelAiDataPlatformJobRuns");
-        final CancelAiDataPlatformJobRunsRequest interceptedRequest = CancelAiDataPlatformJobRunsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelAiDataPlatformJobRunsConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CancelJobRunsResponse> cancelJobRuns(CancelJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<CancelJobRunsRequest, CancelJobRunsResponse> handler) {
+        LOG.trace("Called async cancelJobRuns");
+        final CancelJobRunsRequest interceptedRequest = CancelJobRunsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CancelJobRunsConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelAiDataPlatformJobRuns", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CancelAiDataPlatformJobRunsResponse> transformer = CancelAiDataPlatformJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CancelJobRuns", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CancelJobRunsResponse> transformer = CancelJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunsRequest, CancelAiDataPlatformJobRunsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CancelJobRunsRequest, CancelJobRunsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CancelAiDataPlatformJobRunsRequest, CancelAiDataPlatformJobRunsResponse>, java.util.concurrent.Future<CancelAiDataPlatformJobRunsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CancelJobRunsRequest, CancelJobRunsResponse>, java.util.concurrent.Future<CancelJobRunsResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CancelAiDataPlatformJobRunsRequest, CancelAiDataPlatformJobRunsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CancelJobRunsRequest, CancelJobRunsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -427,21 +427,21 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformJobResponse> createAiDataPlatformJob(CreateAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRequest, CreateAiDataPlatformJobResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformJob");
-        final CreateAiDataPlatformJobRequest interceptedRequest = CreateAiDataPlatformJobConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateJobResponse> createJob(CreateJobRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateJobRequest, CreateJobResponse> handler) {
+        LOG.trace("Called async createJob");
+        final CreateJobRequest interceptedRequest = CreateJobConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateJobConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateAiDataPlatformJob", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformJobResponse> transformer = CreateAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateJob", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateJobResponse> transformer = CreateJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRequest, CreateAiDataPlatformJobResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateJobRequest, CreateJobResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRequest, CreateAiDataPlatformJobResponse>, java.util.concurrent.Future<CreateAiDataPlatformJobResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateJobRequest, CreateJobResponse>, java.util.concurrent.Future<CreateJobResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateJobDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformJobRequest, CreateAiDataPlatformJobResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateJobRequest, CreateJobResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -456,21 +456,21 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateAiDataPlatformJobRunResponse> createAiDataPlatformJobRun(CreateAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRunRequest, CreateAiDataPlatformJobRunResponse> handler) {
-        LOG.trace("Called async createAiDataPlatformJobRun");
-        final CreateAiDataPlatformJobRunRequest interceptedRequest = CreateAiDataPlatformJobRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<CreateJobRunResponse> createJobRun(CreateJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateJobRunRequest, CreateJobRunResponse> handler) {
+        LOG.trace("Called async createJobRun");
+        final CreateJobRunRequest interceptedRequest = CreateJobRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateJobRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformJobRunResponse> transformer = CreateAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "CreateJobRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, CreateJobRunResponse> transformer = CreateJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRunRequest, CreateAiDataPlatformJobRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<CreateJobRunRequest, CreateJobRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformJobRunRequest, CreateAiDataPlatformJobRunResponse>, java.util.concurrent.Future<CreateAiDataPlatformJobRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<CreateJobRunRequest, CreateJobRunResponse>, java.util.concurrent.Future<CreateJobRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getCreateJobRunDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateAiDataPlatformJobRunRequest, CreateAiDataPlatformJobRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<CreateJobRunRequest, CreateJobRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -485,20 +485,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformJobResponse> deleteAiDataPlatformJob(DeleteAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRequest, DeleteAiDataPlatformJobResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformJob");
-        final DeleteAiDataPlatformJobRequest interceptedRequest = DeleteAiDataPlatformJobConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteAiDataPlatformJob", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformJobResponse> transformer = DeleteAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteJobResponse> deleteJob(DeleteJobRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteJobRequest, DeleteJobResponse> handler) {
+        LOG.trace("Called async deleteJob");
+        final DeleteJobRequest interceptedRequest = DeleteJobConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteJobConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteJob", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteJobResponse> transformer = DeleteJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRequest, DeleteAiDataPlatformJobResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteJobRequest, DeleteJobResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRequest, DeleteAiDataPlatformJobResponse>, java.util.concurrent.Future<DeleteAiDataPlatformJobResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteJobRequest, DeleteJobResponse>, java.util.concurrent.Future<DeleteJobResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformJobRequest, DeleteAiDataPlatformJobResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteJobRequest, DeleteJobResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -513,20 +513,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteAiDataPlatformJobRunResponse> deleteAiDataPlatformJobRun(DeleteAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRunRequest, DeleteAiDataPlatformJobRunResponse> handler) {
-        LOG.trace("Called async deleteAiDataPlatformJobRun");
-        final DeleteAiDataPlatformJobRunRequest interceptedRequest = DeleteAiDataPlatformJobRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformJobRunResponse> transformer = DeleteAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<DeleteJobRunResponse> deleteJobRun(DeleteJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteJobRunRequest, DeleteJobRunResponse> handler) {
+        LOG.trace("Called async deleteJobRun");
+        final DeleteJobRunRequest interceptedRequest = DeleteJobRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteJobRunConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "DeleteJobRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, DeleteJobRunResponse> transformer = DeleteJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRunRequest, DeleteAiDataPlatformJobRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<DeleteJobRunRequest, DeleteJobRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformJobRunRequest, DeleteAiDataPlatformJobRunResponse>, java.util.concurrent.Future<DeleteAiDataPlatformJobRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<DeleteJobRunRequest, DeleteJobRunResponse>, java.util.concurrent.Future<DeleteJobRunResponse>> futureSupplier =
         client.deleteFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteAiDataPlatformJobRunRequest, DeleteAiDataPlatformJobRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<DeleteJobRunRequest, DeleteJobRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -541,20 +541,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ExportAiDataPlatformTaskRunOutputResponse> exportAiDataPlatformTaskRunOutput(ExportAiDataPlatformTaskRunOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformTaskRunOutputRequest, ExportAiDataPlatformTaskRunOutputResponse> handler) {
-        LOG.trace("Called async exportAiDataPlatformTaskRunOutput");
-        final ExportAiDataPlatformTaskRunOutputRequest interceptedRequest = ExportAiDataPlatformTaskRunOutputConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportAiDataPlatformTaskRunOutputConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ExportAiDataPlatformTaskRunOutput", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ExportAiDataPlatformTaskRunOutputResponse> transformer = ExportAiDataPlatformTaskRunOutputConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ExportTaskRunOutputResponse> exportTaskRunOutput(ExportTaskRunOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportTaskRunOutputRequest, ExportTaskRunOutputResponse> handler) {
+        LOG.trace("Called async exportTaskRunOutput");
+        final ExportTaskRunOutputRequest interceptedRequest = ExportTaskRunOutputConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ExportTaskRunOutputConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ExportTaskRunOutput", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ExportTaskRunOutputResponse> transformer = ExportTaskRunOutputConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformTaskRunOutputRequest, ExportAiDataPlatformTaskRunOutputResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ExportTaskRunOutputRequest, ExportTaskRunOutputResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ExportAiDataPlatformTaskRunOutputRequest, ExportAiDataPlatformTaskRunOutputResponse>, java.util.concurrent.Future<ExportAiDataPlatformTaskRunOutputResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ExportTaskRunOutputRequest, ExportTaskRunOutputResponse>, java.util.concurrent.Future<ExportTaskRunOutputResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getExportTaskRunOutputDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ExportAiDataPlatformTaskRunOutputRequest, ExportAiDataPlatformTaskRunOutputResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ExportTaskRunOutputRequest, ExportTaskRunOutputResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -569,21 +569,21 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<FetchAiDataPlatformOutputResponse> fetchAiDataPlatformOutput(FetchAiDataPlatformOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformOutputRequest, FetchAiDataPlatformOutputResponse> handler) {
-        LOG.trace("Called async fetchAiDataPlatformOutput");
-        final FetchAiDataPlatformOutputRequest interceptedRequest = FetchAiDataPlatformOutputConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchAiDataPlatformOutputConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<FetchOutputResponse> fetchOutput(FetchOutputRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchOutputRequest, FetchOutputResponse> handler) {
+        LOG.trace("Called async fetchOutput");
+        final FetchOutputRequest interceptedRequest = FetchOutputConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchOutputConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "FetchAiDataPlatformOutput", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, FetchAiDataPlatformOutputResponse> transformer = FetchAiDataPlatformOutputConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "FetchOutput", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, FetchOutputResponse> transformer = FetchOutputConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformOutputRequest, FetchAiDataPlatformOutputResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<FetchOutputRequest, FetchOutputResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<FetchAiDataPlatformOutputRequest, FetchAiDataPlatformOutputResponse>, java.util.concurrent.Future<FetchAiDataPlatformOutputResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<FetchOutputRequest, FetchOutputResponse>, java.util.concurrent.Future<FetchOutputResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getFetchOutputDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<FetchAiDataPlatformOutputRequest, FetchAiDataPlatformOutputResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<FetchOutputRequest, FetchOutputResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -598,20 +598,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformJobResponse> getAiDataPlatformJob(GetAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRequest, GetAiDataPlatformJobResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformJob");
-        final GetAiDataPlatformJobRequest interceptedRequest = GetAiDataPlatformJobConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetAiDataPlatformJob", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformJobResponse> transformer = GetAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetJobResponse> getJob(GetJobRequest request, final com.oracle.bmc.responses.AsyncHandler<GetJobRequest, GetJobResponse> handler) {
+        LOG.trace("Called async getJob");
+        final GetJobRequest interceptedRequest = GetJobConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetJobConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetJob", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetJobResponse> transformer = GetJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRequest, GetAiDataPlatformJobResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetJobRequest, GetJobResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRequest, GetAiDataPlatformJobResponse>, java.util.concurrent.Future<GetAiDataPlatformJobResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetJobRequest, GetJobResponse>, java.util.concurrent.Future<GetJobResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformJobRequest, GetAiDataPlatformJobResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetJobRequest, GetJobResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -626,20 +626,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformJobRunResponse> getAiDataPlatformJobRun(GetAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRunRequest, GetAiDataPlatformJobRunResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformJobRun");
-        final GetAiDataPlatformJobRunRequest interceptedRequest = GetAiDataPlatformJobRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformJobRunResponse> transformer = GetAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetJobRunResponse> getJobRun(GetJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetJobRunRequest, GetJobRunResponse> handler) {
+        LOG.trace("Called async getJobRun");
+        final GetJobRunRequest interceptedRequest = GetJobRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetJobRunConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetJobRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetJobRunResponse> transformer = GetJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRunRequest, GetAiDataPlatformJobRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetJobRunRequest, GetJobRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformJobRunRequest, GetAiDataPlatformJobRunResponse>, java.util.concurrent.Future<GetAiDataPlatformJobRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetJobRunRequest, GetJobRunResponse>, java.util.concurrent.Future<GetJobRunResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformJobRunRequest, GetAiDataPlatformJobRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetJobRunRequest, GetJobRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -654,20 +654,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetAiDataPlatformTaskRunResponse> getAiDataPlatformTaskRun(GetAiDataPlatformTaskRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTaskRunRequest, GetAiDataPlatformTaskRunResponse> handler) {
-        LOG.trace("Called async getAiDataPlatformTaskRun");
-        final GetAiDataPlatformTaskRunRequest interceptedRequest = GetAiDataPlatformTaskRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformTaskRunConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetAiDataPlatformTaskRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformTaskRunResponse> transformer = GetAiDataPlatformTaskRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<GetTaskRunResponse> getTaskRun(GetTaskRunRequest request, final com.oracle.bmc.responses.AsyncHandler<GetTaskRunRequest, GetTaskRunResponse> handler) {
+        LOG.trace("Called async getTaskRun");
+        final GetTaskRunRequest interceptedRequest = GetTaskRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetTaskRunConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "GetTaskRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, GetTaskRunResponse> transformer = GetTaskRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTaskRunRequest, GetAiDataPlatformTaskRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<GetTaskRunRequest, GetTaskRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformTaskRunRequest, GetAiDataPlatformTaskRunResponse>, java.util.concurrent.Future<GetAiDataPlatformTaskRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<GetTaskRunRequest, GetTaskRunResponse>, java.util.concurrent.Future<GetTaskRunResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetAiDataPlatformTaskRunRequest, GetAiDataPlatformTaskRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<GetTaskRunRequest, GetTaskRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -682,20 +682,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformJobPermissionsResponse> listAiDataPlatformJobPermissions(ListAiDataPlatformJobPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobPermissionsRequest, ListAiDataPlatformJobPermissionsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformJobPermissions");
-        final ListAiDataPlatformJobPermissionsRequest interceptedRequest = ListAiDataPlatformJobPermissionsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformJobPermissionsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformJobPermissions", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformJobPermissionsResponse> transformer = ListAiDataPlatformJobPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListJobPermissionsResponse> listJobPermissions(ListJobPermissionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListJobPermissionsRequest, ListJobPermissionsResponse> handler) {
+        LOG.trace("Called async listJobPermissions");
+        final ListJobPermissionsRequest interceptedRequest = ListJobPermissionsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListJobPermissionsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListJobPermissions", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListJobPermissionsResponse> transformer = ListJobPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobPermissionsRequest, ListAiDataPlatformJobPermissionsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListJobPermissionsRequest, ListJobPermissionsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobPermissionsRequest, ListAiDataPlatformJobPermissionsResponse>, java.util.concurrent.Future<ListAiDataPlatformJobPermissionsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListJobPermissionsRequest, ListJobPermissionsResponse>, java.util.concurrent.Future<ListJobPermissionsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformJobPermissionsRequest, ListAiDataPlatformJobPermissionsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListJobPermissionsRequest, ListJobPermissionsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -710,20 +710,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformJobRunsResponse> listAiDataPlatformJobRuns(ListAiDataPlatformJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobRunsRequest, ListAiDataPlatformJobRunsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformJobRuns");
-        final ListAiDataPlatformJobRunsRequest interceptedRequest = ListAiDataPlatformJobRunsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformJobRunsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformJobRuns", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformJobRunsResponse> transformer = ListAiDataPlatformJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListJobRunsResponse> listJobRuns(ListJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListJobRunsRequest, ListJobRunsResponse> handler) {
+        LOG.trace("Called async listJobRuns");
+        final ListJobRunsRequest interceptedRequest = ListJobRunsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListJobRunsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListJobRuns", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListJobRunsResponse> transformer = ListJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobRunsRequest, ListAiDataPlatformJobRunsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListJobRunsRequest, ListJobRunsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobRunsRequest, ListAiDataPlatformJobRunsResponse>, java.util.concurrent.Future<ListAiDataPlatformJobRunsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListJobRunsRequest, ListJobRunsResponse>, java.util.concurrent.Future<ListJobRunsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformJobRunsRequest, ListAiDataPlatformJobRunsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListJobRunsRequest, ListJobRunsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -738,20 +738,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformJobsResponse> listAiDataPlatformJobs(ListAiDataPlatformJobsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobsRequest, ListAiDataPlatformJobsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformJobs");
-        final ListAiDataPlatformJobsRequest interceptedRequest = ListAiDataPlatformJobsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformJobsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformJobs", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformJobsResponse> transformer = ListAiDataPlatformJobsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListJobsResponse> listJobs(ListJobsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListJobsRequest, ListJobsResponse> handler) {
+        LOG.trace("Called async listJobs");
+        final ListJobsRequest interceptedRequest = ListJobsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListJobsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListJobs", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListJobsResponse> transformer = ListJobsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobsRequest, ListAiDataPlatformJobsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListJobsRequest, ListJobsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformJobsRequest, ListAiDataPlatformJobsResponse>, java.util.concurrent.Future<ListAiDataPlatformJobsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListJobsRequest, ListJobsResponse>, java.util.concurrent.Future<ListJobsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformJobsRequest, ListAiDataPlatformJobsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListJobsRequest, ListJobsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -766,20 +766,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformRecentJobRunsResponse> listAiDataPlatformRecentJobRuns(ListAiDataPlatformRecentJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecentJobRunsRequest, ListAiDataPlatformRecentJobRunsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformRecentJobRuns");
-        final ListAiDataPlatformRecentJobRunsRequest interceptedRequest = ListAiDataPlatformRecentJobRunsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformRecentJobRunsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformRecentJobRuns", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformRecentJobRunsResponse> transformer = ListAiDataPlatformRecentJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListRecentJobRunsResponse> listRecentJobRuns(ListRecentJobRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListRecentJobRunsRequest, ListRecentJobRunsResponse> handler) {
+        LOG.trace("Called async listRecentJobRuns");
+        final ListRecentJobRunsRequest interceptedRequest = ListRecentJobRunsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListRecentJobRunsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListRecentJobRuns", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListRecentJobRunsResponse> transformer = ListRecentJobRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecentJobRunsRequest, ListAiDataPlatformRecentJobRunsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListRecentJobRunsRequest, ListRecentJobRunsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformRecentJobRunsRequest, ListAiDataPlatformRecentJobRunsResponse>, java.util.concurrent.Future<ListAiDataPlatformRecentJobRunsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListRecentJobRunsRequest, ListRecentJobRunsResponse>, java.util.concurrent.Future<ListRecentJobRunsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformRecentJobRunsRequest, ListAiDataPlatformRecentJobRunsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListRecentJobRunsRequest, ListRecentJobRunsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -794,20 +794,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ListAiDataPlatformTaskRunsResponse> listAiDataPlatformTaskRuns(ListAiDataPlatformTaskRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTaskRunsRequest, ListAiDataPlatformTaskRunsResponse> handler) {
-        LOG.trace("Called async listAiDataPlatformTaskRuns");
-        final ListAiDataPlatformTaskRunsRequest interceptedRequest = ListAiDataPlatformTaskRunsConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformTaskRunsConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListAiDataPlatformTaskRuns", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformTaskRunsResponse> transformer = ListAiDataPlatformTaskRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ListTaskRunsResponse> listTaskRuns(ListTaskRunsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTaskRunsRequest, ListTaskRunsResponse> handler) {
+        LOG.trace("Called async listTaskRuns");
+        final ListTaskRunsRequest interceptedRequest = ListTaskRunsConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListTaskRunsConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ListTaskRuns", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ListTaskRunsResponse> transformer = ListTaskRunsConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTaskRunsRequest, ListAiDataPlatformTaskRunsResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ListTaskRunsRequest, ListTaskRunsResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformTaskRunsRequest, ListAiDataPlatformTaskRunsResponse>, java.util.concurrent.Future<ListAiDataPlatformTaskRunsResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ListTaskRunsRequest, ListTaskRunsResponse>, java.util.concurrent.Future<ListTaskRunsResponse>> futureSupplier =
         client.getFutureSupplier(interceptedRequest, ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListAiDataPlatformTaskRunsRequest, ListAiDataPlatformTaskRunsResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ListTaskRunsRequest, ListTaskRunsResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -822,20 +822,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<ManageAiDataPlatformJobPermissionResponse> manageAiDataPlatformJobPermission(ManageAiDataPlatformJobPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformJobPermissionRequest, ManageAiDataPlatformJobPermissionResponse> handler) {
-        LOG.trace("Called async manageAiDataPlatformJobPermission");
-        final ManageAiDataPlatformJobPermissionRequest interceptedRequest = ManageAiDataPlatformJobPermissionConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformJobPermissionConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ManageAiDataPlatformJobPermission", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformJobPermissionResponse> transformer = ManageAiDataPlatformJobPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<ManageJobPermissionResponse> manageJobPermission(ManageJobPermissionRequest request, final com.oracle.bmc.responses.AsyncHandler<ManageJobPermissionRequest, ManageJobPermissionResponse> handler) {
+        LOG.trace("Called async manageJobPermission");
+        final ManageJobPermissionRequest interceptedRequest = ManageJobPermissionConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageJobPermissionConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "ManageJobPermission", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, ManageJobPermissionResponse> transformer = ManageJobPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformJobPermissionRequest, ManageAiDataPlatformJobPermissionResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<ManageJobPermissionRequest, ManageJobPermissionResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformJobPermissionRequest, ManageAiDataPlatformJobPermissionResponse>, java.util.concurrent.Future<ManageAiDataPlatformJobPermissionResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<ManageJobPermissionRequest, ManageJobPermissionResponse>, java.util.concurrent.Future<ManageJobPermissionResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getManageJobPermissionDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageAiDataPlatformJobPermissionRequest, ManageAiDataPlatformJobPermissionResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<ManageJobPermissionRequest, ManageJobPermissionResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -850,21 +850,21 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<RepairAiDataPlatformJobRunResponse> repairAiDataPlatformJobRun(RepairAiDataPlatformJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<RepairAiDataPlatformJobRunRequest, RepairAiDataPlatformJobRunResponse> handler) {
-        LOG.trace("Called async repairAiDataPlatformJobRun");
-        final RepairAiDataPlatformJobRunRequest interceptedRequest = RepairAiDataPlatformJobRunConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RepairAiDataPlatformJobRunConverter.fromRequest(client, interceptedRequest);
+    public java.util.concurrent.Future<RepairJobRunResponse> repairJobRun(RepairJobRunRequest request, final com.oracle.bmc.responses.AsyncHandler<RepairJobRunRequest, RepairJobRunResponse> handler) {
+        LOG.trace("Called async repairJobRun");
+        final RepairJobRunRequest interceptedRequest = RepairJobRunConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RepairJobRunConverter.fromRequest(client, interceptedRequest);
         com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "RepairAiDataPlatformJobRun", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, RepairAiDataPlatformJobRunResponse> transformer = RepairAiDataPlatformJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "RepairJobRun", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, RepairJobRunResponse> transformer = RepairJobRunConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<RepairAiDataPlatformJobRunRequest, RepairAiDataPlatformJobRunResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<RepairJobRunRequest, RepairJobRunResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RepairAiDataPlatformJobRunRequest, RepairAiDataPlatformJobRunResponse>, java.util.concurrent.Future<RepairAiDataPlatformJobRunResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<RepairJobRunRequest, RepairJobRunResponse>, java.util.concurrent.Future<RepairJobRunResponse>> futureSupplier =
         client.postFutureSupplier(interceptedRequest, interceptedRequest.getRepairJobRunDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RepairAiDataPlatformJobRunRequest, RepairAiDataPlatformJobRunResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<RepairJobRunRequest, RepairJobRunResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {
@@ -879,20 +879,20 @@ public class WorkflowAsyncClient implements WorkflowAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<UpdateAiDataPlatformJobResponse> updateAiDataPlatformJob(UpdateAiDataPlatformJobRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformJobRequest, UpdateAiDataPlatformJobResponse> handler) {
-        LOG.trace("Called async updateAiDataPlatformJob");
-        final UpdateAiDataPlatformJobRequest interceptedRequest = UpdateAiDataPlatformJobConverter.interceptRequest(request);
-        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformJobConverter.fromRequest(client, interceptedRequest);
-        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "UpdateAiDataPlatformJob", ib.getRequestUri().toString(), "");
-        final java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformJobResponse> transformer = UpdateAiDataPlatformJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
+    public java.util.concurrent.Future<UpdateJobResponse> updateJob(UpdateJobRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateJobRequest, UpdateJobResponse> handler) {
+        LOG.trace("Called async updateJob");
+        final UpdateJobRequest interceptedRequest = UpdateJobConverter.interceptRequest(request);
+        final com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateJobConverter.fromRequest(client, interceptedRequest);
+        com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Workflow", "UpdateJob", ib.getRequestUri().toString(), "");
+        final java.util.function.Function<javax.ws.rs.core.Response, UpdateJobResponse> transformer = UpdateJobConverter.fromResponse(java.util.Optional.of(serviceDetails)
         );
-        com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformJobRequest, UpdateAiDataPlatformJobResponse> handlerToUse = handler;
+        com.oracle.bmc.responses.AsyncHandler<UpdateJobRequest, UpdateJobResponse> handlerToUse = handler;
 
-        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformJobRequest, UpdateAiDataPlatformJobResponse>, java.util.concurrent.Future<UpdateAiDataPlatformJobResponse>> futureSupplier =
+        java.util.function.Function<com.oracle.bmc.responses.AsyncHandler<UpdateJobRequest, UpdateJobResponse>, java.util.concurrent.Future<UpdateJobResponse>> futureSupplier =
         client.putFutureSupplier(interceptedRequest, interceptedRequest.getUpdateJobDetails(), ib, transformer);
 
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) {
-            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateAiDataPlatformJobRequest, UpdateAiDataPlatformJobResponse>(
+            return new com.oracle.bmc.util.internal.RefreshAuthTokenWrapper<UpdateJobRequest, UpdateJobResponse>(
                 (com.oracle.bmc.auth.RefreshableOnNotAuthenticatedProvider) this.authenticationDetailsProvider,
                 handlerToUse,
                 futureSupplier) {

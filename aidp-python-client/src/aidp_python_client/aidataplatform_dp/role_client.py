@@ -85,7 +85,7 @@ class RoleClient(object):
         self.base_client = BaseClient("role", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy')
 
-    def add_ai_data_platform_member_to_role(self, ai_data_platform_id, role_key, add_member_to_role_details, **kwargs):
+    def add_member_to_role(self, ai_data_platform_id, role_key, add_member_to_role_details, **kwargs):
         """
         Assigns a given user/group/principal to a role.
 
@@ -144,7 +144,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "add_ai_data_platform_member_to_role got unknown kwargs: {!r}".format(extra_kwargs))
+                "add_member_to_role got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -188,7 +188,7 @@ class RoleClient(object):
                 header_params=header_params,
                 body=add_member_to_role_details)
 
-    def create_ai_data_platform_role(self, ai_data_platform_id, create_role_details, **kwargs):
+    def create_role(self, ai_data_platform_id, create_role_details, **kwargs):
         """
         Creates a role.
 
@@ -237,7 +237,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "create_ai_data_platform_role got unknown kwargs: {!r}".format(extra_kwargs))
+                "create_role got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -281,7 +281,7 @@ class RoleClient(object):
                 body=create_role_details,
                 response_type="Role")
 
-    def delete_ai_data_platform_role(self, ai_data_platform_id, role_key, **kwargs):
+    def delete_role(self, ai_data_platform_id, role_key, **kwargs):
         """
         Deletes a role.
 
@@ -329,7 +329,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "delete_ai_data_platform_role got unknown kwargs: {!r}".format(extra_kwargs))
+                "delete_role got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -368,7 +368,7 @@ class RoleClient(object):
                 path_params=path_params,
                 header_params=header_params)
 
-    def get_ai_data_platform_role(self, ai_data_platform_id, role_key, **kwargs):
+    def get_role(self, ai_data_platform_id, role_key, **kwargs):
         """
         Returns detailed information about a role.
 
@@ -415,7 +415,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "get_ai_data_platform_role got unknown kwargs: {!r}".format(extra_kwargs))
+                "get_role got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -469,7 +469,7 @@ class RoleClient(object):
                 header_params=header_params,
                 response_type="Role")
 
-    def list_ai_data_platform_role_permissions(self, ai_data_platform_id, role_key, **kwargs):
+    def list_role_permissions(self, ai_data_platform_id, role_key, **kwargs):
         """
         Returns a list of permissions for a given role.
 
@@ -545,7 +545,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_role_permissions got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_role_permissions got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -617,7 +617,7 @@ class RoleClient(object):
                 header_params=header_params,
                 response_type="RolePermissionCollection")
 
-    def list_ai_data_platform_roles(self, ai_data_platform_id, **kwargs):
+    def list_roles(self, ai_data_platform_id, **kwargs):
         """
         Returns a list of roles.
 
@@ -695,7 +695,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "list_ai_data_platform_roles got unknown kwargs: {!r}".format(extra_kwargs))
+                "list_roles got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id
@@ -767,7 +767,7 @@ class RoleClient(object):
                 header_params=header_params,
                 response_type="RoleCollection")
 
-    def remove_ai_data_platform_member_from_role(self, ai_data_platform_id, role_key, remove_member_from_role_details, **kwargs):
+    def remove_member_from_role(self, ai_data_platform_id, role_key, remove_member_from_role_details, **kwargs):
         """
         Revoke a role from a given user or group.
 
@@ -826,7 +826,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "remove_ai_data_platform_member_from_role got unknown kwargs: {!r}".format(extra_kwargs))
+                "remove_member_from_role got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,
@@ -870,7 +870,7 @@ class RoleClient(object):
                 header_params=header_params,
                 body=remove_member_from_role_details)
 
-    def update_ai_data_platform_role(self, ai_data_platform_id, role_key, update_role_details, **kwargs):
+    def update_role(self, ai_data_platform_id, role_key, update_role_details, **kwargs):
         """
         Updates a role with the provided information.
 
@@ -921,7 +921,7 @@ class RoleClient(object):
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
             raise ValueError(
-                "update_ai_data_platform_role got unknown kwargs: {!r}".format(extra_kwargs))
+                "update_role got unknown kwargs: {!r}".format(extra_kwargs))
 
         path_params = {
             "aiDataPlatformId": ai_data_platform_id,

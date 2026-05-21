@@ -20,11 +20,12 @@ public class RoleClient extends com.oracle.bmc.http.internal.BaseSyncClient impl
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(RoleClient.class);
 
 
+    private final RoleWaiters waiters;
 
     RoleClient(
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider
-            ) {
+            , java.util.concurrent.ExecutorService executorService) {
         super(
             builder,
             authenticationDetailsProvider,
@@ -32,7 +33,15 @@ public class RoleClient extends com.oracle.bmc.http.internal.BaseSyncClient impl
             
         );
 
-    }
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Role-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new RoleWaiters(executorService, this);
+            }
 
 
     
@@ -49,6 +58,8 @@ public class RoleClient extends com.oracle.bmc.http.internal.BaseSyncClient impl
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, RoleClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             final String packageName = "dp";
@@ -57,12 +68,22 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         }
 
         /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
+        }
+
+        /**
          * Build the client.
          * @param authenticationDetailsProvider authentication details provider
          * @return the client
          */
         public RoleClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
-            return new RoleClient(this, authenticationDetailsProvider);
+            return new RoleClient(this, authenticationDetailsProvider, executorService);
         }
     }
 
@@ -78,7 +99,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public AddAiDataPlatformMemberToRoleResponse addAiDataPlatformMemberToRole(AddAiDataPlatformMemberToRoleRequest request) {
+    public AddMemberToRoleResponse addMemberToRole(AddMemberToRoleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -87,11 +108,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, AddAiDataPlatformMemberToRoleResponse::builder)
-        .logger(LOG, "addAiDataPlatformMemberToRole")
-        .serviceDetails("Role", "AddAiDataPlatformMemberToRole", "")
+return clientCall(request, AddMemberToRoleResponse::builder)
+        .logger(LOG, "addMemberToRole")
+        .serviceDetails("Role", "AddMemberToRole", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(AddAiDataPlatformMemberToRoleRequest::builder)
+        .requestBuilder(AddMemberToRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -107,25 +128,25 @@ return clientCall(request, AddAiDataPlatformMemberToRoleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            AddAiDataPlatformMemberToRoleResponse.Builder::opcRequestId)
+            AddMemberToRoleResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public CreateAiDataPlatformRoleResponse createAiDataPlatformRole(CreateAiDataPlatformRoleRequest request) {
+    public CreateRoleResponse createRole(CreateRoleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         Objects.requireNonNull(request.getCreateRoleDetails(), "createRoleDetails is required");
         
 
 
-return clientCall(request, CreateAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "createAiDataPlatformRole")
-        .serviceDetails("Role", "CreateAiDataPlatformRole", "")
+return clientCall(request, CreateRoleResponse::builder)
+        .logger(LOG, "createRole")
+        .serviceDetails("Role", "CreateRole", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformRoleRequest::builder)
+        .requestBuilder(CreateRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -138,29 +159,29 @@ return clientCall(request, CreateAiDataPlatformRoleResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, CreateAiDataPlatformRoleResponse.Builder::role)
+            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, CreateRoleResponse.Builder::role)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformRoleResponse.Builder::etag)
+            CreateRoleResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformRoleResponse.Builder::opcRequestId)
+            CreateRoleResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformRoleResponse deleteAiDataPlatformRole(DeleteAiDataPlatformRoleRequest request) {
+    public DeleteRoleResponse deleteRole(DeleteRoleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRoleKey(), "roleKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformRole")
-        .serviceDetails("Role", "DeleteAiDataPlatformRole", "")
+return clientCall(request, DeleteRoleResponse::builder)
+        .logger(LOG, "deleteRole")
+        .serviceDetails("Role", "DeleteRole", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformRoleRequest::builder)
+        .requestBuilder(DeleteRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -174,25 +195,25 @@ return clientCall(request, DeleteAiDataPlatformRoleResponse::builder)
         
         
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformRoleResponse.Builder::opcRequestId)
+            DeleteRoleResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformRoleResponse getAiDataPlatformRole(GetAiDataPlatformRoleRequest request) {
+    public GetRoleResponse getRole(GetRoleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRoleKey(), "roleKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "getAiDataPlatformRole")
-        .serviceDetails("Role", "GetAiDataPlatformRole", "")
+return clientCall(request, GetRoleResponse::builder)
+        .logger(LOG, "getRole")
+        .serviceDetails("Role", "GetRole", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformRoleRequest::builder)
+        .requestBuilder(GetRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -207,29 +228,29 @@ return clientCall(request, GetAiDataPlatformRoleResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, GetAiDataPlatformRoleResponse.Builder::role)
+            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, GetRoleResponse.Builder::role)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformRoleResponse.Builder::etag)
+            GetRoleResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformRoleResponse.Builder::opcRequestId)
+            GetRoleResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformRolePermissionsResponse listAiDataPlatformRolePermissions(ListAiDataPlatformRolePermissionsRequest request) {
+    public ListRolePermissionsResponse listRolePermissions(ListRolePermissionsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getRoleKey(), "roleKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRolePermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformRolePermissions")
-        .serviceDetails("Role", "ListAiDataPlatformRolePermissions", "")
+return clientCall(request, ListRolePermissionsResponse::builder)
+        .logger(LOG, "listRolePermissions")
+        .serviceDetails("Role", "ListRolePermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRolePermissionsRequest::builder)
+        .requestBuilder(ListRolePermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -260,27 +281,27 @@ return clientCall(request, ListAiDataPlatformRolePermissionsResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RolePermissionCollection.class, ListAiDataPlatformRolePermissionsResponse.Builder::rolePermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RolePermissionCollection.class, ListRolePermissionsResponse.Builder::rolePermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRolePermissionsResponse.Builder::opcRequestId)
+            ListRolePermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRolePermissionsResponse.Builder::opcNextPage)
+            ListRolePermissionsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformRolesResponse listAiDataPlatformRoles(ListAiDataPlatformRolesRequest request) {
+    public ListRolesResponse listRoles(ListRolesRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformRolesResponse::builder)
-        .logger(LOG, "listAiDataPlatformRoles")
-        .serviceDetails("Role", "ListAiDataPlatformRoles", "")
+return clientCall(request, ListRolesResponse::builder)
+        .logger(LOG, "listRoles")
+        .serviceDetails("Role", "ListRoles", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformRolesRequest::builder)
+        .requestBuilder(ListRolesRequest::builder)
         
         
         .basePath("/20260430")
@@ -315,18 +336,18 @@ return clientCall(request, ListAiDataPlatformRolesResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.RoleCollection.class, ListAiDataPlatformRolesResponse.Builder::roleCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.RoleCollection.class, ListRolesResponse.Builder::roleCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformRolesResponse.Builder::opcRequestId)
+            ListRolesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformRolesResponse.Builder::opcNextPage)
+            ListRolesResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public RemoveAiDataPlatformMemberFromRoleResponse removeAiDataPlatformMemberFromRole(RemoveAiDataPlatformMemberFromRoleRequest request) {
+    public RemoveMemberFromRoleResponse removeMemberFromRole(RemoveMemberFromRoleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -335,11 +356,11 @@ return clientCall(request, ListAiDataPlatformRolesResponse::builder)
         
 
 
-return clientCall(request, RemoveAiDataPlatformMemberFromRoleResponse::builder)
-        .logger(LOG, "removeAiDataPlatformMemberFromRole")
-        .serviceDetails("Role", "RemoveAiDataPlatformMemberFromRole", "")
+return clientCall(request, RemoveMemberFromRoleResponse::builder)
+        .logger(LOG, "removeMemberFromRole")
+        .serviceDetails("Role", "RemoveMemberFromRole", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RemoveAiDataPlatformMemberFromRoleRequest::builder)
+        .requestBuilder(RemoveMemberFromRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -355,14 +376,14 @@ return clientCall(request, RemoveAiDataPlatformMemberFromRoleResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            RemoveAiDataPlatformMemberFromRoleResponse.Builder::opcRequestId)
+            RemoveMemberFromRoleResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformRoleResponse updateAiDataPlatformRole(UpdateAiDataPlatformRoleRequest request) {
+    public UpdateRoleResponse updateRole(UpdateRoleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -371,11 +392,11 @@ return clientCall(request, RemoveAiDataPlatformMemberFromRoleResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
-        .logger(LOG, "updateAiDataPlatformRole")
-        .serviceDetails("Role", "UpdateAiDataPlatformRole", "")
+return clientCall(request, UpdateRoleResponse::builder)
+        .logger(LOG, "updateRole")
+        .serviceDetails("Role", "UpdateRole", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformRoleRequest::builder)
+        .requestBuilder(UpdateRoleRequest::builder)
         
         
         .basePath("/20260430")
@@ -388,13 +409,18 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, UpdateAiDataPlatformRoleResponse.Builder::role)
+            .handleBody(com.oracle.aidataplatform.dp.model.Role.class, UpdateRoleResponse.Builder::role)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformRoleResponse.Builder::etag)
+            UpdateRoleResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformRoleResponse.Builder::opcRequestId)
+            UpdateRoleResponse.Builder::opcRequestId)
 
                 .callSync();
+    }
+
+    @Override
+    public RoleWaiters getWaiters() {
+        return waiters;
     }
 
 
@@ -409,7 +435,8 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
     public RoleClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider) {
         this(
             builder(),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -425,7 +452,8 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
         this(
             builder()
                 .configuration(configuration),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -443,7 +471,8 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
             builder()
                 .configuration(configuration)
                 .clientConfigurator(clientConfigurator),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -467,7 +496,8 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
                 .configuration(configuration)
                 .clientConfigurator(clientConfigurator)
                 .requestSignerFactory(defaultRequestSignerFactory),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -494,7 +524,8 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
                 .clientConfigurator(clientConfigurator)
                 .requestSignerFactory(defaultRequestSignerFactory)
                 .additionalClientConfigurators(additionalClientConfigurators),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -524,7 +555,8 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
                 .requestSignerFactory(defaultRequestSignerFactory)
                 .additionalClientConfigurators(additionalClientConfigurators)
                 .endpoint(endpoint),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
         );
     }
 
@@ -557,7 +589,44 @@ return clientCall(request, UpdateAiDataPlatformRoleResponse::builder)
                 .additionalClientConfigurators(additionalClientConfigurators)
                 .endpoint(endpoint)
                 .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
-            authenticationDetailsProvider
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @param endpoint {@link Builder#endpoint}
+     * @param signingStrategyRequestSignerFactories {@link Builder#signingStrategyRequestSignerFactories}
+     * @param executorService {@link Builder#executorService}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public RoleClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators)
+                .endpoint(endpoint)
+                .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
+            authenticationDetailsProvider,
+            executorService
         );
     }
 }

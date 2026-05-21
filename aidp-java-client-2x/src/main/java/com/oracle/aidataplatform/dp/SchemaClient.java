@@ -23,6 +23,7 @@ public class SchemaClient implements Schema {
         return client;
     }
 
+    private final SchemaWaiters waiters;
     private final com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider;
     private final com.oracle.bmc.retrier.RetryConfiguration retryConfiguration;
     private final org.glassfish.jersey.apache.connector.ApacheConnectionClosingStrategy apacheConnectionClosingStrategy;
@@ -147,6 +148,30 @@ public class SchemaClient implements Schema {
     }
 
     /**
+    * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
+    * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
+    * <p>
+    * This is an advanced constructor for clients that want to take control over how requests are signed.
+    * @param authenticationDetailsProvider The authentication details provider, required.
+    * @param configuration The client configuration, optional.
+    * @param clientConfigurator ClientConfigurator that will be invoked for additional configuration of a REST client, optional.
+    * @param defaultRequestSignerFactory The request signer factory used to create the request signer for this service.
+    * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
+    * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
+    * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    */
+    public SchemaClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory, signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, null);
+    }
+
+    /**
      * Creates a new service instance using the given authentication provider and client configuration.  Additionally,
      * a Consumer can be provided that will be invoked whenever a REST Client is created to allow for additional configuration/customization.
      * <p>
@@ -158,6 +183,7 @@ public class SchemaClient implements Schema {
      * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
      * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
      * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+     * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
      */
     public SchemaClient(
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
@@ -166,9 +192,10 @@ public class SchemaClient implements Schema {
             com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
             java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
             java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
-            String endpoint) {
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
     this(authenticationDetailsProvider, configuration, clientConfigurator, defaultRequestSignerFactory,
-            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, 
+            signingStrategyRequestSignerFactories, additionalClientConfigurators, endpoint, executorService, 
             com.oracle.bmc.http.internal.RestClientFactoryBuilder.builder());
     }
 
@@ -186,6 +213,7 @@ public class SchemaClient implements Schema {
     * @param signingStrategyRequestSignerFactories The request signer factories for each signing strategy used to create the request signer
     * @param additionalClientConfigurators Additional client configurators to be run after the primary configurator.
     * @param endpoint Endpoint, or null to leave unset (note, may be overridden by {@code authenticationDetailsProvider})
+    * @param executorService ExecutorService used by the client, or null to use the default configured ThreadPoolExecutor
     * @param restClientFactoryBuilder the builder for the {@link com.oracle.bmc.http.internal.RestClientFactory}
     */
     protected SchemaClient(
@@ -196,6 +224,7 @@ public class SchemaClient implements Schema {
            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
            String endpoint,
+           java.util.concurrent.ExecutorService executorService,
            com.oracle.bmc.http.internal.RestClientFactoryBuilder restClientFactoryBuilder) {
         this.authenticationDetailsProvider = authenticationDetailsProvider;
         java.util.List<com.oracle.bmc.http.ClientConfigurator> authenticationDetailsConfigurators = new java.util.ArrayList<>();
@@ -223,7 +252,15 @@ public class SchemaClient implements Schema {
 
         this.refreshClient();
 
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Schema-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
 
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new SchemaWaiters(executorService, this);
+        
         if (this.authenticationDetailsProvider instanceof com.oracle.bmc.auth.RegionProvider) {
             com.oracle.bmc.auth.RegionProvider provider = (com.oracle.bmc.auth.RegionProvider) this.authenticationDetailsProvider;
 
@@ -256,9 +293,21 @@ public class SchemaClient implements Schema {
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, SchemaClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
         }
 
         /**
@@ -277,6 +326,7 @@ public class SchemaClient implements Schema {
                     signingStrategyRequestSignerFactories,
                     additionalClientConfigurators,
                     endpoint,
+                    executorService,
                     restClientFactoryBuilder);
         }
     }
@@ -372,16 +422,16 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public CreateAiDataPlatformDataTableResponse createAiDataPlatformDataTable(CreateAiDataPlatformDataTableRequest request) {
-        LOG.trace("Called createAiDataPlatformDataTable");
-            final CreateAiDataPlatformDataTableRequest interceptedRequest = CreateAiDataPlatformDataTableConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformDataTableConverter.fromRequest(client, interceptedRequest);
+    public CreateDataTableResponse createDataTable(CreateDataTableRequest request) {
+        LOG.trace("Called createDataTable");
+            final CreateDataTableRequest interceptedRequest = CreateDataTableConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateDataTableConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformDataTable", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformDataTableResponse> transformer = CreateAiDataPlatformDataTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateDataTable", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateDataTableResponse> transformer = CreateDataTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +447,16 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public CreateAiDataPlatformSchemaResponse createAiDataPlatformSchema(CreateAiDataPlatformSchemaRequest request) {
-        LOG.trace("Called createAiDataPlatformSchema");
-            final CreateAiDataPlatformSchemaRequest interceptedRequest = CreateAiDataPlatformSchemaConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public CreateSchemaResponse createSchema(CreateSchemaRequest request) {
+        LOG.trace("Called createSchema");
+            final CreateSchemaRequest interceptedRequest = CreateSchemaConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateSchemaConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformSchemaResponse> transformer = CreateAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateSchema", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateSchemaResponse> transformer = CreateSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,16 +472,16 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public CreateAiDataPlatformTableResponse createAiDataPlatformTable(CreateAiDataPlatformTableRequest request) {
-        LOG.trace("Called createAiDataPlatformTable");
-            final CreateAiDataPlatformTableRequest interceptedRequest = CreateAiDataPlatformTableConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public CreateTableResponse createTable(CreateTableRequest request) {
+        LOG.trace("Called createTable");
+            final CreateTableRequest interceptedRequest = CreateTableConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateTableConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformTable", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformTableResponse> transformer = CreateAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateTable", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateTableResponse> transformer = CreateTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -447,16 +497,16 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public CreateAiDataPlatformViewResponse createAiDataPlatformView(CreateAiDataPlatformViewRequest request) {
-        LOG.trace("Called createAiDataPlatformView");
-            final CreateAiDataPlatformViewRequest interceptedRequest = CreateAiDataPlatformViewConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
+    public CreateViewResponse createView(CreateViewRequest request) {
+        LOG.trace("Called createView");
+            final CreateViewRequest interceptedRequest = CreateViewConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateViewConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateAiDataPlatformView", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformViewResponse> transformer = CreateAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "CreateView", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateViewResponse> transformer = CreateViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -472,15 +522,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public DeleteAiDataPlatformSchemaResponse deleteAiDataPlatformSchema(DeleteAiDataPlatformSchemaRequest request) {
-        LOG.trace("Called deleteAiDataPlatformSchema");
-            final DeleteAiDataPlatformSchemaRequest interceptedRequest = DeleteAiDataPlatformSchemaConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public DeleteSchemaResponse deleteSchema(DeleteSchemaRequest request) {
+        LOG.trace("Called deleteSchema");
+            final DeleteSchemaRequest interceptedRequest = DeleteSchemaConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteSchemaConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformSchemaResponse> transformer = DeleteAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteSchema", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteSchemaResponse> transformer = DeleteSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -496,15 +546,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public DeleteAiDataPlatformTableResponse deleteAiDataPlatformTable(DeleteAiDataPlatformTableRequest request) {
-        LOG.trace("Called deleteAiDataPlatformTable");
-            final DeleteAiDataPlatformTableRequest interceptedRequest = DeleteAiDataPlatformTableConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public DeleteTableResponse deleteTable(DeleteTableRequest request) {
+        LOG.trace("Called deleteTable");
+            final DeleteTableRequest interceptedRequest = DeleteTableConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteTableConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteAiDataPlatformTable", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformTableResponse> transformer = DeleteAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteTable", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteTableResponse> transformer = DeleteTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -520,15 +570,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public DeleteAiDataPlatformViewResponse deleteAiDataPlatformView(DeleteAiDataPlatformViewRequest request) {
-        LOG.trace("Called deleteAiDataPlatformView");
-            final DeleteAiDataPlatformViewRequest interceptedRequest = DeleteAiDataPlatformViewConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
+    public DeleteViewResponse deleteView(DeleteViewRequest request) {
+        LOG.trace("Called deleteView");
+            final DeleteViewRequest interceptedRequest = DeleteViewConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeleteViewConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteAiDataPlatformView", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeleteAiDataPlatformViewResponse> transformer = DeleteAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "DeleteView", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeleteViewResponse> transformer = DeleteViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -544,15 +594,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public GenerateAiDataPlatformTempFileUploadTargetResponse generateAiDataPlatformTempFileUploadTarget(GenerateAiDataPlatformTempFileUploadTargetRequest request) {
-        LOG.trace("Called generateAiDataPlatformTempFileUploadTarget");
-            final GenerateAiDataPlatformTempFileUploadTargetRequest interceptedRequest = GenerateAiDataPlatformTempFileUploadTargetConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GenerateAiDataPlatformTempFileUploadTargetConverter.fromRequest(client, interceptedRequest);
+    public GenerateTempFileUploadTargetResponse generateTempFileUploadTarget(GenerateTempFileUploadTargetRequest request) {
+        LOG.trace("Called generateTempFileUploadTarget");
+            final GenerateTempFileUploadTargetRequest interceptedRequest = GenerateTempFileUploadTargetConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GenerateTempFileUploadTargetConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GenerateAiDataPlatformTempFileUploadTarget", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GenerateAiDataPlatformTempFileUploadTargetResponse> transformer = GenerateAiDataPlatformTempFileUploadTargetConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GenerateTempFileUploadTarget", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GenerateTempFileUploadTargetResponse> transformer = GenerateTempFileUploadTargetConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -568,15 +618,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public GetAiDataPlatformSchemaResponse getAiDataPlatformSchema(GetAiDataPlatformSchemaRequest request) {
-        LOG.trace("Called getAiDataPlatformSchema");
-            final GetAiDataPlatformSchemaRequest interceptedRequest = GetAiDataPlatformSchemaConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public GetSchemaResponse getSchema(GetSchemaRequest request) {
+        LOG.trace("Called getSchema");
+            final GetSchemaRequest interceptedRequest = GetSchemaConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetSchemaConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformSchemaResponse> transformer = GetAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetSchema", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetSchemaResponse> transformer = GetSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -592,15 +642,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public GetAiDataPlatformTableResponse getAiDataPlatformTable(GetAiDataPlatformTableRequest request) {
-        LOG.trace("Called getAiDataPlatformTable");
-            final GetAiDataPlatformTableRequest interceptedRequest = GetAiDataPlatformTableConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public GetTableResponse getTable(GetTableRequest request) {
+        LOG.trace("Called getTable");
+            final GetTableRequest interceptedRequest = GetTableConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetTableConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetAiDataPlatformTable", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformTableResponse> transformer = GetAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetTable", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetTableResponse> transformer = GetTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -616,15 +666,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public GetAiDataPlatformViewResponse getAiDataPlatformView(GetAiDataPlatformViewRequest request) {
-        LOG.trace("Called getAiDataPlatformView");
-            final GetAiDataPlatformViewRequest interceptedRequest = GetAiDataPlatformViewConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
+    public GetViewResponse getView(GetViewRequest request) {
+        LOG.trace("Called getView");
+            final GetViewRequest interceptedRequest = GetViewConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = GetViewConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetAiDataPlatformView", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, GetAiDataPlatformViewResponse> transformer = GetAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "GetView", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, GetViewResponse> transformer = GetViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -640,15 +690,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ListAiDataPlatformSchemaPermissionsResponse listAiDataPlatformSchemaPermissions(ListAiDataPlatformSchemaPermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformSchemaPermissions");
-            final ListAiDataPlatformSchemaPermissionsRequest interceptedRequest = ListAiDataPlatformSchemaPermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSchemaPermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListSchemaPermissionsResponse listSchemaPermissions(ListSchemaPermissionsRequest request) {
+        LOG.trace("Called listSchemaPermissions");
+            final ListSchemaPermissionsRequest interceptedRequest = ListSchemaPermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSchemaPermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformSchemaPermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSchemaPermissionsResponse> transformer = ListAiDataPlatformSchemaPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListSchemaPermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListSchemaPermissionsResponse> transformer = ListSchemaPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -664,15 +714,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ListAiDataPlatformSchemasResponse listAiDataPlatformSchemas(ListAiDataPlatformSchemasRequest request) {
-        LOG.trace("Called listAiDataPlatformSchemas");
-            final ListAiDataPlatformSchemasRequest interceptedRequest = ListAiDataPlatformSchemasConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformSchemasConverter.fromRequest(client, interceptedRequest);
+    public ListSchemasResponse listSchemas(ListSchemasRequest request) {
+        LOG.trace("Called listSchemas");
+            final ListSchemasRequest interceptedRequest = ListSchemasConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListSchemasConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformSchemas", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformSchemasResponse> transformer = ListAiDataPlatformSchemasConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListSchemas", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListSchemasResponse> transformer = ListSchemasConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -688,15 +738,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ListAiDataPlatformTablePermissionsResponse listAiDataPlatformTablePermissions(ListAiDataPlatformTablePermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformTablePermissions");
-            final ListAiDataPlatformTablePermissionsRequest interceptedRequest = ListAiDataPlatformTablePermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformTablePermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListTablePermissionsResponse listTablePermissions(ListTablePermissionsRequest request) {
+        LOG.trace("Called listTablePermissions");
+            final ListTablePermissionsRequest interceptedRequest = ListTablePermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListTablePermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformTablePermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformTablePermissionsResponse> transformer = ListAiDataPlatformTablePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListTablePermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListTablePermissionsResponse> transformer = ListTablePermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -712,15 +762,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ListAiDataPlatformTablesResponse listAiDataPlatformTables(ListAiDataPlatformTablesRequest request) {
-        LOG.trace("Called listAiDataPlatformTables");
-            final ListAiDataPlatformTablesRequest interceptedRequest = ListAiDataPlatformTablesConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformTablesConverter.fromRequest(client, interceptedRequest);
+    public ListTablesResponse listTables(ListTablesRequest request) {
+        LOG.trace("Called listTables");
+            final ListTablesRequest interceptedRequest = ListTablesConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListTablesConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformTables", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformTablesResponse> transformer = ListAiDataPlatformTablesConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListTables", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListTablesResponse> transformer = ListTablesConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -736,15 +786,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ListAiDataPlatformViewPermissionsResponse listAiDataPlatformViewPermissions(ListAiDataPlatformViewPermissionsRequest request) {
-        LOG.trace("Called listAiDataPlatformViewPermissions");
-            final ListAiDataPlatformViewPermissionsRequest interceptedRequest = ListAiDataPlatformViewPermissionsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformViewPermissionsConverter.fromRequest(client, interceptedRequest);
+    public ListViewPermissionsResponse listViewPermissions(ListViewPermissionsRequest request) {
+        LOG.trace("Called listViewPermissions");
+            final ListViewPermissionsRequest interceptedRequest = ListViewPermissionsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListViewPermissionsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformViewPermissions", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformViewPermissionsResponse> transformer = ListAiDataPlatformViewPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListViewPermissions", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListViewPermissionsResponse> transformer = ListViewPermissionsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -760,15 +810,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ListAiDataPlatformViewsResponse listAiDataPlatformViews(ListAiDataPlatformViewsRequest request) {
-        LOG.trace("Called listAiDataPlatformViews");
-            final ListAiDataPlatformViewsRequest interceptedRequest = ListAiDataPlatformViewsConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListAiDataPlatformViewsConverter.fromRequest(client, interceptedRequest);
+    public ListViewsResponse listViews(ListViewsRequest request) {
+        LOG.trace("Called listViews");
+            final ListViewsRequest interceptedRequest = ListViewsConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ListViewsConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListAiDataPlatformViews", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ListAiDataPlatformViewsResponse> transformer = ListAiDataPlatformViewsConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ListViews", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ListViewsResponse> transformer = ListViewsConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -784,15 +834,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ManageAiDataPlatformSchemaPermissionResponse manageAiDataPlatformSchemaPermission(ManageAiDataPlatformSchemaPermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformSchemaPermission");
-            final ManageAiDataPlatformSchemaPermissionRequest interceptedRequest = ManageAiDataPlatformSchemaPermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformSchemaPermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageSchemaPermissionResponse manageSchemaPermission(ManageSchemaPermissionRequest request) {
+        LOG.trace("Called manageSchemaPermission");
+            final ManageSchemaPermissionRequest interceptedRequest = ManageSchemaPermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageSchemaPermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageAiDataPlatformSchemaPermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformSchemaPermissionResponse> transformer = ManageAiDataPlatformSchemaPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageSchemaPermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageSchemaPermissionResponse> transformer = ManageSchemaPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -808,15 +858,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ManageAiDataPlatformTablePermissionResponse manageAiDataPlatformTablePermission(ManageAiDataPlatformTablePermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformTablePermission");
-            final ManageAiDataPlatformTablePermissionRequest interceptedRequest = ManageAiDataPlatformTablePermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformTablePermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageTablePermissionResponse manageTablePermission(ManageTablePermissionRequest request) {
+        LOG.trace("Called manageTablePermission");
+            final ManageTablePermissionRequest interceptedRequest = ManageTablePermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageTablePermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageAiDataPlatformTablePermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformTablePermissionResponse> transformer = ManageAiDataPlatformTablePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageTablePermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageTablePermissionResponse> transformer = ManageTablePermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -832,15 +882,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public ManageAiDataPlatformViewPermissionResponse manageAiDataPlatformViewPermission(ManageAiDataPlatformViewPermissionRequest request) {
-        LOG.trace("Called manageAiDataPlatformViewPermission");
-            final ManageAiDataPlatformViewPermissionRequest interceptedRequest = ManageAiDataPlatformViewPermissionConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageAiDataPlatformViewPermissionConverter.fromRequest(client, interceptedRequest);
+    public ManageViewPermissionResponse manageViewPermission(ManageViewPermissionRequest request) {
+        LOG.trace("Called manageViewPermission");
+            final ManageViewPermissionRequest interceptedRequest = ManageViewPermissionConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = ManageViewPermissionConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageAiDataPlatformViewPermission", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, ManageAiDataPlatformViewPermissionResponse> transformer = ManageAiDataPlatformViewPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "ManageViewPermission", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, ManageViewPermissionResponse> transformer = ManageViewPermissionConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -856,15 +906,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public PerformAiDataPlatformInferSchemaResponse performAiDataPlatformInferSchema(PerformAiDataPlatformInferSchemaRequest request) {
-        LOG.trace("Called performAiDataPlatformInferSchema");
-            final PerformAiDataPlatformInferSchemaRequest interceptedRequest = PerformAiDataPlatformInferSchemaConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformAiDataPlatformInferSchemaConverter.fromRequest(client, interceptedRequest);
+    public PerformInferSchemaResponse performInferSchema(PerformInferSchemaRequest request) {
+        LOG.trace("Called performInferSchema");
+            final PerformInferSchemaRequest interceptedRequest = PerformInferSchemaConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformInferSchemaConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformAiDataPlatformInferSchema", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, PerformAiDataPlatformInferSchemaResponse> transformer = PerformAiDataPlatformInferSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformInferSchema", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, PerformInferSchemaResponse> transformer = PerformInferSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -880,15 +930,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public PerformAiDataPlatformInferSchemaWithPreviewResponse performAiDataPlatformInferSchemaWithPreview(PerformAiDataPlatformInferSchemaWithPreviewRequest request) {
-        LOG.trace("Called performAiDataPlatformInferSchemaWithPreview");
-            final PerformAiDataPlatformInferSchemaWithPreviewRequest interceptedRequest = PerformAiDataPlatformInferSchemaWithPreviewConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformAiDataPlatformInferSchemaWithPreviewConverter.fromRequest(client, interceptedRequest);
+    public PerformInferSchemaWithPreviewResponse performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request) {
+        LOG.trace("Called performInferSchemaWithPreview");
+            final PerformInferSchemaWithPreviewRequest interceptedRequest = PerformInferSchemaWithPreviewConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PerformInferSchemaWithPreviewConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformAiDataPlatformInferSchemaWithPreview", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, PerformAiDataPlatformInferSchemaWithPreviewResponse> transformer = PerformAiDataPlatformInferSchemaWithPreviewConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "PerformInferSchemaWithPreview", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, PerformInferSchemaWithPreviewResponse> transformer = PerformInferSchemaWithPreviewConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -904,16 +954,16 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public RefreshAiDataPlatformSchemaResponse refreshAiDataPlatformSchema(RefreshAiDataPlatformSchemaRequest request) {
-        LOG.trace("Called refreshAiDataPlatformSchema");
-            final RefreshAiDataPlatformSchemaRequest interceptedRequest = RefreshAiDataPlatformSchemaConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public RefreshSchemaResponse refreshSchema(RefreshSchemaRequest request) {
+        LOG.trace("Called refreshSchema");
+            final RefreshSchemaRequest interceptedRequest = RefreshSchemaConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshSchemaConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RefreshAiDataPlatformSchemaResponse> transformer = RefreshAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshSchema", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RefreshSchemaResponse> transformer = RefreshSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -929,16 +979,16 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public RefreshAiDataPlatformTableResponse refreshAiDataPlatformTable(RefreshAiDataPlatformTableRequest request) {
-        LOG.trace("Called refreshAiDataPlatformTable");
-            final RefreshAiDataPlatformTableRequest interceptedRequest = RefreshAiDataPlatformTableConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public RefreshTableResponse refreshTable(RefreshTableRequest request) {
+        LOG.trace("Called refreshTable");
+            final RefreshTableRequest interceptedRequest = RefreshTableConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RefreshTableConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshAiDataPlatformTable", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RefreshAiDataPlatformTableResponse> transformer = RefreshAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RefreshTable", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RefreshTableResponse> transformer = RefreshTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -954,15 +1004,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public RetrieveAiDataPlatformParResponse retrieveAiDataPlatformPar(RetrieveAiDataPlatformParRequest request) {
-        LOG.trace("Called retrieveAiDataPlatformPar");
-            final RetrieveAiDataPlatformParRequest interceptedRequest = RetrieveAiDataPlatformParConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RetrieveAiDataPlatformParConverter.fromRequest(client, interceptedRequest);
+    public RetrieveParResponse retrievePar(RetrieveParRequest request) {
+        LOG.trace("Called retrievePar");
+            final RetrieveParRequest interceptedRequest = RetrieveParConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = RetrieveParConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RetrieveAiDataPlatformPar", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, RetrieveAiDataPlatformParResponse> transformer = RetrieveAiDataPlatformParConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "RetrievePar", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, RetrieveParResponse> transformer = RetrieveParConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -978,15 +1028,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public UpdateAiDataPlatformSchemaResponse updateAiDataPlatformSchema(UpdateAiDataPlatformSchemaRequest request) {
-        LOG.trace("Called updateAiDataPlatformSchema");
-            final UpdateAiDataPlatformSchemaRequest interceptedRequest = UpdateAiDataPlatformSchemaConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformSchemaConverter.fromRequest(client, interceptedRequest);
+    public UpdateSchemaResponse updateSchema(UpdateSchemaRequest request) {
+        LOG.trace("Called updateSchema");
+            final UpdateSchemaRequest interceptedRequest = UpdateSchemaConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateSchemaConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateAiDataPlatformSchema", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformSchemaResponse> transformer = UpdateAiDataPlatformSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateSchema", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateSchemaResponse> transformer = UpdateSchemaConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1002,15 +1052,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public UpdateAiDataPlatformTableResponse updateAiDataPlatformTable(UpdateAiDataPlatformTableRequest request) {
-        LOG.trace("Called updateAiDataPlatformTable");
-            final UpdateAiDataPlatformTableRequest interceptedRequest = UpdateAiDataPlatformTableConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformTableConverter.fromRequest(client, interceptedRequest);
+    public UpdateTableResponse updateTable(UpdateTableRequest request) {
+        LOG.trace("Called updateTable");
+            final UpdateTableRequest interceptedRequest = UpdateTableConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateTableConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateAiDataPlatformTable", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformTableResponse> transformer = UpdateAiDataPlatformTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateTable", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateTableResponse> transformer = UpdateTableConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1026,15 +1076,15 @@ public class SchemaClient implements Schema {
     }
 
     @Override
-    public UpdateAiDataPlatformViewResponse updateAiDataPlatformView(UpdateAiDataPlatformViewRequest request) {
-        LOG.trace("Called updateAiDataPlatformView");
-            final UpdateAiDataPlatformViewRequest interceptedRequest = UpdateAiDataPlatformViewConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateAiDataPlatformViewConverter.fromRequest(client, interceptedRequest);
+    public UpdateViewResponse updateView(UpdateViewRequest request) {
+        LOG.trace("Called updateView");
+            final UpdateViewRequest interceptedRequest = UpdateViewConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = UpdateViewConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateAiDataPlatformView", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, UpdateAiDataPlatformViewResponse> transformer = UpdateAiDataPlatformViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Schema", "UpdateView", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, UpdateViewResponse> transformer = UpdateViewConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -1047,6 +1097,11 @@ public class SchemaClient implements Schema {
                                     return transformer.apply(response);
                                 });
                     });
+    }
+
+    @Override
+    public SchemaWaiters getWaiters() {
+        return waiters;
     }
 
 

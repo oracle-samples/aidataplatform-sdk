@@ -372,16 +372,16 @@ public class BundleClient implements Bundle {
     }
 
     @Override
-    public CreateAiDataPlatformBundleResponse createAiDataPlatformBundle(CreateAiDataPlatformBundleRequest request) {
-        LOG.trace("Called createAiDataPlatformBundle");
-            final CreateAiDataPlatformBundleRequest interceptedRequest = CreateAiDataPlatformBundleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public CreateBundleResponse createBundle(CreateBundleRequest request) {
+        LOG.trace("Called createBundle");
+            final CreateBundleRequest interceptedRequest = CreateBundleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = CreateBundleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "CreateAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, CreateAiDataPlatformBundleResponse> transformer = CreateAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "CreateBundle", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, CreateBundleResponse> transformer = CreateBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -397,16 +397,16 @@ public class BundleClient implements Bundle {
     }
 
     @Override
-    public DeployAiDataPlatformBundleResponse deployAiDataPlatformBundle(DeployAiDataPlatformBundleRequest request) {
-        LOG.trace("Called deployAiDataPlatformBundle");
-            final DeployAiDataPlatformBundleRequest interceptedRequest = DeployAiDataPlatformBundleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeployAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public DeployBundleResponse deployBundle(DeployBundleRequest request) {
+        LOG.trace("Called deployBundle");
+            final DeployBundleRequest interceptedRequest = DeployBundleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = DeployBundleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "DeployAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, DeployAiDataPlatformBundleResponse> transformer = DeployAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "DeployBundle", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, DeployBundleResponse> transformer = DeployBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -422,15 +422,15 @@ public class BundleClient implements Bundle {
     }
 
     @Override
-    public FetchAiDataPlatformBundleDeploymentStatusResponse fetchAiDataPlatformBundleDeploymentStatus(FetchAiDataPlatformBundleDeploymentStatusRequest request) {
-        LOG.trace("Called fetchAiDataPlatformBundleDeploymentStatus");
-            final FetchAiDataPlatformBundleDeploymentStatusRequest interceptedRequest = FetchAiDataPlatformBundleDeploymentStatusConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchAiDataPlatformBundleDeploymentStatusConverter.fromRequest(client, interceptedRequest);
+    public FetchBundleDeploymentStatusResponse fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request) {
+        LOG.trace("Called fetchBundleDeploymentStatus");
+            final FetchBundleDeploymentStatusRequest interceptedRequest = FetchBundleDeploymentStatusConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = FetchBundleDeploymentStatusConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "FetchAiDataPlatformBundleDeploymentStatus", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, FetchAiDataPlatformBundleDeploymentStatusResponse> transformer = FetchAiDataPlatformBundleDeploymentStatusConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "FetchBundleDeploymentStatus", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, FetchBundleDeploymentStatusResponse> transformer = FetchBundleDeploymentStatusConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -446,16 +446,16 @@ public class BundleClient implements Bundle {
     }
 
     @Override
-    public PurgeAiDataPlatformBundleResponse purgeAiDataPlatformBundle(PurgeAiDataPlatformBundleRequest request) {
-        LOG.trace("Called purgeAiDataPlatformBundle");
-            final PurgeAiDataPlatformBundleRequest interceptedRequest = PurgeAiDataPlatformBundleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PurgeAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public PurgeBundleResponse purgeBundle(PurgeBundleRequest request) {
+        LOG.trace("Called purgeBundle");
+            final PurgeBundleRequest interceptedRequest = PurgeBundleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = PurgeBundleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "PurgeAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, PurgeAiDataPlatformBundleResponse> transformer = PurgeAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "PurgeBundle", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, PurgeBundleResponse> transformer = PurgeBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {
@@ -471,16 +471,16 @@ public class BundleClient implements Bundle {
     }
 
     @Override
-    public SyncAiDataPlatformBundleResponse syncAiDataPlatformBundle(SyncAiDataPlatformBundleRequest request) {
-        LOG.trace("Called syncAiDataPlatformBundle");
-            final SyncAiDataPlatformBundleRequest interceptedRequest = SyncAiDataPlatformBundleConverter.interceptRequest(request);
-            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SyncAiDataPlatformBundleConverter.fromRequest(client, interceptedRequest);
+    public SyncBundleResponse syncBundle(SyncBundleRequest request) {
+        LOG.trace("Called syncBundle");
+            final SyncBundleRequest interceptedRequest = SyncBundleConverter.interceptRequest(request);
+            com.oracle.bmc.http.internal.WrappedInvocationBuilder ib = SyncBundleConverter.fromRequest(client, interceptedRequest);
 
             final com.oracle.bmc.retrier.BmcGenericRetrier retrier = com.oracle.bmc.retrier.Retriers.createPreferredRetrier(interceptedRequest.getRetryConfiguration(), retryConfiguration, true);
             com.oracle.bmc.http.internal.RetryTokenUtils.addRetryToken(ib);
             com.oracle.bmc.http.internal.RetryUtils.setClientRetriesHeader(ib, retrier);
-            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "SyncAiDataPlatformBundle", ib.getRequestUri().toString(), "");
-            java.util.function.Function<javax.ws.rs.core.Response, SyncAiDataPlatformBundleResponse> transformer = SyncAiDataPlatformBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
+            com.oracle.bmc.ServiceDetails serviceDetails = new com.oracle.bmc.ServiceDetails("Bundle", "SyncBundle", ib.getRequestUri().toString(), "");
+            java.util.function.Function<javax.ws.rs.core.Response, SyncBundleResponse> transformer = SyncBundleConverter.fromResponse(java.util.Optional.of(serviceDetails));
             return retrier.execute(
                     interceptedRequest,
                     retryRequest -> {

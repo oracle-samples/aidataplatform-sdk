@@ -78,7 +78,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
-    public CreateAiDataPlatformClusterResponse createAiDataPlatformCluster(CreateAiDataPlatformClusterRequest request) {
+    public CreateClusterResponse createCluster(CreateClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -87,11 +87,11 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         
 
 
-return clientCall(request, CreateAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "createAiDataPlatformCluster")
-        .serviceDetails("Cluster", "CreateAiDataPlatformCluster", "")
+return clientCall(request, CreateClusterResponse::builder)
+        .logger(LOG, "createCluster")
+        .serviceDetails("Cluster", "CreateCluster", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(CreateAiDataPlatformClusterRequest::builder)
+        .requestBuilder(CreateClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -106,20 +106,20 @@ return clientCall(request, CreateAiDataPlatformClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, CreateAiDataPlatformClusterResponse.Builder::cluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, CreateClusterResponse.Builder::cluster)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            CreateAiDataPlatformClusterResponse.Builder::aidpAsyncOperationKey)
+            CreateClusterResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            CreateAiDataPlatformClusterResponse.Builder::opcRequestId)
+            CreateClusterResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            CreateAiDataPlatformClusterResponse.Builder::etag)
+            CreateClusterResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public DeleteAiDataPlatformClusterResponse deleteAiDataPlatformCluster(DeleteAiDataPlatformClusterRequest request) {
+    public DeleteClusterResponse deleteCluster(DeleteClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -128,11 +128,11 @@ return clientCall(request, CreateAiDataPlatformClusterResponse::builder)
         Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
 
 
-return clientCall(request, DeleteAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "deleteAiDataPlatformCluster")
-        .serviceDetails("Cluster", "DeleteAiDataPlatformCluster", "")
+return clientCall(request, DeleteClusterResponse::builder)
+        .logger(LOG, "deleteCluster")
+        .serviceDetails("Cluster", "DeleteCluster", "")
         .method(com.oracle.bmc.http.client.Method.DELETE)
-        .requestBuilder(DeleteAiDataPlatformClusterRequest::builder)
+        .requestBuilder(DeleteClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -146,16 +146,16 @@ return clientCall(request, DeleteAiDataPlatformClusterResponse::builder)
         
         
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DeleteAiDataPlatformClusterResponse.Builder::aidpAsyncOperationKey)
+            DeleteClusterResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            DeleteAiDataPlatformClusterResponse.Builder::opcRequestId)
+            DeleteClusterResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public DownloadAiDataPlatformClusterLogsResponse downloadAiDataPlatformClusterLogs(DownloadAiDataPlatformClusterLogsRequest request) {
+    public DownloadClusterLogsResponse downloadClusterLogs(DownloadClusterLogsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -166,11 +166,11 @@ return clientCall(request, DeleteAiDataPlatformClusterResponse::builder)
         
 
 
-return clientCall(request, DownloadAiDataPlatformClusterLogsResponse::builder)
-        .logger(LOG, "downloadAiDataPlatformClusterLogs")
-        .serviceDetails("Cluster", "DownloadAiDataPlatformClusterLogs", "")
+return clientCall(request, DownloadClusterLogsResponse::builder)
+        .logger(LOG, "downloadClusterLogs")
+        .serviceDetails("Cluster", "DownloadClusterLogs", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(DownloadAiDataPlatformClusterLogsRequest::builder)
+        .requestBuilder(DownloadClusterLogsRequest::builder)
         
         
         .basePath("/20260430")
@@ -184,18 +184,18 @@ return clientCall(request, DownloadAiDataPlatformClusterLogsResponse::builder)
         
         .hasBody()
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            DownloadAiDataPlatformClusterLogsResponse.Builder::aidpAsyncOperationKey)
+            DownloadClusterLogsResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("datalake-cluster-log-par-url", 
-            DownloadAiDataPlatformClusterLogsResponse.Builder::datalakeClusterLogParUrl)
+            DownloadClusterLogsResponse.Builder::datalakeClusterLogParUrl)
                 .handleResponseHeaderString("opc-request-id", 
-            DownloadAiDataPlatformClusterLogsResponse.Builder::opcRequestId)
+            DownloadClusterLogsResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformClusterResponse getAiDataPlatformCluster(GetAiDataPlatformClusterRequest request) {
+    public GetClusterResponse getCluster(GetClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -204,11 +204,11 @@ return clientCall(request, DownloadAiDataPlatformClusterLogsResponse::builder)
         Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "getAiDataPlatformCluster")
-        .serviceDetails("Cluster", "GetAiDataPlatformCluster", "")
+return clientCall(request, GetClusterResponse::builder)
+        .logger(LOG, "getCluster")
+        .serviceDetails("Cluster", "GetCluster", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformClusterRequest::builder)
+        .requestBuilder(GetClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -221,27 +221,27 @@ return clientCall(request, GetAiDataPlatformClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, GetAiDataPlatformClusterResponse.Builder::cluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, GetClusterResponse.Builder::cluster)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformClusterResponse.Builder::etag)
+            GetClusterResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformClusterResponse.Builder::opcRequestId)
+            GetClusterResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public GetAiDataPlatformDefaultClusterResponse getAiDataPlatformDefaultCluster(GetAiDataPlatformDefaultClusterRequest request) {
+    public GetDefaultClusterResponse getDefaultCluster(GetDefaultClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
 
 
-return clientCall(request, GetAiDataPlatformDefaultClusterResponse::builder)
-        .logger(LOG, "getAiDataPlatformDefaultCluster")
-        .serviceDetails("Cluster", "GetAiDataPlatformDefaultCluster", "")
+return clientCall(request, GetDefaultClusterResponse::builder)
+        .logger(LOG, "getDefaultCluster")
+        .serviceDetails("Cluster", "GetDefaultCluster", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(GetAiDataPlatformDefaultClusterRequest::builder)
+        .requestBuilder(GetDefaultClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -252,18 +252,18 @@ return clientCall(request, GetAiDataPlatformDefaultClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.DefaultCluster.class, GetAiDataPlatformDefaultClusterResponse.Builder::defaultCluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.DefaultCluster.class, GetDefaultClusterResponse.Builder::defaultCluster)
                 .handleResponseHeaderString("etag", 
-            GetAiDataPlatformDefaultClusterResponse.Builder::etag)
+            GetDefaultClusterResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            GetAiDataPlatformDefaultClusterResponse.Builder::opcRequestId)
+            GetDefaultClusterResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformClusterLibrariesResponse listAiDataPlatformClusterLibraries(ListAiDataPlatformClusterLibrariesRequest request) {
+    public ListClusterLibrariesResponse listClusterLibraries(ListClusterLibrariesRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -272,11 +272,11 @@ return clientCall(request, GetAiDataPlatformDefaultClusterResponse::builder)
         Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformClusterLibrariesResponse::builder)
-        .logger(LOG, "listAiDataPlatformClusterLibraries")
-        .serviceDetails("Cluster", "ListAiDataPlatformClusterLibraries", "")
+return clientCall(request, ListClusterLibrariesResponse::builder)
+        .logger(LOG, "listClusterLibraries")
+        .serviceDetails("Cluster", "ListClusterLibraries", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformClusterLibrariesRequest::builder)
+        .requestBuilder(ListClusterLibrariesRequest::builder)
         
         
         .basePath("/20260430")
@@ -307,22 +307,22 @@ return clientCall(request, ListAiDataPlatformClusterLibrariesResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLibraryCollection.class, ListAiDataPlatformClusterLibrariesResponse.Builder::clusterLibraryCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLibraryCollection.class, ListClusterLibrariesResponse.Builder::clusterLibraryCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformClusterLibrariesResponse.Builder::opcRequestId)
+            ListClusterLibrariesResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformClusterLibrariesResponse.Builder::opcNextPage)
+            ListClusterLibrariesResponse.Builder::opcNextPage)
                 .handleResponseHeaderString("opc-prev-page", 
-            ListAiDataPlatformClusterLibrariesResponse.Builder::opcPrevPage)
+            ListClusterLibrariesResponse.Builder::opcPrevPage)
                 .handleResponseHeaderInteger("opc-total-items", 
-            ListAiDataPlatformClusterLibrariesResponse.Builder::opcTotalItems)
+            ListClusterLibrariesResponse.Builder::opcTotalItems)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformClusterPermissionsResponse listAiDataPlatformClusterPermissions(ListAiDataPlatformClusterPermissionsRequest request) {
+    public ListClusterPermissionsResponse listClusterPermissions(ListClusterPermissionsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -331,11 +331,11 @@ return clientCall(request, ListAiDataPlatformClusterLibrariesResponse::builder)
         Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformClusterPermissionsResponse::builder)
-        .logger(LOG, "listAiDataPlatformClusterPermissions")
-        .serviceDetails("Cluster", "ListAiDataPlatformClusterPermissions", "")
+return clientCall(request, ListClusterPermissionsResponse::builder)
+        .logger(LOG, "listClusterPermissions")
+        .serviceDetails("Cluster", "ListClusterPermissions", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformClusterPermissionsRequest::builder)
+        .requestBuilder(ListClusterPermissionsRequest::builder)
         
         
         .basePath("/20260430")
@@ -366,29 +366,29 @@ return clientCall(request, ListAiDataPlatformClusterPermissionsResponse::builder
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ClusterPermissionCollection.class, ListAiDataPlatformClusterPermissionsResponse.Builder::clusterPermissionCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ClusterPermissionCollection.class, ListClusterPermissionsResponse.Builder::clusterPermissionCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformClusterPermissionsResponse.Builder::opcRequestId)
+            ListClusterPermissionsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformClusterPermissionsResponse.Builder::opcNextPage)
+            ListClusterPermissionsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ListAiDataPlatformClustersResponse listAiDataPlatformClusters(ListAiDataPlatformClustersRequest request) {
+    public ListClustersResponse listClusters(ListClustersRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
         Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
 
 
-return clientCall(request, ListAiDataPlatformClustersResponse::builder)
-        .logger(LOG, "listAiDataPlatformClusters")
-        .serviceDetails("Cluster", "ListAiDataPlatformClusters", "")
+return clientCall(request, ListClustersResponse::builder)
+        .logger(LOG, "listClusters")
+        .serviceDetails("Cluster", "ListClusters", "")
         .method(com.oracle.bmc.http.client.Method.GET)
-        .requestBuilder(ListAiDataPlatformClustersRequest::builder)
+        .requestBuilder(ListClustersRequest::builder)
         
         
         .basePath("/20260430")
@@ -431,18 +431,18 @@ return clientCall(request, ListAiDataPlatformClustersResponse::builder)
         .operationUsesDefaultRetries()
         
         
-            .handleBody(com.oracle.aidataplatform.dp.model.ClusterCollection.class, ListAiDataPlatformClustersResponse.Builder::clusterCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ClusterCollection.class, ListClustersResponse.Builder::clusterCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            ListAiDataPlatformClustersResponse.Builder::opcRequestId)
+            ListClustersResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            ListAiDataPlatformClustersResponse.Builder::opcNextPage)
+            ListClustersResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public ManageAiDataPlatformClusterPermissionResponse manageAiDataPlatformClusterPermission(ManageAiDataPlatformClusterPermissionRequest request) {
+    public ManageClusterPermissionResponse manageClusterPermission(ManageClusterPermissionRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -453,11 +453,11 @@ return clientCall(request, ListAiDataPlatformClustersResponse::builder)
         
 
 
-return clientCall(request, ManageAiDataPlatformClusterPermissionResponse::builder)
-        .logger(LOG, "manageAiDataPlatformClusterPermission")
-        .serviceDetails("Cluster", "ManageAiDataPlatformClusterPermission", "")
+return clientCall(request, ManageClusterPermissionResponse::builder)
+        .logger(LOG, "manageClusterPermission")
+        .serviceDetails("Cluster", "ManageClusterPermission", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(ManageAiDataPlatformClusterPermissionRequest::builder)
+        .requestBuilder(ManageClusterPermissionRequest::builder)
         
         
         .basePath("/20260430")
@@ -473,14 +473,14 @@ return clientCall(request, ManageAiDataPlatformClusterPermissionResponse::builde
         
         .hasBody()
                 .handleResponseHeaderString("opc-request-id", 
-            ManageAiDataPlatformClusterPermissionResponse.Builder::opcRequestId)
+            ManageClusterPermissionResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public PatchAiDataPlatformClusterLibraryResponse patchAiDataPlatformClusterLibrary(PatchAiDataPlatformClusterLibraryRequest request) {
+    public PatchClusterLibraryResponse patchClusterLibrary(PatchClusterLibraryRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -491,11 +491,11 @@ return clientCall(request, ManageAiDataPlatformClusterPermissionResponse::builde
         
 
 
-return clientCall(request, PatchAiDataPlatformClusterLibraryResponse::builder)
-        .logger(LOG, "patchAiDataPlatformClusterLibrary")
-        .serviceDetails("Cluster", "PatchAiDataPlatformClusterLibrary", "")
+return clientCall(request, PatchClusterLibraryResponse::builder)
+        .logger(LOG, "patchClusterLibrary")
+        .serviceDetails("Cluster", "PatchClusterLibrary", "")
         .method(com.oracle.bmc.http.client.Method.PATCH)
-        .requestBuilder(PatchAiDataPlatformClusterLibraryRequest::builder)
+        .requestBuilder(PatchClusterLibraryRequest::builder)
         
         
         .basePath("/20260430")
@@ -508,20 +508,20 @@ return clientCall(request, PatchAiDataPlatformClusterLibraryResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLibraryCollection.class, PatchAiDataPlatformClusterLibraryResponse.Builder::clusterLibraryCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLibraryCollection.class, PatchClusterLibraryResponse.Builder::clusterLibraryCollection)
                 .handleResponseHeaderString("etag", 
-            PatchAiDataPlatformClusterLibraryResponse.Builder::etag)
+            PatchClusterLibraryResponse.Builder::etag)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            PatchAiDataPlatformClusterLibraryResponse.Builder::aidpAsyncOperationKey)
+            PatchClusterLibraryResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            PatchAiDataPlatformClusterLibraryResponse.Builder::opcRequestId)
+            PatchClusterLibraryResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public RestartAiDataPlatformClusterResponse restartAiDataPlatformCluster(RestartAiDataPlatformClusterRequest request) {
+    public RestartClusterResponse restartCluster(RestartClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -532,11 +532,11 @@ return clientCall(request, PatchAiDataPlatformClusterLibraryResponse::builder)
         
 
 
-return clientCall(request, RestartAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "restartAiDataPlatformCluster")
-        .serviceDetails("Cluster", "RestartAiDataPlatformCluster", "")
+return clientCall(request, RestartClusterResponse::builder)
+        .logger(LOG, "restartCluster")
+        .serviceDetails("Cluster", "RestartCluster", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(RestartAiDataPlatformClusterRequest::builder)
+        .requestBuilder(RestartClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -551,20 +551,20 @@ return clientCall(request, RestartAiDataPlatformClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, RestartAiDataPlatformClusterResponse.Builder::cluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, RestartClusterResponse.Builder::cluster)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            RestartAiDataPlatformClusterResponse.Builder::aidpAsyncOperationKey)
+            RestartClusterResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            RestartAiDataPlatformClusterResponse.Builder::opcRequestId)
+            RestartClusterResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            RestartAiDataPlatformClusterResponse.Builder::etag)
+            RestartClusterResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public SearchAiDataPlatformClusterLogsResponse searchAiDataPlatformClusterLogs(SearchAiDataPlatformClusterLogsRequest request) {
+    public SearchClusterLogsResponse searchClusterLogs(SearchClusterLogsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -575,11 +575,11 @@ return clientCall(request, RestartAiDataPlatformClusterResponse::builder)
         
 
 
-return clientCall(request, SearchAiDataPlatformClusterLogsResponse::builder)
-        .logger(LOG, "searchAiDataPlatformClusterLogs")
-        .serviceDetails("Cluster", "SearchAiDataPlatformClusterLogs", "")
+return clientCall(request, SearchClusterLogsResponse::builder)
+        .logger(LOG, "searchClusterLogs")
+        .serviceDetails("Cluster", "SearchClusterLogs", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SearchAiDataPlatformClusterLogsRequest::builder)
+        .requestBuilder(SearchClusterLogsRequest::builder)
         
         
         .basePath("/20260430")
@@ -602,18 +602,18 @@ return clientCall(request, SearchAiDataPlatformClusterLogsResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLogCollection.class, SearchAiDataPlatformClusterLogsResponse.Builder::clusterLogCollection)
+            .handleBody(com.oracle.aidataplatform.dp.model.ClusterLogCollection.class, SearchClusterLogsResponse.Builder::clusterLogCollection)
                 .handleResponseHeaderString("opc-request-id", 
-            SearchAiDataPlatformClusterLogsResponse.Builder::opcRequestId)
+            SearchClusterLogsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
-            SearchAiDataPlatformClusterLogsResponse.Builder::opcNextPage)
+            SearchClusterLogsResponse.Builder::opcNextPage)
 
                 .callSync();
     }
 
     @Override
     
-    public StartAiDataPlatformClusterResponse startAiDataPlatformCluster(StartAiDataPlatformClusterRequest request) {
+    public StartClusterResponse startCluster(StartClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -624,11 +624,11 @@ return clientCall(request, SearchAiDataPlatformClusterLogsResponse::builder)
         
 
 
-return clientCall(request, StartAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "startAiDataPlatformCluster")
-        .serviceDetails("Cluster", "StartAiDataPlatformCluster", "")
+return clientCall(request, StartClusterResponse::builder)
+        .logger(LOG, "startCluster")
+        .serviceDetails("Cluster", "StartCluster", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(StartAiDataPlatformClusterRequest::builder)
+        .requestBuilder(StartClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -643,20 +643,20 @@ return clientCall(request, StartAiDataPlatformClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, StartAiDataPlatformClusterResponse.Builder::cluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, StartClusterResponse.Builder::cluster)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            StartAiDataPlatformClusterResponse.Builder::aidpAsyncOperationKey)
+            StartClusterResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            StartAiDataPlatformClusterResponse.Builder::opcRequestId)
+            StartClusterResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            StartAiDataPlatformClusterResponse.Builder::etag)
+            StartClusterResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public StopAiDataPlatformClusterResponse stopAiDataPlatformCluster(StopAiDataPlatformClusterRequest request) {
+    public StopClusterResponse stopCluster(StopClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -667,11 +667,11 @@ return clientCall(request, StartAiDataPlatformClusterResponse::builder)
         
 
 
-return clientCall(request, StopAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "stopAiDataPlatformCluster")
-        .serviceDetails("Cluster", "StopAiDataPlatformCluster", "")
+return clientCall(request, StopClusterResponse::builder)
+        .logger(LOG, "stopCluster")
+        .serviceDetails("Cluster", "StopCluster", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(StopAiDataPlatformClusterRequest::builder)
+        .requestBuilder(StopClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -686,20 +686,20 @@ return clientCall(request, StopAiDataPlatformClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, StopAiDataPlatformClusterResponse.Builder::cluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, StopClusterResponse.Builder::cluster)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            StopAiDataPlatformClusterResponse.Builder::aidpAsyncOperationKey)
+            StopClusterResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            StopAiDataPlatformClusterResponse.Builder::opcRequestId)
+            StopClusterResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            StopAiDataPlatformClusterResponse.Builder::etag)
+            StopClusterResponse.Builder::etag)
 
                 .callSync();
     }
 
     @Override
     
-    public SummarizeAiDataPlatformMetricsDataResponse summarizeAiDataPlatformMetricsData(SummarizeAiDataPlatformMetricsDataRequest request) {
+    public SummarizeMetricsDataResponse summarizeMetricsData(SummarizeMetricsDataRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -710,11 +710,11 @@ return clientCall(request, StopAiDataPlatformClusterResponse::builder)
         
 
 
-return clientCall(request, SummarizeAiDataPlatformMetricsDataResponse::builder)
-        .logger(LOG, "summarizeAiDataPlatformMetricsData")
-        .serviceDetails("Cluster", "SummarizeAiDataPlatformMetricsData", "")
+return clientCall(request, SummarizeMetricsDataResponse::builder)
+        .logger(LOG, "summarizeMetricsData")
+        .serviceDetails("Cluster", "SummarizeMetricsData", "")
         .method(com.oracle.bmc.http.client.Method.POST)
-        .requestBuilder(SummarizeAiDataPlatformMetricsDataRequest::builder)
+        .requestBuilder(SummarizeMetricsDataRequest::builder)
         
         
         .basePath("/20260430")
@@ -729,18 +729,18 @@ return clientCall(request, SummarizeAiDataPlatformMetricsDataResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.SummarizeMetricsResponse.class, SummarizeAiDataPlatformMetricsDataResponse.Builder::summarizeMetricsResponse)
+            .handleBody(com.oracle.aidataplatform.dp.model.SummarizeMetricsResponse.class, SummarizeMetricsDataResponse.Builder::summarizeMetricsResponse)
                 .handleResponseHeaderString("etag", 
-            SummarizeAiDataPlatformMetricsDataResponse.Builder::etag)
+            SummarizeMetricsDataResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
-            SummarizeAiDataPlatformMetricsDataResponse.Builder::opcRequestId)
+            SummarizeMetricsDataResponse.Builder::opcRequestId)
 
                 .callSync();
     }
 
     @Override
     
-    public UpdateAiDataPlatformClusterResponse updateAiDataPlatformCluster(UpdateAiDataPlatformClusterRequest request) {
+    public UpdateClusterResponse updateCluster(UpdateClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
         
@@ -751,11 +751,11 @@ return clientCall(request, SummarizeAiDataPlatformMetricsDataResponse::builder)
         
 
 
-return clientCall(request, UpdateAiDataPlatformClusterResponse::builder)
-        .logger(LOG, "updateAiDataPlatformCluster")
-        .serviceDetails("Cluster", "UpdateAiDataPlatformCluster", "")
+return clientCall(request, UpdateClusterResponse::builder)
+        .logger(LOG, "updateCluster")
+        .serviceDetails("Cluster", "UpdateCluster", "")
         .method(com.oracle.bmc.http.client.Method.PUT)
-        .requestBuilder(UpdateAiDataPlatformClusterRequest::builder)
+        .requestBuilder(UpdateClusterRequest::builder)
         
         
         .basePath("/20260430")
@@ -770,13 +770,13 @@ return clientCall(request, UpdateAiDataPlatformClusterResponse::builder)
         .operationUsesDefaultRetries()
         
         .hasBody()
-            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, UpdateAiDataPlatformClusterResponse.Builder::cluster)
+            .handleBody(com.oracle.aidataplatform.dp.model.Cluster.class, UpdateClusterResponse.Builder::cluster)
                 .handleResponseHeaderString("aidp-async-operation-key", 
-            UpdateAiDataPlatformClusterResponse.Builder::aidpAsyncOperationKey)
+            UpdateClusterResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
-            UpdateAiDataPlatformClusterResponse.Builder::opcRequestId)
+            UpdateClusterResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("etag", 
-            UpdateAiDataPlatformClusterResponse.Builder::etag)
+            UpdateClusterResponse.Builder::etag)
 
                 .callSync();
     }

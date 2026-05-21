@@ -67,7 +67,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformGitFolderResponse> createAiDataPlatformGitFolder(CreateAiDataPlatformGitFolderRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformGitFolderRequest, CreateAiDataPlatformGitFolderResponse> handler);
+    java.util.concurrent.Future<CreateGitFolderResponse> createGitFolder(CreateGitFolderRequest request, com.oracle.bmc.responses.AsyncHandler<CreateGitFolderRequest, CreateGitFolderResponse> handler);
     
     /**
      * Creates a workspace.
@@ -80,7 +80,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<CreateAiDataPlatformWorkspaceResponse> createAiDataPlatformWorkspace(CreateAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAiDataPlatformWorkspaceRequest, CreateAiDataPlatformWorkspaceResponse> handler);
+    java.util.concurrent.Future<CreateWorkspaceResponse> createWorkspace(CreateWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceRequest, CreateWorkspaceResponse> handler);
     
     /**
      * Deletes a workspace.
@@ -92,7 +92,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<DeleteAiDataPlatformWorkspaceResponse> deleteAiDataPlatformWorkspace(DeleteAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAiDataPlatformWorkspaceRequest, DeleteAiDataPlatformWorkspaceResponse> handler);
+    java.util.concurrent.Future<DeleteWorkspaceResponse> deleteWorkspace(DeleteWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteWorkspaceRequest, DeleteWorkspaceResponse> handler);
     
     /**
      * Gets detailed information about a workspace.
@@ -104,7 +104,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<GetAiDataPlatformWorkspaceResponse> getAiDataPlatformWorkspace(GetAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<GetAiDataPlatformWorkspaceRequest, GetAiDataPlatformWorkspaceResponse> handler);
+    java.util.concurrent.Future<GetWorkspaceResponse> getWorkspace(GetWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<GetWorkspaceRequest, GetWorkspaceResponse> handler);
     
     /**
      * Gets a list of create workspace permission summary objects.
@@ -117,7 +117,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformCreateWorkspacePermissionsResponse> listAiDataPlatformCreateWorkspacePermissions(ListAiDataPlatformCreateWorkspacePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformCreateWorkspacePermissionsRequest, ListAiDataPlatformCreateWorkspacePermissionsResponse> handler);
+    java.util.concurrent.Future<ListCreateWorkspacePermissionsResponse> listCreateWorkspacePermissions(ListCreateWorkspacePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListCreateWorkspacePermissionsRequest, ListCreateWorkspacePermissionsResponse> handler);
     
     /**
      * Gets a list of workspace permissions.
@@ -130,7 +130,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformWorkspacePermissionsResponse> listAiDataPlatformWorkspacePermissions(ListAiDataPlatformWorkspacePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacePermissionsRequest, ListAiDataPlatformWorkspacePermissionsResponse> handler);
+    java.util.concurrent.Future<ListWorkspacePermissionsResponse> listWorkspacePermissions(ListWorkspacePermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListWorkspacePermissionsRequest, ListWorkspacePermissionsResponse> handler);
     
     /**
      * Gets a list of workspaces.
@@ -143,7 +143,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ListAiDataPlatformWorkspacesResponse> listAiDataPlatformWorkspaces(ListAiDataPlatformWorkspacesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAiDataPlatformWorkspacesRequest, ListAiDataPlatformWorkspacesResponse> handler);
+    java.util.concurrent.Future<ListWorkspacesResponse> listWorkspaces(ListWorkspacesRequest request, com.oracle.bmc.responses.AsyncHandler<ListWorkspacesRequest, ListWorkspacesResponse> handler);
     
     /**
      * Updates create workspace permissions on a workspace.
@@ -155,7 +155,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformCreateWorkspacePermissionResponse> manageAiDataPlatformCreateWorkspacePermission(ManageAiDataPlatformCreateWorkspacePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformCreateWorkspacePermissionRequest, ManageAiDataPlatformCreateWorkspacePermissionResponse> handler);
+    java.util.concurrent.Future<ManageCreateWorkspacePermissionResponse> manageCreateWorkspacePermission(ManageCreateWorkspacePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageCreateWorkspacePermissionRequest, ManageCreateWorkspacePermissionResponse> handler);
     
     /**
      * Updates permissions on a workspace.
@@ -167,7 +167,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<ManageAiDataPlatformWorkspacePermissionResponse> manageAiDataPlatformWorkspacePermission(ManageAiDataPlatformWorkspacePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAiDataPlatformWorkspacePermissionRequest, ManageAiDataPlatformWorkspacePermissionResponse> handler);
+    java.util.concurrent.Future<ManageWorkspacePermissionResponse> manageWorkspacePermission(ManageWorkspacePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageWorkspacePermissionRequest, ManageWorkspacePermissionResponse> handler);
     
     /**
      * Updates the details of a workspace.
@@ -179,7 +179,7 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceResponse> updateAiDataPlatformWorkspace(UpdateAiDataPlatformWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceRequest, UpdateAiDataPlatformWorkspaceResponse> handler);
+    java.util.concurrent.Future<UpdateWorkspaceResponse> updateWorkspace(UpdateWorkspaceRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceRequest, UpdateWorkspaceResponse> handler);
     
     /**
      * Updates the status of a workspace.
@@ -191,6 +191,6 @@ public interface WorkspaceAsync extends AutoCloseable {
      *         types of responses (like java.io.InputStream) may not be able to be read in 
      *         both places as the underlying stream may only be consumed once.
      */
-    java.util.concurrent.Future<UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> updateAiDataPlatformWorkspaceAsyncOperationStatus(UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAiDataPlatformWorkspaceAsyncOperationStatusRequest, UpdateAiDataPlatformWorkspaceAsyncOperationStatusResponse> handler);
+    java.util.concurrent.Future<UpdateWorkspaceAsyncOperationStatusResponse> updateWorkspaceAsyncOperationStatus(UpdateWorkspaceAsyncOperationStatusRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceAsyncOperationStatusRequest, UpdateWorkspaceAsyncOperationStatusResponse> handler);
     
 }
