@@ -6,6 +6,7 @@ const SDK_ROOT = path.resolve(PACKAGE_ROOT, "..", "..", "aidp-typescript-client"
 const STAGED_SDK_DIR = path.join(PACKAGE_ROOT, "node_modules", "aidp-typescript-client");
 const SDK_PACKAGE_FILES = [
   "package.json",
+  "npm-shrinkwrap.json",
   "index.ts",
   "lib",
   "dist"

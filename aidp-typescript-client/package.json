@@ -16,6 +16,7 @@
   },
   "files": [
     "index.ts",
+    "npm-shrinkwrap.json",
     "lib/**/*",
     "dist/**/*"
   ],
@@ -28,7 +29,7 @@
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
-    "oci-common": "^2.109.0"
+    "oci-common": "2.126.3"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",

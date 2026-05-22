@@ -8,7 +8,7 @@ if (!version) {
   process.exit(1);
 }
 
-for (const relativePath of ["package.json", "package-lock.json"]) {
+for (const relativePath of ["package.json", "package-lock.json", "npm-shrinkwrap.json"]) {
   const filePath = path.join(__dirname, "..", relativePath);
   if (!fs.existsSync(filePath)) {
     continue;
@@ -17,7 +17,7 @@ for (const relativePath of ["package.json", "package-lock.json"]) {
   const document = JSON.parse(fs.readFileSync(filePath, "utf8"));
   document.version = version;
 
-  if (relativePath === "package-lock.json" && document.packages && document.packages[""]) {
+  if ((relativePath === "package-lock.json" || relativePath === "npm-shrinkwrap.json") && document.packages && document.packages[""]) {
     document.packages[""].version = version;
     if (document.packages["../../aidp-typescript-client"]) {
       document.packages["../../aidp-typescript-client"].version = version;

@@ -16,6 +16,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "npm-shrinkwrap.json",
     "dist/**/*"
   ],
   "scripts": {
@@ -33,7 +34,7 @@
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
     "aidp-typescript-client": "file:../../aidp-typescript-client",
-    "oci-common": "^2.109.0"
+    "oci-common": "2.126.3"
   },
   "bundledDependencies": [
     "aidp-typescript-client",
