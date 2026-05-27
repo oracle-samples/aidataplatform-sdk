@@ -1,4 +1,5 @@
 import { BodyField, BodyModel, CommandDefinition, CommandField, CommandGroup, CommandManifest } from "./discovery";
+import { commandHasSensitiveBodyFields } from "./bodySecurity";
 import {
   argumentMetavar,
   commandArgumentFields,
@@ -279,7 +280,12 @@ function commandFlagRows(command: CommandDefinition): Array<[string, string]> {
     rows.push([`--${field.cliName}`, fieldHelp(field)]);
   }
   if (command.bodyField) {
-    rows.push(["--body", "inline JSON string, @path/to/file.json, or - for stdin"]);
+    rows.push([
+      "--body",
+      commandHasSensitiveBodyFields(command)
+        ? "@path/to/file.json, file:///path/request.json, or - for stdin; inline JSON is blocked when it contains sensitive fields"
+        : "inline JSON string, @path/to/file.json, file:///path/request.json, or - for stdin"
+    ]);
   }
   rows.push(
     ["--opc-request-id", "request ID; generated automatically when omitted"],

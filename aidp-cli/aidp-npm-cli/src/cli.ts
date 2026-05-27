@@ -393,7 +393,7 @@ function headersToObject(headers: Headers | undefined): Record<string, string> {
   return result;
 }
 
-function safeHeaders(headers: Record<string, string>): Record<string, string> {
+export function safeHeaders(headers: Record<string, string>): Record<string, string> {
   const sensitive = new Set(["authorization", "x-content-sha256", "security-token"]);
   return Object.fromEntries(
     Object.entries(headers).map(([key, value]) => [
@@ -403,7 +403,7 @@ function safeHeaders(headers: Record<string, string>): Record<string, string> {
   );
 }
 
-function bodyDebugSummary(body: unknown): string {
+export function bodyDebugSummary(body: unknown): string {
   if (body === undefined || body === null) {
     return "none";
   }
@@ -411,14 +411,18 @@ function bodyDebugSummary(body: unknown): string {
     try {
       const parsed = JSON.parse(body) as unknown;
       if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-        return `json object keys=${JSON.stringify(Object.keys(parsed as Record<string, unknown>).sort())}`;
+        return "json object";
+      }
+      if (Array.isArray(parsed)) {
+        return "json array";
       }
     } catch {
       return "string";
     }
+    return "string";
   }
   if (body && typeof body === "object" && !Array.isArray(body)) {
-    return `json object keys=${JSON.stringify(Object.keys(body as Record<string, unknown>).sort())}`;
+    return "json object";
   }
   return Array.isArray(body) ? "array" : typeof body;
 }

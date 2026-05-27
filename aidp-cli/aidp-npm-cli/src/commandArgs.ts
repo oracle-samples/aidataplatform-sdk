@@ -10,6 +10,7 @@ import {
 import { buildRequestId, GlobalOptions } from "./config";
 import { CommandDefinition, CommandField, CommandGroup } from "./discovery";
 import { CliError } from "./errors";
+import { bodyContainsSensitiveField, jsonBodyArgumentSource } from "./bodySecurity";
 import { parseJsonObject, parseJsonValue, readJsonArgument } from "./json";
 import { normalizedLookupName } from "./names";
 
@@ -81,7 +82,14 @@ export function parseCommandOptions(
         throw new CliError(`${command.name} does not accept --body.`);
       }
       const [value, nextIndex] = optionValue(tokens, index, optionName, inlineValue);
-      request[command.bodyField] = parseJsonObject(readJsonArgument(value), "--body");
+      const body = parseJsonObject(readJsonArgument(value), "--body");
+      if (jsonBodyArgumentSource(value) === "inline" && bodyContainsSensitiveField(command, body)) {
+        throw new CliError(
+          "Inline --body JSON is blocked because this request body contains sensitive fields. " +
+            "Use --body @request.json, --body file:///path/request.json, or --body -."
+        );
+      }
+      request[command.bodyField] = body;
       index = nextIndex;
       continue;
     }

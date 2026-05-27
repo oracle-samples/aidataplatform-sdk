@@ -1,12 +1,16 @@
 const assert = require("assert");
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
 const args = require("../dist/args");
 const discovery = require("../dist/discovery");
 const help = require("../dist/help");
+const bodySecurity = require("../dist/bodySecurity");
+const cli = require("../dist/cli");
 const commandArgs = require("../dist/commandArgs");
+const config = require("../dist/config");
 const manifestModule = require("../dist/manifest");
 const names = require("../dist/names");
 const output = require("../dist/output");
@@ -38,7 +42,8 @@ assert.ok(manifest.commandGroups.some((group) => group.name === "mlops"));
 assert.ok(!manifest.commandGroups.some((group) => group.name === "ml-ops"));
 assert.ok(discovery.findCommandGroup(manifest, "bundle"));
 assert.ok(discovery.findCommandGroup(manifest, "cluster"));
-assert.ok(discovery.findCommandGroup(manifest, "git"));
+assert.ok(!discovery.findCommandGroup(manifest, "git"));
+assert.ok(!manifest.commandGroups.some((group) => group.name === "git"));
 assert.ok(discovery.findCommandGroup(manifest, "workspace-object"));
 
 const originalEnv = {
@@ -81,6 +86,121 @@ try {
     parsedWithInstance.globals
   );
   assert.deepStrictEqual(createInvocation.request.createWorkspaceDetails, { displayName: "demo" });
+
+  const sensitiveCommand = testBodyCommand({
+    bodyModel: "CreateCredentialDetails",
+    bodyModels: {
+      CreateCredentialDetails: testBodyModel([
+        testBodyField("name"),
+        testBodyField("credentialDetails", "VaultReferenceCredentialDetails")
+      ]),
+      VaultReferenceCredentialDetails: testBodyModel([testBodyField("secretId")])
+    }
+  });
+  assert.strictEqual(bodySecurity.commandHasSensitiveBodyFields(sensitiveCommand), true);
+  assert.doesNotThrow(() =>
+    commandArgs.parseCommandOptions(
+      testGroup(sensitiveCommand),
+      sensitiveCommand,
+      ["--body", "{\"name\":\"demo\"}"],
+      parsedWithInstance.globals
+    )
+  );
+  assertSensitiveInlineBodyRejected(sensitiveCommand, "{\"credentialDetails\":{\"secretId\":\"super-secret\"}}");
+
+  const gitCredentialCommand = testBodyCommand({
+    bodyModel: "CreateJobDetails",
+    bodyModels: {
+      CreateJobDetails: testBodyModel([testBodyField("gitConfig", "GitConfig")]),
+      GitConfig: testBodyModel([testBodyField("credential")])
+    }
+  });
+  assertSensitiveInlineBodyRejected(gitCredentialCommand, "{\"gitConfig\":{\"credential\":\"git-secret\"}}");
+
+  const userSettingCommand = testBodyCommand({
+    bodyModel: "CreateUserSettingDetails",
+    bodyModels: {
+      CreateUserSettingDetails: testBodyModel([testBodyField("data", "GitAccountUserSetting")]),
+      GitAccountUserSetting: testBodyModel([testBodyField("personalAccessToken")])
+    }
+  });
+  assertSensitiveInlineBodyRejected(
+    userSettingCommand,
+    "{\"name\":\"demo\",\"data\":{\"type\":\"GIT_ACCOUNT\",\"personalAccessToken\":\"gh_token_secret_value\"}}",
+    ["gh_token_secret_value"]
+  );
+  assertSensitiveInlineBodyRejected(
+    userSettingCommand,
+    "{\"name\":\"demo\",\"data\":{\"type\":\"IAM_USER_CREDENTIAL\",\"privateApiKey\":\"private-api-key-value\"}}",
+    ["private-api-key-value"]
+  );
+
+  const bodyTempDir = fs.mkdtempSync(path.join(packageRoot, "test", "body-"));
+  try {
+    const bodyFile = path.join(bodyTempDir, "request.json");
+    fs.writeFileSync(bodyFile, "{\"credentialDetails\":{\"secretId\":\"file-secret\"}}", "utf8");
+    const fileInvocation = commandArgs.parseCommandOptions(
+      testGroup(sensitiveCommand),
+      sensitiveCommand,
+      ["--body", `@${bodyFile}`],
+      parsedWithInstance.globals
+    );
+    assert.deepStrictEqual(fileInvocation.request.testBody, {
+      credentialDetails: { secretId: "file-secret" }
+    });
+
+    const fileUrlInvocation = commandArgs.parseCommandOptions(
+      testGroup(sensitiveCommand),
+      sensitiveCommand,
+      ["--body", `file://${bodyFile}`],
+      parsedWithInstance.globals
+    );
+    assert.deepStrictEqual(fileUrlInvocation.request.testBody, {
+      credentialDetails: { secretId: "file-secret" }
+    });
+  } finally {
+    fs.rmSync(bodyTempDir, { recursive: true, force: true });
+  }
+
+  const stdinInvocation = runStdinBodyParser("{\"credentialDetails\":{\"secretId\":\"stdin-secret\"}}");
+  assert.strictEqual(stdinInvocation.status, 0, stdinInvocation.stderr);
+  assert.ok(stdinInvocation.stdout.includes("stdin body parser test passed"));
+
+  const objectBodySummary = cli.bodyDebugSummary({
+    credentialDetails: { secretId: "ocid1.secret.oc1..value" }
+  });
+  const stringBodySummary = cli.bodyDebugSummary("{\"gitConfig\":{\"credential\":\"git-token-value\"}}");
+  assert.strictEqual(objectBodySummary, "json object");
+  assert.strictEqual(stringBodySummary, "json object");
+  for (const summary of [objectBodySummary, stringBodySummary]) {
+    assert.ok(!summary.includes("credentialDetails"));
+    assert.ok(!summary.includes("secretId"));
+    assert.ok(!summary.includes("credential"));
+    assert.ok(!summary.includes("git-token-value"));
+  }
+
+  assert.deepStrictEqual(cli.safeHeaders({
+    Authorization: "Signature raw-auth",
+    "security-token": "raw-token",
+    "x-content-sha256": "raw-content-sha",
+    "opc-request-id": "request-id"
+  }), {
+    Authorization: "<redacted>",
+    "security-token": "<redacted>",
+    "x-content-sha256": "<redacted>",
+    "opc-request-id": "request-id"
+  });
+
+  assert.throws(
+    () =>
+      commandArgs.parseCommandOptions(
+        testGroup(sensitiveCommand),
+        sensitiveCommand,
+        ["--body", "{not-json"],
+        parsedWithInstance.globals
+      ),
+    /--body is not valid JSON/
+  );
 } finally {
   restoreEnv("OCI_CLI_AUTH", originalEnv.OCI_CLI_AUTH);
   restoreEnv("OCI_CLI_CONFIG_FILE", originalEnv.OCI_CLI_CONFIG_FILE);
@@ -153,11 +273,9 @@ assert.ok(createJobHelp.stdout.includes("Nested body variants:"));
 assert.ok(createJobHelp.stdout.includes("Example JSON for tasks[] - IfElseTask (type=IF_ELSE_TASK):"));
 assert.ok(createJobHelp.stdout.includes("Example JSON for tasks[] - NotebookTask (type=NOTEBOOK_TASK):"));
 
-const gitDiffHelp = runCli(["git", "list-git-diffs", "-h"]);
-assert.strictEqual(gitDiffHelp.status, 0, gitDiffHelp.stderr);
-assert.ok(gitDiffHelp.stdout.includes("List Pagination"));
-assert.ok(!gitDiffHelp.stdout.includes("/iaas/Content/API/Concepts/usingapi.htm#nine"));
-assert.ok(gitDiffHelp.stdout.includes("--body") === false);
+const gitCommand = runCli(["git", "list-diffs", "-h"]);
+assert.notStrictEqual(gitCommand.status, 0);
+assert.ok(gitCommand.stderr.includes("Unknown command group"));
 
 const searchCompact = runCli(["search", "getworkspace"]);
 assert.strictEqual(searchCompact.status, 0, searchCompact.stderr);
@@ -201,6 +319,9 @@ assert.ok(printedError.includes('"opc-request-id": "request-1"'));
 const configureHelp = help.configureHelp();
 assert.ok(configureHelp.includes("aidp configure set instance-id <ocid>"));
 
+assertPackMetadataPreparation();
+assertAidpConfigPermissions();
+
 console.log("aidp npm cli tests passed");
 
 function runCli(cliArgs) {
@@ -208,6 +329,88 @@ function runCli(cliArgs) {
     cwd: packageRoot,
     encoding: "utf8"
   });
+}
+
+function assertPackMetadataPreparation() {
+  const packageJsonPath = path.join(packageRoot, "package.json");
+  const shrinkwrapPath = path.join(packageRoot, "npm-shrinkwrap.json");
+  const packageBackupPath = path.join(packageRoot, ".package.json.prepack-backup");
+  const shrinkwrapBackupPath = path.join(packageRoot, ".npm-shrinkwrap.json.prepack-backup");
+  const sdkPackageJsonPath = path.join(packageRoot, "..", "..", "aidp-typescript-client", "package.json");
+  const sdkVersion = JSON.parse(fs.readFileSync(sdkPackageJsonPath, "utf8")).version;
+
+  const cleanupBackups = () => {
+    if (fs.existsSync(packageBackupPath) || fs.existsSync(shrinkwrapBackupPath)) {
+      spawnSync(process.execPath, ["scripts/restore_pack_metadata.js"], {
+        cwd: packageRoot,
+        encoding: "utf8"
+      });
+    }
+  };
+
+  cleanupBackups();
+  try {
+    const prepareResult = spawnSync(process.execPath, ["scripts/prepare_pack_metadata.js"], {
+      cwd: packageRoot,
+      encoding: "utf8"
+    });
+    assert.strictEqual(prepareResult.status, 0, prepareResult.stderr || prepareResult.stdout);
+
+    const preparedPackage = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+    assert.strictEqual(preparedPackage.dependencies["aidp-typescript-client"], sdkVersion);
+    assert.ok(!("bundledDependencies" in preparedPackage));
+    assert.ok(!("bundleDependencies" in preparedPackage));
+    assert.ok(fs.existsSync(packageBackupPath));
+    assert.ok(!fs.existsSync(shrinkwrapPath));
+    assert.ok(fs.existsSync(shrinkwrapBackupPath));
+  } finally {
+    cleanupBackups();
+  }
+
+  assert.ok(fs.existsSync(packageJsonPath));
+  assert.ok(fs.existsSync(shrinkwrapPath));
+  assert.ok(!fs.existsSync(packageBackupPath));
+  assert.ok(!fs.existsSync(shrinkwrapBackupPath));
+}
+
+function assertAidpConfigPermissions() {
+  if (process.platform === "win32") {
+    return;
+  }
+
+  const originalHome = process.env.HOME;
+  const originalAidpConfigFile = process.env.AIDP_CLI_CONFIG_FILE;
+  const originalUmask = process.umask(0);
+  const home = fs.mkdtempSync(path.join(os.tmpdir(), "aidp-cli-config-home-"));
+  try {
+    process.env.HOME = home;
+    delete process.env.AIDP_CLI_CONFIG_FILE;
+
+    config.writeAidpConfig({ "instance-id": "ocid1.test" });
+
+    const configDir = path.join(home, ".aidp");
+    const configFile = path.join(configDir, "config");
+    assert.strictEqual(fileMode(configDir), 0o700);
+    assert.strictEqual(fileMode(configFile), 0o600);
+    assert.strictEqual(config.readAidpConfig()["instance-id"], "ocid1.test");
+    assert.deepStrictEqual(fs.readdirSync(configDir).filter((name) => name.endsWith(".tmp")), []);
+
+    fs.chmodSync(configFile, 0o644);
+    assert.throws(() => config.readAidpConfig(), /chmod 600/);
+
+    fs.chmodSync(configFile, 0o600);
+    fs.chmodSync(configDir, 0o755);
+    assert.throws(() => config.readAidpConfig(), /chmod 700/);
+  } finally {
+    process.umask(originalUmask);
+    restoreEnv("HOME", originalHome);
+    restoreEnv("AIDP_CLI_CONFIG_FILE", originalAidpConfigFile);
+    fs.rmSync(home, { recursive: true, force: true });
+  }
+}
+
+function fileMode(filePath) {
+  return fs.statSync(filePath).mode & 0o777;
 }
 
 function hasHelpRow(text, commandName) {
@@ -248,4 +451,182 @@ function restoreEnv(name, value) {
     return;
   }
   process.env[name] = value;
+}
+
+function runStdinBodyParser(stdin) {
+  return spawnSync(
+    process.execPath,
+    [
+      "-e",
+      `
+      const assert = require("assert");
+      const commandArgs = require("./dist/commandArgs");
+      const command = {
+        aliases: [],
+        bodyEnumFields: {},
+        bodyField: "testBody",
+        bodyFields: [],
+        bodyModel: "CreateCredentialDetails",
+        bodyModels: {
+          CreateCredentialDetails: testBodyModel([
+            testBodyField("credentialDetails", "VaultReferenceCredentialDetails")
+          ]),
+          VaultReferenceCredentialDetails: testBodyModel([testBodyField("secretId")])
+        },
+        bodyRequiredFields: [],
+        deprecated: false,
+        description: "",
+        fields: [
+          {
+            cliName: "body",
+            description: "",
+            enumValues: [],
+            in: "body",
+            modelName: "",
+            name: "testBody",
+            originalName: "testBody",
+            required: true,
+            type: "object"
+          }
+        ],
+        httpMethod: "POST",
+        name: "create-test",
+        operationId: "CreateTest",
+        path: "/test",
+        responseBodyKey: "",
+        responseHeaderFields: [],
+        sdkMethodName: "createTest",
+        section: "",
+        summary: ""
+      };
+      const group = {
+        name: "test",
+        tag: "test",
+        clientClassName: "TestClient",
+        description: "",
+        commands: [command]
+      };
+      const invocation = commandArgs.parseCommandOptions(
+        group,
+        command,
+        ["--body", "-"],
+        { auth: "security_token", profile: "DEFAULT", instanceId: "ocid1.test" }
+      );
+      assert.deepStrictEqual(invocation.request.testBody, {
+        credentialDetails: { secretId: "stdin-secret" }
+      });
+      console.log("stdin body parser test passed");
+
+      function testBodyModel(fields) {
+        return {
+          enumFields: {},
+          fields,
+          requiredFields: [],
+          variants: []
+        };
+      }
+
+      function testBodyField(name, modelName = "") {
+        return {
+          enumValues: [],
+          itemType: "",
+          modelName,
+          name,
+          required: false,
+          type: modelName ? "object" : "string"
+        };
+      }
+      `
+    ],
+    {
+      cwd: packageRoot,
+      encoding: "utf8",
+      input: stdin
+    }
+  );
+}
+
+function assertSensitiveInlineBodyRejected(command, body, sensitiveValues = []) {
+  try {
+    commandArgs.parseCommandOptions(testGroup(command), command, ["--body", body], {
+      auth: "security_token",
+      profile: "DEFAULT",
+      instanceId: "ocid1.test"
+    });
+    assert.fail("expected inline sensitive body to be rejected");
+  } catch (error) {
+    assert.match(error.message, /Inline --body JSON is blocked/);
+    assert.ok(!error.message.includes("super-secret"));
+    assert.ok(!error.message.includes("git-secret"));
+    for (const value of sensitiveValues) {
+      assert.ok(!error.message.includes(value));
+    }
+  }
+}
+
+function testGroup(command) {
+  return {
+    name: "test",
+    tag: "test",
+    clientClassName: "TestClient",
+    description: "",
+    commands: [command]
+  };
+}
+
+function testBodyCommand(overrides = {}) {
+  return {
+    aliases: [],
+    bodyEnumFields: {},
+    bodyField: "testBody",
+    bodyFields: [],
+    bodyModel: "",
+    bodyModels: {},
+    bodyRequiredFields: [],
+    deprecated: false,
+    description: "",
+    fields: [
+      {
+        cliName: "body",
+        description: "",
+        enumValues: [],
+        in: "body",
+        modelName: "",
+        name: "testBody",
+        originalName: "testBody",
+        required: true,
+        type: "object"
+      }
+    ],
+    httpMethod: "POST",
+    name: "create-test",
+    operationId: "CreateTest",
+    path: "/test",
+    responseBodyKey: "",
+    responseHeaderFields: [],
+    sdkMethodName: "createTest",
+    section: "",
+    summary: "",
+    ...overrides
+  };
+}
+
+function testBodyModel(fields) {
+  return {
+    enumFields: {},
+    fields,
+    requiredFields: [],
+    variants: []
+  };
+}
+
+function testBodyField(name, modelName = "") {
+  return {
+    enumValues: [],
+    itemType: "",
+    modelName,
+    name,
+    required: false,
+    type: modelName ? "object" : "string"
+  };
 }

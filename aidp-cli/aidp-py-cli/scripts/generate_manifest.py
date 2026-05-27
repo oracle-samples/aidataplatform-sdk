@@ -21,6 +21,7 @@ SDK_PACKAGE_PARTS = ("aidp_python_client", "aidataplatform_dp")
 COMMAND_GROUP_NAME_OVERRIDES = [
     ("ml-ops", "mlops"),
 ]
+EXCLUDED_COMMAND_GROUPS = {"git"}
 WORD_PATTERN = re.compile(r"[A-Z]+(?=[A-Z][a-z]|\d|$)|[A-Z]?[a-z]+|\d+")
 PROVIDER_TOKEN_PATTERN = re.compile(r"(^|_)ai_data_platform(_|$)")
 PARAM_BLOCK_PATTERN = re.compile(
@@ -223,6 +224,8 @@ def build_command_groups(sdk_source_root: Path) -> list[dict[str, Any]]:
         class_node = class_node_from_source(client_source, client_class_name)
         tag = client_class_name.removesuffix("Client")
         group_name = command_group_name(snake_to_cli_name(client_source.stem.removesuffix("_client")))
+        if group_name in EXCLUDED_COMMAND_GROUPS:
+            continue
         commands = [
             build_command_from_method(sdk_source_root, method_node)
             for method_node in class_node.body

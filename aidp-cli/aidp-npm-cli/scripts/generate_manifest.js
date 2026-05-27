@@ -9,6 +9,7 @@ const DEFAULT_SDK_ROOT = path.resolve(PACKAGE_ROOT, "..", "..", "aidp-typescript
 const COMMAND_GROUP_NAME_OVERRIDES = new Map([
   ["ml-ops", "mlops"]
 ]);
+const EXCLUDED_COMMAND_GROUPS = new Set(["git"]);
 const PROVIDER_WORDS = ["ai", "data", "platform"];
 const ACTION_WORDS = new Set([
   "add",
@@ -131,6 +132,9 @@ function generateManifest(sdkRoot) {
     const clientClassName = node.name.text;
     const tag = clientClassName.replace(/Client$/, "");
     const groupName = serviceNameFromClientClass(clientClassName);
+    if (EXCLUDED_COMMAND_GROUPS.has(groupName)) {
+      continue;
+    }
     const commands = node.members
       .filter((member) => ts.isMethodDeclaration(member) && isSdkOperation(member))
       .map((member) => buildCommand(sdkRoot, clientSource, member))

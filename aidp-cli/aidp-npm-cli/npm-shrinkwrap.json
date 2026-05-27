@@ -7,10 +7,6 @@
     "": {
       "name": "aidp-cli",
       "version": "1.0.0",
-      "bundleDependencies": [
-        "aidp-typescript-client",
-        "oci-common"
-      ],
       "license": "(UPL-1.0 OR Apache-2.0)",
       "dependencies": {
         "aidp-typescript-client": "file:../../aidp-typescript-client",
@@ -41,14 +37,12 @@
       "version": "0.0.35",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/@types/isomorphic-fetch/-/isomorphic-fetch-0.0.35.tgz",
       "integrity": "sha512-DaZNUvLDCAnCTjgwxgiL1eQdxIKEpNLOlTNtAgnZc50bG2copGhRrFN9/PxPBuJe+tZVLCbQ7ls0xveXVRPkvw==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/@types/jsonwebtoken": {
       "version": "9.0.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/@types/jsonwebtoken/-/jsonwebtoken-9.0.3.tgz",
       "integrity": "sha512-b0jGiOgHtZ2jqdPgPnP6WLCXZk1T8p06A/vPGzUvxpFGgKMbjXJDjC5m52ErqBnIuWZFgGoIJyRdeG5AyreJjA==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "@types/node": "*"
@@ -58,14 +52,12 @@
       "version": "2.0.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/@types/jssha/-/jssha-2.0.0.tgz",
       "integrity": "sha512-oBnY3csYnXfqZXDRBJwP1nDDJCW/+VMJ88UHT4DCy0deSXpJIQvMCwYlnmdW4M+u7PiSfQc44LmiFcUbJ8hLEw==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/@types/node": {
       "version": "22.19.15",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/@types/node/-/node-22.19.15.tgz",
       "integrity": "sha512-F0R/h2+dsy5wJAUe3tAU6oqa2qbWY5TpNfL/RGmo1y38hiyO1w3x2jPtt76wmuaJI4DQnOBu21cNXQ2STIUUWg==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "undici-types": "~6.21.0"
@@ -86,7 +78,6 @@
       "version": "4.1.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/@types/opossum/-/opossum-4.1.1.tgz",
       "integrity": "sha512-9TMnd8AWRVtnZMqBbbzceQoJdafErgUViogFaQ3eetsbeLtiFFZ695mepNaLtlfJi4uRP3GmHfe3CJ2DZKaxYA==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "@types/node": "*"
@@ -96,7 +87,6 @@
       "version": "1.10.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/@types/sshpk/-/sshpk-1.10.3.tgz",
       "integrity": "sha512-cru1waDhHZnZuB18E6Dgf2UXf8U93mdOEDcKYe5jTri+fpucidSs7DLmGICpLxN+95aYkwtgeyny9fBFzQVdmA==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "@types/node": "*"
@@ -110,7 +100,6 @@
       "version": "0.2.6",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/asn1/-/asn1-0.2.6.tgz",
       "integrity": "sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "safer-buffer": "~2.1.0"
@@ -120,7 +109,6 @@
       "version": "1.0.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/assert-plus/-/assert-plus-1.0.0.tgz",
       "integrity": "sha512-NfJ4UzBCcQGLDlQq7nHxH+tv3kyZ0hHQqF5BO6J7tNJeP5do1llPr8dZ8zHonfhAu0PHAdMkSo+8o0wxg9lZWw==",
-      "inBundle": true,
       "license": "MIT",
       "engines": {
         "node": ">=0.8"
@@ -137,7 +125,6 @@
       "version": "1.0.2",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz",
       "integrity": "sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==",
-      "inBundle": true,
       "license": "BSD-3-Clause",
       "dependencies": {
         "tweetnacl": "^0.14.3"
@@ -147,7 +134,6 @@
       "version": "1.0.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz",
       "integrity": "sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==",
-      "inBundle": true,
       "license": "BSD-3-Clause"
     },
     "node_modules/call-bind-apply-helpers": {
@@ -181,14 +167,12 @@
       "version": "1.0.2",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/core-util-is/-/core-util-is-1.0.2.tgz",
       "integrity": "sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/dashdash": {
       "version": "1.14.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/dashdash/-/dashdash-1.14.1.tgz",
       "integrity": "sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "assert-plus": "^1.0.0"
@@ -226,7 +210,6 @@
       "version": "0.1.2",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz",
       "integrity": "sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "jsbn": "~0.1.0",
@@ -237,7 +220,6 @@
       "version": "1.0.11",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz",
       "integrity": "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==",
-      "inBundle": true,
       "license": "Apache-2.0",
       "dependencies": {
         "safe-buffer": "^5.0.1"
@@ -296,7 +278,6 @@
       "version": "4.2.6",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/es6-promise/-/es6-promise-4.2.6.tgz",
       "integrity": "sha512-aRVgGdnmW2OiySVPUC9e6m+plolMAJKjZnQlCwNSuK5yQ0JN61DZSO1X1Ufd1foqWRAlig0rhduTCHe7sVtK5Q==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/extsprintf": {
@@ -306,7 +287,6 @@
       "engines": [
         "node >=0.6.0"
       ],
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/form-data": {
@@ -379,7 +359,6 @@
       "version": "0.1.7",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/getpass/-/getpass-0.1.7.tgz",
       "integrity": "sha512-0fzj9JxOLfJ+XGLhR8ze3unN0KZCgZwiSSDz168VERjK8Wl8kVSdcu2kspd4s4wtAa1y/qrVRiAA0WclVsu0ng==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "assert-plus": "^1.0.0"
@@ -444,7 +423,6 @@
       "version": "1.3.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/http-signature/-/http-signature-1.3.1.tgz",
       "integrity": "sha512-Y29YKEc8MQsjch/VzkUVJ+2MXd9WcR42fK5u36CZf4G8bXw2DXMTWuESiB0R6m59JAWxlPPw5/Fri/t/AyyueA==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "assert-plus": "^1.0.0",
@@ -459,7 +437,6 @@
       "version": "3.0.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz",
       "integrity": "sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "node-fetch": "^2.6.1",
@@ -470,21 +447,18 @@
       "version": "0.1.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/jsbn/-/jsbn-0.1.1.tgz",
       "integrity": "sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/json-schema": {
       "version": "0.4.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/json-schema/-/json-schema-0.4.0.tgz",
       "integrity": "sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==",
-      "inBundle": true,
       "license": "(AFL-2.1 OR BSD-3-Clause)"
     },
     "node_modules/jsonwebtoken": {
       "version": "9.0.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/jsonwebtoken/-/jsonwebtoken-9.0.3.tgz",
       "integrity": "sha512-MT/xP0CrubFRNLNKvxJ2BYfy53Zkm++5bX9dtuPbqAeQpTVe0MQTFhao8+Cp//EmJp244xt6Drw/GVEGCUj40g==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "jws": "^4.0.1",
@@ -507,7 +481,6 @@
       "version": "1.4.2",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/jsprim/-/jsprim-1.4.2.tgz",
       "integrity": "sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "assert-plus": "1.0.0",
@@ -524,7 +497,6 @@
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/jssha/-/jssha-2.4.1.tgz",
       "integrity": "sha512-77DN1YurYgh+7FPCTJ2CQ6hVDHgIWiHxm4Y5/mAdnpETKYagX22pVWMz4xfKF5fcpNfMaztgVj+/B1bt2k23Eg==",
       "deprecated": "jsSHA versions < 3.0.0 will no longer receive feature updates",
-      "inBundle": true,
       "license": "BSD-3-Clause",
       "engines": {
         "node": "*"
@@ -534,7 +506,6 @@
       "version": "2.0.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/jwa/-/jwa-2.0.1.tgz",
       "integrity": "sha512-hRF04fqJIP8Abbkq5NKGN0Bbr3JxlQ+qhZufXVr0DvujKy93ZCbXZMHDL4EOtodSbCWxOqR8MS1tXA5hwqCXDg==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "buffer-equal-constant-time": "^1.0.1",
@@ -546,7 +517,6 @@
       "version": "4.0.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/jws/-/jws-4.0.1.tgz",
       "integrity": "sha512-EKI/M/yqPncGUUh44xz0PxSidXFr/+r0pA70+gIYhjv+et7yxM+s29Y+VGDkovRofQem0fs7Uvf4+YmAdyRduA==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "jwa": "^2.0.1",
@@ -557,49 +527,42 @@
       "version": "4.3.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.includes/-/lodash.includes-4.3.0.tgz",
       "integrity": "sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/lodash.isboolean": {
       "version": "3.0.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz",
       "integrity": "sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/lodash.isinteger": {
       "version": "4.0.4",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz",
       "integrity": "sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/lodash.isnumber": {
       "version": "3.0.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.isnumber/-/lodash.isnumber-3.0.3.tgz",
       "integrity": "sha512-QYqzpfwO3/CWf3XP+Z+tkQsfaLL/EnUlXWVkIk5FUPc4sBdTehEqZONuyRt2P67PXAk+NXmTBcc97zw9t1FQrw==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/lodash.isplainobject": {
       "version": "4.0.6",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz",
       "integrity": "sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/lodash.isstring": {
       "version": "4.0.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.isstring/-/lodash.isstring-4.0.1.tgz",
       "integrity": "sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/lodash.once": {
       "version": "4.1.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/lodash.once/-/lodash.once-4.1.1.tgz",
       "integrity": "sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/math-intrinsics": {
@@ -639,14 +602,12 @@
       "version": "2.1.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/ms/-/ms-2.1.3.tgz",
       "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/node-fetch": {
       "version": "2.7.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/node-fetch/-/node-fetch-2.7.0.tgz",
       "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "whatwg-url": "^5.0.0"
@@ -667,7 +628,6 @@
       "version": "2.126.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/oci-common/-/oci-common-2.126.3.tgz",
       "integrity": "sha512-720NP7rudKT52dmeMidMN8rM1XBGPVJdgO8kj9oLYuepiAnlHhW9SbaXy3ZPUHNKijevlpXGN+gMdDD+Oeu3rw==",
-      "inBundle": true,
       "license": "(UPL-1.0 OR Apache-2.0)",
       "dependencies": {
         "@types/isomorphic-fetch": "0.0.35",
@@ -689,7 +649,6 @@
       "version": "5.0.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/opossum/-/opossum-5.0.1.tgz",
       "integrity": "sha512-iUDUQmFl3RanaBVLMDTZ6WtXj/Hk84pwJ5JWoJaQd1lXGifdApHhszI3biZvdBDdpTERCmB6x+7+uNvzhzVZIg==",
-      "inBundle": true,
       "license": "Apache-2.0",
       "engines": {
         "node": ">= 10"
@@ -713,21 +672,18 @@
           "url": "https://feross.org/support"
         }
       ],
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/safer-buffer": {
       "version": "2.1.2",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/safer-buffer/-/safer-buffer-2.1.2.tgz",
       "integrity": "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/semver": {
       "version": "7.7.4",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/semver/-/semver-7.7.4.tgz",
       "integrity": "sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==",
-      "inBundle": true,
       "license": "ISC",
       "bin": {
         "semver": "bin/semver.js"
@@ -740,7 +696,6 @@
       "version": "1.16.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/sshpk/-/sshpk-1.16.1.tgz",
       "integrity": "sha512-HXXqVUq7+pcKeLqqZj6mHFUMvXtOJt1uoUx09pFW6011inTMxqI8BA8PM95myrIyyKwdnzjdFjLiE6KBPVtJIg==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "asn1": "~0.2.3",
@@ -766,14 +721,12 @@
       "version": "0.0.3",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/tr46/-/tr46-0.0.3.tgz",
       "integrity": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/tweetnacl": {
       "version": "0.14.5",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/tweetnacl/-/tweetnacl-0.14.5.tgz",
       "integrity": "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA==",
-      "inBundle": true,
       "license": "Unlicense"
     },
     "node_modules/typescript": {
@@ -794,7 +747,6 @@
       "version": "6.21.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/undici-types/-/undici-types-6.21.0.tgz",
       "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/uuid": {
@@ -802,7 +754,6 @@
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/uuid/-/uuid-3.3.3.tgz",
       "integrity": "sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==",
       "deprecated": "Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.",
-      "inBundle": true,
       "license": "MIT",
       "bin": {
         "uuid": "bin/uuid"
@@ -815,7 +766,6 @@
       "engines": [
         "node >=0.6.0"
       ],
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "assert-plus": "^1.0.0",
@@ -827,21 +777,18 @@
       "version": "3.0.1",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/webidl-conversions/-/webidl-conversions-3.0.1.tgz",
       "integrity": "sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==",
-      "inBundle": true,
       "license": "BSD-2-Clause"
     },
     "node_modules/whatwg-fetch": {
       "version": "3.6.20",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/whatwg-fetch/-/whatwg-fetch-3.6.20.tgz",
       "integrity": "sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==",
-      "inBundle": true,
       "license": "MIT"
     },
     "node_modules/whatwg-url": {
       "version": "5.0.0",
       "resolved": "https://artifacthub-phx.oci.oraclecorp.com/api/npm/npmjs-registry/whatwg-url/-/whatwg-url-5.0.0.tgz",
       "integrity": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==",
-      "inBundle": true,
       "license": "MIT",
       "dependencies": {
         "tr46": "~0.0.3",

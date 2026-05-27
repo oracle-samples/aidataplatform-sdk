@@ -25,6 +25,11 @@ from oci.signer import Signer, load_private_key_from_file
 from oci.util import to_dict
 from oci._vendor.requests.exceptions import RequestException as VendorRequestException
 
+from aidp_cli.body_security import (
+    body_contains_sensitive_field,
+    command_has_sensitive_body_fields,
+    json_body_argument_source,
+)
 from aidp_cli.discovery import discover_clients
 from aidp_cli.manifest import (
     BodyField,
@@ -51,6 +56,9 @@ PACKAGE_NAME = "aidp-cli"
 DEFAULT_ENVIRONMENT_PREFIX = "aidp"
 DEFAULT_ENVIRONMENT_DOMAIN = "oraclecloud.com"
 DEFAULT_AIDP_CONFIG_FILE = "~/.aidp/config"
+AIDP_CONFIG_DIR_MODE = 0o700
+AIDP_CONFIG_FILE_MODE = 0o600
+GROUP_OR_WORLD_PERMISSIONS = 0o077
 MAX_BODY_EXAMPLE_DEPTH = 12
 AUTH_CHOICES = ("api_key", "security_token", "instance_principal", "resource_principal")
 SEARCH_ACTION_PREFIXES = (
@@ -606,7 +614,14 @@ def command_flag_rows(command: CommandDefinition) -> list[tuple[str, str]]:
     for field in command_option_fields(command):
         rows.append((f"--{field.cli_name}", field_help(field)))
     if command.body_field is not None:
-        rows.append(("--body", "inline JSON string, @path/to/file.json, or - for stdin"))
+        rows.append(
+            (
+                "--body",
+                "@path/to/file.json, file:///path/request.json, or - for stdin; inline JSON is blocked when it contains sensitive fields"
+                if command_has_sensitive_body_fields(command)
+                else "inline JSON string, @path/to/file.json, file:///path/request.json, or - for stdin",
+            )
+        )
     rows.extend(
         [
             ("--opc-request-id", "request ID; generated automatically when omitted"),
@@ -800,6 +815,13 @@ def parse_command_options(
                 raise command_usage_error(group, command, f"{command.name} does not accept --body.")
             value, index = command_option_value(tokens, index, option_name, inline_value)
             body = load_json_input(value)
+            if json_body_argument_source(value) == "inline" and body_contains_sensitive_field(command, body):
+                raise command_usage_error(
+                    group,
+                    command,
+                    "Inline --body JSON is blocked because this request body contains sensitive fields. "
+                    "Use --body @request.json, --body file:///path/request.json, or --body -.",
+                )
             continue
         if option_name == "--opc-request-id":
             opc_request_id, index = command_option_value(tokens, index, option_name, inline_value)
@@ -1310,6 +1332,7 @@ def read_aidp_config() -> dict[str, Any]:
     path = aidp_config_path()
     if not path.exists():
         return {}
+    validate_aidp_config_permissions(path)
     raw = path.read_text(encoding="utf-8")
     if not raw.strip():
         return {}
@@ -1321,8 +1344,60 @@ def read_aidp_config() -> dict[str, Any]:
 
 def write_aidp_config(config: dict[str, Any]) -> None:
     path = aidp_config_path()
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(config, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    ensure_aidp_config_parent_directory(path)
+    validate_aidp_config_permissions(path)
+    write_aidp_config_atomically(path, json.dumps(config, indent=2, sort_keys=True) + "\n")
+
+
+def ensure_aidp_config_parent_directory(path: Path) -> None:
+    path.parent.mkdir(mode=AIDP_CONFIG_DIR_MODE, parents=True, exist_ok=True)
+    if should_enforce_aidp_config_parent_permissions():
+        os.chmod(path.parent, AIDP_CONFIG_DIR_MODE)
+
+
+def validate_aidp_config_permissions(path: Path) -> None:
+    if os.name == "nt":
+        return
+
+    if should_enforce_aidp_config_parent_permissions() and path.parent.exists():
+        assert_owner_only_mode(path.parent, AIDP_CONFIG_DIR_MODE, "directory")
+    if path.exists():
+        assert_owner_only_mode(path, AIDP_CONFIG_FILE_MODE, "file")
+
+
+def should_enforce_aidp_config_parent_permissions() -> bool:
+    return "AIDP_CLI_CONFIG_FILE" not in os.environ
+
+
+def assert_owner_only_mode(path: Path, expected_mode: int, kind: str) -> None:
+    mode = path.stat().st_mode & 0o777
+    if mode & GROUP_OR_WORLD_PERMISSIONS:
+        raise CliError(
+            f"{path} permissions are too open for the AIDP config {kind}. "
+            f"Run 'chmod {expected_mode:o} {path}' and try again."
+        )
+
+
+def write_aidp_config_atomically(path: Path, content: str) -> None:
+    tmp_path = path.with_name(f".{uuid.uuid4()}.tmp")
+    fd: int | None = None
+    try:
+        fd = os.open(str(tmp_path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, AIDP_CONFIG_FILE_MODE)
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            fd = None
+            handle.write(content)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(tmp_path, path)
+        os.chmod(path, AIDP_CONFIG_FILE_MODE)
+    except Exception:
+        if fd is not None:
+            os.close(fd)
+        try:
+            tmp_path.unlink()
+        except OSError:
+            pass
+        raise
 
 
 def unknown_command_group(name: str) -> CliError:
@@ -1914,7 +1989,9 @@ def body_debug_summary(body: Any) -> str:
     if body is None:
         return "none"
     if isinstance(body, dict):
-        return f"json object keys={sorted(body)}"
+        return "json object"
+    if isinstance(body, list):
+        return "json array"
     return type(body).__name__
 
 

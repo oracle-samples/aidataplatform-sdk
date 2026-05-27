@@ -16,14 +16,15 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "npm-shrinkwrap.json",
-    "dist/**/*"
+    "dist/**/*.d.ts",
+    "dist/**/*.js",
+    "dist/**/*.json"
   ],
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json",
     "generate-manifest": "node scripts/generate_manifest.js",
-    "prepack": "npm run build && npm run generate-manifest && npm run stage-local-deps",
-    "stage-local-deps": "node scripts/stage_local_dependencies.js",
+    "prepack": "npm run build && npm run generate-manifest && node scripts/prepare_pack_metadata.js",
+    "postpack": "node scripts/restore_pack_metadata.js",
     "test": "npm run build && npm run generate-manifest && node test/run_tests.js",
     "write-version": "node scripts/write_version.js"
   },
@@ -36,10 +37,6 @@
     "aidp-typescript-client": "file:../../aidp-typescript-client",
     "oci-common": "2.126.3"
   },
-  "bundledDependencies": [
-    "aidp-typescript-client",
-    "oci-common"
-  ],
   "devDependencies": {
     "@types/node": "^22.15.30",
     "@types/node-fetch": "^2.6.12",

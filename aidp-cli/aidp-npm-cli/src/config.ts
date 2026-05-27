@@ -1,4 +1,16 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import {
+  chmodSync,
+  closeSync,
+  existsSync,
+  fsyncSync,
+  mkdirSync,
+  openSync,
+  readFileSync,
+  renameSync,
+  statSync,
+  unlinkSync,
+  writeFileSync
+} from "fs";
 import { dirname } from "path";
 import { randomUUID } from "crypto";
 import common = require("oci-common");
@@ -11,6 +23,9 @@ export const DEFAULT_CONFIG_FILE = "~/.oci/config";
 export const DEFAULT_AIDP_CONFIG_FILE = "~/.aidp/config";
 export const DEFAULT_ENVIRONMENT_PREFIX = "aidp";
 export const DEFAULT_ENVIRONMENT_DOMAIN = "oraclecloud.com";
+const AIDP_CONFIG_DIR_MODE = 0o700;
+const AIDP_CONFIG_FILE_MODE = 0o600;
+const GROUP_OR_WORLD_PERMISSIONS = 0o077;
 export const AUTH_CHOICES = [
   "api_key",
   "security_token",
@@ -92,6 +107,7 @@ export function readAidpConfig(): Record<string, string> {
   if (!existsSync(path)) {
     return {};
   }
+  validateAidpConfigPermissions(path);
   const raw = readFileSync(path, "utf8");
   if (!raw.trim()) {
     return {};
@@ -107,8 +123,9 @@ export function readAidpConfig(): Record<string, string> {
 
 export function writeAidpConfig(config: Record<string, string>): void {
   const path = aidpConfigPath();
-  mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, `${JSON.stringify(config, null, 2)}\n`, "utf8");
+  ensureAidpConfigParentDirectory(path);
+  validateAidpConfigPermissions(path);
+  writeAidpConfigAtomically(path, `${JSON.stringify(config, null, 2)}\n`);
 }
 
 export function configuredInstanceId(): string | undefined {
@@ -117,8 +134,74 @@ export function configuredInstanceId(): string | undefined {
   }
   try {
     return readAidpConfig()["instance-id"] || undefined;
-  } catch {
+  } catch (error) {
+    if (error instanceof CliError) {
+      throw error;
+    }
     return undefined;
+  }
+}
+
+function ensureAidpConfigParentDirectory(path: string): void {
+  const parent = dirname(path);
+  mkdirSync(parent, { recursive: true, mode: AIDP_CONFIG_DIR_MODE });
+  if (shouldEnforceAidpConfigParentPermissions()) {
+    chmodSync(parent, AIDP_CONFIG_DIR_MODE);
+  }
+}
+
+function validateAidpConfigPermissions(path: string): void {
+  if (process.platform === "win32") {
+    return;
+  }
+
+  if (shouldEnforceAidpConfigParentPermissions()) {
+    const parent = dirname(path);
+    if (existsSync(parent)) {
+      assertOwnerOnlyMode(parent, AIDP_CONFIG_DIR_MODE, "directory");
+    }
+  }
+
+  if (existsSync(path)) {
+    assertOwnerOnlyMode(path, AIDP_CONFIG_FILE_MODE, "file");
+  }
+}
+
+function shouldEnforceAidpConfigParentPermissions(): boolean {
+  return !process.env.AIDP_CLI_CONFIG_FILE;
+}
+
+function assertOwnerOnlyMode(path: string, expectedMode: number, kind: "directory" | "file"): void {
+  const mode = statSync(path).mode & 0o777;
+  if ((mode & GROUP_OR_WORLD_PERMISSIONS) !== 0) {
+    throw new CliError(
+      `${path} permissions are too open for the AIDP config ${kind}. ` +
+        `Run 'chmod ${expectedMode.toString(8)} ${path}' and try again.`
+    );
+  }
+}
+
+function writeAidpConfigAtomically(path: string, content: string): void {
+  const tmpPath = `${dirname(path)}/.${randomUUID()}.tmp`;
+  let fd: number | undefined;
+  try {
+    fd = openSync(tmpPath, "wx", AIDP_CONFIG_FILE_MODE);
+    writeFileSync(fd, content, "utf8");
+    fsyncSync(fd);
+    closeSync(fd);
+    fd = undefined;
+    renameSync(tmpPath, path);
+    chmodSync(path, AIDP_CONFIG_FILE_MODE);
+  } catch (error) {
+    if (fd !== undefined) {
+      closeSync(fd);
+    }
+    try {
+      unlinkSync(tmpPath);
+    } catch {
+      // Best effort cleanup; preserve the original write failure.
+    }
+    throw error;
   }
 }
 
