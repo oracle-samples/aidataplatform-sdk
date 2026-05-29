@@ -158,5 +158,4 @@ vulnerability disclosure process.
 
 Copyright (c) 2026, Oracle and/or its affiliates.
 
-This software is dual-licensed under the Universal Permissive License 1.0 and
-Apache License 2.0. You may choose either license.
+This software is licensed under the Universal Permissive License 1.0.
