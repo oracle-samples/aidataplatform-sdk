@@ -1,0 +1,2 @@
+aidp-python-client==1.0.0
+oci>=2.165.0,<2.166

@@ -1,7 +1,7 @@
 # Oracle AI Data Platform SDK
 
-Oracle AI Data Platform SDK provides generated clients and command line tools for
-working with Oracle AI Data Platform public APIs.
+Oracle AI Data Platform SDK provides generated clients and command line tools
+for working with Oracle AI Data Platform public APIs.
 
 This repository contains:
 
@@ -11,332 +11,143 @@ This repository contains:
 - A TypeScript SDK client.
 - Runnable examples for common workspace, cluster, notebook, and workflow use cases.
 
-## Installation
+## Install
 
-### AIDP CLI
+Download release artifacts from `releases/tag/v1.0.0`. The commands below
+assume you are running them from the artifact directory.
 
-Build the Python client and Python CLI wheels from this repository:
-
-```bash
-export BLD_VERSION=<version>
-
-python3 aidp-python-client/scripts/write_version_file.py
-python3 -m build --wheel aidp-python-client/src
-
-python3 aidp-cli/aidp-py-cli/scripts/write_version_file.py
-python3 -m build --wheel aidp-cli/aidp-py-cli
-```
-
-Install the local wheels together:
+Python CLI and SDK:
 
 ```bash
-python3 -m pip install --force-reinstall \
-  aidp-python-client/src/dist/aidp_python_client-<version>-py3-none-any.whl \
-  aidp-cli/aidp-py-cli/dist/aidp_cli-<version>-py3-none-any.whl
+python3 -m pip install aidp_python_client-1.0.0-py3-none-any.whl aidp_cli-1.0.0-py3-none-any.whl
 ```
 
-Build the npm CLI package from this repository:
+Node.js CLI and TypeScript/Node.js SDK:
 
 ```bash
-export PKG_VERSION=<version>
-
-npm --prefix aidp-typescript-client run write-version
-npm --prefix aidp-typescript-client ci
-npm --prefix aidp-typescript-client run build
-npm pack ./aidp-typescript-client --pack-destination aidp-typescript-client
-
-npm --prefix aidp-cli/aidp-npm-cli run write-version
-npm --prefix aidp-cli/aidp-npm-cli ci
-npm --prefix aidp-cli/aidp-npm-cli run build
-npm pack ./aidp-cli/aidp-npm-cli --pack-destination aidp-cli/aidp-npm-cli
+npm install -g aidp-typescript-client-1.0.0.tgz aidp-cli-1.0.0.tgz
 ```
 
-Install the local npm CLI package:
+Python SDK:
+
+Required only for SDK-only Python integrations. The Python CLI install command
+already includes this artifact.
 
 ```bash
-npm install -g aidp-cli/aidp-npm-cli/aidp-cli-<version>.tgz
+python3 -m pip install aidp_python_client-1.0.0-py3-none-any.whl
 ```
 
-Verify either CLI installation:
+TypeScript/Node.js SDK:
+
+Required only for SDK-only Node.js integrations. The Node.js CLI install
+command already includes this artifact.
 
 ```bash
-aidp --help
-aidp command-groups
-aidp search list workspaces
+npm install aidp-typescript-client-1.0.0.tgz
 ```
 
-### Java Client
+Java SDK:
 
-Build and install the Java clients into your local Maven repository:
-
-```bash
-mvn -pl aidp-java-client,aidp-java-client-2x install -DskipTests
-```
-
-Then add the Java client dependency to your Maven project:
+Make `aidp-java-client-1.0.0.jar` available in your Maven repository, then add
+the dependency to your application.
 
 ```xml
 <dependency>
   <groupId>com.oracle.aidataplatform</groupId>
   <artifactId>aidp-java-client</artifactId>
-  <version>${aidp.version}</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
-For applications that must stay on the OCI Java SDK 2.x client stack, use:
+## Configure Authentication
 
-```xml
-<dependency>
-  <groupId>com.oracle.aidataplatform</groupId>
-  <artifactId>aidp-java-client-2x</artifactId>
-  <version>${aidp.version}</version>
-</dependency>
-```
-
-### Python Client
-
-Build the Python client wheel from this repository:
+AIDP clients use OCI authentication. Configure an OCI profile first. For a
+session-token profile, authenticate with OCI CLI:
 
 ```bash
-export BLD_VERSION=<version>
-python3 aidp-python-client/scripts/write_version_file.py
-python3 -m build --wheel aidp-python-client/src
+oci session authenticate \
+  --profile-name DEFAULT \
+  --region us-ashburn-1 \
+  --tenancy-name <tenancy_name>
 ```
 
-Install the local wheel:
+Set common defaults:
 
 ```bash
-python3 -m pip install --force-reinstall \
-  aidp-python-client/src/dist/aidp_python_client-<version>-py3-none-any.whl
-```
-
-### TypeScript Client
-
-Build the TypeScript client package from this repository:
-
-```bash
-export PKG_VERSION=<version>
-
-npm --prefix aidp-typescript-client run write-version
-npm --prefix aidp-typescript-client ci
-npm --prefix aidp-typescript-client run build
-npm pack ./aidp-typescript-client --pack-destination aidp-typescript-client
-```
-
-Install the local package in your application:
-
-```bash
-npm install ./aidp-typescript-client/aidp-typescript-client-<version>.tgz
-```
-
-The TypeScript client depends on OCI authentication support. During local
-development, install dependencies from the local package lock file before
-building or running examples:
-
-```bash
-npm --prefix aidp-typescript-client ci
-```
-
-To run the TypeScript example project from this repository:
-
-```bash
-npm --prefix aidp-typescript-client-example ci
-npm --prefix aidp-typescript-client-example run build
-```
-
-## Configuration
-
-The SDKs use OCI authentication. Configure an OCI profile, then provide an AI
-Data Platform OCID and either an OCI region or an explicit service endpoint.
-
-Common environment variables used by the examples:
-
-```bash
-export AIDP_DP_AI_DATA_PLATFORM_ID=<ai_data_platform_ocid>
-export AIDP_DP_REGION=<oci_region>
-# Optional endpoint override. Use this instead of region when required.
-export AIDP_DP_ENDPOINT=<service_endpoint>
 export OCI_CONFIG_FILE=~/.oci/config
 export OCI_PROFILE=DEFAULT
-```
-
-For the CLI, you can also set the AIDP instance OCID once:
-
-```bash
+export OCI_CLI_AUTH=security_token
+export OCI_CLI_REGION=<oci_region>
 export AIDP_INSTANCE_ID=<ai_data_platform_ocid>
-aidp configure set instance-id <ai_data_platform_ocid>
+# Optional endpoint override:
+export OCI_CLI_ENDPOINT=https://aidp.<region>.oci.oraclecloud.com
 ```
 
-## Documentation
+You can also pass `--instance-id <ai_data_platform_ocid>` directly to CLI
+commands, or save it with `aidp configure set instance-id <ai_data_platform_ocid>`.
 
-For API documentation, see the
-[Oracle AI Data Platform API documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aiwap/index.html).
+## Use the CLI
 
-## Examples
-
-### CLI: List Workspaces
+Start with help and discovery:
 
 ```bash
-aidp workspace list \
-  --instance-id <ai_data_platform_ocid> \
-  --region <oci_region>
+aidp --help
+aidp command-groups
+aidp workspace
+aidp workspace list --help
 ```
 
-Use an explicit endpoint when needed:
+Invoke a workspace API:
 
 ```bash
-aidp workspace list \
+aidp \
+  --auth security_token \
+  --profile DEFAULT \
+  --region <oci_region> \
   --instance-id <ai_data_platform_ocid> \
-  --endpoint <service_endpoint>
+  workspace list
 ```
 
-### Java: List Workspaces
+Use `--endpoint <service_endpoint>` when you need an explicit endpoint instead
+of region-based endpoint resolution.
+
+For APIs that accept a JSON body, write the body to a file and pass
+`--body @file.json`.
+
+## Use the SDKs
+
+The SDKs handle OCI request signing, endpoints, typed request and response
+models, pagination patterns, retries, and structured service errors.
+
+Java:
 
 ```java
-import com.oracle.aidataplatform.dp.WorkspaceClient;
-import com.oracle.aidataplatform.dp.model.SortOrder;
-import com.oracle.aidataplatform.dp.model.Workspace;
-import com.oracle.aidataplatform.dp.requests.ListWorkspacesRequest;
-import com.oracle.aidataplatform.dp.responses.ListWorkspacesResponse;
-import com.oracle.bmc.ConfigFileReader;
-import com.oracle.bmc.auth.SessionTokenAuthenticationDetailsProvider;
-
-public class ListWorkspacesExample {
-  public static void main(String[] args) throws Exception {
-    String aiDataPlatformId = System.getenv("AIDP_DP_AI_DATA_PLATFORM_ID");
-    String region = System.getenv("AIDP_DP_REGION");
-    String endpoint = System.getenv("AIDP_DP_ENDPOINT");
-    String configFile =
-        System.getenv().getOrDefault("OCI_CONFIG_FILE", ConfigFileReader.DEFAULT_FILE_PATH);
-    String profile = System.getenv().getOrDefault("OCI_PROFILE", "DEFAULT");
-
-    ConfigFileReader.ConfigFile config = ConfigFileReader.parse(configFile, profile);
-    SessionTokenAuthenticationDetailsProvider provider =
-        new SessionTokenAuthenticationDetailsProvider(config);
-
-    WorkspaceClient.Builder builder = WorkspaceClient.builder();
-    if (endpoint != null && !endpoint.isBlank()) {
-      builder.endpoint(endpoint);
-    } else {
-      builder.region(region);
-    }
-
-    try (WorkspaceClient client = builder.build(provider)) {
-      ListWorkspacesRequest request =
-          ListWorkspacesRequest.builder()
-              .aiDataPlatformId(aiDataPlatformId)
-              .lifecycleState(Workspace.LifecycleState.Active)
-              .sortBy(ListWorkspacesRequest.SortBy.TimeCreated)
-              .sortOrder(SortOrder.Desc)
-              .limit(10)
-              .build();
-
-      ListWorkspacesResponse response =
-          client.listWorkspaces(request);
-
-      response.getWorkspaceCollection().getItems().forEach(System.out::println);
-    }
-  }
-}
+WorkspaceClient client = WorkspaceClient.builder().region(region).build(provider);
+ListWorkspacesResponse response = client.listWorkspaces(request);
 ```
 
-### Python: List Workspaces
+Python:
 
 ```python
-import os
-from pathlib import Path
-
-import oci
-from oci.auth.signers import SecurityTokenSigner
-from oci.signer import load_private_key_from_file
-
-from aidp_python_client.aidataplatform_dp import WorkspaceClient
-
-
-def build_signer(config):
-    token_file = config.get("security_token_file")
-    if token_file:
-        token = Path(os.path.expanduser(token_file)).read_text(encoding="utf-8").strip()
-        private_key = load_private_key_from_file(
-            os.path.expanduser(config["key_file"]),
-            config.get("pass_phrase"),
-        )
-        return SecurityTokenSigner(token=token, private_key=private_key)
-    return None
-
-
-config = oci.config.from_file(
-    file_location=os.getenv("OCI_CONFIG_FILE", "~/.oci/config"),
-    profile_name=os.getenv("OCI_PROFILE", "DEFAULT"),
-)
-signer = build_signer(config)
-endpoint = os.getenv("AIDP_DP_ENDPOINT")
-ai_data_platform_id = os.environ["AIDP_DP_AI_DATA_PLATFORM_ID"]
-
-client_kwargs = {}
-if signer:
-    client_kwargs["signer"] = signer
-if endpoint:
-    client_kwargs["service_endpoint"] = endpoint
-
-client = WorkspaceClient(config, **client_kwargs)
-try:
-    response = client.list_workspaces(
-        ai_data_platform_id,
-        lifecycle_state="ACTIVE",
-        sort_by="timeCreated",
-        sort_order="DESC",
-        limit=10,
-    )
-    for workspace in response.data.items:
-        print(workspace.display_name, workspace.key)
-finally:
-    client.base_client.session.close()
+client = WorkspaceClient(config, signer=signer)
+response = client.list_workspaces(ai_data_platform_id, limit=10)
 ```
 
-### TypeScript: List Workspaces
+TypeScript/Node.js:
 
 ```ts
-import common = require("oci-common");
-import {
-  WorkspaceClient,
-  models,
-  requests
-} from "aidp-typescript-client";
-
-const aiDataPlatformId = process.env.AIDP_DP_AI_DATA_PLATFORM_ID!;
-const endpoint = process.env.AIDP_DP_ENDPOINT;
-const region = process.env.AIDP_DP_REGION;
-const configFilePath = process.env.OCI_CONFIG_FILE ?? `${process.env.HOME}/.oci/config`;
-const profile = process.env.OCI_PROFILE ?? "DEFAULT";
-
-const authProvider = new common.SessionAuthDetailProvider(configFilePath, profile);
 const client = new WorkspaceClient({ authenticationDetailsProvider: authProvider });
-
-if (endpoint) {
-  client.endpoint = endpoint;
-} else if (region) {
-  client.regionId = region;
-}
-
-const request: requests.ListWorkspacesRequest = {
-  aiDataPlatformId,
-  lifecycleState: "ACTIVE",
-  sortBy: requests.ListWorkspacesRequest.SortBy.TimeCreated,
-  sortOrder: models.SortOrder.Desc,
-  limit: 10
-};
-
-const response = await client.listWorkspaces(request);
-for (const workspace of response.workspaceCollection.items ?? []) {
-  console.log(workspace.displayName, workspace.key);
-}
+const response = await client.listWorkspaces({ aiDataPlatformId, limit: 10 });
 ```
 
-## Help
+For runnable notebook workflow samples, see [examples](./examples/README.md).
 
-For questions, issues, or support, use the standard project support channels for
-this repository.
+## Documentation and Help
+
+See the examples in this repository and the
+[Oracle AI Data Platform API documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aiwap/index.html)
+for complete workflows. For questions or support, use the standard project
+support channels for this repository.
 
 ## Security
 
