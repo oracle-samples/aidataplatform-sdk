@@ -256,7 +256,7 @@ return this;
         sb.append(", providerName=").append(String.valueOf(this.providerName));
         sb.append(", entityType=").append(String.valueOf(this.entityType));
         sb.append(", username=").append(String.valueOf(this.username));
-        sb.append(", personalAccessToken=").append(String.valueOf(this.personalAccessToken));
+        sb.append(", personalAccessToken=").append("<redacted>");
         sb.append(")");
         return sb.toString();
     }

@@ -210,7 +210,7 @@ return this;
         sb.append("OAuth(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", clientId=").append(String.valueOf(this.clientId));
-        sb.append(", clientSecret=").append(String.valueOf(this.clientSecret));
+        sb.append(", clientSecret=").append("<redacted>");
         sb.append(", issuerIdpEndpoint=").append(String.valueOf(this.issuerIdpEndpoint));
         sb.append(", scopes=").append(String.valueOf(this.scopes));
         sb.append(")");

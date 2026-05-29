@@ -596,8 +596,6 @@ import * as GitDiffSummaryCollection from './git-diff-summary-collection';
 export import GitDiffSummaryCollection = GitDiffSummaryCollection.GitDiffSummaryCollection;
 import * as GitFolder from './git-folder';
 export import GitFolder = GitFolder.GitFolder;
-import * as GitFolderMetadatum from './git-folder-metadatum';
-export import GitFolderMetadatum = GitFolderMetadatum.GitFolderMetadatum;
 import * as GitMergeDetails from './git-merge-details';
 export import GitMergeDetails = GitMergeDetails.GitMergeDetails;
 import * as GitOperationState from './git-operation-state';

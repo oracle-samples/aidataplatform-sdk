@@ -95,7 +95,7 @@ return this;
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("BearerTokenAuth(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
-        sb.append(", token=").append(String.valueOf(this.token));
+        sb.append(", token=").append("<redacted>");
         sb.append(")");
         return sb.toString();
     }

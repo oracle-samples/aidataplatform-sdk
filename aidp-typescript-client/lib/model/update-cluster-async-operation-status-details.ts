@@ -13,7 +13,19 @@ export interface UpdateClusterAsyncOperationStatusDetails {
     */
     'stateMessage'?: string;
     /**
-    * State of cluster.
+    * Common lifecycle states for resources in a compute cluster.
+* ACCEPTED        - The resource create request has been accepted.
+* CREATING        - The resource is being created and might not be usable until the entire metadata is defined.
+* ACTIVE          - The resource is valid and available for access.
+* DELETING        - The resource is being deleted, and might require a deep clean of any children.
+* DELETED         - The resource has been deleted, and isn't available.
+* FAILED          - The resource is in a failed state due to validation or other errors.
+* STOPPING        - The resource is being stopped.
+* STOPPED         - The resource has been stopped.
+* UPDATING        - The resource is being updated and might not be usable until all changes are commited.
+* STARTING        - The resource is being started.
+* RESTARTING      - The resource is being restarted.
+* 
     */
     'state': UpdateClusterAsyncOperationStatusDetails.State;
     /**

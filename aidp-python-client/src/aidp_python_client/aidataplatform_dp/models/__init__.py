@@ -313,7 +313,6 @@ from .git_diff_detail import GitDiffDetail
 from .git_diff_summary import GitDiffSummary
 from .git_diff_summary_collection import GitDiffSummaryCollection
 from .git_folder import GitFolder
-from .git_folder_metadatum import GitFolderMetadatum
 from .git_merge_details import GitMergeDetails
 from .git_operation_state import GitOperationState
 from .git_pull_details import GitPullDetails
@@ -1120,7 +1119,6 @@ aidataplatform_dp_type_mapping = {
     "GitDiffSummary": GitDiffSummary,
     "GitDiffSummaryCollection": GitDiffSummaryCollection,
     "GitFolder": GitFolder,
-    "GitFolderMetadatum": GitFolderMetadatum,
     "GitMergeDetails": GitMergeDetails,
     "GitOperationState": GitOperationState,
     "GitPullDetails": GitPullDetails,

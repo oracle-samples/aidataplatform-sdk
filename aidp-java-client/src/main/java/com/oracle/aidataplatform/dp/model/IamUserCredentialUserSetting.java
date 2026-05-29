@@ -251,7 +251,7 @@ return this;
         sb.append(", tenancy=").append(String.valueOf(this.tenancy));
         sb.append(", region=").append(String.valueOf(this.region));
         sb.append(", fingerprint=").append(String.valueOf(this.fingerprint));
-        sb.append(", privateApiKey=").append(String.valueOf(this.privateApiKey));
+        sb.append(", privateApiKey=").append("<redacted>");
         sb.append(")");
         return sb.toString();
     }
