@@ -22,7 +22,7 @@ Python CLI and SDK:
 python3 -m pip install aidp_python_client-1.0.0-py3-none-any.whl aidp_cli-1.0.0-py3-none-any.whl
 ```
 
-Node.js CLI and TypeScript/Node.js SDK:
+TypeScript/Node.js CLI and SDK:
 
 ```bash
 npm install -g aidp-typescript-client-1.0.0.tgz aidp-cli-1.0.0.tgz
