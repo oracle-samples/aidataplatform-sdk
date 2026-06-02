@@ -29,8 +29,10 @@ python3 -m pip install --user --upgrade pip setuptools wheel
 export PATH="$(python3 -m site --user-base)/bin:$PATH"
 ```
 
-Installing OCI CLI is optional if it is already available in your environment.
+OCI CLI is required. You can skip this step if its already installed in your environment.
 Use it to create an OCI config file or authenticate with a session token.
+
+For setup help, see [Install OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm).
 
 ```bash
 python3 -m pip install --user oci-cli
