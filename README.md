@@ -10,6 +10,7 @@ This repository contains:
 - A Python SDK client.
 - A TypeScript SDK client.
 - Runnable examples for common workspace, cluster, notebook, and workflow use cases.
+- [Documentation](docs/).
 
 ## Install
 
