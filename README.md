@@ -214,6 +214,11 @@ See the examples in this repository and the
 for complete workflows. For questions or support, use the standard project
 support channels for this repository.
 
+## Contributing
+
+This project welcomes contributions from the community. Before submitting a pull
+request, please [review our contribution guide](./CONTRIBUTING.md).
+
 ## Security
 
 Please consult the [security guide](./SECURITY.md) for our responsible security
