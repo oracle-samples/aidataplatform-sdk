@@ -24,7 +24,7 @@ This guide summarizes the command groups, commands, options, and payload require
 - [Cluster](#cluster)
 - [Credentials](#credentials)
 - [Delta Share](#delta-share)
-- [Mlops](#mlops)
+- [ML Ops](#mlops)
 - [Notebook](#notebook)
 - [Role](#role)
 - [Schema](#schema)
@@ -33,12 +33,14 @@ This guide summarizes the command groups, commands, options, and payload require
 - [Workflow](#workflow)
 - [Workspace](#workspace)
 - [Workspace Object](#workspace-object)
-## Async Operations
+
+## <a id="async-operations"></a>Async Operations
 Async operations.
 **Command Index:**
 - [async-operations get](#async-operations-get)
 - [async-operations list](#async-operations-list)
 ### Commands
+
 #### `aidp async-operations get`
 <a id="async-operations-get"></a>
 Get detailed information for a particular async operation.
@@ -51,12 +53,10 @@ Get detailed information for a particular async operation
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `async-operation-key` (string, required) — The unique identifier of an async operation
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to Async Operations](#async-operations) • [Top](#top)
+**Return:** [Back to Async-Operations](#async-operations) • [Top](#top)
 
 #### `aidp async-operations list`
 <a id="async-operations-list"></a>
@@ -69,7 +69,6 @@ List all async operations for a resource type. Filters can be used to narrow the
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `resource-type` (string, optional) — Required parameter which decides async operation resource type
 - `resource-name` (string, optional) — A filter to return only resources that match the given resource name exactly.
@@ -78,19 +77,19 @@ List all async operations for a resource type. Filters can be used to narrow the
 - `should-filter-by-calling-principal` (boolean, optional) — A filter to return only resources that match the current principal.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeStarted is descending. Allowed values are: "timeStarted" Allowed values: timeStarted
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeStarted is descending. Allowed values are: "timeStarted"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
+**Return:** [Back to Async-Operations](#async-operations) • [Top](#top)
 
-**Return:** [Back to Async Operations](#async-operations) • [Top](#top)
-
-## Audit
+## <a id="audit"></a>Audit
 Audit logs.
 **Command Index:**
 - [audit manage-logs](#audit-manage-logs)
 - [audit search-logs](#audit-search-logs)
 ### Commands
+
 #### `aidp audit manage-logs`
 <a id="audit-manage-logs"></a>
 Manages audit logs for AI Data Platform Workbench.
@@ -101,23 +100,22 @@ Manages audit logs for AI Data Platform Workbench.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `manage-audit-logs-details` (object, required) — Details to update in an audit log.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`ManageAuditLogsDetails`):**
-- `action` (str, optional) — action of this ManageAuditLogsDetails
-- `retention_period` (int, optional) — retention_period of this ManageAuditLogsDetails
+- `action` (string, optional) —
+- `retentionPeriod` (integer, optional) —
+
 **Example:**
 ```json
 {
-  "action": "<string>",
-  "retention_period": 123
+  "action": "ENABLE",
+  "retentionPeriod": 0
 }
 ```
 ---
-
 **Return:** [Back to Audit](#audit) • [Top](#top)
 
 #### `aidp audit search-logs`
@@ -130,39 +128,43 @@ Searches audit logs for AI Data Platform Workbench.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `search-audit-logs-details` (object, required) — Details for the audit log search.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`SearchAuditLogsDetails`):**
-- `time_begin` (datetime, optional) — time_begin of this SearchAuditLogsDetails
-- `time_end` (datetime, optional) — time_end of this SearchAuditLogsDetails
-- `object_type` (str, optional) — object_type of this SearchAuditLogsDetails
-- `object_name` (str, optional) — object_name of this SearchAuditLogsDetails
-- `operation` (str, optional) — operation of this SearchAuditLogsDetails
-- `status` (str, optional) — status of this SearchAuditLogsDetails
-- `started_by` (str, optional) — started_by of this SearchAuditLogsDetails
-- `query` (str, optional) — query of this SearchAuditLogsDetails
-- `sort_by` (str, optional) — sort_by of this SearchAuditLogsDetails
-- `sort_order` (str, optional) — sort_order of this SearchAuditLogsDetails
+- `objectName` (string, optional) —
+- `objectType` (string, optional) —
+- `operation` (string, optional) —
+- `query` (string, optional) —
+- `sortBy` (string, optional) —
+- `sortOrder` (string, optional) —
+- `startedBy` (string, optional) —
+- `status` (string, optional) —
+- `timeBegin` (datetime, optional) —
+- `timeEnd` (datetime, optional) —
+
 **Example:**
 ```json
 {
-  "time_begin": "<datetime>",
-  "time_end": "<datetime>",
-  "object_type": "<string>",
-  "object_name": "<string>",
-  "operation": "<string>"
+  "objectName": "<string>",
+  "objectType": "DATA_LAKE",
+  "operation": "CREATE",
+  "query": "<string>",
+  "sortBy": "startedBy",
+  "sortOrder": "ASC",
+  "startedBy": "<string>",
+  "status": "SUCCEEDED",
+  "timeBegin": "<string>",
+  "timeEnd": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Audit](#audit) • [Top](#top)
 
-## Bundle
+## <a id="bundle"></a>Bundle
 Bundles, bundle deployment status, and sync bundles.
 **Command Index:**
 - [bundle create](#bundle-create)
@@ -171,6 +173,7 @@ Bundles, bundle deployment status, and sync bundles.
 - [bundle purge](#bundle-purge)
 - [bundle sync-bundle](#bundle-sync-bundle)
 ### Commands
+
 #### `aidp bundle create`
 <a id="bundle-create"></a>
 (Preview) Creates a new bundle.
@@ -183,29 +186,38 @@ Bundles, bundle deployment status, and sync bundles.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-bundle-details` (object, required) — Request payload for bundle creation.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`CreateBundleDetails`):**
-- `name` (str, required) — **[Required]** name of this CreateBundleDetails
-- `description` (str, optional) — description of this CreateBundleDetails
-- `path` (str, required) — **[Required]** path of this CreateBundleDetails
-- `bundled_resources` (list[BundledResource], required) — **[Required]** bundled_resources of this CreateBundleDetails
+
+**Request Body (`BundledResource`):**
+- `resourceKey` (string, required) —
+- `resourceType` (string, required) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
+  "resourceKey": "<string>",
+  "resourceType": "JOB"
+}
+```
+
+**Request Body (`CreateBundleDetails`):**
+- `bundledResources` (array, required) —
+- `description` (string, optional) —
+- `name` (string, required) —
+- `path` (string, required) —
+
+**Example:**
+```json
+{
+  "bundledResources": [],
   "description": "<string>",
-  "path": "<string>",
-  "bundled_resources": [
-    "<BundledResource>"
-  ]
+  "name": "<string>",
+  "path": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
 #### `aidp bundle deploy`
@@ -220,13 +232,13 @@ Bundles, bundle deployment status, and sync bundles.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `deploy-bundle-details` (object, required) — Request payload for bundle deploy.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`DeployBundleDetails`):**
-- `path` (str, required) — **[Required]** path of this DeployBundleDetails
+- `path` (string, required) —
+
 **Example:**
 ```json
 {
@@ -234,7 +246,6 @@ Bundles, bundle deployment status, and sync bundles.
 }
 ```
 ---
-
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
 #### `aidp bundle fetch-deployment-status`
@@ -249,12 +260,12 @@ Bundles, bundle deployment status, and sync bundles.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `fetch-bundle-deployment-status-details` (object, required) — Request payload for FetchBundleDeploymentStatusDetails.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`FetchBundleDeploymentStatusDetails`):**
-- `path` (str, required) — **[Required]** path of this FetchBundleDeploymentStatusDetails
+- `path` (string, required) —
+
 **Example:**
 ```json
 {
@@ -262,7 +273,6 @@ Bundles, bundle deployment status, and sync bundles.
 }
 ```
 ---
-
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
 #### `aidp bundle purge`
@@ -277,13 +287,13 @@ Bundles, bundle deployment status, and sync bundles.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `purge-bundle-details` (object, required) — Request payload for bundle purge.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`PurgeBundleDetails`):**
-- `path` (str, required) — **[Required]** path of this PurgeBundleDetails
+- `path` (string, required) —
+
 **Example:**
 ```json
 {
@@ -291,7 +301,6 @@ Bundles, bundle deployment status, and sync bundles.
 }
 ```
 ---
-
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
 #### `aidp bundle sync-bundle`
@@ -306,13 +315,13 @@ Bundles, bundle deployment status, and sync bundles.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `sync-bundle-details` (object, required) — Request payload for bundle sync.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`SyncBundleDetails`):**
-- `path` (str, required) — **[Required]** path of this SyncBundleDetails
+- `path` (string, required) —
+
 **Example:**
 ```json
 {
@@ -320,10 +329,9 @@ Bundles, bundle deployment status, and sync bundles.
 }
 ```
 ---
-
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
-## Catalog
+## <a id="catalog"></a>Catalog
 Catalogs, catalog permissions, and connections.
 **Command Index:**
 - [catalog create](#catalog-create)
@@ -336,6 +344,7 @@ Catalogs, catalog permissions, and connections.
 - [catalog test-connection](#catalog-test-connection)
 - [catalog update](#catalog-update)
 ### Commands
+
 #### `aidp catalog create`
 <a id="catalog-create"></a>
 Create a catalog in the AI Data Platform Workbench with the given ID.
@@ -346,31 +355,41 @@ Create a catalog in the AI Data Platform Workbench with the given ID.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-catalog-details` (object, required) — Details for the new AI Data Platform Workbench catalog.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateCatalogDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateCatalogDetails
-- `description` (str, optional) — description of this CreateCatalogDetails
-- `catalog_type` (str, optional) — catalog_type of this CreateCatalogDetails
-- `source_type` (str, optional) — source_type of this CreateCatalogDetails
-- `properties` (dict(str, str), optional) — properties of this CreateCatalogDetails
-- `connection_details` (CreateConnectionDetails, optional) — connection_details of this CreateCatalogDetails
+- `catalogType` (string, optional) —
+- `connectionDetails` (object, optional) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `properties` (object, optional) —
+- `sourceType` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "catalogType": "EXTERNAL",
+  "connectionDetails": {},
   "description": "<string>",
-  "catalog_type": "<string>",
-  "source_type": "<string>",
-  "properties": "<dict(str, str)>"
+  "displayName": "<string>",
+  "properties": {},
+  "sourceType": "ADW"
+}
+```
+
+**Request Body (`CreateConnectionDetails`):**
+- `connectionProperties` (object, required) —
+
+**Example:**
+```json
+{
+  "connectionProperties": {}
 }
 ```
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog delete`
@@ -384,14 +403,12 @@ Deletes the specified catalog from an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `catalog-key` (string, required) — The key of the catalog.
-
 **Options:**
 - `is-forced` (boolean, optional) — A boolean which decides if an entity should be deleted with Cascade effect
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog get`
@@ -405,13 +422,11 @@ Gets detailed information about an AI Data Platform Workbench catalog with a giv
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `catalog-key` (string, required) — The key of the catalog.
-
 **Options:**
 - `is-catalog-guid` (boolean, optional) — A boolean which decides if catalogKey path parameter is catalog GUID (UUID) or name.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog list`
@@ -424,18 +439,16 @@ Get a list of catalogs in an AI Data Platform Workbench with a given ID.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
-- `catalog-state` (string, optional) — The state of the catalog. Allowed values are: "ACTIVE", "CREATING", "DELETING" Allowed values: ACTIVE, CREATING, DELETING
-- `catalog-type` (string, optional) — The type of the catalog. Allowed values are: "INTERNAL", "EXTERNAL" Allowed values: INTERNAL, EXTERNAL
+- `catalog-state` (string, optional) — The state of the catalog. Allowed values are: "ACTIVE", "CREATING", "DELETING"
+- `catalog-type` (string, optional) — The type of the catalog. Allowed values are: "INTERNAL", "EXTERNAL"
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog list-permissions`
@@ -449,16 +462,14 @@ Gets a list of all permissions in the specified catalog of an AI Data Platform W
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `catalog-key` (string, required) — The key of the catalog.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog manage-permission`
@@ -472,24 +483,59 @@ Update permission details for a catalog in an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `catalog-key` (string, required) — The key of the catalog.
-
 **Options:**
-- `manage-catalog-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`ManageCatalogPermissionDetails`):**
-- `assign_catalog_permission_details` (AssignCatalogPermissionDetails, optional) — assign_catalog_permission_details of this ManageCatalogPermissionDetails
-- `revoke_catalog_permission_details` (RevokeCatalogPermissionDetails, optional) — revoke_catalog_permission_details of this ManageCatalogPermissionDetails
+
+**Request Body (`AssignCatalogPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_catalog_permission_details": "<AssignCatalogPermissionDetails>",
-  "revoke_catalog_permission_details": "<RevokeCatalogPermissionDetails>"
+  "assignees": {},
+  "permissions": "SELECT"
+}
+```
+
+**Request Body (`ManageCatalogPermissionDetails`):**
+- `assignCatalogPermissionDetails` (object, optional) —
+- `revokeCatalogPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignCatalogPermissionDetails": {},
+  "revokeCatalogPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeCatalogPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "SELECT"
 }
 ```
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog refresh`
@@ -503,14 +549,12 @@ Refresh a catalog in an AI Data Platform Workbench through a crawler.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `catalog-key` (string, required) — The key of the catalog.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog test-connection`
@@ -523,26 +567,37 @@ Test the connection of an AI Data Platform Workbench to an external catalog.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `catalog-test-connection-details` (object, required) — Details for the AI Data Platform Workbench catalog to be tested for connection.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`CatalogTestConnectionDetails`):**
-- `key` (str, optional) — key of this CatalogTestConnectionDetails
-- `source_type` (str, optional) — source_type of this CatalogTestConnectionDetails
-- `connection_details` (CatalogConnectionDetails, optional) — connection_details of this CatalogTestConnectionDetails
+
+**Request Body (`CatalogConnectionDetails`):**
+- `connectionProperties` (object, required) —
+- `displayName` (string, optional) —
+
 **Example:**
 ```json
 {
+  "connectionProperties": {},
+  "displayName": "<string>"
+}
+```
+
+**Request Body (`CatalogTestConnectionDetails`):**
+- `connectionDetails` (object, optional) —
+- `key` (string, optional) —
+- `sourceType` (string, optional) —
+
+**Example:**
+```json
+{
+  "connectionDetails": {},
   "key": "<string>",
-  "source_type": "<string>",
-  "connection_details": "<CatalogConnectionDetails>"
+  "sourceType": "ADW"
 }
 ```
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
 #### `aidp catalog update`
@@ -556,31 +611,40 @@ Update the details of an AI Data Platform Workbench catalog with the given infor
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `catalog-key` (string, required) — The key of the catalog.
-
 **Options:**
-- `update-catalog-details` (object, required) — The information to be updated.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateCatalogDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateCatalogDetails
-- `description` (str, optional) — description of this UpdateCatalogDetails
-- `connection_details` (UpdateConnectionDetails, optional) — connection_details of this UpdateCatalogDetails
-- `properties` (dict(str, str), optional) — properties of this UpdateCatalogDetails
+- `connectionDetails` (object, optional) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `properties` (object, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "connectionDetails": {},
   "description": "<string>",
-  "connection_details": "<UpdateConnectionDetails>",
-  "properties": "<dict(str, str)>"
+  "displayName": "<string>",
+  "properties": {}
+}
+```
+
+**Request Body (`UpdateConnectionDetails`):**
+- `connectionProperties` (object, required) —
+
+**Example:**
+```json
+{
+  "connectionProperties": {}
 }
 ```
 ---
-
 **Return:** [Back to Catalog](#catalog) • [Top](#top)
 
-## Cluster
+## <a id="cluster"></a>Cluster
 Clusters, cluster logs, cluster libraries, and cluster permissions.
 **Command Index:**
 - [cluster create](#cluster-create)
@@ -600,6 +664,7 @@ Clusters, cluster logs, cluster libraries, and cluster permissions.
 - [cluster summarize-metrics-data](#cluster-summarize-metrics-data)
 - [cluster update](#cluster-update)
 ### Commands
+
 #### `aidp cluster create`
 <a id="cluster-create"></a>
 Creates a new cluster with the provided details.
@@ -611,30 +676,219 @@ Creates a new cluster with the provided details.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-cluster-details` (object, required) — Details for the new cluster.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`CreateClusterDetails`):**
-- `type` (str, required) — **[Required]** type of this CreateClusterDetails
-- `display_name` (str, required) — **[Required]** display_name of this CreateClusterDetails
-- `description` (str, optional) — description of this CreateClusterDetails
-- `driver_config` (DriverConfig, required) — **[Required]** driver_config of this CreateClusterDetails
-- `node_type` (str, optional) — node_type of this CreateClusterDetails
+
+**Request Body (`AttachToNotebookConfig`):**
+- `notebookPath` (string, required) —
+
 **Example:**
 ```json
 {
-  "type": "<string>",
-  "display_name": "<string>",
+  "notebookPath": "<string>"
+}
+```
+
+**Request Body (`ClusterRuntimeConfig`):**
+- `initScripts` (array, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "initScripts": [],
+  "type": "SPARK"
+}
+```
+
+**Request Body (`CreateAgentFlowComputeDetails`):**
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `driverConfig` (object, optional) —
+- `nodeType` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
   "description": "<string>",
-  "driver_config": "<DriverConfig>",
-  "node_type": "<string>"
+  "displayName": "<string>",
+  "driverConfig": {},
+  "nodeType": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`CreateClusterDetails`):**
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `driverConfig` (object, required) —
+- `nodeType` (string, optional) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "displayName": "<string>",
+  "driverConfig": {},
+  "nodeType": "<string>",
+  "type": "USER"
+}
+```
+
+**Request Body (`CreateSparkClusterDetails`):**
+- `attachToNotebookConfig` (object, optional) —
+- `autoTerminationMinutes` (integer, optional) —
+- `clusterRuntimeConfig` (object, optional) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `driverConfig` (object, optional) —
+- `loggingConfig` (object, optional) —
+- `nodeType` (string, optional) —
+- `subscription` (object, optional) —
+- `type` (string, optional) —
+- `workerConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "attachToNotebookConfig": {},
+  "autoTerminationMinutes": 0,
+  "clusterRuntimeConfig": {},
+  "description": "<string>",
+  "displayName": "<string>",
+  "driverConfig": {},
+  "loggingConfig": {},
+  "nodeType": "<string>",
+  "subscription": {},
+  "type": "<string>",
+  "workerConfig": {}
+}
+```
+
+**Request Body (`DriverConfig`):**
+- `driverNodeType` (string, optional) —
+- `driverShape` (string, optional) —
+- `driverShapeConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "driverNodeType": "<string>",
+  "driverShape": "<string>",
+  "driverShapeConfig": {}
+}
+```
+
+**Request Body (`InitScriptPath`):**
+- `destination` (string, required) —
+
+**Example:**
+```json
+{
+  "destination": "<string>"
+}
+```
+
+**Request Body (`LogGroup`):**
+- `compartmentId` (string, optional) —
+- `groupName` (string, optional) —
+- `logName` (string, optional) —
+
+**Example:**
+```json
+{
+  "compartmentId": "<string>",
+  "groupName": "<string>",
+  "logName": "<string>"
+}
+```
+
+**Request Body (`LoggingConfig`):**
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "type": "OCI_LOGGING"
+}
+```
+
+**Request Body (`OciLogging`):**
+- `logGroups` (array, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "logGroups": [],
+  "type": "<string>"
+}
+```
+
+**Request Body (`ShapeConfig`):**
+- `gpus` (integer, optional) —
+- `memoryInGBs` (integer, optional) —
+- `ocpus` (integer, optional) —
+
+**Example:**
+```json
+{
+  "gpus": 0,
+  "memoryInGBs": 0,
+  "ocpus": 0
+}
+```
+
+**Request Body (`SparkRuntimeConfig`):**
+- `initScripts` (array, optional) —
+- `sparkAdvancedConfigurations` (object, optional) —
+- `sparkEnvVariables` (object, optional) —
+- `sparkVersion` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "initScripts": [],
+  "sparkAdvancedConfigurations": {},
+  "sparkEnvVariables": {},
+  "sparkVersion": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`SubscriptionDetails`):**
+- `callbackUrl` (string, optional) —
+- `serviceName` (string, optional) —
+
+**Example:**
+```json
+{
+  "callbackUrl": "<string>",
+  "serviceName": "<string>"
+}
+```
+
+**Request Body (`WorkerConfig`):**
+- `maxWorkerCount` (integer, optional) —
+- `minWorkerCount` (integer, optional) —
+- `workerShape` (string, optional) —
+- `workerShapeConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "maxWorkerCount": 0,
+  "minWorkerCount": 0,
+  "workerShape": "<string>",
+  "workerShapeConfig": {}
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster delete`
@@ -649,12 +903,10 @@ Deletes a cluster from a workspace.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster download-logs`
@@ -670,35 +922,40 @@ Downloads logs within the specified cluster and time range. The logs can be filt
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `download-cluster-logs-details` (object, required) — Request payload containing the parameters for filtering cluster logs.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+
 **Request Body (`DownloadClusterLogsDetails`):**
-- `time_begin` (datetime, required) — **[Required]** time_begin of this DownloadClusterLogsDetails
-- `time_end` (datetime, required) — **[Required]** time_end of this DownloadClusterLogsDetails
-- `log_content_type_contains` (str, required) — **[Required]** log_content_type_contains of this DownloadClusterLogsDetails
-- `client_context` (str, optional) — client_context of this DownloadClusterLogsDetails
-- `subject_contains` (str, optional) — subject_contains of this DownloadClusterLogsDetails
-- `log_level` (str, optional) — log_level of this DownloadClusterLogsDetails
-- `opc_request_id` (str, optional) — opc_request_id of this DownloadClusterLogsDetails
-- `thread` (str, optional) — thread of this DownloadClusterLogsDetails
-- `execution_context_id` (str, optional) — execution_context_id of this DownloadClusterLogsDetails
-- `log_stream_type_contains` (str, optional) — log_stream_type_contains of this DownloadClusterLogsDetails
-- `event_type` (str, optional) — event_type of this DownloadClusterLogsDetails
+- `clientContext` (string, optional) —
+- `eventType` (string, optional) —
+- `executionContextId` (string, optional) —
+- `logContentTypeContains` (string, required) —
+- `logLevel` (string, optional) —
+- `logStreamTypeContains` (string, optional) —
+- `opcRequestId` (string, optional) —
+- `subjectContains` (string, optional) —
+- `thread` (string, optional) —
+- `timeBegin` (datetime, required) —
+- `timeEnd` (datetime, required) —
+
 **Example:**
 ```json
 {
-  "time_begin": "<datetime>",
-  "time_end": "<datetime>",
-  "log_content_type_contains": "<string>",
-  "client_context": "<string>",
-  "subject_contains": "<string>"
+  "clientContext": "<string>",
+  "eventType": "<string>",
+  "executionContextId": "<string>",
+  "logContentTypeContains": "<string>",
+  "logLevel": "<string>",
+  "logStreamTypeContains": "<string>",
+  "opcRequestId": "<string>",
+  "subjectContains": "<string>",
+  "thread": "<string>",
+  "timeBegin": "<string>",
+  "timeEnd": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster get`
@@ -713,12 +970,10 @@ Returns detailed information about a cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster get-default`
@@ -731,11 +986,9 @@ Gets information about the master catalog default cluster.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster list`
@@ -749,19 +1002,17 @@ Returns a list of all clusters in a given workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED" Allowed values: ACCEPTED, CREATING, ACTIVE, DELETING, DELETED, FAILED, STOPPING, STOPPED, UPDATING, RESTARTING, STARTING, NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS, NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL, NETWORK_CONFIGURATION_ATTACH_FAILED, NETWORK_CONFIGURATION_DETACH_IN_PROGRESS, NETWORK_CONFIGURATION_DETACH_SUCCESSFUL, NETWORK_CONFIGURATION_DETACH_FAILED
+- `state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED"
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
 - `type` (string, optional) — Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster list-libraries`
@@ -776,16 +1027,14 @@ Gets a list of libraries installed on a cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster list-permissions`
@@ -800,16 +1049,14 @@ Return a list of permissions for a given cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster manage-permission`
@@ -824,24 +1071,59 @@ Updates the permissions for a given cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `manage-cluster-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`ManageClusterPermissionDetails`):**
-- `assign_cluster_permission_details` (AssignClusterPermissionDetails, optional) — assign_cluster_permission_details of this ManageClusterPermissionDetails
-- `revoke_cluster_permission_details` (RevokeClusterPermissionDetails, optional) — revoke_cluster_permission_details of this ManageClusterPermissionDetails
+
+**Request Body (`AssignClusterPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_cluster_permission_details": "<AssignClusterPermissionDetails>",
-  "revoke_cluster_permission_details": "<RevokeClusterPermissionDetails>"
+  "assignees": {},
+  "permissions": "READ"
+}
+```
+
+**Request Body (`ManageClusterPermissionDetails`):**
+- `assignClusterPermissionDetails` (object, optional) —
+- `revokeClusterPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignClusterPermissionDetails": {},
+  "revokeClusterPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeClusterPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "READ"
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster patch-library`
@@ -856,23 +1138,60 @@ Updates libraries of a cluster with the provided patches.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `patch-cluster-library-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`PatchClusterLibraryDetails`):**
-- `items` (list[ClusterLibraryDetails], required) — **[Required]** items of this PatchClusterLibraryDetails
+
+**Request Body (`ClusterLibraryDetails`):**
+- `operation` (string, required) —
+- `type` (string, optional) —
+
 **Example:**
 ```json
 {
-  "items": [
-    "<ClusterLibraryDetails>"
-  ]
+  "operation": "INSTALL",
+  "type": "WORKSPACE_FILE"
+}
+```
+
+**Request Body (`InstallClusterLibraryDetails`):**
+- `operation` (string, optional) —
+- `path` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "operation": "<string>",
+  "path": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`PatchClusterLibraryDetails`):**
+- `items` (array, required) —
+
+**Example:**
+```json
+{
+  "items": []
+}
+```
+
+**Request Body (`UninstallClusterLibraryDetails`):**
+- `name` (string, optional) —
+- `operation` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "name": "<string>",
+  "operation": "<string>",
+  "type": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster restart`
@@ -887,14 +1206,11 @@ Restarts a running cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `restart-cluster-details` (object, required) — Details for restarting the cluster.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster search-logs`
@@ -910,39 +1226,45 @@ Searches logs within the specified cluster and time range. Supports pagination a
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `search-cluster-logs-details` (object, required) — Request body containing the search parameters for cluster logs.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
 **Request Body (`SearchClusterLogsDetails`):**
-- `time_begin` (datetime, required) — **[Required]** time_begin of this SearchClusterLogsDetails
-- `time_end` (datetime, required) — **[Required]** time_end of this SearchClusterLogsDetails
-- `log_content_type_contains` (str, required) — **[Required]** log_content_type_contains of this SearchClusterLogsDetails
-- `subject_contains` (str, optional) — subject_contains of this SearchClusterLogsDetails
-- `message_contains` (str, optional) — message_contains of this SearchClusterLogsDetails
-- `log_level` (str, optional) — log_level of this SearchClusterLogsDetails
-- `opc_request_id` (str, optional) — opc_request_id of this SearchClusterLogsDetails
-- `advanced_filter` (str, optional) — advanced_filter of this SearchClusterLogsDetails
-- `thread` (str, optional) — thread of this SearchClusterLogsDetails
-- `execution_context_id` (str, optional) — execution_context_id of this SearchClusterLogsDetails
-- `log_stream_type_contains` (str, optional) — log_stream_type_contains of this SearchClusterLogsDetails
-- `event_type` (str, optional) — event_type of this SearchClusterLogsDetails
+- `advancedFilter` (string, optional) —
+- `eventType` (string, optional) —
+- `executionContextId` (string, optional) —
+- `logContentTypeContains` (string, required) —
+- `logLevel` (string, optional) —
+- `logStreamTypeContains` (string, optional) —
+- `messageContains` (string, optional) —
+- `opcRequestId` (string, optional) —
+- `subjectContains` (string, optional) —
+- `thread` (string, optional) —
+- `timeBegin` (datetime, required) —
+- `timeEnd` (datetime, required) —
+
 **Example:**
 ```json
 {
-  "time_begin": "<datetime>",
-  "time_end": "<datetime>",
-  "log_content_type_contains": "<string>",
-  "subject_contains": "<string>",
-  "message_contains": "<string>"
+  "advancedFilter": "<string>",
+  "eventType": "<string>",
+  "executionContextId": "<string>",
+  "logContentTypeContains": "<string>",
+  "logLevel": "<string>",
+  "logStreamTypeContains": "<string>",
+  "messageContains": "<string>",
+  "opcRequestId": "<string>",
+  "subjectContains": "<string>",
+  "thread": "<string>",
+  "timeBegin": "<string>",
+  "timeEnd": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster start`
@@ -957,14 +1279,11 @@ Starts a cluster that has halted operation.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `start-cluster-details` (object, required) — Details of the cluster being started.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster stop`
@@ -979,14 +1298,11 @@ Stops an active cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `stop-cluster-details` (object, required) — Details for stopping the cluster.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster summarize-metrics-data`
@@ -1002,31 +1318,31 @@ Provides summarized compute metrics for a compute cluster in the given workspace
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `summarize-metrics-data-details` (object, required) — Request body containing metric parameters.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
 **Request Body (`SummarizeMetricsDataDetails`):**
-- `aggregation_type` (str, required) — **[Required]** aggregation_type of this SummarizeMetricsDataDetails
-- `metric_name` (str, required) — **[Required]** metric_name of this SummarizeMetricsDataDetails
-- `time_begin` (datetime, required) — **[Required]** time_begin of this SummarizeMetricsDataDetails
-- `time_end` (datetime, required) — **[Required]** time_end of this SummarizeMetricsDataDetails
-- `interval` (str, required) — **[Required]** interval of this SummarizeMetricsDataDetails
-- `resolution` (str, optional) — resolution of this SummarizeMetricsDataDetails
+- `aggregationType` (string, required) —
+- `interval` (string, required) —
+- `metricName` (string, required) —
+- `resolution` (string, optional) —
+- `timeBegin` (datetime, required) —
+- `timeEnd` (datetime, required) —
+
 **Example:**
 ```json
 {
-  "aggregation_type": "<string>",
-  "metric_name": "<string>",
-  "time_begin": "<datetime>",
-  "time_end": "<datetime>",
-  "interval": "<string>"
+  "aggregationType": "MAX",
+  "interval": "<string>",
+  "metricName": "<string>",
+  "resolution": "<string>",
+  "timeBegin": "<string>",
+  "timeEnd": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
 #### `aidp cluster update`
@@ -1041,33 +1357,210 @@ Update the details of a given cluster.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `cluster-key` (string, required) — Cluster key.
-
 **Options:**
-- `update-cluster-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`UpdateClusterDetails`):**
-- `type` (str, required) — **[Required]** type of this UpdateClusterDetails
-- `display_name` (str, optional) — display_name of this UpdateClusterDetails
-- `description` (str, optional) — description of this UpdateClusterDetails
-- `driver_config` (DriverConfig, optional) — driver_config of this UpdateClusterDetails
-- `node_type` (str, optional) — node_type of this UpdateClusterDetails
+
+**Request Body (`ClusterRuntimeConfig`):**
+- `initScripts` (array, optional) —
+- `type` (string, optional) —
+
 **Example:**
 ```json
 {
-  "type": "<string>",
-  "display_name": "<string>",
+  "initScripts": [],
+  "type": "SPARK"
+}
+```
+
+**Request Body (`DriverConfig`):**
+- `driverNodeType` (string, optional) —
+- `driverShape` (string, optional) —
+- `driverShapeConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "driverNodeType": "<string>",
+  "driverShape": "<string>",
+  "driverShapeConfig": {}
+}
+```
+
+**Request Body (`InitScriptPath`):**
+- `destination` (string, required) —
+
+**Example:**
+```json
+{
+  "destination": "<string>"
+}
+```
+
+**Request Body (`LogGroup`):**
+- `compartmentId` (string, optional) —
+- `groupName` (string, optional) —
+- `logName` (string, optional) —
+
+**Example:**
+```json
+{
+  "compartmentId": "<string>",
+  "groupName": "<string>",
+  "logName": "<string>"
+}
+```
+
+**Request Body (`LoggingConfig`):**
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "type": "OCI_LOGGING"
+}
+```
+
+**Request Body (`OciLogging`):**
+- `logGroups` (array, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "logGroups": [],
+  "type": "<string>"
+}
+```
+
+**Request Body (`ShapeConfig`):**
+- `gpus` (integer, optional) —
+- `memoryInGBs` (integer, optional) —
+- `ocpus` (integer, optional) —
+
+**Example:**
+```json
+{
+  "gpus": 0,
+  "memoryInGBs": 0,
+  "ocpus": 0
+}
+```
+
+**Request Body (`SparkRuntimeConfig`):**
+- `initScripts` (array, optional) —
+- `sparkAdvancedConfigurations` (object, optional) —
+- `sparkEnvVariables` (object, optional) —
+- `sparkVersion` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "initScripts": [],
+  "sparkAdvancedConfigurations": {},
+  "sparkEnvVariables": {},
+  "sparkVersion": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`SubscriptionDetails`):**
+- `callbackUrl` (string, optional) —
+- `serviceName` (string, optional) —
+
+**Example:**
+```json
+{
+  "callbackUrl": "<string>",
+  "serviceName": "<string>"
+}
+```
+
+**Request Body (`UpdateAgentFlowComputeDetails`):**
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `driverConfig` (object, optional) —
+- `nodeType` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
   "description": "<string>",
-  "driver_config": "<DriverConfig>",
-  "node_type": "<string>"
+  "displayName": "<string>",
+  "driverConfig": {},
+  "nodeType": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`UpdateClusterDetails`):**
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `driverConfig` (object, optional) —
+- `nodeType` (string, optional) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "displayName": "<string>",
+  "driverConfig": {},
+  "nodeType": "<string>",
+  "type": "USER"
+}
+```
+
+**Request Body (`UpdateSparkClusterDetails`):**
+- `autoTerminationMinutes` (integer, optional) —
+- `clusterRuntimeConfig` (object, optional) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `driverConfig` (object, optional) —
+- `loggingConfig` (object, optional) —
+- `nodeType` (string, optional) —
+- `subscription` (object, optional) —
+- `type` (string, optional) —
+- `workerConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "autoTerminationMinutes": 0,
+  "clusterRuntimeConfig": {},
+  "description": "<string>",
+  "displayName": "<string>",
+  "driverConfig": {},
+  "loggingConfig": {},
+  "nodeType": "<string>",
+  "subscription": {},
+  "type": "<string>",
+  "workerConfig": {}
+}
+```
+
+**Request Body (`WorkerConfig`):**
+- `maxWorkerCount` (integer, optional) —
+- `minWorkerCount` (integer, optional) —
+- `workerShape` (string, optional) —
+- `workerShapeConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "maxWorkerCount": 0,
+  "minWorkerCount": 0,
+  "workerShape": "<string>",
+  "workerShapeConfig": {}
 }
 ```
 ---
-
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
-## Credentials
+## <a id="credentials"></a>Credentials
 Credentials.
 **Command Index:**
 - [credentials create](#credentials-create)
@@ -1076,6 +1569,7 @@ Credentials.
 - [credentials list](#credentials-list)
 - [credentials update](#credentials-update)
 ### Commands
+
 #### `aidp credentials create`
 <a id="credentials-create"></a>
 Creates a new credential object with the provided details.
@@ -1087,28 +1581,95 @@ Creates a new credential object with the provided details. The operation complet
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-data-lake-credential-details` (object, required) — Details for the new credential object. When the internal flag is enabled, callers must supply a namespace value of default or user_settings in the payload.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateDataLakeCredentialDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateDataLakeCredentialDetails
-- `credential_description` (str, optional) — credential_description of this CreateDataLakeCredentialDetails
-- `type` (str, required) — **[Required]** type of this CreateDataLakeCredentialDetails
-- `credential_details` (CredentialDetails, required) — **[Required]** credential_details of this CreateDataLakeCredentialDetails
+- `credentialDescription` (string, optional) —
+- `credentialDetails` (object, required) —
+- `displayName` (string, required) —
+- `type` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "credential_description": "<string>",
-  "type": "<string>",
-  "credential_details": "<CredentialDetails>"
+  "credentialDescription": "<string>",
+  "credentialDetails": {},
+  "displayName": "<string>",
+  "type": "SECRET_TOKEN"
+}
+```
+
+**Request Body (`CredentialDetails`):**
+- `credentialType` (string, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "SECRET_TOKEN"
+}
+```
+
+**Request Body (`SecretPair`):**
+- `secretKey` (string, required) —
+- `secretValue` (string, required) —
+
+**Example:**
+```json
+{
+  "secretKey": "<string>",
+  "secretValue": "<string>"
+}
+```
+
+**Request Body (`SecretTokenCredentialDetails`):**
+- `credentialType` (string, optional) —
+- `secretTokenPair` (array, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "<string>",
+  "secretTokenPair": []
+}
+```
+
+**Request Body (`ServiceAccountCredentialDetails`):**
+- `credentialType` (string, optional) —
+- `fingerprint` (string, required) —
+- `isReadOnly` (boolean, required) —
+- `privateKey` (string, required) —
+- `region` (string, required) —
+- `tenancy` (string, required) —
+- `userId` (string, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "<string>",
+  "fingerprint": "<string>",
+  "isReadOnly": true,
+  "privateKey": "<string>",
+  "region": "<string>",
+  "tenancy": "<string>",
+  "userId": "<string>"
+}
+```
+
+**Request Body (`VaultReferenceCredentialDetails`):**
+- `credentialType` (string, optional) —
+- `secretId` (string, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "<string>",
+  "secretId": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Credentials](#credentials) • [Top](#top)
 
 #### `aidp credentials delete`
@@ -1123,13 +1684,11 @@ Deletes a credential object. The operation completes synchronously without a res
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `credential-key` (string, required) — The unique identifier of an credential
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Credentials](#credentials) • [Top](#top)
 
 #### `aidp credentials get`
@@ -1143,12 +1702,10 @@ Gets detailed information about credential with a given credential key.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `credential-key` (string, required) — The unique identifier of an credential
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Credentials](#credentials) • [Top](#top)
 
 #### `aidp credentials list`
@@ -1161,20 +1718,18 @@ Returns a list of credentials.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `display-name-contains` (string, optional) — A filter to return only resources whose displayName contains the provided value (case-insensitive).
 - `lifecycle-state` (string, optional) — A filter to return only resources whose lifecycleState matches the provided value.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "name" Allowed values: timeCreated, name
-- `credential-type` (string, optional) — The type of the Credential Allowed values are: "SECRET_TOKEN", "VAULT_REFERENCE", "SERVICE_ACCOUNT" Allowed values: SECRET_TOKEN, VAULT_REFERENCE, SERVICE_ACCOUNT
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "name"
+- `credential-type` (string, optional) — The type of the Credential Allowed values are: "SECRET_TOKEN", "VAULT_REFERENCE", "SERVICE_ACCOUNT"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Credentials](#credentials) • [Top](#top)
 
 #### `aidp credentials update`
@@ -1189,31 +1744,98 @@ Updates a credential object. The operation completes synchronously; callers can 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `credential-key` (string, required) — The unique identifier of an credential
-
 **Options:**
-- `update-data-lake-credential-details` (object, required) — The information to be updated.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`UpdateDataLakeCredentialDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateDataLakeCredentialDetails
-- `credential_description` (str, optional) — credential_description of this UpdateDataLakeCredentialDetails
-- `type` (str, optional) — type of this UpdateDataLakeCredentialDetails
-- `credential_details` (CredentialDetails, optional) — credential_details of this UpdateDataLakeCredentialDetails
+
+**Request Body (`CredentialDetails`):**
+- `credentialType` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "credential_description": "<string>",
-  "type": "<string>",
-  "credential_details": "<CredentialDetails>"
+  "credentialType": "SECRET_TOKEN"
+}
+```
+
+**Request Body (`SecretPair`):**
+- `secretKey` (string, required) —
+- `secretValue` (string, required) —
+
+**Example:**
+```json
+{
+  "secretKey": "<string>",
+  "secretValue": "<string>"
+}
+```
+
+**Request Body (`SecretTokenCredentialDetails`):**
+- `credentialType` (string, optional) —
+- `secretTokenPair` (array, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "<string>",
+  "secretTokenPair": []
+}
+```
+
+**Request Body (`ServiceAccountCredentialDetails`):**
+- `credentialType` (string, optional) —
+- `fingerprint` (string, required) —
+- `isReadOnly` (boolean, required) —
+- `privateKey` (string, required) —
+- `region` (string, required) —
+- `tenancy` (string, required) —
+- `userId` (string, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "<string>",
+  "fingerprint": "<string>",
+  "isReadOnly": true,
+  "privateKey": "<string>",
+  "region": "<string>",
+  "tenancy": "<string>",
+  "userId": "<string>"
+}
+```
+
+**Request Body (`UpdateDataLakeCredentialDetails`):**
+- `credentialDescription` (string, optional) —
+- `credentialDetails` (object, optional) —
+- `displayName` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "credentialDescription": "<string>",
+  "credentialDetails": {},
+  "displayName": "<string>",
+  "type": "SECRET_TOKEN"
+}
+```
+
+**Request Body (`VaultReferenceCredentialDetails`):**
+- `credentialType` (string, optional) —
+- `secretId` (string, required) —
+
+**Example:**
+```json
+{
+  "credentialType": "<string>",
+  "secretId": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Credentials](#credentials) • [Top](#top)
 
-## Delta Share
+## <a id="delta-share"></a>Delta Share
 Recipients, shares, recipient permissions, and share data assets.
 **Command Index:**
 - [delta-share create](#delta-share-create)
@@ -1236,6 +1858,7 @@ Recipients, shares, recipient permissions, and share data assets.
 - [delta-share update](#delta-share-update)
 - [delta-share update-recipient](#delta-share-update-recipient)
 ### Commands
+
 #### `aidp delta-share create`
 <a id="delta-share-create"></a>
 Create a Delta Share protocol in AI Data Platform Workbench.
@@ -1246,25 +1869,24 @@ Create a Delta Share protocol in AI Data Platform Workbench.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-share-details` (object, required) — Details for the new share for Delta Share protocol in AI Data Platform Workbench.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateShareDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateShareDetails
-- `description` (str, optional) — description of this CreateShareDetails
+- `description` (string, optional) —
+- `displayName` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "description": "<string>"
+  "description": "<string>",
+  "displayName": "<string>"
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share create-recipient`
 <a id="delta-share-create-recipient"></a>
@@ -1276,27 +1898,26 @@ Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-recipient-details` (object, required) — Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateRecipientDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateRecipientDetails
-- `description` (str, optional) — description of this CreateRecipientDetails
-- `properties` (dict(str, str), optional) — properties of this CreateRecipientDetails
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `properties` (object, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
   "description": "<string>",
-  "properties": "<dict(str, str)>"
+  "displayName": "<string>",
+  "properties": {}
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share delete`
 <a id="delta-share-delete"></a>
@@ -1309,14 +1930,12 @@ Deletes a Delta Share from an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share delete-recipient`
 <a id="delta-share-delete-recipient"></a>
@@ -1329,14 +1948,12 @@ Deletes a Delta Share recipient from an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `recipient-key` (string, required) — The key of the recipient resource
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share get`
 <a id="delta-share-get"></a>
@@ -1349,13 +1966,11 @@ Gets detailed information about a Delta Share.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share get-recipient`
 <a id="delta-share-get-recipient"></a>
@@ -1368,13 +1983,11 @@ Gets detailed information about a Delta Share recipient in an AI Data Platform W
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `recipient-key` (string, required) — The key of the recipient resource
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list`
 <a id="delta-share-list"></a>
@@ -1386,17 +1999,15 @@ Gets a list of Delta Shares in an AI Data Platform Workbench instance.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list-data-assets`
 <a id="delta-share-list-data-assets"></a>
@@ -1409,18 +2020,16 @@ Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list-permissions`
 <a id="delta-share-list-permissions"></a>
@@ -1433,17 +2042,15 @@ Returns a list of Delta Shares that the specified recipient has been granted acc
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for grantee is ascending. Default order for granteeType is ascending. Allowed values are: "grantee", "granteeType" Allowed values: grantee, granteeType
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for grantee is ascending. Default order for granteeType is ascending. Allowed values are: "grantee", "granteeType"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list-recipient-permissions`
 <a id="delta-share-list-recipient-permissions"></a>
@@ -1456,17 +2063,15 @@ Gets a detailed list of Delta Share recipient permissions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `recipient-key` (string, required) — The key of the recipient resource
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. Default order for grantee is ascending. Allowed values are: "grantee" Allowed values: grantee
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. Default order for grantee is ascending. Allowed values are: "grantee"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list-recipient-shares`
 <a id="delta-share-list-recipient-shares"></a>
@@ -1479,18 +2084,16 @@ Returns a list of Delta Shares that the specified recipient has been granted acc
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `recipient-key` (string, required) — The key of the recipient resource
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list-recipients`
 <a id="delta-share-list-recipients"></a>
@@ -1502,17 +2105,15 @@ Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share list-share-recipients`
 <a id="delta-share-list-share-recipients"></a>
@@ -1525,18 +2126,16 @@ Gets a list of recipients that have been given access on the specified Delta Sha
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share manage-access`
 <a id="delta-share-manage-access"></a>
@@ -1550,26 +2149,25 @@ Updates consumer-side access on a share for a recipient. A provider user can gra
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
-- `manage-share-access-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`ManageShareAccessDetails`):**
-- `action` (str, required) — **[Required]** action of this ManageShareAccessDetails
-- `recipient` (str, required) — **[Required]** recipient of this ManageShareAccessDetails
+- `action` (string, required) —
+- `recipient` (string, required) —
+
 **Example:**
 ```json
 {
-  "action": "<string>",
+  "action": "GRANT",
   "recipient": "<string>"
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share manage-data-asset`
 <a id="delta-share-manage-data-asset"></a>
@@ -1582,32 +2180,32 @@ Updates data assets on a Delta Share with the provided information.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
-- `manage-share-data-asset-details` (object, required) — The Delta Share data asset information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`ManageShareDataAssetDetails`):**
-- `action` (str, required) — **[Required]** action of this ManageShareDataAssetDetails
-- `type` (str, required) — **[Required]** type of this ManageShareDataAssetDetails
-- `name` (str, required) — **[Required]** name of this ManageShareDataAssetDetails
-- `description` (str, optional) — description of this ManageShareDataAssetDetails
-- `partition` (str, optional) — partition of this ManageShareDataAssetDetails
-- `alias` (str, optional) — alias of this ManageShareDataAssetDetails
+- `action` (string, required) —
+- `alias` (string, optional) —
+- `description` (string, optional) —
+- `name` (string, required) —
+- `partition` (string, optional) —
+- `type` (string, required) —
+
 **Example:**
 ```json
 {
-  "action": "<string>",
-  "type": "<string>",
-  "name": "<string>",
+  "action": "ADD",
+  "alias": "<string>",
   "description": "<string>",
-  "partition": "<string>"
+  "name": "<string>",
+  "partition": "<string>",
+  "type": "SCHEMA"
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share manage-permission`
 <a id="delta-share-manage-permission"></a>
@@ -1620,25 +2218,60 @@ Updates permissions on a Delta Share.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
-- `manage-share-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`ManageSharePermissionDetails`):**
-- `assign_share_permission_details` (AssignSharePermissionDetails, optional) — assign_share_permission_details of this ManageSharePermissionDetails
-- `revoke_share_permission_details` (RevokeSharePermissionDetails, optional) — revoke_share_permission_details of this ManageSharePermissionDetails
+
+**Request Body (`AssignSharePermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_share_permission_details": "<AssignSharePermissionDetails>",
-  "revoke_share_permission_details": "<RevokeSharePermissionDetails>"
+  "assignees": {},
+  "permissions": "ADMIN"
+}
+```
+
+**Request Body (`ManageSharePermissionDetails`):**
+- `assignSharePermissionDetails` (object, optional) —
+- `revokeSharePermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignSharePermissionDetails": {},
+  "revokeSharePermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeSharePermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "ADMIN"
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share manage-recipient-permission`
 <a id="delta-share-manage-recipient-permission"></a>
@@ -1651,25 +2284,60 @@ Updates the permissions of a Delta Share recipient in AI Data Platform Workbench
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `recipient-key` (string, required) — The key of the recipient resource
-
 **Options:**
-- `manage-recipient-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`ManageRecipientPermissionDetails`):**
-- `assign_recipient_permission_details` (AssignRecipientPermissionDetails, optional) — assign_recipient_permission_details of this ManageRecipientPermissionDetails
-- `revoke_recipient_permission_details` (RevokeRecipientPermissionDetails, optional) — revoke_recipient_permission_details of this ManageRecipientPermissionDetails
+
+**Request Body (`AssignRecipientPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_recipient_permission_details": "<AssignRecipientPermissionDetails>",
-  "revoke_recipient_permission_details": "<RevokeRecipientPermissionDetails>"
+  "assignees": {},
+  "permissions": "ADMIN"
+}
+```
+
+**Request Body (`ManageRecipientPermissionDetails`):**
+- `assignRecipientPermissionDetails` (object, optional) —
+- `revokeRecipientPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignRecipientPermissionDetails": {},
+  "revokeRecipientPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeRecipientPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "ADMIN"
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share update`
 <a id="delta-share-update"></a>
@@ -1682,25 +2350,24 @@ Update a Delta Share with the provided metadata.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `share-key` (string, required) — The unique key of the Share.
-
 **Options:**
-- `update-share-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`UpdateShareDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateShareDetails
-- `description` (str, optional) — description of this UpdateShareDetails
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "description": "<string>"
+  "description": "<string>",
+  "displayName": "<string>"
 }
 ```
 ---
-
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
 #### `aidp delta-share update-recipient`
 <a id="delta-share-update-recipient"></a>
@@ -1713,29 +2380,28 @@ Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `recipient-key` (string, required) — The key of the recipient resource
-
 **Options:**
-- `update-recipient-details` (object, required) — The information to be updated for a recipient.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`UpdateRecipientDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateRecipientDetails
-- `description` (str, optional) — description of this UpdateRecipientDetails
-- `properties` (dict(str, str), optional) — properties of this UpdateRecipientDetails
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `properties` (object, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
   "description": "<string>",
-  "properties": "<dict(str, str)>"
+  "displayName": "<string>",
+  "properties": {}
 }
 ```
 ---
+**Return:** [Back to Delta-Share](#delta-share) • [Top](#top)
 
-**Return:** [Back to Delta Share](#delta-share) • [Top](#top)
-
-## Mlops
+## <a id="mlops"></a>ML Ops
 Experiments, experiment runs, registered models, and model versions.
 **Command Index:**
 - [mlops create-experiment](#mlops-create-experiment)
@@ -1785,6 +2451,7 @@ Experiments, experiment runs, registered models, and model versions.
 - [mlops update-registered-model](#mlops-update-registered-model)
 - [mlops update-registered-model-tags](#mlops-update-registered-model-tags)
 ### Commands
+
 #### `aidp mlops create-experiment`
 <a id="mlops-create-experiment"></a>
 (Preview) Creates an experiment in a workspace.
@@ -1796,28 +2463,37 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-experiment-details` (object, required) — Details for the new experiment.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`CreateExperimentDetails`):**
-- `name` (str, required) — **[Required]** name of this CreateExperimentDetails
-- `artifact_location` (str, optional) — artifact_location of this CreateExperimentDetails
-- `tags` (list[ExperimentTag], optional) — tags of this CreateExperimentDetails
+- `artifact_location` (string, optional) —
+- `name` (string, required) —
+- `tags` (array, optional) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
   "artifact_location": "<string>",
-  "tags": [
-    "<ExperimentTag>"
-  ]
+  "name": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`ExperimentTag`):**
+- `key` (string, required) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops create-experiment-run`
@@ -1831,30 +2507,39 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-experiment-run-details` (object, required) — Details for the new run.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`CreateExperimentRunDetails`):**
-- `run_name` (str, optional) — run_name of this CreateExperimentRunDetails
-- `experiment_id` (str, optional) — experiment_id of this CreateExperimentRunDetails
-- `start_time` (int, optional) — start_time of this CreateExperimentRunDetails
-- `tags` (list[ExperimentRunTag], optional) — tags of this CreateExperimentRunDetails
+- `experiment_id` (string, optional) —
+- `run_name` (string, optional) —
+- `start_time` (integer, optional) —
+- `tags` (array, optional) —
+
 **Example:**
 ```json
 {
-  "run_name": "<string>",
   "experiment_id": "<string>",
-  "start_time": 123,
-  "tags": [
-    "<ExperimentRunTag>"
-  ]
+  "run_name": "<string>",
+  "start_time": 0,
+  "tags": []
+}
+```
+
+**Request Body (`ExperimentRunTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops create-model-version`
@@ -1867,34 +2552,45 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-model-version-details` (object, required) — Details for the new model version.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`CreateModelVersionDetails`):**
-- `name` (str, required) — **[Required]** name of this CreateModelVersionDetails
-- `description` (str, optional) — description of this CreateModelVersionDetails
-- `source` (str, required) — **[Required]** source of this CreateModelVersionDetails
-- `run_id` (str, optional) — run_id of this CreateModelVersionDetails
-- `tags` (list[ModelVersionTag], optional) — tags of this CreateModelVersionDetails
-- `run_link` (str, optional) — run_link of this CreateModelVersionDetails
-- `model_id` (str, optional) — model_id of this CreateModelVersionDetails
+- `description` (string, optional) —
+- `model_id` (string, optional) —
+- `name` (string, required) —
+- `run_id` (string, optional) —
+- `run_link` (string, optional) —
+- `source` (string, required) —
+- `tags` (array, optional) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
   "description": "<string>",
-  "source": "<string>",
+  "model_id": "<string>",
+  "name": "<string>",
   "run_id": "<string>",
-  "tags": [
-    "<ModelVersionTag>"
-  ]
+  "run_link": "<string>",
+  "source": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`ModelVersionTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops create-registered-model`
@@ -1907,30 +2603,39 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-registered-model-details` (object, required) — Details for the new registered model.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`CreateRegisteredModelDetails`):**
-- `name` (str, required) — **[Required]** name of this CreateRegisteredModelDetails
-- `tags` (list[RegisteredModelTag], optional) — tags of this CreateRegisteredModelDetails
-- `description` (str, optional) — description of this CreateRegisteredModelDetails
-- `deployment_job_id` (str, optional) — deployment_job_id of this CreateRegisteredModelDetails
+- `deployment_job_id` (string, optional) —
+- `description` (string, optional) —
+- `name` (string, required) —
+- `tags` (array, optional) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
-  "tags": [
-    "<RegisteredModelTag>"
-  ],
+  "deployment_job_id": "<string>",
   "description": "<string>",
-  "deployment_job_id": "<string>"
+  "name": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`RegisteredModelTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops create-workspace-model-version`
@@ -1944,34 +2649,45 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-model-version-details` (object, required) — Details for the new model version.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`CreateModelVersionDetails`):**
-- `name` (str, required) — **[Required]** name of this CreateModelVersionDetails
-- `description` (str, optional) — description of this CreateModelVersionDetails
-- `source` (str, required) — **[Required]** source of this CreateModelVersionDetails
-- `run_id` (str, optional) — run_id of this CreateModelVersionDetails
-- `tags` (list[ModelVersionTag], optional) — tags of this CreateModelVersionDetails
-- `run_link` (str, optional) — run_link of this CreateModelVersionDetails
-- `model_id` (str, optional) — model_id of this CreateModelVersionDetails
+- `description` (string, optional) —
+- `model_id` (string, optional) —
+- `name` (string, required) —
+- `run_id` (string, optional) —
+- `run_link` (string, optional) —
+- `source` (string, required) —
+- `tags` (array, optional) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
   "description": "<string>",
-  "source": "<string>",
+  "model_id": "<string>",
+  "name": "<string>",
   "run_id": "<string>",
-  "tags": [
-    "<ModelVersionTag>"
-  ]
+  "run_link": "<string>",
+  "source": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`ModelVersionTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-experiment`
@@ -1985,14 +2701,14 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `delete-experiment-details` (object, required) — Details of the experiment.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteExperimentDetails`):**
-- `experiment_id` (str, required) — **[Required]** experiment_id of this DeleteExperimentDetails
+- `experiment_id` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2000,7 +2716,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-experiment-run`
@@ -2014,14 +2729,14 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `delete-experiment-run-details` (object, required) — Details of the Experiment Run.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteExperimentRunDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this DeleteExperimentRunDetails
+- `run_id` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2029,7 +2744,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-experiment-run-tag`
@@ -2043,24 +2757,23 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `delete-experiment-run-tag-details` (object, required) — Tag details to delete on an experiment run.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteExperimentRunTagDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this DeleteExperimentRunTagDetails
-- `key` (str, required) — **[Required]** key of this DeleteExperimentRunTagDetails
+- `key` (string, required) —
+- `run_id` (string, required) —
+
 **Example:**
 ```json
 {
-  "run_id": "<string>",
-  "key": "<string>"
+  "key": "<string>",
+  "run_id": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-experiment-tag`
@@ -2074,15 +2787,15 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `delete-experiment-tag-details` (object, required) — Tag details to delete on an experiment.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteExperimentTagDetails`):**
-- `experiment_id` (str, required) — **[Required]** experiment_id of this DeleteExperimentTagDetails
-- `key` (str, required) — **[Required]** key of this DeleteExperimentTagDetails
+- `experiment_id` (string, required) —
+- `key` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2091,7 +2804,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-model-version`
@@ -2104,15 +2816,15 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `delete-model-version-details` (object, required) — Details of the model version to delete.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteModelVersionDetails`):**
-- `name` (str, required) — **[Required]** name of this DeleteModelVersionDetails
-- `version` (str, required) — **[Required]** version of this DeleteModelVersionDetails
+- `name` (string, required) —
+- `version` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2121,7 +2833,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-model-version-tag`
@@ -2134,26 +2845,25 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `delete-model-version-tag-details` (object, required) — Details of a model version tag to delete.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteModelVersionTagDetails`):**
-- `name` (str, required) — **[Required]** name of this DeleteModelVersionTagDetails
-- `version` (str, required) — **[Required]** version of this DeleteModelVersionTagDetails
-- `key` (str, required) — **[Required]** key of this DeleteModelVersionTagDetails
+- `key` (string, required) —
+- `name` (string, required) —
+- `version` (string, required) —
+
 **Example:**
 ```json
 {
+  "key": "<string>",
   "name": "<string>",
-  "version": "<string>",
-  "key": "<string>"
+  "version": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-registered-model`
@@ -2166,14 +2876,14 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `delete-registered-model-details` (object, required) — Details of the registered model to delete.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteRegisteredModelDetails`):**
-- `name` (str, required) — **[Required]** name of this DeleteRegisteredModelDetails
+- `name` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2181,7 +2891,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops delete-registered-model-tag`
@@ -2194,24 +2903,23 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `delete-registered-model-tag-details` (object, required) — Details of a registered model tag.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`DeleteRegisteredModelTagDetails`):**
-- `name` (str, required) — **[Required]** name of this DeleteRegisteredModelTagDetails
-- `key` (str, required) — **[Required]** key of this DeleteRegisteredModelTagDetails
+- `key` (string, required) —
+- `name` (string, required) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
-  "key": "<string>"
+  "key": "<string>",
+  "name": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops get-experiment-by-id`
@@ -2226,13 +2934,11 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `experiment-id` (string, required) — The unique ID of the experiment to retrieve.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops get-experiment-by-name`
@@ -2247,13 +2953,11 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `experiment-name` (string, required) — The name of the experiment to retrieve.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops get-experiment-run-by-id`
@@ -2267,13 +2971,11 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `run-id` (string, required) — ID of the run to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops get-experiment-run-metric-history`
@@ -2287,7 +2989,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `run-id` (string, required) — ID of the run metric history to fetch.
 - `metric-key` (string, required) — Name of the metric key.
@@ -2296,7 +2997,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops get-model-version`
@@ -2309,14 +3009,12 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `name` (string, required) — Name of the model version.
 - `version` (string, required) — Version number of the model version.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops get-registered-model`
@@ -2329,13 +3027,11 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `name` (string, required) — Name of the registered model.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops list-artifacts`
@@ -2349,7 +3045,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `run-id` (string, required) — ID of the run whose artifacts to list.
 - `path` (string, optional) — Filter artifacts matching this path (a relative path from the root artifact directory).
@@ -2357,7 +3052,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops list-experiment-runs`
@@ -2371,34 +3065,30 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `list-experiment-runs-details` (object, required) — Details of experiment runs to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`ListExperimentRunsDetails`):**
-- `experiment_ids` (list[str], optional) — experiment_ids of this ListExperimentRunsDetails
-- `max_results` (int, optional) — max_results of this ListExperimentRunsDetails
-- `page_token` (str, optional) — page_token of this ListExperimentRunsDetails
-- `filter` (str, optional) — filter of this ListExperimentRunsDetails
-- `order_by` (list[str], optional) — order_by of this ListExperimentRunsDetails
-- `run_view_type` (str, optional) — run_view_type of this ListExperimentRunsDetails
+- `experiment_ids` (array, optional) —
+- `filter` (string, optional) —
+- `max_results` (integer, optional) —
+- `order_by` (array, optional) —
+- `page_token` (string, optional) —
+- `run_view_type` (string, optional) —
+
 **Example:**
 ```json
 {
-  "experiment_ids": [
-    "<string>"
-  ],
-  "max_results": 123,
-  "page_token": "<string>",
+  "experiment_ids": [],
   "filter": "<string>",
-  "order_by": [
-    "<string>"
-  ]
+  "max_results": 0,
+  "order_by": [],
+  "page_token": "<string>",
+  "run_view_type": "ACTIVE_ONLY"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops list-experiments`
@@ -2412,31 +3102,28 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `list-experiments-details` (object, required) — Details of experiments to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`ListExperimentsDetails`):**
-- `max_results` (int, optional) — max_results of this ListExperimentsDetails
-- `page_token` (str, optional) — page_token of this ListExperimentsDetails
-- `filter` (str, optional) — filter of this ListExperimentsDetails
-- `order_by` (list[str], optional) — order_by of this ListExperimentsDetails
-- `view_type` (str, optional) — view_type of this ListExperimentsDetails
+- `filter` (string, optional) —
+- `max_results` (integer, optional) —
+- `order_by` (array, optional) —
+- `page_token` (string, optional) —
+- `view_type` (string, optional) —
+
 **Example:**
 ```json
 {
-  "max_results": 123,
-  "page_token": "<string>",
   "filter": "<string>",
-  "order_by": [
-    "<string>"
-  ],
-  "view_type": "<string>"
+  "max_results": 0,
+  "order_by": [],
+  "page_token": "<string>",
+  "view_type": "ACTIVE_ONLY"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops list-logged-models`
@@ -2450,33 +3137,40 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `list-logged-models-details` (object, required) — Details of logged models to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`ListLoggedModelsDetails`):**
-- `experiment_ids` (list[str], optional) — experiment_ids of this ListLoggedModelsDetails
-- `max_results` (int, optional) — max_results of this ListLoggedModelsDetails
-- `page_token` (str, optional) — page_token of this ListLoggedModelsDetails
-- `filter` (str, optional) — filter of this ListLoggedModelsDetails
-- `order_by` (list[LoggedModelOrder], optional) — order_by of this ListLoggedModelsDetails
+- `experiment_ids` (array, optional) —
+- `filter` (string, optional) —
+- `max_results` (integer, optional) —
+- `order_by` (array, optional) —
+- `page_token` (string, optional) —
+
 **Example:**
 ```json
 {
-  "experiment_ids": [
-    "<string>"
-  ],
-  "max_results": 123,
-  "page_token": "<string>",
+  "experiment_ids": [],
   "filter": "<string>",
-  "order_by": [
-    "<LoggedModelOrder>"
-  ]
+  "max_results": 0,
+  "order_by": [],
+  "page_token": "<string>"
+}
+```
+
+**Request Body (`LoggedModelOrder`):**
+- `ascending` (boolean, optional) —
+- `field_name` (string, required) —
+
+**Example:**
+```json
+{
+  "ascending": true,
+  "field_name": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops list-model-versions`
@@ -2489,7 +3183,6 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `filter` (string, optional) — String filter condition, like "name LIKE 'my-model-name'". Single boolean condition, with string values wrapped in single quotes.
 - `max-results` (integer, optional) — Maximum number of model versions to retrieve.
@@ -2498,7 +3191,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops list-registered-models`
@@ -2511,7 +3203,6 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `filter` (string, optional) — String filter condition, like "name LIKE 'my-model-name'". Interpreted in the backend automatically as "name LIKE '%my-model-name%'". Single boolean condition, with string values wrapped in single quotes.
 - `max-results` (integer, optional) — Maximum number of models desired. Default is 100. Max threshold is 1000.
@@ -2520,7 +3211,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops log-experiment-run-batch`
@@ -2534,34 +3224,67 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `log-experiment-run-batch-details` (object, required) — Details of an experiment run batch.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
-**Request Body (`LogExperimentRunBatchDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this LogExperimentRunBatchDetails
-- `metrics` (list[ExperimentRunMetric], optional) — metrics of this LogExperimentRunBatchDetails
-- `params` (list[ExperimentRunParam], optional) — params of this LogExperimentRunBatchDetails
-- `tags` (list[ExperimentRunTag], optional) — tags of this LogExperimentRunBatchDetails
+
+**Request Body (`ExperimentRunMetric`):**
+- `key` (string, optional) —
+- `step` (integer, optional) —
+- `timestamp` (integer, optional) —
+- `value` (number, optional) —
+
 **Example:**
 ```json
 {
+  "key": "<string>",
+  "step": 0,
+  "timestamp": 0,
+  "value": 0
+}
+```
+
+**Request Body (`ExperimentRunParam`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`ExperimentRunTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`LogExperimentRunBatchDetails`):**
+- `metrics` (array, optional) —
+- `params` (array, optional) —
+- `run_id` (string, required) —
+- `tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "metrics": [],
+  "params": [],
   "run_id": "<string>",
-  "metrics": [
-    "<ExperimentRunMetric>"
-  ],
-  "params": [
-    "<ExperimentRunParam>"
-  ],
-  "tags": [
-    "<ExperimentRunTag>"
-  ]
+  "tags": []
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops log-experiment-run-inputs`
@@ -2575,26 +3298,67 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `log-experiment-run-inputs-details` (object, required) — Details of experiment run inputs.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
-**Request Body (`LogExperimentRunInputsDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this LogExperimentRunInputsDetails
-- `dataset_inputs` (list[DatasetInput], optional) — dataset_inputs of this LogExperimentRunInputsDetails
+
+**Request Body (`Dataset`):**
+- `digest` (string, required) —
+- `name` (string, required) —
+- `profile` (string, optional) —
+- `schema` (string, optional) —
+- `source` (string, required) —
+- `source_type` (string, required) —
+
 **Example:**
 ```json
 {
-  "run_id": "<string>",
-  "dataset_inputs": [
-    "<DatasetInput>"
-  ]
+  "digest": "<string>",
+  "name": "<string>",
+  "profile": "<string>",
+  "schema": "<string>",
+  "source": "<string>",
+  "source_type": "<string>"
+}
+```
+
+**Request Body (`DatasetInput`):**
+- `dataset` (object, required) —
+- `tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "dataset": {},
+  "tags": []
+}
+```
+
+**Request Body (`InputTag`):**
+- `key` (string, required) —
+- `value` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`LogExperimentRunInputsDetails`):**
+- `dataset_inputs` (array, optional) —
+- `run_id` (string, required) —
+
+**Example:**
+```json
+{
+  "dataset_inputs": [],
+  "run_id": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops log-experiment-run-metric`
@@ -2608,30 +3372,29 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `log-experiment-run-metric-details` (object, required) — Details of an experiment run metric.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`LogExperimentRunMetricDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this LogExperimentRunMetricDetails
-- `key` (str, required) — **[Required]** key of this LogExperimentRunMetricDetails
-- `value` (float, required) — **[Required]** value of this LogExperimentRunMetricDetails
-- `timestamp` (int, required) — **[Required]** timestamp of this LogExperimentRunMetricDetails
-- `step` (int, optional) — step of this LogExperimentRunMetricDetails
+- `key` (string, required) —
+- `run_id` (string, required) —
+- `step` (integer, optional) —
+- `timestamp` (integer, required) —
+- `value` (number, required) —
+
 **Example:**
 ```json
 {
-  "run_id": "<string>",
   "key": "<string>",
-  "value": 1.23,
-  "timestamp": 123,
-  "step": 123
+  "run_id": "<string>",
+  "step": 0,
+  "timestamp": 0,
+  "value": 0
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops log-experiment-run-model`
@@ -2645,24 +3408,23 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `log-experiment-run-model-details` (object, required) — Details of an experiment run model.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`LogExperimentRunModelDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this LogExperimentRunModelDetails
-- `model_json` (str, required) — **[Required]** model_json of this LogExperimentRunModelDetails
+- `model_json` (string, required) —
+- `run_id` (string, required) —
+
 **Example:**
 ```json
 {
-  "run_id": "<string>",
-  "model_json": "<string>"
+  "model_json": "<string>",
+  "run_id": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops log-experiment-run-param`
@@ -2676,26 +3438,25 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `log-experiment-run-param-details` (object, required) — Details of an experiment run parameter.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`LogExperimentRunParamDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this LogExperimentRunParamDetails
-- `key` (str, required) — **[Required]** key of this LogExperimentRunParamDetails
-- `value` (str, required) — **[Required]** value of this LogExperimentRunParamDetails
+- `key` (string, required) —
+- `run_id` (string, required) —
+- `value` (string, required) —
+
 **Example:**
 ```json
 {
-  "run_id": "<string>",
   "key": "<string>",
+  "run_id": "<string>",
   "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops rename-registered-model`
@@ -2708,15 +3469,15 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `rename-registered-model-details` (object, required) — Details of a registered model rename.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`RenameRegisteredModelDetails`):**
-- `name` (str, required) — **[Required]** name of this RenameRegisteredModelDetails
-- `new_name` (str, optional) — new_name of this RenameRegisteredModelDetails
+- `name` (string, required) —
+- `new_name` (string, optional) —
+
 **Example:**
 ```json
 {
@@ -2725,7 +3486,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops restore-experiment`
@@ -2739,14 +3499,14 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `restore-experiment-details` (object, required) — Restore experiment details.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`RestoreExperimentDetails`):**
-- `experiment_id` (str, required) — **[Required]** experiment_id of this RestoreExperimentDetails
+- `experiment_id` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2754,7 +3514,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops restore-experiment-run`
@@ -2768,14 +3527,14 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `restore-experiment-run-details` (object, required) — Restore experiment run details.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`RestoreExperimentRunDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this RestoreExperimentRunDetails
+- `run_id` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2783,7 +3542,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops set-experiment-run-tag`
@@ -2797,26 +3555,25 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `set-experiment-run-tag-details` (object, required) — Tag details to set on an experiment run.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`SetExperimentRunTagDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this SetExperimentRunTagDetails
-- `key` (str, required) — **[Required]** key of this SetExperimentRunTagDetails
-- `value` (str, required) — **[Required]** value of this SetExperimentRunTagDetails
+- `key` (string, required) —
+- `run_id` (string, required) —
+- `value` (string, required) —
+
 **Example:**
 ```json
 {
-  "run_id": "<string>",
   "key": "<string>",
+  "run_id": "<string>",
   "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops set-experiment-tag`
@@ -2830,16 +3587,16 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `set-experiment-tag-details` (object, required) — Tag details to set on an experiment.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`SetExperimentTagDetails`):**
-- `experiment_id` (str, required) — **[Required]** experiment_id of this SetExperimentTagDetails
-- `key` (str, required) — **[Required]** key of this SetExperimentTagDetails
-- `value` (str, required) — **[Required]** value of this SetExperimentTagDetails
+- `experiment_id` (string, required) —
+- `key` (string, required) —
+- `value` (string, required) —
+
 **Example:**
 ```json
 {
@@ -2849,7 +3606,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops set-model-version-tag`
@@ -2862,28 +3618,27 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `set-model-version-tag-details` (object, required) — Details of a model version tag.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`SetModelVersionTagDetails`):**
-- `name` (str, required) — **[Required]** name of this SetModelVersionTagDetails
-- `version` (str, required) — **[Required]** version of this SetModelVersionTagDetails
-- `key` (str, required) — **[Required]** key of this SetModelVersionTagDetails
-- `value` (str, required) — **[Required]** value of this SetModelVersionTagDetails
+- `key` (string, required) —
+- `name` (string, required) —
+- `value` (string, required) —
+- `version` (string, required) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
-  "version": "<string>",
   "key": "<string>",
-  "value": "<string>"
+  "name": "<string>",
+  "value": "<string>",
+  "version": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops set-registered-model-tag`
@@ -2896,26 +3651,25 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `set-registered-model-tag-details` (object, required) — Details of a registered model tag.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`SetRegisteredModelTagDetails`):**
-- `name` (str, required) — **[Required]** name of this SetRegisteredModelTagDetails
-- `key` (str, required) — **[Required]** key of this SetRegisteredModelTagDetails
-- `value` (str, required) — **[Required]** value of this SetRegisteredModelTagDetails
+- `key` (string, required) —
+- `name` (string, required) —
+- `value` (string, required) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
   "key": "<string>",
+  "name": "<string>",
   "value": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops transition-model-version-stage`
@@ -2928,28 +3682,27 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `transition-model-version-stage-details` (object, required) — Details to transition a model version stage.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`TransitionModelVersionStageDetails`):**
-- `name` (str, required) — **[Required]** name of this TransitionModelVersionStageDetails
-- `version` (str, required) — **[Required]** version of this TransitionModelVersionStageDetails
-- `stage` (str, required) — **[Required]** stage of this TransitionModelVersionStageDetails
-- `archive_existing_versions` (bool, required) — **[Required]** archive_existing_versions of this TransitionModelVersionStageDetails
+- `archive_existing_versions` (boolean, required) —
+- `name` (string, required) —
+- `stage` (string, required) —
+- `version` (string, required) —
+
 **Example:**
 ```json
 {
+  "archive_existing_versions": true,
   "name": "<string>",
-  "version": "<string>",
   "stage": "<string>",
-  "archive_existing_versions": true
+  "version": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-experiment`
@@ -2963,15 +3716,15 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `update-experiment-details` (object, required) — Update experiment metadata.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`UpdateExperimentDetails`):**
-- `experiment_id` (str, required) — **[Required]** experiment_id of this UpdateExperimentDetails
-- `new_name` (str, optional) — new_name of this UpdateExperimentDetails
+- `experiment_id` (string, required) —
+- `new_name` (string, optional) —
+
 **Example:**
 ```json
 {
@@ -2980,7 +3733,6 @@ Experiments, experiment runs, registered models, and model versions.
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-experiment-run`
@@ -2994,28 +3746,27 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `update-experiment-run-details` (object, required) — Update experiment run details.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`UpdateExperimentRunDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this UpdateExperimentRunDetails
-- `status` (str, optional) — status of this UpdateExperimentRunDetails
-- `end_time` (int, optional) — end_time of this UpdateExperimentRunDetails
-- `run_name` (str, optional) — run_name of this UpdateExperimentRunDetails
+- `end_time` (integer, optional) —
+- `run_id` (string, required) —
+- `run_name` (string, optional) —
+- `status` (string, optional) —
+
 **Example:**
 ```json
 {
+  "end_time": 0,
   "run_id": "<string>",
-  "status": "<string>",
-  "end_time": 123,
-  "run_name": "<string>"
+  "run_name": "<string>",
+  "status": "RUNNING"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-experiment-run-tags`
@@ -3029,30 +3780,47 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `update-experiment-run-tags-details` (object, required) — Details of ExperimentRun tags.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
-**Request Body (`UpdateExperimentRunTagsDetails`):**
-- `run_id` (str, required) — **[Required]** run_id of this UpdateExperimentRunTagsDetails
-- `set_tags` (list[ExperimentRunTag], optional) — set_tags of this UpdateExperimentRunTagsDetails
-- `delete_tags` (list[ExperimentRunTagKey], optional) — delete_tags of this UpdateExperimentRunTagsDetails
+
+**Request Body (`ExperimentRunTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
 **Example:**
 ```json
 {
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`ExperimentRunTagKey`):**
+- `key` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>"
+}
+```
+
+**Request Body (`UpdateExperimentRunTagsDetails`):**
+- `delete_tags` (array, optional) —
+- `run_id` (string, required) —
+- `set_tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "delete_tags": [],
   "run_id": "<string>",
-  "set_tags": [
-    "<ExperimentRunTag>"
-  ],
-  "delete_tags": [
-    "<ExperimentRunTagKey>"
-  ]
+  "set_tags": []
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-experiment-tags`
@@ -3066,30 +3834,47 @@ Experiments, experiment runs, registered models, and model versions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `update-experiment-tags-details` (object, required) — Details of Experiment tags.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
-**Request Body (`UpdateExperimentTagsDetails`):**
-- `experiment_id` (str, required) — **[Required]** experiment_id of this UpdateExperimentTagsDetails
-- `set_tags` (list[ExperimentTag], optional) — set_tags of this UpdateExperimentTagsDetails
-- `delete_tags` (list[ExperimentTagKey], optional) — delete_tags of this UpdateExperimentTagsDetails
+
+**Request Body (`ExperimentTag`):**
+- `key` (string, required) —
+- `value` (string, optional) —
+
 **Example:**
 ```json
 {
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`ExperimentTagKey`):**
+- `key` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>"
+}
+```
+
+**Request Body (`UpdateExperimentTagsDetails`):**
+- `delete_tags` (array, optional) —
+- `experiment_id` (string, required) —
+- `set_tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "delete_tags": [],
   "experiment_id": "<string>",
-  "set_tags": [
-    "<ExperimentTag>"
-  ],
-  "delete_tags": [
-    "<ExperimentTagKey>"
-  ]
+  "set_tags": []
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-model-version`
@@ -3103,26 +3888,25 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `update-model-version-details` (object, required) — Details to update model version.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`UpdateModelVersionDetails`):**
-- `name` (str, required) — **[Required]** name of this UpdateModelVersionDetails
-- `version` (str, required) — **[Required]** version of this UpdateModelVersionDetails
-- `description` (str, optional) — description of this UpdateModelVersionDetails
+- `description` (string, optional) —
+- `name` (string, required) —
+- `version` (string, required) —
+
 **Example:**
 ```json
 {
+  "description": "<string>",
   "name": "<string>",
-  "version": "<string>",
-  "description": "<string>"
+  "version": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-model-version-tags`
@@ -3135,32 +3919,49 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `update-model-version-tags-details` (object, required) — Details of model version tags to update.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
-**Request Body (`UpdateModelVersionTagsDetails`):**
-- `name` (str, required) — **[Required]** name of this UpdateModelVersionTagsDetails
-- `version` (str, required) — **[Required]** version of this UpdateModelVersionTagsDetails
-- `set_tags` (list[ModelVersionTag], optional) — set_tags of this UpdateModelVersionTagsDetails
-- `delete_tags` (list[ModelVersionTagKey], optional) — delete_tags of this UpdateModelVersionTagsDetails
+
+**Request Body (`ModelVersionTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
 **Example:**
 ```json
 {
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`ModelVersionTagKey`):**
+- `key` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>"
+}
+```
+
+**Request Body (`UpdateModelVersionTagsDetails`):**
+- `delete_tags` (array, optional) —
+- `name` (string, required) —
+- `set_tags` (array, optional) —
+- `version` (string, required) —
+
+**Example:**
+```json
+{
+  "delete_tags": [],
   "name": "<string>",
-  "version": "<string>",
-  "set_tags": [
-    "<ModelVersionTag>"
-  ],
-  "delete_tags": [
-    "<ModelVersionTagKey>"
-  ]
+  "set_tags": [],
+  "version": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-registered-model`
@@ -3173,26 +3974,25 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `update-registered-model-details` (object, required) — Details to update the registered model.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
+
 **Request Body (`UpdateRegisteredModelDetails`):**
-- `name` (str, required) — **[Required]** name of this UpdateRegisteredModelDetails
-- `description` (str, optional) — description of this UpdateRegisteredModelDetails
-- `deployment_job_id` (str, optional) — deployment_job_id of this UpdateRegisteredModelDetails
+- `deployment_job_id` (string, optional) —
+- `description` (string, optional) —
+- `name` (string, required) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
+  "deployment_job_id": "<string>",
   "description": "<string>",
-  "deployment_job_id": "<string>"
+  "name": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
 #### `aidp mlops update-registered-model-tags`
@@ -3205,33 +4005,50 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `update-registered-model-tags-details` (object, required) — Details of registered model tags.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
-**Request Body (`UpdateRegisteredModelTagsDetails`):**
-- `name` (str, required) — **[Required]** name of this UpdateRegisteredModelTagsDetails
-- `set_tags` (list[RegisteredModelTag], optional) — set_tags of this UpdateRegisteredModelTagsDetails
-- `delete_tags` (list[RegisteredModelTagKey], optional) — delete_tags of this UpdateRegisteredModelTagsDetails
+
+**Request Body (`RegisteredModelTag`):**
+- `key` (string, optional) —
+- `value` (string, optional) —
+
 **Example:**
 ```json
 {
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`RegisteredModelTagKey`):**
+- `key` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>"
+}
+```
+
+**Request Body (`UpdateRegisteredModelTagsDetails`):**
+- `delete_tags` (array, optional) —
+- `name` (string, required) —
+- `set_tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "delete_tags": [],
   "name": "<string>",
-  "set_tags": [
-    "<RegisteredModelTag>"
-  ],
-  "delete_tags": [
-    "<RegisteredModelTagKey>"
-  ]
+  "set_tags": []
 }
 ```
 ---
-
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
-## Notebook
+## <a id="notebook"></a>Notebook
 Content and sessions.
 **Command Index:**
 - [notebook create-content](#notebook-create-content)
@@ -3246,6 +4063,7 @@ Content and sessions.
 - [notebook patch-session](#notebook-patch-session)
 - [notebook update-content](#notebook-update-content)
 ### Commands
+
 #### `aidp notebook create-content`
 <a id="notebook-create-content"></a>
 Creates a new, untitled, empty file or directory, or copies an existing notebook to a specified path.
@@ -3259,17 +4077,17 @@ Creates a new, untitled, empty file or directory, or copies an existing notebook
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `content-path` (string, required) — The path to the notebook file.
-
 **Options:**
-- `create-content-details` (object, required) — Notebook content to create a new notebook.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `datalake-tenant-id` (string, optional) — The tenant ID header.
+
 **Request Body (`CreateContentDetails`):**
-- `copy_from` (str, optional) — copy_from of this CreateContentDetails
-- `ext` (str, optional) — ext of this CreateContentDetails
-- `type` (str, optional) — type of this CreateContentDetails
+- `copy_from` (string, optional) —
+- `ext` (string, optional) —
+- `type` (string, optional) —
+
 **Example:**
 ```json
 {
@@ -3279,7 +4097,6 @@ Creates a new, untitled, empty file or directory, or copies an existing notebook
 }
 ```
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook create-session`
@@ -3293,32 +4110,51 @@ Creates a new session or returns an existing session if a session for the given 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-session-details` (object, required) — Details to create a new session.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `datalake-tenant-id` (string, optional) — The tenant ID header.
+
 **Request Body (`CreateSessionDetails`):**
-- `id` (str, optional) — id of this CreateSessionDetails
-- `path` (str, optional) — path of this CreateSessionDetails
-- `name` (str, optional) — name of this CreateSessionDetails
-- `type` (str, optional) — type of this CreateSessionDetails
-- `cluster_id` (str, optional) — cluster_id of this CreateSessionDetails
-- `agent_flow_key` (str, optional) — agent_flow_key of this CreateSessionDetails
-- `kernel` (Kernel, optional) — kernel of this CreateSessionDetails
+- `agentFlowKey` (string, optional) —
+- `cluster_id` (string, optional) —
+- `id` (string, optional) —
+- `kernel` (object, optional) —
+- `name` (string, optional) —
+- `path` (string, optional) —
+- `type` (string, optional) —
+
 **Example:**
 ```json
 {
+  "agentFlowKey": "<string>",
+  "cluster_id": "<string>",
   "id": "<string>",
-  "path": "<string>",
+  "kernel": {},
   "name": "<string>",
-  "type": "<string>",
-  "cluster_id": "<string>"
+  "path": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`Kernel`):**
+- `connections` (integer, optional) —
+- `execution_state` (string, optional) —
+- `id` (string, optional) —
+- `last_activity` (string, optional) —
+- `name` (string, optional) —
+
+**Example:**
+```json
+{
+  "connections": 0,
+  "execution_state": "unknown",
+  "id": "<string>",
+  "last_activity": "<string>",
+  "name": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook delete-content`
@@ -3333,12 +4169,10 @@ Deletes a notebook file or directory.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `content-path` (string, required) — The path to the notebook file.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook delete-session`
@@ -3353,12 +4187,10 @@ Delete a session with given session ID.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `session-id` (string, required) — The ID of the Data Lake Notebook Session
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook export-contents`
@@ -3374,20 +4206,19 @@ Exports the notebook file contents. You can optionally specify HTML or ipynb for
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `content-path` (string, required) — The path to the notebook file.
-
 **Options:**
-- `export-contents-details` (object, required) — Payload to export contents of a file.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`ExportContentsDetails`):**
-- `format` (str, optional) — format of this ExportContentsDetails
+- `format` (string, optional) —
+
 **Example:**
 ```json
 {
-  "format": "<string>"
+  "format": "ipynb"
 }
 ```
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook get-content`
@@ -3403,16 +4234,14 @@ Returns a list of contents for a given file or directory. You can optionally spe
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `content-path` (string, required) — The path to the notebook file.
-
 **Options:**
-- `type` (string, optional) — Content type. Either file, directory, or notebook. Allowed values are: "file", "directory", "notebook" Allowed values: file, directory, notebook
-- `format` (string, optional) — The format in which content should be returned. Either text, base64, or JSON. Allowed values are: "text", "base64", "json" Allowed values: text, base64, json
+- `type` (string, optional) — Content type. Either file, directory, or notebook. Allowed values are: "file", "directory", "notebook"
+- `format` (string, optional) — The format in which content should be returned. Either text, base64, or JSON. Allowed values are: "text", "base64", "json"
 - `content` (integer, optional) — Returns content based on param value. When set to 0, content is NOT returned. When set to 1, content is returned.
 - `hash` (integer, optional) — Returns hash hexdigest string of content and the hash algorithm. 0 for no hash, 1 for return hash. 0 is default. It may be ignored by the content manager.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook get-session`
@@ -3427,11 +4256,9 @@ Returns session details for a given session ID.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `session-id` (string, required) — The ID of the Data Lake Notebook Session
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook list-sessions`
@@ -3445,14 +4272,12 @@ Returns a list of all available sessions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `cluster-id` (string, optional) — Cluster ID attached to a session.
 - `path` (string, optional) — Notebook file path attached to a session.
 - `agent-flow-key` (string, optional) — Agent flow key of the attached agent flow.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook modify-content`
@@ -3467,14 +4292,14 @@ Renames a file or directory without re-uploading content.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `content-path` (string, required) — The path to the notebook file.
-
 **Options:**
-- `modify-content-details` (object, required) — New path for file or directory.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`ModifyContentDetails`):**
-- `path` (str, optional) — path of this ModifyContentDetails
+- `path` (string, optional) —
+
 **Example:**
 ```json
 {
@@ -3482,7 +4307,6 @@ Renames a file or directory without re-uploading content.
 }
 ```
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook patch-session`
@@ -3498,31 +4322,50 @@ Patches a session with a given ID with the provided details. You can use this to
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `session-id` (string, required) — The ID of the Data Lake Notebook Session
-
 **Options:**
-- `patch-session-details` (object, required) — Details to patch for an existing session.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`PatchSessionDetails`):**
-- `id` (str, optional) — id of this PatchSessionDetails
-- `name` (str, optional) — name of this PatchSessionDetails
-- `path` (str, optional) — path of this PatchSessionDetails
-- `type` (str, optional) — type of this PatchSessionDetails
-- `kernel` (Kernel, optional) — kernel of this PatchSessionDetails
-- `cluster_id` (str, optional) — cluster_id of this PatchSessionDetails
-- `must_refresh_context` (bool, optional) — must_refresh_context of this PatchSessionDetails
+
+**Request Body (`Kernel`):**
+- `connections` (integer, optional) —
+- `execution_state` (string, optional) —
+- `id` (string, optional) —
+- `last_activity` (string, optional) —
+- `name` (string, optional) —
+
 **Example:**
 ```json
 {
+  "connections": 0,
+  "execution_state": "unknown",
   "id": "<string>",
+  "last_activity": "<string>",
+  "name": "<string>"
+}
+```
+
+**Request Body (`PatchSessionDetails`):**
+- `cluster_id` (string, optional) —
+- `id` (string, optional) —
+- `kernel` (object, optional) —
+- `must_refresh_context` (boolean, optional) —
+- `name` (string, optional) —
+- `path` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster_id": "<string>",
+  "id": "<string>",
+  "kernel": {},
+  "must_refresh_context": true,
   "name": "<string>",
   "path": "<string>",
-  "type": "<string>",
-  "kernel": "<Kernel>"
+  "type": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
 #### `aidp notebook update-content`
@@ -3537,33 +4380,32 @@ Updates the contents of an existing notebook with the provided details or saves 
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `content-path` (string, required) — The path to the notebook file.
-
 **Options:**
-- `update-content-details` (object, required) — Details to update the notebook content model file.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateContentDetails`):**
-- `name` (str, optional) — name of this UpdateContentDetails
-- `path` (str, optional) — path of this UpdateContentDetails
-- `type` (str, optional) — type of this UpdateContentDetails
-- `content` (object, optional) — content of this UpdateContentDetails
-- `format` (str, optional) — format of this UpdateContentDetails
+- `content` (object, optional) —
+- `format` (string, optional) —
+- `name` (string, optional) —
+- `path` (string, optional) —
+- `type` (string, optional) —
+
 **Example:**
 ```json
 {
+  "content": {},
+  "format": "NULL",
   "name": "<string>",
   "path": "<string>",
-  "type": "<string>",
-  "content": "<object>",
-  "format": "<string>"
+  "type": "notebook"
 }
 ```
 ---
-
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
 
-## Role
+## <a id="role"></a>Role
 Roles, role members, and role permissions.
 **Command Index:**
 - [role add-member](#role-add-member)
@@ -3575,6 +4417,7 @@ Roles, role members, and role permissions.
 - [role remove-member](#role-remove-member)
 - [role update](#role-update)
 ### Commands
+
 #### `aidp role add-member`
 <a id="role-add-member"></a>
 Assigns a given user/group/principal to a role.
@@ -3586,24 +4429,35 @@ Assigns a given user/group/principal to a role.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `role-key` (string, required) — The unique key of the Role.
-
 **Options:**
-- `add-member-to-role-details` (object, required) — The details of the assignee(s) to which a role is assigned.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`AddMemberToRoleDetails`):**
-- `assignees` (list[RoleAssignee], required) — **[Required]** assignees of this AddMemberToRoleDetails
+- `assignees` (array, required) —
+
 **Example:**
 ```json
 {
-  "assignees": [
-    "<RoleAssignee>"
-  ]
+  "assignees": []
+}
+```
+
+**Request Body (`RoleAssignee`):**
+- `target` (string, required) —
+- `targetName` (string, optional) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "target": "<string>",
+  "targetName": "<string>",
+  "type": "USER"
 }
 ```
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role create`
@@ -3616,23 +4470,22 @@ Creates a role.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-role-details` (object, required) — Details for the new role.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`CreateRoleDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateRoleDetails
-- `description` (str, optional) — description of this CreateRoleDetails
+- `description` (string, optional) —
+- `displayName` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "description": "<string>"
+  "description": "<string>",
+  "displayName": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role delete`
@@ -3646,12 +4499,10 @@ Deletes a role.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `role-key` (string, required) — The unique key of the Role.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role get`
@@ -3665,12 +4516,10 @@ Returns detailed information about a role.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `role-key` (string, required) — The unique key of the Role.
-
 **Options:**
-- `role-scope` (string, optional) — The scope of roles to be returned. Defaults to USER. Allowed values are: "USER", "ADMIN", "MEMBER_OF" Allowed values: USER, ADMIN, MEMBER_OF
+- `role-scope` (string, optional) — The scope of roles to be returned. Defaults to USER. Allowed values are: "USER", "ADMIN", "MEMBER_OF"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role list`
@@ -3683,17 +4532,15 @@ Returns a list of roles.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `lifecycle-state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "ACTIVE" Allowed values: ACTIVE
+- `lifecycle-state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "ACTIVE"
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role list-permissions`
@@ -3707,16 +4554,14 @@ Returns a list of permissions for a given role.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `role-key` (string, required) — The unique key of the Role.
-
 **Options:**
-- `permission-scope` (string, optional) — The scope of role permissions to be returned. Defaults to ALL Allowed values are: "DIRECT", "INHERITED", "ALL" Allowed values: DIRECT, INHERITED, ALL
+- `permission-scope` (string, optional) — The scope of role permissions to be returned. Defaults to ALL Allowed values are: "DIRECT", "INHERITED", "ALL"
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role remove-member`
@@ -3730,24 +4575,35 @@ Revoke a role from a given user or group.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `role-key` (string, required) — The unique key of the Role.
-
 **Options:**
-- `remove-member-from-role-details` (object, required) — The details of the user or group from which the role is to be revoked.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`RemoveMemberFromRoleDetails`):**
-- `assignees` (list[RoleAssignee], required) — **[Required]** assignees of this RemoveMemberFromRoleDetails
+- `assignees` (array, required) —
+
 **Example:**
 ```json
 {
-  "assignees": [
-    "<RoleAssignee>"
-  ]
+  "assignees": []
+}
+```
+
+**Request Body (`RoleAssignee`):**
+- `target` (string, required) —
+- `targetName` (string, optional) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "target": "<string>",
+  "targetName": "<string>",
+  "type": "USER"
 }
 ```
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
 #### `aidp role update`
@@ -3761,26 +4617,25 @@ Updates a role with the provided information.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `role-key` (string, required) — The unique key of the Role.
-
 **Options:**
-- `update-role-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateRoleDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateRoleDetails
-- `description` (str, optional) — description of this UpdateRoleDetails
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "description": "<string>"
+  "description": "<string>",
+  "displayName": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Role](#role) • [Top](#top)
 
-## Schema
+## <a id="schema"></a>Schema
 Schemas, tables, views, and schema permissions.
 **Command Index:**
 - [schema create](#schema-create)
@@ -3812,6 +4667,7 @@ Schemas, tables, views, and schema permissions.
 - [schema update-table](#schema-update-table)
 - [schema update-view](#schema-update-view)
 ### Commands
+
 #### `aidp schema create`
 <a id="schema-create"></a>
 Creates a schema.
@@ -3822,28 +4678,27 @@ Creates a schema.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-schema-details` (object, required) — Details for the new schema.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateSchemaDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateSchemaDetails
-- `description` (str, optional) — description of this CreateSchemaDetails
-- `properties` (dict(str, str), optional) — properties of this CreateSchemaDetails
-- `catalog_name` (str, required) — **[Required]** catalog_name of this CreateSchemaDetails
+- `catalogName` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `properties` (object, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "catalogName": "<string>",
   "description": "<string>",
-  "properties": "<dict(str, str)>",
-  "catalog_name": "<string>"
+  "displayName": "<string>",
+  "properties": {}
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema create-data-table`
@@ -3856,38 +4711,81 @@ Creates a managed table with data loaded from a sample file.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-data-table-details` (object, required) — Details for the new managed table with data.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateDataTableDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateDataTableDetails
-- `description` (str, optional) — description of this CreateDataTableDetails
-- `catalog_key` (str, required) — **[Required]** catalog_key of this CreateDataTableDetails
-- `schema_key` (str, required) — **[Required]** schema_key of this CreateDataTableDetails
-- `table_fields` (list[TableFieldDetails], required) — **[Required]** table_fields of this CreateDataTableDetails
-- `partition_keys` (list[TableFieldDetails], optional) — partition_keys of this CreateDataTableDetails
-- `table_properties` (list[TableProperty], optional) — table_properties of this CreateDataTableDetails
-- `managed_table_definition` (ManagedTableDefinition, required) — **[Required]** managed_table_definition of this CreateDataTableDetails
-- `selected_columns` (list[str], required) — **[Required]** selected_columns of this CreateDataTableDetails
-- `file_format` (str, required) — **[Required]** file_format of this CreateDataTableDetails
-- `object_storage_location_path` (str, required) — **[Required]** object_storage_location_path of this CreateDataTableDetails
+- `catalogKey` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `fileFormat` (string, required) —
+- `managedTableDefinition` (object, required) —
+- `objectStorageLocationPath` (string, required) —
+- `partitionKeys` (array, optional) —
+- `schemaKey` (string, required) —
+- `selectedColumns` (array, required) —
+- `tableFields` (array, required) —
+- `tableProperties` (array, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "catalogKey": "<string>",
   "description": "<string>",
-  "catalog_key": "<string>",
-  "schema_key": "<string>",
-  "table_fields": [
-    "<TableFieldDetails>"
-  ]
+  "displayName": "<string>",
+  "fileFormat": "AVRO",
+  "managedTableDefinition": {},
+  "objectStorageLocationPath": "<string>",
+  "partitionKeys": [],
+  "schemaKey": "<string>",
+  "selectedColumns": [],
+  "tableFields": [],
+  "tableProperties": []
+}
+```
+
+**Request Body (`ManagedTableDefinition`):**
+- `managedTableDataFormat` (string, required) —
+
+**Example:**
+```json
+{
+  "managedTableDataFormat": "AVRO"
+}
+```
+
+**Request Body (`TableFieldDetails`):**
+- `fieldDescription` (string, optional) —
+- `fieldName` (string, required) —
+- `fieldPrecision` (string, optional) —
+- `fieldScale` (string, optional) —
+- `fieldType` (string, optional) —
+
+**Example:**
+```json
+{
+  "fieldDescription": "<string>",
+  "fieldName": "<string>",
+  "fieldPrecision": "<string>",
+  "fieldScale": "<string>",
+  "fieldType": "<string>"
+}
+```
+
+**Request Body (`TableProperty`):**
+- `propertyName` (string, required) —
+- `propertyValue` (string, optional) —
+
+**Example:**
+```json
+{
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema create-table`
@@ -3900,35 +4798,107 @@ Creates a table.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-table-details` (object, required) — Details for the new table.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`CreateTableDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateTableDetails
-- `catalog_key` (str, required) — **[Required]** catalog_key of this CreateTableDetails
-- `schema_key` (str, required) — **[Required]** schema_key of this CreateTableDetails
-- `description` (str, optional) — description of this CreateTableDetails
-- `table_type` (str, required) — **[Required]** table_type of this CreateTableDetails
-- `managed_table_definition` (ManagedTableDefinition, optional) — managed_table_definition of this CreateTableDetails
-- `external_table_definition` (ExternalTableDefinition, optional) — external_table_definition of this CreateTableDetails
-- `table_fields` (list[TableFieldDetails], optional) — table_fields of this CreateTableDetails
-- `partition_keys` (list[TableFieldDetails], optional) — partition_keys of this CreateTableDetails
-- `table_properties` (list[TableProperty], optional) — table_properties of this CreateTableDetails
+- `catalogKey` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `externalTableDefinition` (object, optional) —
+- `managedTableDefinition` (object, optional) —
+- `partitionKeys` (array, optional) —
+- `schemaKey` (string, required) —
+- `tableFields` (array, optional) —
+- `tableProperties` (array, optional) —
+- `tableType` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "catalog_key": "<string>",
-  "schema_key": "<string>",
+  "catalogKey": "<string>",
   "description": "<string>",
-  "table_type": "<string>"
+  "displayName": "<string>",
+  "externalTableDefinition": {},
+  "managedTableDefinition": {},
+  "partitionKeys": [],
+  "schemaKey": "<string>",
+  "tableFields": [],
+  "tableProperties": [],
+  "tableType": "MANAGED"
+}
+```
+
+**Request Body (`ExternalTableDefinition`):**
+- `externalTableDataFormat` (string, required) —
+- `externalTableLocationType` (string, optional) —
+- `objectStorageLocationPath` (string, optional) —
+- `txtFileDefinition` (object, optional) —
+
+**Example:**
+```json
+{
+  "externalTableDataFormat": "AVRO",
+  "externalTableLocationType": "OBJECT_STORAGE",
+  "objectStorageLocationPath": "<string>",
+  "txtFileDefinition": {}
+}
+```
+
+**Request Body (`ManagedTableDefinition`):**
+- `managedTableDataFormat` (string, required) —
+
+**Example:**
+```json
+{
+  "managedTableDataFormat": "AVRO"
+}
+```
+
+**Request Body (`TableFieldDetails`):**
+- `fieldDescription` (string, optional) —
+- `fieldName` (string, required) —
+- `fieldPrecision` (string, optional) —
+- `fieldScale` (string, optional) —
+- `fieldType` (string, optional) —
+
+**Example:**
+```json
+{
+  "fieldDescription": "<string>",
+  "fieldName": "<string>",
+  "fieldPrecision": "<string>",
+  "fieldScale": "<string>",
+  "fieldType": "<string>"
+}
+```
+
+**Request Body (`TableProperty`):**
+- `propertyName` (string, required) —
+- `propertyValue` (string, optional) —
+
+**Example:**
+```json
+{
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
+}
+```
+
+**Request Body (`TxtFileDefinition`):**
+- `delimiter` (string, optional) —
+- `quote` (string, optional) —
+
+**Example:**
+```json
+{
+  "delimiter": "<string>",
+  "quote": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema create-view`
@@ -3941,32 +4911,63 @@ Creates a view.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-view-details` (object, required) — Details for the new view.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`CreateViewDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateViewDetails
-- `catalog_key` (str, required) — **[Required]** catalog_key of this CreateViewDetails
-- `schema_key` (str, required) — **[Required]** schema_key of this CreateViewDetails
-- `description` (str, optional) — description of this CreateViewDetails
-- `view_text` (str, required) — **[Required]** view_text of this CreateViewDetails
-- `view_properties` (list[ViewProperty], optional) — view_properties of this CreateViewDetails
-- `view_fields` (list[ViewFieldDetails], optional) — view_fields of this CreateViewDetails
+- `catalogKey` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `schemaKey` (string, required) —
+- `viewFields` (array, optional) —
+- `viewProperties` (array, optional) —
+- `viewText` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "catalog_key": "<string>",
-  "schema_key": "<string>",
+  "catalogKey": "<string>",
   "description": "<string>",
-  "view_text": "<string>"
+  "displayName": "<string>",
+  "schemaKey": "<string>",
+  "viewFields": [],
+  "viewProperties": [],
+  "viewText": "<string>"
+}
+```
+
+**Request Body (`ViewFieldDetails`):**
+- `fieldDescription` (string, optional) —
+- `fieldName` (string, required) —
+- `fieldPrecision` (string, optional) —
+- `fieldScale` (string, optional) —
+- `fieldType` (string, optional) —
+
+**Example:**
+```json
+{
+  "fieldDescription": "<string>",
+  "fieldName": "<string>",
+  "fieldPrecision": "<string>",
+  "fieldScale": "<string>",
+  "fieldType": "<string>"
+}
+```
+
+**Request Body (`ViewProperty`):**
+- `propertyName` (string, required) —
+- `propertyValue` (string, optional) —
+
+**Example:**
+```json
+{
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema delete`
@@ -3980,14 +4981,12 @@ Deletes a schema from an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
 - `is-forced` (boolean, optional) — A boolean which decides if an entity should be deleted with Cascade effect
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema delete-table`
@@ -4001,14 +5000,12 @@ Deletes a table from an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema delete-view`
@@ -4022,14 +5019,12 @@ Deletes a view from AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `view-key` (string, required) — The fully qualified name of the view in the format <catalog_name>.<schema_name>.<view_name>.
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema generate-temp-file-upload-target`
@@ -4043,12 +5038,10 @@ Generates a URI for uploading a sample file to a temporary folder in a schema.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema get`
@@ -4062,12 +5055,10 @@ Returns detailed information about a specified schema.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema get-table`
@@ -4081,12 +5072,10 @@ Returns detailed information about a table.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema get-view`
@@ -4100,12 +5089,10 @@ Returns information about a view.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `view-key` (string, required) — The fully qualified name of the view in the format <catalog_name>.<schema_name>.<view_name>.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema infer`
@@ -4119,29 +5106,38 @@ Returns details of a table schema from the specified location.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
-- `perform-infer-schema-details` (object, required) — Details of the location from which the table schema can be inferred.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`PerformInferSchemaDetails`):**
-- `data_format` (str, required) — **[Required]** data_format of this PerformInferSchemaDetails
-- `location` (str, required) — **[Required]** location of this PerformInferSchemaDetails
-- `number_of_partitions` (int, optional) — number_of_partitions of this PerformInferSchemaDetails
-- `infer_schema_properties` (list[InferSchemaProperties], optional) — infer_schema_properties of this PerformInferSchemaDetails
+
+**Request Body (`InferSchemaProperties`):**
+- `propertyName` (string, optional) —
+- `propertyValue` (string, optional) —
+
 **Example:**
 ```json
 {
-  "data_format": "<string>",
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
+}
+```
+
+**Request Body (`PerformInferSchemaDetails`):**
+- `dataFormat` (string, required) —
+- `inferSchemaProperties` (array, optional) —
+- `location` (string, required) —
+- `numberOfPartitions` (integer, optional) —
+
+**Example:**
+```json
+{
+  "dataFormat": "AVRO",
+  "inferSchemaProperties": [],
   "location": "<string>",
-  "number_of_partitions": 123,
-  "infer_schema_properties": [
-    "<InferSchemaProperties>"
-  ]
+  "numberOfPartitions": 0
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema infer-with-preview`
@@ -4155,29 +5151,38 @@ Returns table schema and data from the specified location.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
-- `perform-infer-schema-details` (object, required) — Details of the location from which the table schema and data can be inferred.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`PerformInferSchemaDetails`):**
-- `data_format` (str, required) — **[Required]** data_format of this PerformInferSchemaDetails
-- `location` (str, required) — **[Required]** location of this PerformInferSchemaDetails
-- `number_of_partitions` (int, optional) — number_of_partitions of this PerformInferSchemaDetails
-- `infer_schema_properties` (list[InferSchemaProperties], optional) — infer_schema_properties of this PerformInferSchemaDetails
+
+**Request Body (`InferSchemaProperties`):**
+- `propertyName` (string, optional) —
+- `propertyValue` (string, optional) —
+
 **Example:**
 ```json
 {
-  "data_format": "<string>",
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
+}
+```
+
+**Request Body (`PerformInferSchemaDetails`):**
+- `dataFormat` (string, required) —
+- `inferSchemaProperties` (array, optional) —
+- `location` (string, required) —
+- `numberOfPartitions` (integer, optional) —
+
+**Example:**
+```json
+{
+  "dataFormat": "AVRO",
+  "inferSchemaProperties": [],
   "location": "<string>",
-  "number_of_partitions": 123,
-  "infer_schema_properties": [
-    "<InferSchemaProperties>"
-  ]
+  "numberOfPartitions": 0
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema list`
@@ -4190,17 +5195,15 @@ Returns a list of schemas in a given AI Data Platform Workbench.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `catalog-key` (string, required) — The key of the catalog.
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema list-permissions`
@@ -4214,16 +5217,14 @@ Returns a list of permissions for a given schema.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema list-table-permissions`
@@ -4237,16 +5238,14 @@ Returns a list of permissions for a given table.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema list-tables`
@@ -4259,18 +5258,16 @@ Returns a list of tables in a schema.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `catalog-key` (string, required) — The key of the catalog.
 - `schema-key` (string, required) — The fully qualified name of the Data Lake Schema in the format <catalog_name>.<schema_name>
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema list-view-permissions`
@@ -4284,16 +5281,14 @@ Returns a list of view permissions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `view-key` (string, required) — The fully qualified name of the view in the format <catalog_name>.<schema_name>.<view_name>.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema list-views`
@@ -4306,18 +5301,16 @@ Returns a list of views in a schema.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `catalog-key` (string, required) — The key of the catalog.
 - `schema-key` (string, required) — The fully qualified name of the Data Lake Schema in the format <catalog_name>.<schema_name>
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema manage-permission`
@@ -4331,24 +5324,59 @@ Updates the permissions for a given schema.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
-- `manage-schema-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`ManageSchemaPermissionDetails`):**
-- `assign_schema_permission_details` (AssignSchemaPermissionDetails, optional) — assign_schema_permission_details of this ManageSchemaPermissionDetails
-- `revoke_schema_permission_details` (RevokeSchemaPermissionDetails, optional) — revoke_schema_permission_details of this ManageSchemaPermissionDetails
+
+**Request Body (`AssignSchemaPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_schema_permission_details": "<AssignSchemaPermissionDetails>",
-  "revoke_schema_permission_details": "<RevokeSchemaPermissionDetails>"
+  "assignees": {},
+  "permissions": "SELECT"
+}
+```
+
+**Request Body (`ManageSchemaPermissionDetails`):**
+- `assignSchemaPermissionDetails` (object, optional) —
+- `revokeSchemaPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignSchemaPermissionDetails": {},
+  "revokeSchemaPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeSchemaPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "SELECT"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema manage-table-permission`
@@ -4362,24 +5390,67 @@ Updates the permissions for a given table.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
-- `manage-table-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`ManageTablePermissionDetails`):**
-- `assign_table_permission_details` (AssignTablePermissionDetails, optional) — assign_table_permission_details of this ManageTablePermissionDetails
-- `revoke_table_permission_details` (RevokeTablePermissionDetails, optional) — revoke_table_permission_details of this ManageTablePermissionDetails
+
+**Request Body (`AssignTablePermissionDetails`):**
+- `assignees` (object, required) —
+- `excludeColumns` (array, required) —
+- `includeColumns` (array, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_table_permission_details": "<AssignTablePermissionDetails>",
-  "revoke_table_permission_details": "<RevokeTablePermissionDetails>"
+  "assignees": {},
+  "excludeColumns": [],
+  "includeColumns": [],
+  "permissions": "SELECT"
+}
+```
+
+**Request Body (`ManageTablePermissionDetails`):**
+- `assignTablePermissionDetails` (object, optional) —
+- `revokeTablePermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignTablePermissionDetails": {},
+  "revokeTablePermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeTablePermissionDetails`):**
+- `assignees` (object, required) —
+- `excludeColumns` (array, required) —
+- `includeColumns` (array, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "excludeColumns": [],
+  "includeColumns": [],
+  "permissions": "SELECT"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema manage-view-permission`
@@ -4393,24 +5464,67 @@ Updates permissions on a view.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `view-key` (string, required) — The fully qualified name of the view in the format <catalog_name>.<schema_name>.<view_name>.
-
 **Options:**
-- `manage-view-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`ManageViewPermissionDetails`):**
-- `assign_view_permission_details` (AssignViewPermissionDetails, optional) — assign_view_permission_details of this ManageViewPermissionDetails
-- `revoke_view_permission_details` (RevokeViewPermissionDetails, optional) — revoke_view_permission_details of this ManageViewPermissionDetails
+
+**Request Body (`AssignViewPermissionDetails`):**
+- `assignees` (object, required) —
+- `excludeColumns` (array, required) —
+- `includeColumns` (array, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_view_permission_details": "<AssignViewPermissionDetails>",
-  "revoke_view_permission_details": "<RevokeViewPermissionDetails>"
+  "assignees": {},
+  "excludeColumns": [],
+  "includeColumns": [],
+  "permissions": "SELECT"
+}
+```
+
+**Request Body (`ManageViewPermissionDetails`):**
+- `assignViewPermissionDetails` (object, optional) —
+- `revokeViewPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignViewPermissionDetails": {},
+  "revokeViewPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeViewPermissionDetails`):**
+- `assignees` (object, required) —
+- `excludeColumns` (array, required) —
+- `includeColumns` (array, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "excludeColumns": [],
+  "includeColumns": [],
+  "permissions": "SELECT"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema refresh`
@@ -4424,14 +5538,12 @@ Refreshes schema in an AI Data Platform Workbench through the crawler.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema refresh-table`
@@ -4445,14 +5557,12 @@ Refreshes a table in an AI Data Platform Workbench through the crawler.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema retrieve-par`
@@ -4466,13 +5576,11 @@ Retrieve PAR for the entities created in AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema update`
@@ -4486,26 +5594,25 @@ Updates a schema.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `schema-key` (string, required) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
-
 **Options:**
-- `update-schema-details` (object, required) — The information to be updated.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateSchemaDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateSchemaDetails
-- `description` (str, optional) — description of this UpdateSchemaDetails
-- `properties` (dict(str, str), optional) — properties of this UpdateSchemaDetails
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `properties` (object, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
   "description": "<string>",
-  "properties": "<dict(str, str)>"
+  "displayName": "<string>",
+  "properties": {}
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema update-table`
@@ -4519,39 +5626,89 @@ Updates a table with provided details.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `table-key` (string, required) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
-
 **Options:**
-- `update-table-details` (object, required) — The information to be updated.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`UpdateTableDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateTableDetails
-- `description` (str, optional) — description of this UpdateTableDetails
-- `add_table_fields` (list[TableFieldDetails], optional) — add_table_fields of this UpdateTableDetails
-- `drop_table_fields` (list[TableFieldDetails], optional) — drop_table_fields of this UpdateTableDetails
-- `rename_table_fields` (list[RenameTableFieldDetails], optional) — rename_table_fields of this UpdateTableDetails
-- `add_table_properties` (list[TableProperty], optional) — add_table_properties of this UpdateTableDetails
-- `drop_table_properties` (list[TableProperty], optional) — drop_table_properties of this UpdateTableDetails
-- `update_table_fields` (list[UpdateTableFieldDetails], optional) — update_table_fields of this UpdateTableDetails
+
+**Request Body (`RenameTableFieldDetails`):**
+- `fieldName` (string, required) —
+- `updatedFieldName` (string, required) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "fieldName": "<string>",
+  "updatedFieldName": "<string>"
+}
+```
+
+**Request Body (`TableFieldDetails`):**
+- `fieldDescription` (string, optional) —
+- `fieldName` (string, required) —
+- `fieldPrecision` (string, optional) —
+- `fieldScale` (string, optional) —
+- `fieldType` (string, optional) —
+
+**Example:**
+```json
+{
+  "fieldDescription": "<string>",
+  "fieldName": "<string>",
+  "fieldPrecision": "<string>",
+  "fieldScale": "<string>",
+  "fieldType": "<string>"
+}
+```
+
+**Request Body (`TableProperty`):**
+- `propertyName` (string, required) —
+- `propertyValue` (string, optional) —
+
+**Example:**
+```json
+{
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
+}
+```
+
+**Request Body (`UpdateTableDetails`):**
+- `addTableFields` (array, optional) —
+- `addTableProperties` (array, optional) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `dropTableFields` (array, optional) —
+- `dropTableProperties` (array, optional) —
+- `renameTableFields` (array, optional) —
+- `updateTableFields` (array, optional) —
+
+**Example:**
+```json
+{
+  "addTableFields": [],
+  "addTableProperties": [],
   "description": "<string>",
-  "add_table_fields": [
-    "<TableFieldDetails>"
-  ],
-  "drop_table_fields": [
-    "<TableFieldDetails>"
-  ],
-  "rename_table_fields": [
-    "<RenameTableFieldDetails>"
-  ]
+  "displayName": "<string>",
+  "dropTableFields": [],
+  "dropTableProperties": [],
+  "renameTableFields": [],
+  "updateTableFields": []
+}
+```
+
+**Request Body (`UpdateTableFieldDetails`):**
+- `fieldDescription` (string, optional) —
+- `fieldName` (string, required) —
+
+**Example:**
+```json
+{
+  "fieldDescription": "<string>",
+  "fieldName": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
 #### `aidp schema update-view`
@@ -4565,27 +5722,76 @@ Updates a view with given information.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `view-key` (string, required) — The fully qualified name of the view in the format <catalog_name>.<schema_name>.<view_name>.
-
 **Options:**
-- `update-view-details` (object, required) — The update mode and information to be updated.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateViewDetails`):**
-- `update_mode` (str, required) — **[Required]** update_mode of this UpdateViewDetails
-- `view_update_details` (ViewUpdateDetails, optional) — view_update_details of this UpdateViewDetails
+- `updateMode` (string, required) —
+- `viewUpdateDetails` (object, optional) —
+
 **Example:**
 ```json
 {
-  "update_mode": "<string>",
-  "view_update_details": "<ViewUpdateDetails>"
+  "updateMode": "RENAME_VIEW",
+  "viewUpdateDetails": {}
+}
+```
+
+**Request Body (`ViewFieldDetails`):**
+- `fieldDescription` (string, optional) —
+- `fieldName` (string, required) —
+- `fieldPrecision` (string, optional) —
+- `fieldScale` (string, optional) —
+- `fieldType` (string, optional) —
+
+**Example:**
+```json
+{
+  "fieldDescription": "<string>",
+  "fieldName": "<string>",
+  "fieldPrecision": "<string>",
+  "fieldScale": "<string>",
+  "fieldType": "<string>"
+}
+```
+
+**Request Body (`ViewProperty`):**
+- `propertyName` (string, required) —
+- `propertyValue` (string, optional) —
+
+**Example:**
+```json
+{
+  "propertyName": "<string>",
+  "propertyValue": "<string>"
+}
+```
+
+**Request Body (`ViewUpdateDetails`):**
+- `addViewProperties` (array, optional) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `dropViewProperties` (array, optional) —
+- `viewFields` (array, optional) —
+- `viewText` (string, optional) —
+
+**Example:**
+```json
+{
+  "addViewProperties": [],
+  "description": "<string>",
+  "displayName": "<string>",
+  "dropViewProperties": [],
+  "viewFields": [],
+  "viewText": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
-## User Setting
+## <a id="user-setting"></a>User Setting
 User settings.
 **Command Index:**
 - [user-setting create](#user-setting-create)
@@ -4594,6 +5800,7 @@ User settings.
 - [user-setting list](#user-setting-list)
 - [user-setting update](#user-setting-update)
 ### Commands
+
 #### `aidp user-setting create`
 <a id="user-setting-create"></a>
 (Preview) The User Settings API allows you to manage user-specific configurations and credentials within an AI Data Platform instance.
@@ -4605,26 +5812,87 @@ User settings.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-user-setting-details` (object, required) — Details for the new setting.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+
 **Request Body (`CreateUserSettingDetails`):**
-- `name` (str, required) — **[Required]** name of this CreateUserSettingDetails
-- `is_default` (bool, required) — **[Required]** is_default of this CreateUserSettingDetails
-- `data` (SettingData, required) — **[Required]** data of this CreateUserSettingDetails
+- `data` (object, required) —
+- `isDefault` (boolean, required) —
+- `name` (string, required) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
-  "is_default": true,
-  "data": "<SettingData>"
+  "data": {},
+  "isDefault": true,
+  "name": "<string>"
+}
+```
+
+**Request Body (`GitAccountUserSetting`):**
+- `entityType` (string, required) —
+- `personalAccessToken` (string, optional) —
+- `providerName` (string, required) —
+- `type` (string, optional) —
+- `username` (string, optional) —
+
+**Example:**
+```json
+{
+  "entityType": "PERSONAL_ACCESS_TOKEN",
+  "personalAccessToken": "<string>",
+  "providerName": "GITHUB",
+  "type": "<string>",
+  "username": "<string>"
+}
+```
+
+**Request Body (`IamUserCredentialUserSetting`):**
+- `fingerprint` (string, required) —
+- `privateApiKey` (string, required) —
+- `region` (string, required) —
+- `tenancy` (string, required) —
+- `type` (string, optional) —
+- `userId` (string, required) —
+
+**Example:**
+```json
+{
+  "fingerprint": "<string>",
+  "privateApiKey": "<string>",
+  "region": "<string>",
+  "tenancy": "<string>",
+  "type": "<string>",
+  "userId": "<string>"
+}
+```
+
+**Request Body (`OAuthAdminSetting`):**
+- `identityProviderUrl` (string, required) —
+- `retrieveJksUrl` (string, required) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "identityProviderUrl": "<string>",
+  "retrieveJksUrl": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`SettingData`):**
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "type": "IAM_USER_CREDENTIAL"
 }
 ```
 ---
-
-**Return:** [Back to User Setting](#user-setting) • [Top](#top)
+**Return:** [Back to User-Setting](#user-setting) • [Top](#top)
 
 #### `aidp user-setting delete`
 <a id="user-setting-delete"></a>
@@ -4637,13 +5905,11 @@ User settings.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `setting-key` (string, required) — The UUID of the user setting.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to User Setting](#user-setting) • [Top](#top)
+**Return:** [Back to User-Setting](#user-setting) • [Top](#top)
 
 #### `aidp user-setting get`
 <a id="user-setting-get"></a>
@@ -4656,12 +5922,10 @@ User settings.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `setting-key` (string, required) — The UUID of the user setting.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to User Setting](#user-setting) • [Top](#top)
+**Return:** [Back to User-Setting](#user-setting) • [Top](#top)
 
 #### `aidp user-setting list`
 <a id="user-setting-list"></a>
@@ -4673,19 +5937,17 @@ User settings.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `setting-type` (string, optional) — A filter to return only those settings whose value matches the given data type. Allowed values are: "IAM_USER_CREDENTIAL", "GIT_ACCOUNT" Allowed values: IAM_USER_CREDENTIAL, GIT_ACCOUNT
+- `setting-type` (string, optional) — A filter to return only those settings whose value matches the given data type. Allowed values are: "IAM_USER_CREDENTIAL", "GIT_ACCOUNT"
 - `is-default` (boolean, optional) — A filter to return only resources that are default.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to User Setting](#user-setting) • [Top](#top)
+**Return:** [Back to User-Setting](#user-setting) • [Top](#top)
 
 #### `aidp user-setting update`
 <a id="user-setting-update"></a>
@@ -4698,28 +5960,89 @@ User settings.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `setting-key` (string, required) — The UUID of the user setting.
-
 **Options:**
-- `update-user-setting-details` (object, required) — Details for the user setting to be updated.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-**Request Body (`UpdateUserSettingDetails`):**
-- `name` (str, required) — **[Required]** name of this UpdateUserSettingDetails
-- `is_default` (bool, required) — **[Required]** is_default of this UpdateUserSettingDetails
-- `data` (SettingData, required) — **[Required]** data of this UpdateUserSettingDetails
+
+**Request Body (`GitAccountUserSetting`):**
+- `entityType` (string, required) —
+- `personalAccessToken` (string, optional) —
+- `providerName` (string, required) —
+- `type` (string, optional) —
+- `username` (string, optional) —
+
 **Example:**
 ```json
 {
-  "name": "<string>",
-  "is_default": true,
-  "data": "<SettingData>"
+  "entityType": "PERSONAL_ACCESS_TOKEN",
+  "personalAccessToken": "<string>",
+  "providerName": "GITHUB",
+  "type": "<string>",
+  "username": "<string>"
+}
+```
+
+**Request Body (`IamUserCredentialUserSetting`):**
+- `fingerprint` (string, required) —
+- `privateApiKey` (string, required) —
+- `region` (string, required) —
+- `tenancy` (string, required) —
+- `type` (string, optional) —
+- `userId` (string, required) —
+
+**Example:**
+```json
+{
+  "fingerprint": "<string>",
+  "privateApiKey": "<string>",
+  "region": "<string>",
+  "tenancy": "<string>",
+  "type": "<string>",
+  "userId": "<string>"
+}
+```
+
+**Request Body (`OAuthAdminSetting`):**
+- `identityProviderUrl` (string, required) —
+- `retrieveJksUrl` (string, required) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "identityProviderUrl": "<string>",
+  "retrieveJksUrl": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`SettingData`):**
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "type": "IAM_USER_CREDENTIAL"
+}
+```
+
+**Request Body (`UpdateUserSettingDetails`):**
+- `data` (object, required) —
+- `isDefault` (boolean, required) —
+- `name` (string, required) —
+
+**Example:**
+```json
+{
+  "data": {},
+  "isDefault": true,
+  "name": "<string>"
 }
 ```
 ---
+**Return:** [Back to User-Setting](#user-setting) • [Top](#top)
 
-**Return:** [Back to User Setting](#user-setting) • [Top](#top)
-
-## Volume
+## <a id="volume"></a>Volume
 Files, volumes, directories, and volume permissions.
 **Command Index:**
 - [volume create](#volume-create)
@@ -4739,6 +6062,7 @@ Files, volumes, directories, and volume permissions.
 - [volume upload-file](#volume-upload-file)
 - [volume upload-file-with-par](#volume-upload-file-with-par)
 ### Commands
+
 #### `aidp volume create`
 <a id="volume-create"></a>
 Creates a volume in AI Data Platform Workbench.
@@ -4749,31 +6073,31 @@ Creates a volume in AI Data Platform Workbench.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-volume-details` (object, required) — Details for the new volume.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateVolumeDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateVolumeDetails
-- `catalog_name` (str, required) — **[Required]** catalog_name of this CreateVolumeDetails
-- `schema_name` (str, required) — **[Required]** schema_name of this CreateVolumeDetails
-- `description` (str, optional) — description of this CreateVolumeDetails
-- `volume_type` (str, optional) — volume_type of this CreateVolumeDetails
-- `storage_location` (str, optional) — storage_location of this CreateVolumeDetails
+- `catalogName` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `schemaName` (string, required) —
+- `storageLocation` (string, optional) —
+- `volumeType` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "catalog_name": "<string>",
-  "schema_name": "<string>",
+  "catalogName": "<string>",
   "description": "<string>",
-  "volume_type": "<string>"
+  "displayName": "<string>",
+  "schemaName": "<string>",
+  "storageLocation": "<string>",
+  "volumeType": "MANAGED"
 }
 ```
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume delete`
@@ -4787,12 +6111,10 @@ Deletes a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume delete-dir`
@@ -4806,13 +6128,11 @@ Deletes a directory in a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume delete-file`
@@ -4826,12 +6146,10 @@ Deletes a file or folder in a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume download-file`
@@ -4845,13 +6163,11 @@ Downloads a file from a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume download-file-with-par`
@@ -4865,14 +6181,12 @@ provide the par info for downloading the file for given path.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `should-generate-new-par` (boolean, optional) — Flag to toggle to generate short living par
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume get`
@@ -4886,12 +6200,10 @@ Returns detailed information about a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume list`
@@ -4904,18 +6216,16 @@ Returns a list of volumes.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `catalog-key` (string, required) — The key of the catalog.
 - `schema-key` (string, required) — The fully qualified name of the Data Lake Schema in the format <catalog_name>.<schema_name>
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume list-files`
@@ -4929,7 +6239,6 @@ Returns a list of files in a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `is-recursive` (boolean, optional) — A boolean which decides if nested files should be in the list files in volume response.
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
@@ -4937,12 +6246,11 @@ Returns a list of files in a volume.
 - `metadata-keys` (string, optional) — Comma separated keys to have in list response.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume list-permissions`
@@ -4956,15 +6264,13 @@ Returns a list of volume permissions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume make-dir`
@@ -4978,7 +6284,6 @@ Creates a directory in a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
 - `description` (string, optional) — The description of the folder.
 - `path` (string, required) — The absolute path of the file or folder
@@ -4986,7 +6291,6 @@ Creates a directory in a volume.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume manage-permission`
@@ -5000,23 +6304,58 @@ Updates the permissions on a volume.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
-- `manage-volume-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`ManageVolumePermissionDetails`):**
-- `assign_volume_permission_details` (AssignVolumePermissionDetails, optional) — assign_volume_permission_details of this ManageVolumePermissionDetails
-- `revoke_volume_permission_details` (RevokeVolumePermissionDetails, optional) — revoke_volume_permission_details of this ManageVolumePermissionDetails
+
+**Request Body (`AssignVolumePermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_volume_permission_details": "<AssignVolumePermissionDetails>",
-  "revoke_volume_permission_details": "<RevokeVolumePermissionDetails>"
+  "assignees": {},
+  "permissions": "READ"
+}
+```
+
+**Request Body (`ManageVolumePermissionDetails`):**
+- `assignVolumePermissionDetails` (object, optional) —
+- `revokeVolumePermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignVolumePermissionDetails": {},
+  "revokeVolumePermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeVolumePermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "READ"
 }
 ```
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume update`
@@ -5030,24 +6369,23 @@ Updates a volume with the provided information.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
-- `update-volume-details` (object, required) — The information to be updated.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateVolumeDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateVolumeDetails
-- `description` (str, optional) — description of this UpdateVolumeDetails
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
-  "description": "<string>"
+  "description": "<string>",
+  "displayName": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume update-dir`
@@ -5061,24 +6399,23 @@ Updates a directory in volume with the provided information.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
-- `update-dir-details` (object, required) — The information to be updated.
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`UpdateDirDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateDirDetails
+- `displayName` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>"
+  "displayName": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume upload-file`
@@ -5093,9 +6430,7 @@ Uploads a file to volume. If the file already exists, it is updated.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
-- `upload-file-details` (object, required) — Contents of the file to upload.
 - `is-overwrite` (boolean, optional) — A boolean which decides if overwrite is allowed
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `is-upload-file-base64-encoded` (boolean, optional) — A flag to identify if the upload file is base64 encoded
@@ -5103,7 +6438,6 @@ Uploads a file to volume. If the file already exists, it is updated.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
 #### `aidp volume upload-file-with-par`
@@ -5118,34 +6452,33 @@ Uploads a volume file by generating PAR. If file exists, then it will be updated
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `volume-key` (string, required) — The key of the volume.
-
 **Options:**
-- `upload-file-with-par-details` (object, required) — Contents of the file to upload.
 - `is-overwrite` (boolean, optional) — A boolean which decides if overwrite is allowed
 - `should-generate-new-par` (boolean, optional) — Flag to toggle to generate short living par
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UploadFileWithParDetails`):**
-- `action` (str, optional) — action of this UploadFileWithParDetails
-- `e_tag` (str, optional) — e_tag of this UploadFileWithParDetails
-- `size` (int, optional) — size of this UploadFileWithParDetails
-- `system_tags` (dict(str, dict(str, object)), optional) — system_tags of this UploadFileWithParDetails
+- `action` (string, optional) —
+- `eTag` (string, optional) —
+- `size` (integer, optional) —
+- `systemTags` (object, optional) —
+
 **Example:**
 ```json
 {
-  "action": "<string>",
-  "e_tag": "<string>",
-  "size": 123,
-  "system_tags": "<dict(str, dict(str, object))>"
+  "action": "CREATE",
+  "eTag": "<string>",
+  "size": 0,
+  "systemTags": {}
 }
 ```
 ---
-
 **Return:** [Back to Volume](#volume) • [Top](#top)
 
-## Workflow
+## <a id="workflow"></a>Workflow
 Job runs, jobs, task run output, and task runs.
 **Command Index:**
 - [workflow cancel-job-run](#workflow-cancel-job-run)
@@ -5168,6 +6501,7 @@ Job runs, jobs, task run output, and task runs.
 - [workflow repair-job-run](#workflow-repair-job-run)
 - [workflow update-job](#workflow-update-job)
 ### Commands
+
 #### `aidp workflow cancel-job-run`
 <a id="workflow-cancel-job-run"></a>
 Cancels a job run.
@@ -5180,14 +6514,12 @@ Cancels a job run.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-run-key` (string, required) — Job run key.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow cancel-job-runs`
@@ -5202,13 +6534,11 @@ Cancels all job runs for a given job.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-key` (string, required) — Job key.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow create-job`
@@ -5222,38 +6552,365 @@ Creates a job in an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-job-details` (object, required) — Details for the new job.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`CreateJobDetails`):**
-- `run_as` (str, optional) — run_as of this CreateJobDetails
-- `name` (str, required) — **[Required]** name of this CreateJobDetails
-- `description` (str, optional) — description of this CreateJobDetails
-- `schedule` (Schedule, optional) — schedule of this CreateJobDetails
-- `continuous` (Continuous, optional) — continuous of this CreateJobDetails
-- `max_concurrent_runs` (int, optional) — max_concurrent_runs of this CreateJobDetails
-- `git_config` (GitConfig, optional) — git_config of this CreateJobDetails
-- `queue` (Queue, optional) — queue of this CreateJobDetails
-- `job_clusters` (list[JobCluster], optional) — job_clusters of this CreateJobDetails
-- `path` (str, optional) — path of this CreateJobDetails
-- `tasks` (list[Task], optional) — tasks of this CreateJobDetails
-- `parameters` (list[Parameter], optional) — parameters of this CreateJobDetails
-- `timeout_seconds` (int, optional) — timeout_seconds of this CreateJobDetails
+
+**Request Body (`AutoScale`):**
+- `maxWorkers` (integer, optional) —
+- `minWorkers` (integer, optional) —
+
 **Example:**
 ```json
 {
-  "run_as": "<string>",
-  "name": "<string>",
+  "maxWorkers": 0,
+  "minWorkers": 0
+}
+```
+
+**Request Body (`Continuous`):**
+- `pauseStatus` (string, optional) —
+
+**Example:**
+```json
+{
+  "pauseStatus": "PAUSED"
+}
+```
+
+**Request Body (`CreateJobDetails`):**
+- `continuous` (object, optional) —
+- `description` (string, optional) —
+- `gitConfig` (object, optional) —
+- `jobClusters` (array, optional) —
+- `maxConcurrentRuns` (integer, optional) —
+- `name` (string, required) —
+- `parameters` (array, optional) —
+- `path` (string, optional) —
+- `queue` (object, optional) —
+- `runAs` (string, optional) —
+- `schedule` (object, optional) —
+- `tasks` (array, optional) —
+- `timeoutSeconds` (integer, optional) —
+
+**Example:**
+```json
+{
+  "continuous": {},
   "description": "<string>",
-  "schedule": "<Schedule>",
-  "continuous": "<Continuous>"
+  "gitConfig": {},
+  "jobClusters": [],
+  "maxConcurrentRuns": 0,
+  "name": "<string>",
+  "parameters": [],
+  "path": "<string>",
+  "queue": {},
+  "runAs": "<string>",
+  "schedule": {},
+  "tasks": [],
+  "timeoutSeconds": 0
+}
+```
+
+**Request Body (`DependsOn`):**
+- `outcome` (string, optional) —
+- `taskKey` (string, required) —
+
+**Example:**
+```json
+{
+  "outcome": "<string>",
+  "taskKey": "<string>"
+}
+```
+
+**Request Body (`Expression`):**
+- `key` (string, required) —
+- `value` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`GitConfig`):**
+- `branch` (string, optional) —
+- `credential` (string, optional) —
+- `provider` (string, optional) —
+- `repositoryUrl` (string, optional) —
+
+**Example:**
+```json
+{
+  "branch": "<string>",
+  "credential": "<string>",
+  "provider": "GITHUB",
+  "repositoryUrl": "<string>"
+}
+```
+
+**Request Body (`IfElseTask`):**
+- `condition` (string, required) —
+- `dependsOn` (array, optional) —
+- `expressions` (array, required) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `taskKey` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "condition": "<string>",
+  "dependsOn": [],
+  "expressions": [],
+  "isRetryOnTimeout": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "parameters": [],
+  "runIf": "<string>",
+  "taskKey": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`JarTask`):**
+- `cluster` (object, required) —
+- `commandLineArguments` (string, optional) —
+- `dependentLibraries` (array, optional) —
+- `dependsOn` (array, optional) —
+- `gitConfig` (object, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `isStreaming` (boolean, optional) —
+- `mainClass` (string, required) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `source` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster": {},
+  "commandLineArguments": "<string>",
+  "dependentLibraries": [],
+  "dependsOn": [],
+  "gitConfig": {},
+  "isRetryOnTimeout": true,
+  "isStreaming": true,
+  "mainClass": "<string>",
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "parameters": [],
+  "runIf": "<string>",
+  "source": "WORKSPACE",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`JobCluster`):**
+- `clusterKey` (string, optional) —
+- `clusterName` (string, optional) —
+- `newCluster` (object, optional) —
+
+**Example:**
+```json
+{
+  "clusterKey": "<string>",
+  "clusterName": "<string>",
+  "newCluster": {}
+}
+```
+
+**Request Body (`JobTask`):**
+- `dependsOn` (array, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `jobKey` (string, required) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "dependsOn": [],
+  "isRetryOnTimeout": true,
+  "jobKey": "<string>",
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "parameters": [],
+  "runIf": "<string>",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`NewClusterConfiguration`):**
+- `autoScale` (object, optional) —
+- `clusterName` (string, optional) —
+- `numWorkers` (integer, optional) —
+- `sparkConf` (string, optional) —
+- `sparkVersion` (string, optional) —
+
+**Example:**
+```json
+{
+  "autoScale": {},
+  "clusterName": "<string>",
+  "numWorkers": 0,
+  "sparkConf": "<string>",
+  "sparkVersion": "<string>"
+}
+```
+
+**Request Body (`NotebookTask`):**
+- `cluster` (object, required) —
+- `dependsOn` (array, optional) —
+- `gitConfig` (object, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `isStreaming` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `notebookPath` (string, required) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `source` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster": {},
+  "dependsOn": [],
+  "gitConfig": {},
+  "isRetryOnTimeout": true,
+  "isStreaming": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "notebookPath": "<string>",
+  "parameters": [],
+  "runIf": "<string>",
+  "source": "WORKSPACE",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`Parameter`):**
+- `name` (string, required) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "name": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`PythonTask`):**
+- `cluster` (object, required) —
+- `commandLineArguments` (string, optional) —
+- `dependsOn` (array, optional) —
+- `filePath` (string, required) —
+- `gitConfig` (object, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `isStreaming` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `runIf` (string, optional) —
+- `source` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster": {},
+  "commandLineArguments": "<string>",
+  "dependsOn": [],
+  "filePath": "<string>",
+  "gitConfig": {},
+  "isRetryOnTimeout": true,
+  "isStreaming": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "runIf": "<string>",
+  "source": "WORKSPACE",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`Queue`):**
+- `isEnabled` (boolean, required) —
+
+**Example:**
+```json
+{
+  "isEnabled": true
+}
+```
+
+**Request Body (`Schedule`):**
+- `pauseStatus` (string, optional) —
+- `quartzCronExpression` (string, required) —
+- `timezoneId` (string, required) —
+
+**Example:**
+```json
+{
+  "pauseStatus": "PAUSED",
+  "quartzCronExpression": "<string>",
+  "timezoneId": "<string>"
+}
+```
+
+**Request Body (`Task`):**
+- `dependsOn` (array, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `runIf` (string, required) —
+- `taskKey` (string, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "dependsOn": [],
+  "isRetryOnTimeout": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "runIf": "ALL_SUCCESS",
+  "taskKey": "<string>",
+  "type": "NOTEBOOK_TASK"
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow create-job-run`
@@ -5267,34 +6924,133 @@ Creates a job run for an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-job-run-details` (object, required) — Details for the new job run.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CreateJobRunDetails`):**
-- `key` (str, optional) — key of this CreateJobRunDetails
-- `job_key` (str, required) — **[Required]** job_key of this CreateJobRunDetails
-- `original_attempt_run_id` (str, optional) — original_attempt_run_id of this CreateJobRunDetails
-- `schedule` (Schedule, optional) — schedule of this CreateJobRunDetails
-- `parameters` (list[Parameter], optional) — parameters of this CreateJobRunDetails
-- `queue` (Queue, optional) — queue of this CreateJobRunDetails
-- `repair_history` (list[RepairHistory], optional) — repair_history of this CreateJobRunDetails
+- `jobKey` (string, required) —
+- `key` (string, optional) —
+- `originalAttemptRunId` (string, optional) —
+- `parameters` (array, optional) —
+- `queue` (object, optional) —
+- `repairHistory` (array, optional) —
+- `schedule` (object, optional) —
+
 **Example:**
 ```json
 {
+  "jobKey": "<string>",
   "key": "<string>",
-  "job_key": "<string>",
-  "original_attempt_run_id": "<string>",
-  "schedule": "<Schedule>",
-  "parameters": [
-    "<Parameter>"
-  ]
+  "originalAttemptRunId": "<string>",
+  "parameters": [],
+  "queue": {},
+  "repairHistory": [],
+  "schedule": {}
+}
+```
+
+**Request Body (`LifecycleState`):**
+- `endTime` (integer, optional) —
+- `errorTrace` (string, optional) —
+- `isUserCanceledOrTimedOut` (boolean, optional) —
+- `startTime` (integer, optional) —
+- `stateMessage` (string, optional) —
+- `status` (string, optional) —
+
+**Example:**
+```json
+{
+  "endTime": 0,
+  "errorTrace": "<string>",
+  "isUserCanceledOrTimedOut": true,
+  "startTime": 0,
+  "stateMessage": "<string>",
+  "status": "PENDING"
+}
+```
+
+**Request Body (`Parameter`):**
+- `name` (string, required) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
+  "name": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`Queue`):**
+- `isEnabled` (boolean, required) —
+
+**Example:**
+```json
+{
+  "isEnabled": true
+}
+```
+
+**Request Body (`RepairHistory`):**
+- `endTime` (integer, optional) —
+- `executionDuration` (integer, optional) —
+- `key` (integer, optional) —
+- `lifecycleStates` (array, optional) —
+- `parameters` (array, optional) —
+- `repairedTasks` (array, optional) —
+- `startTime` (integer, optional) —
+- `state` (object, optional) —
+- `taskToTaskRunMap` (object, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "endTime": 0,
+  "executionDuration": 0,
+  "key": 0,
+  "lifecycleStates": [],
+  "parameters": [],
+  "repairedTasks": [],
+  "startTime": 0,
+  "state": {},
+  "taskToTaskRunMap": {},
+  "type": "ORIGINAL"
+}
+```
+
+**Request Body (`Schedule`):**
+- `pauseStatus` (string, optional) —
+- `quartzCronExpression` (string, required) —
+- `timezoneId` (string, required) —
+
+**Example:**
+```json
+{
+  "pauseStatus": "PAUSED",
+  "quartzCronExpression": "<string>",
+  "timezoneId": "<string>"
+}
+```
+
+**Request Body (`State`):**
+- `errorTrace` (string, optional) —
+- `isUserCanceledOrTimedOut` (boolean, optional) —
+- `stateMessage` (string, optional) —
+- `status` (string, optional) —
+
+**Example:**
+```json
+{
+  "errorTrace": "<string>",
+  "isUserCanceledOrTimedOut": true,
+  "stateMessage": "<string>",
+  "status": "PENDING"
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow delete-job`
@@ -5309,12 +7065,10 @@ Deletes a job from an AI Data Platform Workbench.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-key` (string, required) — Job key.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow delete-job-run`
@@ -5329,12 +7083,10 @@ Deletes a job run from an AI Data Platform Workbench.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-run-key` (string, required) — Job run key.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow export-task-run-output`
@@ -5350,20 +7102,19 @@ Exports task run output in HTML or ipynb format.
 - `workspace-key` (string, required) — The key of the Workspace
 - `task-run-key` (string, required) — Task run key.
 - `task-run-output-key` (string, required) — Task run output key.
-
 **Options:**
-- `export-task-run-output-details` (object, required) — Payload to export task run output to a file.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`ExportTaskRunOutputDetails`):**
-- `format` (str, optional) — format of this ExportTaskRunOutputDetails
+- `format` (string, optional) —
+
 **Example:**
 ```json
 {
-  "format": "<string>"
+  "format": "HTML"
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow fetch-output`
@@ -5378,21 +7129,20 @@ Fetches the task run output from the runtime engine.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `task-run-key` (string, required) — Task run key.
-
 **Options:**
-- `fetch-output-details` (object, required) — Details for task run output retrieval.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+
 **Request Body (`FetchOutputDetails`):**
-- `output_key` (str, optional) — output_key of this FetchOutputDetails
+- `outputKey` (string, optional) —
+
 **Example:**
 ```json
 {
-  "output_key": "<string>"
+  "outputKey": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow get-job`
@@ -5407,12 +7157,10 @@ Returns detailed information about a given job in AI Data Platform Workbench.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-key` (string, required) — Job key.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow get-job-run`
@@ -5427,12 +7175,10 @@ Returns detailed information about a given job run.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-run-key` (string, required) — Job run key.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow get-task-run`
@@ -5447,11 +7193,9 @@ Returns detailed information about a task run with a given task run key.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `task-run-key` (string, required) — Task run key.
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow list-job-permissions`
@@ -5466,15 +7210,13 @@ Returns a list of job permissions.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-key` (string, required) — Job key.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow list-job-runs`
@@ -5488,18 +7230,16 @@ Returns a detailed list of job runs in an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `time-created-greater-than-or-equal-to` (datetime, optional) — Fetch objects from repository that were created after or at the exact timestamp provided in parameter
 - `time-created-less-than-or-equal-to` (datetime, optional) — Fetch objects from repository that were created before or at the exact timestamp provided in parameter.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated List call.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status" Allowed values: timeCreated, displayName, status
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow list-jobs`
@@ -5513,7 +7253,6 @@ Returns a list of jobs for a given AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
@@ -5522,11 +7261,10 @@ Returns a list of jobs for a given AI Data Platform Workbench.
 - `updated-by` (string, optional) — A filter to return only resources that was last updated by given user with username that matches exactly.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status" Allowed values: timeCreated, displayName, status
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow list-recent-job-runs`
@@ -5540,16 +7278,14 @@ Returns a list of the latest job runs for a given job key.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `record-count` (integer, optional) — The number of records to fetch.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated List call.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status" Allowed values: timeCreated, displayName, status
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow list-task-runs`
@@ -5563,7 +7299,6 @@ Returns a list of tasks run in an AI Data Platform Workbench.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `job-run-key` (string, required) — The field to filter based on job run key.
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
@@ -5571,11 +7306,10 @@ Returns a list of tasks run in an AI Data Platform Workbench.
 - `root-job-run-key` (string, optional) — The field to filter based on root job run key.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status" Allowed values: timeCreated, displayName, status
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow manage-job-permission`
@@ -5590,23 +7324,58 @@ Update job permissions with the provided details.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-key` (string, required) — Job key.
-
 **Options:**
-- `manage-job-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`ManageJobPermissionDetails`):**
-- `assign_job_permission_details` (AssignJobPermissionDetails, optional) — assign_job_permission_details of this ManageJobPermissionDetails
-- `revoke_job_permission_details` (RevokeJobPermissionDetails, optional) — revoke_job_permission_details of this ManageJobPermissionDetails
+
+**Request Body (`AssignJobPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_job_permission_details": "<AssignJobPermissionDetails>",
-  "revoke_job_permission_details": "<RevokeJobPermissionDetails>"
+  "assignees": {},
+  "permissions": "READ"
+}
+```
+
+**Request Body (`ManageJobPermissionDetails`):**
+- `assignJobPermissionDetails` (object, optional) —
+- `revokeJobPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignJobPermissionDetails": {},
+  "revokeJobPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeJobPermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "READ"
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow repair-job-run`
@@ -5621,29 +7390,36 @@ Repairs and reruns a job run.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-run-key` (string, required) — Job run key.
-
 **Options:**
-- `repair-job-run-details` (object, required) — Details of the job run to be repaired.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`RepairJobRunDetails`):**
-- `task_keys` (list[str], required) — **[Required]** task_keys of this RepairJobRunDetails
-- `parameters` (list[Parameter], optional) — parameters of this RepairJobRunDetails
+
+**Request Body (`Parameter`):**
+- `name` (string, required) —
+- `value` (string, optional) —
+
 **Example:**
 ```json
 {
-  "task_keys": [
-    "<string>"
-  ],
-  "parameters": [
-    "<Parameter>"
-  ]
+  "name": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`RepairJobRunDetails`):**
+- `parameters` (array, optional) —
+- `taskKeys` (array, required) —
+
+**Example:**
+```json
+{
+  "parameters": [],
+  "taskKeys": []
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
 #### `aidp workflow update-job`
@@ -5658,41 +7434,368 @@ Update details for a job in AI Data Platform Workbench.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-key` (string, required) — Job key.
-
 **Options:**
-- `update-job-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
-**Request Body (`UpdateJobDetails`):**
-- `run_as` (str, optional) — run_as of this UpdateJobDetails
-- `name` (str, required) — **[Required]** name of this UpdateJobDetails
-- `description` (str, optional) — description of this UpdateJobDetails
-- `schedule` (Schedule, optional) — schedule of this UpdateJobDetails
-- `continuous` (Continuous, optional) — continuous of this UpdateJobDetails
-- `max_concurrent_runs` (int, optional) — max_concurrent_runs of this UpdateJobDetails
-- `git_config` (GitConfig, optional) — git_config of this UpdateJobDetails
-- `queue` (Queue, optional) — queue of this UpdateJobDetails
-- `job_clusters` (list[JobCluster], optional) — job_clusters of this UpdateJobDetails
-- `path` (str, optional) — path of this UpdateJobDetails
-- `tasks` (list[Task], optional) — tasks of this UpdateJobDetails
-- `parameters` (list[Parameter], optional) — parameters of this UpdateJobDetails
-- `timeout_seconds` (int, optional) — timeout_seconds of this UpdateJobDetails
+
+**Request Body (`AutoScale`):**
+- `maxWorkers` (integer, optional) —
+- `minWorkers` (integer, optional) —
+
 **Example:**
 ```json
 {
-  "run_as": "<string>",
+  "maxWorkers": 0,
+  "minWorkers": 0
+}
+```
+
+**Request Body (`Continuous`):**
+- `pauseStatus` (string, optional) —
+
+**Example:**
+```json
+{
+  "pauseStatus": "PAUSED"
+}
+```
+
+**Request Body (`DependsOn`):**
+- `outcome` (string, optional) —
+- `taskKey` (string, required) —
+
+**Example:**
+```json
+{
+  "outcome": "<string>",
+  "taskKey": "<string>"
+}
+```
+
+**Request Body (`Expression`):**
+- `key` (string, required) —
+- `value` (string, required) —
+
+**Example:**
+```json
+{
+  "key": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`GitConfig`):**
+- `branch` (string, optional) —
+- `credential` (string, optional) —
+- `provider` (string, optional) —
+- `repositoryUrl` (string, optional) —
+
+**Example:**
+```json
+{
+  "branch": "<string>",
+  "credential": "<string>",
+  "provider": "GITHUB",
+  "repositoryUrl": "<string>"
+}
+```
+
+**Request Body (`IfElseTask`):**
+- `condition` (string, required) —
+- `dependsOn` (array, optional) —
+- `expressions` (array, required) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `taskKey` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "condition": "<string>",
+  "dependsOn": [],
+  "expressions": [],
+  "isRetryOnTimeout": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "parameters": [],
+  "runIf": "<string>",
+  "taskKey": "<string>",
+  "type": "<string>"
+}
+```
+
+**Request Body (`JarTask`):**
+- `cluster` (object, required) —
+- `commandLineArguments` (string, optional) —
+- `dependentLibraries` (array, optional) —
+- `dependsOn` (array, optional) —
+- `gitConfig` (object, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `isStreaming` (boolean, optional) —
+- `mainClass` (string, required) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `source` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster": {},
+  "commandLineArguments": "<string>",
+  "dependentLibraries": [],
+  "dependsOn": [],
+  "gitConfig": {},
+  "isRetryOnTimeout": true,
+  "isStreaming": true,
+  "mainClass": "<string>",
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "parameters": [],
+  "runIf": "<string>",
+  "source": "WORKSPACE",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`JobCluster`):**
+- `clusterKey` (string, optional) —
+- `clusterName` (string, optional) —
+- `newCluster` (object, optional) —
+
+**Example:**
+```json
+{
+  "clusterKey": "<string>",
+  "clusterName": "<string>",
+  "newCluster": {}
+}
+```
+
+**Request Body (`JobTask`):**
+- `dependsOn` (array, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `jobKey` (string, required) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "dependsOn": [],
+  "isRetryOnTimeout": true,
+  "jobKey": "<string>",
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "parameters": [],
+  "runIf": "<string>",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`NewClusterConfiguration`):**
+- `autoScale` (object, optional) —
+- `clusterName` (string, optional) —
+- `numWorkers` (integer, optional) —
+- `sparkConf` (string, optional) —
+- `sparkVersion` (string, optional) —
+
+**Example:**
+```json
+{
+  "autoScale": {},
+  "clusterName": "<string>",
+  "numWorkers": 0,
+  "sparkConf": "<string>",
+  "sparkVersion": "<string>"
+}
+```
+
+**Request Body (`NotebookTask`):**
+- `cluster` (object, required) —
+- `dependsOn` (array, optional) —
+- `gitConfig` (object, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `isStreaming` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `notebookPath` (string, required) —
+- `parameters` (array, optional) —
+- `runIf` (string, optional) —
+- `source` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster": {},
+  "dependsOn": [],
+  "gitConfig": {},
+  "isRetryOnTimeout": true,
+  "isStreaming": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "notebookPath": "<string>",
+  "parameters": [],
+  "runIf": "<string>",
+  "source": "WORKSPACE",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`Parameter`):**
+- `name` (string, required) —
+- `value` (string, optional) —
+
+**Example:**
+```json
+{
   "name": "<string>",
+  "value": "<string>"
+}
+```
+
+**Request Body (`PythonTask`):**
+- `cluster` (object, required) —
+- `commandLineArguments` (string, optional) —
+- `dependsOn` (array, optional) —
+- `filePath` (string, required) —
+- `gitConfig` (object, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `isStreaming` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `runIf` (string, optional) —
+- `source` (string, optional) —
+- `taskKey` (string, optional) —
+- `timeoutSeconds` (integer, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "cluster": {},
+  "commandLineArguments": "<string>",
+  "dependsOn": [],
+  "filePath": "<string>",
+  "gitConfig": {},
+  "isRetryOnTimeout": true,
+  "isStreaming": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "runIf": "<string>",
+  "source": "WORKSPACE",
+  "taskKey": "<string>",
+  "timeoutSeconds": 0,
+  "type": "<string>"
+}
+```
+
+**Request Body (`Queue`):**
+- `isEnabled` (boolean, required) —
+
+**Example:**
+```json
+{
+  "isEnabled": true
+}
+```
+
+**Request Body (`Schedule`):**
+- `pauseStatus` (string, optional) —
+- `quartzCronExpression` (string, required) —
+- `timezoneId` (string, required) —
+
+**Example:**
+```json
+{
+  "pauseStatus": "PAUSED",
+  "quartzCronExpression": "<string>",
+  "timezoneId": "<string>"
+}
+```
+
+**Request Body (`Task`):**
+- `dependsOn` (array, optional) —
+- `isRetryOnTimeout` (boolean, optional) —
+- `maxRetries` (integer, optional) —
+- `minRetryIntervalMillis` (integer, optional) —
+- `runIf` (string, required) —
+- `taskKey` (string, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "dependsOn": [],
+  "isRetryOnTimeout": true,
+  "maxRetries": 0,
+  "minRetryIntervalMillis": 0,
+  "runIf": "ALL_SUCCESS",
+  "taskKey": "<string>",
+  "type": "NOTEBOOK_TASK"
+}
+```
+
+**Request Body (`UpdateJobDetails`):**
+- `continuous` (object, optional) —
+- `description` (string, optional) —
+- `gitConfig` (object, optional) —
+- `jobClusters` (array, optional) —
+- `maxConcurrentRuns` (integer, optional) —
+- `name` (string, required) —
+- `parameters` (array, optional) —
+- `path` (string, optional) —
+- `queue` (object, optional) —
+- `runAs` (string, optional) —
+- `schedule` (object, optional) —
+- `tasks` (array, optional) —
+- `timeoutSeconds` (integer, optional) —
+
+**Example:**
+```json
+{
+  "continuous": {},
   "description": "<string>",
-  "schedule": "<Schedule>",
-  "continuous": "<Continuous>"
+  "gitConfig": {},
+  "jobClusters": [],
+  "maxConcurrentRuns": 0,
+  "name": "<string>",
+  "parameters": [],
+  "path": "<string>",
+  "queue": {},
+  "runAs": "<string>",
+  "schedule": {},
+  "tasks": [],
+  "timeoutSeconds": 0
 }
 ```
 ---
-
 **Return:** [Back to Workflow](#workflow) • [Top](#top)
 
-## Workspace
+## <a id="workspace"></a>Workspace
 Workspaces, workspace permissions, git folders, and workspace status.
 **Command Index:**
 - [workspace create](#workspace-create)
@@ -5707,6 +7810,7 @@ Workspaces, workspace permissions, git folders, and workspace status.
 - [workspace update](#workspace-update)
 - [workspace update-async-operation-status](#workspace-update-async-operation-status)
 ### Commands
+
 #### `aidp workspace create`
 <a id="workspace-create"></a>
 Creates a workspace.
@@ -5717,27 +7821,52 @@ Creates a workspace.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `create-workspace-details` (object, required) — Details for the new workspace.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`CreateWorkspaceDetails`):**
-- `display_name` (str, required) — **[Required]** display_name of this CreateWorkspaceDetails
-- `description` (str, optional) — description of this CreateWorkspaceDetails
-- `default_catalog_key` (str, optional) — default_catalog_key of this CreateWorkspaceDetails
-- `network_configuration_details` (WorkspaceNetworkConfigurationDetails, optional) — network_configuration_details of this CreateWorkspaceDetails
+- `defaultCatalogKey` (string, optional) —
+- `description` (string, optional) —
+- `displayName` (string, required) —
+- `networkConfigurationDetails` (object, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "defaultCatalogKey": "<string>",
   "description": "<string>",
-  "default_catalog_key": "<string>",
-  "network_configuration_details": "<WorkspaceNetworkConfigurationDetails>"
+  "displayName": "<string>",
+  "networkConfigurationDetails": {}
+}
+```
+
+**Request Body (`Scan`):**
+- `fqdn` (string, optional) —
+- `port` (string, optional) —
+
+**Example:**
+```json
+{
+  "fqdn": "<string>",
+  "port": "<string>"
+}
+```
+
+**Request Body (`WorkspaceNetworkConfigurationDetails`):**
+- `nsgIds` (array, optional) —
+- `scanDetails` (array, optional) —
+- `subnetId` (string, optional) —
+
+**Example:**
+```json
+{
+  "nsgIds": [],
+  "scanDetails": [],
+  "subnetId": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace create-git-folder`
@@ -5752,32 +7881,32 @@ Creates a git folder in the workspace
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-git-folder-details` (object, required) — The information to be updated.
 - `dh-user-principal` (string, optional) — The DH User Principal Header .
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`CreateGitFolderDetails`):**
-- `folder_path` (str, required) — **[Required]** folder_path of this CreateGitFolderDetails
-- `git_provider_key` (str, optional) — git_provider_key of this CreateGitFolderDetails
-- `git_repository_url` (str, required) — **[Required]** git_repository_url of this CreateGitFolderDetails
-- `branch_name` (str, required) — **[Required]** branch_name of this CreateGitFolderDetails
-- `credential_key` (str, required) — **[Required]** credential_key of this CreateGitFolderDetails
-- `description` (str, optional) — description of this CreateGitFolderDetails
+- `branchName` (string, required) —
+- `credentialKey` (string, required) —
+- `description` (string, optional) —
+- `folderPath` (string, required) —
+- `gitProviderKey` (string, optional) —
+- `gitRepositoryUrl` (string, required) —
+
 **Example:**
 ```json
 {
-  "folder_path": "<string>",
-  "git_provider_key": "<string>",
-  "git_repository_url": "<string>",
-  "branch_name": "<string>",
-  "credential_key": "<string>"
+  "branchName": "<string>",
+  "credentialKey": "<string>",
+  "description": "<string>",
+  "folderPath": "<string>",
+  "gitProviderKey": "<string>",
+  "gitRepositoryUrl": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace delete`
@@ -5791,13 +7920,11 @@ Deletes a workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `time-data-lake-deletion` (datetime, optional) — Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace get`
@@ -5811,11 +7938,9 @@ Gets detailed information about a workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace list`
@@ -5828,20 +7953,18 @@ Gets a list of workspaces.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `lifecycle-state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "CREATING", "UPDATING", "ACTIVE", "DELETING", "DELETED", "FAILED" Allowed values: CREATING, UPDATING, ACTIVE, DELETING, DELETED, FAILED
+- `lifecycle-state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "CREATING", "UPDATING", "ACTIVE", "DELETING", "DELETED", "FAILED"
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
-- `type` (string, optional) — When no value is provided, all workspaces are returned. Otherwise, workspace of selected value is returned. Allowed values are: "DEFAULT", "USER" Allowed values: DEFAULT, USER
+- `type` (string, optional) — When no value is provided, all workspaces are returned. Otherwise, workspace of selected value is returned. Allowed values are: "DEFAULT", "USER"
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `is-private-network-enabled` (boolean, optional) — A flag to filter the workspaces which are private network enabled or disabled
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace list-create-permissions`
@@ -5854,15 +7977,13 @@ Gets a list of create workspace permission summary objects.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for granteeName is ascending. Allowed values are: "granteeName" Allowed values: granteeName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for granteeName is ascending. Allowed values are: "granteeName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace list-permissions`
@@ -5876,15 +7997,13 @@ Gets a list of workspace permissions.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for granteeName is ascending. Allowed values are: "granteeName" Allowed values: granteeName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for granteeName is ascending. Allowed values are: "granteeName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace manage-create-permission`
@@ -5897,24 +8016,55 @@ Updates create workspace permissions on a workspace.
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-
 **Options:**
-- `manage-create-workspace-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`ManageCreateWorkspacePermissionDetails`):**
-- `assign_create_workspace_permission_details` (AssignCreateWorkspacePermissionDetails, optional) — assign_create_workspace_permission_details of this ManageCreateWorkspacePermissionDetails
-- `revoke_create_workspace_permission_details` (RevokeCreateWorkspacePermissionDetails, optional) — revoke_create_workspace_permission_details of this ManageCreateWorkspacePermissionDetails
+
+**Request Body (`AssignCreateWorkspacePermissionDetails`):**
+- `assignees` (object, required) —
+
 **Example:**
 ```json
 {
-  "assign_create_workspace_permission_details": "<AssignCreateWorkspacePermissionDetails>",
-  "revoke_create_workspace_permission_details": "<RevokeCreateWorkspacePermissionDetails>"
+  "assignees": {}
+}
+```
+
+**Request Body (`ManageCreateWorkspacePermissionDetails`):**
+- `assignCreateWorkspacePermissionDetails` (object, optional) —
+- `revokeCreateWorkspacePermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignCreateWorkspacePermissionDetails": {},
+  "revokeCreateWorkspacePermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeCreateWorkspacePermissionDetails`):**
+- `assignees` (object, required) —
+
+**Example:**
+```json
+{
+  "assignees": {}
 }
 ```
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace manage-permission`
@@ -5928,24 +8078,59 @@ Updates permissions on a workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `manage-workspace-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`ManageWorkspacePermissionDetails`):**
-- `assign_workspace_permission_details` (AssignWorkspacePermissionDetails, optional) — assign_workspace_permission_details of this ManageWorkspacePermissionDetails
-- `revoke_workspace_permission_details` (RevokeWorkspacePermissionDetails, optional) — revoke_workspace_permission_details of this ManageWorkspacePermissionDetails
+
+**Request Body (`AssignWorkspacePermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_workspace_permission_details": "<AssignWorkspacePermissionDetails>",
-  "revoke_workspace_permission_details": "<RevokeWorkspacePermissionDetails>"
+  "assignees": {},
+  "permissions": "USER"
+}
+```
+
+**Request Body (`ManageWorkspacePermissionDetails`):**
+- `assignWorkspacePermissionDetails` (object, optional) —
+- `revokeWorkspacePermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignWorkspacePermissionDetails": {},
+  "revokeWorkspacePermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeWorkspacePermissionDetails`):**
+- `assignees` (object, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "permissions": "USER"
 }
 ```
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace update`
@@ -5959,27 +8144,52 @@ Updates the details of a workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `update-workspace-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`UpdateWorkspaceDetails`):**
-- `display_name` (str, optional) — display_name of this UpdateWorkspaceDetails
-- `description` (str, optional) — description of this UpdateWorkspaceDetails
-- `default_catalog_key` (str, optional) — default_catalog_key of this UpdateWorkspaceDetails
-- `network_configuration_details` (WorkspaceNetworkConfigurationDetails, optional) — network_configuration_details of this UpdateWorkspaceDetails
+
+**Request Body (`Scan`):**
+- `fqdn` (string, optional) —
+- `port` (string, optional) —
+
 **Example:**
 ```json
 {
-  "display_name": "<string>",
+  "fqdn": "<string>",
+  "port": "<string>"
+}
+```
+
+**Request Body (`UpdateWorkspaceDetails`):**
+- `defaultCatalogKey` (string, optional) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `networkConfigurationDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "defaultCatalogKey": "<string>",
   "description": "<string>",
-  "default_catalog_key": "<string>",
-  "network_configuration_details": "<WorkspaceNetworkConfigurationDetails>"
+  "displayName": "<string>",
+  "networkConfigurationDetails": {}
+}
+```
+
+**Request Body (`WorkspaceNetworkConfigurationDetails`):**
+- `nsgIds` (array, optional) —
+- `scanDetails` (array, optional) —
+- `subnetId` (string, optional) —
+
+**Example:**
+```json
+{
+  "nsgIds": [],
+  "scanDetails": [],
+  "subnetId": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
 #### `aidp workspace update-async-operation-status`
@@ -5994,30 +8204,29 @@ Updates the status of a workspace.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `async-operation-key` (string, required) — The unique identifier of an async operation
-
 **Options:**
-- `update-workspace-async-operation-status-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`UpdateWorkspaceAsyncOperationStatusDetails`):**
-- `state_message` (str, optional) — state_message of this UpdateWorkspaceAsyncOperationStatusDetails
-- `state` (str, required) — **[Required]** state of this UpdateWorkspaceAsyncOperationStatusDetails
-- `external_id` (str, optional) — external_id of this UpdateWorkspaceAsyncOperationStatusDetails
-- `properties` (dict(str, object), optional) — properties of this UpdateWorkspaceAsyncOperationStatusDetails
+- `externalId` (string, optional) —
+- `properties` (object, optional) —
+- `state` (string, required) —
+- `stateMessage` (string, optional) —
+
 **Example:**
 ```json
 {
-  "state_message": "<string>",
-  "state": "<string>",
-  "external_id": "<string>",
-  "properties": "<dict(str, object)>"
+  "externalId": "<string>",
+  "properties": {},
+  "state": "NETWORK_CONFIGURATION_CREATED",
+  "stateMessage": "<string>"
 }
 ```
 ---
-
 **Return:** [Back to Workspace](#workspace) • [Top](#top)
 
-## Workspace Object
+## <a id="workspace-object"></a>Workspace Object
 Workspace objects, workspace files, and workspace object permissions.
 **Command Index:**
 - [workspace-object copy](#workspace-object-copy)
@@ -6034,6 +8243,7 @@ Workspace objects, workspace files, and workspace object permissions.
 - [workspace-object update](#workspace-object-update)
 - [workspace-object upload-with-par](#workspace-object-upload-with-par)
 ### Commands
+
 #### `aidp workspace-object copy`
 <a id="workspace-object-copy"></a>
 Copy a workspace object to different location.
@@ -6045,32 +8255,32 @@ Copy a workspace object to different location.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `copy-workspace-object-details` (object, required) — Details for copying the workspace object to a different path.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`CopyWorkspaceObjectDetails`):**
-- `from_path` (str, optional) — from_path of this CopyWorkspaceObjectDetails
-- `to_path` (str, optional) — to_path of this CopyWorkspaceObjectDetails
-- `is_delete_source` (bool, optional) — is_delete_source of this CopyWorkspaceObjectDetails
-- `is_over_write` (bool, optional) — is_over_write of this CopyWorkspaceObjectDetails
-- `buffer_size` (int, optional) — buffer_size of this CopyWorkspaceObjectDetails
-- `is_include_outputs` (bool, optional) — is_include_outputs of this CopyWorkspaceObjectDetails
+- `bufferSize` (integer, optional) —
+- `fromPath` (string, optional) —
+- `isDeleteSource` (boolean, optional) —
+- `isIncludeOutputs` (boolean, optional) —
+- `isOverWrite` (boolean, optional) —
+- `toPath` (string, optional) —
+
 **Example:**
 ```json
 {
-  "from_path": "<string>",
-  "to_path": "<string>",
-  "is_delete_source": true,
-  "is_over_write": true,
-  "buffer_size": 123
+  "bufferSize": 0,
+  "fromPath": "<string>",
+  "isDeleteSource": true,
+  "isIncludeOutputs": true,
+  "isOverWrite": true,
+  "toPath": "<string>"
 }
 ```
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object create`
 <a id="workspace-object-create"></a>
@@ -6084,9 +8294,7 @@ Creates a workspace object. You can create a file or folder in the workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `create-workspace-object-details` (object, required) — Details for the new workspace object.
 - `object-description` (string, optional) — The description of the workspace object
 - `type` (string, optional) — The type of workspace object.
 - `path` (string, required) — The absolute path of the file or folder
@@ -6096,8 +8304,7 @@ Creates a workspace object. You can create a file or folder in the workspace.
 - `is-upload-file-base64-encoded` (boolean, optional) — A flag to identify if the upload file is base64 encoded
 - `is-overwrite` (boolean, optional) — A boolean which decides if overwrite is allowed
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object delete`
 <a id="workspace-object-delete"></a>
@@ -6111,13 +8318,11 @@ Deletes a workspace object.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `object-path` (string, required) — The fully qualified path of the workspace object.
-
 **Options:**
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object download-with-par`
 <a id="workspace-object-download-with-par"></a>
@@ -6130,7 +8335,6 @@ Downloads a workspace file by providing the PAR info for downloading the file fo
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `should-generate-new-par` (boolean, optional) — Flag to toggle to generate short living par
 - `path` (string, required) — The absolute path of the file or folder
@@ -6139,8 +8343,7 @@ Downloads a workspace file by providing the PAR info for downloading the file fo
 - `type` (string, optional) — The type of workspace object.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object get`
 <a id="workspace-object-get"></a>
@@ -6154,14 +8357,12 @@ Returns detailed information about a workspace object.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `object-path` (string, required) — The fully qualified path of the workspace object.
-
 **Options:**
 - `should-include-metadata` (boolean, optional) — Path to list all metadata for a file or folder.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object head`
 <a id="workspace-object-head"></a>
@@ -6176,14 +8377,12 @@ Returns metadata about a workspace object. The contents of the file are not retr
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `object-path` (string, required) — The fully qualified path of the workspace object.
-
 **Options:**
 - `should-include-metadata` (boolean, optional) — Path to list all metadata for a file or folder.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object list`
 <a id="workspace-object-list"></a>
@@ -6196,7 +8395,6 @@ Returns a list of objects in the workspace.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
 - `path` (string, required) — The absolute path of the file or folder
 - `type` (string, optional) — Filter by object type. For example, NOTEBOOK, LIBRARY, or FILE.
@@ -6204,13 +8402,12 @@ Returns a list of objects in the workspace.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `metadata-keys` (string, optional) — Comma separated keys to have in list response.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object list-permissions`
 <a id="workspace-object-list-permissions"></a>
@@ -6224,16 +8421,14 @@ Returns a list of workspace object permissions.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `object-key` (string, required) — The key of the workspace object.
-
 **Options:**
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC" Allowed values: ASC, DESC
-- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName" Allowed values: timeCreated, displayName
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object manage-permission`
 <a id="workspace-object-manage-permission"></a>
@@ -6247,24 +8442,63 @@ Updates permissions on a workspace object.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `object-key` (string, required) — The key of the workspace object.
-
 **Options:**
-- `manage-workspace-object-permission-details` (object, required) — The information to be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-**Request Body (`ManageWorkspaceObjectPermissionDetails`):**
-- `assign_workspace_object_permission_details` (AssignWorkspaceObjectPermissionDetails, optional) — assign_workspace_object_permission_details of this ManageWorkspaceObjectPermissionDetails
-- `revoke_workspace_object_permission_details` (RevokeWorkspaceObjectPermissionDetails, optional) — revoke_workspace_object_permission_details of this ManageWorkspaceObjectPermissionDetails
+
+**Request Body (`AssignWorkspaceObjectPermissionDetails`):**
+- `assignees` (object, required) —
+- `isPermissionsInheritable` (boolean, optional) —
+- `permissions` (array, required) —
+
 **Example:**
 ```json
 {
-  "assign_workspace_object_permission_details": "<AssignWorkspaceObjectPermissionDetails>",
-  "revoke_workspace_object_permission_details": "<RevokeWorkspaceObjectPermissionDetails>"
+  "assignees": {},
+  "isPermissionsInheritable": true,
+  "permissions": "READ"
+}
+```
+
+**Request Body (`ManageWorkspaceObjectPermissionDetails`):**
+- `assignWorkspaceObjectPermissionDetails` (object, optional) —
+- `revokeWorkspaceObjectPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignWorkspaceObjectPermissionDetails": {},
+  "revokeWorkspaceObjectPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeWorkspaceObjectPermissionDetails`):**
+- `assignees` (object, required) —
+- `isPermissionsInheritable` (boolean, optional) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "isPermissionsInheritable": true,
+  "permissions": "READ"
 }
 ```
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object move`
 <a id="workspace-object-move"></a>
@@ -6277,25 +8511,24 @@ Moves a workspace object to different location.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `move-workspace-object-details` (object, required) — Details for moving the workspace object to a different path.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
 **Request Body (`MoveWorkspaceObjectDetails`):**
-- `from_path` (str, optional) — from_path of this MoveWorkspaceObjectDetails
-- `to_path` (str, optional) — to_path of this MoveWorkspaceObjectDetails
+- `fromPath` (string, optional) —
+- `toPath` (string, optional) —
+
 **Example:**
 ```json
 {
-  "from_path": "<string>",
-  "to_path": "<string>"
+  "fromPath": "<string>",
+  "toPath": "<string>"
 }
 ```
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object rename`
 <a id="workspace-object-rename"></a>
@@ -6308,25 +8541,24 @@ Renames a workspace object.
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `rename-workspace-object-details` (object, required) — Details for renaming the workspace object.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
 **Request Body (`RenameWorkspaceObjectDetails`):**
-- `path` (str, optional) — path of this RenameWorkspaceObjectDetails
-- `new_name` (str, optional) — new_name of this RenameWorkspaceObjectDetails
+- `newName` (string, optional) —
+- `path` (string, optional) —
+
 **Example:**
 ```json
 {
-  "path": "<string>",
-  "new_name": "<string>"
+  "newName": "<string>",
+  "path": "<string>"
 }
 ```
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object update`
 <a id="workspace-object-update"></a>
@@ -6340,16 +8572,13 @@ Updates a workspace object with the provided information.
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 - `object-path` (string, required) — The fully qualified path of the workspace object.
-
 **Options:**
-- `update-workspace-object-details` (object, required) — The information to be updated.
 - `object-description` (string, optional) — The description of the workspace object
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)
 
 #### `aidp workspace-object upload-with-par`
 <a id="workspace-object-upload-with-par"></a>
@@ -6363,9 +8592,7 @@ Creates a workspace file by generating PAR or updates the metadata by close file
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
-
 **Options:**
-- `upload-file-with-par-details` (object, required) — Contents of the file to upload.
 - `is-overwrite` (boolean, optional) — A boolean which decides if overwrite is allowed
 - `should-generate-new-par` (boolean, optional) — Flag to toggle to generate short living par
 - `object-description` (string, optional) — The description of the workspace object
@@ -6374,21 +8601,21 @@ Creates a workspace file by generating PAR or updates the metadata by close file
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `type` (string, optional) — The type of workspace object.
+
 **Request Body (`UploadFileWithParDetails`):**
-- `action` (str, optional) — action of this UploadFileWithParDetails
-- `e_tag` (str, optional) — e_tag of this UploadFileWithParDetails
-- `size` (int, optional) — size of this UploadFileWithParDetails
-- `system_tags` (dict(str, dict(str, object)), optional) — system_tags of this UploadFileWithParDetails
+- `action` (string, optional) —
+- `eTag` (string, optional) —
+- `size` (integer, optional) —
+- `systemTags` (object, optional) —
+
 **Example:**
 ```json
 {
-  "action": "<string>",
-  "e_tag": "<string>",
-  "size": 123,
-  "system_tags": "<dict(str, dict(str, object))>"
+  "action": "CREATE",
+  "eTag": "<string>",
+  "size": 0,
+  "systemTags": {}
 }
 ```
 ---
-
-**Return:** [Back to Workspace Object](#workspace-object) • [Top](#top)
-
+**Return:** [Back to Workspace-Object](#workspace-object) • [Top](#top)

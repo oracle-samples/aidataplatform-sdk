@@ -191,6 +191,31 @@ try {
     "opc-request-id": "request-id"
   });
 
+  const formattedSdkError = cli.formatCliError({
+    code: "ENOTFOUND",
+    message: "getaddrinfo ENOTFOUND aidpdev1.us-ashburn-1.oci.oc-test.com1",
+    requestEndpoint: "GET https://aidpdev1.us-ashburn-1.oci.oc-test.com1/20260430/workspaces/WORKSPACE_KEY",
+    troubleshootingPage: "See https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_troubleshooting.htm"
+  });
+  assert.ok(!formattedSdkError.includes("[object Object]"));
+  assert.ok(formattedSdkError.includes("request failed (ENOTFOUND): getaddrinfo ENOTFOUND"));
+  assert.ok(formattedSdkError.includes("Request Endpoint: GET https://aidpdev1.us-ashburn-1.oci.oc-test.com1"));
+  assert.strictEqual(
+    cli.shouldSuppressSdkRetryWarning(
+      "Request failed with Exception : [object Object]\nRetrying request -> Total Attempts : 1, Retrying after 1.417 seconds..."
+    ),
+    true
+  );
+  assert.strictEqual(
+    cli.shouldSuppressSdkRetryWarning("Request cannot be retried. Not Retrying. Exception occurred : [object Object]"),
+    true
+  );
+  assert.strictEqual(
+    cli.shouldSuppressSdkRetryWarning("All retry attempts have exhausted. Total Attempts : 8. Last exception occurred : [object Object]"),
+    true
+  );
+  assert.strictEqual(cli.shouldSuppressSdkRetryWarning("unrelated warning"), false);
+
   assert.throws(
     () =>
       commandArgs.parseCommandOptions(

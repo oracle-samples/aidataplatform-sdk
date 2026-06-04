@@ -2,6 +2,7 @@
 
 import { readFileSync } from "fs";
 import { join } from "path";
+import { inspect } from "util";
 
 import { consumeLeadingGlobalOptions, parseGlobalOptions } from "./args";
 import {
@@ -61,7 +62,7 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<numb
       printErrorResponse(serviceErrorPayload(error));
       return serviceErrorStatus(error);
     }
-    const detail = error instanceof Error ? error.message : String(error);
+    const detail = formatCliError(error);
     console.error(`aidp: error: ${detail}`);
     return error instanceof CliError ? error.exitCode : 1;
   }
@@ -221,7 +222,7 @@ async function callSdkMethod(
   const originalWarn = console.warn;
   console.warn = (...args: unknown[]) => {
     const message = args.map(String).join(" ");
-    if (message.startsWith("Request cannot be retried. Not Retrying. Exception occurred")) {
+    if (shouldSuppressSdkRetryWarning(message)) {
       return;
     }
     originalWarn.apply(console, args);
@@ -231,6 +232,16 @@ async function callSdkMethod(
   } finally {
     console.warn = originalWarn;
   }
+}
+
+const SUPPRESSED_SDK_RETRY_WARNING_PREFIXES = [
+  "Request cannot be retried. Not Retrying. Exception occurred",
+  "All retry attempts have exhausted.",
+  "Request failed with Exception :"
+] as const;
+
+export function shouldSuppressSdkRetryWarning(message: string): boolean {
+  return SUPPRESSED_SDK_RETRY_WARNING_PREFIXES.some((prefix) => message.startsWith(prefix));
 }
 
 function isServiceError(error: unknown): error is Record<string, unknown> {
@@ -253,6 +264,60 @@ function serviceErrorPayload(error: Record<string, unknown>): Record<string, unk
 function serviceErrorStatus(error: Record<string, unknown>): number {
   const status = Number(error.statusCode);
   return Number.isFinite(status) && status > 0 ? status : 1;
+}
+
+export function formatCliError(error: unknown): string {
+  const sdkDetail = formatSdkErrorObject(error);
+  if (sdkDetail) {
+    return sdkDetail;
+  }
+  if (error instanceof Error) {
+    return error.message;
+  }
+  if (isRecord(error)) {
+    return inspect(error, { breakLength: 120, depth: 4 });
+  }
+  return String(error);
+}
+
+function formatSdkErrorObject(error: unknown): string {
+  if (!isRecord(error)) {
+    return "";
+  }
+
+  const message = stringField(error, "message");
+  const code = stringField(error, "code") || stringField(error, "serviceCode");
+  const endpoint = stringField(error, "requestEndpoint");
+  const troubleshooting = stringField(error, "troubleshootingPage") || stringField(error, "troubleshootingTips");
+
+  if (!message && !code && !endpoint && !troubleshooting) {
+    return "";
+  }
+
+  const parts: string[] = [];
+  if (message && code) {
+    parts.push(`request failed (${code}): ${message}`);
+  } else if (message) {
+    parts.push(`request failed: ${message}`);
+  } else if (code) {
+    parts.push(`request failed (${code})`);
+  }
+  if (endpoint) {
+    parts.push(`Request Endpoint: ${endpoint}`);
+  }
+  if (troubleshooting) {
+    parts.push(troubleshooting);
+  }
+  return parts.join(" ");
+}
+
+function stringField(value: Record<string, unknown>, key: string): string {
+  const field = value[key];
+  return typeof field === "string" && field.trim() ? field : "";
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 function handleConfigure(args: string[]): void {

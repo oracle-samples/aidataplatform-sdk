@@ -83,7 +83,7 @@ class CredentialsClient(object):
             'skip_deserialization': kwargs.get('skip_deserialization', False)
         }
         self.base_client = BaseClient("credentials", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
-        self.retry_strategy = kwargs.get('retry_strategy')
+        self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
     def create_credential(self, ai_data_platform_id, create_data_lake_credential_details, **kwargs):
         """

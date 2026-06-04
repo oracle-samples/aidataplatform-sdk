@@ -83,7 +83,7 @@ class GitClient(object):
             'skip_deserialization': kwargs.get('skip_deserialization', False)
         }
         self.base_client = BaseClient("git", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
-        self.retry_strategy = kwargs.get('retry_strategy')
+        self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
     def checkout_branch(self, ai_data_platform_id, workspace_key, git_repository_key, checkout_branch_details, **kwargs):
         """

@@ -83,7 +83,7 @@ class WorkspaceObjectClient(object):
             'skip_deserialization': kwargs.get('skip_deserialization', False)
         }
         self.base_client = BaseClient("workspace_object", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
-        self.retry_strategy = kwargs.get('retry_strategy')
+        self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
     def copy_workspace_object(self, ai_data_platform_id, workspace_key, copy_workspace_object_details, **kwargs):
         """
