@@ -116,6 +116,7 @@ GLOBAL_BOOLEAN_OPTIONS = {
     "--debug": "debug",
 }
 SKIPPED_COMMAND_FIELDS = {"opc_request_id"}
+STRICT_URL_ENCODING_CLIENTS = {"NotebookClient"}
 UTILITY_COMMANDS = (
     ("command-groups", "List API command groups."),
     ("search", "Search command groups and command names."),
@@ -614,12 +615,19 @@ def command_flag_rows(command: CommandDefinition) -> list[tuple[str, str]]:
     for field in command_option_fields(command):
         rows.append((f"--{field.cli_name}", field_help(field)))
     if command.body_field is not None:
+        body_help = (
+            "inline string, @path/to/file, file:///path, or - for stdin"
+            if command_uses_raw_body(command)
+            else (
+                "@path/to/file.json, file:///path/request.json, or - for stdin; inline JSON is blocked when it contains sensitive fields"
+                if command_has_sensitive_body_fields(command)
+                else "inline JSON string, @path/to/file.json, file:///path/request.json, or - for stdin"
+            )
+        )
         rows.append(
             (
                 "--body",
-                "@path/to/file.json, file:///path/request.json, or - for stdin; inline JSON is blocked when it contains sensitive fields"
-                if command_has_sensitive_body_fields(command)
-                else "inline JSON string, @path/to/file.json, file:///path/request.json, or - for stdin",
+                body_help,
             )
         )
     rows.extend(
@@ -814,8 +822,12 @@ def parse_command_options(
             if command.body_field is None:
                 raise command_usage_error(group, command, f"{command.name} does not accept --body.")
             value, index = command_option_value(tokens, index, option_name, inline_value)
-            body = load_json_input(value)
-            if json_body_argument_source(value) == "inline" and body_contains_sensitive_field(command, body):
+            body = load_body_input(command, value)
+            if (
+                not command_uses_raw_body(command)
+                and json_body_argument_source(value) == "inline"
+                and body_contains_sensitive_field(command, body)
+            ):
                 raise command_usage_error(
                     group,
                     command,
@@ -1009,6 +1021,21 @@ def parse_value(value: str) -> Any:
         return value
 
 
+def load_body_input(command: CommandDefinition, value: str | None) -> Any:
+    if command_uses_raw_body(command):
+        return read_raw_body_argument(value)
+    return load_json_input(value)
+
+
+def command_uses_raw_body(command: CommandDefinition) -> bool:
+    return (
+        command.body_field is not None
+        and not command.body_model
+        and not command.body_fields
+        and not command.body_models
+    )
+
+
 def load_json_input(value: str | None) -> Any:
     if value is None:
         return None
@@ -1020,6 +1047,21 @@ def load_json_input(value: str | None) -> Any:
     if not isinstance(parsed, (dict, list)):
         raise CliError("--body must contain a JSON object or array.")
     return parsed
+
+
+def read_raw_body_argument(value: str | None) -> bytes | str | None:
+    if value is None:
+        return None
+    if value == "-":
+        stdin_buffer = getattr(sys.stdin, "buffer", None)
+        if stdin_buffer is not None:
+            return stdin_buffer.read()
+        return sys.stdin.read()
+    if value.startswith("@"):
+        return Path(value[1:]).expanduser().read_bytes()
+    if value.startswith("file://"):
+        return Path(value.removeprefix("file://")).expanduser().read_bytes()
+    return value
 
 
 def read_json_argument(value: str) -> str:
@@ -1865,7 +1907,21 @@ def build_client(client_cls: type, args: SimpleNamespace) -> Any:
     kwargs: dict[str, Any] = {"signer": signer, "service_endpoint": endpoint}
     if args.timeout is not None:
         kwargs["timeout"] = args.timeout
-    return client_cls(config, **kwargs)
+    client = client_cls(config, **kwargs)
+    apply_client_overrides(client)
+    return client
+
+
+def apply_client_overrides(client: Any) -> None:
+    if client.__class__.__name__ not in STRICT_URL_ENCODING_CLIENTS:
+        return
+    base_client = getattr(client, "base_client", None)
+    if base_client is None:
+        return
+    if hasattr(base_client, "enable_strict_url_encoding"):
+        base_client.enable_strict_url_encoding = True
+    else:
+        setattr(base_client, "_enable_strict_url_encoding", True)
 
 
 def resolve_endpoint(
@@ -1938,7 +1994,15 @@ def debug_request(base_client: Any, command_group: str, command_name: str, *args
     body = get_call_value("body", 5, args, kwargs)
     base_path = getattr(base_client, "base_path", "") or ""
     endpoint = getattr(base_client, "endpoint", "") or ""
-    rendered_path = render_resource_path(resource_path, path_params)
+    enable_strict_url_encoding = get_call_value("enable_strict_url_encoding", 9, args, kwargs)
+    rendered_path = render_resource_path(
+        resource_path,
+        path_params,
+        strict_url_encoding=should_render_strict_url_encoding(
+            base_client,
+            enable_strict_url_encoding,
+        ),
+    )
     url = build_debug_url(endpoint, base_path, rendered_path)
 
     print("AIDP CLI debug request:", file=sys.stderr)
@@ -1963,11 +2027,26 @@ def get_call_value(name: str, position: int, args: tuple[Any, ...], kwargs: dict
     return None
 
 
-def render_resource_path(resource_path: str, path_params: dict[str, Any]) -> str:
+def render_resource_path(
+    resource_path: str,
+    path_params: dict[str, Any],
+    *,
+    strict_url_encoding: bool = False,
+) -> str:
     rendered = resource_path
+    safe_chars = "" if strict_url_encoding else "/"
     for name, value in path_params.items():
-        rendered = rendered.replace("{" + name + "}", quote(str(value), safe=""))
+        rendered = rendered.replace("{" + name + "}", quote(str(value), safe=safe_chars))
     return rendered
+
+
+def should_render_strict_url_encoding(base_client: Any, request_value: Any) -> bool:
+    should_enable = getattr(base_client, "should_enable_strict_url_encoding", None)
+    if callable(should_enable):
+        return bool(should_enable(request_value))
+    if request_value is not None:
+        return bool(request_value)
+    return bool(getattr(base_client, "enable_strict_url_encoding", None))
 
 
 def build_debug_url(endpoint: str, base_path: str, rendered_path: str) -> str:
