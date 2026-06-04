@@ -44,7 +44,11 @@ assert.ok(discovery.findCommandGroup(manifest, "bundle"));
 assert.ok(discovery.findCommandGroup(manifest, "cluster"));
 assert.ok(!discovery.findCommandGroup(manifest, "git"));
 assert.ok(!manifest.commandGroups.some((group) => group.name === "git"));
-assert.ok(discovery.findCommandGroup(manifest, "workspace-object"));
+const workspaceObject = discovery.findCommandGroup(manifest, "workspace-object");
+assert.ok(workspaceObject);
+const createWorkspaceObject = discovery.findCommand(workspaceObject, "create");
+assert.ok(createWorkspaceObject);
+assert.strictEqual(commandArgs.commandUsesRawBody(createWorkspaceObject), true);
 
 const originalEnv = {
   OCI_CLI_AUTH: process.env.OCI_CLI_AUTH,
@@ -77,6 +81,16 @@ try {
   assert.strictEqual(getInvocation.request.workspaceKey, "wk1");
   assert.ok(String(getInvocation.request.opcRequestId).startsWith("aidp-cli-"));
 
+  const createWorkspaceObjectInvocation = commandArgs.parseCommandOptions(
+    workspaceObject,
+    createWorkspaceObject,
+    ["workspace-key", "--path", "folder_123", "--type", "FOLDER", "--body", ""],
+    parsedWithInstance.globals
+  );
+  assert.strictEqual(createWorkspaceObjectInvocation.request.createWorkspaceObjectDetails, "");
+  assert.strictEqual(createWorkspaceObjectInvocation.request.workspaceKey, "workspace-key");
+  assert.strictEqual(createWorkspaceObjectInvocation.request.path, "folder_123");
+
   const createWorkspace = discovery.findCommand(workspace, "create-workspace");
   assert.ok(createWorkspace);
   const createInvocation = commandArgs.parseCommandOptions(
@@ -97,6 +111,7 @@ try {
       VaultReferenceCredentialDetails: testBodyModel([testBodyField("secretId")])
     }
   });
+  assert.strictEqual(commandArgs.commandUsesRawBody(sensitiveCommand), false);
   assert.strictEqual(bodySecurity.commandHasSensitiveBodyFields(sensitiveCommand), true);
   assert.doesNotThrow(() =>
     commandArgs.parseCommandOptions(
@@ -158,6 +173,33 @@ try {
     assert.deepStrictEqual(fileUrlInvocation.request.testBody, {
       credentialDetails: { secretId: "file-secret" }
     });
+
+    const rawCommand = testBodyCommand();
+    const rawInlineInvocation = commandArgs.parseCommandOptions(
+      testGroup(rawCommand),
+      rawCommand,
+      ["--body", "{}"],
+      parsedWithInstance.globals
+    );
+    assert.strictEqual(rawInlineInvocation.request.testBody, "{}");
+
+    const rawBodyFile = path.join(bodyTempDir, "raw-body.txt");
+    fs.writeFileSync(rawBodyFile, "raw-content", "utf8");
+    const rawFileInvocation = commandArgs.parseCommandOptions(
+      testGroup(rawCommand),
+      rawCommand,
+      ["--body", `@${rawBodyFile}`],
+      parsedWithInstance.globals
+    );
+    assert.strictEqual(rawFileInvocation.request.testBody, "raw-content");
+
+    const rawFileUrlInvocation = commandArgs.parseCommandOptions(
+      testGroup(rawCommand),
+      rawCommand,
+      ["--body", `file://${rawBodyFile}`],
+      parsedWithInstance.globals
+    );
+    assert.strictEqual(rawFileUrlInvocation.request.testBody, "raw-content");
   } finally {
     fs.rmSync(bodyTempDir, { recursive: true, force: true });
   }
@@ -165,6 +207,10 @@ try {
   const stdinInvocation = runStdinBodyParser("{\"credentialDetails\":{\"secretId\":\"stdin-secret\"}}");
   assert.strictEqual(stdinInvocation.status, 0, stdinInvocation.stderr);
   assert.ok(stdinInvocation.stdout.includes("stdin body parser test passed"));
+
+  const rawStdinInvocation = runRawStdinBodyParser("raw-stdin-content");
+  assert.strictEqual(rawStdinInvocation.status, 0, rawStdinInvocation.stderr);
+  assert.ok(rawStdinInvocation.stdout.includes("raw stdin body parser test passed"));
 
   const objectBodySummary = cli.bodyDebugSummary({
     credentialDetails: { secretId: "ocid1.secret.oc1..value" }
@@ -297,6 +343,11 @@ assert.strictEqual(createJobHelp.status, 0, createJobHelp.stderr);
 assert.ok(createJobHelp.stdout.includes("Nested body variants:"));
 assert.ok(createJobHelp.stdout.includes("Example JSON for tasks[] - IfElseTask (type=IF_ELSE_TASK):"));
 assert.ok(createJobHelp.stdout.includes("Example JSON for tasks[] - NotebookTask (type=NOTEBOOK_TASK):"));
+
+const createWorkspaceObjectHelp = runCli(["workspace-object", "create", "-h"]);
+assert.strictEqual(createWorkspaceObjectHelp.status, 0, createWorkspaceObjectHelp.stderr);
+assert.ok(createWorkspaceObjectHelp.stdout.includes("raw body string, @path/to/file, file:///path/file, or - for stdin"));
+assert.ok(createWorkspaceObjectHelp.stdout.includes("--body @body.txt"));
 
 const gitCommand = runCli(["git", "list-diffs", "-h"]);
 assert.notStrictEqual(gitCommand.status, 0);
@@ -561,6 +612,72 @@ function runStdinBodyParser(stdin) {
           type: modelName ? "object" : "string"
         };
       }
+      `
+    ],
+    {
+      cwd: packageRoot,
+      encoding: "utf8",
+      input: stdin
+    }
+  );
+}
+
+function runRawStdinBodyParser(stdin) {
+  return spawnSync(
+    process.execPath,
+    [
+      "-e",
+      `
+      const assert = require("assert");
+      const commandArgs = require("./dist/commandArgs");
+      const command = {
+        aliases: [],
+        bodyEnumFields: {},
+        bodyField: "testBody",
+        bodyFields: [],
+        bodyModel: "",
+        bodyModels: {},
+        bodyRequiredFields: [],
+        deprecated: false,
+        description: "",
+        fields: [
+          {
+            cliName: "body",
+            description: "",
+            enumValues: [],
+            in: "body",
+            modelName: "",
+            name: "testBody",
+            originalName: "testBody",
+            required: true,
+            type: "object"
+          }
+        ],
+        httpMethod: "POST",
+        name: "create-test",
+        operationId: "CreateTest",
+        path: "/test",
+        responseBodyKey: "",
+        responseHeaderFields: [],
+        sdkMethodName: "createTest",
+        section: "",
+        summary: ""
+      };
+      const group = {
+        name: "test",
+        tag: "test",
+        clientClassName: "TestClient",
+        description: "",
+        commands: [command]
+      };
+      const invocation = commandArgs.parseCommandOptions(
+        group,
+        command,
+        ["--body", "-"],
+        { auth: "security_token", profile: "DEFAULT", instanceId: "ocid1.test" }
+      );
+      assert.strictEqual(invocation.request.testBody, "raw-stdin-content");
+      console.log("raw stdin body parser test passed");
       `
     ],
     {

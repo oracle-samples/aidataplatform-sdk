@@ -11,7 +11,7 @@ import { buildRequestId, GlobalOptions } from "./config";
 import { CommandDefinition, CommandField, CommandGroup } from "./discovery";
 import { CliError } from "./errors";
 import { bodyContainsSensitiveField, jsonBodyArgumentSource } from "./bodySecurity";
-import { parseJsonObject, parseJsonValue, readJsonArgument } from "./json";
+import { parseJsonObject, parseJsonValue, readJsonArgument, readRawBodyArgument } from "./json";
 import { normalizedLookupName } from "./names";
 
 export interface CommandInvocation {
@@ -82,8 +82,9 @@ export function parseCommandOptions(
         throw new CliError(`${command.name} does not accept --body.`);
       }
       const [value, nextIndex] = optionValue(tokens, index, optionName, inlineValue);
-      const body = parseJsonObject(readJsonArgument(value), "--body");
-      if (jsonBodyArgumentSource(value) === "inline" && bodyContainsSensitiveField(command, body)) {
+      const usesRawBody = commandUsesRawBody(command);
+      const body = usesRawBody ? readRawBodyArgument(value) : parseJsonObject(readJsonArgument(value), "--body");
+      if (!usesRawBody && jsonBodyArgumentSource(value) === "inline" && bodyContainsSensitiveField(command, body)) {
         throw new CliError(
           "Inline --body JSON is blocked because this request body contains sensitive fields. " +
             "Use --body @request.json, --body file:///path/request.json, or --body -."
@@ -146,6 +147,15 @@ export function commandOptionFields(command: CommandDefinition): CommandField[] 
 
 export function commandRequiresInstanceId(command: CommandDefinition): boolean {
   return command.fields.some((field) => field.name === "aiDataPlatformId" && field.required);
+}
+
+export function commandUsesRawBody(command: CommandDefinition): boolean {
+  return Boolean(
+    command.bodyField &&
+      !command.bodyModel &&
+      command.bodyFields.length === 0 &&
+      Object.keys(command.bodyModels).length === 0
+  );
 }
 
 export function argumentMetavar(field: CommandField): string {

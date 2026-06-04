@@ -4,7 +4,8 @@ import {
   argumentMetavar,
   commandArgumentFields,
   commandOptionFields,
-  commandRequiresInstanceId
+  commandRequiresInstanceId,
+  commandUsesRawBody
 } from "./commandArgs";
 
 const MAX_BODY_EXAMPLE_DEPTH = 12;
@@ -280,18 +281,23 @@ function commandFlagRows(command: CommandDefinition): Array<[string, string]> {
     rows.push([`--${field.cliName}`, fieldHelp(field)]);
   }
   if (command.bodyField) {
-    rows.push([
-      "--body",
-      commandHasSensitiveBodyFields(command)
-        ? "@path/to/file.json, file:///path/request.json, or - for stdin; inline JSON is blocked when it contains sensitive fields"
-        : "inline JSON string, @path/to/file.json, file:///path/request.json, or - for stdin"
-    ]);
+    rows.push(["--body", bodyFlagHelp(command)]);
   }
   rows.push(
     ["--opc-request-id", "request ID; generated automatically when omitted"],
     ["--no-request-id", "do not add opc_request_id automatically"]
   );
   return rows;
+}
+
+function bodyFlagHelp(command: CommandDefinition): string {
+  if (commandUsesRawBody(command)) {
+    return "raw body string, @path/to/file, file:///path/file, or - for stdin";
+  }
+  if (commandHasSensitiveBodyFields(command)) {
+    return "@path/to/file.json, file:///path/request.json, or - for stdin; inline JSON is blocked when it contains sensitive fields";
+  }
+  return "inline JSON string, @path/to/file.json, file:///path/request.json, or - for stdin";
 }
 
 function fieldHelp(field: CommandField): string {
@@ -347,7 +353,7 @@ function formatExamples(group: CommandGroup, command: CommandDefinition): string
     base += " --instance-id <ocid>";
   }
   if (command.bodyField) {
-    base += " --body @request.json";
+    base += commandUsesRawBody(command) ? " --body @body.txt" : " --body @request.json";
   }
   return [base];
 }

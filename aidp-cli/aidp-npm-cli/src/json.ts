@@ -57,6 +57,22 @@ export function readJsonArgument(value: string): string {
   return value;
 }
 
+export function readRawBodyArgument(value: string): string {
+  if (value === "-") {
+    return readFileSync(0, "utf8");
+  }
+
+  if (value.startsWith("@")) {
+    return readFileSync(value.slice(1), "utf8");
+  }
+
+  if (value.startsWith("file://")) {
+    return readFileSync(value.slice("file://".length), "utf8");
+  }
+
+  return value;
+}
+
 export function readJsonFileOrStdin(path: string): string {
   return path === "-" ? readFileSync(0, "utf8") : readFileSync(path, "utf8");
 }
