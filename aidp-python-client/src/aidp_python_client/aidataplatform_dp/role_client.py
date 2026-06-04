@@ -83,7 +83,7 @@ class RoleClient(object):
             'skip_deserialization': kwargs.get('skip_deserialization', False)
         }
         self.base_client = BaseClient("role", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
-        self.retry_strategy = kwargs.get('retry_strategy')
+        self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
     def add_member_to_role(self, ai_data_platform_id, role_key, add_member_to_role_details, **kwargs):
         """

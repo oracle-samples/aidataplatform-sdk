@@ -83,7 +83,7 @@ class SchemaClient(object):
             'skip_deserialization': kwargs.get('skip_deserialization', False)
         }
         self.base_client = BaseClient("schema", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
-        self.retry_strategy = kwargs.get('retry_strategy')
+        self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
     def create_data_table(self, ai_data_platform_id, create_data_table_details, **kwargs):
         """

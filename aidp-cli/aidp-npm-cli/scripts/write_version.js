@@ -1,12 +1,25 @@
 const fs = require("fs");
 const path = require("path");
 
-const version = process.env.PKG_VERSION || process.env.BLD_VERSION;
+function appendBuildNumberForBranchVersion(version) {
+  const buildNumber = process.env.BLD_NUMBER;
+  if (buildNumber && version.includes("-") && !version.endsWith(`.${buildNumber}`)) {
+    if (version.endsWith("-SNAPSHOT")) {
+      return `${version.slice(0, -9)}.${buildNumber}-SNAPSHOT`;
+    }
+    return `${version}.${buildNumber}`;
+  }
+  return version;
+}
 
-if (!version) {
+const rawVersion = process.env.PKG_VERSION || process.env.BLD_VERSION;
+
+if (!rawVersion) {
   console.error("PKG_VERSION or BLD_VERSION is required");
   process.exit(1);
 }
+
+const version = appendBuildNumberForBranchVersion(rawVersion);
 
 for (const relativePath of ["package.json", "package-lock.json", "npm-shrinkwrap.json"]) {
   const filePath = path.join(__dirname, "..", relativePath);
