@@ -139,21 +139,6 @@ oci session authenticate \
   --tenancy-name <tenancy_name>
 ```
 
-Set common defaults:
-
-```bash
-export OCI_CONFIG_FILE=~/.oci/config
-export OCI_PROFILE=DEFAULT
-export OCI_CLI_AUTH=security_token
-export OCI_CLI_REGION=<oci_region>
-export AIDP_INSTANCE_ID=<ai_data_platform_ocid>
-# Optional endpoint override:
-export OCI_CLI_ENDPOINT=https://aidp.<region>.oci.oraclecloud.com
-```
-
-You can also pass `--instance-id <ai_data_platform_ocid>` directly to CLI
-commands, or save it with `aidp configure set instance-id <ai_data_platform_ocid>`.
-
 ### Use the CLI
 
 Start with help and discovery:
@@ -213,7 +198,7 @@ For runnable notebook workflow samples, see [examples](./examples/README.md).
 ## Documentation and Help
 
 See the examples in this repository and the
-[Oracle AI Data Platform API documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aiwap/index.html)
+[Oracle AI Data Platform CLI SDK documentation](./docs/README.md)
 for complete workflows. For questions or support, use the standard project
 support channels for this repository.
 
