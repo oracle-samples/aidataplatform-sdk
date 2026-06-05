@@ -18,7 +18,9 @@
     "index.ts",
     "npm-shrinkwrap.json",
     "lib/**/*",
-    "dist/**/*"
+    "dist/**/*",
+    "LICENSE.txt",
+    "NOTICE.txt"
   ],
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json"

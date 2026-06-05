@@ -1,17 +1,4 @@
-import {
-  chmodSync,
-  closeSync,
-  existsSync,
-  fsyncSync,
-  mkdirSync,
-  openSync,
-  readFileSync,
-  renameSync,
-  statSync,
-  unlinkSync,
-  writeFileSync
-} from "fs";
-import { dirname } from "path";
+import { readFileSync } from "fs";
 import { randomUUID } from "crypto";
 import common = require("oci-common");
 
@@ -20,12 +7,8 @@ import { CliError } from "./errors";
 export const DEFAULT_PROFILE = "DEFAULT";
 export const DEFAULT_AUTH = "security_token";
 export const DEFAULT_CONFIG_FILE = "~/.oci/config";
-export const DEFAULT_AIDP_CONFIG_FILE = "~/.aidp/config";
 export const DEFAULT_ENVIRONMENT_PREFIX = "aidp";
 export const DEFAULT_ENVIRONMENT_DOMAIN = "oraclecloud.com";
-const AIDP_CONFIG_DIR_MODE = 0o700;
-const AIDP_CONFIG_FILE_MODE = 0o600;
-const GROUP_OR_WORLD_PERMISSIONS = 0o077;
 export const AUTH_CHOICES = [
   "api_key",
   "security_token",
@@ -71,7 +54,7 @@ export function defaultGlobalOptions(): GlobalOptions {
     auth,
     configFile: process.env.OCI_CLI_CONFIG_FILE || DEFAULT_CONFIG_FILE,
     debug: false,
-    endpoint: process.env.OCI_CLI_ENDPOINT,
+    endpoint: process.env.AIDP_ENDPOINT || process.env.OCI_CLI_ENDPOINT,
     environmentDomain: DEFAULT_ENVIRONMENT_DOMAIN,
     environmentPrefix: DEFAULT_ENVIRONMENT_PREFIX,
     instanceId: configuredInstanceId(),
@@ -98,111 +81,8 @@ export function expandHome(value: string): string {
   return value;
 }
 
-export function aidpConfigPath(): string {
-  return expandHome(process.env.AIDP_CLI_CONFIG_FILE || DEFAULT_AIDP_CONFIG_FILE);
-}
-
-export function readAidpConfig(): Record<string, string> {
-  const path = aidpConfigPath();
-  if (!existsSync(path)) {
-    return {};
-  }
-  validateAidpConfigPermissions(path);
-  const raw = readFileSync(path, "utf8");
-  if (!raw.trim()) {
-    return {};
-  }
-  const value = JSON.parse(raw) as unknown;
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    throw new CliError(`${path} must contain a JSON object.`);
-  }
-  return Object.fromEntries(
-    Object.entries(value as Record<string, unknown>).map(([key, item]) => [String(key), String(item)])
-  );
-}
-
-export function writeAidpConfig(config: Record<string, string>): void {
-  const path = aidpConfigPath();
-  ensureAidpConfigParentDirectory(path);
-  validateAidpConfigPermissions(path);
-  writeAidpConfigAtomically(path, `${JSON.stringify(config, null, 2)}\n`);
-}
-
 export function configuredInstanceId(): string | undefined {
-  if (process.env.INSTANCE_ID) {
-    return process.env.INSTANCE_ID;
-  }
-  try {
-    return readAidpConfig()["instance-id"] || undefined;
-  } catch (error) {
-    if (error instanceof CliError) {
-      throw error;
-    }
-    return undefined;
-  }
-}
-
-function ensureAidpConfigParentDirectory(path: string): void {
-  const parent = dirname(path);
-  mkdirSync(parent, { recursive: true, mode: AIDP_CONFIG_DIR_MODE });
-  if (shouldEnforceAidpConfigParentPermissions()) {
-    chmodSync(parent, AIDP_CONFIG_DIR_MODE);
-  }
-}
-
-function validateAidpConfigPermissions(path: string): void {
-  if (process.platform === "win32") {
-    return;
-  }
-
-  if (shouldEnforceAidpConfigParentPermissions()) {
-    const parent = dirname(path);
-    if (existsSync(parent)) {
-      assertOwnerOnlyMode(parent, AIDP_CONFIG_DIR_MODE, "directory");
-    }
-  }
-
-  if (existsSync(path)) {
-    assertOwnerOnlyMode(path, AIDP_CONFIG_FILE_MODE, "file");
-  }
-}
-
-function shouldEnforceAidpConfigParentPermissions(): boolean {
-  return !process.env.AIDP_CLI_CONFIG_FILE;
-}
-
-function assertOwnerOnlyMode(path: string, expectedMode: number, kind: "directory" | "file"): void {
-  const mode = statSync(path).mode & 0o777;
-  if ((mode & GROUP_OR_WORLD_PERMISSIONS) !== 0) {
-    throw new CliError(
-      `${path} permissions are too open for the AIDP config ${kind}. ` +
-        `Run 'chmod ${expectedMode.toString(8)} ${path}' and try again.`
-    );
-  }
-}
-
-function writeAidpConfigAtomically(path: string, content: string): void {
-  const tmpPath = `${dirname(path)}/.${randomUUID()}.tmp`;
-  let fd: number | undefined;
-  try {
-    fd = openSync(tmpPath, "wx", AIDP_CONFIG_FILE_MODE);
-    writeFileSync(fd, content, "utf8");
-    fsyncSync(fd);
-    closeSync(fd);
-    fd = undefined;
-    renameSync(tmpPath, path);
-    chmodSync(path, AIDP_CONFIG_FILE_MODE);
-  } catch (error) {
-    if (fd !== undefined) {
-      closeSync(fd);
-    }
-    try {
-      unlinkSync(tmpPath);
-    } catch {
-      // Best effort cleanup; preserve the original write failure.
-    }
-    throw error;
-  }
+  return process.env.AIDP_INSTANCE_ID || process.env.INSTANCE_ID || undefined;
 }
 
 export function parseProfile(configFilePath: string, profileName: string): ParsedProfile {
@@ -313,7 +193,7 @@ export function resolveEndpoint(
   }
   if (/^https?:\/\//.test(region)) {
     throw new CliError(
-      "Region must be an OCI region identifier. For a full service URL, use --endpoint or OCI_CLI_ENDPOINT."
+      "Region must be an OCI region identifier. For a full service URL, use --endpoint, AIDP_ENDPOINT, or OCI_CLI_ENDPOINT."
     );
   }
 

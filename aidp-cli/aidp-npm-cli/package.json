@@ -18,7 +18,9 @@
   "files": [
     "dist/**/*.d.ts",
     "dist/**/*.js",
-    "dist/**/*.json"
+    "dist/**/*.json",
+    "LICENSE.txt",
+    "NOTICE.txt"
   ],
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json",

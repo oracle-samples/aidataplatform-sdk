@@ -13,7 +13,7 @@ const MAX_BODY_EXAMPLE_DEPTH = 12;
 export const UTILITY_COMMANDS: Array<[string, string]> = [
   ["command-groups", "List API command groups."],
   ["search", "Search command groups and command names."],
-  ["configure", "Configure local AIDP CLI defaults."],
+  ["configure", "Show AIDP CLI environment defaults."],
   ["help", "Help about any command."],
   ["version", "Show CLI version."]
 ];
@@ -181,11 +181,12 @@ export function searchHelp(): string {
 
 export function configureHelp(): string {
   return [
-    "Configure local AIDP CLI defaults.",
+    "Show AIDP CLI environment defaults.",
     "",
     "Usage:",
     "  aidp configure get",
-    "  aidp configure set instance-id <ocid>",
+    "",
+    "Set defaults with AIDP_INSTANCE_ID and AIDP_ENDPOINT environment variables.",
     "",
     "Flags:",
     ...formatFlags([["-h, --help", "help for configure"]])

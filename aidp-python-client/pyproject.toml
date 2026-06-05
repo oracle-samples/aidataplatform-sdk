@@ -1,7 +1,7 @@
 # Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
 
 [build-system]
-requires = ["setuptools>=67.0"]
+requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,6 +10,7 @@ dynamic = ["version"]
 dependencies = ["oci>=2.165.1,<2.166"]
 requires-python = ">=3.9"
 description = "Python SDK for the AI Data Platform Data Plane APIs."
+license-files = ["LICENSE.txt", "NOTICE.txt"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

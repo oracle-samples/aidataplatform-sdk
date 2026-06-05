@@ -6,12 +6,9 @@ import { inspect } from "util";
 
 import { consumeLeadingGlobalOptions, parseGlobalOptions } from "./args";
 import {
-  aidpConfigPath,
   buildAuthenticationDetailsProvider,
   configureClientEndpoint,
-  readAidpConfig,
   resolveEndpoint,
-  writeAidpConfig
 } from "./config";
 import {
   CommandDefinition,
@@ -323,24 +320,13 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function handleConfigure(args: string[]): void {
   const action = args[0];
   if (action === "get") {
-    const config = readAidpConfig();
     console.log("AIDP CLI configuration:");
-    console.log(`  file: ${aidpConfigPath()}`);
-    console.log(`  instance-id: ${config["instance-id"] || "(not set)"}`);
+    console.log(`  instance-id: ${process.env.AIDP_INSTANCE_ID || process.env.INSTANCE_ID || "(not set)"}`);
+    console.log(`  endpoint: ${process.env.AIDP_ENDPOINT || process.env.OCI_CLI_ENDPOINT || "(not set)"}`);
     return;
   }
   if (action === "set") {
-    if (args.length !== 3) {
-      throw new CliError("Usage: aidp configure set instance-id <ocid>");
-    }
-    if (args[1] !== "instance-id") {
-      throw new CliError("Only instance-id can be configured.");
-    }
-    const config = readAidpConfig();
-    config["instance-id"] = args[2];
-    writeAidpConfig(config);
-    console.log(`Set instance-id in ${aidpConfigPath()}`);
-    return;
+    throw new CliError("aidp configure set is no longer supported. Use AIDP_INSTANCE_ID or --instance-id.");
   }
   throw new CliError(`Unknown configure command '${action}'. Run 'aidp configure --help'.`);
 }

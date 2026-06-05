@@ -228,7 +228,7 @@ function applyInstanceId(
     return;
   }
   if (!globals.instanceId) {
-    throw new CliError("Missing required option --instance-id.");
+    throw new CliError("Missing AIDP instance OCID. Set --instance-id or AIDP_INSTANCE_ID.");
   }
   request.aiDataPlatformId = globals.instanceId;
 }
