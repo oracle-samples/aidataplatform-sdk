@@ -1,6 +1,5 @@
 const assert = require("assert");
 const fs = require("fs");
-const os = require("os");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
@@ -10,7 +9,6 @@ const help = require("../dist/help");
 const bodySecurity = require("../dist/bodySecurity");
 const cli = require("../dist/cli");
 const commandArgs = require("../dist/commandArgs");
-const config = require("../dist/config");
 const manifestModule = require("../dist/manifest");
 const names = require("../dist/names");
 const output = require("../dist/output");
@@ -53,33 +51,58 @@ assert.strictEqual(commandArgs.commandUsesRawBody(createWorkspaceObject), true);
 const originalEnv = {
   OCI_CLI_AUTH: process.env.OCI_CLI_AUTH,
   OCI_CLI_CONFIG_FILE: process.env.OCI_CLI_CONFIG_FILE,
+  OCI_CLI_ENDPOINT: process.env.OCI_CLI_ENDPOINT,
   OCI_CLI_PROFILE: process.env.OCI_CLI_PROFILE,
-  INSTANCE_ID: process.env.INSTANCE_ID,
-  AIDP_CLI_CONFIG_FILE: process.env.AIDP_CLI_CONFIG_FILE
+  AIDP_ENDPOINT: process.env.AIDP_ENDPOINT,
+  AIDP_INSTANCE_ID: process.env.AIDP_INSTANCE_ID,
+  INSTANCE_ID: process.env.INSTANCE_ID
 };
 try {
   delete process.env.OCI_CLI_AUTH;
   delete process.env.OCI_CLI_CONFIG_FILE;
+  delete process.env.OCI_CLI_ENDPOINT;
   delete process.env.OCI_CLI_PROFILE;
+  delete process.env.AIDP_ENDPOINT;
+  delete process.env.AIDP_INSTANCE_ID;
   delete process.env.INSTANCE_ID;
-  process.env.AIDP_CLI_CONFIG_FILE = path.join(packageRoot, "dist", "test-aidp-config.json");
-  try {
-    fs.unlinkSync(process.env.AIDP_CLI_CONFIG_FILE);
-  } catch {
-    // ignore
-  }
 
   const parsed = args.parseGlobalOptions(["-p", "DEFAULT", "workspace", "get-workspace"]);
   assert.strictEqual(parsed.globals.auth, "security_token");
   assert.strictEqual(parsed.globals.profile, "DEFAULT");
   assert.deepStrictEqual(parsed.args, ["workspace", "get-workspace"]);
 
-  process.env.INSTANCE_ID = "ocid1.test";
+  process.env.AIDP_INSTANCE_ID = "ocid1.test";
+  process.env.INSTANCE_ID = "ocid1.legacy";
+  process.env.AIDP_ENDPOINT = "https://aidp-env.example.com";
+  process.env.OCI_CLI_ENDPOINT = "https://oci-env.example.com";
   const parsedWithInstance = args.parseGlobalOptions(["workspace", "get-workspace"]);
+  assert.strictEqual(parsedWithInstance.globals.instanceId, "ocid1.test");
+  assert.strictEqual(parsedWithInstance.globals.endpoint, "https://aidp-env.example.com");
   const getInvocation = commandArgs.parseCommandOptions(workspace, getWorkspace, ["wk1"], parsedWithInstance.globals);
   assert.strictEqual(getInvocation.request.aiDataPlatformId, "ocid1.test");
   assert.strictEqual(getInvocation.request.workspaceKey, "wk1");
   assert.ok(String(getInvocation.request.opcRequestId).startsWith("aidp-cli-"));
+
+  const parsedWithCommandLineInstance = args.parseGlobalOptions([
+    "--instance-id",
+    "ocid1.cli",
+    "--endpoint",
+    "https://cli-endpoint.example.com",
+    "workspace",
+    "get-workspace"
+  ]);
+  assert.strictEqual(parsedWithCommandLineInstance.globals.instanceId, "ocid1.cli");
+  assert.strictEqual(parsedWithCommandLineInstance.globals.endpoint, "https://cli-endpoint.example.com");
+
+  delete process.env.AIDP_INSTANCE_ID;
+  delete process.env.INSTANCE_ID;
+  const parsedWithoutInstance = args.parseGlobalOptions(["workspace", "get-workspace"]);
+  assert.throws(
+    () => commandArgs.parseCommandOptions(workspace, getWorkspace, ["wk1"], parsedWithoutInstance.globals),
+    /Set --instance-id or AIDP_INSTANCE_ID/
+  );
+  process.env.AIDP_INSTANCE_ID = "ocid1.test";
+  process.env.INSTANCE_ID = "ocid1.legacy";
 
   const createWorkspaceObjectInvocation = commandArgs.parseCommandOptions(
     workspaceObject,
@@ -191,7 +214,8 @@ try {
       ["--body", `@${rawBodyFile}`],
       parsedWithInstance.globals
     );
-    assert.strictEqual(rawFileInvocation.request.testBody, "raw-content");
+    assert.ok(Buffer.isBuffer(rawFileInvocation.request.testBody));
+    assert.strictEqual(rawFileInvocation.request.testBody.toString("utf8"), "raw-content");
 
     const rawFileUrlInvocation = commandArgs.parseCommandOptions(
       testGroup(rawCommand),
@@ -199,7 +223,8 @@ try {
       ["--body", `file://${rawBodyFile}`],
       parsedWithInstance.globals
     );
-    assert.strictEqual(rawFileUrlInvocation.request.testBody, "raw-content");
+    assert.ok(Buffer.isBuffer(rawFileUrlInvocation.request.testBody));
+    assert.strictEqual(rawFileUrlInvocation.request.testBody.toString("utf8"), "raw-content");
   } finally {
     fs.rmSync(bodyTempDir, { recursive: true, force: true });
   }
@@ -275,9 +300,11 @@ try {
 } finally {
   restoreEnv("OCI_CLI_AUTH", originalEnv.OCI_CLI_AUTH);
   restoreEnv("OCI_CLI_CONFIG_FILE", originalEnv.OCI_CLI_CONFIG_FILE);
+  restoreEnv("OCI_CLI_ENDPOINT", originalEnv.OCI_CLI_ENDPOINT);
   restoreEnv("OCI_CLI_PROFILE", originalEnv.OCI_CLI_PROFILE);
+  restoreEnv("AIDP_ENDPOINT", originalEnv.AIDP_ENDPOINT);
+  restoreEnv("AIDP_INSTANCE_ID", originalEnv.AIDP_INSTANCE_ID);
   restoreEnv("INSTANCE_ID", originalEnv.INSTANCE_ID);
-  restoreEnv("AIDP_CLI_CONFIG_FILE", originalEnv.AIDP_CLI_CONFIG_FILE);
 }
 
 const rootOutput = runCli([]);
@@ -393,10 +420,9 @@ assert.ok(printedError.includes('"code": "Conflict"'));
 assert.ok(printedError.includes('"opc-request-id": "request-1"'));
 
 const configureHelp = help.configureHelp();
-assert.ok(configureHelp.includes("aidp configure set instance-id <ocid>"));
+assert.ok(configureHelp.includes("AIDP_INSTANCE_ID"));
 
 assertPackMetadataPreparation();
-assertAidpConfigPermissions();
 
 console.log("aidp npm cli tests passed");
 
@@ -447,46 +473,6 @@ function assertPackMetadataPreparation() {
   assert.ok(fs.existsSync(shrinkwrapPath));
   assert.ok(!fs.existsSync(packageBackupPath));
   assert.ok(!fs.existsSync(shrinkwrapBackupPath));
-}
-
-function assertAidpConfigPermissions() {
-  if (process.platform === "win32") {
-    return;
-  }
-
-  const originalHome = process.env.HOME;
-  const originalAidpConfigFile = process.env.AIDP_CLI_CONFIG_FILE;
-  const originalUmask = process.umask(0);
-  const home = fs.mkdtempSync(path.join(os.tmpdir(), "aidp-cli-config-home-"));
-  try {
-    process.env.HOME = home;
-    delete process.env.AIDP_CLI_CONFIG_FILE;
-
-    config.writeAidpConfig({ "instance-id": "ocid1.test" });
-
-    const configDir = path.join(home, ".aidp");
-    const configFile = path.join(configDir, "config");
-    assert.strictEqual(fileMode(configDir), 0o700);
-    assert.strictEqual(fileMode(configFile), 0o600);
-    assert.strictEqual(config.readAidpConfig()["instance-id"], "ocid1.test");
-    assert.deepStrictEqual(fs.readdirSync(configDir).filter((name) => name.endsWith(".tmp")), []);
-
-    fs.chmodSync(configFile, 0o644);
-    assert.throws(() => config.readAidpConfig(), /chmod 600/);
-
-    fs.chmodSync(configFile, 0o600);
-    fs.chmodSync(configDir, 0o755);
-    assert.throws(() => config.readAidpConfig(), /chmod 700/);
-  } finally {
-    process.umask(originalUmask);
-    restoreEnv("HOME", originalHome);
-    restoreEnv("AIDP_CLI_CONFIG_FILE", originalAidpConfigFile);
-    fs.rmSync(home, { recursive: true, force: true });
-  }
-}
-
-function fileMode(filePath) {
-  return fs.statSync(filePath).mode & 0o777;
 }
 
 function hasHelpRow(text, commandName) {
@@ -676,7 +662,8 @@ function runRawStdinBodyParser(stdin) {
         ["--body", "-"],
         { auth: "security_token", profile: "DEFAULT", instanceId: "ocid1.test" }
       );
-      assert.strictEqual(invocation.request.testBody, "raw-stdin-content");
+      assert.ok(Buffer.isBuffer(invocation.request.testBody));
+      assert.strictEqual(invocation.request.testBody.toString("utf8"), "raw-stdin-content");
       console.log("raw stdin body parser test passed");
       `
     ],

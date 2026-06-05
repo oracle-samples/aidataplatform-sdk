@@ -1,7 +1,7 @@
 # Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
 
 [build-system]
-requires = ["setuptools>=67.0", "oci>=2.122.0"]
+requires = ["setuptools>=67.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -11,7 +11,7 @@ requires-python = ">=3.9"
 description = "Command line interface for AI Data Platform data plane public APIs."
 dependencies = [
     "aidp-python-client>=0.1.0",
-    "oci>=2.122.0"
+    "oci>=2.165.0,<3.0.0"
 ]
 
 [project.scripts]

@@ -55,10 +55,6 @@ DEFAULT_AUTH = "security_token"
 PACKAGE_NAME = "aidp-cli"
 DEFAULT_ENVIRONMENT_PREFIX = "aidp"
 DEFAULT_ENVIRONMENT_DOMAIN = "oraclecloud.com"
-DEFAULT_AIDP_CONFIG_FILE = "~/.aidp/config"
-AIDP_CONFIG_DIR_MODE = 0o700
-AIDP_CONFIG_FILE_MODE = 0o600
-GROUP_OR_WORLD_PERMISSIONS = 0o077
 MAX_BODY_EXAMPLE_DEPTH = 12
 AUTH_CHOICES = ("api_key", "security_token", "instance_principal", "resource_principal")
 SEARCH_ACTION_PREFIXES = (
@@ -120,7 +116,7 @@ STRICT_URL_ENCODING_CLIENTS = {"NotebookClient"}
 UTILITY_COMMANDS = (
     ("command-groups", "List API command groups."),
     ("search", "Search command groups and command names."),
-    ("configure", "Configure local AIDP CLI defaults."),
+    ("configure", "Show AIDP CLI environment defaults."),
     ("help", "Help about any command."),
     ("version", "Show CLI version."),
 )
@@ -383,7 +379,7 @@ def global_defaults() -> dict[str, Any]:
         "profile": os.getenv("OCI_CLI_PROFILE", DEFAULT_PROFILE),
         "auth": os.getenv("OCI_CLI_AUTH", DEFAULT_AUTH),
         "region": os.getenv("OCI_CLI_REGION"),
-        "endpoint": os.getenv("OCI_CLI_ENDPOINT"),
+        "endpoint": os.getenv("AIDP_ENDPOINT") or os.getenv("OCI_CLI_ENDPOINT"),
         "environment_prefix": DEFAULT_ENVIRONMENT_PREFIX,
         "environment_domain": DEFAULT_ENVIRONMENT_DOMAIN,
         "environment_host": None,
@@ -845,7 +841,7 @@ def parse_command_options(
         if option_name in option_fields:
             field = option_fields[option_name]
             value, index = field_option_value(tokens, index, option_name, inline_value, field)
-            params[field.name] = parse_value(str(value))
+            params[field.name] = value if isinstance(value, bool) else parse_value(str(value))
             continue
         if option_name in GLOBAL_VALUE_OPTIONS:
             value, index = command_option_value(tokens, index, option_name, inline_value)
@@ -881,8 +877,7 @@ def parse_command_options(
             raise command_usage_error(
                 group,
                 command,
-                "Missing AIDP instance OCID. Set --instance-id, "
-                "INSTANCE_ID, or run 'aidp configure set instance-id <ocid>'.",
+                "Missing AIDP instance OCID. Set --instance-id or AIDP_INSTANCE_ID.",
             )
         params["ai_data_platform_id"] = global_values["ai_data_platform_id"]
 
@@ -1323,32 +1318,23 @@ def print_search_help() -> None:
 def handle_configure(args: list[str]) -> None:
     action = args[0]
     if action == "get":
-        config = read_aidp_config()
         print("AIDP CLI configuration:")
-        print(f"  file: {aidp_config_path()}")
-        print(f"  instance-id: {config.get('instance-id') or '(not set)'}")
+        print(f"  instance-id: {os.getenv('AIDP_INSTANCE_ID') or os.getenv('INSTANCE_ID') or '(not set)'}")
+        print(f"  endpoint: {os.getenv('AIDP_ENDPOINT') or os.getenv('OCI_CLI_ENDPOINT') or '(not set)'}")
         return
     if action == "set":
-        if len(args) != 3:
-            raise CliError("Usage: aidp configure set instance-id <ocid>")
-        key, value = args[1], args[2]
-        if key != "instance-id":
-            raise CliError("Only instance-id can be configured.")
-        config = read_aidp_config()
-        config["instance-id"] = value
-        write_aidp_config(config)
-        print(f"Set instance-id in {aidp_config_path()}")
-        return
+        raise CliError("aidp configure set is no longer supported. Use AIDP_INSTANCE_ID or --instance-id.")
     raise CliError(f"Unknown configure command {action!r}. Run 'aidp configure --help'.")
 
 
 def print_configure_help() -> None:
     lines = [
-        "Configure local AIDP CLI defaults.",
+        "Show AIDP CLI environment defaults.",
         "",
         "Usage:",
         "  aidp configure get",
-        "  aidp configure set instance-id <ocid>",
+        "",
+        "Set defaults with AIDP_INSTANCE_ID and AIDP_ENDPOINT environment variables.",
         "",
         "Flags:",
         *format_flags([("-h, --help", "help for configure")]),
@@ -1357,89 +1343,10 @@ def print_configure_help() -> None:
 
 
 def configured_instance_id() -> str | None:
-    env_value = os.getenv("INSTANCE_ID")
+    env_value = os.getenv("AIDP_INSTANCE_ID") or os.getenv("INSTANCE_ID")
     if env_value:
         return env_value
-    try:
-        return read_aidp_config().get("instance-id")
-    except (OSError, JSONDecodeError):
-        return None
-
-
-def aidp_config_path() -> Path:
-    return Path(os.getenv("AIDP_CLI_CONFIG_FILE", DEFAULT_AIDP_CONFIG_FILE)).expanduser()
-
-
-def read_aidp_config() -> dict[str, Any]:
-    path = aidp_config_path()
-    if not path.exists():
-        return {}
-    validate_aidp_config_permissions(path)
-    raw = path.read_text(encoding="utf-8")
-    if not raw.strip():
-        return {}
-    value = json.loads(raw)
-    if not isinstance(value, dict):
-        raise CliError(f"{path} must contain a JSON object.")
-    return {str(key): item for key, item in value.items()}
-
-
-def write_aidp_config(config: dict[str, Any]) -> None:
-    path = aidp_config_path()
-    ensure_aidp_config_parent_directory(path)
-    validate_aidp_config_permissions(path)
-    write_aidp_config_atomically(path, json.dumps(config, indent=2, sort_keys=True) + "\n")
-
-
-def ensure_aidp_config_parent_directory(path: Path) -> None:
-    path.parent.mkdir(mode=AIDP_CONFIG_DIR_MODE, parents=True, exist_ok=True)
-    if should_enforce_aidp_config_parent_permissions():
-        os.chmod(path.parent, AIDP_CONFIG_DIR_MODE)
-
-
-def validate_aidp_config_permissions(path: Path) -> None:
-    if os.name == "nt":
-        return
-
-    if should_enforce_aidp_config_parent_permissions() and path.parent.exists():
-        assert_owner_only_mode(path.parent, AIDP_CONFIG_DIR_MODE, "directory")
-    if path.exists():
-        assert_owner_only_mode(path, AIDP_CONFIG_FILE_MODE, "file")
-
-
-def should_enforce_aidp_config_parent_permissions() -> bool:
-    return "AIDP_CLI_CONFIG_FILE" not in os.environ
-
-
-def assert_owner_only_mode(path: Path, expected_mode: int, kind: str) -> None:
-    mode = path.stat().st_mode & 0o777
-    if mode & GROUP_OR_WORLD_PERMISSIONS:
-        raise CliError(
-            f"{path} permissions are too open for the AIDP config {kind}. "
-            f"Run 'chmod {expected_mode:o} {path}' and try again."
-        )
-
-
-def write_aidp_config_atomically(path: Path, content: str) -> None:
-    tmp_path = path.with_name(f".{uuid.uuid4()}.tmp")
-    fd: int | None = None
-    try:
-        fd = os.open(str(tmp_path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, AIDP_CONFIG_FILE_MODE)
-        with os.fdopen(fd, "w", encoding="utf-8") as handle:
-            fd = None
-            handle.write(content)
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(tmp_path, path)
-        os.chmod(path, AIDP_CONFIG_FILE_MODE)
-    except Exception:
-        if fd is not None:
-            os.close(fd)
-        try:
-            tmp_path.unlink()
-        except OSError:
-            pass
-        raise
+    return None
 
 
 def unknown_command_group(name: str) -> CliError:
@@ -1904,7 +1811,11 @@ def build_client(client_cls: type, args: SimpleNamespace) -> Any:
         environment_domain=args.environment_domain,
         environment_host=args.environment_host,
     )
-    kwargs: dict[str, Any] = {"signer": signer, "service_endpoint": endpoint}
+    kwargs: dict[str, Any] = {
+        "signer": signer,
+        "service_endpoint": endpoint,
+        "skip_deserialization": True,
+    }
     if args.timeout is not None:
         kwargs["timeout"] = args.timeout
     client = client_cls(config, **kwargs)
@@ -1913,9 +1824,9 @@ def build_client(client_cls: type, args: SimpleNamespace) -> Any:
 
 
 def apply_client_overrides(client: Any) -> None:
+    base_client = getattr(client, "base_client", None)
     if client.__class__.__name__ not in STRICT_URL_ENCODING_CLIENTS:
         return
-    base_client = getattr(client, "base_client", None)
     if base_client is None:
         return
     if hasattr(base_client, "enable_strict_url_encoding"):
@@ -1941,7 +1852,8 @@ def resolve_endpoint(
         )
     if str(region).startswith(("https://", "http://")):
         raise CliError(
-            "Region must be an OCI region identifier. For a full service URL, use --endpoint or OCI_CLI_ENDPOINT."
+            "Region must be an OCI region identifier. For a full service URL, use --endpoint, "
+            "AIDP_ENDPOINT, or OCI_CLI_ENDPOINT."
         )
     return f"https://{environment_prefix}.{region}.oci.{environment_domain}".rstrip("/")
 

@@ -57,17 +57,17 @@ export function readJsonArgument(value: string): string {
   return value;
 }
 
-export function readRawBodyArgument(value: string): string {
+export function readRawBodyArgument(value: string): string | Buffer {
   if (value === "-") {
-    return readFileSync(0, "utf8");
+    return readFileSync(0);
   }
 
   if (value.startsWith("@")) {
-    return readFileSync(value.slice(1), "utf8");
+    return readFileSync(value.slice(1));
   }
 
   if (value.startsWith("file://")) {
-    return readFileSync(value.slice("file://".length), "utf8");
+    return readFileSync(value.slice("file://".length));
   }
 
   return value;
