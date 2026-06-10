@@ -2,6 +2,8 @@ ORACLE AND ITS AFFILIATES DO NOT PROVIDE ANY WARRANTY WHATSOEVER, EXPRESS OR IMP
 
 # Oracle AI Data Platform SDK and CLI
 
+[![PyPI Python SDK](https://img.shields.io/badge/python%20sdk-1.0.1-blue.svg?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/aidp-python-client/) [![PyPI CLI](https://img.shields.io/badge/python%20cli-1.0.1-blue.svg?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/aidp-cli/) [![npm TypeScript SDK](https://img.shields.io/badge/typescript%20sdk-1.0.1-CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/aidp-typescript-client) [![npm CLI](https://img.shields.io/badge/node%20cli-1.0.1-CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/aidp-cli)
+
 Oracle AI Data Platform SDK and CLI provide generated clients and command line
 tools for working with Oracle AI Data Platform public APIs.
 
