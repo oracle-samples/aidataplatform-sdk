@@ -1,18 +1,24 @@
 # Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
 
 [build-system]
-requires = ["setuptools>=67.0"]
+requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "aidp-cli"
 dynamic = ["version"]
 requires-python = ">=3.9"
-description = "Command line interface for AI Data Platform data plane public APIs."
+description = "Command line interface for Oracle AI Data Platform Workbench."
+readme = "README.md"
+license = "UPL-1.0"
+license-files = ["LICENSE.txt", "NOTICE.txt"]
 dependencies = [
     "aidp-python-client>=0.1.0",
     "oci>=2.165.0,<3.0.0"
 ]
+
+[project.urls]
+Homepage = "https://docs.oracle.com/en/cloud/paas/ai-data-platform/"
 
 [project.scripts]
 aidp = "aidp_cli.main:main"
@@ -25,7 +31,7 @@ where = ["src"]
 include = ["aidp_cli*"]
 
 [tool.setuptools.package-data]
-aidp_cli = ["operation_manifest.json"]
+aidp_cli = ["operation_manifest.json", "README.md"]
 
 [tool.setuptools.dynamic]
 version = { file = ["VERSION"] }

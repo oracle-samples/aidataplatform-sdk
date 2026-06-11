@@ -1,7 +1,13 @@
 {
   "name": "aidp-cli",
-  "version": "1.0.0",
-  "description": "Command line interface for AI Data Platform data plane public APIs.",
+  "version": "1.0.1",
+  "description": "Command line interface for Oracle AI Data Platform Workbench.",
+  "keywords": [
+    "oracle",
+    "aidp",
+    "ai-data-platform",
+    "cli"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
@@ -16,6 +22,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "README.md",
     "dist/**/*.d.ts",
     "dist/**/*.js",
     "dist/**/*.json",
@@ -25,16 +32,19 @@
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json",
     "generate-manifest": "node scripts/generate_manifest.js",
-    "prepack": "npm run build && npm run generate-manifest && node scripts/prepare_pack_metadata.js",
-    "postpack": "node scripts/restore_pack_metadata.js",
     "test": "npm run build && npm run generate-manifest && node test/run_tests.js",
     "write-version": "node scripts/write_version.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oracle-samples/aidataplatform-sdk.git",
+    "directory": "aidp-cli/aidp-npm-cli"
   },
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
   },
-  "license": "(UPL-1.0 OR Apache-2.0)",
+  "license": "UPL-1.0",
   "dependencies": {
     "aidp-typescript-client": "file:../../aidp-typescript-client",
     "oci-common": "2.126.3"

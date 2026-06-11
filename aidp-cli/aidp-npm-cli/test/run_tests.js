@@ -422,8 +422,6 @@ assert.ok(printedError.includes('"opc-request-id": "request-1"'));
 const configureHelp = help.configureHelp();
 assert.ok(configureHelp.includes("AIDP_INSTANCE_ID"));
 
-assertPackMetadataPreparation();
-
 console.log("aidp npm cli tests passed");
 
 function runCli(cliArgs) {
@@ -431,48 +429,6 @@ function runCli(cliArgs) {
     cwd: packageRoot,
     encoding: "utf8"
   });
-}
-
-function assertPackMetadataPreparation() {
-  const packageJsonPath = path.join(packageRoot, "package.json");
-  const shrinkwrapPath = path.join(packageRoot, "npm-shrinkwrap.json");
-  const packageBackupPath = path.join(packageRoot, ".package.json.prepack-backup");
-  const shrinkwrapBackupPath = path.join(packageRoot, ".npm-shrinkwrap.json.prepack-backup");
-  const sdkPackageJsonPath = path.join(packageRoot, "..", "..", "aidp-typescript-client", "package.json");
-  const sdkVersion = JSON.parse(fs.readFileSync(sdkPackageJsonPath, "utf8")).version;
-
-  const cleanupBackups = () => {
-    if (fs.existsSync(packageBackupPath) || fs.existsSync(shrinkwrapBackupPath)) {
-      spawnSync(process.execPath, ["scripts/restore_pack_metadata.js"], {
-        cwd: packageRoot,
-        encoding: "utf8"
-      });
-    }
-  };
-
-  cleanupBackups();
-  try {
-    const prepareResult = spawnSync(process.execPath, ["scripts/prepare_pack_metadata.js"], {
-      cwd: packageRoot,
-      encoding: "utf8"
-    });
-    assert.strictEqual(prepareResult.status, 0, prepareResult.stderr || prepareResult.stdout);
-
-    const preparedPackage = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-    assert.strictEqual(preparedPackage.dependencies["aidp-typescript-client"], sdkVersion);
-    assert.ok(!("bundledDependencies" in preparedPackage));
-    assert.ok(!("bundleDependencies" in preparedPackage));
-    assert.ok(fs.existsSync(packageBackupPath));
-    assert.ok(!fs.existsSync(shrinkwrapPath));
-    assert.ok(fs.existsSync(shrinkwrapBackupPath));
-  } finally {
-    cleanupBackups();
-  }
-
-  assert.ok(fs.existsSync(packageJsonPath));
-  assert.ok(fs.existsSync(shrinkwrapPath));
-  assert.ok(!fs.existsSync(packageBackupPath));
-  assert.ok(!fs.existsSync(shrinkwrapBackupPath));
 }
 
 function hasHelpRow(text, commandName) {
