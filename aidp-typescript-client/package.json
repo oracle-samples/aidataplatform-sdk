@@ -1,7 +1,13 @@
 {
   "name": "aidp-typescript-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript SDK for the AI Data Platform Data Plane APIs.",
+  "keywords": [
+    "oracle",
+    "aidp",
+    "ai-data-platform",
+    "typescript-sdk"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
@@ -15,6 +21,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "README.md",
     "index.ts",
     "npm-shrinkwrap.json",
     "lib/**/*",
@@ -25,11 +32,16 @@
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oracle-samples/aidataplatform-sdk.git",
+    "directory": "aidp-typescript-client"
+  },
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
   },
-  "license": "(UPL-1.0 OR Apache-2.0)",
+  "license": "UPL-1.0",
   "dependencies": {
     "oci-common": "2.126.3"
   },

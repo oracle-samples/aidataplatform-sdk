@@ -6,9 +6,39 @@
 
   <groupId>com.oracle.aidataplatform</groupId>
   <artifactId>aidp-java-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>aidp-java-client</name>
+  <description>Java SDK to use Oracle AI Data Platform Workbench.</description>
+  <url>https://docs.oracle.com/en/cloud/paas/ai-data-platform/</url>
+
+  <organization>
+    <name>Oracle</name>
+    <url>https://www.oracle.com/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Universal Permissive License v1.0</name>
+      <url>https://oss.oracle.com/licenses/upl/</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>oracle</id>
+      <name>Oracle</name>
+      <organization>Oracle</organization>
+      <organizationUrl>https://www.oracle.com/</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/oracle-samples/aidataplatform-sdk.git</connection>
+    <developerConnection>scm:git:https://github.com/oracle-samples/aidataplatform-sdk.git</developerConnection>
+    <url>https://github.com/oracle-samples/aidataplatform-sdk/tree/main/aidp-java-client</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
