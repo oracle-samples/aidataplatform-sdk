@@ -67,19 +67,6 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -164,21 +151,6 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -205,7 +177,7 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
          * @return this builder instance
          */
         public Builder copy(ListExperimentsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());listExperimentsDetails(o.getListExperimentsDetails());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());listExperimentsDetails(o.getListExperimentsDetails());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -253,9 +225,8 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
             request.workspaceKey = workspaceKey;
             request.listExperimentsDetails = listExperimentsDetails;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new ListExperimentsRequest(aiDataPlatformId, workspaceKey, listExperimentsDetails, opcRequestId, dhUserPrincipal);
+            // new ListExperimentsRequest(aiDataPlatformId, workspaceKey, listExperimentsDetails, opcRequestId);
         }
     }
 
@@ -268,8 +239,7 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .listExperimentsDetails(listExperimentsDetails)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -289,7 +259,6 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",listExperimentsDetails=").append(String.valueOf(this.listExperimentsDetails));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -308,8 +277,7 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.listExperimentsDetails, other.listExperimentsDetails)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -320,7 +288,6 @@ public class ListExperimentsRequest extends com.oracle.bmc.requests.BmcRequest<c
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.listExperimentsDetails == null ? 43 : this.listExperimentsDetails.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

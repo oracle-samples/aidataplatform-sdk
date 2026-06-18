@@ -67,19 +67,6 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<GetModelVersionRequest, java.lang.Void> {
@@ -154,21 +141,6 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -195,7 +167,7 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
          * @return this builder instance
          */
         public Builder copy(GetModelVersionRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());name(o.getName());version(o.getVersion());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());name(o.getName());version(o.getVersion());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -232,9 +204,8 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
             request.name = name;
             request.version = version;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new GetModelVersionRequest(aiDataPlatformId, name, version, opcRequestId, dhUserPrincipal);
+            // new GetModelVersionRequest(aiDataPlatformId, name, version, opcRequestId);
         }
     }
 
@@ -247,8 +218,7 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
             .aiDataPlatformId(aiDataPlatformId)
             .name(name)
             .version(version)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -268,7 +238,6 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
         sb.append(",name=").append(String.valueOf(this.name));
         sb.append(",version=").append(String.valueOf(this.version));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -287,8 +256,7 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.name, other.name)
             && java.util.Objects.equals(this.version, other.version)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -299,7 +267,6 @@ public class GetModelVersionRequest extends com.oracle.bmc.requests.BmcRequest<j
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.version == null ? 43 : this.version.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

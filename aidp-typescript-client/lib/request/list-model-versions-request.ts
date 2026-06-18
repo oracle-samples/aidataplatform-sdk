@@ -40,9 +40,5 @@ export interface ListModelVersionsRequest extends common.BaseRequest {
 * 
  */
  'opcRequestId'?: string;
-/**
- * The DH User Principal Header .
- */
- 'dhUserPrincipal'?: string;
 }
 

@@ -2466,7 +2466,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateExperimentDetails`):**
 - `artifact_location` (string, optional) —
@@ -2510,7 +2509,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateExperimentRunDetails`):**
 - `experiment_id` (string, optional) —
@@ -2555,7 +2553,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateModelVersionDetails`):**
 - `description` (string, optional) —
@@ -2606,7 +2603,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateRegisteredModelDetails`):**
 - `deployment_job_id` (string, optional) —
@@ -2652,7 +2648,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateModelVersionDetails`):**
 - `description` (string, optional) —
@@ -2704,7 +2699,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentDetails`):**
 - `experiment_id` (string, required) —
@@ -2732,7 +2726,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentRunDetails`):**
 - `run_id` (string, required) —
@@ -2760,7 +2753,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentRunTagDetails`):**
 - `key` (string, required) —
@@ -2790,7 +2782,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentTagDetails`):**
 - `experiment_id` (string, required) —
@@ -2819,7 +2810,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteModelVersionDetails`):**
 - `name` (string, required) —
@@ -2848,7 +2838,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteModelVersionTagDetails`):**
 - `key` (string, required) —
@@ -2879,7 +2868,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteRegisteredModelDetails`):**
 - `name` (string, required) —
@@ -2906,7 +2894,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteRegisteredModelTagDetails`):**
 - `key` (string, required) —
@@ -2937,7 +2924,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `experiment-id` (string, required) — The unique ID of the experiment to retrieve.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -2956,7 +2942,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `experiment-name` (string, required) — The name of the experiment to retrieve.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -2974,7 +2959,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `run-id` (string, required) — ID of the run to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -2995,7 +2979,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `page-token` (string, optional) — Pagination token to go to the next page of metric history.
 - `max-results` (integer, optional) — Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3013,7 +2996,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `name` (string, required) — Name of the model version.
 - `version` (string, required) — Version number of the model version.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3030,7 +3012,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `name` (string, required) — Name of the registered model.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3050,7 +3031,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `path` (string, optional) — Filter artifacts matching this path (a relative path from the root artifact directory).
 - `page-token` (string, optional) — Token indicating the page of artifact results to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3067,7 +3047,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ListExperimentRunsDetails`):**
 - `experiment_ids` (array, optional) —
@@ -3104,7 +3083,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ListExperimentsDetails`):**
 - `filter` (string, optional) —
@@ -3139,7 +3117,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ListLoggedModelsDetails`):**
 - `experiment_ids` (array, optional) —
@@ -3189,7 +3166,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `page-token` (string, optional) — Pagination token to go to the next page based on a previous search query.
 - `order-by` (string, optional) — List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3209,7 +3185,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `page-token` (string, optional) — Pagination token to go to the next page based on a previous search query.
 - `order-by` (string, optional) — List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by model name ASC.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3227,7 +3202,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ExperimentRunMetric`):**
 - `key` (string, optional) —
@@ -3301,7 +3275,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`Dataset`):**
 - `digest` (string, required) —
@@ -3375,7 +3348,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`LogExperimentRunMetricDetails`):**
 - `key` (string, required) —
@@ -3411,7 +3383,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`LogExperimentRunModelDetails`):**
 - `model_json` (string, required) —
@@ -3441,7 +3412,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`LogExperimentRunParamDetails`):**
 - `key` (string, required) —
@@ -3472,7 +3442,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RenameRegisteredModelDetails`):**
 - `name` (string, required) —
@@ -3502,7 +3471,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RestoreExperimentDetails`):**
 - `experiment_id` (string, required) —
@@ -3530,7 +3498,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RestoreExperimentRunDetails`):**
 - `run_id` (string, required) —
@@ -3558,7 +3525,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetExperimentRunTagDetails`):**
 - `key` (string, required) —
@@ -3590,7 +3556,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetExperimentTagDetails`):**
 - `experiment_id` (string, required) —
@@ -3621,7 +3586,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetModelVersionTagDetails`):**
 - `key` (string, required) —
@@ -3654,7 +3618,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetRegisteredModelTagDetails`):**
 - `key` (string, required) —
@@ -3685,7 +3648,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`TransitionModelVersionStageDetails`):**
 - `archive_existing_versions` (boolean, required) —
@@ -3719,7 +3681,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateExperimentDetails`):**
 - `experiment_id` (string, required) —
@@ -3749,7 +3710,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateExperimentRunDetails`):**
 - `end_time` (integer, optional) —
@@ -3783,7 +3743,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ExperimentRunTag`):**
 - `key` (string, optional) —
@@ -3837,7 +3796,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ExperimentTag`):**
 - `key` (string, required) —
@@ -3891,7 +3849,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateModelVersionDetails`):**
 - `description` (string, optional) —
@@ -3922,7 +3879,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ModelVersionTag`):**
 - `key` (string, optional) —
@@ -3977,7 +3933,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateRegisteredModelDetails`):**
 - `deployment_job_id` (string, optional) —
@@ -4008,7 +3963,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RegisteredModelTag`):**
 - `key` (string, optional) —
@@ -7882,7 +7836,6 @@ Creates a git folder in the workspace
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.

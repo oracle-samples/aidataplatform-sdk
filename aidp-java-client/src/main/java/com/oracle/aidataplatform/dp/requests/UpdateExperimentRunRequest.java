@@ -90,19 +90,6 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -212,21 +199,6 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -253,7 +225,7 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
          * @return this builder instance
          */
         public Builder copy(UpdateExperimentRunRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());updateExperimentRunDetails(o.getUpdateExperimentRunDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());updateExperimentRunDetails(o.getUpdateExperimentRunDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -302,9 +274,8 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
             request.updateExperimentRunDetails = updateExperimentRunDetails;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new UpdateExperimentRunRequest(aiDataPlatformId, workspaceKey, updateExperimentRunDetails, opcRetryToken, opcRequestId, dhUserPrincipal);
+            // new UpdateExperimentRunRequest(aiDataPlatformId, workspaceKey, updateExperimentRunDetails, opcRetryToken, opcRequestId);
         }
     }
 
@@ -318,8 +289,7 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
             .workspaceKey(workspaceKey)
             .updateExperimentRunDetails(updateExperimentRunDetails)
             .opcRetryToken(opcRetryToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -340,7 +310,6 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
         sb.append(",updateExperimentRunDetails=").append(String.valueOf(this.updateExperimentRunDetails));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -360,8 +329,7 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.updateExperimentRunDetails, other.updateExperimentRunDetails)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -373,7 +341,6 @@ public class UpdateExperimentRunRequest extends com.oracle.bmc.requests.BmcReque
         result = (result * PRIME) + (this.updateExperimentRunDetails == null ? 43 : this.updateExperimentRunDetails.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

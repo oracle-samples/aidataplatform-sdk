@@ -126,9 +126,6 @@ class GitClient(object):
             that resource. The resource will be updated or deleted only if the etag you provide
             matches the resource's current etag value.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -149,8 +146,7 @@ class GitClient(object):
             "opc_retry_token",
             "opc_request_id",
             "should_update_recent",
-            "if_match",
-            "dh_user_principal"
+            "if_match"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -175,8 +171,7 @@ class GitClient(object):
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
             "opc-request-id": kwargs.get("opc_request_id", missing),
             "should-update-recent": kwargs.get("should_update_recent", missing),
-            "if-match": kwargs.get("if_match", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "if-match": kwargs.get("if_match", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 

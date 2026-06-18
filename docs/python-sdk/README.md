@@ -1509,7 +1509,6 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitBranch
@@ -1925,7 +1924,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateExperimentResponseDetails
@@ -1946,7 +1944,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateExperimentRunResponseDetails
@@ -1966,7 +1963,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateModelVersionResponseDetails
@@ -1986,7 +1982,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateRegisteredModelResponseDetails
@@ -2007,7 +2002,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateModelVersionResponseDetails
@@ -2028,7 +2022,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentResponseDetails
@@ -2046,7 +2039,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentRunResponseDetails
@@ -2064,7 +2056,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentRunTagResponseDetails
@@ -2082,7 +2073,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentTagResponseDetails
@@ -2099,7 +2089,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteModelVersionResponseDetails
@@ -2116,7 +2105,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteModelVersionTagResponseDetails
@@ -2133,7 +2121,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteRegisteredModelResponseDetails
@@ -2150,7 +2137,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteRegisteredModelTagResponseDetails
@@ -2167,7 +2153,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentResponse
@@ -2187,7 +2172,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentResponse
@@ -2207,7 +2191,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetExperimentRunResponseDetails
@@ -2230,7 +2213,6 @@ Update a Delta Share with the provided metadata.
 - `page_token` (string) — Pagination token to go to the next page of metric history.
 - `max_results` (number) — Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentRunMetricHistoryCollection
@@ -2251,7 +2233,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetModelVersionResponseDetails
@@ -2270,7 +2251,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetRegisteredModelResponseDetails
@@ -2292,7 +2272,6 @@ Update a Delta Share with the provided metadata.
 - `path` (string) — Filter artifacts matching this path (a relative path from the root artifact directory).
 - `page_token` (string) — Token indicating the page of artifact results to fetch.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ArtifactList
@@ -2314,7 +2293,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentRunCollection
@@ -2337,7 +2315,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentCollection
@@ -2360,7 +2337,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LoggedModelCollection
@@ -2383,7 +2359,6 @@ Update a Delta Share with the provided metadata.
 - `page_token` (string) — Pagination token to go to the next page based on a previous search query.
 - `order_by` (string) — List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelVersionCollection
@@ -2408,7 +2383,6 @@ Update a Delta Share with the provided metadata.
 - `page_token` (string) — Pagination token to go to the next page based on a previous search query.
 - `order_by` (string) — List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by model name ASC.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RegisteredModelCollection
@@ -2432,7 +2406,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunBatchResponseDetails
@@ -2450,7 +2423,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunInputsResponseDetails
@@ -2468,7 +2440,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunMetricResponseDetails
@@ -2486,7 +2457,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunModelResponseDetails
@@ -2504,7 +2474,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunParamResponseDetails
@@ -2521,7 +2490,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RenameRegisteredModelResponseDetails
@@ -2542,7 +2510,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RestoreExperimentResponseDetails
@@ -2560,7 +2527,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RestoreExperimentRunResponseDetails
@@ -2578,7 +2544,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetExperimentRunTagResponseDetails
@@ -2596,7 +2561,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetExperimentTagResponseDetails
@@ -2613,7 +2577,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetModelVersionTagResponseDetails
@@ -2630,7 +2593,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetRegisteredModelTagResponseDetails
@@ -2647,7 +2609,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TransitionModelVersionStageResponseDetails
@@ -2668,7 +2629,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentResponseDetails
@@ -2686,7 +2646,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentRunResponseDetails
@@ -2707,7 +2666,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentRunTagsResponseDetails
@@ -2725,7 +2683,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentTagsResponseDetails
@@ -2742,7 +2699,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateModelVersionResponseDetails
@@ -2762,7 +2718,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateModelVersionTagsResponseDetails
@@ -2779,7 +2734,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateRegisteredModelResponseDetails
@@ -2799,7 +2753,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateRegisteredModelTagsResponseDetails
@@ -5254,7 +5207,6 @@ Creates a git folder in the workspace
 - `create_git_folder_details` (oci.aidataplatform_dp.models.CreateGitFolderDetails) — The information to be updated.
 
 **Optional Parameters:**
-- `dh_user_principal` (string) — The DH User Principal Header .
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.

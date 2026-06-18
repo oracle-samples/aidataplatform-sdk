@@ -101,8 +101,6 @@ return clientCall(request, CreateExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -140,8 +138,6 @@ return clientCall(request, CreateExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -177,8 +173,6 @@ return clientCall(request, CreateModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -214,8 +208,6 @@ return clientCall(request, CreateRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -253,8 +245,6 @@ return clientCall(request, CreateWorkspaceModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -292,8 +282,6 @@ return clientCall(request, DeleteExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -331,8 +319,6 @@ return clientCall(request, DeleteExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -370,8 +356,6 @@ return clientCall(request, DeleteExperimentRunTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -409,8 +393,6 @@ return clientCall(request, DeleteExperimentTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -446,8 +428,6 @@ return clientCall(request, DeleteModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -483,8 +463,6 @@ return clientCall(request, DeleteModelVersionTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -520,8 +498,6 @@ return clientCall(request, DeleteRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -557,8 +533,6 @@ return clientCall(request, DeleteRegisteredModelTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -598,8 +572,6 @@ return clientCall(request, GetExperimentByIdResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -639,8 +611,6 @@ return clientCall(request, GetExperimentByNameResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -680,8 +650,6 @@ return clientCall(request, GetExperimentRunByIdResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -735,8 +703,6 @@ return clientCall(request, GetExperimentRunMetricHistoryResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -780,8 +746,6 @@ return clientCall(request, GetModelVersionResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -819,8 +783,6 @@ return clientCall(request, GetRegisteredModelResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -868,8 +830,6 @@ return clientCall(request, ListArtifactsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -905,8 +865,6 @@ return clientCall(request, ListExperimentRunsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -942,8 +900,6 @@ return clientCall(request, ListExperimentsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -979,8 +935,6 @@ return clientCall(request, ListLoggedModelsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1028,8 +982,6 @@ return clientCall(request, ListModelVersionsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -1077,8 +1029,6 @@ return clientCall(request, ListRegisteredModelsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         
@@ -1116,8 +1066,6 @@ return clientCall(request, LogExperimentRunBatchResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1155,8 +1103,6 @@ return clientCall(request, LogExperimentRunInputsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1194,8 +1140,6 @@ return clientCall(request, LogExperimentRunMetricResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1233,8 +1177,6 @@ return clientCall(request, LogExperimentRunModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1272,8 +1214,6 @@ return clientCall(request, LogExperimentRunParamResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1309,8 +1249,6 @@ return clientCall(request, RenameRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1346,8 +1284,6 @@ return clientCall(request, RestoreExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1385,8 +1321,6 @@ return clientCall(request, RestoreExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1424,8 +1358,6 @@ return clientCall(request, SetExperimentRunTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1463,8 +1395,6 @@ return clientCall(request, SetExperimentTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1500,8 +1430,6 @@ return clientCall(request, SetModelVersionTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1537,8 +1465,6 @@ return clientCall(request, SetRegisteredModelTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1574,8 +1500,6 @@ return clientCall(request, TransitionModelVersionStageResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1613,8 +1537,6 @@ return clientCall(request, UpdateExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1652,8 +1574,6 @@ return clientCall(request, UpdateExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1691,8 +1611,6 @@ return clientCall(request, UpdateExperimentRunTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1730,8 +1648,6 @@ return clientCall(request, UpdateExperimentTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1767,8 +1683,6 @@ return clientCall(request, UpdateModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1804,8 +1718,6 @@ return clientCall(request, UpdateModelVersionTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1841,8 +1753,6 @@ return clientCall(request, UpdateRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()
@@ -1878,8 +1788,6 @@ return clientCall(request, UpdateRegisteredModelTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()

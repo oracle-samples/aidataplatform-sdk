@@ -5753,7 +5753,7 @@ export class GitClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': checkoutBranchRequest.opcRetryToken,'opc-request-id': checkoutBranchRequest.opcRequestId,'should-update-recent': checkoutBranchRequest.shouldUpdateRecent,'if-match': checkoutBranchRequest.ifMatch,'dh-user-principal': checkoutBranchRequest.dhUserPrincipal,
+        'opc-retry-token': checkoutBranchRequest.opcRetryToken,'opc-request-id': checkoutBranchRequest.opcRequestId,'should-update-recent': checkoutBranchRequest.shouldUpdateRecent,'if-match': checkoutBranchRequest.ifMatch,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7051,7 +7051,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createExperimentRequest.opcRetryToken,'opc-request-id': createExperimentRequest.opcRequestId,'dh-user-principal': createExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': createExperimentRequest.opcRetryToken,'opc-request-id': createExperimentRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7125,7 +7125,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createExperimentRunRequest.opcRetryToken,'opc-request-id': createExperimentRunRequest.opcRequestId,'dh-user-principal': createExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': createExperimentRunRequest.opcRetryToken,'opc-request-id': createExperimentRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7198,7 +7198,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createModelVersionRequest.opcRetryToken,'opc-request-id': createModelVersionRequest.opcRequestId,'dh-user-principal': createModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': createModelVersionRequest.opcRetryToken,'opc-request-id': createModelVersionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7271,7 +7271,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createRegisteredModelRequest.opcRetryToken,'opc-request-id': createRegisteredModelRequest.opcRequestId,'dh-user-principal': createRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': createRegisteredModelRequest.opcRetryToken,'opc-request-id': createRegisteredModelRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7345,7 +7345,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': createWorkspaceModelVersionRequest.opcRetryToken,'opc-request-id': createWorkspaceModelVersionRequest.opcRequestId,'dh-user-principal': createWorkspaceModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': createWorkspaceModelVersionRequest.opcRetryToken,'opc-request-id': createWorkspaceModelVersionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7419,7 +7419,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteExperimentRequest.opcRetryToken,'opc-request-id': deleteExperimentRequest.opcRequestId,'dh-user-principal': deleteExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentRequest.opcRetryToken,'opc-request-id': deleteExperimentRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7493,7 +7493,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteExperimentRunRequest.opcRetryToken,'opc-request-id': deleteExperimentRunRequest.opcRequestId,'dh-user-principal': deleteExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentRunRequest.opcRetryToken,'opc-request-id': deleteExperimentRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7567,7 +7567,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteExperimentRunTagRequest.opcRetryToken,'opc-request-id': deleteExperimentRunTagRequest.opcRequestId,'dh-user-principal': deleteExperimentRunTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentRunTagRequest.opcRetryToken,'opc-request-id': deleteExperimentRunTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7641,7 +7641,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteExperimentTagRequest.opcRetryToken,'opc-request-id': deleteExperimentTagRequest.opcRequestId,'dh-user-principal': deleteExperimentTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteExperimentTagRequest.opcRetryToken,'opc-request-id': deleteExperimentTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7714,7 +7714,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteModelVersionRequest.opcRetryToken,'opc-request-id': deleteModelVersionRequest.opcRequestId,'dh-user-principal': deleteModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': deleteModelVersionRequest.opcRetryToken,'opc-request-id': deleteModelVersionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7787,7 +7787,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteModelVersionTagRequest.opcRetryToken,'opc-request-id': deleteModelVersionTagRequest.opcRequestId,'dh-user-principal': deleteModelVersionTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteModelVersionTagRequest.opcRetryToken,'opc-request-id': deleteModelVersionTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7860,7 +7860,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteRegisteredModelRequest.opcRetryToken,'opc-request-id': deleteRegisteredModelRequest.opcRequestId,'dh-user-principal': deleteRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': deleteRegisteredModelRequest.opcRetryToken,'opc-request-id': deleteRegisteredModelRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7933,7 +7933,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': deleteRegisteredModelTagRequest.opcRetryToken,'opc-request-id': deleteRegisteredModelTagRequest.opcRequestId,'dh-user-principal': deleteRegisteredModelTagRequest.dhUserPrincipal,
+        'opc-retry-token': deleteRegisteredModelTagRequest.opcRetryToken,'opc-request-id': deleteRegisteredModelTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8008,7 +8008,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getExperimentByIdRequest.opcRequestId,'dh-user-principal': getExperimentByIdRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentByIdRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8080,7 +8080,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getExperimentByNameRequest.opcRequestId,'dh-user-principal': getExperimentByNameRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentByNameRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8152,7 +8152,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getExperimentRunByIdRequest.opcRequestId,'dh-user-principal': getExperimentRunByIdRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentRunByIdRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8227,7 +8227,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getExperimentRunMetricHistoryRequest.opcRequestId,'dh-user-principal': getExperimentRunMetricHistoryRequest.dhUserPrincipal,
+        'opc-request-id': getExperimentRunMetricHistoryRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8299,7 +8299,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getModelVersionRequest.opcRequestId,'dh-user-principal': getModelVersionRequest.dhUserPrincipal,
+        'opc-request-id': getModelVersionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8370,7 +8370,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': getRegisteredModelRequest.opcRequestId,'dh-user-principal': getRegisteredModelRequest.dhUserPrincipal,
+        'opc-request-id': getRegisteredModelRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8444,7 +8444,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listArtifactsRequest.opcRequestId,'dh-user-principal': listArtifactsRequest.dhUserPrincipal,
+        'opc-request-id': listArtifactsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8515,7 +8515,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listExperimentRunsRequest.opcRequestId,'dh-user-principal': listExperimentRunsRequest.dhUserPrincipal,
+        'opc-request-id': listExperimentRunsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8589,7 +8589,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listExperimentsRequest.opcRequestId,'dh-user-principal': listExperimentsRequest.dhUserPrincipal,
+        'opc-request-id': listExperimentsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8663,7 +8663,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listLoggedModelsRequest.opcRequestId,'dh-user-principal': listLoggedModelsRequest.dhUserPrincipal,
+        'opc-request-id': listLoggedModelsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8740,7 +8740,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listModelVersionsRequest.opcRequestId,'dh-user-principal': listModelVersionsRequest.dhUserPrincipal,
+        'opc-request-id': listModelVersionsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8814,7 +8814,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-request-id': listRegisteredModelsRequest.opcRequestId,'dh-user-principal': listRegisteredModelsRequest.dhUserPrincipal,
+        'opc-request-id': listRegisteredModelsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8885,7 +8885,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logExperimentRunBatchRequest.opcRetryToken,'opc-request-id': logExperimentRunBatchRequest.opcRequestId,'dh-user-principal': logExperimentRunBatchRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunBatchRequest.opcRetryToken,'opc-request-id': logExperimentRunBatchRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8959,7 +8959,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logExperimentRunInputsRequest.opcRetryToken,'opc-request-id': logExperimentRunInputsRequest.opcRequestId,'dh-user-principal': logExperimentRunInputsRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunInputsRequest.opcRetryToken,'opc-request-id': logExperimentRunInputsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9033,7 +9033,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logExperimentRunMetricRequest.opcRetryToken,'opc-request-id': logExperimentRunMetricRequest.opcRequestId,'dh-user-principal': logExperimentRunMetricRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunMetricRequest.opcRetryToken,'opc-request-id': logExperimentRunMetricRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9107,7 +9107,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logExperimentRunModelRequest.opcRetryToken,'opc-request-id': logExperimentRunModelRequest.opcRequestId,'dh-user-principal': logExperimentRunModelRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunModelRequest.opcRetryToken,'opc-request-id': logExperimentRunModelRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9181,7 +9181,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': logExperimentRunParamRequest.opcRetryToken,'opc-request-id': logExperimentRunParamRequest.opcRequestId,'dh-user-principal': logExperimentRunParamRequest.dhUserPrincipal,
+        'opc-retry-token': logExperimentRunParamRequest.opcRetryToken,'opc-request-id': logExperimentRunParamRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9254,7 +9254,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': renameRegisteredModelRequest.opcRetryToken,'opc-request-id': renameRegisteredModelRequest.opcRequestId,'dh-user-principal': renameRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': renameRegisteredModelRequest.opcRetryToken,'opc-request-id': renameRegisteredModelRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9323,7 +9323,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': restoreExperimentRequest.opcRetryToken,'opc-request-id': restoreExperimentRequest.opcRequestId,'dh-user-principal': restoreExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': restoreExperimentRequest.opcRetryToken,'opc-request-id': restoreExperimentRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9397,7 +9397,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': restoreExperimentRunRequest.opcRetryToken,'opc-request-id': restoreExperimentRunRequest.opcRequestId,'dh-user-principal': restoreExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': restoreExperimentRunRequest.opcRetryToken,'opc-request-id': restoreExperimentRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9471,7 +9471,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setExperimentRunTagRequest.opcRetryToken,'opc-request-id': setExperimentRunTagRequest.opcRequestId,'dh-user-principal': setExperimentRunTagRequest.dhUserPrincipal,
+        'opc-retry-token': setExperimentRunTagRequest.opcRetryToken,'opc-request-id': setExperimentRunTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9545,7 +9545,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setExperimentTagRequest.opcRetryToken,'opc-request-id': setExperimentTagRequest.opcRequestId,'dh-user-principal': setExperimentTagRequest.dhUserPrincipal,
+        'opc-retry-token': setExperimentTagRequest.opcRetryToken,'opc-request-id': setExperimentTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9618,7 +9618,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setModelVersionTagRequest.opcRetryToken,'opc-request-id': setModelVersionTagRequest.opcRequestId,'dh-user-principal': setModelVersionTagRequest.dhUserPrincipal,
+        'opc-retry-token': setModelVersionTagRequest.opcRetryToken,'opc-request-id': setModelVersionTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9691,7 +9691,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': setRegisteredModelTagRequest.opcRetryToken,'opc-request-id': setRegisteredModelTagRequest.opcRequestId,'dh-user-principal': setRegisteredModelTagRequest.dhUserPrincipal,
+        'opc-retry-token': setRegisteredModelTagRequest.opcRetryToken,'opc-request-id': setRegisteredModelTagRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9764,7 +9764,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': transitionModelVersionStageRequest.opcRetryToken,'opc-request-id': transitionModelVersionStageRequest.opcRequestId,'dh-user-principal': transitionModelVersionStageRequest.dhUserPrincipal,
+        'opc-retry-token': transitionModelVersionStageRequest.opcRetryToken,'opc-request-id': transitionModelVersionStageRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9838,7 +9838,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateExperimentRequest.opcRetryToken,'opc-request-id': updateExperimentRequest.opcRequestId,'dh-user-principal': updateExperimentRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentRequest.opcRetryToken,'opc-request-id': updateExperimentRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9912,7 +9912,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateExperimentRunRequest.opcRetryToken,'opc-request-id': updateExperimentRunRequest.opcRequestId,'dh-user-principal': updateExperimentRunRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentRunRequest.opcRetryToken,'opc-request-id': updateExperimentRunRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9986,7 +9986,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateExperimentRunTagsRequest.opcRetryToken,'opc-request-id': updateExperimentRunTagsRequest.opcRequestId,'dh-user-principal': updateExperimentRunTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentRunTagsRequest.opcRetryToken,'opc-request-id': updateExperimentRunTagsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10060,7 +10060,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateExperimentTagsRequest.opcRetryToken,'opc-request-id': updateExperimentTagsRequest.opcRequestId,'dh-user-principal': updateExperimentTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateExperimentTagsRequest.opcRetryToken,'opc-request-id': updateExperimentTagsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10133,7 +10133,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateModelVersionRequest.opcRetryToken,'opc-request-id': updateModelVersionRequest.opcRequestId,'dh-user-principal': updateModelVersionRequest.dhUserPrincipal,
+        'opc-retry-token': updateModelVersionRequest.opcRetryToken,'opc-request-id': updateModelVersionRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10206,7 +10206,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateModelVersionTagsRequest.opcRetryToken,'opc-request-id': updateModelVersionTagsRequest.opcRequestId,'dh-user-principal': updateModelVersionTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateModelVersionTagsRequest.opcRetryToken,'opc-request-id': updateModelVersionTagsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10279,7 +10279,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateRegisteredModelRequest.opcRetryToken,'opc-request-id': updateRegisteredModelRequest.opcRequestId,'dh-user-principal': updateRegisteredModelRequest.dhUserPrincipal,
+        'opc-retry-token': updateRegisteredModelRequest.opcRetryToken,'opc-request-id': updateRegisteredModelRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10352,7 +10352,7 @@ export class MLOpsClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'opc-retry-token': updateRegisteredModelTagsRequest.opcRetryToken,'opc-request-id': updateRegisteredModelTagsRequest.opcRequestId,'dh-user-principal': updateRegisteredModelTagsRequest.dhUserPrincipal,
+        'opc-retry-token': updateRegisteredModelTagsRequest.opcRetryToken,'opc-request-id': updateRegisteredModelTagsRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -18094,7 +18094,7 @@ export class WorkspaceClient {
 
         let headerParams = {
         "Content-Type": common.Constants.APPLICATION_JSON,
-        'dh-user-principal': createGitFolderRequest.dhUserPrincipal,'opc-retry-token': createGitFolderRequest.opcRetryToken,'if-match': createGitFolderRequest.ifMatch,'opc-request-id': createGitFolderRequest.opcRequestId,
+        'opc-retry-token': createGitFolderRequest.opcRetryToken,'if-match': createGitFolderRequest.ifMatch,'opc-request-id': createGitFolderRequest.opcRequestId,
         };
 
         const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
