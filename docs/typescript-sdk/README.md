@@ -2256,7 +2256,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 | `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CheckoutBranchResponse`
 
@@ -2866,7 +2865,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateExperimentResponse`
 
@@ -2902,7 +2900,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateExperimentRunResponse`
 
@@ -2934,7 +2931,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateModelVersionResponse`
 
@@ -2966,7 +2962,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateRegisteredModelResponse`
 
@@ -2999,7 +2994,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateWorkspaceModelVersionResponse`
 
@@ -3032,7 +3026,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentResponse`
 
@@ -3065,7 +3058,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentRunResponse`
 
@@ -3098,7 +3090,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentRunTagResponse`
 
@@ -3131,7 +3122,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentTagResponse`
 
@@ -3163,7 +3153,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteModelVersionResponse`
 
@@ -3195,7 +3184,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteModelVersionTagResponse`
 
@@ -3227,7 +3215,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteRegisteredModelResponse`
 
@@ -3259,7 +3246,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteRegisteredModelTagResponse`
 
@@ -3291,7 +3277,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentByIdResponse`
 
@@ -3323,7 +3308,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentByNameResponse`
 
@@ -3355,7 +3339,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentRunByIdResponse`
 
@@ -3390,7 +3373,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `pageToken` | `string` | Pagination token to go to the next page of metric history. |
 | `maxResults` | `number` | Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentRunMetricHistoryResponse`
 
@@ -3426,7 +3408,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetModelVersionResponse`
 
@@ -3457,7 +3438,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetRegisteredModelResponse`
 
@@ -3491,7 +3471,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `path` | `string` | Filter artifacts matching this path (a relative path from the root artifact directory). |
 | `pageToken` | `string` | Token indicating the page of artifact results to fetch. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListArtifactsResponse`
 
@@ -3528,7 +3507,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListExperimentRunsResponse`
 
@@ -3564,7 +3542,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListExperimentsResponse`
 
@@ -3600,7 +3577,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListLoggedModelsResponse`
 
@@ -3638,7 +3614,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `pageToken` | `string` | Pagination token to go to the next page based on a previous search query. |
 | `orderBy` | `string` | List of columns to be ordered by including model name, version, stage with an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListModelVersionsResponse`
 
@@ -3676,7 +3651,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `pageToken` | `string` | Pagination token to go to the next page based on a previous search query. |
 | `orderBy` | `string` | List of columns for ordering search results, which can include model name and last updated timestamp with an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by model name ASC. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListRegisteredModelsResponse`
 
@@ -3713,7 +3687,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunBatchResponse`
 
@@ -3746,7 +3719,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunInputsResponse`
 
@@ -3779,7 +3751,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunMetricResponse`
 
@@ -3812,7 +3783,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunModelResponse`
 
@@ -3845,7 +3815,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunParamResponse`
 
@@ -3877,7 +3846,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.RenameRegisteredModelResponse`
 
@@ -3909,7 +3877,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.RestoreExperimentResponse`
 
@@ -3942,7 +3909,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.RestoreExperimentRunResponse`
 
@@ -3975,7 +3941,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetExperimentRunTagResponse`
 
@@ -4008,7 +3973,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetExperimentTagResponse`
 
@@ -4040,7 +4004,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetModelVersionTagResponse`
 
@@ -4072,7 +4035,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetRegisteredModelTagResponse`
 
@@ -4104,7 +4066,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.TransitionModelVersionStageResponse`
 
@@ -4137,7 +4098,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentResponse`
 
@@ -4170,7 +4130,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentRunResponse`
 
@@ -4203,7 +4162,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentRunTagsResponse`
 
@@ -4236,7 +4194,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentTagsResponse`
 
@@ -4268,7 +4225,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateModelVersionResponse`
 
@@ -4300,7 +4256,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateModelVersionTagsResponse`
 
@@ -4332,7 +4287,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateRegisteredModelResponse`
 
@@ -4364,7 +4318,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateRegisteredModelTagsResponse`
 
@@ -7961,7 +7914,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |

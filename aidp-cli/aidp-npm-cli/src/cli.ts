@@ -2,7 +2,9 @@
 
 import { readFileSync } from "fs";
 import { join } from "path";
+import { Readable } from "stream";
 import { inspect } from "util";
+import common = require("oci-common");
 
 import { consumeLeadingGlobalOptions, parseGlobalOptions } from "./args";
 import {
@@ -29,6 +31,7 @@ import {
   searchHelp
 } from "./help";
 import {
+  commandUsesRawBody,
   closeMatches,
   parseCommandOptions,
   unknownMessage,
@@ -179,6 +182,8 @@ async function handleCommand(
     }
     throw error;
   }
+
+  prepareRequestForSdk(command, invocation.request);
 
   const authProvider = await buildAuthenticationDetailsProvider(invocation.globals);
   const endpoint = resolveEndpoint(invocation.globals, authProvider);
@@ -335,6 +340,32 @@ interface CaptureState {
   captured?: CapturedHttpResponse;
 }
 
+interface HttpRequest {
+  body?: unknown;
+  headers?: Headers;
+  method?: string;
+  uri?: string;
+}
+
+export function prepareRequestForSdk(command: CommandDefinition, requestValues: Record<string, unknown>): void {
+  if (!commandUsesRawBody(command) || !command.bodyField || requestValues.retryConfiguration !== undefined) {
+    return;
+  }
+  const body = binaryBodyBuffer(requestValues[command.bodyField]);
+  if (body) {
+    requestValues[command.bodyField] = Readable.from([body]);
+    requestValues.retryConfiguration = common.NoRetryConfigurationDetails;
+  }
+}
+
+export function prepareHttpRequestForSend(
+  command: CommandDefinition,
+  requestValues: Record<string, unknown>,
+  request: HttpRequest
+): void {
+  preserveExplicitEmptyJsonBody(command, requestValues, request);
+}
+
 function installHttpCapture(
   client: Record<string, unknown>,
   group: CommandGroup,
@@ -350,7 +381,8 @@ function installHttpCapture(
   client._httpClient = {
     ...original,
     send: async (...args: unknown[]) => {
-      const request = args[0] as { body?: unknown; headers?: Headers; method?: string; uri?: string };
+      const request = args[0] as HttpRequest;
+      prepareHttpRequestForSend(command, requestValues, request);
       if (debug) {
         printDebugDetails(group, command, request, requestValues);
       }
@@ -362,7 +394,38 @@ function installHttpCapture(
   return state;
 }
 
-async function captureResponse(response: Response): Promise<CapturedHttpResponse> {
+function preserveExplicitEmptyJsonBody(
+  command: CommandDefinition,
+  requestValues: Record<string, unknown>,
+  request: HttpRequest
+): void {
+  if (!command.bodyField || (request.body !== undefined && request.body !== null) || !hasRequiredBodyField(command)) {
+    return;
+  }
+  if (isEmptyRecord(requestValues[command.bodyField])) {
+    request.body = "{}";
+  }
+}
+
+function hasRequiredBodyField(command: CommandDefinition): boolean {
+  return command.fields.some((field) => field.in === "body" && field.name === command.bodyField && field.required);
+}
+
+function binaryBodyBuffer(value: unknown): Buffer | undefined {
+  if (Buffer.isBuffer(value)) {
+    return value;
+  }
+  if (value instanceof Uint8Array) {
+    return Buffer.from(value);
+  }
+  return undefined;
+}
+
+function isEmptyRecord(value: unknown): value is Record<string, never> {
+  return value !== null && typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0;
+}
+
+export async function captureResponse(response: Response): Promise<CapturedHttpResponse> {
   const headers: Record<string, string> = {};
   response.headers.forEach((value, key) => {
     headers[key] = value;
@@ -370,13 +433,18 @@ async function captureResponse(response: Response): Promise<CapturedHttpResponse
 
   let data: unknown = null;
   try {
-    const text = await response.clone().text();
-    if (text.trim()) {
-      try {
-        data = JSON.parse(text);
-      } catch {
-        data = text;
+    if (isJsonContentType(headers)) {
+      const text = await response.clone().text();
+      if (text.trim()) {
+        try {
+          data = JSON.parse(text);
+        } catch {
+          data = text;
+        }
       }
+    } else {
+      const bytes = Buffer.from(await response.clone().arrayBuffer());
+      data = bytes.length > 0 ? [Array.from(bytes)] : null;
     }
   } catch {
     data = null;
@@ -387,6 +455,21 @@ async function captureResponse(response: Response): Promise<CapturedHttpResponse
     headers,
     status: response.status
   };
+}
+
+function isJsonContentType(headers: Record<string, string>): boolean {
+  const contentType = headerValue(headers, "content-type");
+  return contentType !== undefined && contentType.toLowerCase().includes("json");
+}
+
+function headerValue(headers: Record<string, string>, name: string): string | undefined {
+  const normalizedName = name.toLowerCase();
+  for (const [key, value] of Object.entries(headers)) {
+    if (key.toLowerCase() === normalizedName) {
+      return value;
+    }
+  }
+  return undefined;
 }
 
 function printDebugDetails(
