@@ -5,7 +5,7 @@ export interface CapturedHttpResponse {
 }
 
 export function printResponse(response: unknown, captured?: CapturedHttpResponse): void {
-  const payload = captured ?? responseEnvelope(response);
+  const payload = captured ? normalizeCapturedResponse(captured) : responseEnvelope(response);
   console.log("Response:");
   console.log(stringify(payload));
 }
@@ -54,6 +54,31 @@ function responseEnvelope(response: unknown): CapturedHttpResponse {
     headers,
     status: null
   };
+}
+
+function normalizeCapturedResponse(captured: CapturedHttpResponse): CapturedHttpResponse {
+  if (typeof captured.data !== "string" || isJsonContentType(captured.headers)) {
+    return captured;
+  }
+  return {
+    ...captured,
+    data: [Array.from(Buffer.from(captured.data, "utf8"))]
+  };
+}
+
+function isJsonContentType(headers: Record<string, string>): boolean {
+  const contentType = headerValue(headers, "content-type");
+  return contentType !== undefined && contentType.toLowerCase().includes("json");
+}
+
+function headerValue(headers: Record<string, string>, name: string): string | undefined {
+  const normalizedName = name.toLowerCase();
+  for (const [key, value] of Object.entries(headers)) {
+    if (key.toLowerCase() === normalizedName) {
+      return value;
+    }
+  }
+  return undefined;
 }
 
 function isHeaderLikeKey(key: string): boolean {
