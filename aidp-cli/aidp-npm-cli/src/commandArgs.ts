@@ -8,11 +8,11 @@ import {
   splitInlineOption
 } from "./args";
 import { buildRequestId, GlobalOptions } from "./config";
-import { CommandDefinition, CommandField, CommandGroup } from "./discovery";
+import { BodyField, CommandDefinition, CommandField, CommandGroup } from "./discovery";
 import { CliError } from "./errors";
 import { bodyContainsSensitiveField, jsonBodyArgumentSource } from "./bodySecurity";
 import { parseJsonObject, parseJsonValue, readJsonArgument, readRawBodyArgument } from "./json";
-import { normalizedLookupName } from "./names";
+import { camelToSnake, normalizedLookupName } from "./names";
 
 export interface CommandInvocation {
   globals: GlobalOptions;
@@ -83,13 +83,14 @@ export function parseCommandOptions(
       }
       const [value, nextIndex] = optionValue(tokens, index, optionName, inlineValue);
       const usesRawBody = commandUsesRawBody(command);
-      const body = usesRawBody ? readRawBodyArgument(value) : parseJsonObject(readJsonArgument(value), "--body");
-      if (!usesRawBody && jsonBodyArgumentSource(value) === "inline" && bodyContainsSensitiveField(command, body)) {
+      const parsedBody = usesRawBody ? readRawBodyArgument(value) : parseJsonObject(readJsonArgument(value), "--body");
+      if (!usesRawBody && jsonBodyArgumentSource(value) === "inline" && bodyContainsSensitiveField(command, parsedBody)) {
         throw new CliError(
           "Inline --body JSON is blocked because this request body contains sensitive fields. " +
             "Use --body @request.json, --body file:///path/request.json, or --body -."
         );
       }
+      const body = usesRawBody ? parsedBody : normalizeBodyForSdk(command, parsedBody as Record<string, unknown>);
       request[command.bodyField] = body;
       index = nextIndex;
       continue;
@@ -156,6 +157,98 @@ export function commandUsesRawBody(command: CommandDefinition): boolean {
       command.bodyFields.length === 0 &&
       Object.keys(command.bodyModels).length === 0
   );
+}
+
+export function normalizeBodyForSdk(command: CommandDefinition, body: Record<string, unknown>): Record<string, unknown> {
+  const fields = rootBodyFields(command);
+  if (fields.length === 0) {
+    return body;
+  }
+  const seenModels = new Set<string>();
+  if (command.bodyModel) {
+    seenModels.add(command.bodyModel);
+  }
+  return normalizeObjectForFields(command, body, fields, seenModels);
+}
+
+function rootBodyFields(command: CommandDefinition): BodyField[] {
+  const rootModel = command.bodyModel ? command.bodyModels[command.bodyModel] : undefined;
+  return rootModel?.fields ?? command.bodyFields;
+}
+
+function normalizeObjectForFields(
+  command: CommandDefinition,
+  body: Record<string, unknown>,
+  fields: BodyField[],
+  seenModels: Set<string>
+): Record<string, unknown> {
+  const normalized: Record<string, unknown> = {};
+  const consumedKeys = new Set<string>();
+
+  for (const field of fields) {
+    const inputKey = inputKeyForField(body, field);
+    if (inputKey === undefined) {
+      continue;
+    }
+    consumedKeys.add(inputKey);
+    normalized[field.name] = normalizeFieldValue(command, field, body[inputKey], seenModels);
+  }
+
+  for (const [key, value] of Object.entries(body)) {
+    if (!consumedKeys.has(key) && normalized[key] === undefined) {
+      normalized[key] = value;
+    }
+  }
+
+  return normalized;
+}
+
+function inputKeyForField(body: Record<string, unknown>, field: BodyField): string | undefined {
+  if (Object.prototype.hasOwnProperty.call(body, field.name)) {
+    return field.name;
+  }
+  const wireName = camelToSnake(field.name);
+  if (Object.prototype.hasOwnProperty.call(body, wireName)) {
+    return wireName;
+  }
+  return undefined;
+}
+
+function normalizeFieldValue(
+  command: CommandDefinition,
+  field: BodyField,
+  value: unknown,
+  seenModels: Set<string>
+): unknown {
+  if (!field.modelName) {
+    return value;
+  }
+  if (field.type === "array" && Array.isArray(value)) {
+    return value.map((item) => normalizeModelValue(command, field.modelName, item, seenModels));
+  }
+  return normalizeModelValue(command, field.modelName, value, seenModels);
+}
+
+function normalizeModelValue(
+  command: CommandDefinition,
+  modelName: string,
+  value: unknown,
+  seenModels: Set<string>
+): unknown {
+  if (!isJsonObject(value) || seenModels.has(modelName)) {
+    return value;
+  }
+  const model = command.bodyModels[modelName];
+  if (!model) {
+    return value;
+  }
+  const nextSeenModels = new Set(seenModels);
+  nextSeenModels.add(modelName);
+  return normalizeObjectForFields(command, value, model.fields, nextSeenModels);
+}
+
+function isJsonObject(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
 export function argumentMetavar(field: CommandField): string {
