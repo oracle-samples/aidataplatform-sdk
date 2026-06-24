@@ -1,7 +1,9 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
+const stream = require("stream");
 const { spawnSync } = require("child_process");
+const common = require("oci-common");
 
 const args = require("../dist/args");
 const discovery = require("../dist/discovery");
@@ -35,11 +37,14 @@ assert.ok(workspace);
 const getWorkspace = discovery.findCommand(workspace, "get-workspace");
 assert.ok(getWorkspace);
 assert.strictEqual(getWorkspace.sdkMethodName, "getWorkspace");
-assert.ok(discovery.findCommandGroup(manifest, "mlops"));
+const mlops = discovery.findCommandGroup(manifest, "mlops");
+assert.ok(mlops);
 assert.ok(manifest.commandGroups.some((group) => group.name === "mlops"));
 assert.ok(!manifest.commandGroups.some((group) => group.name === "ml-ops"));
 assert.ok(discovery.findCommandGroup(manifest, "bundle"));
 assert.ok(discovery.findCommandGroup(manifest, "cluster"));
+const notebook = discovery.findCommandGroup(manifest, "notebook");
+assert.ok(notebook);
 assert.ok(!discovery.findCommandGroup(manifest, "git"));
 assert.ok(!manifest.commandGroups.some((group) => group.name === "git"));
 const workspaceObject = discovery.findCommandGroup(manifest, "workspace-object");
@@ -123,6 +128,95 @@ try {
     parsedWithInstance.globals
   );
   assert.deepStrictEqual(createInvocation.request.createWorkspaceDetails, { displayName: "demo" });
+
+  const emptyBodyCommand = testBodyCommand({
+    bodyModel: "EmptyDetails",
+    bodyModels: {
+      EmptyDetails: testBodyModel([])
+    }
+  });
+  const emptyBodyInvocation = commandArgs.parseCommandOptions(
+    testGroup(emptyBodyCommand),
+    emptyBodyCommand,
+    ["--body", "{}"],
+    parsedWithInstance.globals
+  );
+  const emptyHttpRequest = {};
+  cli.prepareHttpRequestForSend(emptyBodyCommand, emptyBodyInvocation.request, emptyHttpRequest);
+  assert.strictEqual(emptyHttpRequest.body, "{}");
+  const existingHttpRequest = { body: "{\"kept\":true}" };
+  cli.prepareHttpRequestForSend(emptyBodyCommand, emptyBodyInvocation.request, existingHttpRequest);
+  assert.strictEqual(existingHttpRequest.body, "{\"kept\":true}");
+
+  const updateExperiment = discovery.findCommand(mlops, "update-experiment");
+  assert.ok(updateExperiment);
+  const updateExperimentInvocation = commandArgs.parseCommandOptions(
+    mlops,
+    updateExperiment,
+    ["workspace-key", "--body", "{\"experiment_id\":\"122\",\"new_name\":\"demo-updated\"}"],
+    parsedWithInstance.globals
+  );
+  assert.deepStrictEqual(updateExperimentInvocation.request.updateExperimentDetails, {
+    experimentId: "122",
+    newName: "demo-updated"
+  });
+  const updateExperimentCamelInvocation = commandArgs.parseCommandOptions(
+    mlops,
+    updateExperiment,
+    ["workspace-key", "--body", "{\"experimentId\":\"122\",\"newName\":\"demo-updated\"}"],
+    parsedWithInstance.globals
+  );
+  assert.deepStrictEqual(updateExperimentCamelInvocation.request.updateExperimentDetails, {
+    experimentId: "122",
+    newName: "demo-updated"
+  });
+
+  const createSession = discovery.findCommand(notebook, "create-session");
+  assert.ok(createSession);
+  const createSessionInvocation = commandArgs.parseCommandOptions(
+    notebook,
+    createSession,
+    [
+      "workspace-key",
+      "--body",
+      "{\"name\":\"session\",\"cluster_id\":\"cluster-key\",\"kernel\":{\"name\":\"python3\"}}"
+    ],
+    parsedWithInstance.globals
+  );
+  assert.deepStrictEqual(createSessionInvocation.request.createSessionDetails, {
+    name: "session",
+    clusterId: "cluster-key",
+    kernel: { name: "python3" }
+  });
+
+  const nestedBodyCommand = testBodyCommand({
+    bodyModel: "ParentDetails",
+    bodyModels: {
+      ParentDetails: testBodyModel([
+        testBodyField("childItems", "ChildDetails", { type: "array", itemType: "object" })
+      ]),
+      ChildDetails: testBodyModel([testBodyField("childName"), testBodyField("grandChild", "GrandChildDetails")]),
+      GrandChildDetails: testBodyModel([testBodyField("grandValue")])
+    }
+  });
+  const nestedInvocation = commandArgs.parseCommandOptions(
+    testGroup(nestedBodyCommand),
+    nestedBodyCommand,
+    [
+      "--body",
+      "{\"child_items\":[{\"child_name\":\"child\",\"grand_child\":{\"grand_value\":\"nested\"}}],\"unknown_key\":\"kept\"}"
+    ],
+    parsedWithInstance.globals
+  );
+  assert.deepStrictEqual(nestedInvocation.request.testBody, {
+    childItems: [
+      {
+        childName: "child",
+        grandChild: { grandValue: "nested" }
+      }
+    ],
+    unknown_key: "kept"
+  });
 
   const sensitiveCommand = testBodyCommand({
     bodyModel: "CreateCredentialDetails",
@@ -216,6 +310,9 @@ try {
     );
     assert.ok(Buffer.isBuffer(rawFileInvocation.request.testBody));
     assert.strictEqual(rawFileInvocation.request.testBody.toString("utf8"), "raw-content");
+    cli.prepareRequestForSdk(rawCommand, rawFileInvocation.request);
+    assert.ok(rawFileInvocation.request.testBody instanceof stream.Readable);
+    assert.strictEqual(rawFileInvocation.request.retryConfiguration, common.NoRetryConfigurationDetails);
 
     const rawFileUrlInvocation = commandArgs.parseCommandOptions(
       testGroup(rawCommand),
@@ -225,6 +322,10 @@ try {
     );
     assert.ok(Buffer.isBuffer(rawFileUrlInvocation.request.testBody));
     assert.strictEqual(rawFileUrlInvocation.request.testBody.toString("utf8"), "raw-content");
+
+    const rawStringRequest = { ...rawInlineInvocation.request };
+    cli.prepareRequestForSdk(rawCommand, rawStringRequest);
+    assert.strictEqual(rawStringRequest.retryConfiguration, undefined);
   } finally {
     fs.rmSync(bodyTempDir, { recursive: true, force: true });
   }
@@ -406,6 +507,20 @@ assert.ok(printed.includes('"data"'));
 assert.ok(printed.includes('"headers"'));
 assert.ok(printed.includes('"status"'));
 
+const printedNonJsonStream = captureStdout(() =>
+  output.printResponse({}, { data: "abc", headers: { "content-type": "application/x-yaml" }, status: 200 })
+);
+assert.deepStrictEqual(parsePrintedResponse(printedNonJsonStream).data, [[97, 98, 99]]);
+
+const printedJsonCapture = captureStdout(() =>
+  output.printResponse({}, { data: { ok: true }, headers: { "content-type": "application/json" }, status: 200 })
+);
+assert.deepStrictEqual(parsePrintedResponse(printedJsonCapture).data, { ok: true });
+
+const capturedJsonFallback = runCaptureResponseParser();
+assert.strictEqual(capturedJsonFallback.status, 0, capturedJsonFallback.stderr);
+assert.ok(capturedJsonFallback.stdout.includes("capture response parser test passed"));
+
 const printedError = captureStderr(() =>
   output.printErrorResponse({
     status: 409,
@@ -431,6 +546,45 @@ function runCli(cliArgs) {
   });
 }
 
+function runCaptureResponseParser() {
+  return spawnSync(
+    process.execPath,
+    [
+      "-e",
+      `
+      const assert = require("assert");
+      const cli = require("./dist/cli");
+
+      (async () => {
+        const validJsonResponse = new Response("{\\"ok\\":true}", {
+          status: 200,
+          headers: { "content-type": "application/json" }
+        });
+        const validJsonCapture = await cli.captureResponse(validJsonResponse);
+        assert.deepStrictEqual(validJsonCapture.data, { ok: true });
+
+        const rawTextResponse = new Response("volume CLI rel validation content", {
+          status: 200,
+          headers: { "content-type": "application/json" }
+        });
+        const rawTextCapture = await cli.captureResponse(rawTextResponse);
+        assert.strictEqual(rawTextCapture.data, "volume CLI rel validation content");
+        assert.strictEqual(rawTextCapture.status, 200);
+
+        console.log("capture response parser test passed");
+      })().catch((error) => {
+        console.error(error && error.stack ? error.stack : error);
+        process.exit(1);
+      });
+      `
+    ],
+    {
+      cwd: packageRoot,
+      encoding: "utf8"
+    }
+  );
+}
+
 function hasHelpRow(text, commandName) {
   return new RegExp(`^\\s{2}${commandName}\\s{2,}`, "m").test(text);
 }
@@ -447,6 +601,13 @@ function captureStdout(callback) {
     console.log = originalLog;
   }
   return lines.join("\n");
+}
+
+function parsePrintedResponse(text) {
+  const marker = "Response:";
+  const index = text.indexOf(marker);
+  assert.ok(index >= 0);
+  return JSON.parse(text.substring(index + marker.length).trim());
 }
 
 function captureStderr(callback) {
@@ -705,13 +866,14 @@ function testBodyModel(fields) {
   };
 }
 
-function testBodyField(name, modelName = "") {
+function testBodyField(name, modelName = "", overrides = {}) {
   return {
     enumValues: [],
     itemType: "",
     modelName,
     name,
     required: false,
-    type: modelName ? "object" : "string"
+    type: modelName ? "object" : "string",
+    ...overrides
   };
 }
