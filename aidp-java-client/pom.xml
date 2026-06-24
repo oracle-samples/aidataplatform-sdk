@@ -6,7 +6,7 @@
 
   <groupId>com.oracle.aidataplatform</groupId>
   <artifactId>aidp-java-client</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <packaging>jar</packaging>
   <name>aidp-java-client</name>
   <description>Java SDK to use Oracle AI Data Platform Workbench.</description>
@@ -68,25 +68,6 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <id>copy-pom-for-generic-publish</id>
-            <phase>package</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target>
-                <copy file="${basedir}/pom.xml" tofile="${project.build.directory}/${project.artifactId}-${project.version}.pom"/>
-              </target>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <version>3.3.1</version>
         <executions>
@@ -99,6 +80,134 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <doclint>none</doclint>
+          <source>8</source>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>prepare-generic-maven-central-artifacts</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <property name="maven.artifact.prefix" value="${project.build.directory}/${project.artifactId}-${project.version}"/>
+                <property name="maven.release.artifact.dir" value="${project.build.directory}/release-artifacts"/>
+                <delete dir="${maven.release.artifact.dir}"/>
+                <mkdir dir="${maven.release.artifact.dir}"/>
+                <copy file="${basedir}/pom.xml" tofile="${maven.artifact.prefix}.pom"/>
+                <checksum file="${maven.artifact.prefix}.jar" algorithm="MD5" fileext=".md5" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}.jar" algorithm="SHA-1" fileext=".sha1" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}.pom" algorithm="MD5" fileext=".md5" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}.pom" algorithm="SHA-1" fileext=".sha1" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}-sources.jar" algorithm="MD5" fileext=".md5" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}-sources.jar" algorithm="SHA-1" fileext=".sha1" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}-javadoc.jar" algorithm="MD5" fileext=".md5" forceOverwrite="true"/>
+                <checksum file="${maven.artifact.prefix}-javadoc.jar" algorithm="SHA-1" fileext=".sha1" forceOverwrite="true"/>
+                <copy todir="${maven.release.artifact.dir}">
+                  <fileset dir="${project.build.directory}">
+                    <include name="${project.artifactId}-${project.version}.jar"/>
+                    <include name="${project.artifactId}-${project.version}.jar.md5"/>
+                    <include name="${project.artifactId}-${project.version}.jar.sha1"/>
+                    <include name="${project.artifactId}-${project.version}.pom"/>
+                    <include name="${project.artifactId}-${project.version}.pom.md5"/>
+                    <include name="${project.artifactId}-${project.version}.pom.sha1"/>
+                    <include name="${project.artifactId}-${project.version}-sources.jar"/>
+                    <include name="${project.artifactId}-${project.version}-sources.jar.md5"/>
+                    <include name="${project.artifactId}-${project.version}-sources.jar.sha1"/>
+                    <include name="${project.artifactId}-${project.version}-javadoc.jar"/>
+                    <include name="${project.artifactId}-${project.version}-javadoc.jar.md5"/>
+                    <include name="${project.artifactId}-${project.version}-javadoc.jar.sha1"/>
+                  </fileset>
+                </copy>
+                <condition property="maven.release.artifacts.complete">
+                  <and>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}.jar"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}.jar.md5"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}.jar.sha1"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}.pom"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}.pom.md5"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}.pom.sha1"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}-sources.jar"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}-sources.jar.md5"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}-sources.jar.sha1"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}-javadoc.jar"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}-javadoc.jar.md5"/>
+                    <available file="${maven.release.artifact.dir}/${project.artifactId}-${project.version}-javadoc.jar.sha1"/>
+                  </and>
+                </condition>
+                <fail unless="maven.release.artifacts.complete" message="Missing one or more Java client Maven release artifacts in ${maven.release.artifact.dir}"/>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>central-release</id>
+      <properties>
+        <central.publishing.server.id>central</central.publishing.server.id>
+        <central.skipPublishing>true</central.skipPublishing>
+        <central.autoPublish>false</central.autoPublish>
+        <gpg.skip>false</gpg.skip>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.7</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <skip>${gpg.skip}</skip>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.11.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>${central.publishing.server.id}</publishingServerId>
+              <autoPublish>${central.autoPublish}</autoPublish>
+              <skipPublishing>${central.skipPublishing}</skipPublishing>
+              <checksums>all</checksums>
+              <deploymentName>${project.artifactId}-${project.version}</deploymentName>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

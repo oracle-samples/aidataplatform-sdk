@@ -1,6 +1,6 @@
 {
   "name": "aidp-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Command line interface for Oracle AI Data Platform Workbench.",
   "keywords": [
     "oracle",
@@ -33,7 +33,8 @@
     "build": "./node_modules/typescript/bin/tsc -p tsconfig.json",
     "generate-manifest": "node scripts/generate_manifest.js",
     "test": "npm run build && npm run generate-manifest && node test/run_tests.js",
-    "write-version": "node scripts/write_version.js"
+    "write-version": "node scripts/write_version.js",
+    "prepare-publish-metadata": "node scripts/prepare_publish_metadata.js"
   },
   "repository": {
     "type": "git",
