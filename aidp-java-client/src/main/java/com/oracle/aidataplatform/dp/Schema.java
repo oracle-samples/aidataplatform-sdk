@@ -99,7 +99,7 @@ public interface Schema extends AutoCloseable {
     CreateViewResponse createView(CreateViewRequest request);
     
     /**
-     * Deletes a schema from an AI Data Platform Workbench.
+     * Deletes a schema.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -109,7 +109,7 @@ public interface Schema extends AutoCloseable {
     DeleteSchemaResponse deleteSchema(DeleteSchemaRequest request);
     
     /**
-     * Deletes a table from an AI Data Platform Workbench.
+     * Deletes a table.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -119,7 +119,7 @@ public interface Schema extends AutoCloseable {
     DeleteTableResponse deleteTable(DeleteTableRequest request);
     
     /**
-     * Deletes a view from AI Data Platform Workbench.
+     * Deletes a view.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -179,7 +179,7 @@ public interface Schema extends AutoCloseable {
     ListSchemaPermissionsResponse listSchemaPermissions(ListSchemaPermissionsRequest request);
     
     /**
-     * Returns a list of schemas in a given AI Data Platform Workbench.
+     * Returns a list of schemas.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -281,7 +281,7 @@ public interface Schema extends AutoCloseable {
     PerformInferSchemaWithPreviewResponse performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request);
     
     /**
-     * Refreshes schema in an AI Data Platform Workbench through the crawler.
+     * Refreshes schema through the crawler.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -291,7 +291,7 @@ public interface Schema extends AutoCloseable {
     RefreshSchemaResponse refreshSchema(RefreshSchemaRequest request);
     
     /**
-     * Refreshes a table in an AI Data Platform Workbench through the crawler.
+     * Refreshes a table through the crawler.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -301,7 +301,7 @@ public interface Schema extends AutoCloseable {
     RefreshTableResponse refreshTable(RefreshTableRequest request);
     
     /**
-     * Retrieve PAR for the entities created in AI Data Platform Workbench.
+     * Retrieves PAR for the entities created.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

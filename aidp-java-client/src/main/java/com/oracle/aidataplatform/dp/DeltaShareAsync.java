@@ -58,7 +58,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
+     * Creates a recipient for a Delta Share protocol.
 * 
      * 
      * @param request The request object containing the details to send
@@ -71,7 +71,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateRecipientResponse> createRecipient(CreateRecipientRequest request, com.oracle.bmc.responses.AsyncHandler<CreateRecipientRequest, CreateRecipientResponse> handler);
     
     /**
-     * Create a Delta Share protocol in AI Data Platform Workbench.
+     * Creates a Delta Share protocol.
 * 
      * 
      * @param request The request object containing the details to send
@@ -84,7 +84,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateShareResponse> createShare(CreateShareRequest request, com.oracle.bmc.responses.AsyncHandler<CreateShareRequest, CreateShareResponse> handler);
     
     /**
-     * Deletes a Delta Share recipient from an AI Data Platform Workbench.
+     * Deletes a Delta Share recipient.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -96,7 +96,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteRecipientResponse> deleteRecipient(DeleteRecipientRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteRecipientRequest, DeleteRecipientResponse> handler);
     
     /**
-     * Deletes a Delta Share from an AI Data Platform Workbench.
+     * Deletes a Delta Share.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -108,7 +108,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteShareResponse> deleteShare(DeleteShareRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteShareRequest, DeleteShareResponse> handler);
     
     /**
-     * Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
+     * Gets detailed information about a Delta Share recipient.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -158,7 +158,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<ListRecipientSharesResponse> listRecipientShares(ListRecipientSharesRequest request, com.oracle.bmc.responses.AsyncHandler<ListRecipientSharesRequest, ListRecipientSharesResponse> handler);
     
     /**
-     * Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
+     * Gets a list of Delta Share recipients.
 * 
      * 
      * @param request The request object containing the details to send
@@ -171,7 +171,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<ListRecipientsResponse> listRecipients(ListRecipientsRequest request, com.oracle.bmc.responses.AsyncHandler<ListRecipientsRequest, ListRecipientsResponse> handler);
     
     /**
-     * Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
+     * Gets a list of Delta Share assets.
 * 
      * 
      * @param request The request object containing the details to send
@@ -210,7 +210,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<ListShareRecipientsResponse> listShareRecipients(ListShareRecipientsRequest request, com.oracle.bmc.responses.AsyncHandler<ListShareRecipientsRequest, ListShareRecipientsResponse> handler);
     
     /**
-     * Gets a list of Delta Shares in an AI Data Platform Workbench instance.
+     * Gets a list of Delta Shares.
 * 
      * 
      * @param request The request object containing the details to send
@@ -223,7 +223,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<ListSharesResponse> listShares(ListSharesRequest request, com.oracle.bmc.responses.AsyncHandler<ListSharesRequest, ListSharesResponse> handler);
     
     /**
-     * Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
+     * Updates the permissions of a Delta Share recipient.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -271,7 +271,7 @@ public interface DeltaShareAsync extends AutoCloseable {
     java.util.concurrent.Future<ManageSharePermissionResponse> manageSharePermission(ManageSharePermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageSharePermissionRequest, ManageSharePermissionResponse> handler);
     
     /**
-     * Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
+     * Updates the metadata of a Delta Share recipient.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

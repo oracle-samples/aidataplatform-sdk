@@ -101,9 +101,6 @@ class WorkspaceClient(object):
         :param oci.aidataplatform_dp.models.CreateGitFolderDetails create_git_folder_details: (required)
             The information to be updated.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
             server error without risk of running that same action again. Retry tokens expire after 24
@@ -140,7 +137,6 @@ class WorkspaceClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "dh_user_principal",
             "opc_retry_token",
             "if_match",
             "opc_request_id"
@@ -164,7 +160,6 @@ class WorkspaceClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "dh-user-principal": kwargs.get("dh_user_principal", missing),
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
             "if-match": kwargs.get("if_match", missing),
             "opc-request-id": kwargs.get("opc_request_id", missing)

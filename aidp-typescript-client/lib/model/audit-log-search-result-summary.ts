@@ -44,10 +44,15 @@ export interface AuditLogSearchResultSummary {
     * Payload of logs.
     */
     'payload'?: string;
+    /**
+    * Error message from audit log entry, if available.
+    */
+    'errorMessage'?: string;
 
 }
 
 export namespace AuditLogSearchResultSummary {
+
 
 
 
@@ -70,6 +75,7 @@ export namespace AuditLogSearchResultSummary {
 
 
 
+
         }};
 
         
@@ -80,6 +86,7 @@ export namespace AuditLogSearchResultSummary {
     export function getDeserializedJsonObj(obj: AuditLogSearchResultSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

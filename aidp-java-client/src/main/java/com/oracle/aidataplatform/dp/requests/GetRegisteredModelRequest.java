@@ -54,19 +54,6 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<GetRegisteredModelRequest, java.lang.Void> {
@@ -126,21 +113,6 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -167,7 +139,7 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
          * @return this builder instance
          */
         public Builder copy(GetRegisteredModelRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());name(o.getName());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());name(o.getName());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -203,9 +175,8 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
             request.aiDataPlatformId = aiDataPlatformId;
             request.name = name;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new GetRegisteredModelRequest(aiDataPlatformId, name, opcRequestId, dhUserPrincipal);
+            // new GetRegisteredModelRequest(aiDataPlatformId, name, opcRequestId);
         }
     }
 
@@ -217,8 +188,7 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
         return new Builder()
             .aiDataPlatformId(aiDataPlatformId)
             .name(name)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -237,7 +207,6 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",name=").append(String.valueOf(this.name));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -255,8 +224,7 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
         return super.equals(o)
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.name, other.name)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -266,7 +234,6 @@ public class GetRegisteredModelRequest extends com.oracle.bmc.requests.BmcReques
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

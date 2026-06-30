@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Session data retention configuration for agent flow
+* Session data retention configuration for an Agent.
 */
 export interface SessionRetentionConfiguration {
     /**

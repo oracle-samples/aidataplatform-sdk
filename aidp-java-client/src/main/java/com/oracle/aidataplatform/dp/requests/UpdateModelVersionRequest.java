@@ -77,19 +77,6 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -184,21 +171,6 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -225,7 +197,7 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
          * @return this builder instance
          */
         public Builder copy(UpdateModelVersionRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());updateModelVersionDetails(o.getUpdateModelVersionDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());updateModelVersionDetails(o.getUpdateModelVersionDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -273,9 +245,8 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
             request.updateModelVersionDetails = updateModelVersionDetails;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new UpdateModelVersionRequest(aiDataPlatformId, updateModelVersionDetails, opcRetryToken, opcRequestId, dhUserPrincipal);
+            // new UpdateModelVersionRequest(aiDataPlatformId, updateModelVersionDetails, opcRetryToken, opcRequestId);
         }
     }
 
@@ -288,8 +259,7 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
             .aiDataPlatformId(aiDataPlatformId)
             .updateModelVersionDetails(updateModelVersionDetails)
             .opcRetryToken(opcRetryToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -309,7 +279,6 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
         sb.append(",updateModelVersionDetails=").append(String.valueOf(this.updateModelVersionDetails));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -328,8 +297,7 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.updateModelVersionDetails, other.updateModelVersionDetails)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -340,7 +308,6 @@ public class UpdateModelVersionRequest extends com.oracle.bmc.requests.BmcReques
         result = (result * PRIME) + (this.updateModelVersionDetails == null ? 43 : this.updateModelVersionDetails.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

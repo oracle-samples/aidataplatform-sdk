@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Configuration for a content moderation category
+ * Configuration for a content moderation category.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ContentModerationCategoryConfig.Builder.class)
@@ -24,14 +24,14 @@ public final class ContentModerationCategoryConfig  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Content moderation category
+     * Content moderation category.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("category")
 private ContentModerationCategory category;
 
         /**
-         * Content moderation category
+         * Content moderation category.
          * @param category the value to set
          * @return this builder
          **/
@@ -42,14 +42,14 @@ public Builder category(ContentModerationCategory category) {
     return this;
 }
             /**
-     * Whether this category is enabled
+     * Whether this category is enabled.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("isEnabled")
 private Boolean isEnabled;
 
         /**
-         * Whether this category is enabled
+         * Whether this category is enabled.
          * @param isEnabled the value to set
          * @return this builder
          **/
@@ -60,14 +60,14 @@ public Builder isEnabled(Boolean isEnabled) {
     return this;
 }
             /**
-     * Threshold value for this category (0.0 to 1.0)
+     * Threshold value for this category (0.0 to 1.0).
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("threshold")
 private Float threshold;
 
         /**
-         * Threshold value for this category (0.0 to 1.0)
+         * Threshold value for this category (0.0 to 1.0).
          * @param threshold the value to set
          * @return this builder
          **/
@@ -78,14 +78,14 @@ public Builder threshold(Float threshold) {
     return this;
 }
             /**
-     * Action to take for this category
+     * Action to take for this category.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("action")
 private PolicyAction action;
 
         /**
-         * Action to take for this category
+         * Action to take for this category.
          * @param action the value to set
          * @return this builder
          **/
@@ -130,14 +130,14 @@ return this;
 
     
         /**
-     * Content moderation category
+     * Content moderation category.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("category")
     private final ContentModerationCategory category;
 
         /**
-     * Content moderation category
+     * Content moderation category.
      * @return the value
      **/
     
@@ -147,14 +147,14 @@ return this;
 
 
         /**
-     * Whether this category is enabled
+     * Whether this category is enabled.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isEnabled")
     private final Boolean isEnabled;
 
         /**
-     * Whether this category is enabled
+     * Whether this category is enabled.
      * @return the value
      **/
     
@@ -164,14 +164,14 @@ return this;
 
 
         /**
-     * Threshold value for this category (0.0 to 1.0)
+     * Threshold value for this category (0.0 to 1.0).
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("threshold")
     private final Float threshold;
 
         /**
-     * Threshold value for this category (0.0 to 1.0)
+     * Threshold value for this category (0.0 to 1.0).
      * @return the value
      **/
     
@@ -181,14 +181,14 @@ return this;
 
     
         /**
-     * Action to take for this category
+     * Action to take for this category.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final PolicyAction action;
 
         /**
-     * Action to take for this category
+     * Action to take for this category.
      * @return the value
      **/
     

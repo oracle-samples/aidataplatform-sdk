@@ -44,7 +44,8 @@ class NodeOutput(object):
 
         :param port_position:
             The value to assign to the port_position property of this NodeOutput.
-            Allowed values for this property are: "TOP", "BOTTOM", "RIGHT", "LEFT"
+            Allowed values for this property are: "TOP", "BOTTOM", "RIGHT", "LEFT", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type port_position: str
 
         :param description:
@@ -128,7 +129,8 @@ class NodeOutput(object):
         Gets the port_position of this NodeOutput.
         UI position of the output port on the node.
 
-        Allowed values for this property are: "TOP", "BOTTOM", "RIGHT", "LEFT"
+        Allowed values for this property are: "TOP", "BOTTOM", "RIGHT", "LEFT", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The port_position of this NodeOutput.
@@ -148,10 +150,7 @@ class NodeOutput(object):
         """
         allowed_values = ["TOP", "BOTTOM", "RIGHT", "LEFT"]
         if not value_allowed_none_or_none_sentinel(port_position, allowed_values):
-            raise ValueError(
-                "Invalid value for `port_position`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            port_position = 'UNKNOWN_ENUM_VALUE'
         self._port_position = port_position
 
     @property

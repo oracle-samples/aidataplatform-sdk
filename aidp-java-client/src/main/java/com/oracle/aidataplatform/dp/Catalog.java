@@ -59,7 +59,7 @@ public interface Catalog extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Test the connection of an AI Data Platform Workbench to an external catalog.
+     * Tests the connection to an external catalog.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -69,7 +69,7 @@ public interface Catalog extends AutoCloseable {
     CatalogTestConnectionResponse catalogTestConnection(CatalogTestConnectionRequest request);
     
     /**
-     * Create a catalog in the AI Data Platform Workbench with the given ID.
+     * Creates a catalog with the given ID.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -79,7 +79,7 @@ public interface Catalog extends AutoCloseable {
     CreateCatalogResponse createCatalog(CreateCatalogRequest request);
     
     /**
-     * Deletes the specified catalog from an AI Data Platform Workbench.
+     * Deletes the specified catalog.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -89,7 +89,7 @@ public interface Catalog extends AutoCloseable {
     DeleteCatalogResponse deleteCatalog(DeleteCatalogRequest request);
     
     /**
-     * Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
+     * Gets detailed information about a catalog with a given catalog key.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -99,7 +99,7 @@ public interface Catalog extends AutoCloseable {
     GetCatalogResponse getCatalog(GetCatalogRequest request);
     
     /**
-     * Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
+     * Gets a list of all permissions in the specified catalog.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -109,7 +109,7 @@ public interface Catalog extends AutoCloseable {
     ListCatalogPermissionsResponse listCatalogPermissions(ListCatalogPermissionsRequest request);
     
     /**
-     * Get a list of catalogs in an AI Data Platform Workbench with a given ID.
+     * Gets a list of catalogs with a given ID.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -119,7 +119,7 @@ public interface Catalog extends AutoCloseable {
     ListCatalogsResponse listCatalogs(ListCatalogsRequest request);
     
     /**
-     * Update permission details for a catalog in an AI Data Platform Workbench.
+     * Updates permission details for a catalog.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -129,7 +129,7 @@ public interface Catalog extends AutoCloseable {
     ManageCatalogPermissionResponse manageCatalogPermission(ManageCatalogPermissionRequest request);
     
     /**
-     * Refresh a catalog in an AI Data Platform Workbench through a crawler.
+     * Refreshes a catalog through a crawler.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -139,7 +139,7 @@ public interface Catalog extends AutoCloseable {
     RefreshCatalogResponse refreshCatalog(RefreshCatalogRequest request);
     
     /**
-     * Update the details of an AI Data Platform Workbench catalog with the given information.
+     * Updates the details of a catalog with the given information.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

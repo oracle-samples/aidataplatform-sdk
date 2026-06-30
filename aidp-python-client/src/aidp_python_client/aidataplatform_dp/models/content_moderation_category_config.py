@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ContentModerationCategoryConfig(object):
     """
-    Configuration for a content moderation category
+    Configuration for a content moderation category.
     """
 
     #: A constant which can be used with the category property of a ContentModerationCategoryConfig.
@@ -56,7 +56,8 @@ class ContentModerationCategoryConfig(object):
 
         :param category:
             The value to assign to the category property of this ContentModerationCategoryConfig.
-            Allowed values for this property are: "HATE_SPEECH", "HARASSMENT", "VIOLENCE", "SEXUAL", "DEROGATORY", "TOXIC"
+            Allowed values for this property are: "HATE_SPEECH", "HARASSMENT", "VIOLENCE", "SEXUAL", "DEROGATORY", "TOXIC", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type category: str
 
         :param is_enabled:
@@ -69,7 +70,8 @@ class ContentModerationCategoryConfig(object):
 
         :param action:
             The value to assign to the action property of this ContentModerationCategoryConfig.
-            Allowed values for this property are: "BLOCK", "INFORM", "MASK"
+            Allowed values for this property are: "BLOCK", "INFORM", "MASK", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type action: str
 
         """
@@ -96,9 +98,10 @@ class ContentModerationCategoryConfig(object):
     def category(self):
         """
         **[Required]** Gets the category of this ContentModerationCategoryConfig.
-        Content moderation category
+        Content moderation category.
 
-        Allowed values for this property are: "HATE_SPEECH", "HARASSMENT", "VIOLENCE", "SEXUAL", "DEROGATORY", "TOXIC"
+        Allowed values for this property are: "HATE_SPEECH", "HARASSMENT", "VIOLENCE", "SEXUAL", "DEROGATORY", "TOXIC", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The category of this ContentModerationCategoryConfig.
@@ -110,7 +113,7 @@ class ContentModerationCategoryConfig(object):
     def category(self, category):
         """
         Sets the category of this ContentModerationCategoryConfig.
-        Content moderation category
+        Content moderation category.
 
 
         :param category: The category of this ContentModerationCategoryConfig.
@@ -118,17 +121,14 @@ class ContentModerationCategoryConfig(object):
         """
         allowed_values = ["HATE_SPEECH", "HARASSMENT", "VIOLENCE", "SEXUAL", "DEROGATORY", "TOXIC"]
         if not value_allowed_none_or_none_sentinel(category, allowed_values):
-            raise ValueError(
-                "Invalid value for `category`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            category = 'UNKNOWN_ENUM_VALUE'
         self._category = category
 
     @property
     def is_enabled(self):
         """
         **[Required]** Gets the is_enabled of this ContentModerationCategoryConfig.
-        Whether this category is enabled
+        Whether this category is enabled.
 
 
         :return: The is_enabled of this ContentModerationCategoryConfig.
@@ -140,7 +140,7 @@ class ContentModerationCategoryConfig(object):
     def is_enabled(self, is_enabled):
         """
         Sets the is_enabled of this ContentModerationCategoryConfig.
-        Whether this category is enabled
+        Whether this category is enabled.
 
 
         :param is_enabled: The is_enabled of this ContentModerationCategoryConfig.
@@ -152,7 +152,7 @@ class ContentModerationCategoryConfig(object):
     def threshold(self):
         """
         **[Required]** Gets the threshold of this ContentModerationCategoryConfig.
-        Threshold value for this category (0.0 to 1.0)
+        Threshold value for this category (0.0 to 1.0).
 
 
         :return: The threshold of this ContentModerationCategoryConfig.
@@ -164,7 +164,7 @@ class ContentModerationCategoryConfig(object):
     def threshold(self, threshold):
         """
         Sets the threshold of this ContentModerationCategoryConfig.
-        Threshold value for this category (0.0 to 1.0)
+        Threshold value for this category (0.0 to 1.0).
 
 
         :param threshold: The threshold of this ContentModerationCategoryConfig.
@@ -176,9 +176,10 @@ class ContentModerationCategoryConfig(object):
     def action(self):
         """
         **[Required]** Gets the action of this ContentModerationCategoryConfig.
-        Action to take for this category
+        Action to take for this category.
 
-        Allowed values for this property are: "BLOCK", "INFORM", "MASK"
+        Allowed values for this property are: "BLOCK", "INFORM", "MASK", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The action of this ContentModerationCategoryConfig.
@@ -190,7 +191,7 @@ class ContentModerationCategoryConfig(object):
     def action(self, action):
         """
         Sets the action of this ContentModerationCategoryConfig.
-        Action to take for this category
+        Action to take for this category.
 
 
         :param action: The action of this ContentModerationCategoryConfig.
@@ -198,10 +199,7 @@ class ContentModerationCategoryConfig(object):
         """
         allowed_values = ["BLOCK", "INFORM", "MASK"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
-            raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            action = 'UNKNOWN_ENUM_VALUE'
         self._action = action
 
     def __repr__(self):

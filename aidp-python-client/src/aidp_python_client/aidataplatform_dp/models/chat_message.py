@@ -32,7 +32,8 @@ class ChatMessage(object):
 
         :param type:
             The value to assign to the type property of this ChatMessage.
-            Allowed values for this property are: "INPUT_TEXT", "INPUT_IMAGE", "INPUT_FILE"
+            Allowed values for this property are: "INPUT_TEXT", "INPUT_IMAGE", "INPUT_FILE", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 
         :param text:
@@ -73,7 +74,8 @@ class ChatMessage(object):
         **[Required]** Gets the type of this ChatMessage.
         Type of input.
 
-        Allowed values for this property are: "INPUT_TEXT", "INPUT_IMAGE", "INPUT_FILE"
+        Allowed values for this property are: "INPUT_TEXT", "INPUT_IMAGE", "INPUT_FILE", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The type of this ChatMessage.
@@ -93,10 +95,7 @@ class ChatMessage(object):
         """
         allowed_values = ["INPUT_TEXT", "INPUT_IMAGE", "INPUT_FILE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
-            raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            type = 'UNKNOWN_ENUM_VALUE'
         self._type = type
 
     @property

@@ -33,13 +33,13 @@ class DefaultCluster(Cluster):
 
         :param source_api:
             The value to assign to the source_api property of this DefaultCluster.
-            Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type source_api: str
 
         :param type:
             The value to assign to the type property of this DefaultCluster.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 

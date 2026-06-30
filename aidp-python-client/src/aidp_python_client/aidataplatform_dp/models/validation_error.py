@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ValidationError(object):
     """
-    Validation error for a component in agent flow diagram.
+    Validation error for a component in agent diagram.
     """
 
     def __init__(self, **kwargs):

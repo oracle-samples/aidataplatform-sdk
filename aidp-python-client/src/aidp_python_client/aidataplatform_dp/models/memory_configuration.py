@@ -26,6 +26,10 @@ class MemoryConfiguration(object):
             The value to assign to the limit property of this MemoryConfiguration.
         :type limit: oci.aidataplatform_dp.models.MemoryLimitConfiguration
 
+        :param context_management:
+            The value to assign to the context_management property of this MemoryConfiguration.
+        :type context_management: oci.aidataplatform_dp.models.ContextManagementConfiguration
+
         :param memory_properties:
             The value to assign to the memory_properties property of this MemoryConfiguration.
         :type memory_properties: dict(str, object)
@@ -34,17 +38,20 @@ class MemoryConfiguration(object):
         self.swagger_types = {
             'is_enabled': 'bool',
             'limit': 'MemoryLimitConfiguration',
+            'context_management': 'ContextManagementConfiguration',
             'memory_properties': 'dict(str, object)'
         }
 
         self.attribute_map = {
             'is_enabled': 'isEnabled',
             'limit': 'limit',
+            'context_management': 'contextManagement',
             'memory_properties': 'memoryProperties'
         }
 
         self._is_enabled = None
         self._limit = None
+        self._context_management = None
         self._memory_properties = None
 
     @property
@@ -90,6 +97,26 @@ class MemoryConfiguration(object):
         :type: oci.aidataplatform_dp.models.MemoryLimitConfiguration
         """
         self._limit = limit
+
+    @property
+    def context_management(self):
+        """
+        Gets the context_management of this MemoryConfiguration.
+
+        :return: The context_management of this MemoryConfiguration.
+        :rtype: oci.aidataplatform_dp.models.ContextManagementConfiguration
+        """
+        return self._context_management
+
+    @context_management.setter
+    def context_management(self, context_management):
+        """
+        Sets the context_management of this MemoryConfiguration.
+
+        :param context_management: The context_management of this MemoryConfiguration.
+        :type: oci.aidataplatform_dp.models.ContextManagementConfiguration
+        """
+        self._context_management = context_management
 
     @property
     def memory_properties(self):

@@ -22,7 +22,7 @@ public enum AsyncOperationResourceType implements com.oracle.bmc.http.internal.B
     KnowledgeBase("KNOWLEDGE_BASE"),
     KnowledgeBaseJob("KNOWLEDGE_BASE_JOB"),
     KnowledgeBaseJobRun("KNOWLEDGE_BASE_JOB_RUN"),
-    AgentFlow("AGENT_FLOW"),
+    Agent("AGENT"),
     GitOperation("GIT_OPERATION"),
     BundleOperation("BUNDLE_OPERATION"),
     

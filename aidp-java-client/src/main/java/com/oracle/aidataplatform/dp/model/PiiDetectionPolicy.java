@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * PII detection safety policy
+ * PII detection safety policy.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=PiiDetectionPolicy.Builder.class)
@@ -50,14 +50,14 @@ public Builder threshold(Float threshold) {
     return this;
 }
             /**
-     * List of PII categories to detect
+     * List of PII categories to detect.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("piiCategories")
 private java.util.List<PiiCategory> piiCategories;
 
         /**
-         * List of PII categories to detect
+         * List of PII categories to detect.
          * @param piiCategories the value to set
          * @return this builder
          **/
@@ -68,14 +68,14 @@ public Builder piiCategories(java.util.List<PiiCategory> piiCategories) {
     return this;
 }
             /**
-     * Custom PII detection rules
+     * Custom PII detection rules.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("customPiiRules")
 private java.util.List<CustomPiiRule> customPiiRules;
 
         /**
-         * Custom PII detection rules
+         * Custom PII detection rules.
          * @param customPiiRules the value to set
          * @return this builder
          **/
@@ -132,14 +132,14 @@ return this;
 
 
         /**
-     * List of PII categories to detect
+     * List of PII categories to detect.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("piiCategories")
     private final java.util.List<PiiCategory> piiCategories;
 
         /**
-     * List of PII categories to detect
+     * List of PII categories to detect.
      * @return the value
      **/
     
@@ -149,14 +149,14 @@ return this;
 
 
         /**
-     * Custom PII detection rules
+     * Custom PII detection rules.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("customPiiRules")
     private final java.util.List<CustomPiiRule> customPiiRules;
 
         /**
-     * Custom PII detection rules
+     * Custom PII detection rules.
      * @return the value
      **/
     

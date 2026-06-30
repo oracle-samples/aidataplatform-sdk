@@ -21,6 +21,14 @@ export interface RevokeTablePermissionDetails {
     * The list of columns to be excluded for the revoking of permissions.
     */
     'excludeColumns': Array<string>;
+    /**
+    * Type of row filter expression.
+    */
+    'rowFilterType'?: model.RowFilterType;
+    /**
+    * Row filter expression applied while assigning table permissions.
+    */
+    'rowFilter'?: string;
 
 }
 
@@ -41,6 +49,8 @@ export namespace RevokeTablePermissionDetails {
 
 
 
+
+
     export function getJsonObj(obj: RevokeTablePermissionDetails): object {
         const jsonObj = {...obj, ...{
             
@@ -48,6 +58,8 @@ export namespace RevokeTablePermissionDetails {
                 
                 
                 model.PermissionAssignees.getJsonObj(obj.assignees) : undefined,
+
+
 
 
 
@@ -65,6 +77,8 @@ export namespace RevokeTablePermissionDetails {
                 
                 
                 model.PermissionAssignees.getDeserializedJsonObj(obj.assignees) : undefined,
+
+
 
 
 

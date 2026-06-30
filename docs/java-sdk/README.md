@@ -3,6 +3,7 @@
 This document summarizes the available service clients in the AIDP Java SDK and details every operation's request parameters and responses.
 
 ## Clients
+- [Agent (`AgentClient`)](#agentclient-client)
 - [Async Operations (`AsyncOperationsClient`)](#asyncoperationsclient-client)
 - [Audit (`AuditClient`)](#auditclient-client)
 - [Bundle (`BundleClient`)](#bundleclient-client)
@@ -15,11 +16,681 @@ This document summarizes the available service clients in the AIDP Java SDK and 
 - [Notebook (`NotebookClient`)](#notebookclient-client)
 - [Role (`RoleClient`)](#roleclient-client)
 - [Schema (`SchemaClient`)](#schemaclient-client)
+- [Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client)
 - [User Setting (`UserSettingClient`)](#usersettingclient-client)
 - [Volume (`VolumeClient`)](#volumeclient-client)
 - [Workflow (`WorkflowClient`)](#workflowclient-client)
 - [Workspace (`WorkspaceClient`)](#workspaceclient-client)
 - [Workspace Object (`WorkspaceObjectClient`)](#workspaceobjectclient-client)
+
+## <a id="agentclient-client"></a>Agent (`AgentClient`)
+**Operations:**
+- [`copyAgent`](#agentclient-copyagent)
+- [`createAgent`](#agentclient-createagent)
+- [`deleteAgent`](#agentclient-deleteagent)
+- [`deleteAgentDeployment`](#agentclient-deleteagentdeployment)
+- [`deleteAgentSession`](#agentclient-deleteagentsession)
+- [`deployAgent`](#agentclient-deployagent)
+- [`getAgent`](#agentclient-getagent)
+- [`getAgentDeployment`](#agentclient-getagentdeployment)
+- [`getAgentSession`](#agentclient-getagentsession)
+- [`getAgentSessionTrace`](#agentclient-getagentsessiontrace)
+- [`listAgentDeployments`](#agentclient-listagentdeployments)
+- [`listAgentPermissions`](#agentclient-listagentpermissions)
+- [`listAgentSessionChatHistories`](#agentclient-listagentsessionchathistories)
+- [`listAgentSessions`](#agentclient-listagentsessions)
+- [`listAgents`](#agentclient-listagents)
+- [`manageAgentPermission`](#agentclient-manageagentpermission)
+- [`previewAgentAgentCard`](#agentclient-previewagentagentcard)
+- [`redeployAgentByKey`](#agentclient-redeployagentbykey)
+- [`updateAgent`](#agentclient-updateagent)
+- [`updateAgentDeploymentMetadata`](#agentclient-updateagentdeploymentmetadata)
+- [`validateAgent`](#agentclient-validateagent)
+
+### <a id="agentclient-copyagent"></a>`copyAgent`
+Copy an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `copyAgentDetails` (`oci.aidataplatform_dp.models.CopyAgentDetails`) — Details for copying the agent
+
+**Optional Parameters:**
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `copyAgentResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this Agent. The unique identifier (UUID) of the agent.
+- `displayName` (string) — Gets the display_name of this Agent. Agent name.
+- `workspaceKey` (string) — Gets the workspace_key of this Agent. The key of the workspace to which this agent belongs.
+- `description` (string) — Gets the description of this Agent. Agent description.
+- `pathInfo` (string) — Gets the path_info of this Agent. Path inside volume where the agent JSON is written.
+- `type` (string) — Gets the type of this Agent. The type of agent (Canvas or Code). Allowed values for this property are: "CANVAS", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entryFilePath` (string) — Gets the entry_file_path of this Agent. The path to project entry file.
+- `dependenciesFilePath` (string) — Gets the dependencies_file_path of this Agent. The path to dependencies file.
+- `deploymentComputeKey` (string) — Gets the deployment_compute_key of this Agent. The key of the compute where agent is deployed.
+- `deploymentMode` (string) — Gets the deployment_mode of this Agent. Agent deployment mode.
+- `uri` (string) — Gets the uri of this Agent. Agent URI.
+- `uriState` (string) — Gets the uri_state of this Agent. Agent URI state.
+- `lifecycleState` (string) — Gets the lifecycle_state of this Agent. The current state of the agent. Allowed values for this property are: "DRAFT", "DEPLOYED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleDetails` (string) — Gets the lifecycle_details of this Agent. A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state.
+- `timeCreated` (datetime) — Gets the time_created of this Agent. The date and time the agent was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this Agent. The date and time the agent was updated.
+- `createdBy` (string) — Gets the created_by of this Agent. The OCID of the user/principal who created the agent.
+- `updatedBy` (string) — Gets the updated_by of this Agent. The ID of the user who last updated the schema.
+- `computeKey` (string) — Gets the compute_key of this Agent. The key of the agent compute associated with this agent.
+- `diagram` (oci.aidataplatform_dp.models.AgentDiagram) — Gets the diagram of this Agent.
+- `guardrails` (oci.aidataplatform_dp.models.GuardrailsConfiguration) — Gets the guardrails of this Agent.
+- `sessionConfig` (oci.aidataplatform_dp.models.SessionConfiguration) — Gets the session_config of this Agent.
+- `agentCardConfig` (oci.aidataplatform_dp.models.AgentCardConfigDetail) — Gets the agent_card_config of this Agent.
+- `version` (number) — Gets the version of this Agent. A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-createagent"></a>`createAgent`
+Create an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `createAgentDetails` (`oci.aidataplatform_dp.models.CreateAgentDetails`) — Details for the new Agent.
+
+**Optional Parameters:**
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `createAgentResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this Agent. The unique identifier (UUID) of the agent.
+- `displayName` (string) — Gets the display_name of this Agent. Agent name.
+- `workspaceKey` (string) — Gets the workspace_key of this Agent. The key of the workspace to which this agent belongs.
+- `description` (string) — Gets the description of this Agent. Agent description.
+- `pathInfo` (string) — Gets the path_info of this Agent. Path inside volume where the agent JSON is written.
+- `type` (string) — Gets the type of this Agent. The type of agent (Canvas or Code). Allowed values for this property are: "CANVAS", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entryFilePath` (string) — Gets the entry_file_path of this Agent. The path to project entry file.
+- `dependenciesFilePath` (string) — Gets the dependencies_file_path of this Agent. The path to dependencies file.
+- `deploymentComputeKey` (string) — Gets the deployment_compute_key of this Agent. The key of the compute where agent is deployed.
+- `deploymentMode` (string) — Gets the deployment_mode of this Agent. Agent deployment mode.
+- `uri` (string) — Gets the uri of this Agent. Agent URI.
+- `uriState` (string) — Gets the uri_state of this Agent. Agent URI state.
+- `lifecycleState` (string) — Gets the lifecycle_state of this Agent. The current state of the agent. Allowed values for this property are: "DRAFT", "DEPLOYED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleDetails` (string) — Gets the lifecycle_details of this Agent. A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state.
+- `timeCreated` (datetime) — Gets the time_created of this Agent. The date and time the agent was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this Agent. The date and time the agent was updated.
+- `createdBy` (string) — Gets the created_by of this Agent. The OCID of the user/principal who created the agent.
+- `updatedBy` (string) — Gets the updated_by of this Agent. The ID of the user who last updated the schema.
+- `computeKey` (string) — Gets the compute_key of this Agent. The key of the agent compute associated with this agent.
+- `diagram` (oci.aidataplatform_dp.models.AgentDiagram) — Gets the diagram of this Agent.
+- `guardrails` (oci.aidataplatform_dp.models.GuardrailsConfiguration) — Gets the guardrails of this Agent.
+- `sessionConfig` (oci.aidataplatform_dp.models.SessionConfiguration) — Gets the session_config of this Agent.
+- `agentCardConfig` (oci.aidataplatform_dp.models.AgentCardConfigDetail) — Gets the agent_card_config of this Agent.
+- `version` (number) — Gets the version of this Agent. A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-deleteagent"></a>`deleteAgent`
+Delete an Agent from the schema
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+
+**Optional Parameters:**
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `deleteAgentResponse`
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-deleteagentdeployment"></a>`deleteAgentDeployment`
+Delete an Agent Deployment.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `agentDeploymentKey` (`string`) — The UUID of the Agent Deployment
+
+**Optional Parameters:**
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `deleteAgentDeploymentResponse`
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-deleteagentsession"></a>`deleteAgentSession`
+Delete an Agent Session.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `sessionId` (`string`) — The UUID of the Agent Session
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `deleteAgentSessionResponse`
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-deployagent"></a>`deployAgent`
+Deploys an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `deployAgentDetails` (`oci.aidataplatform_dp.models.DeployAgentDetails`) — Details of a deployable Agent.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `deployAgentResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this AgentDeployment. Identifier, generally UUID.
+- `displayName` (string) — Gets the display_name of this AgentDeployment. Display name.
+- `agentKey` (string) — Gets the agent_key of this AgentDeployment. The Agent key for which the session is started.
+- `agentComputeKey` (string) — Gets the agent_compute_key of this AgentDeployment. The Agent Compute Key where client can run or test the agent.
+- `endpointUrl` (string) — Gets the endpoint_url of this AgentDeployment. The endpointUrl where the client should connect to communicate with the agent.
+- `description` (string) — Gets the description of this AgentDeployment. deployment description.
+- `deploymentType` (string) — Gets the deployment_type of this AgentDeployment. Type of an agent deployment. Allowed values for this property are: "TEST", "PROD", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleState` (string) — Gets the lifecycle_state of this AgentDeployment. LifecycleState of an Agent Session or Deployment. Allowed values for this property are: "CREATING", "ACTIVE", "INACTIVE", "FAILED", "DELETED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `deploymentVersion` (string) — Gets the deployment_version of this AgentDeployment. Version of agent deployed on compute.
+- `timeCreated` (datetime) — Gets the time_created of this AgentDeployment. The date and time the Agent session was created.
+- `createdBy` (string) — Gets the created_by of this AgentDeployment. The OCID of the user/principal who created the agent session.
+- `timeUpdated` (datetime) — Gets the time_updated of this AgentDeployment. The date and time the agent deployment was updated.
+- `updatedBy` (string) — Gets the updated_by of this AgentDeployment. The OCID of the user/principal who re-deployed the existing agent deployment.
+- `sessionRetentionConfig` (oci.aidataplatform_dp.models.SessionRetentionConfiguration) — Gets the session_retention_config of this AgentDeployment.
+- `oAuthConfig` (oci.aidataplatform_dp.models.OAuthConfiguration) — Gets the o_auth_config of this AgentDeployment.
+- `agentCardUrl` (string) — Gets the agent_card_url of this AgentDeployment. AgentCard base URL.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-getagent"></a>`getAgent`
+Returns detailed information about an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `getAgentResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this Agent. The unique identifier (UUID) of the agent.
+- `displayName` (string) — Gets the display_name of this Agent. Agent name.
+- `workspaceKey` (string) — Gets the workspace_key of this Agent. The key of the workspace to which this agent belongs.
+- `description` (string) — Gets the description of this Agent. Agent description.
+- `pathInfo` (string) — Gets the path_info of this Agent. Path inside volume where the agent JSON is written.
+- `type` (string) — Gets the type of this Agent. The type of agent (Canvas or Code). Allowed values for this property are: "CANVAS", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entryFilePath` (string) — Gets the entry_file_path of this Agent. The path to project entry file.
+- `dependenciesFilePath` (string) — Gets the dependencies_file_path of this Agent. The path to dependencies file.
+- `deploymentComputeKey` (string) — Gets the deployment_compute_key of this Agent. The key of the compute where agent is deployed.
+- `deploymentMode` (string) — Gets the deployment_mode of this Agent. Agent deployment mode.
+- `uri` (string) — Gets the uri of this Agent. Agent URI.
+- `uriState` (string) — Gets the uri_state of this Agent. Agent URI state.
+- `lifecycleState` (string) — Gets the lifecycle_state of this Agent. The current state of the agent. Allowed values for this property are: "DRAFT", "DEPLOYED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleDetails` (string) — Gets the lifecycle_details of this Agent. A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state.
+- `timeCreated` (datetime) — Gets the time_created of this Agent. The date and time the agent was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this Agent. The date and time the agent was updated.
+- `createdBy` (string) — Gets the created_by of this Agent. The OCID of the user/principal who created the agent.
+- `updatedBy` (string) — Gets the updated_by of this Agent. The ID of the user who last updated the schema.
+- `computeKey` (string) — Gets the compute_key of this Agent. The key of the agent compute associated with this agent.
+- `diagram` (oci.aidataplatform_dp.models.AgentDiagram) — Gets the diagram of this Agent.
+- `guardrails` (oci.aidataplatform_dp.models.GuardrailsConfiguration) — Gets the guardrails of this Agent.
+- `sessionConfig` (oci.aidataplatform_dp.models.SessionConfiguration) — Gets the session_config of this Agent.
+- `agentCardConfig` (oci.aidataplatform_dp.models.AgentCardConfigDetail) — Gets the agent_card_config of this Agent.
+- `version` (number) — Gets the version of this Agent. A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-getagentdeployment"></a>`getAgentDeployment`
+Returns detailed information about an Agent deployment.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `agentDeploymentKey` (`string`) — The UUID of the Agent Deployment
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `getAgentDeploymentResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this AgentDeployment. Identifier, generally UUID.
+- `displayName` (string) — Gets the display_name of this AgentDeployment. Display name.
+- `agentKey` (string) — Gets the agent_key of this AgentDeployment. The Agent key for which the session is started.
+- `agentComputeKey` (string) — Gets the agent_compute_key of this AgentDeployment. The Agent Compute Key where client can run or test the agent.
+- `endpointUrl` (string) — Gets the endpoint_url of this AgentDeployment. The endpointUrl where the client should connect to communicate with the agent.
+- `description` (string) — Gets the description of this AgentDeployment. deployment description.
+- `deploymentType` (string) — Gets the deployment_type of this AgentDeployment. Type of an agent deployment. Allowed values for this property are: "TEST", "PROD", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleState` (string) — Gets the lifecycle_state of this AgentDeployment. LifecycleState of an Agent Session or Deployment. Allowed values for this property are: "CREATING", "ACTIVE", "INACTIVE", "FAILED", "DELETED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `deploymentVersion` (string) — Gets the deployment_version of this AgentDeployment. Version of agent deployed on compute.
+- `timeCreated` (datetime) — Gets the time_created of this AgentDeployment. The date and time the Agent session was created.
+- `createdBy` (string) — Gets the created_by of this AgentDeployment. The OCID of the user/principal who created the agent session.
+- `timeUpdated` (datetime) — Gets the time_updated of this AgentDeployment. The date and time the agent deployment was updated.
+- `updatedBy` (string) — Gets the updated_by of this AgentDeployment. The OCID of the user/principal who re-deployed the existing agent deployment.
+- `sessionRetentionConfig` (oci.aidataplatform_dp.models.SessionRetentionConfiguration) — Gets the session_retention_config of this AgentDeployment.
+- `oAuthConfig` (oci.aidataplatform_dp.models.OAuthConfiguration) — Gets the o_auth_config of this AgentDeployment.
+- `agentCardUrl` (string) — Gets the agent_card_url of this AgentDeployment. AgentCard base URL.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-getagentsession"></a>`getAgentSession`
+Returns detailed information about an Agent Session.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `sessionId` (`string`) — The UUID of the Agent Session
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `getAgentSessionResponse`
+
+**Response Fields:**
+- `displayName` (string) — Gets the display_name of this AgentSession. Display name.
+- `key` (string) — Gets the key of this AgentSession. Agent Session identifier.
+- `agentKey` (string) — Gets the agent_key of this AgentSession. The Agent key for which the session is started.
+- `endpointUrl` (string) — Gets the endpoint_url of this AgentSession. The endpointUrl where the client should connect to communicate with the agent.
+- `lifecycleState` (string) — Gets the lifecycle_state of this AgentSession. LifecycleState of an Agent Session or Deployment. Allowed values for this property are: "CREATING", "ACTIVE", "INACTIVE", "FAILED", "DELETED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `agentComputeKey` (string) — Gets the agent_compute_key of this AgentSession. The Agent Compute Key where client can run or test the agent.
+- `timeCreated` (datetime) — Gets the time_created of this AgentSession. The date and time the Agent session was created.
+- `updatedBy` (string) — Gets the updated_by of this AgentSession. OCID of the user who updated this record
+- `createdBy` (string) — Gets the created_by of this AgentSession. The OCID of the user/principal who created the agent session.
+- `timeUpdated` (datetime) — Gets the time_updated of this AgentSession. The date and time the Agent session was updated.
+- `timeStarted` (datetime) — Gets the time_started of this AgentSession. The date and time the session was started.
+- `timeEnded` (datetime) — Gets the time_ended of this AgentSession. The date and time the session was ended.
+- `context` (oci.aidataplatform_dp.models.AgentSessionContext) — Gets the context of this AgentSession.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-getagentsessiontrace"></a>`getAgentSessionTrace`
+Returns trace details for a given message key.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `sessionId` (`string`) — The UUID of the Agent Session
+- `traceKey` (`string`) — A filter to return only resources that match the given display trace key exactly.
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `getAgentSessionTraceResponse`
+
+**Response Fields:**
+- `traceId` (string) — Gets the trace_id of this TraceDetails. trace id
+- `parentSessionId` (string) — Gets the parent_session_id of this TraceDetails. session id
+- `spans` (list[oci.aidataplatform_dp.models.SpanDetails]) — Gets the spans of this TraceDetails. collections of spans
+- `startTime` (number) — Gets the start_time of this TraceDetails. startTime
+- `endTime` (number) — Gets the end_time of this TraceDetails. endTime
+- `resources` (dict(str, object)) — Gets the resources of this TraceDetails. Map of properties
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-listagentdeployments"></a>`listAgentDeployments`
+Returns a list of deployments of an agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+
+**Optional Parameters:**
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
+- `displayNameContains` (`string`) — A filter to return only resources that have a display name containing the text provided.
+- `lifecycleState` (`list[str]`) — A filter to return only resources whose value matches the given lifecycleState. Allowed values are: "CREATING", "ACTIVE", "INACTIVE", "FAILED", "DELETED"
+- `timeCreatedGreaterThanOrEqualTo` (`datetime`) — Fetch objects from repository that were created after or at the exact timestamp provided in parameter
+- `timeCreatedLessThanOrEqualTo` (`datetime`) — Fetch objects from repository that were created before or at the exact timestamp provided in parameter.
+- `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
+- `computeKey` (`list[str]`) — Compute key.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `listAgentDeploymentsResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.AgentDeploymentSummary]) — Gets the items of this AgentDeploymentCollection. List of agent deployments.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-listagentpermissions"></a>`listAgentPermissions`
+Returns a list of permissions for a given Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+
+**Optional Parameters:**
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `listAgentPermissionsResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.AgentPermissionSummary]) — Gets the items of this AgentPermissionCollection. List of agent permissions.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-listagentsessionchathistories"></a>`listAgentSessionChatHistories`
+Returns list of Agent Session chat messages.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `sessionId` (`string`) — The UUID of the Agent Session
+
+**Optional Parameters:**
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `listAgentSessionChatHistoriesResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.SessionChatHistorySummary]) — Gets the items of this SessionChatHistoryCollection. Collection of chat messages
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-listagentsessions"></a>`listAgentSessions`
+Returns a list of testing sessions of an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+
+**Optional Parameters:**
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `displayNameContains` (`string`) — A filter to return only resources that have a display name containing the text provided.
+- `timeCreatedGreaterThanOrEqualTo` (`datetime`) — Fetch objects from repository that were created after or at the exact timestamp provided in parameter
+- `timeCreatedLessThanOrEqualTo` (`datetime`) — Fetch objects from repository that were created before or at the exact timestamp provided in parameter.
+- `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `listAgentSessionsResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.AgentSessionSummary]) — Gets the items of this AgentSessionCollection. List of agent sessions.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-listagents"></a>`listAgents`
+Returns a list of Agents in a schema.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+
+**Optional Parameters:**
+- `computeKey` (`string`) — Compute key.
+- `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
+- `displayNameContains` (`string`) — A filter to return only resources that have a display name containing the text provided.
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `listAgentsResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.AgentInfo]) — Gets the items of this AgentCollection. List of Agents.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-manageagentpermission"></a>`manageAgentPermission`
+Update the permissions for a given Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `manageAgentPermissionDetails` (`oci.aidataplatform_dp.models.ManageAgentPermissionDetails`) — The information to be updated.
+
+**Optional Parameters:**
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `manageAgentPermissionResponse`
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-previewagentagentcard"></a>`previewAgentAgentCard`
+Returns the agent card based on the given agent card configuration.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `previewAgentCardDetails` (`oci.aidataplatform_dp.models.PreviewAgentCardDetails`) — Request details for previewing an agent card
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `previewAgentAgentCardResponse`
+
+**Response Fields:**
+- `agentCardJson` (string) — Gets the agent_card_json of this AgentCardPreviewResponse. JSON string representation of AgentCard
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-redeployagentbykey"></a>`redeployAgentByKey`
+Redeploys an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `updateAgentDeploymentDetails` (`oci.aidataplatform_dp.models.UpdateAgentDeploymentDetails`) — Details for updating an Agent deployment asynchronously.
+
+**Optional Parameters:**
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `redeployAgentByKeyResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this AgentDeployment. Identifier, generally UUID.
+- `displayName` (string) — Gets the display_name of this AgentDeployment. Display name.
+- `agentKey` (string) — Gets the agent_key of this AgentDeployment. The Agent key for which the session is started.
+- `agentComputeKey` (string) — Gets the agent_compute_key of this AgentDeployment. The Agent Compute Key where client can run or test the agent.
+- `endpointUrl` (string) — Gets the endpoint_url of this AgentDeployment. The endpointUrl where the client should connect to communicate with the agent.
+- `description` (string) — Gets the description of this AgentDeployment. deployment description.
+- `deploymentType` (string) — Gets the deployment_type of this AgentDeployment. Type of an agent deployment. Allowed values for this property are: "TEST", "PROD", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleState` (string) — Gets the lifecycle_state of this AgentDeployment. LifecycleState of an Agent Session or Deployment. Allowed values for this property are: "CREATING", "ACTIVE", "INACTIVE", "FAILED", "DELETED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `deploymentVersion` (string) — Gets the deployment_version of this AgentDeployment. Version of agent deployed on compute.
+- `timeCreated` (datetime) — Gets the time_created of this AgentDeployment. The date and time the Agent session was created.
+- `createdBy` (string) — Gets the created_by of this AgentDeployment. The OCID of the user/principal who created the agent session.
+- `timeUpdated` (datetime) — Gets the time_updated of this AgentDeployment. The date and time the agent deployment was updated.
+- `updatedBy` (string) — Gets the updated_by of this AgentDeployment. The OCID of the user/principal who re-deployed the existing agent deployment.
+- `sessionRetentionConfig` (oci.aidataplatform_dp.models.SessionRetentionConfiguration) — Gets the session_retention_config of this AgentDeployment.
+- `oAuthConfig` (oci.aidataplatform_dp.models.OAuthConfiguration) — Gets the o_auth_config of this AgentDeployment.
+- `agentCardUrl` (string) — Gets the agent_card_url of this AgentDeployment. AgentCard base URL.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-updateagent"></a>`updateAgent`
+Update an Agent with provided details.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `updateAgentDetails` (`oci.aidataplatform_dp.models.UpdateAgentDetails`) — The information to be updated.
+
+**Optional Parameters:**
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `updateAgentResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this Agent. The unique identifier (UUID) of the agent.
+- `displayName` (string) — Gets the display_name of this Agent. Agent name.
+- `workspaceKey` (string) — Gets the workspace_key of this Agent. The key of the workspace to which this agent belongs.
+- `description` (string) — Gets the description of this Agent. Agent description.
+- `pathInfo` (string) — Gets the path_info of this Agent. Path inside volume where the agent JSON is written.
+- `type` (string) — Gets the type of this Agent. The type of agent (Canvas or Code). Allowed values for this property are: "CANVAS", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entryFilePath` (string) — Gets the entry_file_path of this Agent. The path to project entry file.
+- `dependenciesFilePath` (string) — Gets the dependencies_file_path of this Agent. The path to dependencies file.
+- `deploymentComputeKey` (string) — Gets the deployment_compute_key of this Agent. The key of the compute where agent is deployed.
+- `deploymentMode` (string) — Gets the deployment_mode of this Agent. Agent deployment mode.
+- `uri` (string) — Gets the uri of this Agent. Agent URI.
+- `uriState` (string) — Gets the uri_state of this Agent. Agent URI state.
+- `lifecycleState` (string) — Gets the lifecycle_state of this Agent. The current state of the agent. Allowed values for this property are: "DRAFT", "DEPLOYED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleDetails` (string) — Gets the lifecycle_details of this Agent. A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state.
+- `timeCreated` (datetime) — Gets the time_created of this Agent. The date and time the agent was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this Agent. The date and time the agent was updated.
+- `createdBy` (string) — Gets the created_by of this Agent. The OCID of the user/principal who created the agent.
+- `updatedBy` (string) — Gets the updated_by of this Agent. The ID of the user who last updated the schema.
+- `computeKey` (string) — Gets the compute_key of this Agent. The key of the agent compute associated with this agent.
+- `diagram` (oci.aidataplatform_dp.models.AgentDiagram) — Gets the diagram of this Agent.
+- `guardrails` (oci.aidataplatform_dp.models.GuardrailsConfiguration) — Gets the guardrails of this Agent.
+- `sessionConfig` (oci.aidataplatform_dp.models.SessionConfiguration) — Gets the session_config of this Agent.
+- `agentCardConfig` (oci.aidataplatform_dp.models.AgentCardConfigDetail) — Gets the agent_card_config of this Agent.
+- `version` (number) — Gets the version of this Agent. A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-updateagentdeploymentmetadata"></a>`updateAgentDeploymentMetadata`
+Update the deployment metadata for an Agent.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+- `updateAgentDeploymentMetadataDetails` (`oci.aidataplatform_dp.models.UpdateAgentDeploymentMetadataDetails`) — Agent card details to update
+
+**Optional Parameters:**
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `updateAgentDeploymentMetadataResponse`
+
+**Response Fields:**
+- `key` (string) — Gets the key of this AgentDeployment. Identifier, generally UUID.
+- `displayName` (string) — Gets the display_name of this AgentDeployment. Display name.
+- `agentKey` (string) — Gets the agent_key of this AgentDeployment. The Agent key for which the session is started.
+- `agentComputeKey` (string) — Gets the agent_compute_key of this AgentDeployment. The Agent Compute Key where client can run or test the agent.
+- `endpointUrl` (string) — Gets the endpoint_url of this AgentDeployment. The endpointUrl where the client should connect to communicate with the agent.
+- `description` (string) — Gets the description of this AgentDeployment. deployment description.
+- `deploymentType` (string) — Gets the deployment_type of this AgentDeployment. Type of an agent deployment. Allowed values for this property are: "TEST", "PROD", "CODE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `lifecycleState` (string) — Gets the lifecycle_state of this AgentDeployment. LifecycleState of an Agent Session or Deployment. Allowed values for this property are: "CREATING", "ACTIVE", "INACTIVE", "FAILED", "DELETED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `deploymentVersion` (string) — Gets the deployment_version of this AgentDeployment. Version of agent deployed on compute.
+- `timeCreated` (datetime) — Gets the time_created of this AgentDeployment. The date and time the Agent session was created.
+- `createdBy` (string) — Gets the created_by of this AgentDeployment. The OCID of the user/principal who created the agent session.
+- `timeUpdated` (datetime) — Gets the time_updated of this AgentDeployment. The date and time the agent deployment was updated.
+- `updatedBy` (string) — Gets the updated_by of this AgentDeployment. The OCID of the user/principal who re-deployed the existing agent deployment.
+- `sessionRetentionConfig` (oci.aidataplatform_dp.models.SessionRetentionConfiguration) — Gets the session_retention_config of this AgentDeployment.
+- `oAuthConfig` (oci.aidataplatform_dp.models.OAuthConfiguration) — Gets the o_auth_config of this AgentDeployment.
+- `agentCardUrl` (string) — Gets the agent_card_url of this AgentDeployment. AgentCard base URL.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
+
+### <a id="agentclient-validateagent"></a>`validateAgent`
+Validate the agent json diagram generated by UI.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `agentKey` (`string`) — The UUID of the Agent
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `validateAgentResponse`
+
+**Response Fields:**
+- `isValidAgent` (boolean) — Gets the is_valid_agent of this ValidateAgentResponse. true if valid, else false
+- `validationError` (list[oci.aidataplatform_dp.models.ValidationError]) — Gets the validation_error of this ValidateAgentResponse. List of validation errors encountered in the diagram.
+
+**Return:** [Back to Agent (`AgentClient`)](#agentclient-client) • [Top](#top)
+
 
 ## <a id="asyncoperationsclient-client"></a>Async Operations (`AsyncOperationsClient`)
 **Operations:**
@@ -41,8 +712,8 @@ Get detailed information for a particular async operation
 
 **Response Fields:**
 - `key` (string) — Gets the key of this AsyncOperation. The unique key that identifies an async operation
-- `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT_FLOW", "GIT_OPERATION", "BUNDLE_OPERATION", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT_FLOW", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
 - `resourceDisplayName` (string) — Gets the resource_display_name of this AsyncOperation. The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName But for workspace/cluster it is workspace and cluster displayName field.
 - `createdBy` (string) — Gets the created_by of this AsyncOperation. The principal Id who started the async operation
@@ -89,7 +760,7 @@ List all async operations for a resource type. Filters can be used to narrow the
 - [`searchAuditLogs`](#auditclient-searchauditlogs)
 
 ### <a id="auditclient-manageauditlogs"></a>`manageAuditLogs`
-Manages audit logs for AI Data Platform Workbench.
+Manages audit logs.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -106,7 +777,7 @@ Manages audit logs for AI Data Platform Workbench.
 
 
 ### <a id="auditclient-searchauditlogs"></a>`searchAuditLogs`
-Searches audit logs for AI Data Platform Workbench.
+Searches audit logs.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -130,10 +801,15 @@ Searches audit logs for AI Data Platform Workbench.
 ## <a id="bundleclient-client"></a>Bundle (`BundleClient`)
 **Operations:**
 - [`createBundle`](#bundleclient-createbundle)
+- [`createBundleAction`](#bundleclient-createbundleaction)
 - [`deployBundle`](#bundleclient-deploybundle)
+- [`deployBundleAction`](#bundleclient-deploybundleaction)
 - [`fetchBundleDeploymentStatus`](#bundleclient-fetchbundledeploymentstatus)
+- [`fetchBundleDeploymentStatusAction`](#bundleclient-fetchbundledeploymentstatusaction)
 - [`purgeBundle`](#bundleclient-purgebundle)
+- [`purgeBundleAction`](#bundleclient-purgebundleaction)
 - [`syncBundle`](#bundleclient-syncbundle)
+- [`syncBundleAction`](#bundleclient-syncbundleaction)
 
 ### <a id="bundleclient-createbundle"></a>`createBundle`
 (Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
@@ -149,6 +825,24 @@ Searches audit logs for AI Data Platform Workbench.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `createBundleResponse`
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
+### <a id="bundleclient-createbundleaction"></a>`createBundleAction`
+(Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `createBundleDetails` (`oci.aidataplatform_dp.models.CreateBundleDetails`) — Request payload for bundle creation.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `createBundleActionResponse`
 
 **Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
 
@@ -171,6 +865,24 @@ Searches audit logs for AI Data Platform Workbench.
 **Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
 
 
+### <a id="bundleclient-deploybundleaction"></a>`deployBundleAction`
+(Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `deployBundleDetails` (`oci.aidataplatform_dp.models.DeployBundleDetails`) — Request payload for bundle deploy.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `deployBundleActionResponse`
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
 ### <a id="bundleclient-fetchbundledeploymentstatus"></a>`fetchBundleDeploymentStatus`
 (Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
 
@@ -184,6 +896,30 @@ Searches audit logs for AI Data Platform Workbench.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `fetchBundleDeploymentStatusResponse`
+
+**Response Fields:**
+- `status` (string) — Gets the status of this BundleDeploymentStatus. Overall status of the last deployment. Allowed values for this property are: "SUCCEEDED", "FAILED", "IN_PROGRESS", "NOT_DEPLOYED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `timeStarted` (datetime) — Gets the time_started of this BundleDeploymentStatus. The deployment start time
+- `timeCompleted` (datetime) — Gets the time_completed of this BundleDeploymentStatus. The deployment end time
+- `message` (string) — Gets the message of this BundleDeploymentStatus. Optional summary message for the last deployment.
+- `resources` (list[oci.aidataplatform_dp.models.BundleDeployedResource]) — Gets the resources of this BundleDeploymentStatus. List of resources from the last deployment.
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
+### <a id="bundleclient-fetchbundledeploymentstatusaction"></a>`fetchBundleDeploymentStatusAction`
+(Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `fetchBundleDeploymentStatusDetails` (`oci.aidataplatform_dp.models.FetchBundleDeploymentStatusDetails`) — Request payload for FetchBundleDeploymentStatusDetails.
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `fetchBundleDeploymentStatusActionResponse`
 
 **Response Fields:**
 - `status` (string) — Gets the status of this BundleDeploymentStatus. Overall status of the last deployment. Allowed values for this property are: "SUCCEEDED", "FAILED", "IN_PROGRESS", "NOT_DEPLOYED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -213,6 +949,24 @@ Searches audit logs for AI Data Platform Workbench.
 **Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
 
 
+### <a id="bundleclient-purgebundleaction"></a>`purgeBundleAction`
+(Preview) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `purgeBundleDetails` (`oci.aidataplatform_dp.models.PurgeBundleDetails`) — Request payload for bundle purge.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `purgeBundleActionResponse`
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
 ### <a id="bundleclient-syncbundle"></a>`syncBundle`
 (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
 
@@ -231,6 +985,24 @@ Searches audit logs for AI Data Platform Workbench.
 **Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
 
 
+### <a id="bundleclient-syncbundleaction"></a>`syncBundleAction`
+(Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `syncBundleDetails` (`oci.aidataplatform_dp.models.SyncBundleDetails`) — Request payload for bundle sync.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `syncBundleActionResponse`
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
 ## <a id="catalogclient-client"></a>Catalog (`CatalogClient`)
 **Operations:**
 - [`catalogTestConnection`](#catalogclient-catalogtestconnection)
@@ -244,7 +1016,7 @@ Searches audit logs for AI Data Platform Workbench.
 - [`updateCatalog`](#catalogclient-updatecatalog)
 
 ### <a id="catalogclient-catalogtestconnection"></a>`catalogTestConnection`
-Test the connection of an AI Data Platform Workbench to an external catalog.
+Tests the connection to an external catalog.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -262,7 +1034,7 @@ Test the connection of an AI Data Platform Workbench to an external catalog.
 
 
 ### <a id="catalogclient-createcatalog"></a>`createCatalog`
-Create a catalog in the AI Data Platform Workbench with the given ID.
+Creates a catalog with the given ID.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -280,7 +1052,7 @@ Create a catalog in the AI Data Platform Workbench with the given ID.
 
 
 ### <a id="catalogclient-deletecatalog"></a>`deleteCatalog`
-Deletes the specified catalog from an AI Data Platform Workbench.
+Deletes the specified catalog.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -299,7 +1071,7 @@ Deletes the specified catalog from an AI Data Platform Workbench.
 
 
 ### <a id="catalogclient-getcatalog"></a>`getCatalog`
-Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
+Gets detailed information about a catalog with a given catalog key.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -319,7 +1091,7 @@ Gets detailed information about an AI Data Platform Workbench catalog with a giv
 - `description` (string) — Gets the description of this Catalog. Short description of the catalog.
 - `catalogGuid` (string) — Gets the catalog_guid of this Catalog. Unique identifier for catalog.
 - `catalogType` (string) — Gets the catalog_type of this Catalog. Type of catalog. Allowed values for this property are: "EXTERNAL", "INTERNAL", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `connectionDetails` (oci.aidataplatform_dp.models.CatalogConnectionDetails) — Gets the connection_details of this Catalog.
 - `lifecycleState` (string) — Gets the lifecycle_state of this Catalog. The current status of the catalog. Allowed values for this property are: "ACTIVE", "CREATING", "DELETING", "UPDATING", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this Catalog. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
@@ -333,7 +1105,7 @@ Gets detailed information about an AI Data Platform Workbench catalog with a giv
 
 
 ### <a id="catalogclient-listcatalogpermissions"></a>`listCatalogPermissions`
-Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
+Gets a list of all permissions in the specified catalog.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -357,7 +1129,7 @@ Gets a list of all permissions in the specified catalog of an AI Data Platform W
 
 
 ### <a id="catalogclient-listcatalogs"></a>`listCatalogs`
-Get a list of catalogs in an AI Data Platform Workbench with a given ID.
+Gets a list of catalogs with a given ID.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -382,7 +1154,7 @@ Get a list of catalogs in an AI Data Platform Workbench with a given ID.
 
 
 ### <a id="catalogclient-managecatalogpermission"></a>`manageCatalogPermission`
-Update permission details for a catalog in an AI Data Platform Workbench.
+Updates permission details for a catalog.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -401,7 +1173,7 @@ Update permission details for a catalog in an AI Data Platform Workbench.
 
 
 ### <a id="catalogclient-refreshcatalog"></a>`refreshCatalog`
-Refresh a catalog in an AI Data Platform Workbench through a crawler.
+Refreshes a catalog through a crawler.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -420,7 +1192,7 @@ Refresh a catalog in an AI Data Platform Workbench through a crawler.
 
 
 ### <a id="catalogclient-updatecatalog"></a>`updateCatalog`
-Update the details of an AI Data Platform Workbench catalog with the given information.
+Updates the details of a catalog with the given information.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -450,6 +1222,7 @@ Update the details of an AI Data Platform Workbench catalog with the given infor
 - [`listClusters`](#clusterclient-listclusters)
 - [`manageClusterPermission`](#clusterclient-manageclusterpermission)
 - [`patchClusterLibrary`](#clusterclient-patchclusterlibrary)
+- [`queryReplicaIds`](#clusterclient-queryreplicaids)
 - [`restartCluster`](#clusterclient-restartcluster)
 - [`searchClusterLogs`](#clusterclient-searchclusterlogs)
 - [`startCluster`](#clusterclient-startcluster)
@@ -477,8 +1250,8 @@ Creates a new cluster with the provided details.
 - `key` (string) — Gets the key of this Cluster. Cluster key.
 - `displayName` (string) — Gets the display_name of this Cluster. Cluster name.
 - `description` (string) — Gets the description of this Cluster. Cluster description.
-- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. Default cluster is to be used by all catalogs operations that require compute. Default cluster can be thought of as associated with Master catalog. Agent Flow Compute is used to execute Agent Flows. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. AI compute is used to execute Agents. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `timeCreated` (datetime) — Gets the time_created of this Cluster. Date and time the cluster was created.
 - `timeUpdated` (datetime) — Gets the time_updated of this Cluster. Date and time the cluster was updated.
 - `state` (string) — Gets the state of this Cluster. Common lifecycle states for resources in a compute cluster. ACCEPTED        - The resource create request has been accepted. CREATING        - The resource is being created and might not be usable until the entire metadata is defined. ACTIVE          - The resource is valid and available for access. DELETING        - The resource is being deleted, and might require a deep clean of any children. DELETED         - The resource has been deleted, and isn't available. FAILED          - The resource is in a failed state due to validation or other errors. STOPPING        - The resource is being stopped. STOPPED         - The resource has been stopped. UPDATING        - The resource is being updated and might not be usable until all changes are commited. STARTING        - The resource is being started. RESTARTING      - The resource is being restarted. Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -552,8 +1325,8 @@ Returns detailed information about a cluster.
 - `key` (string) — Gets the key of this Cluster. Cluster key.
 - `displayName` (string) — Gets the display_name of this Cluster. Cluster name.
 - `description` (string) — Gets the description of this Cluster. Cluster description.
-- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. Default cluster is to be used by all catalogs operations that require compute. Default cluster can be thought of as associated with Master catalog. Agent Flow Compute is used to execute Agent Flows. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. AI compute is used to execute Agents. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `timeCreated` (datetime) — Gets the time_created of this Cluster. Date and time the cluster was created.
 - `timeUpdated` (datetime) — Gets the time_updated of this Cluster. Date and time the cluster was updated.
 - `state` (string) — Gets the state of this Cluster. Common lifecycle states for resources in a compute cluster. ACCEPTED        - The resource create request has been accepted. CREATING        - The resource is being created and might not be usable until the entire metadata is defined. ACTIVE          - The resource is valid and available for access. DELETING        - The resource is being deleted, and might require a deep clean of any children. DELETED         - The resource has been deleted, and isn't available. FAILED          - The resource is in a failed state due to validation or other errors. STOPPING        - The resource is being stopped. STOPPED         - The resource has been stopped. UPDATING        - The resource is being updated and might not be usable until all changes are commited. STARTING        - The resource is being started. RESTARTING      - The resource is being restarted. Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -658,7 +1431,7 @@ Returns a list of all clusters in a given workspace.
 - `state` (`string`) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED"
 - `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
 - `displayNameContains` (`string`) — A filter to return only resources that have a display name containing the text provided.
-- `type` (`string`) — Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
+- `type` (`string`) — Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
@@ -716,6 +1489,27 @@ Updates libraries of a cluster with the provided patches.
 **Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
 
 
+### <a id="clusterclient-queryreplicaids"></a>`queryReplicaIds`
+Queries compute replica identifiers for a compute cluster in the given workspace. The response contains distinct replica identifiers derived from the Monitoring `agentNode` metric dimension.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `clusterKey` (`string`) — Cluster key.
+- `queryReplicaIdsDetails` (`oci.aidataplatform_dp.models.QueryReplicaIdsDetails`) — Request body containing replica query parameters.
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `queryReplicaIdsResponse`
+
+**Response Fields:**
+- `replicaIds` (list[str]) — Gets the replica_ids of this QueryReplicaIdsResult. Distinct compute replica identifiers derived from the Monitoring `agentNode` dimension.
+
+**Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
+
+
 ### <a id="clusterclient-restartcluster"></a>`restartCluster`
 Restarts a running cluster.
 
@@ -737,8 +1531,8 @@ Restarts a running cluster.
 - `key` (string) — Gets the key of this Cluster. Cluster key.
 - `displayName` (string) — Gets the display_name of this Cluster. Cluster name.
 - `description` (string) — Gets the description of this Cluster. Cluster description.
-- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. Default cluster is to be used by all catalogs operations that require compute. Default cluster can be thought of as associated with Master catalog. Agent Flow Compute is used to execute Agent Flows. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. AI compute is used to execute Agents. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `timeCreated` (datetime) — Gets the time_created of this Cluster. Date and time the cluster was created.
 - `timeUpdated` (datetime) — Gets the time_updated of this Cluster. Date and time the cluster was updated.
 - `state` (string) — Gets the state of this Cluster. Common lifecycle states for resources in a compute cluster. ACCEPTED        - The resource create request has been accepted. CREATING        - The resource is being created and might not be usable until the entire metadata is defined. ACTIVE          - The resource is valid and available for access. DELETING        - The resource is being deleted, and might require a deep clean of any children. DELETED         - The resource has been deleted, and isn't available. FAILED          - The resource is in a failed state due to validation or other errors. STOPPING        - The resource is being stopped. STOPPED         - The resource has been stopped. UPDATING        - The resource is being updated and might not be usable until all changes are commited. STARTING        - The resource is being started. RESTARTING      - The resource is being restarted. Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -802,8 +1596,8 @@ Starts a cluster that has halted operation.
 - `key` (string) — Gets the key of this Cluster. Cluster key.
 - `displayName` (string) — Gets the display_name of this Cluster. Cluster name.
 - `description` (string) — Gets the description of this Cluster. Cluster description.
-- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. Default cluster is to be used by all catalogs operations that require compute. Default cluster can be thought of as associated with Master catalog. Agent Flow Compute is used to execute Agent Flows. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. AI compute is used to execute Agents. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `timeCreated` (datetime) — Gets the time_created of this Cluster. Date and time the cluster was created.
 - `timeUpdated` (datetime) — Gets the time_updated of this Cluster. Date and time the cluster was updated.
 - `state` (string) — Gets the state of this Cluster. Common lifecycle states for resources in a compute cluster. ACCEPTED        - The resource create request has been accepted. CREATING        - The resource is being created and might not be usable until the entire metadata is defined. ACTIVE          - The resource is valid and available for access. DELETING        - The resource is being deleted, and might require a deep clean of any children. DELETED         - The resource has been deleted, and isn't available. FAILED          - The resource is in a failed state due to validation or other errors. STOPPING        - The resource is being stopped. STOPPED         - The resource has been stopped. UPDATING        - The resource is being updated and might not be usable until all changes are commited. STARTING        - The resource is being started. RESTARTING      - The resource is being restarted. Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -842,8 +1636,8 @@ Stops an active cluster.
 - `key` (string) — Gets the key of this Cluster. Cluster key.
 - `displayName` (string) — Gets the display_name of this Cluster. Cluster name.
 - `description` (string) — Gets the description of this Cluster. Cluster description.
-- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. Default cluster is to be used by all catalogs operations that require compute. Default cluster can be thought of as associated with Master catalog. Agent Flow Compute is used to execute Agent Flows. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. AI compute is used to execute Agents. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `timeCreated` (datetime) — Gets the time_created of this Cluster. Date and time the cluster was created.
 - `timeUpdated` (datetime) — Gets the time_updated of this Cluster. Date and time the cluster was updated.
 - `state` (string) — Gets the state of this Cluster. Common lifecycle states for resources in a compute cluster. ACCEPTED        - The resource create request has been accepted. CREATING        - The resource is being created and might not be usable until the entire metadata is defined. ACTIVE          - The resource is valid and available for access. DELETING        - The resource is being deleted, and might require a deep clean of any children. DELETED         - The resource has been deleted, and isn't available. FAILED          - The resource is in a failed state due to validation or other errors. STOPPING        - The resource is being stopped. STOPPED         - The resource has been stopped. UPDATING        - The resource is being updated and might not be usable until all changes are commited. STARTING        - The resource is being started. RESTARTING      - The resource is being restarted. Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -905,8 +1699,8 @@ Update the details of a given cluster.
 - `key` (string) — Gets the key of this Cluster. Cluster key.
 - `displayName` (string) — Gets the display_name of this Cluster. Cluster name.
 - `description` (string) — Gets the description of this Cluster. Cluster description.
-- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. Default cluster is to be used by all catalogs operations that require compute. Default cluster can be thought of as associated with Master catalog. Agent Flow Compute is used to execute Agent Flows. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceApi` (string) — Gets the source_api of this Cluster. User created clusters are associated with a particular workspace. AI compute is used to execute Agents. Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `type` (string) — Gets the type of this Cluster. ClusterType Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `timeCreated` (datetime) — Gets the time_created of this Cluster. Date and time the cluster was created.
 - `timeUpdated` (datetime) — Gets the time_updated of this Cluster. Date and time the cluster was updated.
 - `state` (string) — Gets the state of this Cluster. Common lifecycle states for resources in a compute cluster. ACCEPTED        - The resource create request has been accepted. CREATING        - The resource is being created and might not be usable until the entire metadata is defined. ACTIVE          - The resource is valid and available for access. DELETING        - The resource is being deleted, and might require a deep clean of any children. DELETED         - The resource has been deleted, and isn't available. FAILED          - The resource is in a failed state due to validation or other errors. STOPPING        - The resource is being stopped. STOPPED         - The resource has been stopped. UPDATING        - The resource is being updated and might not be usable until all changes are commited. STARTING        - The resource is being started. RESTARTING      - The resource is being restarted. Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -1067,7 +1861,7 @@ Updates a credential object. The operation completes synchronously; callers can 
 - [`updateShare`](#deltashareclient-updateshare)
 
 ### <a id="deltashareclient-createrecipient"></a>`createRecipient`
-Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
+Creates a recipient for a Delta Share protocol.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1098,7 +1892,7 @@ Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
 
 
 ### <a id="deltashareclient-createshare"></a>`createShare`
-Create a Delta Share protocol in AI Data Platform Workbench.
+Creates a Delta Share protocol.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1129,7 +1923,7 @@ Create a Delta Share protocol in AI Data Platform Workbench.
 
 
 ### <a id="deltashareclient-deleterecipient"></a>`deleteRecipient`
-Deletes a Delta Share recipient from an AI Data Platform Workbench.
+Deletes a Delta Share recipient.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1147,7 +1941,7 @@ Deletes a Delta Share recipient from an AI Data Platform Workbench.
 
 
 ### <a id="deltashareclient-deleteshare"></a>`deleteShare`
-Deletes a Delta Share from an AI Data Platform Workbench.
+Deletes a Delta Share.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1165,7 +1959,7 @@ Deletes a Delta Share from an AI Data Platform Workbench.
 
 
 ### <a id="deltashareclient-getrecipient"></a>`getRecipient`
-Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
+Gets detailed information about a Delta Share recipient.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1274,7 +2068,7 @@ Returns a list of Delta Shares that the specified recipient has been granted acc
 
 
 ### <a id="deltashareclient-listrecipients"></a>`listRecipients`
-Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
+Gets a list of Delta Share recipients.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1297,7 +2091,7 @@ Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
 
 
 ### <a id="deltashareclient-listsharedataassets"></a>`listShareDataAssets`
-Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
+Gets a list of Delta Share assets.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1371,7 +2165,7 @@ Gets a list of recipients that have been given access on the specified Delta Sha
 
 
 ### <a id="deltashareclient-listshares"></a>`listShares`
-Gets a list of Delta Shares in an AI Data Platform Workbench instance.
+Gets a list of Delta Shares.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1394,7 +2188,7 @@ Gets a list of Delta Shares in an AI Data Platform Workbench instance.
 
 
 ### <a id="deltashareclient-managerecipientpermission"></a>`manageRecipientPermission`
-Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
+Updates the permissions of a Delta Share recipient.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1471,7 +2265,7 @@ Updates permissions on a Delta Share.
 
 
 ### <a id="deltashareclient-updaterecipient"></a>`updateRecipient`
-Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
+Updates the metadata of a Delta Share recipient.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1540,7 +2334,6 @@ Update a Delta Share with the provided metadata.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `checkoutBranchResponse`
@@ -1959,7 +2752,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `createExperimentResponse`
@@ -1981,7 +2773,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `createExperimentRunResponse`
@@ -2002,7 +2793,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `createModelVersionResponse`
@@ -2023,7 +2813,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `createRegisteredModelResponse`
@@ -2045,7 +2834,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `createWorkspaceModelVersionResponse`
@@ -2067,7 +2855,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteExperimentResponse`
@@ -2086,7 +2873,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteExperimentRunResponse`
@@ -2105,7 +2891,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteExperimentRunTagResponse`
@@ -2124,7 +2909,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteExperimentTagResponse`
@@ -2142,7 +2926,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteModelVersionResponse`
@@ -2160,7 +2943,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteModelVersionTagResponse`
@@ -2178,7 +2960,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteRegisteredModelResponse`
@@ -2196,7 +2977,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `deleteRegisteredModelTagResponse`
@@ -2214,7 +2994,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getExperimentByIdResponse`
@@ -2235,7 +3014,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getExperimentByNameResponse`
@@ -2256,7 +3034,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getExperimentRunByIdResponse`
@@ -2280,7 +3057,6 @@ Update a Delta Share with the provided metadata.
 - `pageToken` (`string`) — Pagination token to go to the next page of metric history.
 - `maxResults` (`number`) — Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getExperimentRunMetricHistoryResponse`
@@ -2302,7 +3078,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getModelVersionResponse`
@@ -2322,7 +3097,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getRegisteredModelResponse`
@@ -2345,7 +3119,6 @@ Update a Delta Share with the provided metadata.
 - `path` (`string`) — Filter artifacts matching this path (a relative path from the root artifact directory).
 - `pageToken` (`string`) — Token indicating the page of artifact results to fetch.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listArtifactsResponse`
@@ -2368,7 +3141,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listExperimentRunsResponse`
@@ -2390,7 +3162,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listExperimentsResponse`
@@ -2412,7 +3183,6 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listLoggedModelsResponse`
@@ -2436,7 +3206,6 @@ Update a Delta Share with the provided metadata.
 - `pageToken` (`string`) — Pagination token to go to the next page based on a previous search query.
 - `orderBy` (`string`) — List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listModelVersionsResponse`
@@ -2460,7 +3229,6 @@ Update a Delta Share with the provided metadata.
 - `pageToken` (`string`) — Pagination token to go to the next page based on a previous search query.
 - `orderBy` (`string`) — List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by model name ASC.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listRegisteredModelsResponse`
@@ -2483,7 +3251,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `logExperimentRunBatchResponse`
@@ -2502,7 +3269,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `logExperimentRunInputsResponse`
@@ -2521,7 +3287,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `logExperimentRunMetricResponse`
@@ -2540,7 +3305,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `logExperimentRunModelResponse`
@@ -2559,7 +3323,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `logExperimentRunParamResponse`
@@ -2577,7 +3340,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `renameRegisteredModelResponse`
@@ -2599,7 +3361,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `restoreExperimentResponse`
@@ -2618,7 +3379,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `restoreExperimentRunResponse`
@@ -2637,7 +3397,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `setExperimentRunTagResponse`
@@ -2656,7 +3415,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `setExperimentTagResponse`
@@ -2674,7 +3432,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `setModelVersionTagResponse`
@@ -2692,7 +3449,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `setRegisteredModelTagResponse`
@@ -2710,7 +3466,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `transitionModelVersionStageResponse`
@@ -2732,7 +3487,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateExperimentResponse`
@@ -2751,7 +3505,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateExperimentRunResponse`
@@ -2773,7 +3526,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateExperimentRunTagsResponse`
@@ -2792,7 +3544,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateExperimentTagsResponse`
@@ -2810,7 +3561,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateModelVersionResponse`
@@ -2831,7 +3581,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateModelVersionTagsResponse`
@@ -2849,7 +3598,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateRegisteredModelResponse`
@@ -2870,7 +3618,6 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `updateRegisteredModelTagsResponse`
@@ -3530,7 +4277,7 @@ Creates a view.
 
 
 ### <a id="schemaclient-deleteschema"></a>`deleteSchema`
-Deletes a schema from an AI Data Platform Workbench.
+Deletes a schema.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -3549,7 +4296,7 @@ Deletes a schema from an AI Data Platform Workbench.
 
 
 ### <a id="schemaclient-deletetable"></a>`deleteTable`
-Deletes a table from an AI Data Platform Workbench.
+Deletes a table.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -3568,7 +4315,7 @@ Deletes a table from an AI Data Platform Workbench.
 
 
 ### <a id="schemaclient-deleteview"></a>`deleteView`
-Deletes a view from AI Data Platform Workbench.
+Deletes a view.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -3623,7 +4370,7 @@ Returns detailed information about a specified schema.
 **Return Response:** `getSchemaResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 - `description` (string) — Gets the description of this Schema. Schema description.
@@ -3655,7 +4402,7 @@ Returns detailed information about a table.
 **Return Response:** `getTableResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Table. The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
 - `displayName` (string) — Gets the display_name of this Table. Table name.
 - `catalogKey` (string) — Gets the catalog_key of this Table. The name of the catalog to which this table belongs.
@@ -3736,7 +4483,7 @@ Returns a list of permissions for a given schema.
 
 
 ### <a id="schemaclient-listschemas"></a>`listSchemas`
-Returns a list of schemas in a given AI Data Platform Workbench.
+Returns a list of schemas.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -3958,7 +4705,7 @@ Returns table schema and data from the specified location.
 
 
 ### <a id="schemaclient-refreshschema"></a>`refreshSchema`
-Refreshes schema in an AI Data Platform Workbench through the crawler.
+Refreshes schema through the crawler.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -3977,7 +4724,7 @@ Refreshes schema in an AI Data Platform Workbench through the crawler.
 
 
 ### <a id="schemaclient-refreshtable"></a>`refreshTable`
-Refreshes a table in an AI Data Platform Workbench through the crawler.
+Refreshes a table through the crawler.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -3996,7 +4743,7 @@ Refreshes a table in an AI Data Platform Workbench through the crawler.
 
 
 ### <a id="schemaclient-retrievepar"></a>`retrievePar`
-Retrieve PAR for the entities created in AI Data Platform Workbench.
+Retrieves PAR for the entities created.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4036,7 +4783,7 @@ Updates a schema.
 **Return Response:** `updateSchemaResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 - `description` (string) — Gets the description of this Schema. Schema description.
@@ -4105,6 +4852,53 @@ Updates a view with given information.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this View. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
 
 **Return:** [Back to Schema (`SchemaClient`)](#schemaclient-client) • [Top](#top)
+
+
+## <a id="semanticcatalogclient-client"></a>Semantic Catalog (`SemanticCatalogClient`)
+**Operations:**
+- [`exportLineage`](#semanticcatalogclient-exportlineage)
+- [`fetchEntityLineage`](#semanticcatalogclient-fetchentitylineage)
+
+### <a id="semanticcatalogclient-exportlineage"></a>`exportLineage`
+(Preview) Returns complete lineage for the provided anchor node in CSV format.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `exportLineageDetails` (`oci.aidataplatform_dp.models.ExportLineageDetails`) — The information needed to export lineage.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `exportLineageResponse`
+
+**Return:** [Back to Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client) • [Top](#top)
+
+
+### <a id="semanticcatalogclient-fetchentitylineage"></a>`fetchEntityLineage`
+(Preview) Returns lineage for a given entity object.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `fetchEntityLineageDetails` (`oci.aidataplatform_dp.models.FetchEntityLineageDetails`) — The information needed to obtain desired lineage.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `fetchEntityLineageResponse`
+
+**Response Fields:**
+- `nodes` (list[oci.aidataplatform_dp.models.LineageObject]) — Gets the nodes of this EntityLineage. Set of links that are involved in the lineage.
+- `links` (list[oci.aidataplatform_dp.models.LineageRelationship]) — Gets the links of this EntityLineage. Set of links between the objects in the 'objects' set.
+
+**Return:** [Back to Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client) • [Top](#top)
 
 
 ## <a id="usersettingclient-client"></a>User Setting (`UserSettingClient`)
@@ -4246,7 +5040,7 @@ Updates a view with given information.
 - [`uploadFileWithPar`](#volumeclient-uploadfilewithpar)
 
 ### <a id="volumeclient-createvolume"></a>`createVolume`
-Creates a volume in AI Data Platform Workbench.
+Creates a volume.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4718,6 +5512,7 @@ Cancels a job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
@@ -4743,7 +5538,7 @@ Cancels all job runs for a given job.
 
 
 ### <a id="workflowclient-createjob"></a>`createJob`
-Creates a job in an AI Data Platform Workbench.
+Creates a job.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4784,7 +5579,7 @@ Creates a job in an AI Data Platform Workbench.
 
 
 ### <a id="workflowclient-createjobrun"></a>`createJobRun`
-Creates a job run for an AI Data Platform Workbench.
+Creates a job run.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4836,13 +5631,14 @@ Creates a job run for an AI Data Platform Workbench.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
 
 ### <a id="workflowclient-deletejob"></a>`deleteJob`
-Deletes a job from an AI Data Platform Workbench.
+Deletes a job.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4860,7 +5656,7 @@ Deletes a job from an AI Data Platform Workbench.
 
 
 ### <a id="workflowclient-deletejobrun"></a>`deleteJobRun`
-Deletes a job run from an AI Data Platform Workbench.
+Deletes a job run.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4931,7 +5727,7 @@ Fetches the task run output from the runtime engine.
 
 
 ### <a id="workflowclient-getjob"></a>`getJob`
-Returns detailed information about a given job in AI Data Platform Workbench.
+Returns detailed information about a given job.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -5022,6 +5818,7 @@ Returns detailed information about a given job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
@@ -5095,7 +5892,7 @@ Returns a list of job permissions.
 
 
 ### <a id="workflowclient-listjobruns"></a>`listJobRuns`
-Returns a detailed list of job runs in an AI Data Platform Workbench.
+Returns a detailed list of job runs.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -5123,7 +5920,7 @@ Returns a detailed list of job runs in an AI Data Platform Workbench.
 
 
 ### <a id="workflowclient-listjobs"></a>`listJobs`
-Returns a list of jobs for a given AI Data Platform Workbench.
+Returns a list of jobs.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -5131,6 +5928,7 @@ Returns a list of jobs for a given AI Data Platform Workbench.
 
 **Optional Parameters:**
 - `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
+- `jobKey` (`list[str]`) — The field to filter based on job key.
 - `displayNameContains` (`string`) — A filter to return only resources that have a display name containing the text provided.
 - `path` (`string`) — The fully qualified path where the job is stored.
 - `createdBy` (`string`) — A filter to return only resources that are created by given user with username that matches exactly.
@@ -5176,7 +5974,7 @@ Returns a list of the latest job runs for a given job key.
 
 
 ### <a id="workflowclient-listtaskruns"></a>`listTaskRuns`
-Returns a list of tasks run in an AI Data Platform Workbench.
+Returns a list of task runs.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -5277,13 +6075,14 @@ Repairs and reruns a job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
 
 ### <a id="workflowclient-updatejob"></a>`updateJob`
-Update details for a job in AI Data Platform Workbench.
+Updates details for a job.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -5347,7 +6146,6 @@ Creates a git folder in the workspace
 - `createGitFolderDetails` (`oci.aidataplatform_dp.models.CreateGitFolderDetails`) — The information to be updated.
 
 **Optional Parameters:**
-- `dhUserPrincipal` (`string`) — The DH User Principal Header .
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.

@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface WorkerConfig {
     /**
-    * Shape of the compute cluster executor instance.
+    * Shape of the compute cluster worker instance.
     */
     'workerShape'?: string;
     'workerShapeConfig'?: model.ShapeConfig;

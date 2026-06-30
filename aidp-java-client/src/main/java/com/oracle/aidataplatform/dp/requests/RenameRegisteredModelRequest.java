@@ -77,19 +77,6 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -184,21 +171,6 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -225,7 +197,7 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
          * @return this builder instance
          */
         public Builder copy(RenameRegisteredModelRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());renameRegisteredModelDetails(o.getRenameRegisteredModelDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());renameRegisteredModelDetails(o.getRenameRegisteredModelDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -273,9 +245,8 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
             request.renameRegisteredModelDetails = renameRegisteredModelDetails;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new RenameRegisteredModelRequest(aiDataPlatformId, renameRegisteredModelDetails, opcRetryToken, opcRequestId, dhUserPrincipal);
+            // new RenameRegisteredModelRequest(aiDataPlatformId, renameRegisteredModelDetails, opcRetryToken, opcRequestId);
         }
     }
 
@@ -288,8 +259,7 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
             .aiDataPlatformId(aiDataPlatformId)
             .renameRegisteredModelDetails(renameRegisteredModelDetails)
             .opcRetryToken(opcRetryToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -309,7 +279,6 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
         sb.append(",renameRegisteredModelDetails=").append(String.valueOf(this.renameRegisteredModelDetails));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -328,8 +297,7 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.renameRegisteredModelDetails, other.renameRegisteredModelDetails)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -340,7 +308,6 @@ public class RenameRegisteredModelRequest extends com.oracle.bmc.requests.BmcReq
         result = (result * PRIME) + (this.renameRegisteredModelDetails == null ? 43 : this.renameRegisteredModelDetails.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

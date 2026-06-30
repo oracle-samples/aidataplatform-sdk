@@ -137,19 +137,6 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
     public String getIfMatch() {
         return ifMatch;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -312,21 +299,6 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -353,7 +325,7 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
          * @return this builder instance
          */
         public Builder copy(CheckoutBranchRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());gitRepositoryKey(o.getGitRepositoryKey());checkoutBranchDetails(o.getCheckoutBranchDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());ifMatch(o.getIfMatch());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());gitRepositoryKey(o.getGitRepositoryKey());checkoutBranchDetails(o.getCheckoutBranchDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());ifMatch(o.getIfMatch());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -405,9 +377,8 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
             request.opcRequestId = opcRequestId;
             request.shouldUpdateRecent = shouldUpdateRecent;
             request.ifMatch = ifMatch;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new CheckoutBranchRequest(aiDataPlatformId, workspaceKey, gitRepositoryKey, checkoutBranchDetails, opcRetryToken, opcRequestId, shouldUpdateRecent, ifMatch, dhUserPrincipal);
+            // new CheckoutBranchRequest(aiDataPlatformId, workspaceKey, gitRepositoryKey, checkoutBranchDetails, opcRetryToken, opcRequestId, shouldUpdateRecent, ifMatch);
         }
     }
 
@@ -424,8 +395,7 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
             .opcRetryToken(opcRetryToken)
             .opcRequestId(opcRequestId)
             .shouldUpdateRecent(shouldUpdateRecent)
-            .ifMatch(ifMatch)
-            .dhUserPrincipal(dhUserPrincipal);
+            .ifMatch(ifMatch);
     }
 
     /**
@@ -449,7 +419,6 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(",shouldUpdateRecent=").append(String.valueOf(this.shouldUpdateRecent));
         sb.append(",ifMatch=").append(String.valueOf(this.ifMatch));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -472,8 +441,7 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.shouldUpdateRecent, other.shouldUpdateRecent)
-            && java.util.Objects.equals(this.ifMatch, other.ifMatch)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.ifMatch, other.ifMatch);
     }
 
     @Override
@@ -488,7 +456,6 @@ public class CheckoutBranchRequest extends com.oracle.bmc.requests.BmcRequest<co
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.shouldUpdateRecent == null ? 43 : this.shouldUpdateRecent.hashCode());
         result = (result * PRIME) + (this.ifMatch == null ? 43 : this.ifMatch.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

@@ -15,10 +15,6 @@ export const GLOBAL_VALUE_OPTIONS: Record<string, keyof GlobalOptions> = {
   "--auth": "auth",
   "--region": "region",
   "--endpoint": "endpoint",
-  "--environment-prefix": "environmentPrefix",
-  "--environmentprefix": "environmentPrefix",
-  "--environment-domain": "environmentDomain",
-  "--environment-host": "environmentHost",
   "--timeout": "timeout",
   "--instance-id": "instanceId"
 };

@@ -95,6 +95,8 @@ export namespace SchemaSummary {
                     return model.ExadataSchemaSummary.getJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE":
                     return model.OracleSchemaSummary.getJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
+                case "MYSQL":
+                    return model.MysqlSchemaSummary.getJsonObj(<model.MysqlSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchemaSummary.getJsonObj(<model.OacSchemaSummary>(<object>jsonObj), true);
                 case "ATP":
@@ -103,6 +105,10 @@ export namespace SchemaSummary {
                     return model.KafkaTopicSchemaSummary.getJsonObj(<model.KafkaTopicSchemaSummary>(<object>jsonObj), true);
                 case "ADW":
                     return model.AdwSchemaSummary.getJsonObj(<model.AdwSchemaSummary>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureSchemaSummary.getJsonObj(<model.SqlServerOnAzureSchemaSummary>(<object>jsonObj), true);
+                case "SNOWFLAKE":
+                    return model.SnowflakeSchemaSummary.getJsonObj(<model.SnowflakeSchemaSummary>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchemaSummary.getJsonObj(<model.StandardSchemaSummary>(<object>jsonObj), true);
                 default:
@@ -139,6 +145,8 @@ export namespace SchemaSummary {
                     return model.ExadataSchemaSummary.getDeserializedJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE":
                     return model.OracleSchemaSummary.getDeserializedJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
+                case "MYSQL":
+                    return model.MysqlSchemaSummary.getDeserializedJsonObj(<model.MysqlSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchemaSummary.getDeserializedJsonObj(<model.OacSchemaSummary>(<object>jsonObj), true);
                 case "ATP":
@@ -147,6 +155,10 @@ export namespace SchemaSummary {
                     return model.KafkaTopicSchemaSummary.getDeserializedJsonObj(<model.KafkaTopicSchemaSummary>(<object>jsonObj), true);
                 case "ADW":
                     return model.AdwSchemaSummary.getDeserializedJsonObj(<model.AdwSchemaSummary>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureSchemaSummary.getDeserializedJsonObj(<model.SqlServerOnAzureSchemaSummary>(<object>jsonObj), true);
+                case "SNOWFLAKE":
+                    return model.SnowflakeSchemaSummary.getDeserializedJsonObj(<model.SnowflakeSchemaSummary>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchemaSummary.getDeserializedJsonObj(<model.StandardSchemaSummary>(<object>jsonObj), true);
                 default:

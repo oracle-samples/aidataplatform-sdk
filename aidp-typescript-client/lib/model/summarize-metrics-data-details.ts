@@ -28,6 +28,12 @@ export interface SummarizeMetricsDataDetails {
     */
     'metricName': string;
     /**
+    * Optional Monitoring {@code agentNode} dimension value used to filter AI compute metrics to a specific AI compute replica.
+* This filter applies only to AI compute clusters.
+* 
+    */
+    'agentNode'?: string;
+    /**
     * The beginning of the time range to use when searching for metric data points. Format is RFC 3339.
     */
     'timeBegin': Date;
@@ -78,9 +84,11 @@ export namespace SummarizeMetricsDataDetails {
 
 
 
+
     export function getJsonObj(obj: SummarizeMetricsDataDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 
@@ -97,6 +105,7 @@ export namespace SummarizeMetricsDataDetails {
     export function getDeserializedJsonObj(obj: SummarizeMetricsDataDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeniedTopicsPolicy(SafetyPolicy):
     """
-    Denied topics safety policy
+    Denied topics safety policy.
     """
 
     def __init__(self, **kwargs):
@@ -84,7 +84,7 @@ class DeniedTopicsPolicy(SafetyPolicy):
     def topics(self):
         """
         Gets the topics of this DeniedTopicsPolicy.
-        List of denied topics
+        List of denied topics.
 
 
         :return: The topics of this DeniedTopicsPolicy.
@@ -96,7 +96,7 @@ class DeniedTopicsPolicy(SafetyPolicy):
     def topics(self, topics):
         """
         Sets the topics of this DeniedTopicsPolicy.
-        List of denied topics
+        List of denied topics.
 
 
         :param topics: The topics of this DeniedTopicsPolicy.

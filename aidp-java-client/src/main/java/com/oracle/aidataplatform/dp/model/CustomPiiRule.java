@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Custom PII detection rule
+ * Custom PII detection rule.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CustomPiiRule.Builder.class)
@@ -27,14 +27,14 @@ public final class CustomPiiRule  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Name of the custom rule
+     * Name of the custom rule.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("name")
 private String name;
 
         /**
-         * Name of the custom rule
+         * Name of the custom rule.
          * @param name the value to set
          * @return this builder
          **/
@@ -45,14 +45,14 @@ public Builder name(String name) {
     return this;
 }
             /**
-     * Regex pattern for detection
+     * Regex pattern for detection.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("pattern")
 private String pattern;
 
         /**
-         * Regex pattern for detection
+         * Regex pattern for detection.
          * @param pattern the value to set
          * @return this builder
          **/
@@ -63,14 +63,14 @@ public Builder pattern(String pattern) {
     return this;
 }
             /**
-     * Prefix pattern to match
+     * Prefix pattern to match.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("prefix")
 private String prefix;
 
         /**
-         * Prefix pattern to match
+         * Prefix pattern to match.
          * @param prefix the value to set
          * @return this builder
          **/
@@ -81,14 +81,14 @@ public Builder prefix(String prefix) {
     return this;
 }
             /**
-     * Suffix pattern to match
+     * Suffix pattern to match.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("suffix")
 private String suffix;
 
         /**
-         * Suffix pattern to match
+         * Suffix pattern to match.
          * @param suffix the value to set
          * @return this builder
          **/
@@ -99,14 +99,14 @@ public Builder suffix(String suffix) {
     return this;
 }
             /**
-     * Whether the pattern is case sensitive
+     * Whether the pattern is case sensitive.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("isCaseSensitive")
 private Boolean isCaseSensitive;
 
         /**
-         * Whether the pattern is case sensitive
+         * Whether the pattern is case sensitive.
          * @param isCaseSensitive the value to set
          * @return this builder
          **/
@@ -117,14 +117,14 @@ public Builder isCaseSensitive(Boolean isCaseSensitive) {
     return this;
 }
             /**
-     * Maximum distance for pattern matching
+     * Maximum distance for pattern matching.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("maxDistance")
 private Integer maxDistance;
 
         /**
-         * Maximum distance for pattern matching
+         * Maximum distance for pattern matching.
          * @param maxDistance the value to set
          * @return this builder
          **/
@@ -135,14 +135,14 @@ public Builder maxDistance(Integer maxDistance) {
     return this;
 }
             /**
-     * Priority of this rule
+     * Priority of this rule.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("priority")
 private Integer priority;
 
         /**
-         * Priority of this rule
+         * Priority of this rule.
          * @param priority the value to set
          * @return this builder
          **/
@@ -193,14 +193,14 @@ return this;
 
 
         /**
-     * Name of the custom rule
+     * Name of the custom rule.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * Name of the custom rule
+     * Name of the custom rule.
      * @return the value
      **/
     
@@ -210,14 +210,14 @@ return this;
 
 
         /**
-     * Regex pattern for detection
+     * Regex pattern for detection.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("pattern")
     private final String pattern;
 
         /**
-     * Regex pattern for detection
+     * Regex pattern for detection.
      * @return the value
      **/
     
@@ -227,14 +227,14 @@ return this;
 
 
         /**
-     * Prefix pattern to match
+     * Prefix pattern to match.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("prefix")
     private final String prefix;
 
         /**
-     * Prefix pattern to match
+     * Prefix pattern to match.
      * @return the value
      **/
     
@@ -244,14 +244,14 @@ return this;
 
 
         /**
-     * Suffix pattern to match
+     * Suffix pattern to match.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("suffix")
     private final String suffix;
 
         /**
-     * Suffix pattern to match
+     * Suffix pattern to match.
      * @return the value
      **/
     
@@ -261,14 +261,14 @@ return this;
 
 
         /**
-     * Whether the pattern is case sensitive
+     * Whether the pattern is case sensitive.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isCaseSensitive")
     private final Boolean isCaseSensitive;
 
         /**
-     * Whether the pattern is case sensitive
+     * Whether the pattern is case sensitive.
      * @return the value
      **/
     
@@ -278,14 +278,14 @@ return this;
 
 
         /**
-     * Maximum distance for pattern matching
+     * Maximum distance for pattern matching.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("maxDistance")
     private final Integer maxDistance;
 
         /**
-     * Maximum distance for pattern matching
+     * Maximum distance for pattern matching.
      * @return the value
      **/
     
@@ -295,14 +295,14 @@ return this;
 
 
         /**
-     * Priority of this rule
+     * Priority of this rule.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("priority")
     private final Integer priority;
 
         /**
-     * Priority of this rule
+     * Priority of this rule.
      * @return the value
      **/
     

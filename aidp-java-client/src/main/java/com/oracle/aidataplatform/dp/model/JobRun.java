@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class JobRun  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "name", "jobKey", "jobName", "parentJobRunKey", "rootJobRunKey", "parentTaskRunKey", "tasks", "createdBy", "createdByName", "maxConcurrentRuns", "gitConfig", "queue", "originalAttemptRunId", "state", "schedule", "clusterSpec", "clusterInstance", "parameters", "unifiedJobAndJobRunParameters", "repairHistory", "systemParameters", "startTime", "endTime", "setupDuration", "executionDuration", "cleanupDuration", "runDuration", "timeCreated", "timeUpdated", "launched", "version", "taskToTaskRunMap", "taskRunSummaryMap", "timeoutSeconds", "repairedTasks", "lifecycleStates"})
-    public JobRun(String key, String name, String jobKey, String jobName, String parentJobRunKey, String rootJobRunKey, String parentTaskRunKey, java.util.List<Task> tasks, String createdBy, String createdByName, Integer maxConcurrentRuns, GitConfig gitConfig, Queue queue, String originalAttemptRunId, State state, Schedule schedule, ClusterSpec clusterSpec, ClusterInstance clusterInstance, java.util.List<Parameter> parameters, java.util.List<Parameter> unifiedJobAndJobRunParameters, java.util.List<RepairHistory> repairHistory, java.util.Map<String, String> systemParameters, Long startTime, Long endTime, Long setupDuration, Long executionDuration, Long cleanupDuration, Long runDuration, java.util.Date timeCreated, java.util.Date timeUpdated, Launched launched, Integer version, java.util.Map<String, String> taskToTaskRunMap, java.util.Map<String, Object> taskRunSummaryMap, Integer timeoutSeconds, java.util.List<String> repairedTasks, java.util.List<LifecycleState> lifecycleStates) {
+    @java.beans.ConstructorProperties({"key", "name", "jobKey", "jobName", "parentJobRunKey", "rootJobRunKey", "parentTaskRunKey", "tasks", "createdBy", "createdByName", "maxConcurrentRuns", "gitConfig", "queue", "originalAttemptRunId", "state", "schedule", "clusterSpec", "clusterInstance", "parameters", "unifiedJobAndJobRunParameters", "repairHistory", "systemParameters", "startTime", "endTime", "setupDuration", "executionDuration", "cleanupDuration", "runDuration", "timeCreated", "timeUpdated", "launched", "version", "taskToTaskRunMap", "taskRunSummaryMap", "timeoutSeconds", "repairedTasks", "repairMode", "lifecycleStates"})
+    public JobRun(String key, String name, String jobKey, String jobName, String parentJobRunKey, String rootJobRunKey, String parentTaskRunKey, java.util.List<Task> tasks, String createdBy, String createdByName, Integer maxConcurrentRuns, GitConfig gitConfig, Queue queue, String originalAttemptRunId, State state, Schedule schedule, ClusterSpec clusterSpec, ClusterInstance clusterInstance, java.util.List<Parameter> parameters, java.util.List<Parameter> unifiedJobAndJobRunParameters, java.util.List<RepairHistory> repairHistory, java.util.Map<String, String> systemParameters, Long startTime, Long endTime, Long setupDuration, Long executionDuration, Long cleanupDuration, Long runDuration, java.util.Date timeCreated, java.util.Date timeUpdated, Launched launched, Integer version, java.util.Map<String, String> taskToTaskRunMap, java.util.Map<String, Object> taskRunSummaryMap, Integer timeoutSeconds, java.util.List<String> repairedTasks, RepairMode repairMode, java.util.List<LifecycleState> lifecycleStates) {
         super();
         this.key = key;
         this.name = name;
@@ -51,6 +51,7 @@ public final class JobRun  {
         this.taskRunSummaryMap = taskRunSummaryMap;
         this.timeoutSeconds = timeoutSeconds;
         this.repairedTasks = repairedTasks;
+        this.repairMode = repairMode;
         this.lifecycleStates = lifecycleStates;
     }
 
@@ -657,6 +658,24 @@ public Builder repairedTasks(java.util.List<String> repairedTasks) {
     return this;
 }
             /**
+     * Repair mode to be used for this repair scope.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("repairMode")
+private RepairMode repairMode;
+
+        /**
+         * Repair mode to be used for this repair scope.
+         * @param repairMode the value to set
+         * @return this builder
+         **/
+        
+
+public Builder repairMode(RepairMode repairMode) {
+    this.repairMode = repairMode;
+    return this;
+}
+            /**
      * The collection of lifecycle states.
      **/
     
@@ -713,6 +732,7 @@ public Builder lifecycleStates(java.util.List<LifecycleState> lifecycleStates) {
                 , this.taskRunSummaryMap
                 , this.timeoutSeconds
                 , this.repairedTasks
+                , this.repairMode
                 , this.lifecycleStates);            return model;
         }
 
@@ -754,6 +774,7 @@ public Builder lifecycleStates(java.util.List<LifecycleState> lifecycleStates) {
     this.taskRunSummaryMap(model.getTaskRunSummaryMap());
     this.timeoutSeconds(model.getTimeoutSeconds());
     this.repairedTasks(model.getRepairedTasks());
+    this.repairMode(model.getRepairMode());
     this.lifecycleStates(model.getLifecycleStates());
 return this;
         }
@@ -1388,6 +1409,68 @@ return this;
         return repairedTasks;
     }
 
+    /**
+     * Repair mode to be used for this repair scope.
+     **/
+    public enum RepairMode implements com.oracle.bmc.http.internal.BmcEnum {
+        Resume("RESUME"),
+        Rerun("RERUN"),
+        
+
+        /**
+         * This value is used if a service returns a value for this enum that is not recognized by this
+         * version of the SDK.
+         */
+        UnknownEnumValue(null);
+
+        private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(RepairMode.class);
+
+        private final String value;
+        private static java.util.Map<String, RepairMode> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (RepairMode v : RepairMode.values()) {
+                if (v != UnknownEnumValue) {
+                    map.put(v.getValue(), v);
+                }
+            }
+        }
+
+        RepairMode(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static RepairMode create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            LOG.warn("Received unknown value '{}' for enum 'RepairMode', returning UnknownEnumValue", key);
+            return UnknownEnumValue;
+        }
+    };
+        /**
+     * Repair mode to be used for this repair scope.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("repairMode")
+    private final RepairMode repairMode;
+
+        /**
+     * Repair mode to be used for this repair scope.
+     * @return the value
+     **/
+    
+    public RepairMode getRepairMode() {
+        return repairMode;
+    }
+
 
         /**
      * The collection of lifecycle states.
@@ -1454,6 +1537,7 @@ return this;
         sb.append(", taskRunSummaryMap=").append(String.valueOf(this.taskRunSummaryMap));
         sb.append(", timeoutSeconds=").append(String.valueOf(this.timeoutSeconds));
         sb.append(", repairedTasks=").append(String.valueOf(this.repairedTasks));
+        sb.append(", repairMode=").append(String.valueOf(this.repairMode));
         sb.append(", lifecycleStates=").append(String.valueOf(this.lifecycleStates));
         sb.append(")");
         return sb.toString();
@@ -1505,6 +1589,7 @@ return this;
             java.util.Objects.equals(this.taskRunSummaryMap, other.taskRunSummaryMap) &&
             java.util.Objects.equals(this.timeoutSeconds, other.timeoutSeconds) &&
             java.util.Objects.equals(this.repairedTasks, other.repairedTasks) &&
+            java.util.Objects.equals(this.repairMode, other.repairMode) &&
             java.util.Objects.equals(this.lifecycleStates, other.lifecycleStates);
     }
 
@@ -1548,6 +1633,7 @@ return this;
         result = (result * PRIME) + (this.taskRunSummaryMap == null ? 43 : this.taskRunSummaryMap.hashCode());
         result = (result * PRIME) + (this.timeoutSeconds == null ? 43 : this.timeoutSeconds.hashCode());
         result = (result * PRIME) + (this.repairedTasks == null ? 43 : this.repairedTasks.hashCode());
+        result = (result * PRIME) + (this.repairMode == null ? 43 : this.repairMode.hashCode());
         result = (result * PRIME) + (this.lifecycleStates == null ? 43 : this.lifecycleStates.hashCode());
         return result;
     }
