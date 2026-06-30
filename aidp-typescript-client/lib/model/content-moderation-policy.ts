@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Content moderation safety policy
+* Content moderation safety policy.
 */
 export interface ContentModerationPolicy extends model.SafetyPolicy {
     /**
-    * Content moderation categories and their configurations
+    * Content moderation categories and their configurations.
     */
     'categories'?: Array<model.ContentModerationCategoryConfig>;
 

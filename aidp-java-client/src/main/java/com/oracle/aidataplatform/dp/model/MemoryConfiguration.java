@@ -12,11 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class MemoryConfiguration  {
     @Deprecated
-    @java.beans.ConstructorProperties({"isEnabled", "limit", "memoryProperties"})
-    public MemoryConfiguration(Boolean isEnabled, MemoryLimitConfiguration limit, java.util.Map<String, Object> memoryProperties) {
+    @java.beans.ConstructorProperties({"isEnabled", "limit", "contextManagement", "memoryProperties"})
+    public MemoryConfiguration(Boolean isEnabled, MemoryLimitConfiguration limit, ContextManagementConfiguration contextManagement, java.util.Map<String, Object> memoryProperties) {
         super();
         this.isEnabled = isEnabled;
         this.limit = limit;
+        this.contextManagement = contextManagement;
         this.memoryProperties = memoryProperties;
     }
 
@@ -50,6 +51,16 @@ public Builder limit(MemoryLimitConfiguration limit) {
     this.limit = limit;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("contextManagement")
+private ContextManagementConfiguration contextManagement;
+
+
+
+public Builder contextManagement(ContextManagementConfiguration contextManagement) {
+    this.contextManagement = contextManagement;
+    return this;
+}
             /**
      * Some extra named memory properties.
      **/
@@ -73,6 +84,7 @@ public Builder memoryProperties(java.util.Map<String, Object> memoryProperties) 
         public MemoryConfiguration build() {
             MemoryConfiguration model = new MemoryConfiguration(this.isEnabled
                 , this.limit
+                , this.contextManagement
                 , this.memoryProperties);            return model;
         }
 
@@ -80,6 +92,7 @@ public Builder memoryProperties(java.util.Map<String, Object> memoryProperties) 
         public Builder copy(MemoryConfiguration model) {
                 this.isEnabled(model.getIsEnabled());
     this.limit(model.getLimit());
+    this.contextManagement(model.getContextManagement());
     this.memoryProperties(model.getMemoryProperties());
 return this;
         }
@@ -127,6 +140,16 @@ return this;
     }
 
 
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("contextManagement")
+    private final ContextManagementConfiguration contextManagement;
+
+    
+    public ContextManagementConfiguration getContextManagement() {
+        return contextManagement;
+    }
+
+
         /**
      * Some extra named memory properties.
      **/
@@ -158,6 +181,7 @@ return this;
         sb.append("MemoryConfiguration(");
         sb.append("isEnabled=").append(String.valueOf(this.isEnabled));
         sb.append(", limit=").append(String.valueOf(this.limit));
+        sb.append(", contextManagement=").append(String.valueOf(this.contextManagement));
         sb.append(", memoryProperties=").append(String.valueOf(this.memoryProperties));
         sb.append(")");
         return sb.toString();
@@ -175,6 +199,7 @@ return this;
         MemoryConfiguration other = (MemoryConfiguration) o;
         return java.util.Objects.equals(this.isEnabled, other.isEnabled) &&
             java.util.Objects.equals(this.limit, other.limit) &&
+            java.util.Objects.equals(this.contextManagement, other.contextManagement) &&
             java.util.Objects.equals(this.memoryProperties, other.memoryProperties);
     }
 
@@ -184,6 +209,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.isEnabled == null ? 43 : this.isEnabled.hashCode());
         result = (result * PRIME) + (this.limit == null ? 43 : this.limit.hashCode());
+        result = (result * PRIME) + (this.contextManagement == null ? 43 : this.contextManagement.hashCode());
         result = (result * PRIME) + (this.memoryProperties == null ? 43 : this.memoryProperties.hashCode());
         return result;
     }

@@ -15,14 +15,14 @@ public final class BearerTokenAuth extends Auth {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The bearer token used for auth
+     * The bearer token or session-variable reference used for auth
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("token")
 private String token;
 
         /**
-         * The bearer token used for auth
+         * The bearer token or session-variable reference used for auth
          * @param token the value to set
          * @return this builder
          **/
@@ -66,14 +66,14 @@ return this;
 
 
         /**
-     * The bearer token used for auth
+     * The bearer token or session-variable reference used for auth
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("token")
     private final String token;
 
         /**
-     * The bearer token used for auth
+     * The bearer token or session-variable reference used for auth
      * @return the value
      **/
     

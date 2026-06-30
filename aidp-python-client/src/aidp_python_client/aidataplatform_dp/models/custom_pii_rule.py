@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CustomPiiRule(object):
     """
-    Custom PII detection rule
+    Custom PII detection rule.
     """
 
     def __init__(self, **kwargs):
@@ -79,7 +79,7 @@ class CustomPiiRule(object):
     def name(self):
         """
         **[Required]** Gets the name of this CustomPiiRule.
-        Name of the custom rule
+        Name of the custom rule.
 
 
         :return: The name of this CustomPiiRule.
@@ -91,7 +91,7 @@ class CustomPiiRule(object):
     def name(self, name):
         """
         Sets the name of this CustomPiiRule.
-        Name of the custom rule
+        Name of the custom rule.
 
 
         :param name: The name of this CustomPiiRule.
@@ -103,7 +103,7 @@ class CustomPiiRule(object):
     def pattern(self):
         """
         **[Required]** Gets the pattern of this CustomPiiRule.
-        Regex pattern for detection
+        Regex pattern for detection.
 
 
         :return: The pattern of this CustomPiiRule.
@@ -115,7 +115,7 @@ class CustomPiiRule(object):
     def pattern(self, pattern):
         """
         Sets the pattern of this CustomPiiRule.
-        Regex pattern for detection
+        Regex pattern for detection.
 
 
         :param pattern: The pattern of this CustomPiiRule.
@@ -127,7 +127,7 @@ class CustomPiiRule(object):
     def prefix(self):
         """
         Gets the prefix of this CustomPiiRule.
-        Prefix pattern to match
+        Prefix pattern to match.
 
 
         :return: The prefix of this CustomPiiRule.
@@ -139,7 +139,7 @@ class CustomPiiRule(object):
     def prefix(self, prefix):
         """
         Sets the prefix of this CustomPiiRule.
-        Prefix pattern to match
+        Prefix pattern to match.
 
 
         :param prefix: The prefix of this CustomPiiRule.
@@ -151,7 +151,7 @@ class CustomPiiRule(object):
     def suffix(self):
         """
         Gets the suffix of this CustomPiiRule.
-        Suffix pattern to match
+        Suffix pattern to match.
 
 
         :return: The suffix of this CustomPiiRule.
@@ -163,7 +163,7 @@ class CustomPiiRule(object):
     def suffix(self, suffix):
         """
         Sets the suffix of this CustomPiiRule.
-        Suffix pattern to match
+        Suffix pattern to match.
 
 
         :param suffix: The suffix of this CustomPiiRule.
@@ -175,7 +175,7 @@ class CustomPiiRule(object):
     def is_case_sensitive(self):
         """
         Gets the is_case_sensitive of this CustomPiiRule.
-        Whether the pattern is case sensitive
+        Whether the pattern is case sensitive.
 
 
         :return: The is_case_sensitive of this CustomPiiRule.
@@ -187,7 +187,7 @@ class CustomPiiRule(object):
     def is_case_sensitive(self, is_case_sensitive):
         """
         Sets the is_case_sensitive of this CustomPiiRule.
-        Whether the pattern is case sensitive
+        Whether the pattern is case sensitive.
 
 
         :param is_case_sensitive: The is_case_sensitive of this CustomPiiRule.
@@ -199,7 +199,7 @@ class CustomPiiRule(object):
     def max_distance(self):
         """
         Gets the max_distance of this CustomPiiRule.
-        Maximum distance for pattern matching
+        Maximum distance for pattern matching.
 
 
         :return: The max_distance of this CustomPiiRule.
@@ -211,7 +211,7 @@ class CustomPiiRule(object):
     def max_distance(self, max_distance):
         """
         Sets the max_distance of this CustomPiiRule.
-        Maximum distance for pattern matching
+        Maximum distance for pattern matching.
 
 
         :param max_distance: The max_distance of this CustomPiiRule.
@@ -223,7 +223,7 @@ class CustomPiiRule(object):
     def priority(self):
         """
         Gets the priority of this CustomPiiRule.
-        Priority of this rule
+        Priority of this rule.
 
 
         :return: The priority of this CustomPiiRule.
@@ -235,7 +235,7 @@ class CustomPiiRule(object):
     def priority(self, priority):
         """
         Sets the priority of this CustomPiiRule.
-        Priority of this rule
+        Priority of this rule.
 
 
         :param priority: The priority of this CustomPiiRule.

@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Word filters safety policy
+ * Word filters safety policy.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=WordFiltersPolicy.Builder.class)
@@ -50,14 +50,14 @@ public Builder threshold(Float threshold) {
     return this;
 }
             /**
-     * List of banned words or regex patterns
+     * List of banned words or regex patterns.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("words")
 private java.util.List<String> words;
 
         /**
-         * List of banned words or regex patterns
+         * List of banned words or regex patterns.
          * @param words the value to set
          * @return this builder
          **/
@@ -68,14 +68,14 @@ public Builder words(java.util.List<String> words) {
     return this;
 }
             /**
-     * List of regex patterns to filter
+     * List of regex patterns to filter.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("regexPatterns")
 private java.util.List<String> regexPatterns;
 
         /**
-         * List of regex patterns to filter
+         * List of regex patterns to filter.
          * @param regexPatterns the value to set
          * @return this builder
          **/
@@ -132,14 +132,14 @@ return this;
 
 
         /**
-     * List of banned words or regex patterns
+     * List of banned words or regex patterns.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("words")
     private final java.util.List<String> words;
 
         /**
-     * List of banned words or regex patterns
+     * List of banned words or regex patterns.
      * @return the value
      **/
     
@@ -149,14 +149,14 @@ return this;
 
 
         /**
-     * List of regex patterns to filter
+     * List of regex patterns to filter.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("regexPatterns")
     private final java.util.List<String> regexPatterns;
 
         /**
-     * List of regex patterns to filter
+     * List of regex patterns to filter.
      * @return the value
      **/
     

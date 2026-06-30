@@ -110,8 +110,8 @@ class AuditLogSearchResultSummary(object):
     OBJECT_TYPE_CREDENTIAL = "CREDENTIAL"
 
     #: A constant which can be used with the object_type property of a AuditLogSearchResultSummary.
-    #: This constant has a value of "AGENT_FLOW"
-    OBJECT_TYPE_AGENT_FLOW = "AGENT_FLOW"
+    #: This constant has a value of "AGENT"
+    OBJECT_TYPE_AGENT = "AGENT"
 
     #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
     #: This constant has a value of "CREATE"
@@ -228,7 +228,7 @@ class AuditLogSearchResultSummary(object):
 
         :param object_type:
             The value to assign to the object_type property of this AuditLogSearchResultSummary.
-            Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type object_type: str
 
@@ -260,6 +260,10 @@ class AuditLogSearchResultSummary(object):
             The value to assign to the payload property of this AuditLogSearchResultSummary.
         :type payload: str
 
+        :param error_message:
+            The value to assign to the error_message property of this AuditLogSearchResultSummary.
+        :type error_message: str
+
         """
         self.swagger_types = {
             'event_id': 'str',
@@ -270,7 +274,8 @@ class AuditLogSearchResultSummary(object):
             'status': 'str',
             'started_by': 'str',
             'source': 'str',
-            'payload': 'str'
+            'payload': 'str',
+            'error_message': 'str'
         }
 
         self.attribute_map = {
@@ -282,7 +287,8 @@ class AuditLogSearchResultSummary(object):
             'status': 'status',
             'started_by': 'startedBy',
             'source': 'source',
-            'payload': 'payload'
+            'payload': 'payload',
+            'error_message': 'errorMessage'
         }
 
         self._event_id = None
@@ -294,6 +300,7 @@ class AuditLogSearchResultSummary(object):
         self._started_by = None
         self._source = None
         self._payload = None
+        self._error_message = None
 
     @property
     def event_id(self):
@@ -349,7 +356,7 @@ class AuditLogSearchResultSummary(object):
         Gets the object_type of this AuditLogSearchResultSummary.
         Type of object.
 
-        Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -368,7 +375,7 @@ class AuditLogSearchResultSummary(object):
         :param object_type: The object_type of this AuditLogSearchResultSummary.
         :type: str
         """
-        allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW"]
+        allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT"]
         if not value_allowed_none_or_none_sentinel(object_type, allowed_values):
             object_type = 'UNKNOWN_ENUM_VALUE'
         self._object_type = object_type
@@ -528,6 +535,30 @@ class AuditLogSearchResultSummary(object):
         :type: str
         """
         self._payload = payload
+
+    @property
+    def error_message(self):
+        """
+        Gets the error_message of this AuditLogSearchResultSummary.
+        Error message from audit log entry, if available.
+
+
+        :return: The error_message of this AuditLogSearchResultSummary.
+        :rtype: str
+        """
+        return self._error_message
+
+    @error_message.setter
+    def error_message(self, error_message):
+        """
+        Sets the error_message of this AuditLogSearchResultSummary.
+        Error message from audit log entry, if available.
+
+
+        :param error_message: The error_message of this AuditLogSearchResultSummary.
+        :type: str
+        """
+        self._error_message = error_message
 
     def __repr__(self):
         return formatted_flat_dict(self)

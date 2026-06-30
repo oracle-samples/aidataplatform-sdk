@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* agent flow to communicate with MCP using the defined auth mode
+* Auth configuration for tools that support authenticated requests
 */
 export interface Auth {
 

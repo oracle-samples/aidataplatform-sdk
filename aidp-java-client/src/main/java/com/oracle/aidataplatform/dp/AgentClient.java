@@ -1,0 +1,1246 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+package com.oracle.aidataplatform.dp;
+
+import com.oracle.bmc.util.internal.Validate;
+import com.oracle.aidataplatform.dp.requests.*;
+import com.oracle.aidataplatform.dp.responses.*;
+import com.oracle.bmc.circuitbreaker.CircuitBreakerConfiguration;
+import com.oracle.bmc.util.CircuitBreakerUtils;
+
+import java.util.Objects;
+
+@jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
+public class AgentClient extends com.oracle.bmc.http.internal.BaseSyncClient implements Agent {
+    /**
+     * Service instance for Agent.
+     */
+    public static final com.oracle.bmc.Service SERVICE = com.oracle.bmc.Services.serviceBuilder().serviceName("AGENT").serviceEndpointPrefix("datahub-dp").serviceEndpointTemplate("https://datalake.{region}.oci.{secondLevelDomain}").build();
+
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(AgentClient.class);
+
+
+    private final AgentWaiters waiters;
+
+    AgentClient(
+            com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider
+            , java.util.concurrent.ExecutorService executorService) {
+        super(
+            builder,
+            authenticationDetailsProvider,
+            CircuitBreakerUtils.DEFAULT_CIRCUIT_BREAKER_CONFIGURATION
+            
+        );
+
+        if (executorService == null) {
+            // up to 50 (core) threads, time out after 60s idle, all daemon
+            java.util.concurrent.ThreadPoolExecutor threadPoolExecutor = new java.util.concurrent.ThreadPoolExecutor(50, 50, 60L, java.util.concurrent.TimeUnit.SECONDS, new java.util.concurrent.LinkedBlockingQueue<Runnable>(), com.oracle.bmc.internal.ClientThreadFactory.builder().isDaemon(true).nameFormat("Agent-waiters-%d").build());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+
+            executorService = threadPoolExecutor;
+        }
+        this.waiters = new AgentWaiters(executorService, this);
+            }
+
+
+    
+    /**
+     * Create a builder for this client.
+     * @return builder
+     */
+    public static Builder builder() {
+        return new Builder(SERVICE);
+    }
+
+    /**
+     * Builder class for this client. The "authenticationDetailsProvider" is required and must be passed to the
+     * {@link #build(AbstractAuthenticationDetailsProvider)} method.
+     */
+    public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, AgentClient> {
+        private java.util.concurrent.ExecutorService executorService;
+
+        private Builder(com.oracle.bmc.Service service) {
+            super(service);
+            final String packageName = "dp";
+com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(packageName);
+            requestSignerFactory = new com.oracle.bmc.http.signing.internal.DefaultRequestSignerFactory(com.oracle.bmc.http.signing.SigningStrategy.STANDARD);
+        }
+
+        /**
+        * Set the ExecutorService for the client to be created.
+        * @param executorService executorService
+        * @return this builder
+        */
+        public Builder executorService(java.util.concurrent.ExecutorService executorService) {
+        this.executorService = executorService;
+        return this;
+        }
+
+        /**
+         * Build the client.
+         * @param authenticationDetailsProvider authentication details provider
+         * @return the client
+         */
+        public AgentClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
+            return new AgentClient(this, authenticationDetailsProvider, executorService);
+        }
+    }
+
+    @Override
+    public void setRegion(com.oracle.bmc.Region region) {
+        super.setRegion(region);
+    }
+
+    @Override
+    public void setRegion(String regionId) {
+        super.setRegion(regionId);
+    }
+
+    @Override
+    
+    public CopyAgentResponse copyAgent(CopyAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        Objects.requireNonNull(request.getCopyAgentDetails(), "copyAgentDetails is required");
+        
+
+
+return clientCall(request, CopyAgentResponse::builder)
+        .logger(LOG, "copyAgent")
+        .serviceDetails("Agent", "CopyAgent", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CopyAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("actions").appendPathParam("copy")
+        .accept("application/json")
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("if-match", request.getIfMatch())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.Agent.class, CopyAgentResponse.Builder::agent)
+                .handleResponseHeaderString("location", 
+            CopyAgentResponse.Builder::location)
+                .handleResponseHeaderString("content-location", 
+            CopyAgentResponse.Builder::contentLocation)
+                .handleResponseHeaderString("etag", 
+            CopyAgentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            CopyAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public CreateAgentResponse createAgent(CreateAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getCreateAgentDetails(), "createAgentDetails is required");
+        
+
+
+return clientCall(request, CreateAgentResponse::builder)
+        .logger(LOG, "createAgent")
+        .serviceDetails("Agent", "CreateAgent", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CreateAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents")
+        .accept("application/json")
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.Agent.class, CreateAgentResponse.Builder::agent)
+                .handleResponseHeaderString("location", 
+            CreateAgentResponse.Builder::location)
+                .handleResponseHeaderString("content-location", 
+            CreateAgentResponse.Builder::contentLocation)
+                .handleResponseHeaderString("etag", 
+            CreateAgentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            CreateAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public DeleteAgentResponse deleteAgent(DeleteAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+
+
+return clientCall(request, DeleteAgentResponse::builder)
+        .logger(LOG, "deleteAgent")
+        .serviceDetails("Agent", "DeleteAgent", "")
+        .method(com.oracle.bmc.http.client.Method.DELETE)
+        .requestBuilder(DeleteAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey())
+        .accept("application/json")
+                
+                .appendHeader("if-match", request.getIfMatch())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+        .operationUsesDefaultRetries()
+        
+        
+                .handleResponseHeaderString("opc-request-id", 
+            DeleteAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public DeleteAgentDeploymentResponse deleteAgentDeployment(DeleteAgentDeploymentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        
+        Validate.notBlank(request.getAgentDeploymentKey(), "agentDeploymentKey must not be blank");
+
+
+return clientCall(request, DeleteAgentDeploymentResponse::builder)
+        .logger(LOG, "deleteAgentDeployment")
+        .serviceDetails("Agent", "DeleteAgentDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.DELETE)
+        .requestBuilder(DeleteAgentDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("deployments").appendPathParam(request.getAgentDeploymentKey())
+        .accept("application/json")
+                
+                .appendHeader("if-match", request.getIfMatch())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+                .handleResponseHeaderString("opc-request-id", 
+            DeleteAgentDeploymentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public DeleteAgentSessionResponse deleteAgentSession(DeleteAgentSessionRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        
+        Validate.notBlank(request.getSessionId(), "sessionId must not be blank");
+
+
+return clientCall(request, DeleteAgentSessionResponse::builder)
+        .logger(LOG, "deleteAgentSession")
+        .serviceDetails("Agent", "DeleteAgentSession", "")
+        .method(com.oracle.bmc.http.client.Method.DELETE)
+        .requestBuilder(DeleteAgentSessionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("sessions").appendPathParam(request.getSessionId())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("if-match", request.getIfMatch())
+        .operationUsesDefaultRetries()
+        
+        
+                .handleResponseHeaderString("opc-request-id", 
+            DeleteAgentSessionResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public DeployAgentResponse deployAgent(DeployAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        Objects.requireNonNull(request.getDeployAgentDetails(), "deployAgentDetails is required");
+        
+
+
+return clientCall(request, DeployAgentResponse::builder)
+        .logger(LOG, "deployAgent")
+        .serviceDetails("Agent", "DeployAgent", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(DeployAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("deployments").appendPathParam("actions").appendPathParam("deploy")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentDeployment.class, DeployAgentResponse.Builder::agentDeployment)
+                .handleResponseHeaderString("location", 
+            DeployAgentResponse.Builder::location)
+                .handleResponseHeaderString("content-location", 
+            DeployAgentResponse.Builder::contentLocation)
+                .handleResponseHeaderString("etag", 
+            DeployAgentResponse.Builder::etag)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            DeployAgentResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            DeployAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetAgentResponse getAgent(GetAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+
+
+return clientCall(request, GetAgentResponse::builder)
+        .logger(LOG, "getAgent")
+        .serviceDetails("Agent", "GetAgent", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.Agent.class, GetAgentResponse.Builder::agent)
+                .handleResponseHeaderString("etag", 
+            GetAgentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            GetAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetAgentDeploymentResponse getAgentDeployment(GetAgentDeploymentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        
+        Validate.notBlank(request.getAgentDeploymentKey(), "agentDeploymentKey must not be blank");
+
+
+return clientCall(request, GetAgentDeploymentResponse::builder)
+        .logger(LOG, "getAgentDeployment")
+        .serviceDetails("Agent", "GetAgentDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetAgentDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("deployments").appendPathParam(request.getAgentDeploymentKey())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentDeployment.class, GetAgentDeploymentResponse.Builder::agentDeployment)
+                .handleResponseHeaderString("etag", 
+            GetAgentDeploymentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            GetAgentDeploymentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetAgentSessionResponse getAgentSession(GetAgentSessionRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        
+        Validate.notBlank(request.getSessionId(), "sessionId must not be blank");
+
+
+return clientCall(request, GetAgentSessionResponse::builder)
+        .logger(LOG, "getAgentSession")
+        .serviceDetails("Agent", "GetAgentSession", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetAgentSessionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("sessions").appendPathParam(request.getSessionId())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentSession.class, GetAgentSessionResponse.Builder::agentSession)
+                .handleResponseHeaderString("etag", 
+            GetAgentSessionResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            GetAgentSessionResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetAgentSessionTraceResponse getAgentSessionTrace(GetAgentSessionTraceRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        
+        Validate.notBlank(request.getSessionId(), "sessionId must not be blank");
+        
+        Validate.notBlank(request.getTraceKey(), "traceKey must not be blank");
+
+
+return clientCall(request, GetAgentSessionTraceResponse::builder)
+        .logger(LOG, "getAgentSessionTrace")
+        .serviceDetails("Agent", "GetAgentSessionTrace", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetAgentSessionTraceRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("sessions").appendPathParam(request.getSessionId()).appendPathParam("traces").appendPathParam(request.getTraceKey())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.TraceDetails.class, GetAgentSessionTraceResponse.Builder::traceDetails)
+                .handleResponseHeaderString("opc-request-id", 
+            GetAgentSessionTraceResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            GetAgentSessionTraceResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ListAgentDeploymentsResponse listAgentDeployments(ListAgentDeploymentsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+
+
+return clientCall(request, ListAgentDeploymentsResponse::builder)
+        .logger(LOG, "listAgentDeployments")
+        .serviceDetails("Agent", "ListAgentDeployments", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListAgentDeploymentsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("deployments")
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    
+                    .appendQueryParam("displayName", request.getDisplayName())
+            
+                
+                    
+                    .appendQueryParam("displayNameContains", request.getDisplayNameContains())
+            
+                .appendListQueryParam("lifecycleState", request.getLifecycleState(), com.oracle.bmc.util.internal.CollectionFormatType.Multi)
+            
+                
+                    
+                    .appendQueryParam("timeCreatedGreaterThanOrEqualTo", request.getTimeCreatedGreaterThanOrEqualTo())
+            
+                
+                    
+                    .appendQueryParam("timeCreatedLessThanOrEqualTo", request.getTimeCreatedLessThanOrEqualTo())
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
+            
+                .appendListQueryParam("computeKey", request.getComputeKey(), com.oracle.bmc.util.internal.CollectionFormatType.Multi)
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentDeploymentCollection.class, ListAgentDeploymentsResponse.Builder::agentDeploymentCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListAgentDeploymentsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListAgentDeploymentsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ListAgentPermissionsResponse listAgentPermissions(ListAgentPermissionsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+
+
+return clientCall(request, ListAgentPermissionsResponse::builder)
+        .logger(LOG, "listAgentPermissions")
+        .serviceDetails("Agent", "ListAgentPermissions", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListAgentPermissionsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("permissions")
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentPermissionCollection.class, ListAgentPermissionsResponse.Builder::agentPermissionCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListAgentPermissionsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListAgentPermissionsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ListAgentSessionChatHistoriesResponse listAgentSessionChatHistories(ListAgentSessionChatHistoriesRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        
+        Validate.notBlank(request.getSessionId(), "sessionId must not be blank");
+
+
+return clientCall(request, ListAgentSessionChatHistoriesResponse::builder)
+        .logger(LOG, "listAgentSessionChatHistories")
+        .serviceDetails("Agent", "ListAgentSessionChatHistories", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListAgentSessionChatHistoriesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("sessions").appendPathParam(request.getSessionId()).appendPathParam("chatHistory")
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.SessionChatHistoryCollection.class, ListAgentSessionChatHistoriesResponse.Builder::sessionChatHistoryCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListAgentSessionChatHistoriesResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListAgentSessionChatHistoriesResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ListAgentSessionsResponse listAgentSessions(ListAgentSessionsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+
+
+return clientCall(request, ListAgentSessionsResponse::builder)
+        .logger(LOG, "listAgentSessions")
+        .serviceDetails("Agent", "ListAgentSessions", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListAgentSessionsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("sessions")
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    
+                    .appendQueryParam("displayNameContains", request.getDisplayNameContains())
+            
+                
+                    
+                    .appendQueryParam("timeCreatedGreaterThanOrEqualTo", request.getTimeCreatedGreaterThanOrEqualTo())
+            
+                
+                    
+                    .appendQueryParam("timeCreatedLessThanOrEqualTo", request.getTimeCreatedLessThanOrEqualTo())
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentSessionCollection.class, ListAgentSessionsResponse.Builder::agentSessionCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListAgentSessionsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-prev-page", 
+            ListAgentSessionsResponse.Builder::opcPrevPage)
+                .handleResponseHeaderString("opc-next-page", 
+            ListAgentSessionsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ListAgentsResponse listAgents(ListAgentsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+
+
+return clientCall(request, ListAgentsResponse::builder)
+        .logger(LOG, "listAgents")
+        .serviceDetails("Agent", "ListAgents", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListAgentsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents")
+            
+                
+                    
+                    .appendQueryParam("computeKey", request.getComputeKey())
+            
+                
+                    
+                    .appendQueryParam("displayName", request.getDisplayName())
+            
+                
+                    
+                    .appendQueryParam("displayNameContains", request.getDisplayNameContains())
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentCollection.class, ListAgentsResponse.Builder::agentCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListAgentsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListAgentsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ManageAgentPermissionResponse manageAgentPermission(ManageAgentPermissionRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        Objects.requireNonNull(request.getManageAgentPermissionDetails(), "manageAgentPermissionDetails is required");
+        
+
+
+return clientCall(request, ManageAgentPermissionResponse::builder)
+        .logger(LOG, "manageAgentPermission")
+        .serviceDetails("Agent", "ManageAgentPermission", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ManageAgentPermissionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("actions").appendPathParam("managePermission")
+        .accept("application/json")
+                
+                .appendHeader("if-match", request.getIfMatch())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            ManageAgentPermissionResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public PreviewAgentAgentCardResponse previewAgentAgentCard(PreviewAgentAgentCardRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getPreviewAgentCardDetails(), "previewAgentCardDetails is required");
+        
+
+
+return clientCall(request, PreviewAgentAgentCardResponse::builder)
+        .logger(LOG, "previewAgentAgentCard")
+        .serviceDetails("Agent", "PreviewAgentAgentCard", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(PreviewAgentAgentCardRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam("actions").appendPathParam("previewAgentCard")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("if-match", request.getIfMatch())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentCardPreviewResponse.class, PreviewAgentAgentCardResponse.Builder::agentCardPreviewResponse)
+                .handleResponseHeaderString("etag", 
+            PreviewAgentAgentCardResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            PreviewAgentAgentCardResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public RedeployAgentByKeyResponse redeployAgentByKey(RedeployAgentByKeyRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        Objects.requireNonNull(request.getUpdateAgentDeploymentDetails(), "updateAgentDeploymentDetails is required");
+        
+
+
+return clientCall(request, RedeployAgentByKeyResponse::builder)
+        .logger(LOG, "redeployAgentByKey")
+        .serviceDetails("Agent", "RedeployAgentByKey", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(RedeployAgentByKeyRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("deployments").appendPathParam("actions").appendPathParam("redeploy")
+        .accept("application/json")
+                
+                .appendHeader("if-match", request.getIfMatch())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentDeployment.class, RedeployAgentByKeyResponse.Builder::agentDeployment)
+                .handleResponseHeaderString("location", 
+            RedeployAgentByKeyResponse.Builder::location)
+                .handleResponseHeaderString("content-location", 
+            RedeployAgentByKeyResponse.Builder::contentLocation)
+                .handleResponseHeaderString("etag", 
+            RedeployAgentByKeyResponse.Builder::etag)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            RedeployAgentByKeyResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            RedeployAgentByKeyResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public UpdateAgentResponse updateAgent(UpdateAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        Objects.requireNonNull(request.getUpdateAgentDetails(), "updateAgentDetails is required");
+        
+
+
+return clientCall(request, UpdateAgentResponse::builder)
+        .logger(LOG, "updateAgent")
+        .serviceDetails("Agent", "UpdateAgent", "")
+        .method(com.oracle.bmc.http.client.Method.PUT)
+        .requestBuilder(UpdateAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey())
+        .accept("application/json")
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+                
+                .appendHeader("if-match", request.getIfMatch())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.Agent.class, UpdateAgentResponse.Builder::agent)
+                .handleResponseHeaderString("etag", 
+            UpdateAgentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            UpdateAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public UpdateAgentDeploymentMetadataResponse updateAgentDeploymentMetadata(UpdateAgentDeploymentMetadataRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+        Objects.requireNonNull(request.getUpdateAgentDeploymentMetadataDetails(), "updateAgentDeploymentMetadataDetails is required");
+        
+
+
+return clientCall(request, UpdateAgentDeploymentMetadataResponse::builder)
+        .logger(LOG, "updateAgentDeploymentMetadata")
+        .serviceDetails("Agent", "UpdateAgentDeploymentMetadata", "")
+        .method(com.oracle.bmc.http.client.Method.PUT)
+        .requestBuilder(UpdateAgentDeploymentMetadataRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("actions").appendPathParam("updateDeploymentMetadata")
+        .accept("application/json")
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("if-match", request.getIfMatch())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.AgentDeployment.class, UpdateAgentDeploymentMetadataResponse.Builder::agentDeployment)
+                .handleResponseHeaderString("etag", 
+            UpdateAgentDeploymentMetadataResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            UpdateAgentDeploymentMetadataResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ValidateAgentResponse validateAgent(ValidateAgentRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getAgentKey(), "agentKey must not be blank");
+
+
+return clientCall(request, ValidateAgentResponse::builder)
+        .logger(LOG, "validateAgent")
+        .serviceDetails("Agent", "ValidateAgent", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ValidateAgentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("agents").appendPathParam(request.getAgentKey()).appendPathParam("actions").appendPathParam("validate")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+                
+                .appendHeader("should-update-recent", request.getShouldUpdateRecent())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.ValidateAgentResponse.class, ValidateAgentResponse.Builder::validateAgentResponse)
+                .handleResponseHeaderString("etag", 
+            ValidateAgentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            ValidateAgentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    public AgentWaiters getWaiters() {
+        return waiters;
+    }
+
+
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider) {
+        this(
+            builder(),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider, com.oracle.bmc.ClientConfiguration configuration) {
+        this(
+            builder()
+                .configuration(configuration),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider, com.oracle.bmc.ClientConfiguration configuration, com.oracle.bmc.http.ClientConfigurator clientConfigurator) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @param endpoint {@link Builder#endpoint}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators)
+                .endpoint(endpoint),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @param endpoint {@link Builder#endpoint}
+     * @param signingStrategyRequestSignerFactories {@link Builder#signingStrategyRequestSignerFactories}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators)
+                .endpoint(endpoint)
+                .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
+            authenticationDetailsProvider,
+            null
+        );
+    }
+
+    /**
+     * Create a new client instance.
+     *
+     * @param authenticationDetailsProvider The authentication details (see {@link Builder#build})
+     * @param configuration {@link Builder#configuration}
+     * @param clientConfigurator {@link Builder#clientConfigurator}
+     * @param defaultRequestSignerFactory {@link Builder#requestSignerFactory}
+     * @param additionalClientConfigurators {@link Builder#additionalClientConfigurators}
+     * @param endpoint {@link Builder#endpoint}
+     * @param signingStrategyRequestSignerFactories {@link Builder#signingStrategyRequestSignerFactories}
+     * @param executorService {@link Builder#executorService}
+     * @deprecated Use the {@link #builder() builder} instead.
+     */
+    @Deprecated
+    public AgentClient(
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            com.oracle.bmc.ClientConfiguration configuration,
+            com.oracle.bmc.http.ClientConfigurator clientConfigurator,
+            com.oracle.bmc.http.signing.RequestSignerFactory defaultRequestSignerFactory,
+            java.util.Map<com.oracle.bmc.http.signing.SigningStrategy, com.oracle.bmc.http.signing.RequestSignerFactory> signingStrategyRequestSignerFactories,
+            java.util.List<com.oracle.bmc.http.ClientConfigurator> additionalClientConfigurators,
+            String endpoint,
+            java.util.concurrent.ExecutorService executorService) {
+        this(
+            builder()
+                .configuration(configuration)
+                .clientConfigurator(clientConfigurator)
+                .requestSignerFactory(defaultRequestSignerFactory)
+                .additionalClientConfigurators(additionalClientConfigurators)
+                .endpoint(endpoint)
+                .signingStrategyRequestSignerFactories(signingStrategyRequestSignerFactories),
+            authenticationDetailsProvider,
+            executorService
+        );
+    }
+}

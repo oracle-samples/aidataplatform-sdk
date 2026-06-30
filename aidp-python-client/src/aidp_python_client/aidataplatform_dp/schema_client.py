@@ -473,7 +473,7 @@ class SchemaClient(object):
 
     def delete_schema(self, ai_data_platform_id, schema_key, **kwargs):
         """
-        Deletes a schema from an AI Data Platform Workbench.
+        Deletes a schema.
 
 
         :param str ai_data_platform_id: (required)
@@ -570,7 +570,7 @@ class SchemaClient(object):
 
     def delete_table(self, ai_data_platform_id, table_key, **kwargs):
         """
-        Deletes a table from an AI Data Platform Workbench.
+        Deletes a table.
 
 
         :param str ai_data_platform_id: (required)
@@ -673,7 +673,7 @@ class SchemaClient(object):
 
     def delete_view(self, ai_data_platform_id, view_key, **kwargs):
         """
-        Deletes a view from AI Data Platform Workbench.
+        Deletes a view.
 
 
         :param str ai_data_platform_id: (required)
@@ -1258,7 +1258,7 @@ class SchemaClient(object):
 
     def list_schemas(self, ai_data_platform_id, catalog_key, **kwargs):
         """
-        Returns a list of schemas in a given AI Data Platform Workbench.
+        Returns a list of schemas.
 
 
         :param str ai_data_platform_id: (required)
@@ -2429,7 +2429,7 @@ class SchemaClient(object):
 
     def refresh_schema(self, ai_data_platform_id, schema_key, **kwargs):
         """
-        Refreshes schema in an AI Data Platform Workbench through the crawler.
+        Refreshes schema through the crawler.
 
 
         :param str ai_data_platform_id: (required)
@@ -2532,7 +2532,7 @@ class SchemaClient(object):
 
     def refresh_table(self, ai_data_platform_id, table_key, **kwargs):
         """
-        Refreshes a table in an AI Data Platform Workbench through the crawler.
+        Refreshes a table through the crawler.
 
 
         :param str ai_data_platform_id: (required)
@@ -2635,7 +2635,7 @@ class SchemaClient(object):
 
     def retrieve_par(self, ai_data_platform_id, table_key, **kwargs):
         """
-        Retrieve PAR for the entities created in AI Data Platform Workbench.
+        Retrieves PAR for the entities created.
 
 
         :param str ai_data_platform_id: (required)

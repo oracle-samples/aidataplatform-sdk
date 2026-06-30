@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Type of safety guardrail policy
+ * Type of safety guardrail policy.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum PolicyType implements com.oracle.bmc.http.internal.BmcEnum {
@@ -15,9 +15,15 @@ public enum PolicyType implements com.oracle.bmc.http.internal.BmcEnum {
     WordFilters("WORD_FILTERS"),
     ContextualGrounding("CONTEXTUAL_GROUNDING"),
     CustomPolicy("CUSTOM_POLICY"),
-    ;
-
     
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownEnumValue(null);
+
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(PolicyType.class);
 
     private final String value;
     private static java.util.Map<String, PolicyType> map;
@@ -25,8 +31,9 @@ public enum PolicyType implements com.oracle.bmc.http.internal.BmcEnum {
     static {
         map = new java.util.HashMap<>();
         for (PolicyType v : PolicyType.values()) {
+            if (v != UnknownEnumValue) {
                 map.put(v.getValue(), v);
-            
+            }
         }
     }
 
@@ -44,6 +51,7 @@ public enum PolicyType implements com.oracle.bmc.http.internal.BmcEnum {
         if (map.containsKey(key)) {
             return map.get(key);
         }
-        throw new IllegalArgumentException("Invalid PolicyType: " + key);
+        LOG.warn("Received unknown value '{}' for enum 'PolicyType', returning UnknownEnumValue", key);
+        return UnknownEnumValue;
     }
 }

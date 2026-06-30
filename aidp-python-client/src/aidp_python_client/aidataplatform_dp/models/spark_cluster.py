@@ -33,12 +33,12 @@ class SparkCluster(Cluster):
 
         :param source_api:
             The value to assign to the source_api property of this SparkCluster.
-            Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE"
+            Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE"
         :type source_api: str
 
         :param type:
             The value to assign to the type property of this SparkCluster.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE"
+            Allowed values for this property are: "USER", "AI_COMPUTE"
         :type type: str
 
         :param time_created:
@@ -118,9 +118,9 @@ class SparkCluster(Cluster):
             The value to assign to the attached_sessions property of this SparkCluster.
         :type attached_sessions: list[oci.aidataplatform_dp.models.AttachedSession]
 
-        :param attached_agent_flow_count:
-            The value to assign to the attached_agent_flow_count property of this SparkCluster.
-        :type attached_agent_flow_count: int
+        :param attached_agent_count:
+            The value to assign to the attached_agent_count property of this SparkCluster.
+        :type attached_agent_count: int
 
         :param jdbc_endpoint_url:
             The value to assign to the jdbc_endpoint_url property of this SparkCluster.
@@ -164,7 +164,7 @@ class SparkCluster(Cluster):
             'auto_termination_minutes': 'int',
             'attached_notebooks': 'list[str]',
             'attached_sessions': 'list[AttachedSession]',
-            'attached_agent_flow_count': 'int',
+            'attached_agent_count': 'int',
             'jdbc_endpoint_url': 'str',
             'log_id': 'str',
             'log_group_id': 'str',
@@ -196,7 +196,7 @@ class SparkCluster(Cluster):
             'auto_termination_minutes': 'autoTerminationMinutes',
             'attached_notebooks': 'attachedNotebooks',
             'attached_sessions': 'attachedSessions',
-            'attached_agent_flow_count': 'attachedAgentFlowCount',
+            'attached_agent_count': 'attachedAgentCount',
             'jdbc_endpoint_url': 'jdbcEndpointUrl',
             'log_id': 'logId',
             'log_group_id': 'logGroupId',
@@ -227,7 +227,7 @@ class SparkCluster(Cluster):
         self._auto_termination_minutes = None
         self._attached_notebooks = None
         self._attached_sessions = None
-        self._attached_agent_flow_count = None
+        self._attached_agent_count = None
         self._jdbc_endpoint_url = None
         self._log_id = None
         self._log_group_id = None
@@ -367,28 +367,28 @@ class SparkCluster(Cluster):
         self._attached_sessions = attached_sessions
 
     @property
-    def attached_agent_flow_count(self):
+    def attached_agent_count(self):
         """
-        Gets the attached_agent_flow_count of this SparkCluster.
-        Count of agent flow attached to a specific cluster.
+        Gets the attached_agent_count of this SparkCluster.
+        Count of agents attached to a specific cluster.
 
 
-        :return: The attached_agent_flow_count of this SparkCluster.
+        :return: The attached_agent_count of this SparkCluster.
         :rtype: int
         """
-        return self._attached_agent_flow_count
+        return self._attached_agent_count
 
-    @attached_agent_flow_count.setter
-    def attached_agent_flow_count(self, attached_agent_flow_count):
+    @attached_agent_count.setter
+    def attached_agent_count(self, attached_agent_count):
         """
-        Sets the attached_agent_flow_count of this SparkCluster.
-        Count of agent flow attached to a specific cluster.
+        Sets the attached_agent_count of this SparkCluster.
+        Count of agents attached to a specific cluster.
 
 
-        :param attached_agent_flow_count: The attached_agent_flow_count of this SparkCluster.
+        :param attached_agent_count: The attached_agent_count of this SparkCluster.
         :type: int
         """
-        self._attached_agent_flow_count = attached_agent_flow_count
+        self._attached_agent_count = attached_agent_count
 
     @property
     def jdbc_endpoint_url(self):

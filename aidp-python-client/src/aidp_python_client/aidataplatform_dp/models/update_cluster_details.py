@@ -18,22 +18,22 @@ class UpdateClusterDetails(object):
     TYPE_USER = "USER"
 
     #: A constant which can be used with the type property of a UpdateClusterDetails.
-    #: This constant has a value of "AGENT_FLOW_COMPUTE"
-    TYPE_AGENT_FLOW_COMPUTE = "AGENT_FLOW_COMPUTE"
+    #: This constant has a value of "AI_COMPUTE"
+    TYPE_AI_COMPUTE = "AI_COMPUTE"
 
     def __init__(self, **kwargs):
         """
         Initializes a new UpdateClusterDetails object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
         to a service operations then you should favor using a subclass over the base class:
 
-        * :class:`~oci.aidataplatform_dp.models.UpdateAgentFlowComputeDetails`
+        * :class:`~oci.aidataplatform_dp.models.UpdateAiComputeDetails`
         * :class:`~oci.aidataplatform_dp.models.UpdateSparkClusterDetails`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
         :param type:
             The value to assign to the type property of this UpdateClusterDetails.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE"
+            Allowed values for this property are: "USER", "AI_COMPUTE"
         :type type: str
 
         :param display_name:
@@ -83,8 +83,8 @@ class UpdateClusterDetails(object):
         """
         type = object_dictionary['type']
 
-        if type == 'AGENT_FLOW_COMPUTE':
-            return 'UpdateAgentFlowComputeDetails'
+        if type == 'AI_COMPUTE':
+            return 'UpdateAiComputeDetails'
 
         if type == 'USER':
             return 'UpdateSparkClusterDetails'
@@ -97,7 +97,7 @@ class UpdateClusterDetails(object):
         **[Required]** Gets the type of this UpdateClusterDetails.
         ClusterType
 
-        Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE"
+        Allowed values for this property are: "USER", "AI_COMPUTE"
 
 
         :return: The type of this UpdateClusterDetails.
@@ -115,7 +115,7 @@ class UpdateClusterDetails(object):
         :param type: The type of this UpdateClusterDetails.
         :type: str
         """
-        allowed_values = ["USER", "AGENT_FLOW_COMPUTE"]
+        allowed_values = ["USER", "AI_COMPUTE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
                 "Invalid value for `type`, must be None or one of {0}"

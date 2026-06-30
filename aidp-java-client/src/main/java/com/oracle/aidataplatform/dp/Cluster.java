@@ -162,6 +162,18 @@ public interface Cluster extends AutoCloseable {
     PatchClusterLibraryResponse patchClusterLibrary(PatchClusterLibraryRequest request);
     
     /**
+     * Queries compute replica identifiers for a compute cluster in the given workspace.
+* The response contains distinct replica identifiers derived from the Monitoring `agentNode` metric dimension.
+* 
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    QueryReplicaIdsResponse queryReplicaIds(QueryReplicaIdsRequest request);
+    
+    /**
      * Restarts a running cluster.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -204,7 +216,7 @@ public interface Cluster extends AutoCloseable {
     
     /**
      * Provides summarized compute metrics for a compute cluster in the given workspace.
-* This API aggregates metric data points based on a specified namespace, metric name, 
+* This API aggregates metric data points based on a specified namespace, metric name,
 * and aggregation type. The response contains computed metric summaries.
 * 
      * @param request The request object containing the details to send

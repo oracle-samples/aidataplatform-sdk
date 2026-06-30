@@ -59,7 +59,7 @@ public interface Audit extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Manages audit logs for AI Data Platform Workbench.
+     * Manages audit logs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -69,7 +69,7 @@ public interface Audit extends AutoCloseable {
     ManageAuditLogsResponse manageAuditLogs(ManageAuditLogsRequest request);
     
     /**
-     * Searches audit logs for AI Data Platform Workbench.
+     * Searches audit logs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

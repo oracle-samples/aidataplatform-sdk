@@ -42,6 +42,18 @@ class SchemaSummary(object):
     ENTITY_TYPE_EXADATA = "EXADATA"
 
     #: A constant which can be used with the entity_type property of a SchemaSummary.
+    #: This constant has a value of "MYSQL"
+    ENTITY_TYPE_MYSQL = "MYSQL"
+
+    #: A constant which can be used with the entity_type property of a SchemaSummary.
+    #: This constant has a value of "AZURE_SQLSERVER"
+    ENTITY_TYPE_AZURE_SQLSERVER = "AZURE_SQLSERVER"
+
+    #: A constant which can be used with the entity_type property of a SchemaSummary.
+    #: This constant has a value of "SNOWFLAKE"
+    ENTITY_TYPE_SNOWFLAKE = "SNOWFLAKE"
+
+    #: A constant which can be used with the entity_type property of a SchemaSummary.
     #: This constant has a value of "ORACLE_ANALYTICS"
     ENTITY_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
 
@@ -77,17 +89,20 @@ class SchemaSummary(object):
         * :class:`~oci.aidataplatform_dp.models.AlhSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.ExadataSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.OracleSchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.MysqlSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.OacSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.AtpSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.KafkaTopicSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.AdwSchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.SqlServerOnAzureSchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.SnowflakeSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.StandardSchemaSummary`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
         :param entity_type:
             The value to assign to the entity_type property of this SchemaSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type entity_type: str
 
@@ -200,6 +215,9 @@ class SchemaSummary(object):
         if type == 'ORACLE':
             return 'OracleSchemaSummary'
 
+        if type == 'MYSQL':
+            return 'MysqlSchemaSummary'
+
         if type == 'ORACLE_ANALYTICS':
             return 'OacSchemaSummary'
 
@@ -212,6 +230,12 @@ class SchemaSummary(object):
         if type == 'ADW':
             return 'AdwSchemaSummary'
 
+        if type == 'AZURE_SQLSERVER':
+            return 'SqlServerOnAzureSchemaSummary'
+
+        if type == 'SNOWFLAKE':
+            return 'SnowflakeSchemaSummary'
+
         if type == 'STANDARD':
             return 'StandardSchemaSummary'
         else:
@@ -223,7 +247,7 @@ class SchemaSummary(object):
         **[Required]** Gets the entity_type of this SchemaSummary.
         An enum to decide the type of the derived model.
 
-        Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -242,7 +266,7 @@ class SchemaSummary(object):
         :param entity_type: The entity_type of this SchemaSummary.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(entity_type, allowed_values):
             entity_type = 'UNKNOWN_ENUM_VALUE'
         self._entity_type = entity_type

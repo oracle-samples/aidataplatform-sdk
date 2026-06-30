@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * Type of safety guardrail policy
+ * Type of safety guardrail policy.
 **/
 export enum PolicyType {
     ContentModeration = "CONTENT_MODERATION",
@@ -13,8 +13,13 @@ export enum PolicyType {
     DeniedTopics = "DENIED_TOPICS",
     WordFilters = "WORD_FILTERS",
     ContextualGrounding = "CONTEXTUAL_GROUNDING",
-    CustomPolicy = "CUSTOM_POLICY"
+    CustomPolicy = "CUSTOM_POLICY",
     
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace PolicyType {

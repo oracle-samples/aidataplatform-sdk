@@ -59,7 +59,7 @@ public interface Volume extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Creates a volume in AI Data Platform Workbench.
+     * Creates a volume.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation

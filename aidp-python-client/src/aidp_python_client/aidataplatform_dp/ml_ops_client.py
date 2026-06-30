@@ -114,9 +114,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -135,8 +132,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -158,8 +154,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -216,9 +211,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -237,8 +229,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -260,8 +251,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -315,9 +305,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -336,8 +323,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -358,8 +344,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -413,9 +398,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -434,8 +416,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -456,8 +437,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -514,9 +494,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -535,8 +512,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -558,8 +534,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -616,9 +591,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -637,8 +609,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -660,8 +631,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -718,9 +688,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -739,8 +706,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -762,8 +728,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -820,9 +785,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -841,8 +803,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -864,8 +825,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -922,9 +882,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -943,8 +900,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -966,8 +922,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1021,9 +976,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1042,8 +994,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1064,8 +1015,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1119,9 +1069,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1140,8 +1087,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1162,8 +1108,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1217,9 +1162,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1238,8 +1180,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1260,8 +1201,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1315,9 +1255,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1336,8 +1273,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1358,8 +1294,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1409,9 +1344,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1429,8 +1361,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1456,8 +1387,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1505,9 +1435,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1525,8 +1452,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1552,8 +1478,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1601,9 +1526,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1621,8 +1543,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1648,8 +1569,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1709,9 +1629,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1731,8 +1648,7 @@ class MLOpsClient(object):
             "retry_strategy",
             "page_token",
             "max_results",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1761,8 +1677,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1810,9 +1725,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1830,8 +1742,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1857,8 +1768,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -1903,9 +1813,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1923,8 +1830,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1949,8 +1855,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2004,9 +1909,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2026,8 +1928,7 @@ class MLOpsClient(object):
             "retry_strategy",
             "path",
             "page_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2055,8 +1956,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2104,9 +2004,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2124,8 +2021,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2146,8 +2042,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2195,9 +2090,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2215,8 +2107,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2237,8 +2128,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2286,9 +2176,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2306,8 +2193,7 @@ class MLOpsClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2328,8 +2214,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2386,9 +2271,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2410,8 +2292,7 @@ class MLOpsClient(object):
             "max_results",
             "page_token",
             "order_by",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2439,8 +2320,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2498,9 +2378,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2522,8 +2399,7 @@ class MLOpsClient(object):
             "max_results",
             "page_token",
             "order_by",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2551,8 +2427,7 @@ class MLOpsClient(object):
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2607,9 +2482,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2628,8 +2500,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2651,8 +2522,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2709,9 +2579,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2730,8 +2597,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2753,8 +2619,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2811,9 +2676,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2832,8 +2694,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2855,8 +2716,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -2913,9 +2773,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -2934,8 +2791,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -2957,8 +2813,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3015,9 +2870,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3036,8 +2888,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3059,8 +2910,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3114,9 +2964,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3135,8 +2982,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3157,8 +3003,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3215,9 +3060,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3236,8 +3078,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3259,8 +3100,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3317,9 +3157,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3338,8 +3175,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3361,8 +3197,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3419,9 +3254,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3440,8 +3272,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3463,8 +3294,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3521,9 +3351,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3542,8 +3369,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3565,8 +3391,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3620,9 +3445,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3641,8 +3463,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3663,8 +3484,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3718,9 +3538,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3739,8 +3556,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3761,8 +3577,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3816,9 +3631,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3837,8 +3649,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3859,8 +3670,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -3917,9 +3727,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -3938,8 +3745,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -3961,8 +3767,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4019,9 +3824,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4040,8 +3842,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4063,8 +3864,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4121,9 +3921,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4142,8 +3939,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4165,8 +3961,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4223,9 +4018,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4244,8 +4036,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4267,8 +4058,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4322,9 +4112,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4343,8 +4130,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4365,8 +4151,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4420,9 +4205,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4441,8 +4223,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4463,8 +4244,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4518,9 +4298,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4539,8 +4316,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4561,8 +4337,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 
@@ -4616,9 +4391,6 @@ class MLOpsClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
-        :param str dh_user_principal: (optional)
-            The DH User Principal Header .
-
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -4637,8 +4409,7 @@ class MLOpsClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_retry_token",
-            "opc_request_id",
-            "dh_user_principal"
+            "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -4659,8 +4430,7 @@ class MLOpsClient(object):
             "accept": "application/json",
             "content-type": "application/json",
             "opc-retry-token": kwargs.get("opc_retry_token", missing),
-            "opc-request-id": kwargs.get("opc_request_id", missing),
-            "dh-user-principal": kwargs.get("dh_user_principal", missing)
+            "opc-request-id": kwargs.get("opc_request_id", missing)
         }
         header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
 

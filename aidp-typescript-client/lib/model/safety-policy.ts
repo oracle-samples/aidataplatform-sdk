@@ -5,27 +5,27 @@ import common = require("oci-common");
 
 
 /**
-* Individual safety policy configuration
+* Individual safety policy configuration.
 */
 export interface SafetyPolicy {
     /**
-    * Custom name for the policy
+    * Custom name for the policy.
     */
     'policyName'?: string;
     /**
-    * Description of the policy
+    * Description of the policy.
     */
     'policyDescription'?: string;
     /**
-    * Scope of policy application
+    * Scope of policy application.
     */
     'scope': model.PolicyScope;
     /**
-    * Action to take when policy is violated
+    * Action to take when policy is violated.
     */
     'action': model.PolicyAction;
     /**
-    * Threshold value for policy violation (0.0 to 1.0) Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Threshold value for policy violation (0.0 to 1.0). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'threshold'?: number;
 

@@ -16,8 +16,8 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="sourceApi", defaultImpl=Cluster.class)
 @com.fasterxml.jackson.annotation.JsonSubTypes({
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AiCompute.class, name = "AI_COMPUTE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SparkCluster.class, name = "CLUSTER_API"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AgentFlowCompute.class, name = "AGENT_FLOW_COMPUTE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = DefaultCluster.class, name = "DEFAULT_CLUSTER_API")
 })
 
@@ -506,15 +506,13 @@ public class Cluster  {
     }
 
     /**
-     * User created clusters are associated with a particular workspace. Default cluster is to
-* be used by all catalogs operations that require compute. Default cluster can be thought of as
-* associated with Master catalog. Agent Flow Compute is used to execute Agent Flows.
+     * User created clusters are associated with a particular workspace. AI compute is used to execute Agents.
 * 
      **/
     public enum SourceApi implements com.oracle.bmc.http.internal.BmcEnum {
         ClusterApi("CLUSTER_API"),
         DefaultClusterApi("DEFAULT_CLUSTER_API"),
-        AgentFlowCompute("AGENT_FLOW_COMPUTE"),
+        AiCompute("AI_COMPUTE"),
         
 
         /**

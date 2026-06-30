@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Safety guardrails configuration for an agent flow
+* Safety guardrails configuration for an Agent.
 */
 export interface GuardrailsConfiguration {
     /**

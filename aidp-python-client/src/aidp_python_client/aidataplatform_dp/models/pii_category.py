@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class PiiCategory(object):
     """
-    PII category configuration
+    PII category configuration.
     """
 
     #: A constant which can be used with the category property of a PiiCategory.
@@ -48,7 +48,8 @@ class PiiCategory(object):
 
         :param category:
             The value to assign to the category property of this PiiCategory.
-            Allowed values for this property are: "PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL"
+            Allowed values for this property are: "PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type category: str
 
         :param is_enabled:
@@ -57,7 +58,8 @@ class PiiCategory(object):
 
         :param action:
             The value to assign to the action property of this PiiCategory.
-            Allowed values for this property are: "BLOCK", "INFORM", "MASK"
+            Allowed values for this property are: "BLOCK", "INFORM", "MASK", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type action: str
 
         :param threshold:
@@ -88,9 +90,10 @@ class PiiCategory(object):
     def category(self):
         """
         **[Required]** Gets the category of this PiiCategory.
-        PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+        PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
 
-        Allowed values for this property are: "PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL"
+        Allowed values for this property are: "PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The category of this PiiCategory.
@@ -102,7 +105,7 @@ class PiiCategory(object):
     def category(self, category):
         """
         Sets the category of this PiiCategory.
-        PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+        PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
 
 
         :param category: The category of this PiiCategory.
@@ -110,17 +113,14 @@ class PiiCategory(object):
         """
         allowed_values = ["PERSON", "ADDRESS", "TELEPHONE_NUMBER", "EMAIL"]
         if not value_allowed_none_or_none_sentinel(category, allowed_values):
-            raise ValueError(
-                "Invalid value for `category`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            category = 'UNKNOWN_ENUM_VALUE'
         self._category = category
 
     @property
     def is_enabled(self):
         """
         **[Required]** Gets the is_enabled of this PiiCategory.
-        Whether this category is enabled
+        Whether this category is enabled.
 
 
         :return: The is_enabled of this PiiCategory.
@@ -132,7 +132,7 @@ class PiiCategory(object):
     def is_enabled(self, is_enabled):
         """
         Sets the is_enabled of this PiiCategory.
-        Whether this category is enabled
+        Whether this category is enabled.
 
 
         :param is_enabled: The is_enabled of this PiiCategory.
@@ -144,9 +144,10 @@ class PiiCategory(object):
     def action(self):
         """
         **[Required]** Gets the action of this PiiCategory.
-        Action to take for this category
+        Action to take for this category.
 
-        Allowed values for this property are: "BLOCK", "INFORM", "MASK"
+        Allowed values for this property are: "BLOCK", "INFORM", "MASK", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The action of this PiiCategory.
@@ -158,7 +159,7 @@ class PiiCategory(object):
     def action(self, action):
         """
         Sets the action of this PiiCategory.
-        Action to take for this category
+        Action to take for this category.
 
 
         :param action: The action of this PiiCategory.
@@ -166,17 +167,14 @@ class PiiCategory(object):
         """
         allowed_values = ["BLOCK", "INFORM", "MASK"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
-            raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            action = 'UNKNOWN_ENUM_VALUE'
         self._action = action
 
     @property
     def threshold(self):
         """
         Gets the threshold of this PiiCategory.
-        Detection threshold for this category
+        Detection threshold for this category.
 
 
         :return: The threshold of this PiiCategory.
@@ -188,7 +186,7 @@ class PiiCategory(object):
     def threshold(self, threshold):
         """
         Sets the threshold of this PiiCategory.
-        Detection threshold for this category
+        Detection threshold for this category.
 
 
         :param threshold: The threshold of this PiiCategory.

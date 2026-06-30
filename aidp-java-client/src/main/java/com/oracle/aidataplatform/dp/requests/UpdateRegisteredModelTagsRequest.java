@@ -77,19 +77,6 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -184,21 +171,6 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -225,7 +197,7 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
          * @return this builder instance
          */
         public Builder copy(UpdateRegisteredModelTagsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());updateRegisteredModelTagsDetails(o.getUpdateRegisteredModelTagsDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());updateRegisteredModelTagsDetails(o.getUpdateRegisteredModelTagsDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -273,9 +245,8 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
             request.updateRegisteredModelTagsDetails = updateRegisteredModelTagsDetails;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new UpdateRegisteredModelTagsRequest(aiDataPlatformId, updateRegisteredModelTagsDetails, opcRetryToken, opcRequestId, dhUserPrincipal);
+            // new UpdateRegisteredModelTagsRequest(aiDataPlatformId, updateRegisteredModelTagsDetails, opcRetryToken, opcRequestId);
         }
     }
 
@@ -288,8 +259,7 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
             .aiDataPlatformId(aiDataPlatformId)
             .updateRegisteredModelTagsDetails(updateRegisteredModelTagsDetails)
             .opcRetryToken(opcRetryToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -309,7 +279,6 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
         sb.append(",updateRegisteredModelTagsDetails=").append(String.valueOf(this.updateRegisteredModelTagsDetails));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -328,8 +297,7 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.updateRegisteredModelTagsDetails, other.updateRegisteredModelTagsDetails)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -340,7 +308,6 @@ public class UpdateRegisteredModelTagsRequest extends com.oracle.bmc.requests.Bm
         result = (result * PRIME) + (this.updateRegisteredModelTagsDetails == null ? 43 : this.updateRegisteredModelTagsDetails.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

@@ -5,35 +5,35 @@ import common = require("oci-common");
 
 
 /**
-* Custom PII detection rule
+* Custom PII detection rule.
 */
 export interface CustomPiiRule {
     /**
-    * Name of the custom rule
+    * Name of the custom rule.
     */
     'name': string;
     /**
-    * Regex pattern for detection
+    * Regex pattern for detection.
     */
     'pattern': string;
     /**
-    * Prefix pattern to match
+    * Prefix pattern to match.
     */
     'prefix'?: string;
     /**
-    * Suffix pattern to match
+    * Suffix pattern to match.
     */
     'suffix'?: string;
     /**
-    * Whether the pattern is case sensitive
+    * Whether the pattern is case sensitive.
     */
     'isCaseSensitive'?: boolean;
     /**
-    * Maximum distance for pattern matching Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Maximum distance for pattern matching. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'maxDistance'?: number;
     /**
-    * Priority of this rule Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Priority of this rule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'priority'?: number;
 

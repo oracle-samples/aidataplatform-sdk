@@ -87,7 +87,7 @@ class AuditClient(object):
 
     def manage_audit_logs(self, ai_data_platform_id, manage_audit_logs_details, **kwargs):
         """
-        Manages audit logs for AI Data Platform Workbench.
+        Manages audit logs.
 
 
         :param str ai_data_platform_id: (required)
@@ -178,7 +178,7 @@ class AuditClient(object):
 
     def search_audit_logs(self, ai_data_platform_id, search_audit_logs_details, **kwargs):
         """
-        Searches audit logs for AI Data Platform Workbench.
+        Searches audit logs.
 
 
         :param str ai_data_platform_id: (required)

@@ -107,8 +107,6 @@ return clientCall(request, CheckoutBranchResponse::builder)
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())
                 
                 .appendHeader("if-match", request.getIfMatch())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         .operationUsesDefaultRetries()
         
         .hasBody()

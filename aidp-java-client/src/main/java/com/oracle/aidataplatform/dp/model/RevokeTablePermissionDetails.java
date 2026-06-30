@@ -12,13 +12,15 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class RevokeTablePermissionDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"assignees", "permissions", "includeColumns", "excludeColumns"})
-    public RevokeTablePermissionDetails(PermissionAssignees assignees, java.util.List<TablePrivilegeForManage> permissions, java.util.List<String> includeColumns, java.util.List<String> excludeColumns) {
+    @java.beans.ConstructorProperties({"assignees", "permissions", "includeColumns", "excludeColumns", "rowFilterType", "rowFilter"})
+    public RevokeTablePermissionDetails(PermissionAssignees assignees, java.util.List<TablePrivilegeForManage> permissions, java.util.List<String> includeColumns, java.util.List<String> excludeColumns, RowFilterType rowFilterType, String rowFilter) {
         super();
         this.assignees = assignees;
         this.permissions = permissions;
         this.includeColumns = includeColumns;
         this.excludeColumns = excludeColumns;
+        this.rowFilterType = rowFilterType;
+        this.rowFilter = rowFilter;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -87,13 +89,51 @@ public Builder excludeColumns(java.util.List<String> excludeColumns) {
     this.excludeColumns = excludeColumns;
     return this;
 }
+            /**
+     * Type of row filter expression.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("rowFilterType")
+private RowFilterType rowFilterType;
+
+        /**
+         * Type of row filter expression.
+         * @param rowFilterType the value to set
+         * @return this builder
+         **/
+        
+
+public Builder rowFilterType(RowFilterType rowFilterType) {
+    this.rowFilterType = rowFilterType;
+    return this;
+}
+            /**
+     * Row filter expression applied while assigning table permissions.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("rowFilter")
+private String rowFilter;
+
+        /**
+         * Row filter expression applied while assigning table permissions.
+         * @param rowFilter the value to set
+         * @return this builder
+         **/
+        
+
+public Builder rowFilter(String rowFilter) {
+    this.rowFilter = rowFilter;
+    return this;
+}
 
 
         public RevokeTablePermissionDetails build() {
             RevokeTablePermissionDetails model = new RevokeTablePermissionDetails(this.assignees
                 , this.permissions
                 , this.includeColumns
-                , this.excludeColumns);            return model;
+                , this.excludeColumns
+                , this.rowFilterType
+                , this.rowFilter);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -102,6 +142,8 @@ public Builder excludeColumns(java.util.List<String> excludeColumns) {
     this.permissions(model.getPermissions());
     this.includeColumns(model.getIncludeColumns());
     this.excludeColumns(model.getExcludeColumns());
+    this.rowFilterType(model.getRowFilterType());
+    this.rowFilter(model.getRowFilter());
 return this;
         }
     }
@@ -181,6 +223,40 @@ return this;
         return excludeColumns;
     }
 
+    
+        /**
+     * Type of row filter expression.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("rowFilterType")
+    private final RowFilterType rowFilterType;
+
+        /**
+     * Type of row filter expression.
+     * @return the value
+     **/
+    
+    public RowFilterType getRowFilterType() {
+        return rowFilterType;
+    }
+
+
+        /**
+     * Row filter expression applied while assigning table permissions.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("rowFilter")
+    private final String rowFilter;
+
+        /**
+     * Row filter expression applied while assigning table permissions.
+     * @return the value
+     **/
+    
+    public String getRowFilter() {
+        return rowFilter;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -198,6 +274,8 @@ return this;
         sb.append(", permissions=").append(String.valueOf(this.permissions));
         sb.append(", includeColumns=").append(String.valueOf(this.includeColumns));
         sb.append(", excludeColumns=").append(String.valueOf(this.excludeColumns));
+        sb.append(", rowFilterType=").append(String.valueOf(this.rowFilterType));
+        sb.append(", rowFilter=").append(String.valueOf(this.rowFilter));
         sb.append(")");
         return sb.toString();
     }
@@ -215,7 +293,9 @@ return this;
         return java.util.Objects.equals(this.assignees, other.assignees) &&
             java.util.Objects.equals(this.permissions, other.permissions) &&
             java.util.Objects.equals(this.includeColumns, other.includeColumns) &&
-            java.util.Objects.equals(this.excludeColumns, other.excludeColumns);
+            java.util.Objects.equals(this.excludeColumns, other.excludeColumns) &&
+            java.util.Objects.equals(this.rowFilterType, other.rowFilterType) &&
+            java.util.Objects.equals(this.rowFilter, other.rowFilter);
     }
 
     @Override
@@ -226,6 +306,8 @@ return this;
         result = (result * PRIME) + (this.permissions == null ? 43 : this.permissions.hashCode());
         result = (result * PRIME) + (this.includeColumns == null ? 43 : this.includeColumns.hashCode());
         result = (result * PRIME) + (this.excludeColumns == null ? 43 : this.excludeColumns.hashCode());
+        result = (result * PRIME) + (this.rowFilterType == null ? 43 : this.rowFilterType.hashCode());
+        result = (result * PRIME) + (this.rowFilter == null ? 43 : this.rowFilter.hashCode());
         return result;
     }
 

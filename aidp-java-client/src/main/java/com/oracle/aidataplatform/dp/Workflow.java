@@ -79,7 +79,7 @@ public interface Workflow extends AutoCloseable {
     CancelJobRunsResponse cancelJobRuns(CancelJobRunsRequest request);
     
     /**
-     * Creates a job in an AI Data Platform Workbench.
+     * Creates a job.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -89,7 +89,7 @@ public interface Workflow extends AutoCloseable {
     CreateJobResponse createJob(CreateJobRequest request);
     
     /**
-     * Creates a job run for an AI Data Platform Workbench.
+     * Creates a job run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -99,7 +99,7 @@ public interface Workflow extends AutoCloseable {
     CreateJobRunResponse createJobRun(CreateJobRunRequest request);
     
     /**
-     * Deletes a job from an AI Data Platform Workbench.
+     * Deletes a job.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -109,7 +109,7 @@ public interface Workflow extends AutoCloseable {
     DeleteJobResponse deleteJob(DeleteJobRequest request);
     
     /**
-     * Deletes a job run from an AI Data Platform Workbench.
+     * Deletes a job run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -139,7 +139,7 @@ public interface Workflow extends AutoCloseable {
     FetchOutputResponse fetchOutput(FetchOutputRequest request);
     
     /**
-     * Returns detailed information about a given job in AI Data Platform Workbench.
+     * Returns detailed information about a given job.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -179,7 +179,7 @@ public interface Workflow extends AutoCloseable {
     ListJobPermissionsResponse listJobPermissions(ListJobPermissionsRequest request);
     
     /**
-     * Returns a detailed list of job runs in an AI Data Platform Workbench.
+     * Returns a detailed list of job runs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -189,7 +189,7 @@ public interface Workflow extends AutoCloseable {
     ListJobRunsResponse listJobRuns(ListJobRunsRequest request);
     
     /**
-     * Returns a list of jobs for a given AI Data Platform Workbench.
+     * Returns a list of jobs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -209,7 +209,7 @@ public interface Workflow extends AutoCloseable {
     ListRecentJobRunsResponse listRecentJobRuns(ListRecentJobRunsRequest request);
     
     /**
-     * Returns a list of tasks run in an AI Data Platform Workbench.
+     * Returns a list of task runs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -239,7 +239,7 @@ public interface Workflow extends AutoCloseable {
     RepairJobRunResponse repairJobRun(RepairJobRunRequest request);
     
     /**
-     * Update details for a job in AI Data Platform Workbench.
+     * Updates details for a job.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

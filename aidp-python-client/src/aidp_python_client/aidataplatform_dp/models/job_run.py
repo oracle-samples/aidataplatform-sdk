@@ -21,6 +21,14 @@ class JobRun(object):
     #: This constant has a value of "MANUAL"
     LAUNCHED_MANUAL = "MANUAL"
 
+    #: A constant which can be used with the repair_mode property of a JobRun.
+    #: This constant has a value of "RESUME"
+    REPAIR_MODE_RESUME = "RESUME"
+
+    #: A constant which can be used with the repair_mode property of a JobRun.
+    #: This constant has a value of "RERUN"
+    REPAIR_MODE_RERUN = "RERUN"
+
     def __init__(self, **kwargs):
         """
         Initializes a new JobRun object with values from keyword arguments.
@@ -172,6 +180,12 @@ class JobRun(object):
             The value to assign to the repaired_tasks property of this JobRun.
         :type repaired_tasks: list[str]
 
+        :param repair_mode:
+            The value to assign to the repair_mode property of this JobRun.
+            Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+        :type repair_mode: str
+
         :param lifecycle_states:
             The value to assign to the lifecycle_states property of this JobRun.
         :type lifecycle_states: list[oci.aidataplatform_dp.models.LifecycleState]
@@ -214,6 +228,7 @@ class JobRun(object):
             'task_run_summary_map': 'dict(str, object)',
             'timeout_seconds': 'int',
             'repaired_tasks': 'list[str]',
+            'repair_mode': 'str',
             'lifecycle_states': 'list[LifecycleState]'
         }
 
@@ -254,6 +269,7 @@ class JobRun(object):
             'task_run_summary_map': 'taskRunSummaryMap',
             'timeout_seconds': 'timeoutSeconds',
             'repaired_tasks': 'repairedTasks',
+            'repair_mode': 'repairMode',
             'lifecycle_states': 'lifecycleStates'
         }
 
@@ -293,6 +309,7 @@ class JobRun(object):
         self._task_run_summary_map = None
         self._timeout_seconds = None
         self._repaired_tasks = None
+        self._repair_mode = None
         self._lifecycle_states = None
 
     @property
@@ -1140,6 +1157,36 @@ class JobRun(object):
         :type: list[str]
         """
         self._repaired_tasks = repaired_tasks
+
+    @property
+    def repair_mode(self):
+        """
+        Gets the repair_mode of this JobRun.
+        Repair mode to be used for this repair scope.
+
+        Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+
+
+        :return: The repair_mode of this JobRun.
+        :rtype: str
+        """
+        return self._repair_mode
+
+    @repair_mode.setter
+    def repair_mode(self, repair_mode):
+        """
+        Sets the repair_mode of this JobRun.
+        Repair mode to be used for this repair scope.
+
+
+        :param repair_mode: The repair_mode of this JobRun.
+        :type: str
+        """
+        allowed_values = ["RESUME", "RERUN"]
+        if not value_allowed_none_or_none_sentinel(repair_mode, allowed_values):
+            repair_mode = 'UNKNOWN_ENUM_VALUE'
+        self._repair_mode = repair_mode
 
     @property
     def lifecycle_states(self):

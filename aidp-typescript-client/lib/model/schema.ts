@@ -108,8 +108,14 @@ export namespace Schema {
                     return model.AdwSchema.getJsonObj(<model.AdwSchema>(<object>jsonObj), true);
                 case "KAFKA_TOPIC":
                     return model.KafkaTopicSchema.getJsonObj(<model.KafkaTopicSchema>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureSchema.getJsonObj(<model.SqlServerOnAzureSchema>(<object>jsonObj), true);
+                case "SNOWFLAKE":
+                    return model.SnowflakeSchema.getJsonObj(<model.SnowflakeSchema>(<object>jsonObj), true);
                 case "ATP":
                     return model.AtpSchema.getJsonObj(<model.AtpSchema>(<object>jsonObj), true);
+                case "MYSQL":
+                    return model.MysqlSchema.getJsonObj(<model.MysqlSchema>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchema.getJsonObj(<model.StandardSchema>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
@@ -153,8 +159,14 @@ export namespace Schema {
                     return model.AdwSchema.getDeserializedJsonObj(<model.AdwSchema>(<object>jsonObj), true);
                 case "KAFKA_TOPIC":
                     return model.KafkaTopicSchema.getDeserializedJsonObj(<model.KafkaTopicSchema>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureSchema.getDeserializedJsonObj(<model.SqlServerOnAzureSchema>(<object>jsonObj), true);
+                case "SNOWFLAKE":
+                    return model.SnowflakeSchema.getDeserializedJsonObj(<model.SnowflakeSchema>(<object>jsonObj), true);
                 case "ATP":
                     return model.AtpSchema.getDeserializedJsonObj(<model.AtpSchema>(<object>jsonObj), true);
+                case "MYSQL":
+                    return model.MysqlSchema.getDeserializedJsonObj(<model.MysqlSchema>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchema.getDeserializedJsonObj(<model.StandardSchema>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
