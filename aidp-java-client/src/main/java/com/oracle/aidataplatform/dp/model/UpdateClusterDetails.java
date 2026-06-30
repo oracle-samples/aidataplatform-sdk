@@ -10,7 +10,7 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="type", defaultImpl=UpdateClusterDetails.class)
 @com.fasterxml.jackson.annotation.JsonSubTypes({
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = UpdateAgentFlowComputeDetails.class, name = "AGENT_FLOW_COMPUTE"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = UpdateAiComputeDetails.class, name = "AI_COMPUTE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = UpdateSparkClusterDetails.class, name = "USER")
 })
 

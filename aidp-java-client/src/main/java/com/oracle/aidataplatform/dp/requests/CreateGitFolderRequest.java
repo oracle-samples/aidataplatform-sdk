@@ -47,19 +47,6 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
         return createGitFolderDetails;
     }
         /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
-        /**
      * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24
 * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
@@ -186,21 +173,6 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
         }
 
             /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
-            /**
      * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24
 * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
@@ -297,7 +269,7 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
          * @return this builder instance
          */
         public Builder copy(CreateGitFolderRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());createGitFolderDetails(o.getCreateGitFolderDetails());dhUserPrincipal(o.getDhUserPrincipal());opcRetryToken(o.getOpcRetryToken());ifMatch(o.getIfMatch());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());createGitFolderDetails(o.getCreateGitFolderDetails());opcRetryToken(o.getOpcRetryToken());ifMatch(o.getIfMatch());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -344,12 +316,11 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
             request.aiDataPlatformId = aiDataPlatformId;
             request.workspaceKey = workspaceKey;
             request.createGitFolderDetails = createGitFolderDetails;
-            request.dhUserPrincipal = dhUserPrincipal;
             request.opcRetryToken = opcRetryToken;
             request.ifMatch = ifMatch;
             request.opcRequestId = opcRequestId;
             return request;
-            // new CreateGitFolderRequest(aiDataPlatformId, workspaceKey, createGitFolderDetails, dhUserPrincipal, opcRetryToken, ifMatch, opcRequestId);
+            // new CreateGitFolderRequest(aiDataPlatformId, workspaceKey, createGitFolderDetails, opcRetryToken, ifMatch, opcRequestId);
         }
     }
 
@@ -362,7 +333,6 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .createGitFolderDetails(createGitFolderDetails)
-            .dhUserPrincipal(dhUserPrincipal)
             .opcRetryToken(opcRetryToken)
             .ifMatch(ifMatch)
             .opcRequestId(opcRequestId);
@@ -384,7 +354,6 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",createGitFolderDetails=").append(String.valueOf(this.createGitFolderDetails));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",ifMatch=").append(String.valueOf(this.ifMatch));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
@@ -406,7 +375,6 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.createGitFolderDetails, other.createGitFolderDetails)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
             && java.util.Objects.equals(this.ifMatch, other.ifMatch)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
@@ -419,7 +387,6 @@ public class CreateGitFolderRequest extends com.oracle.bmc.requests.BmcRequest<c
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.createGitFolderDetails == null ? 43 : this.createGitFolderDetails.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.ifMatch == null ? 43 : this.ifMatch.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());

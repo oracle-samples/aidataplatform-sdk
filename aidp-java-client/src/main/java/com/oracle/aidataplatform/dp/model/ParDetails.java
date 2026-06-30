@@ -209,7 +209,7 @@ return this;
     public String toString(boolean includeByteArrayContents) {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("ParDetails(");
-        sb.append("parUrl=").append(String.valueOf(this.parUrl));
+        sb.append("parUrl=").append("<redacted>");
         sb.append(", tableKey=").append(String.valueOf(this.tableKey));
         sb.append(", timeExpires=").append(String.valueOf(this.timeExpires));
         sb.append(", parAccessType=").append(String.valueOf(this.parAccessType));

@@ -77,19 +77,6 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -184,21 +171,6 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -225,7 +197,7 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
          * @return this builder instance
          */
         public Builder copy(DeleteRegisteredModelTagRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());deleteRegisteredModelTagDetails(o.getDeleteRegisteredModelTagDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());deleteRegisteredModelTagDetails(o.getDeleteRegisteredModelTagDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -273,9 +245,8 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
             request.deleteRegisteredModelTagDetails = deleteRegisteredModelTagDetails;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new DeleteRegisteredModelTagRequest(aiDataPlatformId, deleteRegisteredModelTagDetails, opcRetryToken, opcRequestId, dhUserPrincipal);
+            // new DeleteRegisteredModelTagRequest(aiDataPlatformId, deleteRegisteredModelTagDetails, opcRetryToken, opcRequestId);
         }
     }
 
@@ -288,8 +259,7 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
             .aiDataPlatformId(aiDataPlatformId)
             .deleteRegisteredModelTagDetails(deleteRegisteredModelTagDetails)
             .opcRetryToken(opcRetryToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -309,7 +279,6 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
         sb.append(",deleteRegisteredModelTagDetails=").append(String.valueOf(this.deleteRegisteredModelTagDetails));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -328,8 +297,7 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.deleteRegisteredModelTagDetails, other.deleteRegisteredModelTagDetails)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -340,7 +308,6 @@ public class DeleteRegisteredModelTagRequest extends com.oracle.bmc.requests.Bmc
         result = (result * PRIME) + (this.deleteRegisteredModelTagDetails == null ? 43 : this.deleteRegisteredModelTagDetails.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

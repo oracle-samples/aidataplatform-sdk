@@ -11,16 +11,18 @@ export enum NodeType {
     Guardrails = "GUARDRAILS",
     Agent = "AGENT",
     SupervisorAgent = "SUPERVISOR_AGENT",
-    NestedAgentFlow = "NESTED_AGENT_FLOW",
-    ExternalAgent = "EXTERNAL_AGENT",
-    HumanInTheLoop = "HUMAN_IN_THE_LOOP",
     SqlTool = "SQL_TOOL",
     PromptTool = "PROMPT_TOOL",
     RagTool = "RAG_TOOL",
     McpTool = "MCP_TOOL",
     HttpTool = "HTTP_TOOL",
-    CustomTool = "CUSTOM_TOOL"
+    CustomTool = "CUSTOM_TOOL",
     
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace NodeType {

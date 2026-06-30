@@ -57,6 +57,10 @@ class TablePermissionSummary(object):
     #: This constant has a value of "ADMIN"
     GRANTEE_PERMISSIONS_ADMIN = "ADMIN"
 
+    #: A constant which can be used with the row_filter_type property of a TablePermissionSummary.
+    #: This constant has a value of "SQL"
+    ROW_FILTER_TYPE_SQL = "SQL"
+
     def __init__(self, **kwargs):
         """
         Initializes a new TablePermissionSummary object with values from keyword arguments.
@@ -98,6 +102,16 @@ class TablePermissionSummary(object):
             The value to assign to the resource_name property of this TablePermissionSummary.
         :type resource_name: str
 
+        :param row_filter_type:
+            The value to assign to the row_filter_type property of this TablePermissionSummary.
+            Allowed values for this property are: "SQL", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+        :type row_filter_type: str
+
+        :param row_filter:
+            The value to assign to the row_filter property of this TablePermissionSummary.
+        :type row_filter: str
+
         """
         self.swagger_types = {
             'grantee': 'str',
@@ -107,7 +121,9 @@ class TablePermissionSummary(object):
             'columns': 'list[str]',
             'exclude_columns': 'list[str]',
             'is_inherited': 'bool',
-            'resource_name': 'str'
+            'resource_name': 'str',
+            'row_filter_type': 'str',
+            'row_filter': 'str'
         }
 
         self.attribute_map = {
@@ -118,7 +134,9 @@ class TablePermissionSummary(object):
             'columns': 'columns',
             'exclude_columns': 'excludeColumns',
             'is_inherited': 'isInherited',
-            'resource_name': 'resourceName'
+            'resource_name': 'resourceName',
+            'row_filter_type': 'rowFilterType',
+            'row_filter': 'rowFilter'
         }
 
         self._grantee = None
@@ -129,6 +147,8 @@ class TablePermissionSummary(object):
         self._exclude_columns = None
         self._is_inherited = None
         self._resource_name = None
+        self._row_filter_type = None
+        self._row_filter = None
 
     @property
     def grantee(self):
@@ -333,6 +353,60 @@ class TablePermissionSummary(object):
         :type: str
         """
         self._resource_name = resource_name
+
+    @property
+    def row_filter_type(self):
+        """
+        Gets the row_filter_type of this TablePermissionSummary.
+        Type of row filter expression.
+
+        Allowed values for this property are: "SQL", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+
+
+        :return: The row_filter_type of this TablePermissionSummary.
+        :rtype: str
+        """
+        return self._row_filter_type
+
+    @row_filter_type.setter
+    def row_filter_type(self, row_filter_type):
+        """
+        Sets the row_filter_type of this TablePermissionSummary.
+        Type of row filter expression.
+
+
+        :param row_filter_type: The row_filter_type of this TablePermissionSummary.
+        :type: str
+        """
+        allowed_values = ["SQL"]
+        if not value_allowed_none_or_none_sentinel(row_filter_type, allowed_values):
+            row_filter_type = 'UNKNOWN_ENUM_VALUE'
+        self._row_filter_type = row_filter_type
+
+    @property
+    def row_filter(self):
+        """
+        Gets the row_filter of this TablePermissionSummary.
+        Row filter expression applied to table permission.
+
+
+        :return: The row_filter of this TablePermissionSummary.
+        :rtype: str
+        """
+        return self._row_filter
+
+    @row_filter.setter
+    def row_filter(self, row_filter):
+        """
+        Sets the row_filter of this TablePermissionSummary.
+        Row filter expression applied to table permission.
+
+
+        :param row_filter: The row_filter of this TablePermissionSummary.
+        :type: str
+        """
+        self._row_filter = row_filter
 
     def __repr__(self):
         return formatted_flat_dict(self)

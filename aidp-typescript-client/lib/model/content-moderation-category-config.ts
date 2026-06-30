@@ -5,23 +5,23 @@ import common = require("oci-common");
 
 
 /**
-* Configuration for a content moderation category
+* Configuration for a content moderation category.
 */
 export interface ContentModerationCategoryConfig {
     /**
-    * Content moderation category
+    * Content moderation category.
     */
     'category': model.ContentModerationCategory;
     /**
-    * Whether this category is enabled
+    * Whether this category is enabled.
     */
     'isEnabled': boolean;
     /**
-    * Threshold value for this category (0.0 to 1.0) Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Threshold value for this category (0.0 to 1.0). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'threshold': number;
     /**
-    * Action to take for this category
+    * Action to take for this category.
     */
     'action': model.PolicyAction;
 

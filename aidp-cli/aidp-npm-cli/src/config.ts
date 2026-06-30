@@ -27,9 +27,6 @@ export interface GlobalOptions {
   configFile: string;
   debug: boolean;
   endpoint?: string;
-  environmentDomain: string;
-  environmentHost?: string;
-  environmentPrefix: string;
   instanceId?: string;
   profile: string;
   region?: string;
@@ -55,8 +52,6 @@ export function defaultGlobalOptions(): GlobalOptions {
     configFile: process.env.OCI_CLI_CONFIG_FILE || DEFAULT_CONFIG_FILE,
     debug: false,
     endpoint: process.env.AIDP_ENDPOINT || process.env.OCI_CLI_ENDPOINT,
-    environmentDomain: DEFAULT_ENVIRONMENT_DOMAIN,
-    environmentPrefix: DEFAULT_ENVIRONMENT_PREFIX,
     instanceId: configuredInstanceId(),
     profile: process.env.OCI_CLI_PROFILE || DEFAULT_PROFILE,
     region: process.env.OCI_CLI_REGION
@@ -178,18 +173,9 @@ export function resolveEndpoint(
     return normalizeEndpoint(options.endpoint);
   }
 
-  if (options.environmentHost) {
-    return `https://${options.environmentHost
-      .trim()
-      .replace(/^https?:\/\//, "")
-      .replace(/\/+$/, "")}`;
-  }
-
   const region = resolveRegion(options, authProvider);
   if (!region) {
-    throw new CliError(
-      "Set --region, --endpoint, --environment-host, or region in the OCI config profile."
-    );
+    throw new CliError("Set --region, --endpoint, or region in the OCI config profile.");
   }
   if (/^https?:\/\//.test(region)) {
     throw new CliError(
@@ -197,10 +183,7 @@ export function resolveEndpoint(
     );
   }
 
-  return `https://${options.environmentPrefix}.${region}.oci.${options.environmentDomain}`.replace(
-    /\/+$/,
-    ""
-  );
+  return `https://${DEFAULT_ENVIRONMENT_PREFIX}.${region}.oci.${DEFAULT_ENVIRONMENT_DOMAIN}`;
 }
 
 export function configureClientEndpoint(client: Record<string, unknown>, endpoint: string): void {
@@ -216,7 +199,10 @@ function normalizeEndpoint(endpoint: string): string {
   if (!stripped) {
     throw new CliError("--endpoint cannot be empty.");
   }
-  if (stripped.startsWith("https://") || stripped.startsWith("http://")) {
+  if (stripped.startsWith("http://")) {
+    throw new CliError("--endpoint must use https://.");
+  }
+  if (stripped.startsWith("https://")) {
     return stripped;
   }
   return `https://${stripped}`;

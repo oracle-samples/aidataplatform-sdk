@@ -71,6 +71,10 @@ class SummarizeMetricsDataDetails(object):
             The value to assign to the metric_name property of this SummarizeMetricsDataDetails.
         :type metric_name: str
 
+        :param agent_node:
+            The value to assign to the agent_node property of this SummarizeMetricsDataDetails.
+        :type agent_node: str
+
         :param time_begin:
             The value to assign to the time_begin property of this SummarizeMetricsDataDetails.
         :type time_begin: datetime
@@ -91,6 +95,7 @@ class SummarizeMetricsDataDetails(object):
         self.swagger_types = {
             'aggregation_type': 'str',
             'metric_name': 'str',
+            'agent_node': 'str',
             'time_begin': 'datetime',
             'time_end': 'datetime',
             'interval': 'str',
@@ -100,6 +105,7 @@ class SummarizeMetricsDataDetails(object):
         self.attribute_map = {
             'aggregation_type': 'aggregationType',
             'metric_name': 'metricName',
+            'agent_node': 'agentNode',
             'time_begin': 'timeBegin',
             'time_end': 'timeEnd',
             'interval': 'interval',
@@ -108,6 +114,7 @@ class SummarizeMetricsDataDetails(object):
 
         self._aggregation_type = None
         self._metric_name = None
+        self._agent_node = None
         self._time_begin = None
         self._time_end = None
         self._interval = None
@@ -186,6 +193,32 @@ class SummarizeMetricsDataDetails(object):
         :type: str
         """
         self._metric_name = metric_name
+
+    @property
+    def agent_node(self):
+        """
+        Gets the agent_node of this SummarizeMetricsDataDetails.
+        Optional Monitoring `agentNode` dimension value used to filter AI compute metrics to a specific AI compute replica.
+        This filter applies only to AI compute clusters.
+
+
+        :return: The agent_node of this SummarizeMetricsDataDetails.
+        :rtype: str
+        """
+        return self._agent_node
+
+    @agent_node.setter
+    def agent_node(self, agent_node):
+        """
+        Sets the agent_node of this SummarizeMetricsDataDetails.
+        Optional Monitoring `agentNode` dimension value used to filter AI compute metrics to a specific AI compute replica.
+        This filter applies only to AI compute clusters.
+
+
+        :param agent_node: The agent_node of this SummarizeMetricsDataDetails.
+        :type: str
+        """
+        self._agent_node = agent_node
 
     @property
     def time_begin(self):

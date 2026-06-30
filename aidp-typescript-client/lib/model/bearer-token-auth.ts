@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface BearerTokenAuth extends model.Auth {
     /**
-    * The bearer token used for auth
+    * The bearer token or session-variable reference used for auth
     */
     'token'?: string;
 

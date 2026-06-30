@@ -139,6 +139,32 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.Agent",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.Agent$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.Agent$Type",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.Agent$LifecycleState",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.AgentCardCapabilitiesDetail",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -195,470 +221,350 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlow",
+    "name": "com.oracle.aidataplatform.dp.model.AgentCollection",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlow$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.AgentCollection$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlow$Type",
+    "name": "com.oracle.aidataplatform.dp.model.AgentDependency",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDependency$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDependencyItem",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDependencyItem$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDeployment",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDeployment$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDeploymentCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDeploymentCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDeploymentSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDeploymentSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagram",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagram$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramAgentNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramAgentNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramCustomToolNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramCustomToolNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramGuardrailNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramGuardrailNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramHttpToolNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramHttpToolNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramMcpToolNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramMcpToolNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramPromptToolNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramPromptToolNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramRagToolNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramRagToolNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramSqlToolNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramSqlToolNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramStartNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramStartNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramSupervisorAgentNode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentDiagramSupervisorAgentNode$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentEdge",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentEdge$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentGuardrailsCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentGuardrailsCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentGuardrailsSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentGuardrailsSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentInfo",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentInfo$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentInfo$Type",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlow$LifecycleState",
+    "name": "com.oracle.aidataplatform.dp.model.AgentPermissionCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentPermissionCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentPermissionSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentPermissionSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentPrivilege",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowAttachment",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowAttachment$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowCollection",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowCollection$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowCompute",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowCompute$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDependency",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDependency$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDependencyItem",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDependencyItem$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDeployment",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDeployment$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDeploymentCollection",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDeploymentCollection$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDeploymentSummary",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDeploymentSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDetachment",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDetachment$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDiagram",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowDiagram$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowEdge",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowEdge$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowGuardrailsCollection",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowGuardrailsCollection$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowGuardrailsSummary",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowGuardrailsSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowPermissionCollection",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowPermissionCollection$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowPermissionSummary",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowPermissionSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowPrivilege",
+    "name": "com.oracle.aidataplatform.dp.model.AgentPrivilegeForManage",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowPrivilegeForManage",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSession",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSession$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionCollection",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionCollection$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionContext",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionContext$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionMetric",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionMetric$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionMetricsRange",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionMetricsRange$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionSummary",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSessionSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSummary",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowSummary$Type",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationIssue",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationIssue$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationIssue$Severity",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationIssue$Phase",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationMetadata",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationMetadata$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationMetadata$SkippedPhases",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationOptions",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationOptions$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationResult",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationResult$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationResult$ValidationLevel",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationSummary",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentFlowValidationSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AgentNode$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
@@ -670,6 +576,62 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.AgentProvider$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSession",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSession$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSessionCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSessionCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSessionContext",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSessionContext$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSessionSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AgentSessionSummary$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -690,23 +652,23 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AggregatedTimeSeriesDataPoint",
+    "name": "com.oracle.aidataplatform.dp.model.AggregationEnum",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.AiCompute",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AggregatedTimeSeriesDataPoint$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.AiCompute$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AggregationEnum",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
@@ -900,14 +862,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AssignAgentFlowPermissionDetails",
+    "name": "com.oracle.aidataplatform.dp.model.AssignAgentPermissionDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AssignAgentFlowPermissionDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.AssignAgentPermissionDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -1268,20 +1230,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.AtpTableSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AttachComputeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.AttachComputeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -1779,6 +1727,34 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ClearToolUsesContextManagementDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ClearToolUsesContextManagementDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ClearToolUsesContextManagementRule",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ClearToolUsesContextManagementRule$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.Cluster",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2196,6 +2172,33 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ContextManagementConfiguration",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ContextManagementConfiguration$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ContextManagementRule",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ContextManagementStrategy",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.Continuous",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2216,14 +2219,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CopyAgentFlowDetails",
+    "name": "com.oracle.aidataplatform.dp.model.CopyAgentDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CopyAgentFlowDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.CopyAgentDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -2264,83 +2267,167 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowComputeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowComputeDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowDetails$Type",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDetails$Type",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowEdgeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramAgentNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowEdgeDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramAgentNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowNodeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramCustomToolNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowSessionDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentFlowSessionDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramCustomToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentNodeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramHttpToolNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateAgentNodeDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramHttpToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramMcpToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramMcpToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramPromptToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramPromptToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramRagToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramRagToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramSqlToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentDiagramSqlToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentEdgeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentEdgeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentSessionDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAgentSessionDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAiComputeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateAiComputeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -2424,20 +2511,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateCustomToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateCustomToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateDataLakeCredentialDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2460,6 +2533,20 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateDataTableDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateDflComputeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateDflComputeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -2578,20 +2665,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateHttpToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateHttpToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateJobDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2676,20 +2749,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateMcpToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateMcpToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateModelVersionDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2732,6 +2791,20 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateOntologyProjectDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.CreateOntologyProjectDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateOrUpdateBundleOverridesDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2760,20 +2833,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreatePromptToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreatePromptToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateRagToolDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -2782,20 +2841,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateRagToolDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateRagToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateRagToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -2936,20 +2981,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CreateSqlToolDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateSqlToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CreateSqlToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -3288,20 +3319,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.CustomToolEntry$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CustomToolNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.CustomToolNode$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -3745,14 +3762,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.DeployAgentFlowDetails",
+    "name": "com.oracle.aidataplatform.dp.model.DeployAgentDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.DeployAgentFlowDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.DeployAgentDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -3797,20 +3814,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.DetachComputeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.DetachComputeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.DetachWorkspaceObjectFromClusterDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -3819,6 +3822,20 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.DetachWorkspaceObjectFromClusterDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.DflComputeStatusResult",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.DflComputeStatusResult$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -3875,6 +3892,20 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.EmbeddingModelDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.EntityLineage",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.EntityLineage$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -4214,6 +4245,20 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ExportLineageDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ExportLineageDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.ExportTaskRunOutputDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -4282,20 +4327,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.Expression$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ExternalAgentNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ExternalAgentNode$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -4412,6 +4443,48 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchEntityLineageDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchEntityLineageDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchLineageGraphNodeNeighborsDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchLineageGraphNodeNeighborsDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchLineageGraphNodeReferencesDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchLineageGraphNodeReferencesDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.FetchMcpObjectsDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -4460,6 +4533,20 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.FetchOutputDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchProcessNodeColumnLinksDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.FetchProcessNodeColumnLinksDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -4752,20 +4839,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.GitFolderMetadatum",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.GitFolderMetadatum$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.GitMergeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -4882,20 +4955,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.GitRestoreBranchDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.GitRestoreBranchDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.GranteeType",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
@@ -4910,20 +4969,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.GroupedSearchCriteria$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.GuardrailNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.GuardrailNode$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -5028,34 +5073,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.HttpToolConfiguration$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.HttpToolNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.HttpToolNode$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.HumanInTheLoopNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.HumanInTheLoopNode$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -5436,6 +5453,12 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.JobRun$RepairMode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.JobRunCollection",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -5614,20 +5637,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.KernelSummary$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.KeyedTimeSeries",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.KeyedTimeSeries$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -5951,6 +5960,88 @@
     "name": "com.oracle.aidataplatform.dp.model.LifecycleState$Status",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageDirection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageGraphNodeNeighborsFilter",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageGraphNodeNeighborsFilter$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageLevel",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageNodeDetailsCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageNodeDetailsCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageObject",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageObject$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageRelationship",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.LineageRelationship$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
@@ -6299,14 +6390,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ManageAgentFlowPermissionDetails",
+    "name": "com.oracle.aidataplatform.dp.model.ManageAgentPermissionDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ManageAgentFlowPermissionDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.ManageAgentPermissionDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -6792,20 +6883,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.McpToolNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.McpToolNode$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.McpToolObject",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -7151,14 +7228,62 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.NestedAgentFlowNode",
+    "name": "com.oracle.aidataplatform.dp.model.MysqlExternalCatalogConnectionPropertyKey",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlSchema",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.NestedAgentFlowNode$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.MysqlSchema$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlSchemaSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlSchemaSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlTable",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlTable$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlTableSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.MysqlTableSummary$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7229,6 +7354,34 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.NoAuth$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.NodeFilterObject",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.NodeFilterObject$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.NodeFilterPredicates",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.NodeFilterPredicates$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7403,6 +7556,34 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OacChildItemCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OacChildItemCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OacChildItemSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OacChildItemSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.OacExternalCatalogConnectionPropertyKey",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
@@ -7459,6 +7640,48 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.OacTableSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ObjectLineage",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ObjectLineage$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ObjectLineageRequestDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ObjectLineageRequestDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ObjectNeighborsFetchRequestDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ObjectNeighborsFetchRequestDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7535,6 +7758,34 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.OciResourcePrincipalAuth$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OntologyProject",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OntologyProject$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OntologyProjectCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.OntologyProjectCollection$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7657,6 +7908,20 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.PassThroughNodeFilterPredicate",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.PassThroughNodeFilterPredicate$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.PatchClusterLibraryDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -7679,6 +7944,34 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.PatchSessionDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.PathFilterObject",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.PathFilterObject$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.PathFilterPredicates",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.PathFilterPredicates$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7775,20 +8068,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.PlaygroundCache",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.PlaygroundCache$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.Point",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -7821,14 +8100,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.PreviewAgentFlowAgentCardDetails",
+    "name": "com.oracle.aidataplatform.dp.model.PreviewAgentCardDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.PreviewAgentFlowAgentCardDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.PreviewAgentCardDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7857,6 +8136,76 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.PrincipalsWithWorkspaceAccessSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLink",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLink$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLinksCollection",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLinksCollection$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLinksFilter",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLinksFilter$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLinksRequestDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ProcessNodeColumnLinksRequestDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -7933,20 +8282,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.PromptToolNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.PromptToolNode$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.ProvisionUserSchemaDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -7992,6 +8327,34 @@
     "name": "com.oracle.aidataplatform.dp.model.PythonTask$Source",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.QueryReplicaIdsDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.QueryReplicaIdsDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.QueryReplicaIdsResult",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.QueryReplicaIdsResult$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
@@ -8073,20 +8436,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.RagToolInputSchema$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.RagToolNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.RagToolNode$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -8277,6 +8626,12 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ReferenceType",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.RegisteredModel",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -8451,6 +8806,40 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.RepairJobRunDetails$RepairMode",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.RepairTaskDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.RepairTaskDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ReplicaConfig",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.ReplicaConfig$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -8555,14 +8944,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.RevokeAgentFlowPermissionDetails",
+    "name": "com.oracle.aidataplatform.dp.model.RevokeAgentPermissionDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.RevokeAgentFlowPermissionDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.RevokeAgentPermissionDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -8904,6 +9293,12 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.RoleType",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.RowFilterType",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
   },
@@ -9344,20 +9739,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.SessionVariable",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.SessionVariable$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.SessionVariableDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -9653,6 +10034,68 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeExternalCatalogConnectionPropertyKey",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeSchema",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeSchema$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeSchemaSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeSchemaSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeTable",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeTable$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeTableSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SnowflakeTableSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.SortDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -9755,6 +10198,68 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureExternalCatalogConnectionPropertyKey",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureSchema",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureSchema$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureSchemaSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureSchemaSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureTable",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureTable$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureTableSummary",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.SqlServerOnAzureTableSummary$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.SqlTestToolResult",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -9797,17 +10302,9 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.SqlToolNode",
+    "name": "com.oracle.aidataplatform.dp.model.SqlToolQueryType",
     "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.SqlToolNode$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
+    "allDeclaredMethods": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
@@ -9881,20 +10378,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.StartNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.StartNode$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.State",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -9918,20 +10401,6 @@
     "name": "com.oracle.aidataplatform.dp.model.Status",
     "allDeclaredFields": true,
     "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.StopAgentFlowSessionDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.StopAgentFlowSessionDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
@@ -10019,20 +10488,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.SummarizeMetricsResponse$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.SupervisorAgentNode",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.SupervisorAgentNode$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -10642,105 +11097,175 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowComputeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowComputeDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowDeploymentDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentMetadataDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowDeploymentDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentMetadataDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowDeploymentMetadataDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowDeploymentMetadataDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramAgentNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramAgentNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowNodeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramCustomToolNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowSessionDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowSessionDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramCustomToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowSessionPlaygroundCacheDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramHttpToolNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentFlowSessionPlaygroundCacheDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramHttpToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentNodeDetails",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramMcpToolNodeDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentNodeDetails$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramMcpToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramPromptToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramPromptToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramRagToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramRagToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramSqlToolNodeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentDiagramSqlToolNodeDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentSessionDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAgentSessionDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAiComputeDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateAiComputeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -10836,20 +11361,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdateCustomToolDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateCustomToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateCustomToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -11044,20 +11555,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateHttpToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateHttpToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdateJobDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -11170,20 +11667,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateMcpToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateMcpToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdateModelVersionDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -11254,6 +11737,20 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateOntologyProjectDetails",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
+    "name": "com.oracle.aidataplatform.dp.model.UpdateOntologyProjectDetails$Builder",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdatePromptToolDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -11268,20 +11765,6 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdatePromptToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdatePromptToolNodeDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdateRagToolDetails",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -11290,20 +11773,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdateRagToolDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateRagToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateRagToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -11458,20 +11927,6 @@
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
     "name": "com.oracle.aidataplatform.dp.model.UpdateSqlToolDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateSqlToolNodeDetails",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.UpdateSqlToolNodeDetails$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true
@@ -11671,34 +12126,14 @@
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentFlowDiagramDetails",
+    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentResponse",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
     "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentFlowDiagramDetails$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentFlowDiagramDetails$ValidationLevel",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentFlowResponse",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
-  },
-  {
-    "condition" : { "typeReachable" : "com.fasterxml.jackson.databind.ObjectMapper" },
-    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentFlowResponse$Builder",
+    "name": "com.oracle.aidataplatform.dp.model.ValidateAgentResponse$Builder",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
     "allDeclaredConstructors": true

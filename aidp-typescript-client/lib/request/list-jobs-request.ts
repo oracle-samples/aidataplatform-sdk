@@ -20,6 +20,10 @@ export interface ListJobsRequest extends common.BaseRequest {
  */
  'displayName'?: string;
 /**
+ * The field to filter based on job key.
+ */
+ 'jobKey'?: Array<string>;
+/**
  * A filter to return only resources that have a display name containing the text provided.
  */
  'displayNameContains'?: string;

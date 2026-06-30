@@ -218,21 +218,21 @@ public Builder attachedSessions(java.util.List<AttachedSession> attachedSessions
     return this;
 }
             /**
-     * Count of agent flow attached to a specific cluster.
+     * Count of agents attached to a specific cluster.
      **/
     
-@com.fasterxml.jackson.annotation.JsonProperty("attachedAgentFlowCount")
-private Integer attachedAgentFlowCount;
+@com.fasterxml.jackson.annotation.JsonProperty("attachedAgentCount")
+private Integer attachedAgentCount;
 
         /**
-         * Count of agent flow attached to a specific cluster.
-         * @param attachedAgentFlowCount the value to set
+         * Count of agents attached to a specific cluster.
+         * @param attachedAgentCount the value to set
          * @return this builder
          **/
         
 
-public Builder attachedAgentFlowCount(Integer attachedAgentFlowCount) {
-    this.attachedAgentFlowCount = attachedAgentFlowCount;
+public Builder attachedAgentCount(Integer attachedAgentCount) {
+    this.attachedAgentCount = attachedAgentCount;
     return this;
 }
             /**
@@ -331,7 +331,7 @@ public Builder subscription(SubscriptionDetails subscription) {
                 , this.autoTerminationMinutes
                 , this.attachedNotebooks
                 , this.attachedSessions
-                , this.attachedAgentFlowCount
+                , this.attachedAgentCount
                 , this.jdbcEndpointUrl
                 , this.logId
                 , this.logGroupId
@@ -363,7 +363,7 @@ public Builder subscription(SubscriptionDetails subscription) {
     this.autoTerminationMinutes(model.getAutoTerminationMinutes());
     this.attachedNotebooks(model.getAttachedNotebooks());
     this.attachedSessions(model.getAttachedSessions());
-    this.attachedAgentFlowCount(model.getAttachedAgentFlowCount());
+    this.attachedAgentCount(model.getAttachedAgentCount());
     this.jdbcEndpointUrl(model.getJdbcEndpointUrl());
     this.logId(model.getLogId());
     this.logGroupId(model.getLogGroupId());
@@ -386,7 +386,7 @@ return this;
 
     
     @Deprecated
-    public SparkCluster(String key, String displayName, String description, ClusterType type, java.util.Date timeCreated, java.util.Date timeUpdated, State state, String stateDetails, String nodeType, DriverConfig driverConfig, ActiveClusterResources activeClusterResources, String createdBy, String createdByName, String updatedBy, String updatedByName, String stoppedBy, String stoppedByName, WorkerConfig workerConfig, ClusterRuntimeConfig clusterRuntimeConfig, LoggingConfig loggingConfig, Integer autoTerminationMinutes, java.util.List<String> attachedNotebooks, java.util.List<AttachedSession> attachedSessions, Integer attachedAgentFlowCount, String jdbcEndpointUrl, String logId, String logGroupId, SubscriptionDetails subscription) {
+    public SparkCluster(String key, String displayName, String description, ClusterType type, java.util.Date timeCreated, java.util.Date timeUpdated, State state, String stateDetails, String nodeType, DriverConfig driverConfig, ActiveClusterResources activeClusterResources, String createdBy, String createdByName, String updatedBy, String updatedByName, String stoppedBy, String stoppedByName, WorkerConfig workerConfig, ClusterRuntimeConfig clusterRuntimeConfig, LoggingConfig loggingConfig, Integer autoTerminationMinutes, java.util.List<String> attachedNotebooks, java.util.List<AttachedSession> attachedSessions, Integer attachedAgentCount, String jdbcEndpointUrl, String logId, String logGroupId, SubscriptionDetails subscription) {
     super(key, displayName, description, type, timeCreated, timeUpdated, state, stateDetails, nodeType, driverConfig, activeClusterResources, createdBy, createdByName, updatedBy, updatedByName, stoppedBy, stoppedByName);
         this.workerConfig = workerConfig;
         this.clusterRuntimeConfig = clusterRuntimeConfig;
@@ -394,7 +394,7 @@ return this;
         this.autoTerminationMinutes = autoTerminationMinutes;
         this.attachedNotebooks = attachedNotebooks;
         this.attachedSessions = attachedSessions;
-        this.attachedAgentFlowCount = attachedAgentFlowCount;
+        this.attachedAgentCount = attachedAgentCount;
         this.jdbcEndpointUrl = jdbcEndpointUrl;
         this.logId = logId;
         this.logGroupId = logGroupId;
@@ -484,19 +484,19 @@ return this;
 
 
         /**
-     * Count of agent flow attached to a specific cluster.
+     * Count of agents attached to a specific cluster.
      **/
     
-    @com.fasterxml.jackson.annotation.JsonProperty("attachedAgentFlowCount")
-    private final Integer attachedAgentFlowCount;
+    @com.fasterxml.jackson.annotation.JsonProperty("attachedAgentCount")
+    private final Integer attachedAgentCount;
 
         /**
-     * Count of agent flow attached to a specific cluster.
+     * Count of agents attached to a specific cluster.
      * @return the value
      **/
     
-    public Integer getAttachedAgentFlowCount() {
-        return attachedAgentFlowCount;
+    public Integer getAttachedAgentCount() {
+        return attachedAgentCount;
     }
 
 
@@ -586,7 +586,7 @@ return this;
         sb.append(", autoTerminationMinutes=").append(String.valueOf(this.autoTerminationMinutes));
         sb.append(", attachedNotebooks=").append(String.valueOf(this.attachedNotebooks));
         sb.append(", attachedSessions=").append(String.valueOf(this.attachedSessions));
-        sb.append(", attachedAgentFlowCount=").append(String.valueOf(this.attachedAgentFlowCount));
+        sb.append(", attachedAgentCount=").append(String.valueOf(this.attachedAgentCount));
         sb.append(", jdbcEndpointUrl=").append(String.valueOf(this.jdbcEndpointUrl));
         sb.append(", logId=").append(String.valueOf(this.logId));
         sb.append(", logGroupId=").append(String.valueOf(this.logGroupId));
@@ -611,7 +611,7 @@ return this;
             java.util.Objects.equals(this.autoTerminationMinutes, other.autoTerminationMinutes) &&
             java.util.Objects.equals(this.attachedNotebooks, other.attachedNotebooks) &&
             java.util.Objects.equals(this.attachedSessions, other.attachedSessions) &&
-            java.util.Objects.equals(this.attachedAgentFlowCount, other.attachedAgentFlowCount) &&
+            java.util.Objects.equals(this.attachedAgentCount, other.attachedAgentCount) &&
             java.util.Objects.equals(this.jdbcEndpointUrl, other.jdbcEndpointUrl) &&
             java.util.Objects.equals(this.logId, other.logId) &&
             java.util.Objects.equals(this.logGroupId, other.logGroupId) &&
@@ -629,7 +629,7 @@ return this;
         result = (result * PRIME) + (this.autoTerminationMinutes == null ? 43 : this.autoTerminationMinutes.hashCode());
         result = (result * PRIME) + (this.attachedNotebooks == null ? 43 : this.attachedNotebooks.hashCode());
         result = (result * PRIME) + (this.attachedSessions == null ? 43 : this.attachedSessions.hashCode());
-        result = (result * PRIME) + (this.attachedAgentFlowCount == null ? 43 : this.attachedAgentFlowCount.hashCode());
+        result = (result * PRIME) + (this.attachedAgentCount == null ? 43 : this.attachedAgentCount.hashCode());
         result = (result * PRIME) + (this.jdbcEndpointUrl == null ? 43 : this.jdbcEndpointUrl.hashCode());
         result = (result * PRIME) + (this.logId == null ? 43 : this.logId.hashCode());
         result = (result * PRIME) + (this.logGroupId == null ? 43 : this.logGroupId.hashCode());

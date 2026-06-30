@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class WordFiltersPolicy(SafetyPolicy):
     """
-    Word filters safety policy
+    Word filters safety policy.
     """
 
     def __init__(self, **kwargs):
@@ -91,7 +91,7 @@ class WordFiltersPolicy(SafetyPolicy):
     def words(self):
         """
         Gets the words of this WordFiltersPolicy.
-        List of banned words or regex patterns
+        List of banned words or regex patterns.
 
 
         :return: The words of this WordFiltersPolicy.
@@ -103,7 +103,7 @@ class WordFiltersPolicy(SafetyPolicy):
     def words(self, words):
         """
         Sets the words of this WordFiltersPolicy.
-        List of banned words or regex patterns
+        List of banned words or regex patterns.
 
 
         :param words: The words of this WordFiltersPolicy.
@@ -115,7 +115,7 @@ class WordFiltersPolicy(SafetyPolicy):
     def regex_patterns(self):
         """
         Gets the regex_patterns of this WordFiltersPolicy.
-        List of regex patterns to filter
+        List of regex patterns to filter.
 
 
         :return: The regex_patterns of this WordFiltersPolicy.
@@ -127,7 +127,7 @@ class WordFiltersPolicy(SafetyPolicy):
     def regex_patterns(self, regex_patterns):
         """
         Sets the regex_patterns of this WordFiltersPolicy.
-        List of regex patterns to filter
+        List of regex patterns to filter.
 
 
         :param regex_patterns: The regex_patterns of this WordFiltersPolicy.

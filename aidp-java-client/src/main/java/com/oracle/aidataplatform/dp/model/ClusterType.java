@@ -9,7 +9,7 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum ClusterType implements com.oracle.bmc.http.internal.BmcEnum {
     User("USER"),
-    AgentFlowCompute("AGENT_FLOW_COMPUTE"),
+    AiCompute("AI_COMPUTE"),
     
 
     /**

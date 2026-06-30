@@ -21,7 +21,7 @@ class UpdateSparkClusterDetails(UpdateClusterDetails):
 
         :param type:
             The value to assign to the type property of this UpdateSparkClusterDetails.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE"
+            Allowed values for this property are: "USER", "AI_COMPUTE"
         :type type: str
 
         :param display_name:

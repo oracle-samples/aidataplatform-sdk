@@ -82,7 +82,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<CancelJobRunsResponse> cancelJobRuns(CancelJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<CancelJobRunsRequest, CancelJobRunsResponse> handler);
     
     /**
-     * Creates a job in an AI Data Platform Workbench.
+     * Creates a job.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -94,7 +94,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateJobResponse> createJob(CreateJobRequest request, com.oracle.bmc.responses.AsyncHandler<CreateJobRequest, CreateJobResponse> handler);
     
     /**
-     * Creates a job run for an AI Data Platform Workbench.
+     * Creates a job run.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -106,7 +106,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateJobRunResponse> createJobRun(CreateJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<CreateJobRunRequest, CreateJobRunResponse> handler);
     
     /**
-     * Deletes a job from an AI Data Platform Workbench.
+     * Deletes a job.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -118,7 +118,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteJobResponse> deleteJob(DeleteJobRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteJobRequest, DeleteJobResponse> handler);
     
     /**
-     * Deletes a job run from an AI Data Platform Workbench.
+     * Deletes a job run.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -154,7 +154,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<FetchOutputResponse> fetchOutput(FetchOutputRequest request, com.oracle.bmc.responses.AsyncHandler<FetchOutputRequest, FetchOutputResponse> handler);
     
     /**
-     * Returns detailed information about a given job in AI Data Platform Workbench.
+     * Returns detailed information about a given job.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -202,7 +202,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<ListJobPermissionsResponse> listJobPermissions(ListJobPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListJobPermissionsRequest, ListJobPermissionsResponse> handler);
     
     /**
-     * Returns a detailed list of job runs in an AI Data Platform Workbench.
+     * Returns a detailed list of job runs.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -214,7 +214,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<ListJobRunsResponse> listJobRuns(ListJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListJobRunsRequest, ListJobRunsResponse> handler);
     
     /**
-     * Returns a list of jobs for a given AI Data Platform Workbench.
+     * Returns a list of jobs.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -238,7 +238,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<ListRecentJobRunsResponse> listRecentJobRuns(ListRecentJobRunsRequest request, com.oracle.bmc.responses.AsyncHandler<ListRecentJobRunsRequest, ListRecentJobRunsResponse> handler);
     
     /**
-     * Returns a list of tasks run in an AI Data Platform Workbench.
+     * Returns a list of task runs.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -274,7 +274,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<RepairJobRunResponse> repairJobRun(RepairJobRunRequest request, com.oracle.bmc.responses.AsyncHandler<RepairJobRunRequest, RepairJobRunResponse> handler);
     
     /**
-     * Update details for a job in AI Data Platform Workbench.
+     * Updates details for a job.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

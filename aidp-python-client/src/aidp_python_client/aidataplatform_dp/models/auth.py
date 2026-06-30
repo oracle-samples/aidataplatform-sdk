@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class Auth(object):
     """
-    agent flow to communicate with MCP using the defined auth mode
+    Auth configuration for tools that support authenticated requests
     """
 
     #: A constant which can be used with the auth_type property of a Auth.
@@ -43,7 +43,8 @@ class Auth(object):
 
         :param auth_type:
             The value to assign to the auth_type property of this Auth.
-            Allowed values for this property are: "NO_AUTH", "BEARER_TOKEN", "OAUTH", "OCI_RESOURCE_PRINCIPAL"
+            Allowed values for this property are: "NO_AUTH", "BEARER_TOKEN", "OAUTH", "OCI_RESOURCE_PRINCIPAL", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type auth_type: str
 
         """
@@ -83,9 +84,10 @@ class Auth(object):
     def auth_type(self):
         """
         Gets the auth_type of this Auth.
-        Type of auth used by MCP. Basic or bearer token or resource principal.
+        Type of auth used by the tool.
 
-        Allowed values for this property are: "NO_AUTH", "BEARER_TOKEN", "OAUTH", "OCI_RESOURCE_PRINCIPAL"
+        Allowed values for this property are: "NO_AUTH", "BEARER_TOKEN", "OAUTH", "OCI_RESOURCE_PRINCIPAL", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The auth_type of this Auth.
@@ -97,7 +99,7 @@ class Auth(object):
     def auth_type(self, auth_type):
         """
         Sets the auth_type of this Auth.
-        Type of auth used by MCP. Basic or bearer token or resource principal.
+        Type of auth used by the tool.
 
 
         :param auth_type: The auth_type of this Auth.
@@ -105,10 +107,7 @@ class Auth(object):
         """
         allowed_values = ["NO_AUTH", "BEARER_TOKEN", "OAUTH", "OCI_RESOURCE_PRINCIPAL"]
         if not value_allowed_none_or_none_sentinel(auth_type, allowed_values):
-            raise ValueError(
-                "Invalid value for `auth_type`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            auth_type = 'UNKNOWN_ENUM_VALUE'
         self._auth_type = auth_type
 
     def __repr__(self):

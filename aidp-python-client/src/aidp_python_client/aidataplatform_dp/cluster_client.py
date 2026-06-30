@@ -855,7 +855,7 @@ class ClusterClient(object):
             A filter to return only resources that have a display name containing the text provided.
 
         :param str type: (optional)
-            Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only
+            Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only
             cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 
         :param int limit: (optional)
@@ -1197,6 +1197,97 @@ class ClusterClient(object):
                 header_params=header_params,
                 body=patch_cluster_library_details,
                 response_type="ClusterLibraryCollection")
+
+    def query_replica_ids(self, ai_data_platform_id, workspace_key, cluster_key, query_replica_ids_details, **kwargs):
+        """
+        Queries compute replica identifiers for a compute cluster in the given workspace.
+        The response contains distinct replica identifiers derived from the Monitoring `agentNode` metric dimension.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str workspace_key: (required)
+            The key of the Workspace
+
+        :param str cluster_key: (required)
+            Cluster key.
+
+        :param oci.aidataplatform_dp.models.QueryReplicaIdsDetails query_replica_ids_details: (required)
+            Request body containing replica query parameters.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.QueryReplicaIdsResult`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/queryReplicaIds"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "query_replica_ids got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id,
+            "workspaceKey": workspace_key,
+            "clusterKey": cluster_key
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=query_replica_ids_details,
+                response_type="QueryReplicaIdsResult")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=query_replica_ids_details,
+                response_type="QueryReplicaIdsResult")
 
     def restart_cluster(self, ai_data_platform_id, workspace_key, cluster_key, restart_cluster_details, **kwargs):
         """

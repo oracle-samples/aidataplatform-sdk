@@ -9,15 +9,23 @@ import common = require("oci-common");
 */
 export interface SqlToolConfiguration {
     /**
-    * The Catalog to use for SQL query execution
+    * The SQL execution engine to run the query against.
+    */
+    'queryType'?: model.SqlToolQueryType;
+    /**
+    * Required for ORACLE queries; identifies the catalog that contains the target schema.
     */
     'catalogKey'?: string;
     /**
-    * The Schema to use for SQL query execution
+    * Required for ORACLE queries; identifies the schema within the selected catalog.
     */
     'schemaKey'?: string;
     /**
-    * The SQL query to execute
+    * Required for SPARK queries; identifies the Spark compute target that runs the statement.
+    */
+    'sparkComputeKey'?: string;
+    /**
+    * The SQL statement to execute, written for the dialect selected by queryType.
     */
     'query'?: string;
     /**
@@ -38,9 +46,13 @@ export namespace SqlToolConfiguration {
 
 
 
+
+
     export function getJsonObj(obj: SqlToolConfiguration): object {
         const jsonObj = {...obj, ...{
             
+
+
 
 
 
@@ -56,6 +68,8 @@ export namespace SqlToolConfiguration {
     export function getDeserializedJsonObj(obj: SqlToolConfiguration): object {
         const jsonObj = {...obj, ...{
             
+
+
 
 
 

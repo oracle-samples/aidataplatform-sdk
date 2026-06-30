@@ -1,0 +1,91 @@
+// Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
+
+import * as model from '../model';
+import common = require("oci-common");
+
+
+/**
+* Ontology Manager project metadata.
+*/
+export interface OntologyProject {
+    'id': string;
+    'workspaceId': string;
+    'key': string;
+    'displayName': string;
+    'description'?: string;
+    'namespace'?: string;
+    'workspaceBasePath'?: string;
+    'lifecycleState': string;
+    'timeCreated'?: Date;
+    'timeUpdated'?: Date;
+    'version'?: number;
+    'freeformTags'?: { [key: string]: string; };
+    'definedTags'?: { [key: string]: { [key: string]: any; }; };
+    'systemTags'?: { [key: string]: { [key: string]: any; }; };
+
+}
+
+export namespace OntologyProject {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    export function getJsonObj(obj: OntologyProject): object {
+        const jsonObj = {...obj, ...{
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }};
+
+        
+        
+        return jsonObj;
+    }
+    ;
+    export function getDeserializedJsonObj(obj: OntologyProject): object {
+        const jsonObj = {...obj, ...{
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         }};
+
+        
+        
+        return jsonObj;
+    }
+}

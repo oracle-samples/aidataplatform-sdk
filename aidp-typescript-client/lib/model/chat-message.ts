@@ -33,8 +33,12 @@ export namespace ChatMessage {
     
     InputText = "INPUT_TEXT",
     InputImage = "INPUT_IMAGE",
-    InputFile = "INPUT_FILE"
-
+    InputFile = "INPUT_FILE",
+    /**
+    * This value is used if a service returns a value for this enum that is not recognized by this
+    * version of the SDK.
+    */
+    UnknownValue = "UNKNOWN_VALUE"
 }
 
 

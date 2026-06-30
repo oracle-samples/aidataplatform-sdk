@@ -67,19 +67,6 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<GetExperimentRunByIdRequest, java.lang.Void> {
@@ -154,21 +141,6 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -195,7 +167,7 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
          * @return this builder instance
          */
         public Builder copy(GetExperimentRunByIdRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());runId(o.getRunId());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());runId(o.getRunId());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -232,9 +204,8 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
             request.workspaceKey = workspaceKey;
             request.runId = runId;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new GetExperimentRunByIdRequest(aiDataPlatformId, workspaceKey, runId, opcRequestId, dhUserPrincipal);
+            // new GetExperimentRunByIdRequest(aiDataPlatformId, workspaceKey, runId, opcRequestId);
         }
     }
 
@@ -247,8 +218,7 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .runId(runId)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -268,7 +238,6 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",runId=").append(String.valueOf(this.runId));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -287,8 +256,7 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.runId, other.runId)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -299,7 +267,6 @@ public class GetExperimentRunByIdRequest extends com.oracle.bmc.requests.BmcRequ
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.runId == null ? 43 : this.runId.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

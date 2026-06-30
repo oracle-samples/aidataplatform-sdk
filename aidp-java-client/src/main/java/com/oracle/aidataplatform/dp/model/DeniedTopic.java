@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Denied topic configuration
+ * Denied topic configuration.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DeniedTopic.Builder.class)
@@ -23,14 +23,14 @@ public final class DeniedTopic  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Name of the denied topic
+     * Name of the denied topic.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("name")
 private String name;
 
         /**
-         * Name of the denied topic
+         * Name of the denied topic.
          * @param name the value to set
          * @return this builder
          **/
@@ -41,14 +41,14 @@ public Builder name(String name) {
     return this;
 }
             /**
-     * Definition of the denied topic
+     * Definition of the denied topic.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("definition")
 private String definition;
 
         /**
-         * Definition of the denied topic
+         * Definition of the denied topic.
          * @param definition the value to set
          * @return this builder
          **/
@@ -59,14 +59,14 @@ public Builder definition(String definition) {
     return this;
 }
             /**
-     * Examples of content that would violate this topic
+     * Examples of content that would violate this topic.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("examples")
 private java.util.List<String> examples;
 
         /**
-         * Examples of content that would violate this topic
+         * Examples of content that would violate this topic.
          * @param examples the value to set
          * @return this builder
          **/
@@ -109,14 +109,14 @@ return this;
 
 
         /**
-     * Name of the denied topic
+     * Name of the denied topic.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * Name of the denied topic
+     * Name of the denied topic.
      * @return the value
      **/
     
@@ -126,14 +126,14 @@ return this;
 
 
         /**
-     * Definition of the denied topic
+     * Definition of the denied topic.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("definition")
     private final String definition;
 
         /**
-     * Definition of the denied topic
+     * Definition of the denied topic.
      * @return the value
      **/
     
@@ -143,14 +143,14 @@ return this;
 
 
         /**
-     * Examples of content that would violate this topic
+     * Examples of content that would violate this topic.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("examples")
     private final java.util.List<String> examples;
 
         /**
-     * Examples of content that would violate this topic
+     * Examples of content that would violate this topic.
      * @return the value
      **/
     

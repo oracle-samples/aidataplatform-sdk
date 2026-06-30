@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeniedTopic(object):
     """
-    Denied topic configuration
+    Denied topic configuration.
     """
 
     def __init__(self, **kwargs):
@@ -51,7 +51,7 @@ class DeniedTopic(object):
     def name(self):
         """
         **[Required]** Gets the name of this DeniedTopic.
-        Name of the denied topic
+        Name of the denied topic.
 
 
         :return: The name of this DeniedTopic.
@@ -63,7 +63,7 @@ class DeniedTopic(object):
     def name(self, name):
         """
         Sets the name of this DeniedTopic.
-        Name of the denied topic
+        Name of the denied topic.
 
 
         :param name: The name of this DeniedTopic.
@@ -75,7 +75,7 @@ class DeniedTopic(object):
     def definition(self):
         """
         **[Required]** Gets the definition of this DeniedTopic.
-        Definition of the denied topic
+        Definition of the denied topic.
 
 
         :return: The definition of this DeniedTopic.
@@ -87,7 +87,7 @@ class DeniedTopic(object):
     def definition(self, definition):
         """
         Sets the definition of this DeniedTopic.
-        Definition of the denied topic
+        Definition of the denied topic.
 
 
         :param definition: The definition of this DeniedTopic.
@@ -99,7 +99,7 @@ class DeniedTopic(object):
     def examples(self):
         """
         Gets the examples of this DeniedTopic.
-        Examples of content that would violate this topic
+        Examples of content that would violate this topic.
 
 
         :return: The examples of this DeniedTopic.
@@ -111,7 +111,7 @@ class DeniedTopic(object):
     def examples(self, examples):
         """
         Sets the examples of this DeniedTopic.
-        Examples of content that would violate this topic
+        Examples of content that would violate this topic.
 
 
         :param examples: The examples of this DeniedTopic.

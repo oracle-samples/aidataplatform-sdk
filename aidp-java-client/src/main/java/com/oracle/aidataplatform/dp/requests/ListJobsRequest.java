@@ -47,6 +47,19 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
         return displayName;
     }
         /**
+     * The field to filter based on job key.
+     */
+    private java.util.List<String> jobKey;
+
+    
+
+        /**
+     * The field to filter based on job key.
+     */
+    public java.util.List<String> getJobKey() {
+        return jobKey;
+    }
+        /**
      * A filter to return only resources that have a display name containing the text provided.
      */
     private String displayNameContains;
@@ -273,6 +286,30 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
         }
 
             /**
+     * The field to filter based on job key.
+     */
+        private java.util.List<String> jobKey = null;
+
+        /**
+         * The field to filter based on job key.
+         * @param jobKey the value to set
+         * @return this builder instance
+         */
+        public Builder jobKey(java.util.List<String> jobKey) {
+            this.jobKey = jobKey;
+            return this;
+        }
+
+        /**
+         * Singular setter. The field to filter based on job key.
+         * @param singularValue the singular value to set
+         * @return this builder instance
+         */
+        public Builder jobKey(String singularValue) {
+            return this.jobKey(java.util.Arrays.asList(singularValue));
+        }
+
+            /**
      * A filter to return only resources that have a display name containing the text provided.
      */
         private String displayNameContains = null;
@@ -453,7 +490,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
          * @return this builder instance
          */
         public Builder copy(ListJobsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());displayName(o.getDisplayName());displayNameContains(o.getDisplayNameContains());path(o.getPath());createdBy(o.getCreatedBy());updatedBy(o.getUpdatedBy());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());displayName(o.getDisplayName());jobKey(o.getJobKey());displayNameContains(o.getDisplayNameContains());path(o.getPath());createdBy(o.getCreatedBy());updatedBy(o.getUpdatedBy());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -489,6 +526,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
             request.aiDataPlatformId = aiDataPlatformId;
             request.workspaceKey = workspaceKey;
             request.displayName = displayName;
+            request.jobKey = jobKey;
             request.displayNameContains = displayNameContains;
             request.path = path;
             request.createdBy = createdBy;
@@ -499,7 +537,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
             request.sortBy = sortBy;
             request.opcRequestId = opcRequestId;
             return request;
-            // new ListJobsRequest(aiDataPlatformId, workspaceKey, displayName, displayNameContains, path, createdBy, updatedBy, limit, page, sortOrder, sortBy, opcRequestId);
+            // new ListJobsRequest(aiDataPlatformId, workspaceKey, displayName, jobKey, displayNameContains, path, createdBy, updatedBy, limit, page, sortOrder, sortBy, opcRequestId);
         }
     }
 
@@ -512,6 +550,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .displayName(displayName)
+            .jobKey(jobKey)
             .displayNameContains(displayNameContains)
             .path(path)
             .createdBy(createdBy)
@@ -539,6 +578,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",displayName=").append(String.valueOf(this.displayName));
+        sb.append(",jobKey=").append(String.valueOf(this.jobKey));
         sb.append(",displayNameContains=").append(String.valueOf(this.displayNameContains));
         sb.append(",path=").append(String.valueOf(this.path));
         sb.append(",createdBy=").append(String.valueOf(this.createdBy));
@@ -566,6 +606,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.displayName, other.displayName)
+            && java.util.Objects.equals(this.jobKey, other.jobKey)
             && java.util.Objects.equals(this.displayNameContains, other.displayNameContains)
             && java.util.Objects.equals(this.path, other.path)
             && java.util.Objects.equals(this.createdBy, other.createdBy)
@@ -584,6 +625,7 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
+        result = (result * PRIME) + (this.jobKey == null ? 43 : this.jobKey.hashCode());
         result = (result * PRIME) + (this.displayNameContains == null ? 43 : this.displayNameContains.hashCode());
         result = (result * PRIME) + (this.path == null ? 43 : this.path.hashCode());
         result = (result * PRIME) + (this.createdBy == null ? 43 : this.createdBy.hashCode());
