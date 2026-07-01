@@ -624,6 +624,8 @@ return clientCall(request, ListJobsResponse::builder)
                     
                     .appendQueryParam("displayName", request.getDisplayName())
             
+                .appendListQueryParam("jobKey", request.getJobKey(), com.oracle.bmc.util.internal.CollectionFormatType.Multi)
+            
                 
                     
                     .appendQueryParam("displayNameContains", request.getDisplayNameContains())

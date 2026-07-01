@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ContentModerationPolicy(SafetyPolicy):
     """
-    Content moderation safety policy
+    Content moderation safety policy.
     """
 
     def __init__(self, **kwargs):
@@ -84,7 +84,7 @@ class ContentModerationPolicy(SafetyPolicy):
     def categories(self):
         """
         Gets the categories of this ContentModerationPolicy.
-        Content moderation categories and their configurations
+        Content moderation categories and their configurations.
 
 
         :return: The categories of this ContentModerationPolicy.
@@ -96,7 +96,7 @@ class ContentModerationPolicy(SafetyPolicy):
     def categories(self, categories):
         """
         Sets the categories of this ContentModerationPolicy.
-        Content moderation categories and their configurations
+        Content moderation categories and their configurations.
 
 
         :param categories: The categories of this ContentModerationPolicy.

@@ -90,19 +90,6 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -212,21 +199,6 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -253,7 +225,7 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
          * @return this builder instance
          */
         public Builder copy(CreateWorkspaceModelVersionRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());createModelVersionDetails(o.getCreateModelVersionDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());createModelVersionDetails(o.getCreateModelVersionDetails());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -302,9 +274,8 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
             request.createModelVersionDetails = createModelVersionDetails;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new CreateWorkspaceModelVersionRequest(aiDataPlatformId, workspaceKey, createModelVersionDetails, opcRetryToken, opcRequestId, dhUserPrincipal);
+            // new CreateWorkspaceModelVersionRequest(aiDataPlatformId, workspaceKey, createModelVersionDetails, opcRetryToken, opcRequestId);
         }
     }
 
@@ -318,8 +289,7 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
             .workspaceKey(workspaceKey)
             .createModelVersionDetails(createModelVersionDetails)
             .opcRetryToken(opcRetryToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -340,7 +310,6 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
         sb.append(",createModelVersionDetails=").append(String.valueOf(this.createModelVersionDetails));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -360,8 +329,7 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.createModelVersionDetails, other.createModelVersionDetails)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -373,7 +341,6 @@ public class CreateWorkspaceModelVersionRequest extends com.oracle.bmc.requests.
         result = (result * PRIME) + (this.createModelVersionDetails == null ? 43 : this.createModelVersionDetails.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

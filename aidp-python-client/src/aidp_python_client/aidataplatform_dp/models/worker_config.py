@@ -58,7 +58,7 @@ class WorkerConfig(object):
     def worker_shape(self):
         """
         Gets the worker_shape of this WorkerConfig.
-        Shape of the compute cluster executor instance.
+        Shape of the compute cluster worker instance.
 
 
         :return: The worker_shape of this WorkerConfig.
@@ -70,7 +70,7 @@ class WorkerConfig(object):
     def worker_shape(self, worker_shape):
         """
         Sets the worker_shape of this WorkerConfig.
-        Shape of the compute cluster executor instance.
+        Shape of the compute cluster worker instance.
 
 
         :param worker_shape: The worker_shape of this WorkerConfig.

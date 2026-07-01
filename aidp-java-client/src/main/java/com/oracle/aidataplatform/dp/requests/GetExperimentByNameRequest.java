@@ -67,19 +67,6 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<GetExperimentByNameRequest, java.lang.Void> {
@@ -154,21 +141,6 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -195,7 +167,7 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
          * @return this builder instance
          */
         public Builder copy(GetExperimentByNameRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());experimentName(o.getExperimentName());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());experimentName(o.getExperimentName());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -232,9 +204,8 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
             request.workspaceKey = workspaceKey;
             request.experimentName = experimentName;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new GetExperimentByNameRequest(aiDataPlatformId, workspaceKey, experimentName, opcRequestId, dhUserPrincipal);
+            // new GetExperimentByNameRequest(aiDataPlatformId, workspaceKey, experimentName, opcRequestId);
         }
     }
 
@@ -247,8 +218,7 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .experimentName(experimentName)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -268,7 +238,6 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",experimentName=").append(String.valueOf(this.experimentName));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -287,8 +256,7 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.experimentName, other.experimentName)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -299,7 +267,6 @@ public class GetExperimentByNameRequest extends com.oracle.bmc.requests.BmcReque
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.experimentName == null ? 43 : this.experimentName.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

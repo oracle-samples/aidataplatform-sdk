@@ -21,6 +21,14 @@ export interface AssignTablePermissionDetails {
     * The list of columns to be excluded for the assigning of permissions.
     */
     'excludeColumns': Array<string>;
+    /**
+    * Type of row filter expression.
+    */
+    'rowFilterType'?: model.RowFilterType;
+    /**
+    * Row filter expression applied while assigning table permissions.
+    */
+    'rowFilter'?: string;
 
 }
 
@@ -41,6 +49,8 @@ export namespace AssignTablePermissionDetails {
 
 
 
+
+
     export function getJsonObj(obj: AssignTablePermissionDetails): object {
         const jsonObj = {...obj, ...{
             
@@ -48,6 +58,8 @@ export namespace AssignTablePermissionDetails {
                 
                 
                 model.PermissionAssignees.getJsonObj(obj.assignees) : undefined,
+
+
 
 
 
@@ -65,6 +77,8 @@ export namespace AssignTablePermissionDetails {
                 
                 
                 model.PermissionAssignees.getDeserializedJsonObj(obj.assignees) : undefined,
+
+
 
 
 

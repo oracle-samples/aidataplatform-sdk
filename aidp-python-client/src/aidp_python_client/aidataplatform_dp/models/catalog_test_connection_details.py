@@ -38,6 +38,18 @@ class CatalogTestConnectionDetails(object):
     SOURCE_TYPE_EXADATA = "EXADATA"
 
     #: A constant which can be used with the source_type property of a CatalogTestConnectionDetails.
+    #: This constant has a value of "MYSQL"
+    SOURCE_TYPE_MYSQL = "MYSQL"
+
+    #: A constant which can be used with the source_type property of a CatalogTestConnectionDetails.
+    #: This constant has a value of "AZURE_SQLSERVER"
+    SOURCE_TYPE_AZURE_SQLSERVER = "AZURE_SQLSERVER"
+
+    #: A constant which can be used with the source_type property of a CatalogTestConnectionDetails.
+    #: This constant has a value of "SNOWFLAKE"
+    SOURCE_TYPE_SNOWFLAKE = "SNOWFLAKE"
+
+    #: A constant which can be used with the source_type property of a CatalogTestConnectionDetails.
     #: This constant has a value of "ORACLE_ANALYTICS"
     SOURCE_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
 
@@ -52,7 +64,7 @@ class CatalogTestConnectionDetails(object):
 
         :param source_type:
             The value to assign to the source_type property of this CatalogTestConnectionDetails.
-            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
         :type source_type: str
 
         :param connection_details:
@@ -106,7 +118,7 @@ class CatalogTestConnectionDetails(object):
         Gets the source_type of this CatalogTestConnectionDetails.
         External catalog source type.
 
-        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
+        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
 
 
         :return: The source_type of this CatalogTestConnectionDetails.
@@ -124,7 +136,7 @@ class CatalogTestConnectionDetails(object):
         :param source_type: The source_type of this CatalogTestConnectionDetails.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             raise ValueError(
                 "Invalid value for `source_type`, must be None or one of {0}"

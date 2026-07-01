@@ -27,16 +27,16 @@ class Cluster(object):
     SOURCE_API_DEFAULT_CLUSTER_API = "DEFAULT_CLUSTER_API"
 
     #: A constant which can be used with the source_api property of a Cluster.
-    #: This constant has a value of "AGENT_FLOW_COMPUTE"
-    SOURCE_API_AGENT_FLOW_COMPUTE = "AGENT_FLOW_COMPUTE"
+    #: This constant has a value of "AI_COMPUTE"
+    SOURCE_API_AI_COMPUTE = "AI_COMPUTE"
 
     #: A constant which can be used with the type property of a Cluster.
     #: This constant has a value of "USER"
     TYPE_USER = "USER"
 
     #: A constant which can be used with the type property of a Cluster.
-    #: This constant has a value of "AGENT_FLOW_COMPUTE"
-    TYPE_AGENT_FLOW_COMPUTE = "AGENT_FLOW_COMPUTE"
+    #: This constant has a value of "AI_COMPUTE"
+    TYPE_AI_COMPUTE = "AI_COMPUTE"
 
     #: A constant which can be used with the state property of a Cluster.
     #: This constant has a value of "ACCEPTED"
@@ -111,8 +111,8 @@ class Cluster(object):
         Initializes a new Cluster object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
         to a service operations then you should favor using a subclass over the base class:
 
+        * :class:`~oci.aidataplatform_dp.models.AiCompute`
         * :class:`~oci.aidataplatform_dp.models.SparkCluster`
-        * :class:`~oci.aidataplatform_dp.models.AgentFlowCompute`
         * :class:`~oci.aidataplatform_dp.models.DefaultCluster`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
@@ -131,13 +131,13 @@ class Cluster(object):
 
         :param source_api:
             The value to assign to the source_api property of this Cluster.
-            Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type source_api: str
 
         :param type:
             The value to assign to the type property of this Cluster.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 
@@ -265,11 +265,11 @@ class Cluster(object):
         """
         type = object_dictionary['sourceApi']
 
+        if type == 'AI_COMPUTE':
+            return 'AiCompute'
+
         if type == 'CLUSTER_API':
             return 'SparkCluster'
-
-        if type == 'AGENT_FLOW_COMPUTE':
-            return 'AgentFlowCompute'
 
         if type == 'DEFAULT_CLUSTER_API':
             return 'DefaultCluster'
@@ -352,11 +352,9 @@ class Cluster(object):
     def source_api(self):
         """
         Gets the source_api of this Cluster.
-        User created clusters are associated with a particular workspace. Default cluster is to
-        be used by all catalogs operations that require compute. Default cluster can be thought of as
-        associated with Master catalog. Agent Flow Compute is used to execute Agent Flows.
+        User created clusters are associated with a particular workspace. AI compute is used to execute Agents.
 
-        Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -369,15 +367,13 @@ class Cluster(object):
     def source_api(self, source_api):
         """
         Sets the source_api of this Cluster.
-        User created clusters are associated with a particular workspace. Default cluster is to
-        be used by all catalogs operations that require compute. Default cluster can be thought of as
-        associated with Master catalog. Agent Flow Compute is used to execute Agent Flows.
+        User created clusters are associated with a particular workspace. AI compute is used to execute Agents.
 
 
         :param source_api: The source_api of this Cluster.
         :type: str
         """
-        allowed_values = ["CLUSTER_API", "DEFAULT_CLUSTER_API", "AGENT_FLOW_COMPUTE"]
+        allowed_values = ["CLUSTER_API", "DEFAULT_CLUSTER_API", "AI_COMPUTE"]
         if not value_allowed_none_or_none_sentinel(source_api, allowed_values):
             source_api = 'UNKNOWN_ENUM_VALUE'
         self._source_api = source_api
@@ -388,7 +384,7 @@ class Cluster(object):
         Gets the type of this Cluster.
         ClusterType
 
-        Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -407,7 +403,7 @@ class Cluster(object):
         :param type: The type of this Cluster.
         :type: str
         """
-        allowed_values = ["USER", "AGENT_FLOW_COMPUTE"]
+        allowed_values = ["USER", "AI_COMPUTE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             type = 'UNKNOWN_ENUM_VALUE'
         self._type = type

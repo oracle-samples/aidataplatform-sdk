@@ -87,7 +87,7 @@ class DeltaShareClient(object):
 
     def create_recipient(self, ai_data_platform_id, create_recipient_details, **kwargs):
         """
-        Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
+        Creates a recipient for a Delta Share protocol.
 
 
         :param str ai_data_platform_id: (required)
@@ -185,7 +185,7 @@ class DeltaShareClient(object):
 
     def create_share(self, ai_data_platform_id, create_share_details, **kwargs):
         """
-        Create a Delta Share protocol in AI Data Platform Workbench.
+        Creates a Delta Share protocol.
 
 
         :param str ai_data_platform_id: (required)
@@ -283,7 +283,7 @@ class DeltaShareClient(object):
 
     def delete_recipient(self, ai_data_platform_id, recipient_key, **kwargs):
         """
-        Deletes a Delta Share recipient from an AI Data Platform Workbench.
+        Deletes a Delta Share recipient.
 
 
         :param str ai_data_platform_id: (required)
@@ -375,7 +375,7 @@ class DeltaShareClient(object):
 
     def delete_share(self, ai_data_platform_id, share_key, **kwargs):
         """
-        Deletes a Delta Share from an AI Data Platform Workbench.
+        Deletes a Delta Share.
 
 
         :param str ai_data_platform_id: (required)
@@ -467,7 +467,7 @@ class DeltaShareClient(object):
 
     def get_recipient(self, ai_data_platform_id, recipient_key, **kwargs):
         """
-        Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
+        Gets detailed information about a Delta Share recipient.
 
 
         :param str ai_data_platform_id: (required)
@@ -921,7 +921,7 @@ class DeltaShareClient(object):
 
     def list_recipients(self, ai_data_platform_id, **kwargs):
         """
-        Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
+        Gets a list of Delta Share recipients.
 
 
         :param str ai_data_platform_id: (required)
@@ -1056,7 +1056,7 @@ class DeltaShareClient(object):
 
     def list_share_data_assets(self, ai_data_platform_id, share_key, **kwargs):
         """
-        Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
+        Gets a list of Delta Share assets.
 
 
         :param str ai_data_platform_id: (required)
@@ -1483,7 +1483,7 @@ class DeltaShareClient(object):
 
     def list_shares(self, ai_data_platform_id, **kwargs):
         """
-        Gets a list of Delta Shares in an AI Data Platform Workbench instance.
+        Gets a list of Delta Shares.
 
 
         :param str ai_data_platform_id: (required)
@@ -1618,7 +1618,7 @@ class DeltaShareClient(object):
 
     def manage_recipient_permission(self, ai_data_platform_id, recipient_key, manage_recipient_permission_details, **kwargs):
         """
-        Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
+        Updates the permissions of a Delta Share recipient.
 
 
         :param str ai_data_platform_id: (required)
@@ -2017,7 +2017,7 @@ class DeltaShareClient(object):
 
     def update_recipient(self, ai_data_platform_id, recipient_key, update_recipient_details, **kwargs):
         """
-        Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
+        Updates the metadata of a Delta Share recipient.
 
 
         :param str ai_data_platform_id: (required)

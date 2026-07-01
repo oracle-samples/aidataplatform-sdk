@@ -101,10 +101,6 @@ GLOBAL_VALUE_OPTIONS = {
     "--auth": "auth",
     "--region": "region",
     "--endpoint": "endpoint",
-    "--environment-prefix": "environment_prefix",
-    "--environmentprefix": "environment_prefix",
-    "--environment-domain": "environment_domain",
-    "--environment-host": "environment_host",
     "--timeout": "timeout",
     "--instance-id": "ai_data_platform_id",
 }
@@ -380,9 +376,6 @@ def global_defaults() -> dict[str, Any]:
         "auth": os.getenv("OCI_CLI_AUTH", DEFAULT_AUTH),
         "region": os.getenv("OCI_CLI_REGION"),
         "endpoint": os.getenv("AIDP_ENDPOINT") or os.getenv("OCI_CLI_ENDPOINT"),
-        "environment_prefix": DEFAULT_ENVIRONMENT_PREFIX,
-        "environment_domain": DEFAULT_ENVIRONMENT_DOMAIN,
-        "environment_host": None,
         "timeout": None,
         "ai_data_platform_id": configured_instance_id(),
         "debug": False,
@@ -1807,9 +1800,6 @@ def build_client(client_cls: type, args: SimpleNamespace) -> Any:
     endpoint = resolve_endpoint(
         region=region,
         endpoint=args.endpoint,
-        environment_prefix=args.environment_prefix,
-        environment_domain=args.environment_domain,
-        environment_host=args.environment_host,
     )
     kwargs: dict[str, Any] = {
         "signer": signer,
@@ -1838,31 +1828,26 @@ def apply_client_overrides(client: Any) -> None:
 def resolve_endpoint(
     region: str | None,
     endpoint: str | None,
-    environment_prefix: str,
-    environment_domain: str,
-    environment_host: str | None,
 ) -> str:
     if endpoint:
         return normalize_endpoint(endpoint)
-    if environment_host:
-        return f"https://{environment_host.strip().removeprefix('https://').removeprefix('http://').rstrip('/')}"
     if not region:
-        raise CliError(
-            "Set --region, --endpoint, --environment-host, or region in the OCI config profile."
-        )
+        raise CliError("Set --region, --endpoint, or region in the OCI config profile.")
     if str(region).startswith(("https://", "http://")):
         raise CliError(
             "Region must be an OCI region identifier. For a full service URL, use --endpoint, "
             "AIDP_ENDPOINT, or OCI_CLI_ENDPOINT."
         )
-    return f"https://{environment_prefix}.{region}.oci.{environment_domain}".rstrip("/")
+    return f"https://{DEFAULT_ENVIRONMENT_PREFIX}.{region}.oci.{DEFAULT_ENVIRONMENT_DOMAIN}"
 
 
 def normalize_endpoint(endpoint: str) -> str:
     stripped = endpoint.strip().rstrip("/")
     if not stripped:
         raise CliError("--endpoint cannot be empty.")
-    if stripped.startswith(("https://", "http://")):
+    if stripped.startswith("http://"):
+        raise CliError("--endpoint must use https://.")
+    if stripped.startswith("https://"):
         return stripped
     return f"https://{stripped}"
 

@@ -18,8 +18,8 @@ class ClusterSummary(object):
     TYPE_USER = "USER"
 
     #: A constant which can be used with the type property of a ClusterSummary.
-    #: This constant has a value of "AGENT_FLOW_COMPUTE"
-    TYPE_AGENT_FLOW_COMPUTE = "AGENT_FLOW_COMPUTE"
+    #: This constant has a value of "AI_COMPUTE"
+    TYPE_AI_COMPUTE = "AI_COMPUTE"
 
     def __init__(self, **kwargs):
         """
@@ -40,7 +40,7 @@ class ClusterSummary(object):
 
         :param type:
             The value to assign to the type property of this ClusterSummary.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 
@@ -100,6 +100,10 @@ class ClusterSummary(object):
             The value to assign to the worker_config property of this ClusterSummary.
         :type worker_config: oci.aidataplatform_dp.models.WorkerConfig
 
+        :param replica_config:
+            The value to assign to the replica_config property of this ClusterSummary.
+        :type replica_config: oci.aidataplatform_dp.models.ReplicaConfig
+
         :param attached_notebooks:
             The value to assign to the attached_notebooks property of this ClusterSummary.
         :type attached_notebooks: list[str]
@@ -108,9 +112,9 @@ class ClusterSummary(object):
             The value to assign to the attached_sessions property of this ClusterSummary.
         :type attached_sessions: list[oci.aidataplatform_dp.models.AttachedSession]
 
-        :param attached_agent_flow_count:
-            The value to assign to the attached_agent_flow_count property of this ClusterSummary.
-        :type attached_agent_flow_count: int
+        :param attached_agent_count:
+            The value to assign to the attached_agent_count property of this ClusterSummary.
+        :type attached_agent_count: int
 
         """
         self.swagger_types = {
@@ -132,9 +136,10 @@ class ClusterSummary(object):
             'active_cluster_resources': 'ActiveClusterResources',
             'driver_config': 'DriverConfig',
             'worker_config': 'WorkerConfig',
+            'replica_config': 'ReplicaConfig',
             'attached_notebooks': 'list[str]',
             'attached_sessions': 'list[AttachedSession]',
-            'attached_agent_flow_count': 'int'
+            'attached_agent_count': 'int'
         }
 
         self.attribute_map = {
@@ -156,9 +161,10 @@ class ClusterSummary(object):
             'active_cluster_resources': 'activeClusterResources',
             'driver_config': 'driverConfig',
             'worker_config': 'workerConfig',
+            'replica_config': 'replicaConfig',
             'attached_notebooks': 'attachedNotebooks',
             'attached_sessions': 'attachedSessions',
-            'attached_agent_flow_count': 'attachedAgentFlowCount'
+            'attached_agent_count': 'attachedAgentCount'
         }
 
         self._key = None
@@ -179,9 +185,10 @@ class ClusterSummary(object):
         self._active_cluster_resources = None
         self._driver_config = None
         self._worker_config = None
+        self._replica_config = None
         self._attached_notebooks = None
         self._attached_sessions = None
-        self._attached_agent_flow_count = None
+        self._attached_agent_count = None
 
     @property
     def key(self):
@@ -261,7 +268,7 @@ class ClusterSummary(object):
         **[Required]** Gets the type of this ClusterSummary.
         ClusterType
 
-        Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "USER", "AI_COMPUTE", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -280,7 +287,7 @@ class ClusterSummary(object):
         :param type: The type of this ClusterSummary.
         :type: str
         """
-        allowed_values = ["USER", "AGENT_FLOW_COMPUTE"]
+        allowed_values = ["USER", "AI_COMPUTE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             type = 'UNKNOWN_ENUM_VALUE'
         self._type = type
@@ -606,6 +613,26 @@ class ClusterSummary(object):
         self._worker_config = worker_config
 
     @property
+    def replica_config(self):
+        """
+        Gets the replica_config of this ClusterSummary.
+
+        :return: The replica_config of this ClusterSummary.
+        :rtype: oci.aidataplatform_dp.models.ReplicaConfig
+        """
+        return self._replica_config
+
+    @replica_config.setter
+    def replica_config(self, replica_config):
+        """
+        Sets the replica_config of this ClusterSummary.
+
+        :param replica_config: The replica_config of this ClusterSummary.
+        :type: oci.aidataplatform_dp.models.ReplicaConfig
+        """
+        self._replica_config = replica_config
+
+    @property
     def attached_notebooks(self):
         """
         Gets the attached_notebooks of this ClusterSummary.
@@ -654,28 +681,28 @@ class ClusterSummary(object):
         self._attached_sessions = attached_sessions
 
     @property
-    def attached_agent_flow_count(self):
+    def attached_agent_count(self):
         """
-        Gets the attached_agent_flow_count of this ClusterSummary.
-        Count of agent flow attached to a specific cluster.
+        Gets the attached_agent_count of this ClusterSummary.
+        Count of agents attached to a specific cluster.
 
 
-        :return: The attached_agent_flow_count of this ClusterSummary.
+        :return: The attached_agent_count of this ClusterSummary.
         :rtype: int
         """
-        return self._attached_agent_flow_count
+        return self._attached_agent_count
 
-    @attached_agent_flow_count.setter
-    def attached_agent_flow_count(self, attached_agent_flow_count):
+    @attached_agent_count.setter
+    def attached_agent_count(self, attached_agent_count):
         """
-        Sets the attached_agent_flow_count of this ClusterSummary.
-        Count of agent flow attached to a specific cluster.
+        Sets the attached_agent_count of this ClusterSummary.
+        Count of agents attached to a specific cluster.
 
 
-        :param attached_agent_flow_count: The attached_agent_flow_count of this ClusterSummary.
+        :param attached_agent_count: The attached_agent_count of this ClusterSummary.
         :type: int
         """
-        self._attached_agent_flow_count = attached_agent_flow_count
+        self._attached_agent_count = attached_agent_count
 
     def __repr__(self):
         return formatted_flat_dict(self)

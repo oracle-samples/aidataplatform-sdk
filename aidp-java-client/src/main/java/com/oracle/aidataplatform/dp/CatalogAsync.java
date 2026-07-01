@@ -58,7 +58,7 @@ public interface CatalogAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Test the connection of an AI Data Platform Workbench to an external catalog.
+     * Tests the connection to an external catalog.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -70,7 +70,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<CatalogTestConnectionResponse> catalogTestConnection(CatalogTestConnectionRequest request, com.oracle.bmc.responses.AsyncHandler<CatalogTestConnectionRequest, CatalogTestConnectionResponse> handler);
     
     /**
-     * Create a catalog in the AI Data Platform Workbench with the given ID.
+     * Creates a catalog with the given ID.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -82,7 +82,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateCatalogResponse> createCatalog(CreateCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<CreateCatalogRequest, CreateCatalogResponse> handler);
     
     /**
-     * Deletes the specified catalog from an AI Data Platform Workbench.
+     * Deletes the specified catalog.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -94,7 +94,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteCatalogResponse> deleteCatalog(DeleteCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteCatalogRequest, DeleteCatalogResponse> handler);
     
     /**
-     * Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
+     * Gets detailed information about a catalog with a given catalog key.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -106,7 +106,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<GetCatalogResponse> getCatalog(GetCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<GetCatalogRequest, GetCatalogResponse> handler);
     
     /**
-     * Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
+     * Gets a list of all permissions in the specified catalog.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -118,7 +118,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<ListCatalogPermissionsResponse> listCatalogPermissions(ListCatalogPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListCatalogPermissionsRequest, ListCatalogPermissionsResponse> handler);
     
     /**
-     * Get a list of catalogs in an AI Data Platform Workbench with a given ID.
+     * Gets a list of catalogs with a given ID.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -130,7 +130,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<ListCatalogsResponse> listCatalogs(ListCatalogsRequest request, com.oracle.bmc.responses.AsyncHandler<ListCatalogsRequest, ListCatalogsResponse> handler);
     
     /**
-     * Update permission details for a catalog in an AI Data Platform Workbench.
+     * Updates permission details for a catalog.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -142,7 +142,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<ManageCatalogPermissionResponse> manageCatalogPermission(ManageCatalogPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageCatalogPermissionRequest, ManageCatalogPermissionResponse> handler);
     
     /**
-     * Refresh a catalog in an AI Data Platform Workbench through a crawler.
+     * Refreshes a catalog through a crawler.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -154,7 +154,7 @@ public interface CatalogAsync extends AutoCloseable {
     java.util.concurrent.Future<RefreshCatalogResponse> refreshCatalog(RefreshCatalogRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshCatalogRequest, RefreshCatalogResponse> handler);
     
     /**
-     * Update the details of an AI Data Platform Workbench catalog with the given information.
+     * Updates the details of a catalog with the given information.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

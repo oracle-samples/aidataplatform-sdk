@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Individual safety policy configuration
+ * Individual safety policy configuration.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="policyType", defaultImpl=SafetyPolicy.class)
@@ -33,14 +33,14 @@ public class SafetyPolicy  {
 
 
         /**
-     * Custom name for the policy
+     * Custom name for the policy.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("policyName")
     private final String policyName;
 
         /**
-     * Custom name for the policy
+     * Custom name for the policy.
      * @return the value
      **/
     
@@ -50,14 +50,14 @@ public class SafetyPolicy  {
 
 
         /**
-     * Description of the policy
+     * Description of the policy.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("policyDescription")
     private final String policyDescription;
 
         /**
-     * Description of the policy
+     * Description of the policy.
      * @return the value
      **/
     
@@ -67,14 +67,14 @@ public class SafetyPolicy  {
 
     
         /**
-     * Scope of policy application
+     * Scope of policy application.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("scope")
     private final PolicyScope scope;
 
         /**
-     * Scope of policy application
+     * Scope of policy application.
      * @return the value
      **/
     
@@ -84,14 +84,14 @@ public class SafetyPolicy  {
 
     
         /**
-     * Action to take when policy is violated
+     * Action to take when policy is violated.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final PolicyAction action;
 
         /**
-     * Action to take when policy is violated
+     * Action to take when policy is violated.
      * @return the value
      **/
     
@@ -101,14 +101,14 @@ public class SafetyPolicy  {
 
 
         /**
-     * Threshold value for policy violation (0.0 to 1.0)
+     * Threshold value for policy violation (0.0 to 1.0).
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("threshold")
     private final Float threshold;
 
         /**
-     * Threshold value for policy violation (0.0 to 1.0)
+     * Threshold value for policy violation (0.0 to 1.0).
      * @return the value
      **/
     

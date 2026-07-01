@@ -181,6 +181,20 @@ public interface ClusterAsync extends AutoCloseable {
     java.util.concurrent.Future<PatchClusterLibraryResponse> patchClusterLibrary(PatchClusterLibraryRequest request, com.oracle.bmc.responses.AsyncHandler<PatchClusterLibraryRequest, PatchClusterLibraryResponse> handler);
     
     /**
+     * Queries compute replica identifiers for a compute cluster in the given workspace.
+* The response contains distinct replica identifiers derived from the Monitoring `agentNode` metric dimension.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<QueryReplicaIdsResponse> queryReplicaIds(QueryReplicaIdsRequest request, com.oracle.bmc.responses.AsyncHandler<QueryReplicaIdsRequest, QueryReplicaIdsResponse> handler);
+    
+    /**
      * Restarts a running cluster.
      * 
      * @param request The request object containing the details to send
@@ -231,7 +245,7 @@ public interface ClusterAsync extends AutoCloseable {
     
     /**
      * Provides summarized compute metrics for a compute cluster in the given workspace.
-* This API aggregates metric data points based on a specified namespace, metric name, 
+* This API aggregates metric data points based on a specified namespace, metric name,
 * and aggregation type. The response contains computed metric summaries.
 * 
      * 

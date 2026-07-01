@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AuditLogSearchResultSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"eventId", "timeOfLog", "objectType", "objectName", "operation", "status", "startedBy", "source", "payload"})
-    public AuditLogSearchResultSummary(String eventId, java.util.Date timeOfLog, ObjectType objectType, String objectName, Operation operation, Status status, String startedBy, String source, String payload) {
+    @java.beans.ConstructorProperties({"eventId", "timeOfLog", "objectType", "objectName", "operation", "status", "startedBy", "source", "payload", "errorMessage"})
+    public AuditLogSearchResultSummary(String eventId, java.util.Date timeOfLog, ObjectType objectType, String objectName, Operation operation, Status status, String startedBy, String source, String payload, String errorMessage) {
         super();
         this.eventId = eventId;
         this.timeOfLog = timeOfLog;
@@ -24,6 +24,7 @@ public final class AuditLogSearchResultSummary  {
         this.startedBy = startedBy;
         this.source = source;
         this.payload = payload;
+        this.errorMessage = errorMessage;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -190,6 +191,24 @@ public Builder payload(String payload) {
     this.payload = payload;
     return this;
 }
+            /**
+     * Error message from audit log entry, if available.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("errorMessage")
+private String errorMessage;
+
+        /**
+         * Error message from audit log entry, if available.
+         * @param errorMessage the value to set
+         * @return this builder
+         **/
+        
+
+public Builder errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+}
 
 
         public AuditLogSearchResultSummary build() {
@@ -201,7 +220,8 @@ public Builder payload(String payload) {
                 , this.status
                 , this.startedBy
                 , this.source
-                , this.payload);            return model;
+                , this.payload
+                , this.errorMessage);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -215,6 +235,7 @@ public Builder payload(String payload) {
     this.startedBy(model.getStartedBy());
     this.source(model.getSource());
     this.payload(model.getPayload());
+    this.errorMessage(model.getErrorMessage());
 return this;
         }
     }
@@ -386,6 +407,23 @@ return this;
         return payload;
     }
 
+
+        /**
+     * Error message from audit log entry, if available.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("errorMessage")
+    private final String errorMessage;
+
+        /**
+     * Error message from audit log entry, if available.
+     * @return the value
+     **/
+    
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -408,6 +446,7 @@ return this;
         sb.append(", startedBy=").append(String.valueOf(this.startedBy));
         sb.append(", source=").append(String.valueOf(this.source));
         sb.append(", payload=").append(String.valueOf(this.payload));
+        sb.append(", errorMessage=").append(String.valueOf(this.errorMessage));
         sb.append(")");
         return sb.toString();
     }
@@ -430,7 +469,8 @@ return this;
             java.util.Objects.equals(this.status, other.status) &&
             java.util.Objects.equals(this.startedBy, other.startedBy) &&
             java.util.Objects.equals(this.source, other.source) &&
-            java.util.Objects.equals(this.payload, other.payload);
+            java.util.Objects.equals(this.payload, other.payload) &&
+            java.util.Objects.equals(this.errorMessage, other.errorMessage);
     }
 
     @Override
@@ -446,6 +486,7 @@ return this;
         result = (result * PRIME) + (this.startedBy == null ? 43 : this.startedBy.hashCode());
         result = (result * PRIME) + (this.source == null ? 43 : this.source.hashCode());
         result = (result * PRIME) + (this.payload == null ? 43 : this.payload.hashCode());
+        result = (result * PRIME) + (this.errorMessage == null ? 43 : this.errorMessage.hashCode());
         return result;
     }
 

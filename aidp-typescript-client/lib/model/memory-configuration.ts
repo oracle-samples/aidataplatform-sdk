@@ -13,6 +13,7 @@ export interface MemoryConfiguration {
     */
     'isEnabled'?: boolean;
     'limit'?: model.MemoryLimitConfiguration;
+    'contextManagement'?: model.ContextManagementConfiguration;
     /**
     * Some extra named memory properties.
     */
@@ -25,6 +26,7 @@ export namespace MemoryConfiguration {
 
 
 
+
     export function getJsonObj(obj: MemoryConfiguration): object {
         const jsonObj = {...obj, ...{
             
@@ -33,6 +35,10 @@ export namespace MemoryConfiguration {
                 
                 
                 model.MemoryLimitConfiguration.getJsonObj(obj.limit) : undefined,
+                'contextManagement': obj.contextManagement ?
+                
+                
+                model.ContextManagementConfiguration.getJsonObj(obj.contextManagement) : undefined,
 
         }};
 
@@ -49,6 +55,10 @@ export namespace MemoryConfiguration {
                 
                 
                 model.MemoryLimitConfiguration.getDeserializedJsonObj(obj.limit) : undefined,
+                    'contextManagement': obj.contextManagement ?
+                
+                
+                model.ContextManagementConfiguration.getDeserializedJsonObj(obj.contextManagement) : undefined,
 
          }};
 

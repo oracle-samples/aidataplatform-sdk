@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class ClusterSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "description", "type", "timeCreated", "timeUpdated", "state", "stateDetails", "createdBy", "createdByName", "updatedBy", "updatedByName", "stoppedBy", "stoppedByName", "clusterRuntimeConfig", "activeClusterResources", "driverConfig", "workerConfig", "attachedNotebooks", "attachedSessions", "attachedAgentFlowCount"})
-    public ClusterSummary(String key, String displayName, String description, ClusterType type, java.util.Date timeCreated, java.util.Date timeUpdated, Cluster.State state, String stateDetails, String createdBy, String createdByName, String updatedBy, String updatedByName, String stoppedBy, String stoppedByName, ClusterRuntimeConfig clusterRuntimeConfig, ActiveClusterResources activeClusterResources, DriverConfig driverConfig, WorkerConfig workerConfig, java.util.List<String> attachedNotebooks, java.util.List<AttachedSession> attachedSessions, Integer attachedAgentFlowCount) {
+    @java.beans.ConstructorProperties({"key", "displayName", "description", "type", "timeCreated", "timeUpdated", "state", "stateDetails", "createdBy", "createdByName", "updatedBy", "updatedByName", "stoppedBy", "stoppedByName", "clusterRuntimeConfig", "activeClusterResources", "driverConfig", "workerConfig", "replicaConfig", "attachedNotebooks", "attachedSessions", "attachedAgentCount"})
+    public ClusterSummary(String key, String displayName, String description, ClusterType type, java.util.Date timeCreated, java.util.Date timeUpdated, Cluster.State state, String stateDetails, String createdBy, String createdByName, String updatedBy, String updatedByName, String stoppedBy, String stoppedByName, ClusterRuntimeConfig clusterRuntimeConfig, ActiveClusterResources activeClusterResources, DriverConfig driverConfig, WorkerConfig workerConfig, ReplicaConfig replicaConfig, java.util.List<String> attachedNotebooks, java.util.List<AttachedSession> attachedSessions, Integer attachedAgentCount) {
         super();
         this.key = key;
         this.displayName = displayName;
@@ -33,9 +33,10 @@ public final class ClusterSummary  {
         this.activeClusterResources = activeClusterResources;
         this.driverConfig = driverConfig;
         this.workerConfig = workerConfig;
+        this.replicaConfig = replicaConfig;
         this.attachedNotebooks = attachedNotebooks;
         this.attachedSessions = attachedSessions;
-        this.attachedAgentFlowCount = attachedAgentFlowCount;
+        this.attachedAgentCount = attachedAgentCount;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -332,6 +333,16 @@ public Builder workerConfig(WorkerConfig workerConfig) {
     this.workerConfig = workerConfig;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("replicaConfig")
+private ReplicaConfig replicaConfig;
+
+
+
+public Builder replicaConfig(ReplicaConfig replicaConfig) {
+    this.replicaConfig = replicaConfig;
+    return this;
+}
             /**
      * List of notebooks attached to a specific cluster.
      **/
@@ -369,21 +380,21 @@ public Builder attachedSessions(java.util.List<AttachedSession> attachedSessions
     return this;
 }
             /**
-     * Count of agent flow attached to a specific cluster.
+     * Count of agents attached to a specific cluster.
      **/
     
-@com.fasterxml.jackson.annotation.JsonProperty("attachedAgentFlowCount")
-private Integer attachedAgentFlowCount;
+@com.fasterxml.jackson.annotation.JsonProperty("attachedAgentCount")
+private Integer attachedAgentCount;
 
         /**
-         * Count of agent flow attached to a specific cluster.
-         * @param attachedAgentFlowCount the value to set
+         * Count of agents attached to a specific cluster.
+         * @param attachedAgentCount the value to set
          * @return this builder
          **/
         
 
-public Builder attachedAgentFlowCount(Integer attachedAgentFlowCount) {
-    this.attachedAgentFlowCount = attachedAgentFlowCount;
+public Builder attachedAgentCount(Integer attachedAgentCount) {
+    this.attachedAgentCount = attachedAgentCount;
     return this;
 }
 
@@ -407,9 +418,10 @@ public Builder attachedAgentFlowCount(Integer attachedAgentFlowCount) {
                 , this.activeClusterResources
                 , this.driverConfig
                 , this.workerConfig
+                , this.replicaConfig
                 , this.attachedNotebooks
                 , this.attachedSessions
-                , this.attachedAgentFlowCount);            return model;
+                , this.attachedAgentCount);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -432,9 +444,10 @@ public Builder attachedAgentFlowCount(Integer attachedAgentFlowCount) {
     this.activeClusterResources(model.getActiveClusterResources());
     this.driverConfig(model.getDriverConfig());
     this.workerConfig(model.getWorkerConfig());
+    this.replicaConfig(model.getReplicaConfig());
     this.attachedNotebooks(model.getAttachedNotebooks());
     this.attachedSessions(model.getAttachedSessions());
-    this.attachedAgentFlowCount(model.getAttachedAgentFlowCount());
+    this.attachedAgentCount(model.getAttachedAgentCount());
 return this;
         }
     }
@@ -732,6 +745,16 @@ return this;
     }
 
 
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("replicaConfig")
+    private final ReplicaConfig replicaConfig;
+
+    
+    public ReplicaConfig getReplicaConfig() {
+        return replicaConfig;
+    }
+
+
         /**
      * List of notebooks attached to a specific cluster.
      **/
@@ -767,19 +790,19 @@ return this;
 
 
         /**
-     * Count of agent flow attached to a specific cluster.
+     * Count of agents attached to a specific cluster.
      **/
     
-    @com.fasterxml.jackson.annotation.JsonProperty("attachedAgentFlowCount")
-    private final Integer attachedAgentFlowCount;
+    @com.fasterxml.jackson.annotation.JsonProperty("attachedAgentCount")
+    private final Integer attachedAgentCount;
 
         /**
-     * Count of agent flow attached to a specific cluster.
+     * Count of agents attached to a specific cluster.
      * @return the value
      **/
     
-    public Integer getAttachedAgentFlowCount() {
-        return attachedAgentFlowCount;
+    public Integer getAttachedAgentCount() {
+        return attachedAgentCount;
     }
 
     @Override
@@ -813,9 +836,10 @@ return this;
         sb.append(", activeClusterResources=").append(String.valueOf(this.activeClusterResources));
         sb.append(", driverConfig=").append(String.valueOf(this.driverConfig));
         sb.append(", workerConfig=").append(String.valueOf(this.workerConfig));
+        sb.append(", replicaConfig=").append(String.valueOf(this.replicaConfig));
         sb.append(", attachedNotebooks=").append(String.valueOf(this.attachedNotebooks));
         sb.append(", attachedSessions=").append(String.valueOf(this.attachedSessions));
-        sb.append(", attachedAgentFlowCount=").append(String.valueOf(this.attachedAgentFlowCount));
+        sb.append(", attachedAgentCount=").append(String.valueOf(this.attachedAgentCount));
         sb.append(")");
         return sb.toString();
     }
@@ -848,9 +872,10 @@ return this;
             java.util.Objects.equals(this.activeClusterResources, other.activeClusterResources) &&
             java.util.Objects.equals(this.driverConfig, other.driverConfig) &&
             java.util.Objects.equals(this.workerConfig, other.workerConfig) &&
+            java.util.Objects.equals(this.replicaConfig, other.replicaConfig) &&
             java.util.Objects.equals(this.attachedNotebooks, other.attachedNotebooks) &&
             java.util.Objects.equals(this.attachedSessions, other.attachedSessions) &&
-            java.util.Objects.equals(this.attachedAgentFlowCount, other.attachedAgentFlowCount);
+            java.util.Objects.equals(this.attachedAgentCount, other.attachedAgentCount);
     }
 
     @Override
@@ -875,9 +900,10 @@ return this;
         result = (result * PRIME) + (this.activeClusterResources == null ? 43 : this.activeClusterResources.hashCode());
         result = (result * PRIME) + (this.driverConfig == null ? 43 : this.driverConfig.hashCode());
         result = (result * PRIME) + (this.workerConfig == null ? 43 : this.workerConfig.hashCode());
+        result = (result * PRIME) + (this.replicaConfig == null ? 43 : this.replicaConfig.hashCode());
         result = (result * PRIME) + (this.attachedNotebooks == null ? 43 : this.attachedNotebooks.hashCode());
         result = (result * PRIME) + (this.attachedSessions == null ? 43 : this.attachedSessions.hashCode());
-        result = (result * PRIME) + (this.attachedAgentFlowCount == null ? 43 : this.attachedAgentFlowCount.hashCode());
+        result = (result * PRIME) + (this.attachedAgentCount == null ? 43 : this.attachedAgentCount.hashCode());
         return result;
     }
 

@@ -149,6 +149,10 @@ export namespace Table {
                     return model.AdwTable.getJsonObj(<model.AdwTable>(<object>jsonObj), true);
                 case "ALH":
                     return model.AlhTable.getJsonObj(<model.AlhTable>(<object>jsonObj), true);
+                case "MYSQL":
+                    return model.MysqlTable.getJsonObj(<model.MysqlTable>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureTable.getJsonObj(<model.SqlServerOnAzureTable>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardTable.getJsonObj(<model.StandardTable>(<object>jsonObj), true);
                 case "EXADATA":
@@ -157,6 +161,8 @@ export namespace Table {
                     return model.AtpTable.getJsonObj(<model.AtpTable>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacTable.getJsonObj(<model.OacTable>(<object>jsonObj), true);
+                case "SNOWFLAKE":
+                    return model.SnowflakeTable.getJsonObj(<model.SnowflakeTable>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -216,6 +222,10 @@ export namespace Table {
                     return model.AdwTable.getDeserializedJsonObj(<model.AdwTable>(<object>jsonObj), true);
                 case "ALH":
                     return model.AlhTable.getDeserializedJsonObj(<model.AlhTable>(<object>jsonObj), true);
+                case "MYSQL":
+                    return model.MysqlTable.getDeserializedJsonObj(<model.MysqlTable>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureTable.getDeserializedJsonObj(<model.SqlServerOnAzureTable>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardTable.getDeserializedJsonObj(<model.StandardTable>(<object>jsonObj), true);
                 case "EXADATA":
@@ -224,6 +234,8 @@ export namespace Table {
                     return model.AtpTable.getDeserializedJsonObj(<model.AtpTable>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacTable.getDeserializedJsonObj(<model.OacTable>(<object>jsonObj), true);
+                case "SNOWFLAKE":
+                    return model.SnowflakeTable.getDeserializedJsonObj(<model.SnowflakeTable>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

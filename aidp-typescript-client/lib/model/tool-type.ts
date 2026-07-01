@@ -13,8 +13,13 @@ export enum ToolType {
     Nl2Sql = "NL2SQL",
     Mcp = "MCP",
     Custom = "CUSTOM",
-    Http = "HTTP"
+    Http = "HTTP",
     
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ToolType {

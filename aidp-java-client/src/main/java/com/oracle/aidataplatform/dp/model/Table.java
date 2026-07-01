@@ -13,10 +13,13 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OracleTable.class, name = "ORACLE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwTable.class, name = "ADW"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhTable.class, name = "ALH"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlTable.class, name = "MYSQL"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureTable.class, name = "AZURE_SQLSERVER"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardTable.class, name = "STANDARD"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataTable.class, name = "EXADATA"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpTable.class, name = "ATP"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacTable.class, name = "ORACLE_ANALYTICS")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacTable.class, name = "ORACLE_ANALYTICS"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeTable.class, name = "SNOWFLAKE")
 })
 
 public class Table  {

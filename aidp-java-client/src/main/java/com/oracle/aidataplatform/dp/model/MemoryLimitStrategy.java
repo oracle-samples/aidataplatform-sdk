@@ -9,9 +9,15 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum MemoryLimitStrategy implements com.oracle.bmc.http.internal.BmcEnum {
     Truncation("TRUNCATION"),
-    ;
-
     
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownEnumValue(null);
+
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(MemoryLimitStrategy.class);
 
     private final String value;
     private static java.util.Map<String, MemoryLimitStrategy> map;
@@ -19,8 +25,9 @@ public enum MemoryLimitStrategy implements com.oracle.bmc.http.internal.BmcEnum 
     static {
         map = new java.util.HashMap<>();
         for (MemoryLimitStrategy v : MemoryLimitStrategy.values()) {
+            if (v != UnknownEnumValue) {
                 map.put(v.getValue(), v);
-            
+            }
         }
     }
 
@@ -38,6 +45,7 @@ public enum MemoryLimitStrategy implements com.oracle.bmc.http.internal.BmcEnum 
         if (map.containsKey(key)) {
             return map.get(key);
         }
-        throw new IllegalArgumentException("Invalid MemoryLimitStrategy: " + key);
+        LOG.warn("Received unknown value '{}' for enum 'MemoryLimitStrategy', returning UnknownEnumValue", key);
+        return UnknownEnumValue;
     }
 }

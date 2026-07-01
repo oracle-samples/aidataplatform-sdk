@@ -45,6 +45,10 @@ export interface RepairHistory {
     * The time (in milliseconds) taken to complete the job execution. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'executionDuration'?: number;
+    /**
+    * The OCID of the task run.
+    */
+    'parentTaskRunKey'?: string;
 
 }
 
@@ -60,6 +64,7 @@ export namespace RepairHistory {
     */
     UnknownValue = "UNKNOWN_VALUE"
 }
+
 
 
 
@@ -95,6 +100,7 @@ export namespace RepairHistory {
                 
                  : undefined,
 
+
         }};
 
         
@@ -125,6 +131,7 @@ export namespace RepairHistory {
                 obj.lifecycleStates.map((item)=>{return model.LifecycleState.getDeserializedJsonObj(item)})
                 
                  : undefined,
+
 
          }};
 

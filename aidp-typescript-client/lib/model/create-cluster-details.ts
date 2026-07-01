@@ -47,10 +47,12 @@ export namespace CreateClusterDetails {
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
-                case "AGENT_FLOW_COMPUTE":
-                    return model.CreateAgentFlowComputeDetails.getJsonObj(<model.CreateAgentFlowComputeDetails>(<object>jsonObj), true);
+                case "DFL":
+                    return model.CreateDflComputeDetails.getJsonObj(<model.CreateDflComputeDetails>(<object>jsonObj), true);
                 case "USER":
                     return model.CreateSparkClusterDetails.getJsonObj(<model.CreateSparkClusterDetails>(<object>jsonObj), true);
+                case "AI_COMPUTE":
+                    return model.CreateAiComputeDetails.getJsonObj(<model.CreateAiComputeDetails>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`)
 
@@ -75,10 +77,12 @@ export namespace CreateClusterDetails {
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
-                case "AGENT_FLOW_COMPUTE":
-                    return model.CreateAgentFlowComputeDetails.getDeserializedJsonObj(<model.CreateAgentFlowComputeDetails>(<object>jsonObj), true);
+                case "DFL":
+                    return model.CreateDflComputeDetails.getDeserializedJsonObj(<model.CreateDflComputeDetails>(<object>jsonObj), true);
                 case "USER":
                     return model.CreateSparkClusterDetails.getDeserializedJsonObj(<model.CreateSparkClusterDetails>(<object>jsonObj), true);
+                case "AI_COMPUTE":
+                    return model.CreateAiComputeDetails.getDeserializedJsonObj(<model.CreateAiComputeDetails>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`)
         }

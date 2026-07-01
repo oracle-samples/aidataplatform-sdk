@@ -135,6 +135,10 @@ export interface JobRun {
     */
     'repairedTasks'?: Array<string>;
     /**
+    * Repair mode to be used for this repair scope.
+    */
+    'repairMode'?: JobRun.RepairMode;
+    /**
     * The collection of lifecycle states.
     */
     'lifecycleStates'?: Array<model.LifecycleState>;
@@ -188,6 +192,18 @@ export namespace JobRun {
 
 
 
+
+
+    export enum RepairMode {
+    
+    Resume = "RESUME",
+    Rerun = "RERUN",
+    /**
+    * This value is used if a service returns a value for this enum that is not recognized by this
+    * version of the SDK.
+    */
+    UnknownValue = "UNKNOWN_VALUE"
+}
 
 
 
@@ -249,6 +265,7 @@ export namespace JobRun {
                 obj.repairHistory.map((item)=>{return model.RepairHistory.getJsonObj(item)})
                 
                  : undefined,
+
 
 
 
@@ -334,6 +351,7 @@ export namespace JobRun {
                 obj.repairHistory.map((item)=>{return model.RepairHistory.getDeserializedJsonObj(item)})
                 
                  : undefined,
+
 
 
 

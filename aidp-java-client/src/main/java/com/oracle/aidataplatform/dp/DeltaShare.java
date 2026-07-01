@@ -59,7 +59,7 @@ public interface DeltaShare extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
+     * Creates a recipient for a Delta Share protocol.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -70,7 +70,7 @@ public interface DeltaShare extends AutoCloseable {
     CreateRecipientResponse createRecipient(CreateRecipientRequest request);
     
     /**
-     * Create a Delta Share protocol in AI Data Platform Workbench.
+     * Creates a Delta Share protocol.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -81,7 +81,7 @@ public interface DeltaShare extends AutoCloseable {
     CreateShareResponse createShare(CreateShareRequest request);
     
     /**
-     * Deletes a Delta Share recipient from an AI Data Platform Workbench.
+     * Deletes a Delta Share recipient.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -91,7 +91,7 @@ public interface DeltaShare extends AutoCloseable {
     DeleteRecipientResponse deleteRecipient(DeleteRecipientRequest request);
     
     /**
-     * Deletes a Delta Share from an AI Data Platform Workbench.
+     * Deletes a Delta Share.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -101,7 +101,7 @@ public interface DeltaShare extends AutoCloseable {
     DeleteShareResponse deleteShare(DeleteShareRequest request);
     
     /**
-     * Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
+     * Gets detailed information about a Delta Share recipient.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -143,7 +143,7 @@ public interface DeltaShare extends AutoCloseable {
     ListRecipientSharesResponse listRecipientShares(ListRecipientSharesRequest request);
     
     /**
-     * Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
+     * Gets a list of Delta Share recipients.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -154,7 +154,7 @@ public interface DeltaShare extends AutoCloseable {
     ListRecipientsResponse listRecipients(ListRecipientsRequest request);
     
     /**
-     * Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
+     * Gets a list of Delta Share assets.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -187,7 +187,7 @@ public interface DeltaShare extends AutoCloseable {
     ListShareRecipientsResponse listShareRecipients(ListShareRecipientsRequest request);
     
     /**
-     * Gets a list of Delta Shares in an AI Data Platform Workbench instance.
+     * Gets a list of Delta Shares.
 * 
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -198,7 +198,7 @@ public interface DeltaShare extends AutoCloseable {
     ListSharesResponse listShares(ListSharesRequest request);
     
     /**
-     * Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
+     * Updates the permissions of a Delta Share recipient.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -238,7 +238,7 @@ public interface DeltaShare extends AutoCloseable {
     ManageSharePermissionResponse manageSharePermission(ManageSharePermissionRequest request);
     
     /**
-     * Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
+     * Updates the metadata of a Delta Share recipient.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

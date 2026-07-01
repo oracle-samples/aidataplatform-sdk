@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Denied topics safety policy
+ * Denied topics safety policy.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DeniedTopicsPolicy.Builder.class)
@@ -50,14 +50,14 @@ public Builder threshold(Float threshold) {
     return this;
 }
             /**
-     * List of denied topics
+     * List of denied topics.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("topics")
 private java.util.List<DeniedTopic> topics;
 
         /**
-         * List of denied topics
+         * List of denied topics.
          * @param topics the value to set
          * @return this builder
          **/
@@ -111,14 +111,14 @@ return this;
 
 
         /**
-     * List of denied topics
+     * List of denied topics.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("topics")
     private final java.util.List<DeniedTopic> topics;
 
         /**
-     * List of denied topics
+     * List of denied topics.
      * @return the value
      **/
     

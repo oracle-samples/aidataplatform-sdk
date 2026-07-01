@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class SessionRetentionConfiguration(object):
     """
-    Session data retention configuration for agent flow
+    Session data retention configuration for an Agent.
     """
 
     def __init__(self, **kwargs):

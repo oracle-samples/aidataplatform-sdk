@@ -10,8 +10,13 @@ export enum AuthType {
     NoAuth = "NO_AUTH",
     BearerToken = "BEARER_TOKEN",
     Oauth = "OAUTH",
-    OciResourcePrincipal = "OCI_RESOURCE_PRINCIPAL"
+    OciResourcePrincipal = "OCI_RESOURCE_PRINCIPAL",
     
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace AuthType {

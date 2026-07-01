@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class OAuthConfiguration(object):
     """
-    OAuth configuration for agent flow
+    OAuth configuration for an Agent.
     """
 
     def __init__(self, **kwargs):

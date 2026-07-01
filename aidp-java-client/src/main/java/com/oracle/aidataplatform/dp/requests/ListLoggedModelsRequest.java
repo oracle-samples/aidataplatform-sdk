@@ -67,19 +67,6 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     /**
@@ -164,21 +151,6 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -205,7 +177,7 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
          * @return this builder instance
          */
         public Builder copy(ListLoggedModelsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());listLoggedModelsDetails(o.getListLoggedModelsDetails());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());listLoggedModelsDetails(o.getListLoggedModelsDetails());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -253,9 +225,8 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
             request.workspaceKey = workspaceKey;
             request.listLoggedModelsDetails = listLoggedModelsDetails;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new ListLoggedModelsRequest(aiDataPlatformId, workspaceKey, listLoggedModelsDetails, opcRequestId, dhUserPrincipal);
+            // new ListLoggedModelsRequest(aiDataPlatformId, workspaceKey, listLoggedModelsDetails, opcRequestId);
         }
     }
 
@@ -268,8 +239,7 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .listLoggedModelsDetails(listLoggedModelsDetails)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -289,7 +259,6 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",listLoggedModelsDetails=").append(String.valueOf(this.listLoggedModelsDetails));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -308,8 +277,7 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.listLoggedModelsDetails, other.listLoggedModelsDetails)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -320,7 +288,6 @@ public class ListLoggedModelsRequest extends com.oracle.bmc.requests.BmcRequest<
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.listLoggedModelsDetails == null ? 43 : this.listLoggedModelsDetails.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

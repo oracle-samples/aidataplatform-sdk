@@ -298,7 +298,7 @@ class WorkflowClient(object):
 
     def create_job(self, ai_data_platform_id, workspace_key, create_job_details, **kwargs):
         """
-        Creates a job in an AI Data Platform Workbench.
+        Creates a job.
 
 
         :param str ai_data_platform_id: (required)
@@ -400,7 +400,7 @@ class WorkflowClient(object):
 
     def create_job_run(self, ai_data_platform_id, workspace_key, create_job_run_details, **kwargs):
         """
-        Creates a job run for an AI Data Platform Workbench.
+        Creates a job run.
 
 
         :param str ai_data_platform_id: (required)
@@ -502,7 +502,7 @@ class WorkflowClient(object):
 
     def delete_job(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
-        Deletes a job from an AI Data Platform Workbench.
+        Deletes a job.
 
 
         :param str ai_data_platform_id: (required)
@@ -593,7 +593,7 @@ class WorkflowClient(object):
 
     def delete_job_run(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
-        Deletes a job run from an AI Data Platform Workbench.
+        Deletes a job run.
 
 
         :param str ai_data_platform_id: (required)
@@ -879,7 +879,7 @@ class WorkflowClient(object):
 
     def get_job(self, ai_data_platform_id, workspace_key, job_key, **kwargs):
         """
-        Returns detailed information about a given job in AI Data Platform Workbench.
+        Returns detailed information about a given job.
 
 
         :param str ai_data_platform_id: (required)
@@ -1281,7 +1281,7 @@ class WorkflowClient(object):
 
     def list_job_runs(self, ai_data_platform_id, workspace_key, **kwargs):
         """
-        Returns a detailed list of job runs in an AI Data Platform Workbench.
+        Returns a detailed list of job runs.
 
 
         :param str ai_data_platform_id: (required)
@@ -1445,7 +1445,7 @@ class WorkflowClient(object):
 
     def list_jobs(self, ai_data_platform_id, workspace_key, **kwargs):
         """
-        Returns a list of jobs for a given AI Data Platform Workbench.
+        Returns a list of jobs.
 
 
         :param str ai_data_platform_id: (required)
@@ -1458,6 +1458,9 @@ class WorkflowClient(object):
 
         :param str display_name: (optional)
             A filter to return only resources that match the given display name exactly.
+
+        :param list[str] job_key: (optional)
+            The field to filter based on job key.
 
         :param str display_name_contains: (optional)
             A filter to return only resources that have a display name containing the text provided.
@@ -1519,6 +1522,7 @@ class WorkflowClient(object):
         expected_kwargs = [
             "retry_strategy",
             "display_name",
+            "job_key",
             "display_name_contains",
             "path",
             "created_by",
@@ -1561,6 +1565,7 @@ class WorkflowClient(object):
 
         query_params = {
             "displayName": kwargs.get("display_name", missing),
+            "jobKey": self.base_client.generate_collection_format_param(kwargs.get("job_key", missing), 'multi'),
             "displayNameContains": kwargs.get("display_name_contains", missing),
             "path": kwargs.get("path", missing),
             "createdBy": kwargs.get("created_by", missing),
@@ -1741,7 +1746,7 @@ class WorkflowClient(object):
 
     def list_task_runs(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
-        Returns a list of tasks run in an AI Data Platform Workbench.
+        Returns a list of task runs.
 
 
         :param str ai_data_platform_id: (required)
@@ -2118,7 +2123,7 @@ class WorkflowClient(object):
 
     def update_job(self, ai_data_platform_id, workspace_key, job_key, update_job_details, **kwargs):
         """
-        Update details for a job in AI Data Platform Workbench.
+        Updates details for a job.
 
 
         :param str ai_data_platform_id: (required)

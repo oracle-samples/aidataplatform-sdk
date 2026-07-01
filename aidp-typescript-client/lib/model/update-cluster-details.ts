@@ -47,8 +47,8 @@ export namespace UpdateClusterDetails {
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
-                case "AGENT_FLOW_COMPUTE":
-                    return model.UpdateAgentFlowComputeDetails.getJsonObj(<model.UpdateAgentFlowComputeDetails>(<object>jsonObj), true);
+                case "AI_COMPUTE":
+                    return model.UpdateAiComputeDetails.getJsonObj(<model.UpdateAiComputeDetails>(<object>jsonObj), true);
                 case "USER":
                     return model.UpdateSparkClusterDetails.getJsonObj(<model.UpdateSparkClusterDetails>(<object>jsonObj), true);
                 default:
@@ -75,8 +75,8 @@ export namespace UpdateClusterDetails {
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
-                case "AGENT_FLOW_COMPUTE":
-                    return model.UpdateAgentFlowComputeDetails.getDeserializedJsonObj(<model.UpdateAgentFlowComputeDetails>(<object>jsonObj), true);
+                case "AI_COMPUTE":
+                    return model.UpdateAiComputeDetails.getDeserializedJsonObj(<model.UpdateAiComputeDetails>(<object>jsonObj), true);
                 case "USER":
                     return model.UpdateSparkClusterDetails.getDeserializedJsonObj(<model.UpdateSparkClusterDetails>(<object>jsonObj), true);
                 default:

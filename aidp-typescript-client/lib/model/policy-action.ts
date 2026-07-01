@@ -4,13 +4,18 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * Action to take when policy is violated
+ * Action to take when policy is violated.
 **/
 export enum PolicyAction {
     Block = "BLOCK",
     Inform = "INFORM",
-    Mask = "MASK"
+    Mask = "MASK",
     
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace PolicyAction {

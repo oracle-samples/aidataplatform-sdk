@@ -36,9 +36,5 @@ export interface LogExperimentRunParamRequest extends common.BaseRequest {
 * 
  */
  'opcRequestId'?: string;
-/**
- * The DH User Principal Header .
- */
- 'dhUserPrincipal'?: string;
 }
 

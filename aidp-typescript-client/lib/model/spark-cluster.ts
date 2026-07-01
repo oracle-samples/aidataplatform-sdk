@@ -24,9 +24,9 @@ export interface SparkCluster extends model.Cluster {
     */
     'attachedSessions'?: Array<model.AttachedSession>;
     /**
-    * Count of agent flow attached to a specific cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Count of agents attached to a specific cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
-    'attachedAgentFlowCount'?: number;
+    'attachedAgentCount'?: number;
     /**
     * Spark JDBC URL.
     */

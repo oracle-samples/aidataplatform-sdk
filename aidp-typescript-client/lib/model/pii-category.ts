@@ -5,23 +5,23 @@ import common = require("oci-common");
 
 
 /**
-* PII category configuration
+* PII category configuration.
 */
 export interface PiiCategory {
     /**
-    * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+    * PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
     */
     'category': model.PiiCategoryType;
     /**
-    * Whether this category is enabled
+    * Whether this category is enabled.
     */
     'isEnabled': boolean;
     /**
-    * Action to take for this category
+    * Action to take for this category.
     */
     'action': model.PolicyAction;
     /**
-    * Detection threshold for this category Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Detection threshold for this category. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'threshold'?: number;
 

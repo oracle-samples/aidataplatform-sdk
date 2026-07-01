@@ -14,6 +14,9 @@ public enum TableCatalogType implements com.oracle.bmc.http.internal.BmcEnum {
     Atp("ATP"),
     Oracle("ORACLE"),
     Exadata("EXADATA"),
+    Mysql("MYSQL"),
+    AzureSqlserver("AZURE_SQLSERVER"),
+    Snowflake("SNOWFLAKE"),
     OracleAnalytics("ORACLE_ANALYTICS"),
     
 

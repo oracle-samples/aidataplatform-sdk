@@ -68,6 +68,10 @@ class RepairHistory(object):
             The value to assign to the execution_duration property of this RepairHistory.
         :type execution_duration: int
 
+        :param parent_task_run_key:
+            The value to assign to the parent_task_run_key property of this RepairHistory.
+        :type parent_task_run_key: str
+
         """
         self.swagger_types = {
             'type': 'str',
@@ -79,7 +83,8 @@ class RepairHistory(object):
             'parameters': 'list[Parameter]',
             'repaired_tasks': 'list[str]',
             'lifecycle_states': 'list[LifecycleState]',
-            'execution_duration': 'int'
+            'execution_duration': 'int',
+            'parent_task_run_key': 'str'
         }
 
         self.attribute_map = {
@@ -92,7 +97,8 @@ class RepairHistory(object):
             'parameters': 'parameters',
             'repaired_tasks': 'repairedTasks',
             'lifecycle_states': 'lifecycleStates',
-            'execution_duration': 'executionDuration'
+            'execution_duration': 'executionDuration',
+            'parent_task_run_key': 'parentTaskRunKey'
         }
 
         self._type = None
@@ -105,6 +111,7 @@ class RepairHistory(object):
         self._repaired_tasks = None
         self._lifecycle_states = None
         self._execution_duration = None
+        self._parent_task_run_key = None
 
     @property
     def type(self):
@@ -347,6 +354,30 @@ class RepairHistory(object):
         :type: int
         """
         self._execution_duration = execution_duration
+
+    @property
+    def parent_task_run_key(self):
+        """
+        Gets the parent_task_run_key of this RepairHistory.
+        The OCID of the task run.
+
+
+        :return: The parent_task_run_key of this RepairHistory.
+        :rtype: str
+        """
+        return self._parent_task_run_key
+
+    @parent_task_run_key.setter
+    def parent_task_run_key(self, parent_task_run_key):
+        """
+        Sets the parent_task_run_key of this RepairHistory.
+        The OCID of the task run.
+
+
+        :param parent_task_run_key: The parent_task_run_key of this RepairHistory.
+        :type: str
+        """
+        self._parent_task_run_key = parent_task_run_key
 
     def __repr__(self):
         return formatted_flat_dict(self)
