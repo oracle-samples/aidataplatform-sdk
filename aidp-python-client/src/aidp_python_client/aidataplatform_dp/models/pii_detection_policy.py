@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class PiiDetectionPolicy(SafetyPolicy):
     """
-    PII detection safety policy
+    PII detection safety policy.
     """
 
     def __init__(self, **kwargs):
@@ -91,7 +91,7 @@ class PiiDetectionPolicy(SafetyPolicy):
     def pii_categories(self):
         """
         Gets the pii_categories of this PiiDetectionPolicy.
-        List of PII categories to detect
+        List of PII categories to detect.
 
 
         :return: The pii_categories of this PiiDetectionPolicy.
@@ -103,7 +103,7 @@ class PiiDetectionPolicy(SafetyPolicy):
     def pii_categories(self, pii_categories):
         """
         Sets the pii_categories of this PiiDetectionPolicy.
-        List of PII categories to detect
+        List of PII categories to detect.
 
 
         :param pii_categories: The pii_categories of this PiiDetectionPolicy.
@@ -115,7 +115,7 @@ class PiiDetectionPolicy(SafetyPolicy):
     def custom_pii_rules(self):
         """
         Gets the custom_pii_rules of this PiiDetectionPolicy.
-        Custom PII detection rules
+        Custom PII detection rules.
 
 
         :return: The custom_pii_rules of this PiiDetectionPolicy.
@@ -127,7 +127,7 @@ class PiiDetectionPolicy(SafetyPolicy):
     def custom_pii_rules(self, custom_pii_rules):
         """
         Sets the custom_pii_rules of this PiiDetectionPolicy.
-        Custom PII detection rules
+        Custom PII detection rules.
 
 
         :param custom_pii_rules: The custom_pii_rules of this PiiDetectionPolicy.

@@ -17,6 +17,7 @@ This guide summarizes the command groups, commands, options, and payload require
 - `aidp help [group|command]` — show contextual help
 - `aidp version` — print CLI version
 ## Command Index
+- [Agent](#agent)
 - [Async Operations](#async-operations)
 - [Audit](#audit)
 - [Bundle](#bundle)
@@ -33,6 +34,1463 @@ This guide summarizes the command groups, commands, options, and payload require
 - [Workflow](#workflow)
 - [Workspace](#workspace)
 - [Workspace Object](#workspace-object)
+
+## <a id="agent"></a>Agent
+Agents, agent deployments, agent sessions, and agent permissions.
+**Command Index:**
+- [agent copy](#agent-copy)
+- [agent create](#agent-create)
+- [agent delete](#agent-delete)
+- [agent delete-deployment](#agent-delete-deployment)
+- [agent delete-session](#agent-delete-session)
+- [agent deploy](#agent-deploy)
+- [agent get](#agent-get)
+- [agent get-deployment](#agent-get-deployment)
+- [agent get-session](#agent-get-session)
+- [agent get-session-trace](#agent-get-session-trace)
+- [agent list](#agent-list)
+- [agent list-deployments](#agent-list-deployments)
+- [agent list-permissions](#agent-list-permissions)
+- [agent list-session-chat-histories](#agent-list-session-chat-histories)
+- [agent list-sessions](#agent-list-sessions)
+- [agent manage-permission](#agent-manage-permission)
+- [agent preview-agent-agent-card](#agent-preview-agent-agent-card)
+- [agent redeploy-agent-by-key](#agent-redeploy-agent-by-key)
+- [agent update](#agent-update)
+- [agent update-deployment-metadata](#agent-update-deployment-metadata)
+- [agent validate-agent](#agent-validate-agent)
+### Commands
+
+#### `aidp agent copy`
+<a id="agent-copy"></a>
+Copy an Agent.
+
+**Usage:**
+
+`aidp agent copy <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
+**Request Body (`CopyAgentDetails`):**
+- `targetDescription` (string, optional) —
+- `targetDisplayName` (string, optional) —
+- `targetPathInfo` (string, required) —
+- `targetWorkspaceKey` (string, required) —
+
+**Example:**
+```json
+{
+  "targetDescription": "<string>",
+  "targetDisplayName": "<string>",
+  "targetPathInfo": "<string>",
+  "targetWorkspaceKey": "<string>"
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent create`
+<a id="agent-create"></a>
+Create an Agent.
+
+**Usage:**
+
+`aidp agent create <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`AgentCardCapabilitiesDetail`):**
+- `isStreaming` (boolean, optional) —
+
+**Example:**
+```json
+{
+  "isStreaming": true
+}
+```
+
+**Request Body (`AgentCardConfigDetail`):**
+- `capabilities` (object, optional) —
+- `description` (string, optional) —
+- `documentationUrl` (string, optional) —
+- `name` (string, required) —
+- `provider` (object, optional) —
+- `skills` (array, optional) —
+- `version` (string, optional) —
+
+**Example:**
+```json
+{
+  "capabilities": {},
+  "description": "<string>",
+  "documentationUrl": "<string>",
+  "name": "<string>",
+  "provider": {},
+  "skills": [],
+  "version": "<string>"
+}
+```
+
+**Request Body (`AgentCardSkillDetail`):**
+- `description` (string, optional) —
+- `examples` (array, optional) —
+- `id` (string, required) —
+- `name` (string, required) —
+- `tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "examples": [],
+  "id": "<string>",
+  "name": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`AgentDiagram`):**
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `edges` (object, optional) —
+- `guardrailsMap` (object, optional) —
+- `key` (string, optional) —
+- `modelVersion` (string, optional) —
+- `nodes` (object, optional) —
+- `toolsMap` (object, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "displayName": "<string>",
+  "edges": {},
+  "guardrailsMap": {},
+  "key": "<string>",
+  "modelVersion": "<string>",
+  "nodes": {},
+  "toolsMap": {}
+}
+```
+
+**Request Body (`AgentProvider`):**
+- `organization` (string, optional) —
+- `url` (string, optional) —
+
+**Example:**
+```json
+{
+  "organization": "<string>",
+  "url": "<string>"
+}
+```
+
+**Request Body (`ContentModerationCategoryConfig`):**
+- `action` (string, required) —
+- `category` (string, required) —
+- `isEnabled` (boolean, required) —
+- `threshold` (number, required) —
+
+**Example:**
+```json
+{
+  "action": "BLOCK",
+  "category": "HATE_SPEECH",
+  "isEnabled": true,
+  "threshold": 0
+}
+```
+
+**Request Body (`ContentModerationPolicy`):**
+- `action` (string, optional) —
+- `categories` (array, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "categories": [],
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0
+}
+```
+
+**Request Body (`CreateAgentDetails`):**
+- `agentCardConfig` (object, optional) —
+- `computeKey` (string, optional) —
+- `dependenciesFilePath` (string, optional) —
+- `description` (string, optional) —
+- `diagram` (object, optional) —
+- `displayName` (string, required) —
+- `entryFilePath` (string, optional) —
+- `guardrails` (object, optional) —
+- `pathInfo` (string, required) —
+- `sessionConfig` (object, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "agentCardConfig": {},
+  "computeKey": "<string>",
+  "dependenciesFilePath": "<string>",
+  "description": "<string>",
+  "diagram": {},
+  "displayName": "<string>",
+  "entryFilePath": "<string>",
+  "guardrails": {},
+  "pathInfo": "<string>",
+  "sessionConfig": {},
+  "type": "CANVAS"
+}
+```
+
+**Request Body (`CustomPiiRule`):**
+- `isCaseSensitive` (boolean, optional) —
+- `maxDistance` (integer, optional) —
+- `name` (string, required) —
+- `pattern` (string, required) —
+- `prefix` (string, optional) —
+- `priority` (integer, optional) —
+- `suffix` (string, optional) —
+
+**Example:**
+```json
+{
+  "isCaseSensitive": true,
+  "maxDistance": 0,
+  "name": "<string>",
+  "pattern": "<string>",
+  "prefix": "<string>",
+  "priority": 0,
+  "suffix": "<string>"
+}
+```
+
+**Request Body (`DeniedTopic`):**
+- `definition` (string, required) —
+- `examples` (array, optional) —
+- `name` (string, required) —
+
+**Example:**
+```json
+{
+  "definition": "<string>",
+  "examples": [],
+  "name": "<string>"
+}
+```
+
+**Request Body (`DeniedTopicsPolicy`):**
+- `action` (string, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+- `topics` (array, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0,
+  "topics": []
+}
+```
+
+**Request Body (`GuardrailsConfiguration`):**
+- `description` (string, optional) —
+- `key` (string, optional) —
+- `name` (string, optional) —
+- `policies` (array, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "key": "<string>",
+  "name": "<string>",
+  "policies": []
+}
+```
+
+**Request Body (`PiiCategory`):**
+- `action` (string, required) —
+- `category` (string, required) —
+- `isEnabled` (boolean, required) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "BLOCK",
+  "category": "PERSON",
+  "isEnabled": true,
+  "threshold": 0
+}
+```
+
+**Request Body (`PiiDetectionPolicy`):**
+- `action` (string, optional) —
+- `customPiiRules` (array, optional) —
+- `piiCategories` (array, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "customPiiRules": [],
+  "piiCategories": [],
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0
+}
+```
+
+**Request Body (`PromptAttacksPreventionPolicy`):**
+- `action` (string, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0
+}
+```
+
+**Request Body (`SafetyPolicy`):**
+- `action` (string, required) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, required) —
+- `scope` (string, required) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "BLOCK",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "CONTENT_MODERATION",
+  "scope": "USER_REQUEST",
+  "threshold": 0
+}
+```
+
+**Request Body (`SessionConfiguration`):**
+- `sessionRetentionConfig` (object, optional) —
+- `variables` (object, optional) —
+
+**Example:**
+```json
+{
+  "sessionRetentionConfig": {},
+  "variables": {}
+}
+```
+
+**Request Body (`SessionRetentionConfiguration`):**
+- `retentionPeriodInDays` (integer, optional) —
+- `sessionSizeLimit` (integer, optional) —
+- `threadCountLimit` (integer, optional) —
+
+**Example:**
+```json
+{
+  "retentionPeriodInDays": 0,
+  "sessionSizeLimit": 0,
+  "threadCountLimit": 0
+}
+```
+
+**Request Body (`WordFiltersPolicy`):**
+- `action` (string, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `regexPatterns` (array, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+- `words` (array, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "regexPatterns": [],
+  "scope": "<string>",
+  "threshold": 0,
+  "words": []
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent delete`
+<a id="agent-delete"></a>
+Delete an Agent from the schema.
+Delete an Agent from the schema
+
+**Usage:**
+
+`aidp agent delete <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent delete-deployment`
+<a id="agent-delete-deployment"></a>
+Delete an Agent Deployment.
+
+**Usage:**
+
+`aidp agent delete-deployment <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> <AGENT-DEPLOYMENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+- `agent-deployment-key` (string, required) — The UUID of the Agent Deployment
+**Options:**
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent delete-session`
+<a id="agent-delete-session"></a>
+Delete an Agent Session.
+
+**Usage:**
+
+`aidp agent delete-session <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> <SESSION-ID>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+- `session-id` (string, required) — The UUID of the Agent Session
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent deploy`
+<a id="agent-deploy"></a>
+Deploys an Agent.
+
+**Usage:**
+
+`aidp agent deploy <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`DeployAgentDetails`):**
+- `agentComputeKey` (string, optional) —
+- `agentKey` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `oAuthConfig` (object, optional) —
+- `sessionRetentionConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "agentComputeKey": "<string>",
+  "agentKey": "<string>",
+  "description": "<string>",
+  "displayName": "<string>",
+  "oAuthConfig": {},
+  "sessionRetentionConfig": {}
+}
+```
+
+**Request Body (`OAuthConfiguration`):**
+- `audienceClaim` (array, optional) —
+- `issuerClaim` (string, optional) —
+- `jwksUri` (string, optional) —
+
+**Example:**
+```json
+{
+  "audienceClaim": [],
+  "issuerClaim": "<string>",
+  "jwksUri": "<string>"
+}
+```
+
+**Request Body (`SessionRetentionConfiguration`):**
+- `retentionPeriodInDays` (integer, optional) —
+- `sessionSizeLimit` (integer, optional) —
+- `threadCountLimit` (integer, optional) —
+
+**Example:**
+```json
+{
+  "retentionPeriodInDays": 0,
+  "sessionSizeLimit": 0,
+  "threadCountLimit": 0
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent get`
+<a id="agent-get"></a>
+Returns detailed information about an Agent.
+
+**Usage:**
+
+`aidp agent get <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent get-deployment`
+<a id="agent-get-deployment"></a>
+Returns detailed information about an Agent deployment.
+
+**Usage:**
+
+`aidp agent get-deployment <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> <AGENT-DEPLOYMENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+- `agent-deployment-key` (string, required) — The UUID of the Agent Deployment
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent get-session`
+<a id="agent-get-session"></a>
+Returns detailed information about an Agent Session.
+
+**Usage:**
+
+`aidp agent get-session <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> <SESSION-ID>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+- `session-id` (string, required) — The UUID of the Agent Session
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent get-session-trace`
+<a id="agent-get-session-trace"></a>
+Returns trace details for a given message key.
+
+**Usage:**
+
+`aidp agent get-session-trace <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> <SESSION-ID> <TRACE-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+- `session-id` (string, required) — The UUID of the Agent Session
+- `trace-key` (string, required) — A filter to return only resources that match the given display trace key exactly.
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent list`
+<a id="agent-list"></a>
+Returns a list of Agents in a schema.
+
+**Usage:**
+
+`aidp agent list <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `compute-key` (string, optional) — Compute key.
+- `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
+- `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent list-deployments`
+<a id="agent-list-deployments"></a>
+Returns a list of deployments of an agent.
+
+**Usage:**
+
+`aidp agent list-deployments <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
+- `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
+- `time-created-greater-than-or-equal-to` (datetime, optional) — Fetch objects from repository that were created after or at the exact timestamp provided in parameter
+- `time-created-less-than-or-equal-to` (datetime, optional) — Fetch objects from repository that were created before or at the exact timestamp provided in parameter.
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent list-permissions`
+<a id="agent-list-permissions"></a>
+Returns a list of permissions for a given Agent.
+
+**Usage:**
+
+`aidp agent list-permissions <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent list-session-chat-histories`
+<a id="agent-list-session-chat-histories"></a>
+Returns list of Agent Session chat messages.
+
+**Usage:**
+
+`aidp agent list-session-chat-histories <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> <SESSION-ID>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+- `session-id` (string, required) — The UUID of the Agent Session
+**Options:**
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent list-sessions`
+<a id="agent-list-sessions"></a>
+Returns a list of testing sessions of an Agent.
+
+**Usage:**
+
+`aidp agent list-sessions <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
+- `time-created-greater-than-or-equal-to` (datetime, optional) — Fetch objects from repository that were created after or at the exact timestamp provided in parameter
+- `time-created-less-than-or-equal-to` (datetime, optional) — Fetch objects from repository that were created before or at the exact timestamp provided in parameter.
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent manage-permission`
+<a id="agent-manage-permission"></a>
+Update the permissions for a given Agent.
+
+**Usage:**
+
+`aidp agent manage-permission <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
+**Request Body (`AssignAgentPermissionDetails`):**
+- `assignees` (object, required) —
+- `excludeColumns` (array, required) —
+- `includeColumns` (array, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "excludeColumns": [],
+  "includeColumns": [],
+  "permissions": "READ"
+}
+```
+
+**Request Body (`ManageAgentPermissionDetails`):**
+- `assignAgentPermissionDetails` (object, optional) —
+- `revokeAgentPermissionDetails` (object, optional) —
+
+**Example:**
+```json
+{
+  "assignAgentPermissionDetails": {},
+  "revokeAgentPermissionDetails": {}
+}
+```
+
+**Request Body (`PermissionAssignees`):**
+- `targets` (array, required) —
+- `type` (string, required) —
+
+**Example:**
+```json
+{
+  "targets": [],
+  "type": "USER"
+}
+```
+
+**Request Body (`RevokeAgentPermissionDetails`):**
+- `assignees` (object, required) —
+- `excludeColumns` (array, required) —
+- `includeColumns` (array, required) —
+- `permissions` (array, required) —
+
+**Example:**
+```json
+{
+  "assignees": {},
+  "excludeColumns": [],
+  "includeColumns": [],
+  "permissions": "READ"
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent preview-agent-agent-card`
+<a id="agent-preview-agent-agent-card"></a>
+Returns the agent card based on the given agent card configuration.
+
+**Usage:**
+
+`aidp agent preview-agent-agent-card <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+
+**Request Body (`AgentCardCapabilitiesDetail`):**
+- `isStreaming` (boolean, optional) —
+
+**Example:**
+```json
+{
+  "isStreaming": true
+}
+```
+
+**Request Body (`AgentCardConfigDetail`):**
+- `capabilities` (object, optional) —
+- `description` (string, optional) —
+- `documentationUrl` (string, optional) —
+- `name` (string, required) —
+- `provider` (object, optional) —
+- `skills` (array, optional) —
+- `version` (string, optional) —
+
+**Example:**
+```json
+{
+  "capabilities": {},
+  "description": "<string>",
+  "documentationUrl": "<string>",
+  "name": "<string>",
+  "provider": {},
+  "skills": [],
+  "version": "<string>"
+}
+```
+
+**Request Body (`AgentCardSkillDetail`):**
+- `description` (string, optional) —
+- `examples` (array, optional) —
+- `id` (string, required) —
+- `name` (string, required) —
+- `tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "examples": [],
+  "id": "<string>",
+  "name": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`AgentProvider`):**
+- `organization` (string, optional) —
+- `url` (string, optional) —
+
+**Example:**
+```json
+{
+  "organization": "<string>",
+  "url": "<string>"
+}
+```
+
+**Request Body (`PreviewAgentCardDetails`):**
+- `agentCardConfigDetails` (object, required) —
+
+**Example:**
+```json
+{
+  "agentCardConfigDetails": {}
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent redeploy-agent-by-key`
+<a id="agent-redeploy-agent-by-key"></a>
+Redeploys an Agent.
+
+**Usage:**
+
+`aidp agent redeploy-agent-by-key <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`OAuthConfiguration`):**
+- `audienceClaim` (array, optional) —
+- `issuerClaim` (string, optional) —
+- `jwksUri` (string, optional) —
+
+**Example:**
+```json
+{
+  "audienceClaim": [],
+  "issuerClaim": "<string>",
+  "jwksUri": "<string>"
+}
+```
+
+**Request Body (`UpdateAgentDeploymentDetails`):**
+- `agentComputeKey` (string, optional) —
+- `agentKey` (string, required) —
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `oAuthConfig` (object, optional) —
+
+**Example:**
+```json
+{
+  "agentComputeKey": "<string>",
+  "agentKey": "<string>",
+  "description": "<string>",
+  "displayName": "<string>",
+  "oAuthConfig": {}
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent update`
+<a id="agent-update"></a>
+Update an Agent with provided details.
+
+**Usage:**
+
+`aidp agent update <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`AgentCardCapabilitiesDetail`):**
+- `isStreaming` (boolean, optional) —
+
+**Example:**
+```json
+{
+  "isStreaming": true
+}
+```
+
+**Request Body (`AgentCardConfigDetail`):**
+- `capabilities` (object, optional) —
+- `description` (string, optional) —
+- `documentationUrl` (string, optional) —
+- `name` (string, required) —
+- `provider` (object, optional) —
+- `skills` (array, optional) —
+- `version` (string, optional) —
+
+**Example:**
+```json
+{
+  "capabilities": {},
+  "description": "<string>",
+  "documentationUrl": "<string>",
+  "name": "<string>",
+  "provider": {},
+  "skills": [],
+  "version": "<string>"
+}
+```
+
+**Request Body (`AgentCardSkillDetail`):**
+- `description` (string, optional) —
+- `examples` (array, optional) —
+- `id` (string, required) —
+- `name` (string, required) —
+- `tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "examples": [],
+  "id": "<string>",
+  "name": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`AgentDiagram`):**
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `edges` (object, optional) —
+- `guardrailsMap` (object, optional) —
+- `key` (string, optional) —
+- `modelVersion` (string, optional) —
+- `nodes` (object, optional) —
+- `toolsMap` (object, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "displayName": "<string>",
+  "edges": {},
+  "guardrailsMap": {},
+  "key": "<string>",
+  "modelVersion": "<string>",
+  "nodes": {},
+  "toolsMap": {}
+}
+```
+
+**Request Body (`AgentProvider`):**
+- `organization` (string, optional) —
+- `url` (string, optional) —
+
+**Example:**
+```json
+{
+  "organization": "<string>",
+  "url": "<string>"
+}
+```
+
+**Request Body (`ContentModerationCategoryConfig`):**
+- `action` (string, required) —
+- `category` (string, required) —
+- `isEnabled` (boolean, required) —
+- `threshold` (number, required) —
+
+**Example:**
+```json
+{
+  "action": "BLOCK",
+  "category": "HATE_SPEECH",
+  "isEnabled": true,
+  "threshold": 0
+}
+```
+
+**Request Body (`ContentModerationPolicy`):**
+- `action` (string, optional) —
+- `categories` (array, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "categories": [],
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0
+}
+```
+
+**Request Body (`CustomPiiRule`):**
+- `isCaseSensitive` (boolean, optional) —
+- `maxDistance` (integer, optional) —
+- `name` (string, required) —
+- `pattern` (string, required) —
+- `prefix` (string, optional) —
+- `priority` (integer, optional) —
+- `suffix` (string, optional) —
+
+**Example:**
+```json
+{
+  "isCaseSensitive": true,
+  "maxDistance": 0,
+  "name": "<string>",
+  "pattern": "<string>",
+  "prefix": "<string>",
+  "priority": 0,
+  "suffix": "<string>"
+}
+```
+
+**Request Body (`DeniedTopic`):**
+- `definition` (string, required) —
+- `examples` (array, optional) —
+- `name` (string, required) —
+
+**Example:**
+```json
+{
+  "definition": "<string>",
+  "examples": [],
+  "name": "<string>"
+}
+```
+
+**Request Body (`DeniedTopicsPolicy`):**
+- `action` (string, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+- `topics` (array, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0,
+  "topics": []
+}
+```
+
+**Request Body (`GuardrailsConfiguration`):**
+- `description` (string, optional) —
+- `key` (string, optional) —
+- `name` (string, optional) —
+- `policies` (array, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "key": "<string>",
+  "name": "<string>",
+  "policies": []
+}
+```
+
+**Request Body (`PiiCategory`):**
+- `action` (string, required) —
+- `category` (string, required) —
+- `isEnabled` (boolean, required) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "BLOCK",
+  "category": "PERSON",
+  "isEnabled": true,
+  "threshold": 0
+}
+```
+
+**Request Body (`PiiDetectionPolicy`):**
+- `action` (string, optional) —
+- `customPiiRules` (array, optional) —
+- `piiCategories` (array, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "customPiiRules": [],
+  "piiCategories": [],
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0
+}
+```
+
+**Request Body (`PromptAttacksPreventionPolicy`):**
+- `action` (string, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "scope": "<string>",
+  "threshold": 0
+}
+```
+
+**Request Body (`SafetyPolicy`):**
+- `action` (string, required) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, required) —
+- `scope` (string, required) —
+- `threshold` (number, optional) —
+
+**Example:**
+```json
+{
+  "action": "BLOCK",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "CONTENT_MODERATION",
+  "scope": "USER_REQUEST",
+  "threshold": 0
+}
+```
+
+**Request Body (`SessionConfiguration`):**
+- `sessionRetentionConfig` (object, optional) —
+- `variables` (object, optional) —
+
+**Example:**
+```json
+{
+  "sessionRetentionConfig": {},
+  "variables": {}
+}
+```
+
+**Request Body (`SessionRetentionConfiguration`):**
+- `retentionPeriodInDays` (integer, optional) —
+- `sessionSizeLimit` (integer, optional) —
+- `threadCountLimit` (integer, optional) —
+
+**Example:**
+```json
+{
+  "retentionPeriodInDays": 0,
+  "sessionSizeLimit": 0,
+  "threadCountLimit": 0
+}
+```
+
+**Request Body (`UpdateAgentDetails`):**
+- `addedNodes` (array, optional) —
+- `agentCardConfig` (object, optional) —
+- `computeKey` (string, optional) —
+- `deletedNodes` (array, optional) —
+- `dependenciesFilePath` (string, optional) —
+- `description` (string, optional) —
+- `diagram` (object, optional) —
+- `displayName` (string, optional) —
+- `entryFilePath` (string, optional) —
+- `guardrails` (object, optional) —
+- `sessionConfig` (object, optional) —
+- `updatedNodes` (array, optional) —
+
+**Example:**
+```json
+{
+  "addedNodes": [],
+  "agentCardConfig": {},
+  "computeKey": "<string>",
+  "deletedNodes": [],
+  "dependenciesFilePath": "<string>",
+  "description": "<string>",
+  "diagram": {},
+  "displayName": "<string>",
+  "entryFilePath": "<string>",
+  "guardrails": {},
+  "sessionConfig": {},
+  "updatedNodes": []
+}
+```
+
+**Request Body (`WordFiltersPolicy`):**
+- `action` (string, optional) —
+- `policyDescription` (string, optional) —
+- `policyName` (string, optional) —
+- `policyType` (string, optional) —
+- `regexPatterns` (array, optional) —
+- `scope` (string, optional) —
+- `threshold` (number, optional) —
+- `words` (array, optional) —
+
+**Example:**
+```json
+{
+  "action": "<string>",
+  "policyDescription": "<string>",
+  "policyName": "<string>",
+  "policyType": "<string>",
+  "regexPatterns": [],
+  "scope": "<string>",
+  "threshold": 0,
+  "words": []
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent update-deployment-metadata`
+<a id="agent-update-deployment-metadata"></a>
+Update the deployment metadata for an Agent.
+
+**Usage:**
+
+`aidp agent update-deployment-metadata <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
+**Request Body (`AgentCardCapabilitiesDetail`):**
+- `isStreaming` (boolean, optional) —
+
+**Example:**
+```json
+{
+  "isStreaming": true
+}
+```
+
+**Request Body (`AgentCardConfigDetail`):**
+- `capabilities` (object, optional) —
+- `description` (string, optional) —
+- `documentationUrl` (string, optional) —
+- `name` (string, required) —
+- `provider` (object, optional) —
+- `skills` (array, optional) —
+- `version` (string, optional) —
+
+**Example:**
+```json
+{
+  "capabilities": {},
+  "description": "<string>",
+  "documentationUrl": "<string>",
+  "name": "<string>",
+  "provider": {},
+  "skills": [],
+  "version": "<string>"
+}
+```
+
+**Request Body (`AgentCardSkillDetail`):**
+- `description` (string, optional) —
+- `examples` (array, optional) —
+- `id` (string, required) —
+- `name` (string, required) —
+- `tags` (array, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "examples": [],
+  "id": "<string>",
+  "name": "<string>",
+  "tags": []
+}
+```
+
+**Request Body (`AgentProvider`):**
+- `organization` (string, optional) —
+- `url` (string, optional) —
+
+**Example:**
+```json
+{
+  "organization": "<string>",
+  "url": "<string>"
+}
+```
+
+**Request Body (`UpdateAgentDeploymentMetadataDetails`):**
+- `agentCardConfigDetail` (object, optional) —
+- `deploymentKey` (string, optional) —
+
+**Example:**
+```json
+{
+  "agentCardConfigDetail": {},
+  "deploymentKey": "<string>"
+}
+```
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
+
+#### `aidp agent validate-agent`
+<a id="agent-validate-agent"></a>
+Validate the agent json diagram generated by UI.
+
+**Usage:**
+
+`aidp agent validate-agent <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <AGENT-KEY>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `agent-key` (string, required) — The UUID of the Agent
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
+---
+**Return:** [Back to Agent](#agent) • [Top](#top)
 
 ## <a id="async-operations"></a>Async Operations
 Async operations.
@@ -92,7 +1550,7 @@ Audit logs.
 
 #### `aidp audit manage-logs`
 <a id="audit-manage-logs"></a>
-Manages audit logs for AI Data Platform Workbench.
+Manages audit logs.
 
 **Usage:**
 
@@ -120,7 +1578,7 @@ Manages audit logs for AI Data Platform Workbench.
 
 #### `aidp audit search-logs`
 <a id="audit-search-logs"></a>
-Searches audit logs for AI Data Platform Workbench.
+Searches audit logs.
 
 **Usage:**
 
@@ -165,19 +1623,24 @@ Searches audit logs for AI Data Platform Workbench.
 **Return:** [Back to Audit](#audit) • [Top](#top)
 
 ## <a id="bundle"></a>Bundle
-Bundles, bundle deployment status, and sync bundles.
+Bundles, bundle actions, bundle deployment status, and bundle deployment status actions.
 **Command Index:**
 - [bundle create](#bundle-create)
+- [bundle create-action](#bundle-create-action)
 - [bundle deploy](#bundle-deploy)
+- [bundle deploy-action](#bundle-deploy-action)
 - [bundle fetch-deployment-status](#bundle-fetch-deployment-status)
+- [bundle fetch-deployment-status-action](#bundle-fetch-deployment-status-action)
 - [bundle purge](#bundle-purge)
+- [bundle purge-action](#bundle-purge-action)
 - [bundle sync-bundle](#bundle-sync-bundle)
+- [bundle sync-bundle-action](#bundle-sync-bundle-action)
 ### Commands
 
 #### `aidp bundle create`
 <a id="bundle-create"></a>
-(Preview) Creates a new bundle.
-(Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named aidp_workbench.yaml. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the dependencies folder inside the jobs and agentflows folders - code dependencies are added under the artifacts directory in the bundle Dependency references use template variables, for example: - compute: $${jobs.dependencies.training_compute.compute.key} - nested jobs: $${jobs.dependencies.training_job.job.key} - aicompute: $${jobs.dependencies.training_aicompute.aicompute.key} Bundles also support the special variable $${bundle.root}, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (aidp_workbench.yaml) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the $${var.<name>} syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via .aidp/overrides.yaml inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - path identifies the parent folder in the workspace volume where the bundle should be created - name identifies the bundle folder name - bundledResources identifies which workspace resources should be included
+(Deprecated) Creates a new bundle.
+(Deprecated) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named aidp_workbench.yaml. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the dependencies folder inside the jobs and agentflows folders - code dependencies are added under the artifacts directory in the bundle Dependency references use template variables, for example: - compute: $${jobs.dependencies.training_compute.compute.key} - nested jobs: $${jobs.dependencies.training_job.job.key} - aicompute: $${jobs.dependencies.training_aicompute.aicompute.key} Bundles also support the special variable $${bundle.root}, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (aidp_workbench.yaml) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the $${var.<name>} syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via .aidp/overrides.yaml inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - path identifies the parent folder in the workspace volume where the bundle should be created - name identifies the bundle folder name - bundledResources identifies which workspace resources should be included
 
 **Usage:**
 
@@ -203,7 +1666,53 @@ Bundles, bundle deployment status, and sync bundles.
 ```
 
 **Request Body (`CreateBundleDetails`):**
-- `bundledResources` (array, required) —
+- `bundledResources` (array, optional) —
+- `description` (string, optional) —
+- `name` (string, required) —
+- `path` (string, required) —
+
+**Example:**
+```json
+{
+  "bundledResources": [],
+  "description": "<string>",
+  "name": "<string>",
+  "path": "<string>"
+}
+```
+---
+**Return:** [Back to Bundle](#bundle) • [Top](#top)
+
+#### `aidp bundle create-action`
+<a id="bundle-create-action"></a>
+(Preview) Creates a new bundle.
+(Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named aidp_workbench.yaml. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the dependencies folder inside the jobs and agentflows folders - code dependencies are added under the artifacts directory in the bundle Dependency references use template variables, for example: - compute: $${jobs.dependencies.training_compute.compute.key} - nested jobs: $${jobs.dependencies.training_job.job.key} - aicompute: $${jobs.dependencies.training_aicompute.aicompute.key} Bundles also support the special variable $${bundle.root}, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (aidp_workbench.yaml) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the $${var.<name>} syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via .aidp/overrides.yaml inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - path identifies the parent folder in the workspace volume where the bundle should be created - name identifies the bundle folder name - bundledResources identifies which workspace resources should be included
+
+**Usage:**
+
+`aidp bundle create-action <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`BundledResource`):**
+- `resourceKey` (string, required) —
+- `resourceType` (string, required) —
+
+**Example:**
+```json
+{
+  "resourceKey": "<string>",
+  "resourceType": "JOB"
+}
+```
+
+**Request Body (`CreateBundleDetails`):**
+- `bundledResources` (array, optional) —
 - `description` (string, optional) —
 - `name` (string, required) —
 - `path` (string, required) —
@@ -222,8 +1731,8 @@ Bundles, bundle deployment status, and sync bundles.
 
 #### `aidp bundle deploy`
 <a id="bundle-deploy"></a>
-(Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
-(Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - path identifies the bundle root folder in the workspace volume
+(Deprecated) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
+(Deprecated) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - path identifies the bundle root folder in the workspace volume
 
 **Usage:**
 
@@ -248,10 +1757,38 @@ Bundles, bundle deployment status, and sync bundles.
 ---
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
+#### `aidp bundle deploy-action`
+<a id="bundle-deploy-action"></a>
+(Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
+(Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - path identifies the bundle root folder in the workspace volume
+
+**Usage:**
+
+`aidp bundle deploy-action <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`DeployBundleDetails`):**
+- `path` (string, required) —
+
+**Example:**
+```json
+{
+  "path": "<string>"
+}
+```
+---
+**Return:** [Back to Bundle](#bundle) • [Top](#top)
+
 #### `aidp bundle fetch-deployment-status`
 <a id="bundle-fetch-deployment-status"></a>
-(Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle.
-(Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - IN_PROGRESS - SUCCEEDED - FAILED - NOT_DEPLOYED Request notes: - path identifies the bundle root folder in the workspace volume
+(Deprecated) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle.
+(Deprecated) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - IN_PROGRESS - SUCCEEDED - FAILED - NOT_DEPLOYED Request notes: - path identifies the bundle root folder in the workspace volume
 
 **Usage:**
 
@@ -275,10 +1812,37 @@ Bundles, bundle deployment status, and sync bundles.
 ---
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
+#### `aidp bundle fetch-deployment-status-action`
+<a id="bundle-fetch-deployment-status-action"></a>
+(Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle.
+(Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - IN_PROGRESS - SUCCEEDED - FAILED - NOT_DEPLOYED Request notes: - path identifies the bundle root folder in the workspace volume
+
+**Usage:**
+
+`aidp bundle fetch-deployment-status-action <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`FetchBundleDeploymentStatusDetails`):**
+- `path` (string, required) —
+
+**Example:**
+```json
+{
+  "path": "<string>"
+}
+```
+---
+**Return:** [Back to Bundle](#bundle) • [Top](#top)
+
 #### `aidp bundle purge`
 <a id="bundle-purge"></a>
-(Preview) Tears down all resources deployed by the specified bundle in the workspace.
-(Preview) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - path identifies the bundle root folder in the workspace volume
+(Deprecated) Tears down all resources deployed by the specified bundle in the workspace.
+(Deprecated) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - path identifies the bundle root folder in the workspace volume
 
 **Usage:**
 
@@ -303,14 +1867,70 @@ Bundles, bundle deployment status, and sync bundles.
 ---
 **Return:** [Back to Bundle](#bundle) • [Top](#top)
 
+#### `aidp bundle purge-action`
+<a id="bundle-purge-action"></a>
+(Preview) Tears down all resources deployed by the specified bundle in the workspace.
+(Preview) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - path identifies the bundle root folder in the workspace volume
+
+**Usage:**
+
+`aidp bundle purge-action <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`PurgeBundleDetails`):**
+- `path` (string, required) —
+
+**Example:**
+```json
+{
+  "path": "<string>"
+}
+```
+---
+**Return:** [Back to Bundle](#bundle) • [Top](#top)
+
 #### `aidp bundle sync-bundle`
 <a id="bundle-sync-bundle"></a>
+(Deprecated) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
+(Deprecated) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in .aidp/resource_origins.yaml and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle .aidp directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as .aidp/overrides.yaml and .aidp/aidp.state.json. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - path identifies the bundle root folder in the workspace volume - the bundle must contain a valid aidp_workbench.yaml - the bundle must contain .aidp/resource_origins.yaml - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+
+**Usage:**
+
+`aidp bundle sync-bundle <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`SyncBundleDetails`):**
+- `path` (string, required) —
+
+**Example:**
+```json
+{
+  "path": "<string>"
+}
+```
+---
+**Return:** [Back to Bundle](#bundle) • [Top](#top)
+
+#### `aidp bundle sync-bundle-action`
+<a id="bundle-sync-bundle-action"></a>
 (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
 (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in .aidp/resource_origins.yaml and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle .aidp directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as .aidp/overrides.yaml and .aidp/aidp.state.json. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - path identifies the bundle root folder in the workspace volume - the bundle must contain a valid aidp_workbench.yaml - the bundle must contain .aidp/resource_origins.yaml - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
 
 **Usage:**
 
-`aidp bundle sync-bundle <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
+`aidp bundle sync-bundle-action <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> --body <JSON>`
 
 **Path Arguments:**
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
@@ -347,7 +1967,7 @@ Catalogs, catalog permissions, and connections.
 
 #### `aidp catalog create`
 <a id="catalog-create"></a>
-Create a catalog in the AI Data Platform Workbench with the given ID.
+Creates a catalog with the given ID.
 
 **Usage:**
 
@@ -394,7 +2014,7 @@ Create a catalog in the AI Data Platform Workbench with the given ID.
 
 #### `aidp catalog delete`
 <a id="catalog-delete"></a>
-Deletes the specified catalog from an AI Data Platform Workbench.
+Deletes the specified catalog.
 
 **Usage:**
 
@@ -413,7 +2033,7 @@ Deletes the specified catalog from an AI Data Platform Workbench.
 
 #### `aidp catalog get`
 <a id="catalog-get"></a>
-Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
+Gets detailed information about a catalog with a given catalog key.
 
 **Usage:**
 
@@ -431,7 +2051,7 @@ Gets detailed information about an AI Data Platform Workbench catalog with a giv
 
 #### `aidp catalog list`
 <a id="catalog-list"></a>
-Get a list of catalogs in an AI Data Platform Workbench with a given ID.
+Gets a list of catalogs with a given ID.
 
 **Usage:**
 
@@ -453,7 +2073,7 @@ Get a list of catalogs in an AI Data Platform Workbench with a given ID.
 
 #### `aidp catalog list-permissions`
 <a id="catalog-list-permissions"></a>
-Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
+Gets a list of all permissions in the specified catalog.
 
 **Usage:**
 
@@ -474,7 +2094,7 @@ Gets a list of all permissions in the specified catalog of an AI Data Platform W
 
 #### `aidp catalog manage-permission`
 <a id="catalog-manage-permission"></a>
-Update permission details for a catalog in an AI Data Platform Workbench.
+Updates permission details for a catalog.
 
 **Usage:**
 
@@ -540,7 +2160,7 @@ Update permission details for a catalog in an AI Data Platform Workbench.
 
 #### `aidp catalog refresh`
 <a id="catalog-refresh"></a>
-Refresh a catalog in an AI Data Platform Workbench through a crawler.
+Refreshes a catalog through a crawler.
 
 **Usage:**
 
@@ -559,7 +2179,7 @@ Refresh a catalog in an AI Data Platform Workbench through a crawler.
 
 #### `aidp catalog test-connection`
 <a id="catalog-test-connection"></a>
-Test the connection of an AI Data Platform Workbench to an external catalog.
+Tests the connection to an external catalog.
 
 **Usage:**
 
@@ -602,7 +2222,7 @@ Test the connection of an AI Data Platform Workbench to an external catalog.
 
 #### `aidp catalog update`
 <a id="catalog-update"></a>
-Update the details of an AI Data Platform Workbench catalog with the given information.
+Updates the details of a catalog with the given information.
 
 **Usage:**
 
@@ -657,6 +2277,7 @@ Clusters, cluster logs, cluster libraries, and cluster permissions.
 - [cluster list-permissions](#cluster-list-permissions)
 - [cluster manage-permission](#cluster-manage-permission)
 - [cluster patch-library](#cluster-patch-library)
+- [cluster query-replica-ids](#cluster-query-replica-ids)
 - [cluster restart](#cluster-restart)
 - [cluster search-logs](#cluster-search-logs)
 - [cluster start](#cluster-start)
@@ -703,11 +2324,12 @@ Creates a new cluster with the provided details.
 }
 ```
 
-**Request Body (`CreateAgentFlowComputeDetails`):**
+**Request Body (`CreateAiComputeDetails`):**
 - `description` (string, optional) —
 - `displayName` (string, optional) —
 - `driverConfig` (object, optional) —
 - `nodeType` (string, optional) —
+- `replicaConfig` (object, optional) —
 - `type` (string, optional) —
 
 **Example:**
@@ -717,6 +2339,7 @@ Creates a new cluster with the provided details.
   "displayName": "<string>",
   "driverConfig": {},
   "nodeType": "<string>",
+  "replicaConfig": {},
   "type": "<string>"
 }
 ```
@@ -736,6 +2359,24 @@ Creates a new cluster with the provided details.
   "driverConfig": {},
   "nodeType": "<string>",
   "type": "USER"
+}
+```
+
+**Request Body (`CreateDflComputeDetails`):**
+- `description` (string, optional) —
+- `displayName` (string, optional) —
+- `driverConfig` (object, optional) —
+- `nodeType` (string, optional) —
+- `type` (string, optional) —
+
+**Example:**
+```json
+{
+  "description": "<string>",
+  "displayName": "<string>",
+  "driverConfig": {},
+  "nodeType": "<string>",
+  "type": "<string>"
 }
 ```
 
@@ -826,6 +2467,18 @@ Creates a new cluster with the provided details.
 {
   "logGroups": [],
   "type": "<string>"
+}
+```
+
+**Request Body (`ReplicaConfig`):**
+- `maxReplica` (integer, optional) —
+- `minReplica` (integer, optional) —
+
+**Example:**
+```json
+{
+  "maxReplica": 0,
+  "minReplica": 0
 }
 ```
 
@@ -1006,7 +2659,7 @@ Returns a list of all clusters in a given workspace.
 - `state` (string, optional) — A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. Allowed values are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED"
 - `display-name` (string, optional) — A filter to return only resources that match the given display name exactly.
 - `display-name-contains` (string, optional) — A filter to return only resources that have a display name containing the text provided.
-- `type` (string, optional) — Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
+- `type` (string, optional) — Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 - `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
 - `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
 - `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
@@ -1194,6 +2847,38 @@ Updates libraries of a cluster with the provided patches.
 ---
 **Return:** [Back to Cluster](#cluster) • [Top](#top)
 
+#### `aidp cluster query-replica-ids`
+<a id="cluster-query-replica-ids"></a>
+Queries compute replica identifiers for a compute cluster in the given workspace.
+Queries compute replica identifiers for a compute cluster in the given workspace. The response contains distinct replica identifiers derived from the Monitoring agentNode metric dimension.
+
+**Usage:**
+
+`aidp cluster query-replica-ids <AI-DATA-PLATFORM-ID> <WORKSPACE-KEY> <CLUSTER-KEY> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+- `workspace-key` (string, required) — The key of the Workspace
+- `cluster-key` (string, required) — Cluster key.
+**Options:**
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+
+**Request Body (`QueryReplicaIdsDetails`):**
+- `metricName` (string, required) —
+- `timeBegin` (datetime, required) —
+- `timeEnd` (datetime, required) —
+
+**Example:**
+```json
+{
+  "metricName": "<string>",
+  "timeBegin": "<string>",
+  "timeEnd": "<string>"
+}
+```
+---
+**Return:** [Back to Cluster](#cluster) • [Top](#top)
+
 #### `aidp cluster restart`
 <a id="cluster-restart"></a>
 Restarts a running cluster.
@@ -1324,6 +3009,7 @@ Provides summarized compute metrics for a compute cluster in the given workspace
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 
 **Request Body (`SummarizeMetricsDataDetails`):**
+- `agentNode` (string, optional) —
 - `aggregationType` (string, required) —
 - `interval` (string, required) —
 - `metricName` (string, required) —
@@ -1334,6 +3020,7 @@ Provides summarized compute metrics for a compute cluster in the given workspace
 **Example:**
 ```json
 {
+  "agentNode": "<string>",
   "aggregationType": "MAX",
   "interval": "<string>",
   "metricName": "<string>",
@@ -1434,6 +3121,18 @@ Update the details of a given cluster.
 }
 ```
 
+**Request Body (`ReplicaConfig`):**
+- `maxReplica` (integer, optional) —
+- `minReplica` (integer, optional) —
+
+**Example:**
+```json
+{
+  "maxReplica": 0,
+  "minReplica": 0
+}
+```
+
 **Request Body (`ShapeConfig`):**
 - `gpus` (integer, optional) —
 - `memoryInGBs` (integer, optional) —
@@ -1478,11 +3177,12 @@ Update the details of a given cluster.
 }
 ```
 
-**Request Body (`UpdateAgentFlowComputeDetails`):**
+**Request Body (`UpdateAiComputeDetails`):**
 - `description` (string, optional) —
 - `displayName` (string, optional) —
 - `driverConfig` (object, optional) —
 - `nodeType` (string, optional) —
+- `replicaConfig` (object, optional) —
 - `type` (string, optional) —
 
 **Example:**
@@ -1492,6 +3192,7 @@ Update the details of a given cluster.
   "displayName": "<string>",
   "driverConfig": {},
   "nodeType": "<string>",
+  "replicaConfig": {},
   "type": "<string>"
 }
 ```
@@ -1861,7 +3562,7 @@ Recipients, shares, recipient permissions, and share data assets.
 
 #### `aidp delta-share create`
 <a id="delta-share-create"></a>
-Create a Delta Share protocol in AI Data Platform Workbench.
+Creates a Delta Share protocol.
 
 **Usage:**
 
@@ -1890,7 +3591,7 @@ Create a Delta Share protocol in AI Data Platform Workbench.
 
 #### `aidp delta-share create-recipient`
 <a id="delta-share-create-recipient"></a>
-Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
+Creates a recipient for a Delta Share protocol.
 
 **Usage:**
 
@@ -1921,7 +3622,7 @@ Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
 
 #### `aidp delta-share delete`
 <a id="delta-share-delete"></a>
-Deletes a Delta Share from an AI Data Platform Workbench.
+Deletes a Delta Share.
 
 **Usage:**
 
@@ -1939,7 +3640,7 @@ Deletes a Delta Share from an AI Data Platform Workbench.
 
 #### `aidp delta-share delete-recipient`
 <a id="delta-share-delete-recipient"></a>
-Deletes a Delta Share recipient from an AI Data Platform Workbench.
+Deletes a Delta Share recipient.
 
 **Usage:**
 
@@ -1974,7 +3675,7 @@ Gets detailed information about a Delta Share.
 
 #### `aidp delta-share get-recipient`
 <a id="delta-share-get-recipient"></a>
-Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
+Gets detailed information about a Delta Share recipient.
 
 **Usage:**
 
@@ -1991,7 +3692,7 @@ Gets detailed information about a Delta Share recipient in an AI Data Platform W
 
 #### `aidp delta-share list`
 <a id="delta-share-list"></a>
-Gets a list of Delta Shares in an AI Data Platform Workbench instance.
+Gets a list of Delta Shares.
 
 **Usage:**
 
@@ -2011,7 +3712,7 @@ Gets a list of Delta Shares in an AI Data Platform Workbench instance.
 
 #### `aidp delta-share list-data-assets`
 <a id="delta-share-list-data-assets"></a>
-Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
+Gets a list of Delta Share assets.
 
 **Usage:**
 
@@ -2097,7 +3798,7 @@ Returns a list of Delta Shares that the specified recipient has been granted acc
 
 #### `aidp delta-share list-recipients`
 <a id="delta-share-list-recipients"></a>
-Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
+Gets a list of Delta Share recipients.
 
 **Usage:**
 
@@ -2275,7 +3976,7 @@ Updates permissions on a Delta Share.
 
 #### `aidp delta-share manage-recipient-permission`
 <a id="delta-share-manage-recipient-permission"></a>
-Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
+Updates the permissions of a Delta Share recipient.
 
 **Usage:**
 
@@ -2371,7 +4072,7 @@ Update a Delta Share with the provided metadata.
 
 #### `aidp delta-share update-recipient`
 <a id="delta-share-update-recipient"></a>
-Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
+Updates the metadata of a Delta Share recipient.
 
 **Usage:**
 
@@ -2466,7 +4167,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateExperimentDetails`):**
 - `artifact_location` (string, optional) —
@@ -2510,7 +4210,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateExperimentRunDetails`):**
 - `experiment_id` (string, optional) —
@@ -2555,7 +4254,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateModelVersionDetails`):**
 - `description` (string, optional) —
@@ -2606,7 +4304,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateRegisteredModelDetails`):**
 - `deployment_job_id` (string, optional) —
@@ -2652,7 +4349,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`CreateModelVersionDetails`):**
 - `description` (string, optional) —
@@ -2704,7 +4400,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentDetails`):**
 - `experiment_id` (string, required) —
@@ -2732,7 +4427,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentRunDetails`):**
 - `run_id` (string, required) —
@@ -2760,7 +4454,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentRunTagDetails`):**
 - `key` (string, required) —
@@ -2790,7 +4483,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteExperimentTagDetails`):**
 - `experiment_id` (string, required) —
@@ -2819,7 +4511,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteModelVersionDetails`):**
 - `name` (string, required) —
@@ -2848,7 +4539,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteModelVersionTagDetails`):**
 - `key` (string, required) —
@@ -2879,7 +4569,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteRegisteredModelDetails`):**
 - `name` (string, required) —
@@ -2906,7 +4595,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`DeleteRegisteredModelTagDetails`):**
 - `key` (string, required) —
@@ -2937,7 +4625,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `experiment-id` (string, required) — The unique ID of the experiment to retrieve.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -2956,7 +4643,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `experiment-name` (string, required) — The name of the experiment to retrieve.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -2974,7 +4660,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `run-id` (string, required) — ID of the run to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -2995,7 +4680,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `page-token` (string, optional) — Pagination token to go to the next page of metric history.
 - `max-results` (integer, optional) — Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3013,7 +4697,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `name` (string, required) — Name of the model version.
 - `version` (string, required) — Version number of the model version.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3030,7 +4713,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `name` (string, required) — Name of the registered model.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3050,7 +4732,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `path` (string, optional) — Filter artifacts matching this path (a relative path from the root artifact directory).
 - `page-token` (string, optional) — Token indicating the page of artifact results to fetch.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3067,7 +4748,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ListExperimentRunsDetails`):**
 - `experiment_ids` (array, optional) —
@@ -3104,7 +4784,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ListExperimentsDetails`):**
 - `filter` (string, optional) —
@@ -3139,7 +4818,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ListLoggedModelsDetails`):**
 - `experiment_ids` (array, optional) —
@@ -3189,7 +4867,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `page-token` (string, optional) — Pagination token to go to the next page based on a previous search query.
 - `order-by` (string, optional) — List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3209,7 +4886,6 @@ Experiments, experiment runs, registered models, and model versions.
 - `page-token` (string, optional) — Pagination token to go to the next page based on a previous search query.
 - `order-by` (string, optional) — List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by model name ASC.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 ---
 **Return:** [Back to Mlops](#mlops) • [Top](#top)
 
@@ -3227,7 +4903,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ExperimentRunMetric`):**
 - `key` (string, optional) —
@@ -3301,7 +4976,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`Dataset`):**
 - `digest` (string, required) —
@@ -3375,7 +5049,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`LogExperimentRunMetricDetails`):**
 - `key` (string, required) —
@@ -3411,7 +5084,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`LogExperimentRunModelDetails`):**
 - `model_json` (string, required) —
@@ -3441,7 +5113,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`LogExperimentRunParamDetails`):**
 - `key` (string, required) —
@@ -3472,7 +5143,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RenameRegisteredModelDetails`):**
 - `name` (string, required) —
@@ -3502,7 +5172,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RestoreExperimentDetails`):**
 - `experiment_id` (string, required) —
@@ -3530,7 +5199,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RestoreExperimentRunDetails`):**
 - `run_id` (string, required) —
@@ -3558,7 +5226,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetExperimentRunTagDetails`):**
 - `key` (string, required) —
@@ -3590,7 +5257,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetExperimentTagDetails`):**
 - `experiment_id` (string, required) —
@@ -3621,7 +5287,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetModelVersionTagDetails`):**
 - `key` (string, required) —
@@ -3654,7 +5319,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`SetRegisteredModelTagDetails`):**
 - `key` (string, required) —
@@ -3685,7 +5349,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`TransitionModelVersionStageDetails`):**
 - `archive_existing_versions` (boolean, required) —
@@ -3719,7 +5382,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateExperimentDetails`):**
 - `experiment_id` (string, required) —
@@ -3749,7 +5411,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateExperimentRunDetails`):**
 - `end_time` (integer, optional) —
@@ -3783,7 +5444,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ExperimentRunTag`):**
 - `key` (string, optional) —
@@ -3837,7 +5497,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ExperimentTag`):**
 - `key` (string, required) —
@@ -3891,7 +5550,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateModelVersionDetails`):**
 - `description` (string, optional) —
@@ -3922,7 +5580,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`ModelVersionTag`):**
 - `key` (string, optional) —
@@ -3977,7 +5634,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`UpdateRegisteredModelDetails`):**
 - `deployment_job_id` (string, optional) —
@@ -4008,7 +5664,6 @@ Experiments, experiment runs, registered models, and model versions.
 **Options:**
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 
 **Request Body (`RegisteredModelTag`):**
 - `key` (string, optional) —
@@ -4972,7 +6627,7 @@ Creates a view.
 
 #### `aidp schema delete`
 <a id="schema-delete"></a>
-Deletes a schema from an AI Data Platform Workbench.
+Deletes a schema.
 
 **Usage:**
 
@@ -4991,7 +6646,7 @@ Deletes a schema from an AI Data Platform Workbench.
 
 #### `aidp schema delete-table`
 <a id="schema-delete-table"></a>
-Deletes a table from an AI Data Platform Workbench.
+Deletes a table.
 
 **Usage:**
 
@@ -5010,7 +6665,7 @@ Deletes a table from an AI Data Platform Workbench.
 
 #### `aidp schema delete-view`
 <a id="schema-delete-view"></a>
-Deletes a view from AI Data Platform Workbench.
+Deletes a view.
 
 **Usage:**
 
@@ -5187,7 +6842,7 @@ Returns table schema and data from the specified location.
 
 #### `aidp schema list`
 <a id="schema-list"></a>
-Returns a list of schemas in a given AI Data Platform Workbench.
+Returns a list of schemas.
 
 **Usage:**
 
@@ -5400,6 +7055,8 @@ Updates the permissions for a given table.
 - `excludeColumns` (array, required) —
 - `includeColumns` (array, required) —
 - `permissions` (array, required) —
+- `rowFilter` (string, optional) —
+- `rowFilterType` (string, optional) —
 
 **Example:**
 ```json
@@ -5407,7 +7064,9 @@ Updates the permissions for a given table.
   "assignees": {},
   "excludeColumns": [],
   "includeColumns": [],
-  "permissions": "SELECT"
+  "permissions": "SELECT",
+  "rowFilter": "<string>",
+  "rowFilterType": "SQL"
 }
 ```
 
@@ -5440,6 +7099,8 @@ Updates the permissions for a given table.
 - `excludeColumns` (array, required) —
 - `includeColumns` (array, required) —
 - `permissions` (array, required) —
+- `rowFilter` (string, optional) —
+- `rowFilterType` (string, optional) —
 
 **Example:**
 ```json
@@ -5447,7 +7108,9 @@ Updates the permissions for a given table.
   "assignees": {},
   "excludeColumns": [],
   "includeColumns": [],
-  "permissions": "SELECT"
+  "permissions": "SELECT",
+  "rowFilter": "<string>",
+  "rowFilterType": "SQL"
 }
 ```
 ---
@@ -5529,7 +7192,7 @@ Updates permissions on a view.
 
 #### `aidp schema refresh`
 <a id="schema-refresh"></a>
-Refreshes schema in an AI Data Platform Workbench through the crawler.
+Refreshes schema through the crawler.
 
 **Usage:**
 
@@ -5548,7 +7211,7 @@ Refreshes schema in an AI Data Platform Workbench through the crawler.
 
 #### `aidp schema refresh-table`
 <a id="schema-refresh-table"></a>
-Refreshes a table in an AI Data Platform Workbench through the crawler.
+Refreshes a table through the crawler.
 
 **Usage:**
 
@@ -5567,7 +7230,7 @@ Refreshes a table in an AI Data Platform Workbench through the crawler.
 
 #### `aidp schema retrieve-par`
 <a id="schema-retrieve-par"></a>
-Retrieve PAR for the entities created in AI Data Platform Workbench.
+Retrieves PAR for the entities created.
 
 **Usage:**
 
@@ -6065,7 +7728,7 @@ Files, volumes, directories, and volume permissions.
 
 #### `aidp volume create`
 <a id="volume-create"></a>
-Creates a volume in AI Data Platform Workbench.
+Creates a volume.
 
 **Usage:**
 
@@ -6543,7 +8206,7 @@ Cancels all job runs for a given job.
 
 #### `aidp workflow create-job`
 <a id="workflow-create-job"></a>
-Creates a job in an AI Data Platform Workbench.
+Creates a job.
 
 **Usage:**
 
@@ -6915,7 +8578,7 @@ Creates a job in an AI Data Platform Workbench.
 
 #### `aidp workflow create-job-run`
 <a id="workflow-create-job-run"></a>
-Creates a job run for an AI Data Platform Workbench.
+Creates a job run.
 
 **Usage:**
 
@@ -6999,6 +8662,7 @@ Creates a job run for an AI Data Platform Workbench.
 - `key` (integer, optional) —
 - `lifecycleStates` (array, optional) —
 - `parameters` (array, optional) —
+- `parentTaskRunKey` (string, optional) —
 - `repairedTasks` (array, optional) —
 - `startTime` (integer, optional) —
 - `state` (object, optional) —
@@ -7013,6 +8677,7 @@ Creates a job run for an AI Data Platform Workbench.
   "key": 0,
   "lifecycleStates": [],
   "parameters": [],
+  "parentTaskRunKey": "<string>",
   "repairedTasks": [],
   "startTime": 0,
   "state": {},
@@ -7055,7 +8720,7 @@ Creates a job run for an AI Data Platform Workbench.
 
 #### `aidp workflow delete-job`
 <a id="workflow-delete-job"></a>
-Deletes a job from an AI Data Platform Workbench.
+Deletes a job.
 
 **Usage:**
 
@@ -7073,7 +8738,7 @@ Deletes a job from an AI Data Platform Workbench.
 
 #### `aidp workflow delete-job-run`
 <a id="workflow-delete-job-run"></a>
-Deletes a job run from an AI Data Platform Workbench.
+Deletes a job run.
 
 **Usage:**
 
@@ -7147,7 +8812,7 @@ Fetches the task run output from the runtime engine.
 
 #### `aidp workflow get-job`
 <a id="workflow-get-job"></a>
-Returns detailed information about a given job in AI Data Platform Workbench.
+Returns detailed information about a given job.
 
 **Usage:**
 
@@ -7221,7 +8886,7 @@ Returns a list of job permissions.
 
 #### `aidp workflow list-job-runs`
 <a id="workflow-list-job-runs"></a>
-Returns a detailed list of job runs in an AI Data Platform Workbench.
+Returns a detailed list of job runs.
 
 **Usage:**
 
@@ -7244,7 +8909,7 @@ Returns a detailed list of job runs in an AI Data Platform Workbench.
 
 #### `aidp workflow list-jobs`
 <a id="workflow-list-jobs"></a>
-Returns a list of jobs for a given AI Data Platform Workbench.
+Returns a list of jobs.
 
 **Usage:**
 
@@ -7290,7 +8955,7 @@ Returns a list of the latest job runs for a given job key.
 
 #### `aidp workflow list-task-runs`
 <a id="workflow-list-task-runs"></a>
-Returns a list of tasks run in an AI Data Platform Workbench.
+Returns a list of task runs.
 
 **Usage:**
 
@@ -7410,13 +9075,31 @@ Repairs and reruns a job run.
 
 **Request Body (`RepairJobRunDetails`):**
 - `parameters` (array, optional) —
-- `taskKeys` (array, required) —
+- `repairMode` (string, optional) —
+- `repairTasks` (array, optional) —
+- `taskKeys` (array, optional) —
 
 **Example:**
 ```json
 {
   "parameters": [],
+  "repairMode": "RESUME",
+  "repairTasks": [],
   "taskKeys": []
+}
+```
+
+**Request Body (`RepairTaskDetails`):**
+- `shouldIncludeDownstream` (boolean, optional) —
+- `shouldIncludeUpstream` (boolean, optional) —
+- `taskKey` (string, required) —
+
+**Example:**
+```json
+{
+  "shouldIncludeDownstream": true,
+  "shouldIncludeUpstream": true,
+  "taskKey": "<string>"
 }
 ```
 ---
@@ -7424,7 +9107,7 @@ Repairs and reruns a job run.
 
 #### `aidp workflow update-job`
 <a id="workflow-update-job"></a>
-Update details for a job in AI Data Platform Workbench.
+Updates details for a job.
 
 **Usage:**
 
@@ -7882,7 +9565,6 @@ Creates a git folder in the workspace
 - `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
 - `workspace-key` (string, required) — The key of the Workspace
 **Options:**
-- `dh-user-principal` (string, optional) — The DH User Principal Header .
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.

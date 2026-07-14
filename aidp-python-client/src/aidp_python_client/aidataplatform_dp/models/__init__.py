@@ -13,43 +13,42 @@ from .adw_schema import AdwSchema
 from .adw_schema_summary import AdwSchemaSummary
 from .adw_table import AdwTable
 from .adw_table_summary import AdwTableSummary
+from .agent import Agent
 from .agent_card_capabilities_detail import AgentCardCapabilitiesDetail
 from .agent_card_config_detail import AgentCardConfigDetail
 from .agent_card_preview_response import AgentCardPreviewResponse
 from .agent_card_skill_detail import AgentCardSkillDetail
-from .agent_flow import AgentFlow
-from .agent_flow_attachment import AgentFlowAttachment
-from .agent_flow_collection import AgentFlowCollection
-from .agent_flow_compute import AgentFlowCompute
-from .agent_flow_dependency import AgentFlowDependency
-from .agent_flow_dependency_item import AgentFlowDependencyItem
-from .agent_flow_deployment import AgentFlowDeployment
-from .agent_flow_deployment_collection import AgentFlowDeploymentCollection
-from .agent_flow_deployment_summary import AgentFlowDeploymentSummary
-from .agent_flow_detachment import AgentFlowDetachment
-from .agent_flow_diagram import AgentFlowDiagram
-from .agent_flow_edge import AgentFlowEdge
-from .agent_flow_guardrails_collection import AgentFlowGuardrailsCollection
-from .agent_flow_guardrails_summary import AgentFlowGuardrailsSummary
-from .agent_flow_node import AgentFlowNode
-from .agent_flow_permission_collection import AgentFlowPermissionCollection
-from .agent_flow_permission_summary import AgentFlowPermissionSummary
-from .agent_flow_session import AgentFlowSession
-from .agent_flow_session_collection import AgentFlowSessionCollection
-from .agent_flow_session_context import AgentFlowSessionContext
-from .agent_flow_session_metric import AgentFlowSessionMetric
-from .agent_flow_session_metrics_range import AgentFlowSessionMetricsRange
-from .agent_flow_session_summary import AgentFlowSessionSummary
-from .agent_flow_summary import AgentFlowSummary
-from .agent_flow_validation_issue import AgentFlowValidationIssue
-from .agent_flow_validation_metadata import AgentFlowValidationMetadata
-from .agent_flow_validation_options import AgentFlowValidationOptions
-from .agent_flow_validation_result import AgentFlowValidationResult
-from .agent_flow_validation_summary import AgentFlowValidationSummary
-from .agent_node import AgentNode
+from .agent_collection import AgentCollection
+from .agent_dependency import AgentDependency
+from .agent_dependency_item import AgentDependencyItem
+from .agent_deployment import AgentDeployment
+from .agent_deployment_collection import AgentDeploymentCollection
+from .agent_deployment_summary import AgentDeploymentSummary
+from .agent_diagram import AgentDiagram
+from .agent_diagram_agent_node import AgentDiagramAgentNode
+from .agent_diagram_custom_tool_node import AgentDiagramCustomToolNode
+from .agent_diagram_guardrail_node import AgentDiagramGuardrailNode
+from .agent_diagram_http_tool_node import AgentDiagramHttpToolNode
+from .agent_diagram_mcp_tool_node import AgentDiagramMcpToolNode
+from .agent_diagram_node import AgentDiagramNode
+from .agent_diagram_prompt_tool_node import AgentDiagramPromptToolNode
+from .agent_diagram_rag_tool_node import AgentDiagramRagToolNode
+from .agent_diagram_sql_tool_node import AgentDiagramSqlToolNode
+from .agent_diagram_start_node import AgentDiagramStartNode
+from .agent_diagram_supervisor_agent_node import AgentDiagramSupervisorAgentNode
+from .agent_edge import AgentEdge
+from .agent_guardrails_collection import AgentGuardrailsCollection
+from .agent_guardrails_summary import AgentGuardrailsSummary
+from .agent_info import AgentInfo
+from .agent_permission_collection import AgentPermissionCollection
+from .agent_permission_summary import AgentPermissionSummary
 from .agent_provider import AgentProvider
+from .agent_session import AgentSession
+from .agent_session_collection import AgentSessionCollection
+from .agent_session_context import AgentSessionContext
+from .agent_session_summary import AgentSessionSummary
 from .aggregated_data_point import AggregatedDataPoint
-from .aggregated_time_series_data_point import AggregatedTimeSeriesDataPoint
+from .ai_compute import AiCompute
 from .ai_compute_override_item import AiComputeOverrideItem
 from .ai_data_platform import AiDataPlatform
 from .ai_model import AiModel
@@ -61,7 +60,7 @@ from .alh_table_summary import AlhTableSummary
 from .allowed_tool_details import AllowedToolDetails
 from .artifact_file_info import ArtifactFileInfo
 from .artifact_list import ArtifactList
-from .assign_agent_flow_permission_details import AssignAgentFlowPermissionDetails
+from .assign_agent_permission_details import AssignAgentPermissionDetails
 from .assign_catalog_permission_details import AssignCatalogPermissionDetails
 from .assign_cluster_permission_details import AssignClusterPermissionDetails
 from .assign_create_workspace_permission_details import AssignCreateWorkspacePermissionDetails
@@ -86,7 +85,6 @@ from .atp_schema import AtpSchema
 from .atp_schema_summary import AtpSchemaSummary
 from .atp_table import AtpTable
 from .atp_table_summary import AtpTableSummary
-from .attach_compute_details import AttachComputeDetails
 from .attach_master_catalog_to_cluster_details import AttachMasterCatalogToClusterDetails
 from .attach_to_notebook_config import AttachToNotebookConfig
 from .attach_workspace_object_to_cluster_details import AttachWorkspaceObjectToClusterDetails
@@ -117,6 +115,8 @@ from .category_config import CategoryConfig
 from .chat_message import ChatMessage
 from .checkout_branch_details import CheckoutBranchDetails
 from .clear_outputs_details import ClearOutputsDetails
+from .clear_tool_uses_context_management_details import ClearToolUsesContextManagementDetails
+from .clear_tool_uses_context_management_rule import ClearToolUsesContextManagementRule
 from .cluster import Cluster
 from .cluster_collection import ClusterCollection
 from .cluster_event import ClusterEvent
@@ -142,25 +142,33 @@ from .content import Content
 from .content_moderation_category_config import ContentModerationCategoryConfig
 from .content_moderation_config import ContentModerationConfig
 from .content_moderation_policy import ContentModerationPolicy
+from .context_management_configuration import ContextManagementConfiguration
+from .context_management_rule import ContextManagementRule
 from .continuous import Continuous
-from .copy_agent_flow_details import CopyAgentFlowDetails
+from .copy_agent_details import CopyAgentDetails
 from .copy_workspace_object_details import CopyWorkspaceObjectDetails
 from .create_admin_setting_details import CreateAdminSettingDetails
-from .create_agent_flow_compute_details import CreateAgentFlowComputeDetails
-from .create_agent_flow_details import CreateAgentFlowDetails
-from .create_agent_flow_edge_details import CreateAgentFlowEdgeDetails
-from .create_agent_flow_node_details import CreateAgentFlowNodeDetails
-from .create_agent_flow_session_details import CreateAgentFlowSessionDetails
-from .create_agent_node_details import CreateAgentNodeDetails
+from .create_agent_details import CreateAgentDetails
+from .create_agent_diagram_agent_node_details import CreateAgentDiagramAgentNodeDetails
+from .create_agent_diagram_custom_tool_node_details import CreateAgentDiagramCustomToolNodeDetails
+from .create_agent_diagram_http_tool_node_details import CreateAgentDiagramHttpToolNodeDetails
+from .create_agent_diagram_mcp_tool_node_details import CreateAgentDiagramMcpToolNodeDetails
+from .create_agent_diagram_node_details import CreateAgentDiagramNodeDetails
+from .create_agent_diagram_prompt_tool_node_details import CreateAgentDiagramPromptToolNodeDetails
+from .create_agent_diagram_rag_tool_node_details import CreateAgentDiagramRagToolNodeDetails
+from .create_agent_diagram_sql_tool_node_details import CreateAgentDiagramSqlToolNodeDetails
+from .create_agent_edge_details import CreateAgentEdgeDetails
+from .create_agent_session_details import CreateAgentSessionDetails
+from .create_ai_compute_details import CreateAiComputeDetails
 from .create_bundle_details import CreateBundleDetails
 from .create_catalog_details import CreateCatalogDetails
 from .create_cluster_details import CreateClusterDetails
 from .create_connection_details import CreateConnectionDetails
 from .create_content_details import CreateContentDetails
 from .create_custom_tool_details import CreateCustomToolDetails
-from .create_custom_tool_node_details import CreateCustomToolNodeDetails
 from .create_data_lake_credential_details import CreateDataLakeCredentialDetails
 from .create_data_table_details import CreateDataTableDetails
+from .create_dfl_compute_details import CreateDflComputeDetails
 from .create_experiment_details import CreateExperimentDetails
 from .create_experiment_response_details import CreateExperimentResponseDetails
 from .create_experiment_run_details import CreateExperimentRunDetails
@@ -169,22 +177,19 @@ from .create_git_branch import CreateGitBranch
 from .create_git_branch_details import CreateGitBranchDetails
 from .create_git_folder_details import CreateGitFolderDetails
 from .create_http_tool_details import CreateHttpToolDetails
-from .create_http_tool_node_details import CreateHttpToolNodeDetails
 from .create_job_details import CreateJobDetails
 from .create_job_run_details import CreateJobRunDetails
 from .create_knowledge_base_details import CreateKnowledgeBaseDetails
 from .create_knowledge_base_job_details import CreateKnowledgeBaseJobDetails
 from .create_knowledge_base_job_run_details import CreateKnowledgeBaseJobRunDetails
 from .create_master_catalog_details import CreateMasterCatalogDetails
-from .create_mcp_tool_node_details import CreateMcpToolNodeDetails
 from .create_model_version_details import CreateModelVersionDetails
 from .create_model_version_response_details import CreateModelVersionResponseDetails
 from .create_nl_to_sql_tool_details import CreateNlToSqlToolDetails
+from .create_ontology_project_details import CreateOntologyProjectDetails
 from .create_or_update_bundle_overrides_details import CreateOrUpdateBundleOverridesDetails
 from .create_prompt_tool_details import CreatePromptToolDetails
-from .create_prompt_tool_node_details import CreatePromptToolNodeDetails
 from .create_rag_tool_details import CreateRagToolDetails
-from .create_rag_tool_node_details import CreateRagToolNodeDetails
 from .create_recipient_details import CreateRecipientDetails
 from .create_registered_model_details import CreateRegisteredModelDetails
 from .create_registered_model_response_details import CreateRegisteredModelResponseDetails
@@ -195,7 +200,6 @@ from .create_setting_details import CreateSettingDetails
 from .create_share_details import CreateShareDetails
 from .create_spark_cluster_details import CreateSparkClusterDetails
 from .create_sql_tool_details import CreateSqlToolDetails
-from .create_sql_tool_node_details import CreateSqlToolNodeDetails
 from .create_table_details import CreateTableDetails
 from .create_tool_details import CreateToolDetails
 from .create_user_setting_details import CreateUserSettingDetails
@@ -219,7 +223,6 @@ from .custom_test_tool_result import CustomTestToolResult
 from .custom_tool import CustomTool
 from .custom_tool_configuration import CustomToolConfiguration
 from .custom_tool_entry import CustomToolEntry
-from .custom_tool_node import CustomToolNode
 from .dac_endpoint_collection import DacEndpointCollection
 from .dac_endpoint_summary import DacEndpointSummary
 from .data_lake import DataLake
@@ -250,10 +253,10 @@ from .denied_topic import DeniedTopic
 from .denied_topics_policy import DeniedTopicsPolicy
 from .dependency import Dependency
 from .depends_on import DependsOn
-from .deploy_agent_flow_details import DeployAgentFlowDetails
+from .deploy_agent_details import DeployAgentDetails
 from .deploy_bundle_details import DeployBundleDetails
-from .detach_compute_details import DetachComputeDetails
 from .detach_workspace_object_from_cluster_details import DetachWorkspaceObjectFromClusterDetails
+from .dfl_compute_status_result import DflComputeStatusResult
 from .download_cluster_logs_details import DownloadClusterLogsDetails
 from .download_file_with_par_result import DownloadFileWithParResult
 from .driver_config import DriverConfig
@@ -285,7 +288,6 @@ from .export_task_run_output_details import ExportTaskRunOutputDetails
 from .exported_contents import ExportedContents
 from .exported_task_run_output_contents import ExportedTaskRunOutputContents
 from .expression import Expression
-from .external_agent_node import ExternalAgentNode
 from .external_catalog_migration_result import ExternalCatalogMigrationResult
 from .external_table_definition import ExternalTableDefinition
 from .feature import Feature
@@ -313,7 +315,6 @@ from .git_diff_detail import GitDiffDetail
 from .git_diff_summary import GitDiffSummary
 from .git_diff_summary_collection import GitDiffSummaryCollection
 from .git_folder import GitFolder
-from .git_folder_metadatum import GitFolderMetadatum
 from .git_merge_details import GitMergeDetails
 from .git_operation_state import GitOperationState
 from .git_pull_details import GitPullDetails
@@ -321,9 +322,7 @@ from .git_rebase_details import GitRebaseDetails
 from .git_repair_work_tree_details import GitRepairWorkTreeDetails
 from .git_repository import GitRepository
 from .git_reset_details import GitResetDetails
-from .git_restore_branch_details import GitRestoreBranchDetails
 from .grouped_search_criteria import GroupedSearchCriteria
-from .guardrail_node import GuardrailNode
 from .guardrails_configuration import GuardrailsConfiguration
 from .history_collection import HistoryCollection
 from .history_summary import HistorySummary
@@ -331,8 +330,6 @@ from .http_result import HttpResult
 from .http_test_tool_result import HttpTestToolResult
 from .http_tool import HttpTool
 from .http_tool_configuration import HttpToolConfiguration
-from .http_tool_node import HttpToolNode
-from .human_in_the_loop_node import HumanInTheLoopNode
 from .iam_user_credential_user_setting import IamUserCredentialUserSetting
 from .identity_domain_collection import IdentityDomainCollection
 from .identity_domain_summary import IdentityDomainSummary
@@ -369,7 +366,6 @@ from .kb_v_ivf_index_details import KbVIvfIndexDetails
 from .kernel import Kernel
 from .kernel_collection import KernelCollection
 from .kernel_summary import KernelSummary
-from .keyed_time_series import KeyedTimeSeries
 from .knowledge_base import KnowledgeBase
 from .knowledge_base_collection import KnowledgeBaseCollection
 from .knowledge_base_job import KnowledgeBaseJob
@@ -409,7 +405,7 @@ from .logged_model_info import LoggedModelInfo
 from .logged_model_order import LoggedModelOrder
 from .logged_model_tag import LoggedModelTag
 from .logging_config import LoggingConfig
-from .manage_agent_flow_permission_details import ManageAgentFlowPermissionDetails
+from .manage_agent_permission_details import ManageAgentPermissionDetails
 from .manage_audit_logs_details import ManageAuditLogsDetails
 from .manage_catalog_permission_details import ManageCatalogPermissionDetails
 from .manage_cluster_permission_details import ManageClusterPermissionDetails
@@ -443,7 +439,6 @@ from .mcp_result import McpResult
 from .mcp_test_tool_result import McpTestToolResult
 from .mcp_tool import McpTool
 from .mcp_tool_configuration import McpToolConfiguration
-from .mcp_tool_node import McpToolNode
 from .mcp_tool_object import McpToolObject
 from .memory_configuration import MemoryConfiguration
 from .memory_limit_configuration import MemoryLimitConfiguration
@@ -467,7 +462,10 @@ from .model_version_tag_key import ModelVersionTagKey
 from .models_collection import ModelsCollection
 from .modify_content_details import ModifyContentDetails
 from .move_workspace_object_details import MoveWorkspaceObjectDetails
-from .nested_agent_flow_node import NestedAgentFlowNode
+from .mysql_schema import MysqlSchema
+from .mysql_schema_summary import MysqlSchemaSummary
+from .mysql_table import MysqlTable
+from .mysql_table_summary import MysqlTableSummary
 from .new_cluster_configuration import NewClusterConfiguration
 from .nl_to_sql_tool import NlToSqlTool
 from .nl_to_sql_tool_configuration import NlToSqlToolConfiguration
@@ -482,6 +480,8 @@ from .notify_cluster_event_handler_details import NotifyClusterEventHandlerDetai
 from .o_auth import OAuth
 from .o_auth_admin_setting import OAuthAdminSetting
 from .o_auth_configuration import OAuthConfiguration
+from .oac_child_item_collection import OacChildItemCollection
+from .oac_child_item_summary import OacChildItemSummary
 from .oac_schema import OacSchema
 from .oac_schema_summary import OacSchemaSummary
 from .oac_table import OacTable
@@ -491,6 +491,8 @@ from .object_search_summary import ObjectSearchSummary
 from .object_suggest_summary import ObjectSuggestSummary
 from .oci_logging import OciLogging
 from .oci_resource_principal_auth import OciResourcePrincipalAuth
+from .ontology_project import OntologyProject
+from .ontology_project_collection import OntologyProjectCollection
 from .oracle_schema import OracleSchema
 from .oracle_schema_summary import OracleSchemaSummary
 from .oracle_table import OracleTable
@@ -506,9 +508,8 @@ from .permission_summary import PermissionSummary
 from .permission_with_resource_details import PermissionWithResourceDetails
 from .pii_category import PiiCategory
 from .pii_detection_policy import PiiDetectionPolicy
-from .playground_cache import PlaygroundCache
 from .point import Point
-from .preview_agent_flow_agent_card_details import PreviewAgentFlowAgentCardDetails
+from .preview_agent_card_details import PreviewAgentCardDetails
 from .principals_with_workspace_access_collection import PrincipalsWithWorkspaceAccessCollection
 from .principals_with_workspace_access_summary import PrincipalsWithWorkspaceAccessSummary
 from .prompt_attacks_prevention_policy import PromptAttacksPreventionPolicy
@@ -516,17 +517,17 @@ from .prompt_result import PromptResult
 from .prompt_test_tool_result import PromptTestToolResult
 from .prompt_tool import PromptTool
 from .prompt_tool_configuration import PromptToolConfiguration
-from .prompt_tool_node import PromptToolNode
 from .provision_user_schema_details import ProvisionUserSchemaDetails
 from .purge_bundle_details import PurgeBundleDetails
 from .python_task import PythonTask
+from .query_replica_ids_details import QueryReplicaIdsDetails
+from .query_replica_ids_result import QueryReplicaIdsResult
 from .queue import Queue
 from .rag_result import RagResult
 from .rag_test_tool_result import RagTestToolResult
 from .rag_tool import RagTool
 from .rag_tool_configuration import RagToolConfiguration
 from .rag_tool_input_schema import RagToolInputSchema
-from .rag_tool_node import RagToolNode
 from .range_filter import RangeFilter
 from .recent_resource_item import RecentResourceItem
 from .recent_search_results_collection import RecentSearchResultsCollection
@@ -550,6 +551,8 @@ from .rename_table_field_details import RenameTableFieldDetails
 from .rename_workspace_object_details import RenameWorkspaceObjectDetails
 from .repair_history import RepairHistory
 from .repair_job_run_details import RepairJobRunDetails
+from .repair_task_details import RepairTaskDetails
+from .replica_config import ReplicaConfig
 from .reset_git_folder_state_details import ResetGitFolderStateDetails
 from .restart_cluster_details import RestartClusterDetails
 from .restore_experiment_details import RestoreExperimentDetails
@@ -557,7 +560,7 @@ from .restore_experiment_response_details import RestoreExperimentResponseDetail
 from .restore_experiment_run_details import RestoreExperimentRunDetails
 from .restore_experiment_run_response_details import RestoreExperimentRunResponseDetails
 from .retrieved_chunk import RetrievedChunk
-from .revoke_agent_flow_permission_details import RevokeAgentFlowPermissionDetails
+from .revoke_agent_permission_details import RevokeAgentPermissionDetails
 from .revoke_catalog_permission_details import RevokeCatalogPermissionDetails
 from .revoke_cluster_permission_details import RevokeClusterPermissionDetails
 from .revoke_create_workspace_permission_details import RevokeCreateWorkspacePermissionDetails
@@ -608,7 +611,6 @@ from .session_collection import SessionCollection
 from .session_configuration import SessionConfiguration
 from .session_retention_configuration import SessionRetentionConfiguration
 from .session_summary import SessionSummary
-from .session_variable import SessionVariable
 from .session_variable_details import SessionVariableDetails
 from .set_experiment_run_tag_details import SetExperimentRunTagDetails
 from .set_experiment_run_tag_response_details import SetExperimentRunTagResponseDetails
@@ -628,31 +630,35 @@ from .share_data_asset_summary import ShareDataAssetSummary
 from .share_permission_collection import SharePermissionCollection
 from .share_permission_summary import SharePermissionSummary
 from .share_summary import ShareSummary
+from .snowflake_schema import SnowflakeSchema
+from .snowflake_schema_summary import SnowflakeSchemaSummary
+from .snowflake_table import SnowflakeTable
+from .snowflake_table_summary import SnowflakeTableSummary
 from .sort_details import SortDetails
 from .span_details import SpanDetails
 from .span_status import SpanStatus
 from .spark_cluster import SparkCluster
 from .spark_runtime_config import SparkRuntimeConfig
 from .sql_result import SqlResult
+from .sql_server_on_azure_schema import SqlServerOnAzureSchema
+from .sql_server_on_azure_schema_summary import SqlServerOnAzureSchemaSummary
+from .sql_server_on_azure_table import SqlServerOnAzureTable
+from .sql_server_on_azure_table_summary import SqlServerOnAzureTableSummary
 from .sql_test_tool_result import SqlTestToolResult
 from .sql_tool import SqlTool
 from .sql_tool_configuration import SqlToolConfiguration
-from .sql_tool_node import SqlToolNode
 from .standard_schema import StandardSchema
 from .standard_schema_summary import StandardSchemaSummary
 from .standard_table import StandardTable
 from .standard_table_summary import StandardTableSummary
 from .start_cluster_details import StartClusterDetails
-from .start_node import StartNode
 from .state import State
-from .stop_agent_flow_session_details import StopAgentFlowSessionDetails
 from .stop_cluster_details import StopClusterDetails
 from .subscription_details import SubscriptionDetails
 from .suggest_criteria import SuggestCriteria
 from .suggest_results_collection import SuggestResultsCollection
 from .summarize_metrics_data_details import SummarizeMetricsDataDetails
 from .summarize_metrics_response import SummarizeMetricsResponse
-from .supervisor_agent_node import SupervisorAgentNode
 from .sync_bundle_details import SyncBundleDetails
 from .table import Table
 from .table_collection import TableCollection
@@ -694,21 +700,25 @@ from .transition_model_version_stage_response_details import TransitionModelVers
 from .txt_file_definition import TxtFileDefinition
 from .uninstall_cluster_library_details import UninstallClusterLibraryDetails
 from .update_admin_setting_details import UpdateAdminSettingDetails
-from .update_agent_flow_compute_details import UpdateAgentFlowComputeDetails
-from .update_agent_flow_deployment_details import UpdateAgentFlowDeploymentDetails
-from .update_agent_flow_deployment_metadata_details import UpdateAgentFlowDeploymentMetadataDetails
-from .update_agent_flow_details import UpdateAgentFlowDetails
-from .update_agent_flow_node_details import UpdateAgentFlowNodeDetails
-from .update_agent_flow_session_details import UpdateAgentFlowSessionDetails
-from .update_agent_flow_session_playground_cache_details import UpdateAgentFlowSessionPlaygroundCacheDetails
-from .update_agent_node_details import UpdateAgentNodeDetails
+from .update_agent_deployment_details import UpdateAgentDeploymentDetails
+from .update_agent_deployment_metadata_details import UpdateAgentDeploymentMetadataDetails
+from .update_agent_details import UpdateAgentDetails
+from .update_agent_diagram_agent_node_details import UpdateAgentDiagramAgentNodeDetails
+from .update_agent_diagram_custom_tool_node_details import UpdateAgentDiagramCustomToolNodeDetails
+from .update_agent_diagram_http_tool_node_details import UpdateAgentDiagramHttpToolNodeDetails
+from .update_agent_diagram_mcp_tool_node_details import UpdateAgentDiagramMcpToolNodeDetails
+from .update_agent_diagram_node_details import UpdateAgentDiagramNodeDetails
+from .update_agent_diagram_prompt_tool_node_details import UpdateAgentDiagramPromptToolNodeDetails
+from .update_agent_diagram_rag_tool_node_details import UpdateAgentDiagramRagToolNodeDetails
+from .update_agent_diagram_sql_tool_node_details import UpdateAgentDiagramSqlToolNodeDetails
+from .update_agent_session_details import UpdateAgentSessionDetails
+from .update_ai_compute_details import UpdateAiComputeDetails
 from .update_catalog_details import UpdateCatalogDetails
 from .update_cluster_async_operation_status_details import UpdateClusterAsyncOperationStatusDetails
 from .update_cluster_details import UpdateClusterDetails
 from .update_connection_details import UpdateConnectionDetails
 from .update_content_details import UpdateContentDetails
 from .update_custom_tool_details import UpdateCustomToolDetails
-from .update_custom_tool_node_details import UpdateCustomToolNodeDetails
 from .update_data_lake_credential_details import UpdateDataLakeCredentialDetails
 from .update_dir_details import UpdateDirDetails
 from .update_experiment_details import UpdateExperimentDetails
@@ -722,7 +732,6 @@ from .update_experiment_tags_response_details import UpdateExperimentTagsRespons
 from .update_file_metadata_details import UpdateFileMetadataDetails
 from .update_git_repository_details import UpdateGitRepositoryDetails
 from .update_http_tool_details import UpdateHttpToolDetails
-from .update_http_tool_node_details import UpdateHttpToolNodeDetails
 from .update_job_details import UpdateJobDetails
 from .update_knowledge_base_add_source_details import UpdateKnowledgeBaseAddSourceDetails
 from .update_knowledge_base_delete_source_details import UpdateKnowledgeBaseDeleteSourceDetails
@@ -731,16 +740,14 @@ from .update_knowledge_base_metadata_update_details import UpdateKnowledgeBaseMe
 from .update_knowledge_base_source_update_details import UpdateKnowledgeBaseSourceUpdateDetails
 from .update_knowledge_base_source_update_details_item import UpdateKnowledgeBaseSourceUpdateDetailsItem
 from .update_master_catalog_details import UpdateMasterCatalogDetails
-from .update_mcp_tool_node_details import UpdateMcpToolNodeDetails
 from .update_model_version_details import UpdateModelVersionDetails
 from .update_model_version_response_details import UpdateModelVersionResponseDetails
 from .update_model_version_tags_details import UpdateModelVersionTagsDetails
 from .update_model_version_tags_response_details import UpdateModelVersionTagsResponseDetails
 from .update_nl_to_sql_tool_details import UpdateNlToSqlToolDetails
+from .update_ontology_project_details import UpdateOntologyProjectDetails
 from .update_prompt_tool_details import UpdatePromptToolDetails
-from .update_prompt_tool_node_details import UpdatePromptToolNodeDetails
 from .update_rag_tool_details import UpdateRagToolDetails
-from .update_rag_tool_node_details import UpdateRagToolNodeDetails
 from .update_recipient_details import UpdateRecipientDetails
 from .update_registered_model_details import UpdateRegisteredModelDetails
 from .update_registered_model_response_details import UpdateRegisteredModelResponseDetails
@@ -752,7 +759,6 @@ from .update_setting_details import UpdateSettingDetails
 from .update_share_details import UpdateShareDetails
 from .update_spark_cluster_details import UpdateSparkClusterDetails
 from .update_sql_tool_details import UpdateSqlToolDetails
-from .update_sql_tool_node_details import UpdateSqlToolNodeDetails
 from .update_table_details import UpdateTableDetails
 from .update_table_field_details import UpdateTableFieldDetails
 from .update_tool_details import UpdateToolDetails
@@ -766,8 +772,7 @@ from .upload_file_with_par_result import UploadFileWithParResult
 from .user_setting import UserSetting
 from .user_setting_collection import UserSettingCollection
 from .user_setting_summary import UserSettingSummary
-from .validate_agent_flow_diagram_details import ValidateAgentFlowDiagramDetails
-from .validate_agent_flow_response import ValidateAgentFlowResponse
+from .validate_agent_response import ValidateAgentResponse
 from .validate_bundle_details import ValidateBundleDetails
 from .validate_view_sql_details import ValidateViewSqlDetails
 from .validation_error import ValidationError
@@ -820,43 +825,42 @@ aidataplatform_dp_type_mapping = {
     "AdwSchemaSummary": AdwSchemaSummary,
     "AdwTable": AdwTable,
     "AdwTableSummary": AdwTableSummary,
+    "Agent": Agent,
     "AgentCardCapabilitiesDetail": AgentCardCapabilitiesDetail,
     "AgentCardConfigDetail": AgentCardConfigDetail,
     "AgentCardPreviewResponse": AgentCardPreviewResponse,
     "AgentCardSkillDetail": AgentCardSkillDetail,
-    "AgentFlow": AgentFlow,
-    "AgentFlowAttachment": AgentFlowAttachment,
-    "AgentFlowCollection": AgentFlowCollection,
-    "AgentFlowCompute": AgentFlowCompute,
-    "AgentFlowDependency": AgentFlowDependency,
-    "AgentFlowDependencyItem": AgentFlowDependencyItem,
-    "AgentFlowDeployment": AgentFlowDeployment,
-    "AgentFlowDeploymentCollection": AgentFlowDeploymentCollection,
-    "AgentFlowDeploymentSummary": AgentFlowDeploymentSummary,
-    "AgentFlowDetachment": AgentFlowDetachment,
-    "AgentFlowDiagram": AgentFlowDiagram,
-    "AgentFlowEdge": AgentFlowEdge,
-    "AgentFlowGuardrailsCollection": AgentFlowGuardrailsCollection,
-    "AgentFlowGuardrailsSummary": AgentFlowGuardrailsSummary,
-    "AgentFlowNode": AgentFlowNode,
-    "AgentFlowPermissionCollection": AgentFlowPermissionCollection,
-    "AgentFlowPermissionSummary": AgentFlowPermissionSummary,
-    "AgentFlowSession": AgentFlowSession,
-    "AgentFlowSessionCollection": AgentFlowSessionCollection,
-    "AgentFlowSessionContext": AgentFlowSessionContext,
-    "AgentFlowSessionMetric": AgentFlowSessionMetric,
-    "AgentFlowSessionMetricsRange": AgentFlowSessionMetricsRange,
-    "AgentFlowSessionSummary": AgentFlowSessionSummary,
-    "AgentFlowSummary": AgentFlowSummary,
-    "AgentFlowValidationIssue": AgentFlowValidationIssue,
-    "AgentFlowValidationMetadata": AgentFlowValidationMetadata,
-    "AgentFlowValidationOptions": AgentFlowValidationOptions,
-    "AgentFlowValidationResult": AgentFlowValidationResult,
-    "AgentFlowValidationSummary": AgentFlowValidationSummary,
-    "AgentNode": AgentNode,
+    "AgentCollection": AgentCollection,
+    "AgentDependency": AgentDependency,
+    "AgentDependencyItem": AgentDependencyItem,
+    "AgentDeployment": AgentDeployment,
+    "AgentDeploymentCollection": AgentDeploymentCollection,
+    "AgentDeploymentSummary": AgentDeploymentSummary,
+    "AgentDiagram": AgentDiagram,
+    "AgentDiagramAgentNode": AgentDiagramAgentNode,
+    "AgentDiagramCustomToolNode": AgentDiagramCustomToolNode,
+    "AgentDiagramGuardrailNode": AgentDiagramGuardrailNode,
+    "AgentDiagramHttpToolNode": AgentDiagramHttpToolNode,
+    "AgentDiagramMcpToolNode": AgentDiagramMcpToolNode,
+    "AgentDiagramNode": AgentDiagramNode,
+    "AgentDiagramPromptToolNode": AgentDiagramPromptToolNode,
+    "AgentDiagramRagToolNode": AgentDiagramRagToolNode,
+    "AgentDiagramSqlToolNode": AgentDiagramSqlToolNode,
+    "AgentDiagramStartNode": AgentDiagramStartNode,
+    "AgentDiagramSupervisorAgentNode": AgentDiagramSupervisorAgentNode,
+    "AgentEdge": AgentEdge,
+    "AgentGuardrailsCollection": AgentGuardrailsCollection,
+    "AgentGuardrailsSummary": AgentGuardrailsSummary,
+    "AgentInfo": AgentInfo,
+    "AgentPermissionCollection": AgentPermissionCollection,
+    "AgentPermissionSummary": AgentPermissionSummary,
     "AgentProvider": AgentProvider,
+    "AgentSession": AgentSession,
+    "AgentSessionCollection": AgentSessionCollection,
+    "AgentSessionContext": AgentSessionContext,
+    "AgentSessionSummary": AgentSessionSummary,
     "AggregatedDataPoint": AggregatedDataPoint,
-    "AggregatedTimeSeriesDataPoint": AggregatedTimeSeriesDataPoint,
+    "AiCompute": AiCompute,
     "AiComputeOverrideItem": AiComputeOverrideItem,
     "AiDataPlatform": AiDataPlatform,
     "AiModel": AiModel,
@@ -868,7 +872,7 @@ aidataplatform_dp_type_mapping = {
     "AllowedToolDetails": AllowedToolDetails,
     "ArtifactFileInfo": ArtifactFileInfo,
     "ArtifactList": ArtifactList,
-    "AssignAgentFlowPermissionDetails": AssignAgentFlowPermissionDetails,
+    "AssignAgentPermissionDetails": AssignAgentPermissionDetails,
     "AssignCatalogPermissionDetails": AssignCatalogPermissionDetails,
     "AssignClusterPermissionDetails": AssignClusterPermissionDetails,
     "AssignCreateWorkspacePermissionDetails": AssignCreateWorkspacePermissionDetails,
@@ -893,7 +897,6 @@ aidataplatform_dp_type_mapping = {
     "AtpSchemaSummary": AtpSchemaSummary,
     "AtpTable": AtpTable,
     "AtpTableSummary": AtpTableSummary,
-    "AttachComputeDetails": AttachComputeDetails,
     "AttachMasterCatalogToClusterDetails": AttachMasterCatalogToClusterDetails,
     "AttachToNotebookConfig": AttachToNotebookConfig,
     "AttachWorkspaceObjectToClusterDetails": AttachWorkspaceObjectToClusterDetails,
@@ -924,6 +927,8 @@ aidataplatform_dp_type_mapping = {
     "ChatMessage": ChatMessage,
     "CheckoutBranchDetails": CheckoutBranchDetails,
     "ClearOutputsDetails": ClearOutputsDetails,
+    "ClearToolUsesContextManagementDetails": ClearToolUsesContextManagementDetails,
+    "ClearToolUsesContextManagementRule": ClearToolUsesContextManagementRule,
     "Cluster": Cluster,
     "ClusterCollection": ClusterCollection,
     "ClusterEvent": ClusterEvent,
@@ -949,25 +954,33 @@ aidataplatform_dp_type_mapping = {
     "ContentModerationCategoryConfig": ContentModerationCategoryConfig,
     "ContentModerationConfig": ContentModerationConfig,
     "ContentModerationPolicy": ContentModerationPolicy,
+    "ContextManagementConfiguration": ContextManagementConfiguration,
+    "ContextManagementRule": ContextManagementRule,
     "Continuous": Continuous,
-    "CopyAgentFlowDetails": CopyAgentFlowDetails,
+    "CopyAgentDetails": CopyAgentDetails,
     "CopyWorkspaceObjectDetails": CopyWorkspaceObjectDetails,
     "CreateAdminSettingDetails": CreateAdminSettingDetails,
-    "CreateAgentFlowComputeDetails": CreateAgentFlowComputeDetails,
-    "CreateAgentFlowDetails": CreateAgentFlowDetails,
-    "CreateAgentFlowEdgeDetails": CreateAgentFlowEdgeDetails,
-    "CreateAgentFlowNodeDetails": CreateAgentFlowNodeDetails,
-    "CreateAgentFlowSessionDetails": CreateAgentFlowSessionDetails,
-    "CreateAgentNodeDetails": CreateAgentNodeDetails,
+    "CreateAgentDetails": CreateAgentDetails,
+    "CreateAgentDiagramAgentNodeDetails": CreateAgentDiagramAgentNodeDetails,
+    "CreateAgentDiagramCustomToolNodeDetails": CreateAgentDiagramCustomToolNodeDetails,
+    "CreateAgentDiagramHttpToolNodeDetails": CreateAgentDiagramHttpToolNodeDetails,
+    "CreateAgentDiagramMcpToolNodeDetails": CreateAgentDiagramMcpToolNodeDetails,
+    "CreateAgentDiagramNodeDetails": CreateAgentDiagramNodeDetails,
+    "CreateAgentDiagramPromptToolNodeDetails": CreateAgentDiagramPromptToolNodeDetails,
+    "CreateAgentDiagramRagToolNodeDetails": CreateAgentDiagramRagToolNodeDetails,
+    "CreateAgentDiagramSqlToolNodeDetails": CreateAgentDiagramSqlToolNodeDetails,
+    "CreateAgentEdgeDetails": CreateAgentEdgeDetails,
+    "CreateAgentSessionDetails": CreateAgentSessionDetails,
+    "CreateAiComputeDetails": CreateAiComputeDetails,
     "CreateBundleDetails": CreateBundleDetails,
     "CreateCatalogDetails": CreateCatalogDetails,
     "CreateClusterDetails": CreateClusterDetails,
     "CreateConnectionDetails": CreateConnectionDetails,
     "CreateContentDetails": CreateContentDetails,
     "CreateCustomToolDetails": CreateCustomToolDetails,
-    "CreateCustomToolNodeDetails": CreateCustomToolNodeDetails,
     "CreateDataLakeCredentialDetails": CreateDataLakeCredentialDetails,
     "CreateDataTableDetails": CreateDataTableDetails,
+    "CreateDflComputeDetails": CreateDflComputeDetails,
     "CreateExperimentDetails": CreateExperimentDetails,
     "CreateExperimentResponseDetails": CreateExperimentResponseDetails,
     "CreateExperimentRunDetails": CreateExperimentRunDetails,
@@ -976,22 +989,19 @@ aidataplatform_dp_type_mapping = {
     "CreateGitBranchDetails": CreateGitBranchDetails,
     "CreateGitFolderDetails": CreateGitFolderDetails,
     "CreateHttpToolDetails": CreateHttpToolDetails,
-    "CreateHttpToolNodeDetails": CreateHttpToolNodeDetails,
     "CreateJobDetails": CreateJobDetails,
     "CreateJobRunDetails": CreateJobRunDetails,
     "CreateKnowledgeBaseDetails": CreateKnowledgeBaseDetails,
     "CreateKnowledgeBaseJobDetails": CreateKnowledgeBaseJobDetails,
     "CreateKnowledgeBaseJobRunDetails": CreateKnowledgeBaseJobRunDetails,
     "CreateMasterCatalogDetails": CreateMasterCatalogDetails,
-    "CreateMcpToolNodeDetails": CreateMcpToolNodeDetails,
     "CreateModelVersionDetails": CreateModelVersionDetails,
     "CreateModelVersionResponseDetails": CreateModelVersionResponseDetails,
     "CreateNlToSqlToolDetails": CreateNlToSqlToolDetails,
+    "CreateOntologyProjectDetails": CreateOntologyProjectDetails,
     "CreateOrUpdateBundleOverridesDetails": CreateOrUpdateBundleOverridesDetails,
     "CreatePromptToolDetails": CreatePromptToolDetails,
-    "CreatePromptToolNodeDetails": CreatePromptToolNodeDetails,
     "CreateRagToolDetails": CreateRagToolDetails,
-    "CreateRagToolNodeDetails": CreateRagToolNodeDetails,
     "CreateRecipientDetails": CreateRecipientDetails,
     "CreateRegisteredModelDetails": CreateRegisteredModelDetails,
     "CreateRegisteredModelResponseDetails": CreateRegisteredModelResponseDetails,
@@ -1002,7 +1012,6 @@ aidataplatform_dp_type_mapping = {
     "CreateShareDetails": CreateShareDetails,
     "CreateSparkClusterDetails": CreateSparkClusterDetails,
     "CreateSqlToolDetails": CreateSqlToolDetails,
-    "CreateSqlToolNodeDetails": CreateSqlToolNodeDetails,
     "CreateTableDetails": CreateTableDetails,
     "CreateToolDetails": CreateToolDetails,
     "CreateUserSettingDetails": CreateUserSettingDetails,
@@ -1026,7 +1035,6 @@ aidataplatform_dp_type_mapping = {
     "CustomTool": CustomTool,
     "CustomToolConfiguration": CustomToolConfiguration,
     "CustomToolEntry": CustomToolEntry,
-    "CustomToolNode": CustomToolNode,
     "DacEndpointCollection": DacEndpointCollection,
     "DacEndpointSummary": DacEndpointSummary,
     "DataLake": DataLake,
@@ -1057,10 +1065,10 @@ aidataplatform_dp_type_mapping = {
     "DeniedTopicsPolicy": DeniedTopicsPolicy,
     "Dependency": Dependency,
     "DependsOn": DependsOn,
-    "DeployAgentFlowDetails": DeployAgentFlowDetails,
+    "DeployAgentDetails": DeployAgentDetails,
     "DeployBundleDetails": DeployBundleDetails,
-    "DetachComputeDetails": DetachComputeDetails,
     "DetachWorkspaceObjectFromClusterDetails": DetachWorkspaceObjectFromClusterDetails,
+    "DflComputeStatusResult": DflComputeStatusResult,
     "DownloadClusterLogsDetails": DownloadClusterLogsDetails,
     "DownloadFileWithParResult": DownloadFileWithParResult,
     "DriverConfig": DriverConfig,
@@ -1092,7 +1100,6 @@ aidataplatform_dp_type_mapping = {
     "ExportedContents": ExportedContents,
     "ExportedTaskRunOutputContents": ExportedTaskRunOutputContents,
     "Expression": Expression,
-    "ExternalAgentNode": ExternalAgentNode,
     "ExternalCatalogMigrationResult": ExternalCatalogMigrationResult,
     "ExternalTableDefinition": ExternalTableDefinition,
     "Feature": Feature,
@@ -1120,7 +1127,6 @@ aidataplatform_dp_type_mapping = {
     "GitDiffSummary": GitDiffSummary,
     "GitDiffSummaryCollection": GitDiffSummaryCollection,
     "GitFolder": GitFolder,
-    "GitFolderMetadatum": GitFolderMetadatum,
     "GitMergeDetails": GitMergeDetails,
     "GitOperationState": GitOperationState,
     "GitPullDetails": GitPullDetails,
@@ -1128,9 +1134,7 @@ aidataplatform_dp_type_mapping = {
     "GitRepairWorkTreeDetails": GitRepairWorkTreeDetails,
     "GitRepository": GitRepository,
     "GitResetDetails": GitResetDetails,
-    "GitRestoreBranchDetails": GitRestoreBranchDetails,
     "GroupedSearchCriteria": GroupedSearchCriteria,
-    "GuardrailNode": GuardrailNode,
     "GuardrailsConfiguration": GuardrailsConfiguration,
     "HistoryCollection": HistoryCollection,
     "HistorySummary": HistorySummary,
@@ -1138,8 +1142,6 @@ aidataplatform_dp_type_mapping = {
     "HttpTestToolResult": HttpTestToolResult,
     "HttpTool": HttpTool,
     "HttpToolConfiguration": HttpToolConfiguration,
-    "HttpToolNode": HttpToolNode,
-    "HumanInTheLoopNode": HumanInTheLoopNode,
     "IamUserCredentialUserSetting": IamUserCredentialUserSetting,
     "IdentityDomainCollection": IdentityDomainCollection,
     "IdentityDomainSummary": IdentityDomainSummary,
@@ -1176,7 +1178,6 @@ aidataplatform_dp_type_mapping = {
     "Kernel": Kernel,
     "KernelCollection": KernelCollection,
     "KernelSummary": KernelSummary,
-    "KeyedTimeSeries": KeyedTimeSeries,
     "KnowledgeBase": KnowledgeBase,
     "KnowledgeBaseCollection": KnowledgeBaseCollection,
     "KnowledgeBaseJob": KnowledgeBaseJob,
@@ -1216,7 +1217,7 @@ aidataplatform_dp_type_mapping = {
     "LoggedModelOrder": LoggedModelOrder,
     "LoggedModelTag": LoggedModelTag,
     "LoggingConfig": LoggingConfig,
-    "ManageAgentFlowPermissionDetails": ManageAgentFlowPermissionDetails,
+    "ManageAgentPermissionDetails": ManageAgentPermissionDetails,
     "ManageAuditLogsDetails": ManageAuditLogsDetails,
     "ManageCatalogPermissionDetails": ManageCatalogPermissionDetails,
     "ManageClusterPermissionDetails": ManageClusterPermissionDetails,
@@ -1250,7 +1251,6 @@ aidataplatform_dp_type_mapping = {
     "McpTestToolResult": McpTestToolResult,
     "McpTool": McpTool,
     "McpToolConfiguration": McpToolConfiguration,
-    "McpToolNode": McpToolNode,
     "McpToolObject": McpToolObject,
     "MemoryConfiguration": MemoryConfiguration,
     "MemoryLimitConfiguration": MemoryLimitConfiguration,
@@ -1274,7 +1274,10 @@ aidataplatform_dp_type_mapping = {
     "ModelsCollection": ModelsCollection,
     "ModifyContentDetails": ModifyContentDetails,
     "MoveWorkspaceObjectDetails": MoveWorkspaceObjectDetails,
-    "NestedAgentFlowNode": NestedAgentFlowNode,
+    "MysqlSchema": MysqlSchema,
+    "MysqlSchemaSummary": MysqlSchemaSummary,
+    "MysqlTable": MysqlTable,
+    "MysqlTableSummary": MysqlTableSummary,
     "NewClusterConfiguration": NewClusterConfiguration,
     "NlToSqlTool": NlToSqlTool,
     "NlToSqlToolConfiguration": NlToSqlToolConfiguration,
@@ -1289,6 +1292,8 @@ aidataplatform_dp_type_mapping = {
     "OAuth": OAuth,
     "OAuthAdminSetting": OAuthAdminSetting,
     "OAuthConfiguration": OAuthConfiguration,
+    "OacChildItemCollection": OacChildItemCollection,
+    "OacChildItemSummary": OacChildItemSummary,
     "OacSchema": OacSchema,
     "OacSchemaSummary": OacSchemaSummary,
     "OacTable": OacTable,
@@ -1298,6 +1303,8 @@ aidataplatform_dp_type_mapping = {
     "ObjectSuggestSummary": ObjectSuggestSummary,
     "OciLogging": OciLogging,
     "OciResourcePrincipalAuth": OciResourcePrincipalAuth,
+    "OntologyProject": OntologyProject,
+    "OntologyProjectCollection": OntologyProjectCollection,
     "OracleSchema": OracleSchema,
     "OracleSchemaSummary": OracleSchemaSummary,
     "OracleTable": OracleTable,
@@ -1313,9 +1320,8 @@ aidataplatform_dp_type_mapping = {
     "PermissionWithResourceDetails": PermissionWithResourceDetails,
     "PiiCategory": PiiCategory,
     "PiiDetectionPolicy": PiiDetectionPolicy,
-    "PlaygroundCache": PlaygroundCache,
     "Point": Point,
-    "PreviewAgentFlowAgentCardDetails": PreviewAgentFlowAgentCardDetails,
+    "PreviewAgentCardDetails": PreviewAgentCardDetails,
     "PrincipalsWithWorkspaceAccessCollection": PrincipalsWithWorkspaceAccessCollection,
     "PrincipalsWithWorkspaceAccessSummary": PrincipalsWithWorkspaceAccessSummary,
     "PromptAttacksPreventionPolicy": PromptAttacksPreventionPolicy,
@@ -1323,17 +1329,17 @@ aidataplatform_dp_type_mapping = {
     "PromptTestToolResult": PromptTestToolResult,
     "PromptTool": PromptTool,
     "PromptToolConfiguration": PromptToolConfiguration,
-    "PromptToolNode": PromptToolNode,
     "ProvisionUserSchemaDetails": ProvisionUserSchemaDetails,
     "PurgeBundleDetails": PurgeBundleDetails,
     "PythonTask": PythonTask,
+    "QueryReplicaIdsDetails": QueryReplicaIdsDetails,
+    "QueryReplicaIdsResult": QueryReplicaIdsResult,
     "Queue": Queue,
     "RagResult": RagResult,
     "RagTestToolResult": RagTestToolResult,
     "RagTool": RagTool,
     "RagToolConfiguration": RagToolConfiguration,
     "RagToolInputSchema": RagToolInputSchema,
-    "RagToolNode": RagToolNode,
     "RangeFilter": RangeFilter,
     "RecentResourceItem": RecentResourceItem,
     "RecentSearchResultsCollection": RecentSearchResultsCollection,
@@ -1357,6 +1363,8 @@ aidataplatform_dp_type_mapping = {
     "RenameWorkspaceObjectDetails": RenameWorkspaceObjectDetails,
     "RepairHistory": RepairHistory,
     "RepairJobRunDetails": RepairJobRunDetails,
+    "RepairTaskDetails": RepairTaskDetails,
+    "ReplicaConfig": ReplicaConfig,
     "ResetGitFolderStateDetails": ResetGitFolderStateDetails,
     "RestartClusterDetails": RestartClusterDetails,
     "RestoreExperimentDetails": RestoreExperimentDetails,
@@ -1364,7 +1372,7 @@ aidataplatform_dp_type_mapping = {
     "RestoreExperimentRunDetails": RestoreExperimentRunDetails,
     "RestoreExperimentRunResponseDetails": RestoreExperimentRunResponseDetails,
     "RetrievedChunk": RetrievedChunk,
-    "RevokeAgentFlowPermissionDetails": RevokeAgentFlowPermissionDetails,
+    "RevokeAgentPermissionDetails": RevokeAgentPermissionDetails,
     "RevokeCatalogPermissionDetails": RevokeCatalogPermissionDetails,
     "RevokeClusterPermissionDetails": RevokeClusterPermissionDetails,
     "RevokeCreateWorkspacePermissionDetails": RevokeCreateWorkspacePermissionDetails,
@@ -1415,7 +1423,6 @@ aidataplatform_dp_type_mapping = {
     "SessionConfiguration": SessionConfiguration,
     "SessionRetentionConfiguration": SessionRetentionConfiguration,
     "SessionSummary": SessionSummary,
-    "SessionVariable": SessionVariable,
     "SessionVariableDetails": SessionVariableDetails,
     "SetExperimentRunTagDetails": SetExperimentRunTagDetails,
     "SetExperimentRunTagResponseDetails": SetExperimentRunTagResponseDetails,
@@ -1435,31 +1442,35 @@ aidataplatform_dp_type_mapping = {
     "SharePermissionCollection": SharePermissionCollection,
     "SharePermissionSummary": SharePermissionSummary,
     "ShareSummary": ShareSummary,
+    "SnowflakeSchema": SnowflakeSchema,
+    "SnowflakeSchemaSummary": SnowflakeSchemaSummary,
+    "SnowflakeTable": SnowflakeTable,
+    "SnowflakeTableSummary": SnowflakeTableSummary,
     "SortDetails": SortDetails,
     "SpanDetails": SpanDetails,
     "SpanStatus": SpanStatus,
     "SparkCluster": SparkCluster,
     "SparkRuntimeConfig": SparkRuntimeConfig,
     "SqlResult": SqlResult,
+    "SqlServerOnAzureSchema": SqlServerOnAzureSchema,
+    "SqlServerOnAzureSchemaSummary": SqlServerOnAzureSchemaSummary,
+    "SqlServerOnAzureTable": SqlServerOnAzureTable,
+    "SqlServerOnAzureTableSummary": SqlServerOnAzureTableSummary,
     "SqlTestToolResult": SqlTestToolResult,
     "SqlTool": SqlTool,
     "SqlToolConfiguration": SqlToolConfiguration,
-    "SqlToolNode": SqlToolNode,
     "StandardSchema": StandardSchema,
     "StandardSchemaSummary": StandardSchemaSummary,
     "StandardTable": StandardTable,
     "StandardTableSummary": StandardTableSummary,
     "StartClusterDetails": StartClusterDetails,
-    "StartNode": StartNode,
     "State": State,
-    "StopAgentFlowSessionDetails": StopAgentFlowSessionDetails,
     "StopClusterDetails": StopClusterDetails,
     "SubscriptionDetails": SubscriptionDetails,
     "SuggestCriteria": SuggestCriteria,
     "SuggestResultsCollection": SuggestResultsCollection,
     "SummarizeMetricsDataDetails": SummarizeMetricsDataDetails,
     "SummarizeMetricsResponse": SummarizeMetricsResponse,
-    "SupervisorAgentNode": SupervisorAgentNode,
     "SyncBundleDetails": SyncBundleDetails,
     "Table": Table,
     "TableCollection": TableCollection,
@@ -1501,21 +1512,25 @@ aidataplatform_dp_type_mapping = {
     "TxtFileDefinition": TxtFileDefinition,
     "UninstallClusterLibraryDetails": UninstallClusterLibraryDetails,
     "UpdateAdminSettingDetails": UpdateAdminSettingDetails,
-    "UpdateAgentFlowComputeDetails": UpdateAgentFlowComputeDetails,
-    "UpdateAgentFlowDeploymentDetails": UpdateAgentFlowDeploymentDetails,
-    "UpdateAgentFlowDeploymentMetadataDetails": UpdateAgentFlowDeploymentMetadataDetails,
-    "UpdateAgentFlowDetails": UpdateAgentFlowDetails,
-    "UpdateAgentFlowNodeDetails": UpdateAgentFlowNodeDetails,
-    "UpdateAgentFlowSessionDetails": UpdateAgentFlowSessionDetails,
-    "UpdateAgentFlowSessionPlaygroundCacheDetails": UpdateAgentFlowSessionPlaygroundCacheDetails,
-    "UpdateAgentNodeDetails": UpdateAgentNodeDetails,
+    "UpdateAgentDeploymentDetails": UpdateAgentDeploymentDetails,
+    "UpdateAgentDeploymentMetadataDetails": UpdateAgentDeploymentMetadataDetails,
+    "UpdateAgentDetails": UpdateAgentDetails,
+    "UpdateAgentDiagramAgentNodeDetails": UpdateAgentDiagramAgentNodeDetails,
+    "UpdateAgentDiagramCustomToolNodeDetails": UpdateAgentDiagramCustomToolNodeDetails,
+    "UpdateAgentDiagramHttpToolNodeDetails": UpdateAgentDiagramHttpToolNodeDetails,
+    "UpdateAgentDiagramMcpToolNodeDetails": UpdateAgentDiagramMcpToolNodeDetails,
+    "UpdateAgentDiagramNodeDetails": UpdateAgentDiagramNodeDetails,
+    "UpdateAgentDiagramPromptToolNodeDetails": UpdateAgentDiagramPromptToolNodeDetails,
+    "UpdateAgentDiagramRagToolNodeDetails": UpdateAgentDiagramRagToolNodeDetails,
+    "UpdateAgentDiagramSqlToolNodeDetails": UpdateAgentDiagramSqlToolNodeDetails,
+    "UpdateAgentSessionDetails": UpdateAgentSessionDetails,
+    "UpdateAiComputeDetails": UpdateAiComputeDetails,
     "UpdateCatalogDetails": UpdateCatalogDetails,
     "UpdateClusterAsyncOperationStatusDetails": UpdateClusterAsyncOperationStatusDetails,
     "UpdateClusterDetails": UpdateClusterDetails,
     "UpdateConnectionDetails": UpdateConnectionDetails,
     "UpdateContentDetails": UpdateContentDetails,
     "UpdateCustomToolDetails": UpdateCustomToolDetails,
-    "UpdateCustomToolNodeDetails": UpdateCustomToolNodeDetails,
     "UpdateDataLakeCredentialDetails": UpdateDataLakeCredentialDetails,
     "UpdateDirDetails": UpdateDirDetails,
     "UpdateExperimentDetails": UpdateExperimentDetails,
@@ -1529,7 +1544,6 @@ aidataplatform_dp_type_mapping = {
     "UpdateFileMetadataDetails": UpdateFileMetadataDetails,
     "UpdateGitRepositoryDetails": UpdateGitRepositoryDetails,
     "UpdateHttpToolDetails": UpdateHttpToolDetails,
-    "UpdateHttpToolNodeDetails": UpdateHttpToolNodeDetails,
     "UpdateJobDetails": UpdateJobDetails,
     "UpdateKnowledgeBaseAddSourceDetails": UpdateKnowledgeBaseAddSourceDetails,
     "UpdateKnowledgeBaseDeleteSourceDetails": UpdateKnowledgeBaseDeleteSourceDetails,
@@ -1538,16 +1552,14 @@ aidataplatform_dp_type_mapping = {
     "UpdateKnowledgeBaseSourceUpdateDetails": UpdateKnowledgeBaseSourceUpdateDetails,
     "UpdateKnowledgeBaseSourceUpdateDetailsItem": UpdateKnowledgeBaseSourceUpdateDetailsItem,
     "UpdateMasterCatalogDetails": UpdateMasterCatalogDetails,
-    "UpdateMcpToolNodeDetails": UpdateMcpToolNodeDetails,
     "UpdateModelVersionDetails": UpdateModelVersionDetails,
     "UpdateModelVersionResponseDetails": UpdateModelVersionResponseDetails,
     "UpdateModelVersionTagsDetails": UpdateModelVersionTagsDetails,
     "UpdateModelVersionTagsResponseDetails": UpdateModelVersionTagsResponseDetails,
     "UpdateNlToSqlToolDetails": UpdateNlToSqlToolDetails,
+    "UpdateOntologyProjectDetails": UpdateOntologyProjectDetails,
     "UpdatePromptToolDetails": UpdatePromptToolDetails,
-    "UpdatePromptToolNodeDetails": UpdatePromptToolNodeDetails,
     "UpdateRagToolDetails": UpdateRagToolDetails,
-    "UpdateRagToolNodeDetails": UpdateRagToolNodeDetails,
     "UpdateRecipientDetails": UpdateRecipientDetails,
     "UpdateRegisteredModelDetails": UpdateRegisteredModelDetails,
     "UpdateRegisteredModelResponseDetails": UpdateRegisteredModelResponseDetails,
@@ -1559,7 +1571,6 @@ aidataplatform_dp_type_mapping = {
     "UpdateShareDetails": UpdateShareDetails,
     "UpdateSparkClusterDetails": UpdateSparkClusterDetails,
     "UpdateSqlToolDetails": UpdateSqlToolDetails,
-    "UpdateSqlToolNodeDetails": UpdateSqlToolNodeDetails,
     "UpdateTableDetails": UpdateTableDetails,
     "UpdateTableFieldDetails": UpdateTableFieldDetails,
     "UpdateToolDetails": UpdateToolDetails,
@@ -1573,8 +1584,7 @@ aidataplatform_dp_type_mapping = {
     "UserSetting": UserSetting,
     "UserSettingCollection": UserSettingCollection,
     "UserSettingSummary": UserSettingSummary,
-    "ValidateAgentFlowDiagramDetails": ValidateAgentFlowDiagramDetails,
-    "ValidateAgentFlowResponse": ValidateAgentFlowResponse,
+    "ValidateAgentResponse": ValidateAgentResponse,
     "ValidateBundleDetails": ValidateBundleDetails,
     "ValidateViewSqlDetails": ValidateViewSqlDetails,
     "ValidationError": ValidationError,

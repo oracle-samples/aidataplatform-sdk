@@ -110,8 +110,8 @@ class SearchAuditLogsDetails(object):
     OBJECT_TYPE_CREDENTIAL = "CREDENTIAL"
 
     #: A constant which can be used with the object_type property of a SearchAuditLogsDetails.
-    #: This constant has a value of "AGENT_FLOW"
-    OBJECT_TYPE_AGENT_FLOW = "AGENT_FLOW"
+    #: This constant has a value of "AGENT"
+    OBJECT_TYPE_AGENT = "AGENT"
 
     #: A constant which can be used with the operation property of a SearchAuditLogsDetails.
     #: This constant has a value of "CREATE"
@@ -260,7 +260,7 @@ class SearchAuditLogsDetails(object):
 
         :param object_type:
             The value to assign to the object_type property of this SearchAuditLogsDetails.
-            Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW"
+            Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT"
         :type object_type: str
 
         :param object_name:
@@ -387,7 +387,7 @@ class SearchAuditLogsDetails(object):
         Gets the object_type of this SearchAuditLogsDetails.
         Type of object.
 
-        Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW"
+        Allowed values for this property are: "DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT"
 
 
         :return: The object_type of this SearchAuditLogsDetails.
@@ -405,7 +405,7 @@ class SearchAuditLogsDetails(object):
         :param object_type: The object_type of this SearchAuditLogsDetails.
         :type: str
         """
-        allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT_FLOW"]
+        allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT"]
         if not value_allowed_none_or_none_sentinel(object_type, allowed_values):
             raise ValueError(
                 "Invalid value for `object_type`, must be None or one of {0}"

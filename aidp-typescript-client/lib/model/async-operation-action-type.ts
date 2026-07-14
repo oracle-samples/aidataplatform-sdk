@@ -44,7 +44,7 @@ export enum AsyncOperationActionType {
     DeleteKnowledgeBaseJob = "DELETE_KNOWLEDGE_BASE_JOB",
     CreateKnowledgeBaseJob = "CREATE_KNOWLEDGE_BASE_JOB",
     CreateKnowledgeBaseJobRun = "CREATE_KNOWLEDGE_BASE_JOB_RUN",
-    DeployAgentFlow = "DEPLOY_AGENT_FLOW",
+    DeployAgent = "DEPLOY_AGENT",
     CreateGitFolder = "CREATE_GIT_FOLDER",
     UpdateGitRepository = "UPDATE_GIT_REPOSITORY",
     CreateBundle = "CREATE_BUNDLE",

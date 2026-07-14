@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* Word filters safety policy
+* Word filters safety policy.
 */
 export interface WordFiltersPolicy extends model.SafetyPolicy {
     /**
-    * List of banned words or regex patterns
+    * List of banned words or regex patterns.
     */
     'words'?: Array<string>;
     /**
-    * List of regex patterns to filter
+    * List of regex patterns to filter.
     */
     'regexPatterns'?: Array<string>;
 

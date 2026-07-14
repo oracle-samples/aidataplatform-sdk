@@ -28,7 +28,7 @@ export interface ListClustersRequest extends common.BaseRequest {
  */
  'displayNameContains'?: string;
 /**
- * Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only
+ * Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only
 * cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 * 
  */

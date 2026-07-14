@@ -74,7 +74,8 @@ class Tool(object):
 
         :param tool_type:
             The value to assign to the tool_type property of this Tool.
-            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
+            Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type tool_type: str
 
         :param position_x:
@@ -282,7 +283,8 @@ class Tool(object):
         Gets the tool_type of this Tool.
         Type of tool. Managed, external or mount tool.
 
-        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"
+        Allowed values for this property are: "RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The tool_type of this Tool.
@@ -302,10 +304,7 @@ class Tool(object):
         """
         allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
-            raise ValueError(
-                "Invalid value for `tool_type`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            tool_type = 'UNKNOWN_ENUM_VALUE'
         self._tool_type = tool_type
 
     @property

@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class RepairHistory  {
     @Deprecated
-    @java.beans.ConstructorProperties({"type", "key", "state", "startTime", "endTime", "taskToTaskRunMap", "parameters", "repairedTasks", "lifecycleStates", "executionDuration"})
-    public RepairHistory(Type type, Integer key, State state, Long startTime, Long endTime, java.util.Map<String, String> taskToTaskRunMap, java.util.List<Parameter> parameters, java.util.List<String> repairedTasks, java.util.List<LifecycleState> lifecycleStates, Long executionDuration) {
+    @java.beans.ConstructorProperties({"type", "key", "state", "startTime", "endTime", "taskToTaskRunMap", "parameters", "repairedTasks", "lifecycleStates", "executionDuration", "parentTaskRunKey"})
+    public RepairHistory(Type type, Integer key, State state, Long startTime, Long endTime, java.util.Map<String, String> taskToTaskRunMap, java.util.List<Parameter> parameters, java.util.List<String> repairedTasks, java.util.List<LifecycleState> lifecycleStates, Long executionDuration, String parentTaskRunKey) {
         super();
         this.type = type;
         this.key = key;
@@ -25,6 +25,7 @@ public final class RepairHistory  {
         this.repairedTasks = repairedTasks;
         this.lifecycleStates = lifecycleStates;
         this.executionDuration = executionDuration;
+        this.parentTaskRunKey = parentTaskRunKey;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -201,6 +202,24 @@ public Builder executionDuration(Long executionDuration) {
     this.executionDuration = executionDuration;
     return this;
 }
+            /**
+     * The OCID of the task run.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("parentTaskRunKey")
+private String parentTaskRunKey;
+
+        /**
+         * The OCID of the task run.
+         * @param parentTaskRunKey the value to set
+         * @return this builder
+         **/
+        
+
+public Builder parentTaskRunKey(String parentTaskRunKey) {
+    this.parentTaskRunKey = parentTaskRunKey;
+    return this;
+}
 
 
         public RepairHistory build() {
@@ -213,7 +232,8 @@ public Builder executionDuration(Long executionDuration) {
                 , this.parameters
                 , this.repairedTasks
                 , this.lifecycleStates
-                , this.executionDuration);            return model;
+                , this.executionDuration
+                , this.parentTaskRunKey);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -228,6 +248,7 @@ public Builder executionDuration(Long executionDuration) {
     this.repairedTasks(model.getRepairedTasks());
     this.lifecycleStates(model.getLifecycleStates());
     this.executionDuration(model.getExecutionDuration());
+    this.parentTaskRunKey(model.getParentTaskRunKey());
 return this;
         }
     }
@@ -454,6 +475,23 @@ return this;
         return executionDuration;
     }
 
+
+        /**
+     * The OCID of the task run.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("parentTaskRunKey")
+    private final String parentTaskRunKey;
+
+        /**
+     * The OCID of the task run.
+     * @return the value
+     **/
+    
+    public String getParentTaskRunKey() {
+        return parentTaskRunKey;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -477,6 +515,7 @@ return this;
         sb.append(", repairedTasks=").append(String.valueOf(this.repairedTasks));
         sb.append(", lifecycleStates=").append(String.valueOf(this.lifecycleStates));
         sb.append(", executionDuration=").append(String.valueOf(this.executionDuration));
+        sb.append(", parentTaskRunKey=").append(String.valueOf(this.parentTaskRunKey));
         sb.append(")");
         return sb.toString();
     }
@@ -500,7 +539,8 @@ return this;
             java.util.Objects.equals(this.parameters, other.parameters) &&
             java.util.Objects.equals(this.repairedTasks, other.repairedTasks) &&
             java.util.Objects.equals(this.lifecycleStates, other.lifecycleStates) &&
-            java.util.Objects.equals(this.executionDuration, other.executionDuration);
+            java.util.Objects.equals(this.executionDuration, other.executionDuration) &&
+            java.util.Objects.equals(this.parentTaskRunKey, other.parentTaskRunKey);
     }
 
     @Override
@@ -517,6 +557,7 @@ return this;
         result = (result * PRIME) + (this.repairedTasks == null ? 43 : this.repairedTasks.hashCode());
         result = (result * PRIME) + (this.lifecycleStates == null ? 43 : this.lifecycleStates.hashCode());
         result = (result * PRIME) + (this.executionDuration == null ? 43 : this.executionDuration.hashCode());
+        result = (result * PRIME) + (this.parentTaskRunKey == null ? 43 : this.parentTaskRunKey.hashCode());
         return result;
     }
 

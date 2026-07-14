@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Denied topics safety policy
+* Denied topics safety policy.
 */
 export interface DeniedTopicsPolicy extends model.SafetyPolicy {
     /**
-    * List of denied topics
+    * List of denied topics.
     */
     'topics'?: Array<model.DeniedTopic>;
 

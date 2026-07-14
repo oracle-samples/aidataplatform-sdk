@@ -40,7 +40,8 @@ class HttpToolConfiguration(object):
 
         :param method:
             The value to assign to the method property of this HttpToolConfiguration.
-            Allowed values for this property are: "GET", "POST", "PUT", "DELETE", "PATCH"
+            Allowed values for this property are: "GET", "POST", "PUT", "DELETE", "PATCH", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type method: str
 
         :param url:
@@ -109,7 +110,8 @@ class HttpToolConfiguration(object):
         Gets the method of this HttpToolConfiguration.
         HTTP method (GET, POST, PUT, DELETE, PATCH)
 
-        Allowed values for this property are: "GET", "POST", "PUT", "DELETE", "PATCH"
+        Allowed values for this property are: "GET", "POST", "PUT", "DELETE", "PATCH", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The method of this HttpToolConfiguration.
@@ -129,10 +131,7 @@ class HttpToolConfiguration(object):
         """
         allowed_values = ["GET", "POST", "PUT", "DELETE", "PATCH"]
         if not value_allowed_none_or_none_sentinel(method, allowed_values):
-            raise ValueError(
-                "Invalid value for `method`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            method = 'UNKNOWN_ENUM_VALUE'
         self._method = method
 
     @property

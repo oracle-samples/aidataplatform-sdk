@@ -15,9 +15,15 @@ public enum ToolType implements com.oracle.bmc.http.internal.BmcEnum {
     Mcp("MCP"),
     Custom("CUSTOM"),
     Http("HTTP"),
-    ;
-
     
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownEnumValue(null);
+
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(ToolType.class);
 
     private final String value;
     private static java.util.Map<String, ToolType> map;
@@ -25,8 +31,9 @@ public enum ToolType implements com.oracle.bmc.http.internal.BmcEnum {
     static {
         map = new java.util.HashMap<>();
         for (ToolType v : ToolType.values()) {
+            if (v != UnknownEnumValue) {
                 map.put(v.getValue(), v);
-            
+            }
         }
     }
 
@@ -44,6 +51,7 @@ public enum ToolType implements com.oracle.bmc.http.internal.BmcEnum {
         if (map.containsKey(key)) {
             return map.get(key);
         }
-        throw new IllegalArgumentException("Invalid ToolType: " + key);
+        LOG.warn("Received unknown value '{}' for enum 'ToolType', returning UnknownEnumValue", key);
+        return UnknownEnumValue;
     }
 }

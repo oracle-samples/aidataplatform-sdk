@@ -5,19 +5,19 @@ import common = require("oci-common");
 
 
 /**
-* Denied topic configuration
+* Denied topic configuration.
 */
 export interface DeniedTopic {
     /**
-    * Name of the denied topic
+    * Name of the denied topic.
     */
     'name': string;
     /**
-    * Definition of the denied topic
+    * Definition of the denied topic.
     */
     'definition': string;
     /**
-    * Examples of content that would violate this topic
+    * Examples of content that would violate this topic.
     */
     'examples'?: Array<string>;
 

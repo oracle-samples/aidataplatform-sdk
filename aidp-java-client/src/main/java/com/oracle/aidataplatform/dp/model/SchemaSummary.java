@@ -13,10 +13,13 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhSchemaSummary.class, name = "ALH"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchemaSummary.class, name = "EXADATA"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OracleSchemaSummary.class, name = "ORACLE"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlSchemaSummary.class, name = "MYSQL"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacSchemaSummary.class, name = "ORACLE_ANALYTICS"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpSchemaSummary.class, name = "ATP"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = KafkaTopicSchemaSummary.class, name = "KAFKA_TOPIC"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwSchemaSummary.class, name = "ADW"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureSchemaSummary.class, name = "AZURE_SQLSERVER"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeSchemaSummary.class, name = "SNOWFLAKE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardSchemaSummary.class, name = "STANDARD")
 })
 

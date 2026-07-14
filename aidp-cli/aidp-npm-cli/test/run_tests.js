@@ -6,11 +6,13 @@ const { spawnSync } = require("child_process");
 const common = require("oci-common");
 
 const args = require("../dist/args");
+const configModule = require("../dist/config");
 const discovery = require("../dist/discovery");
 const help = require("../dist/help");
 const bodySecurity = require("../dist/bodySecurity");
 const cli = require("../dist/cli");
 const commandArgs = require("../dist/commandArgs");
+const config = require("../dist/config");
 const manifestModule = require("../dist/manifest");
 const names = require("../dist/names");
 const output = require("../dist/output");
@@ -98,6 +100,42 @@ try {
   ]);
   assert.strictEqual(parsedWithCommandLineInstance.globals.instanceId, "ocid1.cli");
   assert.strictEqual(parsedWithCommandLineInstance.globals.endpoint, "https://cli-endpoint.example.com");
+  assert.strictEqual(configModule.resolveEndpoint(parsedWithCommandLineInstance.globals), "https://cli-endpoint.example.com");
+
+  for (const hiddenEnvironmentFlag of [
+    "--environment-prefix",
+    "--environmentprefix",
+    "--environment-domain",
+    "--environment-host"
+  ]) {
+    for (const argv of [
+      [hiddenEnvironmentFlag, "ignored", "workspace", "get-workspace"],
+      [`${hiddenEnvironmentFlag}=ignored`, "workspace", "get-workspace"]
+    ]) {
+      assert.throws(
+        () => args.parseGlobalOptions(argv),
+        (error) => {
+          assert.strictEqual(error.message, `Unknown option '${hiddenEnvironmentFlag}'.`);
+          return true;
+        }
+      );
+    }
+  }
+  assert.strictEqual(
+    config.resolveEndpoint({
+      ...parsedWithCommandLineInstance.globals,
+      endpoint: "aidp.example.com/"
+    }),
+    "https://aidp.example.com"
+  );
+  assert.throws(
+    () =>
+      config.resolveEndpoint({
+        ...parsedWithCommandLineInstance.globals,
+        endpoint: "http://127.0.0.1:18080/"
+      }),
+    /--endpoint must use https:\/\//
+  );
 
   delete process.env.AIDP_INSTANCE_ID;
   delete process.env.INSTANCE_ID;
@@ -452,9 +490,9 @@ assert.ok(createClusterHelp.stdout.includes("Required JSON fields:\n  displayNam
 assert.ok(createClusterHelp.stdout.includes("Allowed JSON values:"));
 assert.ok(createClusterHelp.stdout.includes("type:"));
 assert.ok(createClusterHelp.stdout.includes("USER"));
-assert.ok(createClusterHelp.stdout.includes("AGENT_FLOW_COMPUTE"));
+assert.ok(createClusterHelp.stdout.includes("AI_COMPUTE"));
 assert.ok(createClusterHelp.stdout.includes("Body variants:"));
-assert.ok(createClusterHelp.stdout.includes("Example JSON - CreateAgentFlowComputeDetails (type=AGENT_FLOW_COMPUTE):"));
+assert.ok(createClusterHelp.stdout.includes("Example JSON - CreateAiComputeDetails (type=AI_COMPUTE):"));
 assert.ok(createClusterHelp.stdout.includes("Example JSON - CreateSparkClusterDetails (type=USER):"));
 assert.ok(createClusterHelp.stdout.includes('"workerConfig"'));
 

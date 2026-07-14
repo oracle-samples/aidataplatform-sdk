@@ -40,6 +40,14 @@ export interface TablePermissionSummary {
     * Name of the object to which this permission belong to. Name of table if permission is not inherited or name of object higher up in hierarchy if permission is inherited.
     */
     'resourceName'?: string;
+    /**
+    * Type of row filter expression.
+    */
+    'rowFilterType'?: model.RowFilterType;
+    /**
+    * Row filter expression applied to table permission.
+    */
+    'rowFilter'?: string;
 
 }
 
@@ -70,9 +78,13 @@ export namespace TablePermissionSummary {
 
 
 
+
+
     export function getJsonObj(obj: TablePermissionSummary): object {
         const jsonObj = {...obj, ...{
             
+
+
 
 
 
@@ -91,6 +103,8 @@ export namespace TablePermissionSummary {
     export function getDeserializedJsonObj(obj: TablePermissionSummary): object {
         const jsonObj = {...obj, ...{
             
+
+
 
 
 

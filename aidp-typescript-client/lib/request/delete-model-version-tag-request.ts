@@ -32,9 +32,5 @@ export interface DeleteModelVersionTagRequest extends common.BaseRequest {
 * 
  */
  'opcRequestId'?: string;
-/**
- * The DH User Principal Header .
- */
- 'dhUserPrincipal'?: string;
 }
 

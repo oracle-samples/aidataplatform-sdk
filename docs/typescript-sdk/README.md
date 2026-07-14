@@ -3,6 +3,7 @@
 This document summarizes the available service clients in the AIDP TypeScript SDK and details every operation's request parameters and responses.
 
 ## Clients
+- [Agent (AgentClient)](#client-agentclient)
 - [Async Operations (AsyncOperationsClient)](#client-asyncoperationsclient)
 - [Audit (AuditClient)](#client-auditclient)
 - [Bundle (BundleClient)](#client-bundleclient)
@@ -20,6 +21,939 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [Workflow (WorkflowClient)](#client-workflowclient)
 - [Workspace (WorkspaceClient)](#client-workspaceclient)
 - [Workspace Object (WorkspaceObjectClient)](#client-workspaceobjectclient)
+
+## <a id="client-agentclient"></a>AgentClient
+**Operations:**
+- [`copyAgent`](#operation-agentclient-copyagent)
+- [`createAgent`](#operation-agentclient-createagent)
+- [`deleteAgent`](#operation-agentclient-deleteagent)
+- [`deleteAgentDeployment`](#operation-agentclient-deleteagentdeployment)
+- [`deleteAgentSession`](#operation-agentclient-deleteagentsession)
+- [`deployAgent`](#operation-agentclient-deployagent)
+- [`getAgent`](#operation-agentclient-getagent)
+- [`getAgentDeployment`](#operation-agentclient-getagentdeployment)
+- [`getAgentSession`](#operation-agentclient-getagentsession)
+- [`getAgentSessionTrace`](#operation-agentclient-getagentsessiontrace)
+- [`listAgentDeployments`](#operation-agentclient-listagentdeployments)
+- [`listAgentPermissions`](#operation-agentclient-listagentpermissions)
+- [`listAgentSessionChatHistories`](#operation-agentclient-listagentsessionchathistories)
+- [`listAgentSessions`](#operation-agentclient-listagentsessions)
+- [`listAgents`](#operation-agentclient-listagents)
+- [`manageAgentPermission`](#operation-agentclient-manageagentpermission)
+- [`previewAgentAgentCard`](#operation-agentclient-previewagentagentcard)
+- [`redeployAgentByKey`](#operation-agentclient-redeployagentbykey)
+- [`updateAgent`](#operation-agentclient-updateagent)
+- [`updateAgentDeploymentMetadata`](#operation-agentclient-updateagentdeploymentmetadata)
+- [`validateAgent`](#operation-agentclient-validateagent)
+
+### <a id="operation-agentclient-copyagent"></a>`copyAgent`
+**Description:** Copy an Agent.
+
+**Request Interface:** `requests.CopyAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `copyAgentDetails` | `model.CopyAgentDetails` | Details for copying the agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+
+**Response Interface:** `responses.CopyAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `location` | `string` | URL for the created Agent. The Agent key is generated after this request is sent. |
+| `contentLocation` | `string` | Same as location. |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agent` | `model.Agent` | The returned model.Agent instance. |
+
+**Payload `Agent` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | The unique identifier (UUID) of the agent. |
+| `displayName` | `string` | Agent name. |
+| `workspaceKey` | `string` | The key of the workspace to which this agent belongs. |
+| `description` | `string` | Agent description. |
+| `pathInfo` | `string` | Path inside volume where the agent JSON is written. |
+| `type` | `Agent.Type` | The type of agent (Canvas or Code). |
+| `entryFilePath` | `string` | The path to project entry file. |
+| `dependenciesFilePath` | `string` | The path to dependencies file. |
+| `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
+| `deploymentMode` | `string` | Agent deployment mode. |
+| `uri` | `string` | Agent URI. |
+| `uriState` | `string` | Agent URI state. |
+| `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
+| `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
+| `timeCreated` | `Date` | The date and time the agent was created. |
+| `timeUpdated` | `Date` | The date and time the agent was updated. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent. |
+| `updatedBy` | `string` | The ID of the user who last updated the schema. |
+| `computeKey` | `string` | The key of the agent compute associated with this agent. |
+| `version` | `number` | A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-createagent"></a>`createAgent`
+**Description:** Create an Agent.
+
+**Request Interface:** `requests.CreateAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `createAgentDetails` | `model.CreateAgentDetails` | Details for the new Agent. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.CreateAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `location` | `string` | URL for the created Agent. The Agent key is generated after this request is sent. |
+| `contentLocation` | `string` | Same as location. |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agent` | `model.Agent` | The returned model.Agent instance. |
+
+**Payload `Agent` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | The unique identifier (UUID) of the agent. |
+| `displayName` | `string` | Agent name. |
+| `workspaceKey` | `string` | The key of the workspace to which this agent belongs. |
+| `description` | `string` | Agent description. |
+| `pathInfo` | `string` | Path inside volume where the agent JSON is written. |
+| `type` | `Agent.Type` | The type of agent (Canvas or Code). |
+| `entryFilePath` | `string` | The path to project entry file. |
+| `dependenciesFilePath` | `string` | The path to dependencies file. |
+| `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
+| `deploymentMode` | `string` | Agent deployment mode. |
+| `uri` | `string` | Agent URI. |
+| `uriState` | `string` | Agent URI state. |
+| `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
+| `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
+| `timeCreated` | `Date` | The date and time the agent was created. |
+| `timeUpdated` | `Date` | The date and time the agent was updated. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent. |
+| `updatedBy` | `string` | The ID of the user who last updated the schema. |
+| `computeKey` | `string` | The key of the agent compute associated with this agent. |
+| `version` | `number` | A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-deleteagent"></a>`deleteAgent`
+**Description:** Delete an Agent from the schema
+
+**Request Interface:** `requests.DeleteAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+
+**Response Interface:** `responses.DeleteAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-deleteagentdeployment"></a>`deleteAgentDeployment`
+**Description:** Delete an Agent Deployment.
+
+**Request Interface:** `requests.DeleteAgentDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `agentDeploymentKey` | `string` | The UUID of the Agent Deployment |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.DeleteAgentDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-deleteagentsession"></a>`deleteAgentSession`
+**Description:** Delete an Agent Session.
+
+**Request Interface:** `requests.DeleteAgentSessionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `sessionId` | `string` | The UUID of the Agent Session |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+
+**Response Interface:** `responses.DeleteAgentSessionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-deployagent"></a>`deployAgent`
+**Description:** Deploys an Agent.
+
+**Request Interface:** `requests.DeployAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `deployAgentDetails` | `model.DeployAgentDetails` | Details of a deployable Agent. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.DeployAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `location` | `string` | URI for the created Agent deployment. |
+| `contentLocation` | `string` | Same as location. |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agentDeployment` | `model.AgentDeployment` | The returned model.AgentDeployment instance. |
+
+**Payload `AgentDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Identifier, generally UUID. |
+| `displayName` | `string` | Display name. |
+| `agentKey` | `string` | The unique identifier (UUID) of the agent. |
+| `agentComputeKey` | `string` | The key of the agent compute associated with this agent. |
+| `endpointUrl` | `string` | The endpointUrl where the client should connect to communicate with the agent. |
+| `description` | `string` | deployment description. |
+| `deploymentType` | `model.DeploymentType` | Type of an agent deployment. |
+| `lifecycleState` | `model.DeploymentLifecycleState` | LifecycleState of an Agent Session or Deployment. |
+| `deploymentVersion` | `string` | Version of agent deployed on compute. |
+| `timeCreated` | `Date` | The date and time the Agent session was created. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent session. |
+| `timeUpdated` | `Date` | The date and time the agent deployment was updated. |
+| `updatedBy` | `string` | The OCID of the user/principal who re-deployed the existing agent deployment. |
+| `agentCardUrl` | `string` | AgentCard base URL. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-getagent"></a>`getAgent`
+**Description:** Returns detailed information about an Agent.
+
+**Request Interface:** `requests.GetAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+
+**Response Interface:** `responses.GetAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agent` | `model.Agent` | The returned model.Agent instance. |
+
+**Payload `Agent` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | The unique identifier (UUID) of the agent. |
+| `displayName` | `string` | Agent name. |
+| `workspaceKey` | `string` | The key of the workspace to which this agent belongs. |
+| `description` | `string` | Agent description. |
+| `pathInfo` | `string` | Path inside volume where the agent JSON is written. |
+| `type` | `Agent.Type` | The type of agent (Canvas or Code). |
+| `entryFilePath` | `string` | The path to project entry file. |
+| `dependenciesFilePath` | `string` | The path to dependencies file. |
+| `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
+| `deploymentMode` | `string` | Agent deployment mode. |
+| `uri` | `string` | Agent URI. |
+| `uriState` | `string` | Agent URI state. |
+| `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
+| `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
+| `timeCreated` | `Date` | The date and time the agent was created. |
+| `timeUpdated` | `Date` | The date and time the agent was updated. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent. |
+| `updatedBy` | `string` | The ID of the user who last updated the schema. |
+| `computeKey` | `string` | The key of the agent compute associated with this agent. |
+| `version` | `number` | A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-getagentdeployment"></a>`getAgentDeployment`
+**Description:** Returns detailed information about an Agent deployment.
+
+**Request Interface:** `requests.GetAgentDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `agentDeploymentKey` | `string` | The UUID of the Agent Deployment |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetAgentDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agentDeployment` | `model.AgentDeployment` | The returned model.AgentDeployment instance. |
+
+**Payload `AgentDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Identifier, generally UUID. |
+| `displayName` | `string` | Display name. |
+| `agentKey` | `string` | The unique identifier (UUID) of the agent. |
+| `agentComputeKey` | `string` | The key of the agent compute associated with this agent. |
+| `endpointUrl` | `string` | The endpointUrl where the client should connect to communicate with the agent. |
+| `description` | `string` | deployment description. |
+| `deploymentType` | `model.DeploymentType` | Type of an agent deployment. |
+| `lifecycleState` | `model.DeploymentLifecycleState` | LifecycleState of an Agent Session or Deployment. |
+| `deploymentVersion` | `string` | Version of agent deployed on compute. |
+| `timeCreated` | `Date` | The date and time the Agent session was created. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent session. |
+| `timeUpdated` | `Date` | The date and time the agent deployment was updated. |
+| `updatedBy` | `string` | The OCID of the user/principal who re-deployed the existing agent deployment. |
+| `agentCardUrl` | `string` | AgentCard base URL. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-getagentsession"></a>`getAgentSession`
+**Description:** Returns detailed information about an Agent Session.
+
+**Request Interface:** `requests.GetAgentSessionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `sessionId` | `string` | The UUID of the Agent Session |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetAgentSessionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agentSession` | `model.AgentSession` | The returned model.AgentSession instance. |
+
+**Payload `AgentSession` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `displayName` | `string` | Display name. |
+| `key` | `string` | Agent Session identifier. |
+| `agentKey` | `string` | The Agent key for which the session is started. |
+| `endpointUrl` | `string` | The endpointUrl where the client should connect to communicate with the agent. |
+| `lifecycleState` | `model.DeploymentLifecycleState` | LifecycleState of an Agent Session or Deployment. |
+| `agentComputeKey` | `string` | The Agent Compute Key where client can run or test the agent. |
+| `timeCreated` | `Date` | The date and time the Agent session was created. |
+| `updatedBy` | `string` | OCID of the user who updated this record |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent session. |
+| `timeUpdated` | `Date` | The date and time the Agent session was updated. |
+| `timeStarted` | `Date` | The date and time the session was started. |
+| `timeEnded` | `Date` | The date and time the session was ended. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-getagentsessiontrace"></a>`getAgentSessionTrace`
+**Description:** Returns trace details for a given message key.
+
+**Request Interface:** `requests.GetAgentSessionTraceRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `sessionId` | `string` | The UUID of the Agent Session |
+| `traceKey` | `string` | A filter to return only resources that match the given display trace key exactly. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetAgentSessionTraceResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `traceDetails` | `model.TraceDetails` | The returned model.TraceDetails instance. |
+
+**Payload `TraceDetails` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `traceId` | `string` | trace id |
+| `parentSessionId` | `string` | session id |
+| `spans` | `Array<model.SpanDetails>` | collections of spans |
+| `startTime` | `number` | startTime Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `endTime` | `number` | endTime Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `resources` | `{ [key: string]: any` | Map of properties |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-listagentdeployments"></a>`listAgentDeployments`
+**Description:** Returns a list of deployments of an agent.
+
+**Request Interface:** `requests.ListAgentDeploymentsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
+| `displayNameContains` | `string` | A filter to return only resources that have a display name containing the text provided. |
+| `lifecycleState` | `Array<model.DeploymentLifecycleState>` | A filter to return only resources whose value matches the given lifecycleState. |
+| `timeCreatedGreaterThanOrEqualTo` | `Date` | Fetch objects from repository that were created after or at the exact timestamp provided in parameter |
+| `timeCreatedLessThanOrEqualTo` | `Date` | Fetch objects from repository that were created before or at the exact timestamp provided in parameter. |
+| `sortBy` | `ListAgentDeploymentsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `computeKey` | `Array<string>` | Compute key. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListAgentDeploymentsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `agentDeploymentCollection` | `model.AgentDeploymentCollection` | The returned model.AgentDeploymentCollection instance. |
+
+**Payload `AgentDeploymentCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.AgentDeploymentSummary>` | List of agent deployments. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-listagentpermissions"></a>`listAgentPermissions`
+**Description:** Returns a list of permissions for a given Agent.
+
+**Request Interface:** `requests.ListAgentPermissionsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `sortBy` | `ListAgentPermissionsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+
+**Response Interface:** `responses.ListAgentPermissionsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `agentPermissionCollection` | `model.AgentPermissionCollection` | The returned model.AgentPermissionCollection instance. |
+
+**Payload `AgentPermissionCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.AgentPermissionSummary>` | List of agent permissions. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-listagentsessionchathistories"></a>`listAgentSessionChatHistories`
+**Description:** Returns list of Agent Session chat messages.
+
+**Request Interface:** `requests.ListAgentSessionChatHistoriesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `sessionId` | `string` | The UUID of the Agent Session |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListAgentSessionChatHistoriesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sessionChatHistoryCollection` | `model.SessionChatHistoryCollection` | The returned model.SessionChatHistoryCollection instance. |
+
+**Payload `SessionChatHistoryCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.SessionChatHistorySummary>` | Collection of chat messages |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-listagentsessions"></a>`listAgentSessions`
+**Description:** Returns a list of testing sessions of an Agent.
+
+**Request Interface:** `requests.ListAgentSessionsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `displayNameContains` | `string` | A filter to return only resources that have a display name containing the text provided. |
+| `timeCreatedGreaterThanOrEqualTo` | `Date` | Fetch objects from repository that were created after or at the exact timestamp provided in parameter |
+| `timeCreatedLessThanOrEqualTo` | `Date` | Fetch objects from repository that were created before or at the exact timestamp provided in parameter. |
+| `sortBy` | `ListAgentSessionsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListAgentSessionsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcPrevPage` | `string` | For list pagination. When this header appears in the response, previous pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `agentSessionCollection` | `model.AgentSessionCollection` | The returned model.AgentSessionCollection instance. |
+
+**Payload `AgentSessionCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.AgentSessionSummary>` | List of agent sessions. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-listagents"></a>`listAgents`
+**Description:** Returns a list of Agents in a schema.
+
+**Request Interface:** `requests.ListAgentsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `computeKey` | `string` | Compute key. |
+| `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
+| `displayNameContains` | `string` | A filter to return only resources that have a display name containing the text provided. |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `sortBy` | `ListAgentsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListAgentsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `agentCollection` | `model.AgentCollection` | The returned model.AgentCollection instance. |
+
+**Payload `AgentCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.AgentInfo>` | List of Agents. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-manageagentpermission"></a>`manageAgentPermission`
+**Description:** Update the permissions for a given Agent.
+
+**Request Interface:** `requests.ManageAgentPermissionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `manageAgentPermissionDetails` | `model.ManageAgentPermissionDetails` | The information to be updated. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+
+**Response Interface:** `responses.ManageAgentPermissionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-previewagentagentcard"></a>`previewAgentAgentCard`
+**Description:** Returns the agent card based on the given agent card configuration.
+
+**Request Interface:** `requests.PreviewAgentAgentCardRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `previewAgentCardDetails` | `model.PreviewAgentCardDetails` | Request details for previewing an agent card |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+
+**Response Interface:** `responses.PreviewAgentAgentCardResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agentCardPreviewResponse` | `model.AgentCardPreviewResponse` | The returned model.AgentCardPreviewResponse instance. |
+
+**Payload `AgentCardPreviewResponse` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `agentCardJson` | `string` | JSON string representation of AgentCard |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-redeployagentbykey"></a>`redeployAgentByKey`
+**Description:** Redeploys an Agent.
+
+**Request Interface:** `requests.RedeployAgentByKeyRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `updateAgentDeploymentDetails` | `model.UpdateAgentDeploymentDetails` | Details for updating an Agent deployment asynchronously. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.RedeployAgentByKeyResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `location` | `string` | URI for the newly created Agent deployment. |
+| `contentLocation` | `string` | Same as location. |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agentDeployment` | `model.AgentDeployment` | The returned model.AgentDeployment instance. |
+
+**Payload `AgentDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Identifier, generally UUID. |
+| `displayName` | `string` | Display name. |
+| `agentKey` | `string` | The unique identifier (UUID) of the agent. |
+| `agentComputeKey` | `string` | The key of the agent compute associated with this agent. |
+| `endpointUrl` | `string` | The endpointUrl where the client should connect to communicate with the agent. |
+| `description` | `string` | deployment description. |
+| `deploymentType` | `model.DeploymentType` | Type of an agent deployment. |
+| `lifecycleState` | `model.DeploymentLifecycleState` | LifecycleState of an Agent Session or Deployment. |
+| `deploymentVersion` | `string` | Version of agent deployed on compute. |
+| `timeCreated` | `Date` | The date and time the Agent session was created. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent session. |
+| `timeUpdated` | `Date` | The date and time the agent deployment was updated. |
+| `updatedBy` | `string` | The OCID of the user/principal who re-deployed the existing agent deployment. |
+| `agentCardUrl` | `string` | AgentCard base URL. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-updateagent"></a>`updateAgent`
+**Description:** Update an Agent with provided details.
+
+**Request Interface:** `requests.UpdateAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `updateAgentDetails` | `model.UpdateAgentDetails` | The information to be updated. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.UpdateAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agent` | `model.Agent` | The returned model.Agent instance. |
+
+**Payload `Agent` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | The unique identifier (UUID) of the agent. |
+| `displayName` | `string` | Agent name. |
+| `workspaceKey` | `string` | The key of the workspace to which this agent belongs. |
+| `description` | `string` | Agent description. |
+| `pathInfo` | `string` | Path inside volume where the agent JSON is written. |
+| `type` | `Agent.Type` | The type of agent (Canvas or Code). |
+| `entryFilePath` | `string` | The path to project entry file. |
+| `dependenciesFilePath` | `string` | The path to dependencies file. |
+| `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
+| `deploymentMode` | `string` | Agent deployment mode. |
+| `uri` | `string` | Agent URI. |
+| `uriState` | `string` | Agent URI state. |
+| `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
+| `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
+| `timeCreated` | `Date` | The date and time the agent was created. |
+| `timeUpdated` | `Date` | The date and time the agent was updated. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent. |
+| `updatedBy` | `string` | The ID of the user who last updated the schema. |
+| `computeKey` | `string` | The key of the agent compute associated with this agent. |
+| `version` | `number` | A number indicating the version of the record. Each time the record is updated, this version will be incremented. This will be used for optimistic locking. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-updateagentdeploymentmetadata"></a>`updateAgentDeploymentMetadata`
+**Description:** Update the deployment metadata for an Agent.
+
+**Request Interface:** `requests.UpdateAgentDeploymentMetadataRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+| `updateAgentDeploymentMetadataDetails` | `model.UpdateAgentDeploymentMetadataDetails` | Agent card details to update |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+
+**Response Interface:** `responses.UpdateAgentDeploymentMetadataResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `agentDeployment` | `model.AgentDeployment` | The returned model.AgentDeployment instance. |
+
+**Payload `AgentDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Identifier, generally UUID. |
+| `displayName` | `string` | Display name. |
+| `agentKey` | `string` | The unique identifier (UUID) of the agent. |
+| `agentComputeKey` | `string` | The key of the agent compute associated with this agent. |
+| `endpointUrl` | `string` | The endpointUrl where the client should connect to communicate with the agent. |
+| `description` | `string` | deployment description. |
+| `deploymentType` | `model.DeploymentType` | Type of an agent deployment. |
+| `lifecycleState` | `model.DeploymentLifecycleState` | LifecycleState of an Agent Session or Deployment. |
+| `deploymentVersion` | `string` | Version of agent deployed on compute. |
+| `timeCreated` | `Date` | The date and time the Agent session was created. |
+| `createdBy` | `string` | The OCID of the user/principal who created the agent session. |
+| `timeUpdated` | `Date` | The date and time the agent deployment was updated. |
+| `updatedBy` | `string` | The OCID of the user/principal who re-deployed the existing agent deployment. |
+| `agentCardUrl` | `string` | AgentCard base URL. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
+
+### <a id="operation-agentclient-validateagent"></a>`validateAgent`
+**Description:** Validate the agent json diagram generated by UI.
+
+**Request Interface:** `requests.ValidateAgentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `agentKey` | `string` | The UUID of the Agent |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
+
+**Response Interface:** `responses.ValidateAgentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `validateAgentResponse` | `model.ValidateAgentResponse` | The returned model.ValidateAgentResponse instance. |
+
+**Payload `ValidateAgentResponse` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `isValidAgent` | `boolean` | true if valid, else false |
+| `validationError` | `Array<model.ValidationError>` | List of validation errors encountered in the diagram. |
+**Return:** [Back to Agent (AgentClient)](#client-agentclient) • [Top](#top)
+
 
 ## <a id="client-asyncoperationsclient"></a>AsyncOperationsClient
 **Operations:**
@@ -117,7 +1051,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`searchAuditLogs`](#operation-auditclient-searchauditlogs)
 
 ### <a id="operation-auditclient-manageauditlogs"></a>`manageAuditLogs`
-**Description:** Manages audit logs for AI Data Platform Workbench.
+**Description:** Manages audit logs.
 
 **Request Interface:** `requests.ManageAuditLogsRequest`
 
@@ -144,7 +1078,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-auditclient-searchauditlogs"></a>`searchAuditLogs`
-**Description:** Searches audit logs for AI Data Platform Workbench.
+**Description:** Searches audit logs.
 
 **Request Interface:** `requests.SearchAuditLogsRequest`
 
@@ -182,13 +1116,18 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 ## <a id="client-bundleclient"></a>BundleClient
 **Operations:**
 - [`createBundle`](#operation-bundleclient-createbundle)
+- [`createBundleAction`](#operation-bundleclient-createbundleaction)
 - [`deployBundle`](#operation-bundleclient-deploybundle)
+- [`deployBundleAction`](#operation-bundleclient-deploybundleaction)
 - [`fetchBundleDeploymentStatus`](#operation-bundleclient-fetchbundledeploymentstatus)
+- [`fetchBundleDeploymentStatusAction`](#operation-bundleclient-fetchbundledeploymentstatusaction)
 - [`purgeBundle`](#operation-bundleclient-purgebundle)
+- [`purgeBundleAction`](#operation-bundleclient-purgebundleaction)
 - [`syncBundle`](#operation-bundleclient-syncbundle)
+- [`syncBundleAction`](#operation-bundleclient-syncbundleaction)
 
 ### <a id="operation-bundleclient-createbundle"></a>`createBundle`
-**Description:** (Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+**Description:** (Deprecated) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
 
 **Request Interface:** `requests.CreateBundleRequest`
 
@@ -216,8 +1155,37 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
 
 
+### <a id="operation-bundleclient-createbundleaction"></a>`createBundleAction`
+**Description:** (Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+
+**Request Interface:** `requests.CreateBundleActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `createBundleDetails` | `model.CreateBundleDetails` | Request payload for bundle creation. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.CreateBundleActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
 ### <a id="operation-bundleclient-deploybundle"></a>`deployBundle`
-**Description:** (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** (Deprecated) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
 
 **Request Interface:** `requests.DeployBundleRequest`
 
@@ -245,8 +1213,37 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
 
 
+### <a id="operation-bundleclient-deploybundleaction"></a>`deployBundleAction`
+**Description:** (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Request Interface:** `requests.DeployBundleActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `deployBundleDetails` | `model.DeployBundleDetails` | Request payload for bundle deploy. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.DeployBundleActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
 ### <a id="operation-bundleclient-fetchbundledeploymentstatus"></a>`fetchBundleDeploymentStatus`
-**Description:** (Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** (Deprecated) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
 
 **Request Interface:** `requests.FetchBundleDeploymentStatusRequest`
 
@@ -282,8 +1279,45 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
 
 
+### <a id="operation-bundleclient-fetchbundledeploymentstatusaction"></a>`fetchBundleDeploymentStatusAction`
+**Description:** (Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Request Interface:** `requests.FetchBundleDeploymentStatusActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `fetchBundleDeploymentStatusDetails` | `model.FetchBundleDeploymentStatusDetails` | Request payload for FetchBundleDeploymentStatusDetails. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.FetchBundleDeploymentStatusActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `bundleDeploymentStatus` | `model.BundleDeploymentStatus` | The returned model.BundleDeploymentStatus instance. |
+
+**Payload `BundleDeploymentStatus` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `status` | `BundleDeploymentStatus.Status` | Overall status of the last deployment. |
+| `timeStarted` | `Date` | The deployment start time |
+| `timeCompleted` | `Date` | The deployment end time |
+| `message` | `string` | Optional summary message for the last deployment. |
+| `resources` | `Array<model.BundleDeployedResource>` | List of resources from the last deployment. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
 ### <a id="operation-bundleclient-purgebundle"></a>`purgeBundle`
-**Description:** (Preview) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** (Deprecated) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - `path` identifies the bundle root folder in the workspace volume
 
 **Request Interface:** `requests.PurgeBundleRequest`
 
@@ -311,8 +1345,37 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
 
 
+### <a id="operation-bundleclient-purgebundleaction"></a>`purgeBundleAction`
+**Description:** (Preview) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Request Interface:** `requests.PurgeBundleActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `purgeBundleDetails` | `model.PurgeBundleDetails` | Request payload for bundle purge. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.PurgeBundleActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
 ### <a id="operation-bundleclient-syncbundle"></a>`syncBundle`
-**Description:** (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+**Description:** (Deprecated) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
 
 **Request Interface:** `requests.SyncBundleRequest`
 
@@ -340,6 +1403,35 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
 
 
+### <a id="operation-bundleclient-syncbundleaction"></a>`syncBundleAction`
+**Description:** (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+
+**Request Interface:** `requests.SyncBundleActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `syncBundleDetails` | `model.SyncBundleDetails` | Request payload for bundle sync. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.SyncBundleActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
 ## <a id="client-catalogclient"></a>CatalogClient
 **Operations:**
 - [`catalogTestConnection`](#operation-catalogclient-catalogtestconnection)
@@ -353,7 +1445,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`updateCatalog`](#operation-catalogclient-updatecatalog)
 
 ### <a id="operation-catalogclient-catalogtestconnection"></a>`catalogTestConnection`
-**Description:** Test the connection of an AI Data Platform Workbench to an external catalog.
+**Description:** Tests the connection to an external catalog.
 
 **Request Interface:** `requests.CatalogTestConnectionRequest`
 
@@ -382,7 +1474,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-createcatalog"></a>`createCatalog`
-**Description:** Create a catalog in the AI Data Platform Workbench with the given ID.
+**Description:** Creates a catalog with the given ID.
 
 **Request Interface:** `requests.CreateCatalogRequest`
 
@@ -413,7 +1505,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-deletecatalog"></a>`deleteCatalog`
-**Description:** Deletes the specified catalog from an AI Data Platform Workbench.
+**Description:** Deletes the specified catalog.
 
 **Request Interface:** `requests.DeleteCatalogRequest`
 
@@ -443,7 +1535,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-getcatalog"></a>`getCatalog`
-**Description:** Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
+**Description:** Gets detailed information about a catalog with a given catalog key.
 
 **Request Interface:** `requests.GetCatalogRequest`
 
@@ -490,7 +1582,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-listcatalogpermissions"></a>`listCatalogPermissions`
-**Description:** Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
+**Description:** Gets a list of all permissions in the specified catalog.
 
 **Request Interface:** `requests.ListCatalogPermissionsRequest`
 
@@ -528,7 +1620,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-listcatalogs"></a>`listCatalogs`
-**Description:** Get a list of catalogs in an AI Data Platform Workbench with a given ID.
+**Description:** Gets a list of catalogs with a given ID.
 
 **Request Interface:** `requests.ListCatalogsRequest`
 
@@ -567,7 +1659,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-managecatalogpermission"></a>`manageCatalogPermission`
-**Description:** Update permission details for a catalog in an AI Data Platform Workbench.
+**Description:** Updates permission details for a catalog.
 
 **Request Interface:** `requests.ManageCatalogPermissionRequest`
 
@@ -596,7 +1688,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-refreshcatalog"></a>`refreshCatalog`
-**Description:** Refresh a catalog in an AI Data Platform Workbench through a crawler.
+**Description:** Refreshes a catalog through a crawler.
 
 **Request Interface:** `requests.RefreshCatalogRequest`
 
@@ -626,7 +1718,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-catalogclient-updatecatalog"></a>`updateCatalog`
-**Description:** Update the details of an AI Data Platform Workbench catalog with the given information.
+**Description:** Updates the details of a catalog with the given information.
 
 **Request Interface:** `requests.UpdateCatalogRequest`
 
@@ -667,6 +1759,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`listClusters`](#operation-clusterclient-listclusters)
 - [`manageClusterPermission`](#operation-clusterclient-manageclusterpermission)
 - [`patchClusterLibrary`](#operation-clusterclient-patchclusterlibrary)
+- [`queryReplicaIds`](#operation-clusterclient-queryreplicaids)
 - [`restartCluster`](#operation-clusterclient-restartcluster)
 - [`searchClusterLogs`](#operation-clusterclient-searchclusterlogs)
 - [`startCluster`](#operation-clusterclient-startcluster)
@@ -685,7 +1778,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `createClusterDetails` | `model.CreateAgentFlowComputeDetails| model.CreateSparkClusterDetails` | Details for the new cluster. |
+| `createClusterDetails` | `model.CreateDflComputeDetails| model.CreateSparkClusterDetails| model.CreateAiComputeDetails` | Details for the new cluster. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -968,7 +2061,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `state` | `string` | A filter to return only resources that match the given lifecycle state. The state value is case-insensitive. |
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
 | `displayNameContains` | `string` | A filter to return only resources that have a display name containing the text provided. |
-| `type` | `string` | Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook. |
+| `type` | `string` | Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook. |
 | `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
@@ -1055,6 +2148,40 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `items` | `Array<model.ClusterLibrarySummary>` | List of cluster libraries. |
+**Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
+
+
+### <a id="operation-clusterclient-queryreplicaids"></a>`queryReplicaIds`
+**Description:** Queries compute replica identifiers for a compute cluster in the given workspace. The response contains distinct replica identifiers derived from the Monitoring `agentNode` metric dimension.
+
+**Request Interface:** `requests.QueryReplicaIdsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `clusterKey` | `string` | Cluster key. |
+| `queryReplicaIdsDetails` | `model.QueryReplicaIdsDetails` | Request body containing replica query parameters. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.QueryReplicaIdsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `queryReplicaIdsResult` | `model.QueryReplicaIdsResult` | The returned model.QueryReplicaIdsResult instance. |
+
+**Payload `QueryReplicaIdsResult` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `replicaIds` | `Array<string>` | Distinct compute replica identifiers derived from the Monitoring {@code agentNode} dimension. |
 **Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
 
 
@@ -1302,7 +2429,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
 | `clusterKey` | `string` | Cluster key. |
-| `updateClusterDetails` | `model.UpdateAgentFlowComputeDetails| model.UpdateSparkClusterDetails` | The information to be updated. |
+| `updateClusterDetails` | `model.UpdateAiComputeDetails| model.UpdateSparkClusterDetails` | The information to be updated. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -1542,7 +2669,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`updateShare`](#operation-deltashareclient-updateshare)
 
 ### <a id="operation-deltashareclient-createrecipient"></a>`createRecipient`
-**Description:** Creates a recipient for a Delta Share protocol in AI Data Platform Workbench.
+**Description:** Creates a recipient for a Delta Share protocol.
 
 **Request Interface:** `requests.CreateRecipientRequest`
 
@@ -1587,7 +2714,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-createshare"></a>`createShare`
-**Description:** Create a Delta Share protocol in AI Data Platform Workbench.
+**Description:** Creates a Delta Share protocol.
 
 **Request Interface:** `requests.CreateShareRequest`
 
@@ -1632,7 +2759,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-deleterecipient"></a>`deleteRecipient`
-**Description:** Deletes a Delta Share recipient from an AI Data Platform Workbench.
+**Description:** Deletes a Delta Share recipient.
 
 **Request Interface:** `requests.DeleteRecipientRequest`
 
@@ -1660,7 +2787,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-deleteshare"></a>`deleteShare`
-**Description:** Deletes a Delta Share from an AI Data Platform Workbench.
+**Description:** Deletes a Delta Share.
 
 **Request Interface:** `requests.DeleteShareRequest`
 
@@ -1688,7 +2815,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-getrecipient"></a>`getRecipient`
-**Description:** Gets detailed information about a Delta Share recipient in an AI Data Platform Workbench instance.
+**Description:** Gets detailed information about a Delta Share recipient.
 
 **Request Interface:** `requests.GetRecipientRequest`
 
@@ -1853,7 +2980,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-listrecipients"></a>`listRecipients`
-**Description:** Gets a list of Delta Share recipients in a AI Data Platform Workbench instance.
+**Description:** Gets a list of Delta Share recipients.
 
 **Request Interface:** `requests.ListRecipientsRequest`
 
@@ -1890,7 +3017,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-listsharedataassets"></a>`listShareDataAssets`
-**Description:** Gets a list of Delta Shares assets in an AI Data Platform Workbench instance.
+**Description:** Gets a list of Delta Share assets.
 
 **Request Interface:** `requests.ListShareDataAssetsRequest`
 
@@ -2006,7 +3133,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-listshares"></a>`listShares`
-**Description:** Gets a list of Delta Shares in an AI Data Platform Workbench instance.
+**Description:** Gets a list of Delta Shares.
 
 **Request Interface:** `requests.ListSharesRequest`
 
@@ -2043,7 +3170,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-managerecipientpermission"></a>`manageRecipientPermission`
-**Description:** Updates the permissions of a Delta Share recipient in AI Data Platform Workbench.
+**Description:** Updates the permissions of a Delta Share recipient.
 
 **Request Interface:** `requests.ManageRecipientPermissionRequest`
 
@@ -2160,7 +3287,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-deltashareclient-updaterecipient"></a>`updateRecipient`
-**Description:** Updates the metadata of a Delta Share recipient in a AI Data Platform Workbench instance.
+**Description:** Updates the metadata of a Delta Share recipient.
 
 **Request Interface:** `requests.UpdateRecipientRequest`
 
@@ -2256,7 +3383,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 | `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CheckoutBranchResponse`
 
@@ -2866,7 +3992,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateExperimentResponse`
 
@@ -2902,7 +4027,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateExperimentRunResponse`
 
@@ -2934,7 +4058,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateModelVersionResponse`
 
@@ -2966,7 +4089,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateRegisteredModelResponse`
 
@@ -2999,7 +4121,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.CreateWorkspaceModelVersionResponse`
 
@@ -3032,7 +4153,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentResponse`
 
@@ -3065,7 +4185,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentRunResponse`
 
@@ -3098,7 +4217,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentRunTagResponse`
 
@@ -3131,7 +4249,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteExperimentTagResponse`
 
@@ -3163,7 +4280,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteModelVersionResponse`
 
@@ -3195,7 +4311,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteModelVersionTagResponse`
 
@@ -3227,7 +4342,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteRegisteredModelResponse`
 
@@ -3259,7 +4373,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.DeleteRegisteredModelTagResponse`
 
@@ -3291,7 +4404,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentByIdResponse`
 
@@ -3323,7 +4435,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentByNameResponse`
 
@@ -3355,7 +4466,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentRunByIdResponse`
 
@@ -3390,7 +4500,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `pageToken` | `string` | Pagination token to go to the next page of metric history. |
 | `maxResults` | `number` | Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetExperimentRunMetricHistoryResponse`
 
@@ -3426,7 +4535,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetModelVersionResponse`
 
@@ -3457,7 +4565,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.GetRegisteredModelResponse`
 
@@ -3491,7 +4598,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `path` | `string` | Filter artifacts matching this path (a relative path from the root artifact directory). |
 | `pageToken` | `string` | Token indicating the page of artifact results to fetch. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListArtifactsResponse`
 
@@ -3528,7 +4634,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListExperimentRunsResponse`
 
@@ -3564,7 +4669,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListExperimentsResponse`
 
@@ -3600,7 +4704,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListLoggedModelsResponse`
 
@@ -3638,7 +4741,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `pageToken` | `string` | Pagination token to go to the next page based on a previous search query. |
 | `orderBy` | `string` | List of columns to be ordered by including model name, version, stage with an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListModelVersionsResponse`
 
@@ -3676,7 +4778,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `pageToken` | `string` | Pagination token to go to the next page based on a previous search query. |
 | `orderBy` | `string` | List of columns for ordering search results, which can include model name and last updated timestamp with an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by model name ASC. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.ListRegisteredModelsResponse`
 
@@ -3713,7 +4814,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunBatchResponse`
 
@@ -3746,7 +4846,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunInputsResponse`
 
@@ -3779,7 +4878,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunMetricResponse`
 
@@ -3812,7 +4910,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunModelResponse`
 
@@ -3845,7 +4942,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.LogExperimentRunParamResponse`
 
@@ -3877,7 +4973,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.RenameRegisteredModelResponse`
 
@@ -3909,7 +5004,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.RestoreExperimentResponse`
 
@@ -3942,7 +5036,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.RestoreExperimentRunResponse`
 
@@ -3975,7 +5068,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetExperimentRunTagResponse`
 
@@ -4008,7 +5100,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetExperimentTagResponse`
 
@@ -4040,7 +5131,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetModelVersionTagResponse`
 
@@ -4072,7 +5162,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.SetRegisteredModelTagResponse`
 
@@ -4104,7 +5193,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.TransitionModelVersionStageResponse`
 
@@ -4137,7 +5225,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentResponse`
 
@@ -4170,7 +5257,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentRunResponse`
 
@@ -4203,7 +5289,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentRunTagsResponse`
 
@@ -4236,7 +5321,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateExperimentTagsResponse`
 
@@ -4268,7 +5352,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateModelVersionResponse`
 
@@ -4300,7 +5383,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateModelVersionTagsResponse`
 
@@ -4332,7 +5414,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateRegisteredModelResponse`
 
@@ -4364,7 +5445,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 
 **Response Interface:** `responses.UpdateRegisteredModelTagsResponse`
 
@@ -5337,7 +6417,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-deleteschema"></a>`deleteSchema`
-**Description:** Deletes a schema from an AI Data Platform Workbench.
+**Description:** Deletes a schema.
 
 **Request Interface:** `requests.DeleteSchemaRequest`
 
@@ -5367,7 +6447,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-deletetable"></a>`deleteTable`
-**Description:** Deletes a table from an AI Data Platform Workbench.
+**Description:** Deletes a table.
 
 **Request Interface:** `requests.DeleteTableRequest`
 
@@ -5397,7 +6477,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-deleteview"></a>`deleteView`
-**Description:** Deletes a view from AI Data Platform Workbench.
+**Description:** Deletes a view.
 
 **Request Interface:** `requests.DeleteViewRequest`
 
@@ -5640,7 +6720,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-listschemas"></a>`listSchemas`
-**Description:** Returns a list of schemas in a given AI Data Platform Workbench.
+**Description:** Returns a list of schemas.
 
 **Request Interface:** `requests.ListSchemasRequest`
 
@@ -5990,7 +7070,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-refreshschema"></a>`refreshSchema`
-**Description:** Refreshes schema in an AI Data Platform Workbench through the crawler.
+**Description:** Refreshes schema through the crawler.
 
 **Request Interface:** `requests.RefreshSchemaRequest`
 
@@ -6020,7 +7100,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-refreshtable"></a>`refreshTable`
-**Description:** Refreshes a table in an AI Data Platform Workbench through the crawler.
+**Description:** Refreshes a table through the crawler.
 
 **Request Interface:** `requests.RefreshTableRequest`
 
@@ -6050,7 +7130,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-schemaclient-retrievepar"></a>`retrievePar`
-**Description:** Retrieve PAR for the entities created in AI Data Platform Workbench.
+**Description:** Retrieves PAR for the entities created.
 
 **Request Interface:** `requests.RetrieveParRequest`
 
@@ -6416,7 +7496,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`uploadFileWithPar`](#operation-volumeclient-uploadfilewithpar)
 
 ### <a id="operation-volumeclient-createvolume"></a>`createVolume`
-**Description:** Creates a volume in AI Data Platform Workbench.
+**Description:** Creates a volume.
 
 **Request Interface:** `requests.CreateVolumeRequest`
 
@@ -7111,6 +8191,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
+| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
@@ -7146,7 +8227,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-createjob"></a>`createJob`
-**Description:** Creates a job in an AI Data Platform Workbench.
+**Description:** Creates a job.
 
 **Request Interface:** `requests.CreateJobRequest`
 
@@ -7200,7 +8281,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-createjobrun"></a>`createJobRun`
-**Description:** Creates a job run for an AI Data Platform Workbench.
+**Description:** Creates a job run.
 
 **Request Interface:** `requests.CreateJobRunRequest`
 
@@ -7264,12 +8345,13 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
+| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
 ### <a id="operation-workflowclient-deletejob"></a>`deleteJob`
-**Description:** Deletes a job from an AI Data Platform Workbench.
+**Description:** Deletes a job.
 
 **Request Interface:** `requests.DeleteJobRequest`
 
@@ -7297,7 +8379,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-deletejobrun"></a>`deleteJobRun`
-**Description:** Deletes a job run from an AI Data Platform Workbench.
+**Description:** Deletes a job run.
 
 **Request Interface:** `requests.DeleteJobRunRequest`
 
@@ -7406,7 +8488,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-getjob"></a>`getJob`
-**Description:** Returns detailed information about a given job in AI Data Platform Workbench.
+**Description:** Returns detailed information about a given job.
 
 **Request Interface:** `requests.GetJobRequest`
 
@@ -7516,6 +8598,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
+| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
@@ -7613,7 +8696,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-listjobruns"></a>`listJobRuns`
-**Description:** Returns a detailed list of job runs in an AI Data Platform Workbench.
+**Description:** Returns a detailed list of job runs.
 
 **Request Interface:** `requests.ListJobRunsRequest`
 
@@ -7655,7 +8738,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-listjobs"></a>`listJobs`
-**Description:** Returns a list of jobs for a given AI Data Platform Workbench.
+**Description:** Returns a list of jobs.
 
 **Request Interface:** `requests.ListJobsRequest`
 
@@ -7670,6 +8753,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
+| `jobKey` | `Array<string>` | The field to filter based on job key. |
 | `displayNameContains` | `string` | A filter to return only resources that have a display name containing the text provided. |
 | `path` | `string` | The fully qualified path where the job is stored. |
 | `createdBy` | `string` | A filter to return only resources that are created by given user with username that matches exactly. |
@@ -7738,7 +8822,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-workflowclient-listtaskruns"></a>`listTaskRuns`
-**Description:** Returns a list of tasks run in an AI Data Platform Workbench.
+**Description:** Returns a list of task runs.
 
 **Request Interface:** `requests.ListTaskRunsRequest`
 
@@ -7875,12 +8959,13 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
+| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
 ### <a id="operation-workflowclient-updatejob"></a>`updateJob`
-**Description:** Update details for a job in AI Data Platform Workbench.
+**Description:** Updates details for a job.
 
 **Request Interface:** `requests.UpdateJobRequest`
 
@@ -7961,7 +9046,6 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `dhUserPrincipal` | `string` | The DH User Principal Header . |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |

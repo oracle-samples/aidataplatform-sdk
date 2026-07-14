@@ -32,7 +32,7 @@ public enum ObjectType implements com.oracle.bmc.http.internal.BmcEnum {
     AuditLog("AUDIT_LOG"),
     Workflow("WORKFLOW"),
     Credential("CREDENTIAL"),
-    AgentFlow("AGENT_FLOW"),
+    Agent("AGENT"),
     
 
     /**

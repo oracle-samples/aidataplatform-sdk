@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Session configuration for an agent flow
+* Session configuration for an Agent.
 */
 export interface SessionConfiguration {
     /**
-    * Map of session variable name \u2192 variable definition
+    * Map of session variable name to variable definition.
     */
     'variables'?: { [key: string]: model.SessionVariableDetails; };
     'sessionRetentionConfig'?: model.SessionRetentionConfiguration;

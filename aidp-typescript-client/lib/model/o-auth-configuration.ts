@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* OAuth configuration for agent flow
+* OAuth configuration for an Agent.
 */
 export interface OAuthConfiguration {
     /**

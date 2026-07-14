@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * PII category configuration
+ * PII category configuration.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=PiiCategory.Builder.class)
@@ -24,14 +24,14 @@ public final class PiiCategory  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+     * PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("category")
 private PiiCategoryType category;
 
         /**
-         * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+         * PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
          * @param category the value to set
          * @return this builder
          **/
@@ -42,14 +42,14 @@ public Builder category(PiiCategoryType category) {
     return this;
 }
             /**
-     * Whether this category is enabled
+     * Whether this category is enabled.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("isEnabled")
 private Boolean isEnabled;
 
         /**
-         * Whether this category is enabled
+         * Whether this category is enabled.
          * @param isEnabled the value to set
          * @return this builder
          **/
@@ -60,14 +60,14 @@ public Builder isEnabled(Boolean isEnabled) {
     return this;
 }
             /**
-     * Action to take for this category
+     * Action to take for this category.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("action")
 private PolicyAction action;
 
         /**
-         * Action to take for this category
+         * Action to take for this category.
          * @param action the value to set
          * @return this builder
          **/
@@ -78,14 +78,14 @@ public Builder action(PolicyAction action) {
     return this;
 }
             /**
-     * Detection threshold for this category
+     * Detection threshold for this category.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("threshold")
 private Float threshold;
 
         /**
-         * Detection threshold for this category
+         * Detection threshold for this category.
          * @param threshold the value to set
          * @return this builder
          **/
@@ -130,14 +130,14 @@ return this;
 
     
         /**
-     * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+     * PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("category")
     private final PiiCategoryType category;
 
         /**
-     * PII category name (e.g., SSN, EMAIL, PHONE_NUMBER)
+     * PII category name (e.g., PERSON, EMAIL, TELEPHONE_NUMBER).
      * @return the value
      **/
     
@@ -147,14 +147,14 @@ return this;
 
 
         /**
-     * Whether this category is enabled
+     * Whether this category is enabled.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isEnabled")
     private final Boolean isEnabled;
 
         /**
-     * Whether this category is enabled
+     * Whether this category is enabled.
      * @return the value
      **/
     
@@ -164,14 +164,14 @@ return this;
 
     
         /**
-     * Action to take for this category
+     * Action to take for this category.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final PolicyAction action;
 
         /**
-     * Action to take for this category
+     * Action to take for this category.
      * @return the value
      **/
     
@@ -181,14 +181,14 @@ return this;
 
 
         /**
-     * Detection threshold for this category
+     * Detection threshold for this category.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("threshold")
     private final Float threshold;
 
         /**
-     * Detection threshold for this category
+     * Detection threshold for this category.
      * @return the value
      **/
     

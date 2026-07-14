@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Content moderation categories
+ * Content moderation categories.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum ContentModerationCategory implements com.oracle.bmc.http.internal.BmcEnum {
@@ -14,9 +14,15 @@ public enum ContentModerationCategory implements com.oracle.bmc.http.internal.Bm
     Sexual("SEXUAL"),
     Derogatory("DEROGATORY"),
     Toxic("TOXIC"),
-    ;
-
     
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownEnumValue(null);
+
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(ContentModerationCategory.class);
 
     private final String value;
     private static java.util.Map<String, ContentModerationCategory> map;
@@ -24,8 +30,9 @@ public enum ContentModerationCategory implements com.oracle.bmc.http.internal.Bm
     static {
         map = new java.util.HashMap<>();
         for (ContentModerationCategory v : ContentModerationCategory.values()) {
+            if (v != UnknownEnumValue) {
                 map.put(v.getValue(), v);
-            
+            }
         }
     }
 
@@ -43,6 +50,7 @@ public enum ContentModerationCategory implements com.oracle.bmc.http.internal.Bm
         if (map.containsKey(key)) {
             return map.get(key);
         }
-        throw new IllegalArgumentException("Invalid ContentModerationCategory: " + key);
+        LOG.warn("Received unknown value '{}' for enum 'ContentModerationCategory', returning UnknownEnumValue", key);
+        return UnknownEnumValue;
     }
 }

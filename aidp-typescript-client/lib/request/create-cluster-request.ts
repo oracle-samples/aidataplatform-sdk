@@ -18,7 +18,7 @@ export interface CreateClusterRequest extends common.BaseRequest {
 /**
  * Details for the new cluster.
  */
- 'createClusterDetails':  model.CreateAgentFlowComputeDetails| model.CreateSparkClusterDetails;
+ 'createClusterDetails':  model.CreateDflComputeDetails| model.CreateSparkClusterDetails| model.CreateAiComputeDetails;
 /**
  * A token that uniquely identifies a request so it can be retried in case of a timeout or
 * server error without risk of running that same action again. Retry tokens expire after 24

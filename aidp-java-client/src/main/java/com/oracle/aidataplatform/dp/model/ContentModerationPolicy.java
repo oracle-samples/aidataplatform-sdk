@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Content moderation safety policy
+ * Content moderation safety policy.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ContentModerationPolicy.Builder.class)
@@ -50,14 +50,14 @@ public Builder threshold(Float threshold) {
     return this;
 }
             /**
-     * Content moderation categories and their configurations
+     * Content moderation categories and their configurations.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("categories")
 private java.util.List<ContentModerationCategoryConfig> categories;
 
         /**
-         * Content moderation categories and their configurations
+         * Content moderation categories and their configurations.
          * @param categories the value to set
          * @return this builder
          **/
@@ -111,14 +111,14 @@ return this;
 
 
         /**
-     * Content moderation categories and their configurations
+     * Content moderation categories and their configurations.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("categories")
     private final java.util.List<ContentModerationCategoryConfig> categories;
 
         /**
-     * Content moderation categories and their configurations
+     * Content moderation categories and their configurations.
      * @return the value
      **/
     

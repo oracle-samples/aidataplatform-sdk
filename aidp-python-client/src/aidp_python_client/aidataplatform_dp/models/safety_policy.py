@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class SafetyPolicy(object):
     """
-    Individual safety policy configuration
+    Individual safety policy configuration.
     """
 
     #: A constant which can be used with the policy_type property of a SafetyPolicy.
@@ -80,7 +80,8 @@ class SafetyPolicy(object):
 
         :param policy_type:
             The value to assign to the policy_type property of this SafetyPolicy.
-            Allowed values for this property are: "CONTENT_MODERATION", "PROMPT_ATTACKS_PREVENTION", "PII_DETECTION", "DENIED_TOPICS", "WORD_FILTERS", "CONTEXTUAL_GROUNDING", "CUSTOM_POLICY"
+            Allowed values for this property are: "CONTENT_MODERATION", "PROMPT_ATTACKS_PREVENTION", "PII_DETECTION", "DENIED_TOPICS", "WORD_FILTERS", "CONTEXTUAL_GROUNDING", "CUSTOM_POLICY", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type policy_type: str
 
         :param policy_name:
@@ -93,12 +94,14 @@ class SafetyPolicy(object):
 
         :param scope:
             The value to assign to the scope property of this SafetyPolicy.
-            Allowed values for this property are: "USER_REQUEST", "AGENT_RESPONSE", "BOTH"
+            Allowed values for this property are: "USER_REQUEST", "AGENT_RESPONSE", "BOTH", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type scope: str
 
         :param action:
             The value to assign to the action property of this SafetyPolicy.
-            Allowed values for this property are: "BLOCK", "INFORM", "MASK"
+            Allowed values for this property are: "BLOCK", "INFORM", "MASK", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type action: str
 
         :param threshold:
@@ -160,9 +163,10 @@ class SafetyPolicy(object):
     def policy_type(self):
         """
         **[Required]** Gets the policy_type of this SafetyPolicy.
-        Type of safety policy
+        Type of safety policy.
 
-        Allowed values for this property are: "CONTENT_MODERATION", "PROMPT_ATTACKS_PREVENTION", "PII_DETECTION", "DENIED_TOPICS", "WORD_FILTERS", "CONTEXTUAL_GROUNDING", "CUSTOM_POLICY"
+        Allowed values for this property are: "CONTENT_MODERATION", "PROMPT_ATTACKS_PREVENTION", "PII_DETECTION", "DENIED_TOPICS", "WORD_FILTERS", "CONTEXTUAL_GROUNDING", "CUSTOM_POLICY", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The policy_type of this SafetyPolicy.
@@ -174,7 +178,7 @@ class SafetyPolicy(object):
     def policy_type(self, policy_type):
         """
         Sets the policy_type of this SafetyPolicy.
-        Type of safety policy
+        Type of safety policy.
 
 
         :param policy_type: The policy_type of this SafetyPolicy.
@@ -182,17 +186,14 @@ class SafetyPolicy(object):
         """
         allowed_values = ["CONTENT_MODERATION", "PROMPT_ATTACKS_PREVENTION", "PII_DETECTION", "DENIED_TOPICS", "WORD_FILTERS", "CONTEXTUAL_GROUNDING", "CUSTOM_POLICY"]
         if not value_allowed_none_or_none_sentinel(policy_type, allowed_values):
-            raise ValueError(
-                "Invalid value for `policy_type`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            policy_type = 'UNKNOWN_ENUM_VALUE'
         self._policy_type = policy_type
 
     @property
     def policy_name(self):
         """
         Gets the policy_name of this SafetyPolicy.
-        Custom name for the policy
+        Custom name for the policy.
 
 
         :return: The policy_name of this SafetyPolicy.
@@ -204,7 +205,7 @@ class SafetyPolicy(object):
     def policy_name(self, policy_name):
         """
         Sets the policy_name of this SafetyPolicy.
-        Custom name for the policy
+        Custom name for the policy.
 
 
         :param policy_name: The policy_name of this SafetyPolicy.
@@ -216,7 +217,7 @@ class SafetyPolicy(object):
     def policy_description(self):
         """
         Gets the policy_description of this SafetyPolicy.
-        Description of the policy
+        Description of the policy.
 
 
         :return: The policy_description of this SafetyPolicy.
@@ -228,7 +229,7 @@ class SafetyPolicy(object):
     def policy_description(self, policy_description):
         """
         Sets the policy_description of this SafetyPolicy.
-        Description of the policy
+        Description of the policy.
 
 
         :param policy_description: The policy_description of this SafetyPolicy.
@@ -240,9 +241,10 @@ class SafetyPolicy(object):
     def scope(self):
         """
         **[Required]** Gets the scope of this SafetyPolicy.
-        Scope of policy application
+        Scope of policy application.
 
-        Allowed values for this property are: "USER_REQUEST", "AGENT_RESPONSE", "BOTH"
+        Allowed values for this property are: "USER_REQUEST", "AGENT_RESPONSE", "BOTH", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The scope of this SafetyPolicy.
@@ -254,7 +256,7 @@ class SafetyPolicy(object):
     def scope(self, scope):
         """
         Sets the scope of this SafetyPolicy.
-        Scope of policy application
+        Scope of policy application.
 
 
         :param scope: The scope of this SafetyPolicy.
@@ -262,19 +264,17 @@ class SafetyPolicy(object):
         """
         allowed_values = ["USER_REQUEST", "AGENT_RESPONSE", "BOTH"]
         if not value_allowed_none_or_none_sentinel(scope, allowed_values):
-            raise ValueError(
-                "Invalid value for `scope`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            scope = 'UNKNOWN_ENUM_VALUE'
         self._scope = scope
 
     @property
     def action(self):
         """
         **[Required]** Gets the action of this SafetyPolicy.
-        Action to take when policy is violated
+        Action to take when policy is violated.
 
-        Allowed values for this property are: "BLOCK", "INFORM", "MASK"
+        Allowed values for this property are: "BLOCK", "INFORM", "MASK", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The action of this SafetyPolicy.
@@ -286,7 +286,7 @@ class SafetyPolicy(object):
     def action(self, action):
         """
         Sets the action of this SafetyPolicy.
-        Action to take when policy is violated
+        Action to take when policy is violated.
 
 
         :param action: The action of this SafetyPolicy.
@@ -294,17 +294,14 @@ class SafetyPolicy(object):
         """
         allowed_values = ["BLOCK", "INFORM", "MASK"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
-            raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            action = 'UNKNOWN_ENUM_VALUE'
         self._action = action
 
     @property
     def threshold(self):
         """
         Gets the threshold of this SafetyPolicy.
-        Threshold value for policy violation (0.0 to 1.0)
+        Threshold value for policy violation (0.0 to 1.0).
 
 
         :return: The threshold of this SafetyPolicy.
@@ -316,7 +313,7 @@ class SafetyPolicy(object):
     def threshold(self, threshold):
         """
         Sets the threshold of this SafetyPolicy.
-        Threshold value for policy violation (0.0 to 1.0)
+        Threshold value for policy violation (0.0 to 1.0).
 
 
         :param threshold: The threshold of this SafetyPolicy.

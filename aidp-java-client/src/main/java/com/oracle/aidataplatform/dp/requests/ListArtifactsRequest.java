@@ -93,19 +93,6 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<ListArtifactsRequest, java.lang.Void> {
@@ -210,21 +197,6 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -251,7 +223,7 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
          * @return this builder instance
          */
         public Builder copy(ListArtifactsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());runId(o.getRunId());path(o.getPath());pageToken(o.getPageToken());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());runId(o.getRunId());path(o.getPath());pageToken(o.getPageToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -290,9 +262,8 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
             request.path = path;
             request.pageToken = pageToken;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new ListArtifactsRequest(aiDataPlatformId, workspaceKey, runId, path, pageToken, opcRequestId, dhUserPrincipal);
+            // new ListArtifactsRequest(aiDataPlatformId, workspaceKey, runId, path, pageToken, opcRequestId);
         }
     }
 
@@ -307,8 +278,7 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
             .runId(runId)
             .path(path)
             .pageToken(pageToken)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -330,7 +300,6 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
         sb.append(",path=").append(String.valueOf(this.path));
         sb.append(",pageToken=").append(String.valueOf(this.pageToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -351,8 +320,7 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
             && java.util.Objects.equals(this.runId, other.runId)
             && java.util.Objects.equals(this.path, other.path)
             && java.util.Objects.equals(this.pageToken, other.pageToken)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -365,7 +333,6 @@ public class ListArtifactsRequest extends com.oracle.bmc.requests.BmcRequest<jav
         result = (result * PRIME) + (this.path == null ? 43 : this.path.hashCode());
         result = (result * PRIME) + (this.pageToken == null ? 43 : this.pageToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

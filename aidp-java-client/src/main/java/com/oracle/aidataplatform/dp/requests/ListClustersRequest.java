@@ -73,7 +73,7 @@ public class ListClustersRequest extends com.oracle.bmc.requests.BmcRequest<java
         return displayNameContains;
     }
         /**
-     * Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only
+     * Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only
 * cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 * 
      */
@@ -82,7 +82,7 @@ public class ListClustersRequest extends com.oracle.bmc.requests.BmcRequest<java
     
 
         /**
-     * Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only
+     * Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only
 * cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 * 
      */
@@ -293,14 +293,14 @@ public class ListClustersRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
-     * Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only
+     * Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only
 * cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 * 
      */
         private String type = null;
 
         /**
-         * Cluster type. When the filter is not provided list shows all type of cluster - USER else it show only
+         * Cluster type. When the filter is not provided list shows all cluster types - USER and AI_COMPUTE else it shows only
 * cluster of type chosen. Only clusters of type USER are attachable to a workspace notebook.
 * 
          * @param type the value to set

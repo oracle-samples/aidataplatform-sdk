@@ -5,6 +5,8 @@
 from __future__ import absolute_import
 
 
+from .agent_client import AgentClient
+from .agent_client_composite_operations import AgentClientCompositeOperations
 from .async_operations_client import AsyncOperationsClient
 from .async_operations_client_composite_operations import AsyncOperationsClientCompositeOperations
 from .audit_client import AuditClient
@@ -41,4 +43,4 @@ from .workspace_object_client import WorkspaceObjectClient
 from .workspace_object_client_composite_operations import WorkspaceObjectClientCompositeOperations
 from . import models
 
-__all__ = ["AsyncOperationsClient", "AsyncOperationsClientCompositeOperations", "AuditClient", "AuditClientCompositeOperations", "BundleClient", "BundleClientCompositeOperations", "CatalogClient", "CatalogClientCompositeOperations", "ClusterClient", "ClusterClientCompositeOperations", "CredentialsClient", "CredentialsClientCompositeOperations", "DeltaShareClient", "DeltaShareClientCompositeOperations", "GitClient", "GitClientCompositeOperations", "MLOpsClient", "MLOpsClientCompositeOperations", "NotebookClient", "NotebookClientCompositeOperations", "RoleClient", "RoleClientCompositeOperations", "SchemaClient", "SchemaClientCompositeOperations", "UserSettingClient", "UserSettingClientCompositeOperations", "VolumeClient", "VolumeClientCompositeOperations", "WorkflowClient", "WorkflowClientCompositeOperations", "WorkspaceClient", "WorkspaceClientCompositeOperations", "WorkspaceObjectClient", "WorkspaceObjectClientCompositeOperations", "models"]
+__all__ = ["AgentClient", "AgentClientCompositeOperations", "AsyncOperationsClient", "AsyncOperationsClientCompositeOperations", "AuditClient", "AuditClientCompositeOperations", "BundleClient", "BundleClientCompositeOperations", "CatalogClient", "CatalogClientCompositeOperations", "ClusterClient", "ClusterClientCompositeOperations", "CredentialsClient", "CredentialsClientCompositeOperations", "DeltaShareClient", "DeltaShareClientCompositeOperations", "GitClient", "GitClientCompositeOperations", "MLOpsClient", "MLOpsClientCompositeOperations", "NotebookClient", "NotebookClientCompositeOperations", "RoleClient", "RoleClientCompositeOperations", "SchemaClient", "SchemaClientCompositeOperations", "UserSettingClient", "UserSettingClientCompositeOperations", "VolumeClient", "VolumeClientCompositeOperations", "WorkflowClient", "WorkflowClientCompositeOperations", "WorkspaceClient", "WorkspaceClientCompositeOperations", "WorkspaceObjectClient", "WorkspaceObjectClientCompositeOperations", "models"]

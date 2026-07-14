@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class SessionConfiguration(object):
     """
-    Session configuration for an agent flow
+    Session configuration for an Agent.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class SessionConfiguration(object):
     def variables(self):
         """
         Gets the variables of this SessionConfiguration.
-        Map of session variable name \u2192 variable definition
+        Map of session variable name to variable definition.
 
 
         :return: The variables of this SessionConfiguration.
@@ -56,7 +56,7 @@ class SessionConfiguration(object):
     def variables(self, variables):
         """
         Sets the variables of this SessionConfiguration.
-        Map of session variable name \u2192 variable definition
+        Map of session variable name to variable definition.
 
 
         :param variables: The variables of this SessionConfiguration.

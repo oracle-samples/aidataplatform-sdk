@@ -11,7 +11,15 @@ export interface RepairJobRunDetails {
     /**
     * The collection of selected task IDs to be repaired.
     */
-    'taskKeys': Array<string>;
+    'taskKeys'?: Array<string>;
+    /**
+    * Repair mode to be used for this repair scope.
+    */
+    'repairMode'?: RepairJobRunDetails.RepairMode;
+    /**
+    * The collection of selected task details to be repaired.
+    */
+    'repairTasks'?: Array<model.RepairTaskDetails>;
     /**
     * An optional list of parameters.
     */
@@ -22,11 +30,26 @@ export interface RepairJobRunDetails {
 export namespace RepairJobRunDetails {
 
 
+    export enum RepairMode {
+    
+    Resume = "RESUME",
+    Rerun = "RERUN"
+
+}
+
+
+
 
     export function getJsonObj(obj: RepairJobRunDetails): object {
         const jsonObj = {...obj, ...{
             
 
+
+                'repairTasks': obj.repairTasks ?
+                
+                obj.repairTasks.map((item)=>{return model.RepairTaskDetails.getJsonObj(item)})
+                
+                 : undefined,
                 'parameters': obj.parameters ?
                 
                 obj.parameters.map((item)=>{return model.Parameter.getJsonObj(item)})
@@ -43,6 +66,12 @@ export namespace RepairJobRunDetails {
         const jsonObj = {...obj, ...{
             
 
+
+                    'repairTasks': obj.repairTasks ?
+                
+                obj.repairTasks.map((item)=>{return model.RepairTaskDetails.getDeserializedJsonObj(item)})
+                
+                 : undefined,
                     'parameters': obj.parameters ?
                 
                 obj.parameters.map((item)=>{return model.Parameter.getDeserializedJsonObj(item)})

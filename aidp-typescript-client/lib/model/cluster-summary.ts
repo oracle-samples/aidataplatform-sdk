@@ -68,6 +68,7 @@ export interface ClusterSummary {
     'activeClusterResources'?: model.ActiveClusterResources;
     'driverConfig'?: model.DriverConfig;
     'workerConfig'?: model.WorkerConfig;
+    'replicaConfig'?: model.ReplicaConfig;
     /**
     * List of notebooks attached to a specific cluster.
     */
@@ -77,13 +78,14 @@ export interface ClusterSummary {
     */
     'attachedSessions'?: Array<model.AttachedSession>;
     /**
-    * Count of agent flow attached to a specific cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Count of agents attached to a specific cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
-    'attachedAgentFlowCount'?: number;
+    'attachedAgentCount'?: number;
 
 }
 
 export namespace ClusterSummary {
+
 
 
 
@@ -139,6 +141,10 @@ export namespace ClusterSummary {
                 
                 
                 model.WorkerConfig.getJsonObj(obj.workerConfig) : undefined,
+                'replicaConfig': obj.replicaConfig ?
+                
+                
+                model.ReplicaConfig.getJsonObj(obj.replicaConfig) : undefined,
 
                 'attachedSessions': obj.attachedSessions ?
                 
@@ -186,6 +192,10 @@ export namespace ClusterSummary {
                 
                 
                 model.WorkerConfig.getDeserializedJsonObj(obj.workerConfig) : undefined,
+                    'replicaConfig': obj.replicaConfig ?
+                
+                
+                model.ReplicaConfig.getDeserializedJsonObj(obj.replicaConfig) : undefined,
 
                     'attachedSessions': obj.attachedSessions ?
                 

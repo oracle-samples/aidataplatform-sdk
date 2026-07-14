@@ -28,7 +28,8 @@ class NodeIoColor(object):
 
         :param text_color:
             The value to assign to the text_color property of this NodeIoColor.
-            Allowed values for this property are: "DARK", "LIGHT"
+            Allowed values for this property are: "DARK", "LIGHT", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type text_color: str
 
         :param background_color:
@@ -62,7 +63,8 @@ class NodeIoColor(object):
         **[Required]** Gets the text_color of this NodeIoColor.
         Whether the text on badges should be dark or light for visibility.
 
-        Allowed values for this property are: "DARK", "LIGHT"
+        Allowed values for this property are: "DARK", "LIGHT", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The text_color of this NodeIoColor.
@@ -82,10 +84,7 @@ class NodeIoColor(object):
         """
         allowed_values = ["DARK", "LIGHT"]
         if not value_allowed_none_or_none_sentinel(text_color, allowed_values):
-            raise ValueError(
-                "Invalid value for `text_color`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            text_color = 'UNKNOWN_ENUM_VALUE'
         self._text_color = text_color
 
     @property
