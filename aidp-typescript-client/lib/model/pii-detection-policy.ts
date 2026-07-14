@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* PII detection safety policy
+* PII detection safety policy.
 */
 export interface PiiDetectionPolicy extends model.SafetyPolicy {
     /**
-    * List of PII categories to detect
+    * List of PII categories to detect.
     */
     'piiCategories'?: Array<model.PiiCategory>;
     /**
-    * Custom PII detection rules
+    * Custom PII detection rules.
     */
     'customPiiRules'?: Array<model.CustomPiiRule>;
 

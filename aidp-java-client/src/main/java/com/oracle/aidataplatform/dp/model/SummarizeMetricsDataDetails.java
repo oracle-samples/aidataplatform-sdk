@@ -12,11 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class SummarizeMetricsDataDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"aggregationType", "metricName", "timeBegin", "timeEnd", "interval", "resolution"})
-    public SummarizeMetricsDataDetails(AggregationType aggregationType, String metricName, java.util.Date timeBegin, java.util.Date timeEnd, String interval, String resolution) {
+    @java.beans.ConstructorProperties({"aggregationType", "metricName", "agentNode", "timeBegin", "timeEnd", "interval", "resolution"})
+    public SummarizeMetricsDataDetails(AggregationType aggregationType, String metricName, String agentNode, java.util.Date timeBegin, java.util.Date timeEnd, String interval, String resolution) {
         super();
         this.aggregationType = aggregationType;
         this.metricName = metricName;
+        this.agentNode = agentNode;
         this.timeBegin = timeBegin;
         this.timeEnd = timeEnd;
         this.interval = interval;
@@ -81,6 +82,28 @@ private String metricName;
 
 public Builder metricName(String metricName) {
     this.metricName = metricName;
+    return this;
+}
+            /**
+     * Optional Monitoring {@code agentNode} dimension value used to filter AI compute metrics to a specific AI compute replica.
+* This filter applies only to AI compute clusters.
+* 
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("agentNode")
+private String agentNode;
+
+        /**
+         * Optional Monitoring {@code agentNode} dimension value used to filter AI compute metrics to a specific AI compute replica.
+* This filter applies only to AI compute clusters.
+* 
+         * @param agentNode the value to set
+         * @return this builder
+         **/
+        
+
+public Builder agentNode(String agentNode) {
+    this.agentNode = agentNode;
     return this;
 }
             /**
@@ -176,6 +199,7 @@ public Builder resolution(String resolution) {
         public SummarizeMetricsDataDetails build() {
             SummarizeMetricsDataDetails model = new SummarizeMetricsDataDetails(this.aggregationType
                 , this.metricName
+                , this.agentNode
                 , this.timeBegin
                 , this.timeEnd
                 , this.interval
@@ -186,6 +210,7 @@ public Builder resolution(String resolution) {
         public Builder copy(SummarizeMetricsDataDetails model) {
                 this.aggregationType(model.getAggregationType());
     this.metricName(model.getMetricName());
+    this.agentNode(model.getAgentNode());
     this.timeBegin(model.getTimeBegin());
     this.timeEnd(model.getTimeEnd());
     this.interval(model.getInterval());
@@ -315,6 +340,27 @@ return this;
 
 
         /**
+     * Optional Monitoring {@code agentNode} dimension value used to filter AI compute metrics to a specific AI compute replica.
+* This filter applies only to AI compute clusters.
+* 
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("agentNode")
+    private final String agentNode;
+
+        /**
+     * Optional Monitoring {@code agentNode} dimension value used to filter AI compute metrics to a specific AI compute replica.
+* This filter applies only to AI compute clusters.
+* 
+     * @return the value
+     **/
+    
+    public String getAgentNode() {
+        return agentNode;
+    }
+
+
+        /**
      * The beginning of the time range to use when searching for metric data points. Format is RFC 3339.
      **/
     
@@ -412,6 +458,7 @@ return this;
         sb.append("SummarizeMetricsDataDetails(");
         sb.append("aggregationType=").append(String.valueOf(this.aggregationType));
         sb.append(", metricName=").append(String.valueOf(this.metricName));
+        sb.append(", agentNode=").append(String.valueOf(this.agentNode));
         sb.append(", timeBegin=").append(String.valueOf(this.timeBegin));
         sb.append(", timeEnd=").append(String.valueOf(this.timeEnd));
         sb.append(", interval=").append(String.valueOf(this.interval));
@@ -432,6 +479,7 @@ return this;
         SummarizeMetricsDataDetails other = (SummarizeMetricsDataDetails) o;
         return java.util.Objects.equals(this.aggregationType, other.aggregationType) &&
             java.util.Objects.equals(this.metricName, other.metricName) &&
+            java.util.Objects.equals(this.agentNode, other.agentNode) &&
             java.util.Objects.equals(this.timeBegin, other.timeBegin) &&
             java.util.Objects.equals(this.timeEnd, other.timeEnd) &&
             java.util.Objects.equals(this.interval, other.interval) &&
@@ -444,6 +492,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.aggregationType == null ? 43 : this.aggregationType.hashCode());
         result = (result * PRIME) + (this.metricName == null ? 43 : this.metricName.hashCode());
+        result = (result * PRIME) + (this.agentNode == null ? 43 : this.agentNode.hashCode());
         result = (result * PRIME) + (this.timeBegin == null ? 43 : this.timeBegin.hashCode());
         result = (result * PRIME) + (this.timeEnd == null ? 43 : this.timeEnd.hashCode());
         result = (result * PRIME) + (this.interval == null ? 43 : this.interval.hashCode());

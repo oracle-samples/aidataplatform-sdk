@@ -72,7 +72,8 @@ class NodeIo(object):
 
         :param data_type:
             The value to assign to the data_type property of this NodeIo.
-            Allowed values for this property are: "FLOW", "STR", "INT", "BOOL", "FLOAT", "LIST", "DICT", "ANY", "TOOLS", "LLMS", "AGENTS", "PLANNER", "FLOWS"
+            Allowed values for this property are: "FLOW", "STR", "INT", "BOOL", "FLOAT", "LIST", "DICT", "ANY", "TOOLS", "LLMS", "AGENTS", "PLANNER", "FLOWS", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type data_type: str
 
         :param color:
@@ -99,7 +100,8 @@ class NodeIo(object):
         **[Required]** Gets the data_type of this NodeIo.
         Possible types of node inputs and outputs.
 
-        Allowed values for this property are: "FLOW", "STR", "INT", "BOOL", "FLOAT", "LIST", "DICT", "ANY", "TOOLS", "LLMS", "AGENTS", "PLANNER", "FLOWS"
+        Allowed values for this property are: "FLOW", "STR", "INT", "BOOL", "FLOAT", "LIST", "DICT", "ANY", "TOOLS", "LLMS", "AGENTS", "PLANNER", "FLOWS", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The data_type of this NodeIo.
@@ -119,10 +121,7 @@ class NodeIo(object):
         """
         allowed_values = ["FLOW", "STR", "INT", "BOOL", "FLOAT", "LIST", "DICT", "ANY", "TOOLS", "LLMS", "AGENTS", "PLANNER", "FLOWS"]
         if not value_allowed_none_or_none_sentinel(data_type, allowed_values):
-            raise ValueError(
-                "Invalid value for `data_type`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            data_type = 'UNKNOWN_ENUM_VALUE'
         self._data_type = data_type
 
     @property

@@ -106,7 +106,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateViewResponse> createView(CreateViewRequest request, com.oracle.bmc.responses.AsyncHandler<CreateViewRequest, CreateViewResponse> handler);
     
     /**
-     * Deletes a schema from an AI Data Platform Workbench.
+     * Deletes a schema.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -118,7 +118,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteSchemaResponse> deleteSchema(DeleteSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteSchemaRequest, DeleteSchemaResponse> handler);
     
     /**
-     * Deletes a table from an AI Data Platform Workbench.
+     * Deletes a table.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -130,7 +130,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteTableResponse> deleteTable(DeleteTableRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteTableRequest, DeleteTableResponse> handler);
     
     /**
-     * Deletes a view from AI Data Platform Workbench.
+     * Deletes a view.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -202,7 +202,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<ListSchemaPermissionsResponse> listSchemaPermissions(ListSchemaPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListSchemaPermissionsRequest, ListSchemaPermissionsResponse> handler);
     
     /**
-     * Returns a list of schemas in a given AI Data Platform Workbench.
+     * Returns a list of schemas.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -324,7 +324,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<PerformInferSchemaWithPreviewResponse> performInferSchemaWithPreview(PerformInferSchemaWithPreviewRequest request, com.oracle.bmc.responses.AsyncHandler<PerformInferSchemaWithPreviewRequest, PerformInferSchemaWithPreviewResponse> handler);
     
     /**
-     * Refreshes schema in an AI Data Platform Workbench through the crawler.
+     * Refreshes schema through the crawler.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -336,7 +336,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<RefreshSchemaResponse> refreshSchema(RefreshSchemaRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshSchemaRequest, RefreshSchemaResponse> handler);
     
     /**
-     * Refreshes a table in an AI Data Platform Workbench through the crawler.
+     * Refreshes a table through the crawler.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -348,7 +348,7 @@ public interface SchemaAsync extends AutoCloseable {
     java.util.concurrent.Future<RefreshTableResponse> refreshTable(RefreshTableRequest request, com.oracle.bmc.responses.AsyncHandler<RefreshTableRequest, RefreshTableResponse> handler);
     
     /**
-     * Retrieve PAR for the entities created in AI Data Platform Workbench.
+     * Retrieves PAR for the entities created.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

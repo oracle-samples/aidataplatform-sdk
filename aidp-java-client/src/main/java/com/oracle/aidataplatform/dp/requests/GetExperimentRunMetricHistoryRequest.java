@@ -114,19 +114,6 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<GetExperimentRunMetricHistoryRequest, java.lang.Void> {
@@ -254,21 +241,6 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -295,7 +267,7 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
          * @return this builder instance
          */
         public Builder copy(GetExperimentRunMetricHistoryRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());runId(o.getRunId());metricKey(o.getMetricKey());pageToken(o.getPageToken());maxResults(o.getMaxResults());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());runId(o.getRunId());metricKey(o.getMetricKey());pageToken(o.getPageToken());maxResults(o.getMaxResults());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -335,9 +307,8 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
             request.pageToken = pageToken;
             request.maxResults = maxResults;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new GetExperimentRunMetricHistoryRequest(aiDataPlatformId, workspaceKey, runId, metricKey, pageToken, maxResults, opcRequestId, dhUserPrincipal);
+            // new GetExperimentRunMetricHistoryRequest(aiDataPlatformId, workspaceKey, runId, metricKey, pageToken, maxResults, opcRequestId);
         }
     }
 
@@ -353,8 +324,7 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
             .metricKey(metricKey)
             .pageToken(pageToken)
             .maxResults(maxResults)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -377,7 +347,6 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
         sb.append(",pageToken=").append(String.valueOf(this.pageToken));
         sb.append(",maxResults=").append(String.valueOf(this.maxResults));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -399,8 +368,7 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
             && java.util.Objects.equals(this.metricKey, other.metricKey)
             && java.util.Objects.equals(this.pageToken, other.pageToken)
             && java.util.Objects.equals(this.maxResults, other.maxResults)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -414,7 +382,6 @@ public class GetExperimentRunMetricHistoryRequest extends com.oracle.bmc.request
         result = (result * PRIME) + (this.pageToken == null ? 43 : this.pageToken.hashCode());
         result = (result * PRIME) + (this.maxResults == null ? 43 : this.maxResults.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

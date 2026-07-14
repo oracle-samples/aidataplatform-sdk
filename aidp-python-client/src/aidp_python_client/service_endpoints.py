@@ -2,6 +2,7 @@
 # Copyright (c) 2026, Oracle and/or its affiliates.  All rights reserved.
 
 SERVICE_ENDPOINTS = {
+    "agent": "https://datahub-dp.{domain}",
     "async_operations": "https://datahub-dp.{domain}",
     "audit": "https://datahub-dp.{domain}",
     "bundle": "https://datahub-dp.{domain}",

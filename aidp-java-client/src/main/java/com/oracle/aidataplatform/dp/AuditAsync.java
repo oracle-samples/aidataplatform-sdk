@@ -58,7 +58,7 @@ public interface AuditAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Manages audit logs for AI Data Platform Workbench.
+     * Manages audit logs.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -70,7 +70,7 @@ public interface AuditAsync extends AutoCloseable {
     java.util.concurrent.Future<ManageAuditLogsResponse> manageAuditLogs(ManageAuditLogsRequest request, com.oracle.bmc.responses.AsyncHandler<ManageAuditLogsRequest, ManageAuditLogsResponse> handler);
     
     /**
-     * Searches audit logs for AI Data Platform Workbench.
+     * Searches audit logs.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

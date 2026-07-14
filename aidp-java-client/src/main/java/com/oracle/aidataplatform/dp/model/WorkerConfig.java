@@ -24,14 +24,14 @@ public final class WorkerConfig  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Shape of the compute cluster executor instance.
+     * Shape of the compute cluster worker instance.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("workerShape")
 private String workerShape;
 
         /**
-         * Shape of the compute cluster executor instance.
+         * Shape of the compute cluster worker instance.
          * @param workerShape the value to set
          * @return this builder
          **/
@@ -122,14 +122,14 @@ return this;
 
 
         /**
-     * Shape of the compute cluster executor instance.
+     * Shape of the compute cluster worker instance.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("workerShape")
     private final String workerShape;
 
         /**
-     * Shape of the compute cluster executor instance.
+     * Shape of the compute cluster worker instance.
      * @return the value
      **/
     

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Prompt attacks prevention safety policy
+* Prompt attacks prevention safety policy.
 */
 export interface PromptAttacksPreventionPolicy extends model.SafetyPolicy {
 

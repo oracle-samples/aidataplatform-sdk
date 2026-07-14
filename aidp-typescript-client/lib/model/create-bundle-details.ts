@@ -25,7 +25,7 @@ export interface CreateBundleDetails {
 * Each has minimally resourceType and resourceKey.
 * 
     */
-    'bundledResources': Array<model.BundledResource>;
+    'bundledResources'?: Array<model.BundledResource>;
 
 }
 

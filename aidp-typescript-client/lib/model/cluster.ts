@@ -169,10 +169,10 @@ export namespace Cluster {
         
         if (obj && "sourceApi" in obj && obj.sourceApi) {
             switch (obj.sourceApi) {
+                case "AI_COMPUTE":
+                    return model.AiCompute.getJsonObj(<model.AiCompute>(<object>jsonObj), true);
                 case "CLUSTER_API":
                     return model.SparkCluster.getJsonObj(<model.SparkCluster>(<object>jsonObj), true);
-                case "AGENT_FLOW_COMPUTE":
-                    return model.AgentFlowCompute.getJsonObj(<model.AgentFlowCompute>(<object>jsonObj), true);
                 case "DEFAULT_CLUSTER_API":
                     return model.DefaultCluster.getJsonObj(<model.DefaultCluster>(<object>jsonObj), true);
                 default:
@@ -215,10 +215,10 @@ export namespace Cluster {
         
         if (obj && "sourceApi" in obj && obj.sourceApi) {
             switch (obj.sourceApi) {
+                case "AI_COMPUTE":
+                    return model.AiCompute.getDeserializedJsonObj(<model.AiCompute>(<object>jsonObj), true);
                 case "CLUSTER_API":
                     return model.SparkCluster.getDeserializedJsonObj(<model.SparkCluster>(<object>jsonObj), true);
-                case "AGENT_FLOW_COMPUTE":
-                    return model.AgentFlowCompute.getDeserializedJsonObj(<model.AgentFlowCompute>(<object>jsonObj), true);
                 case "DEFAULT_CLUSTER_API":
                     return model.DefaultCluster.getDeserializedJsonObj(<model.DefaultCluster>(<object>jsonObj), true);
                 default:

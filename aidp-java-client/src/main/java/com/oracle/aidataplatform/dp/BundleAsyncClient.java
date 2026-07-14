@@ -117,6 +117,40 @@ return clientCall(request, CreateBundleResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<CreateBundleActionResponse> createBundleAction(CreateBundleActionRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateBundleActionRequest, CreateBundleActionResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getCreateBundleDetails(), "createBundleDetails is required");
+        
+
+
+return clientCall(request, CreateBundleActionResponse::builder)
+        .logger(LOG, "createBundleAction")
+        .serviceDetails("Bundle", "CreateBundleAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CreateBundleActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("createBundle")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            CreateBundleActionResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            CreateBundleActionResponse.Builder::aidpAsyncOperationKey)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<DeployBundleResponse> deployBundle(DeployBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<DeployBundleRequest, DeployBundleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -151,6 +185,40 @@ return clientCall(request, DeployBundleResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<DeployBundleActionResponse> deployBundleAction(DeployBundleActionRequest request, final com.oracle.bmc.responses.AsyncHandler<DeployBundleActionRequest, DeployBundleActionResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getDeployBundleDetails(), "deployBundleDetails is required");
+        
+
+
+return clientCall(request, DeployBundleActionResponse::builder)
+        .logger(LOG, "deployBundleAction")
+        .serviceDetails("Bundle", "DeployBundleAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(DeployBundleActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("deployBundle")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            DeployBundleActionResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            DeployBundleActionResponse.Builder::aidpAsyncOperationKey)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<FetchBundleDeploymentStatusResponse> fetchBundleDeploymentStatus(FetchBundleDeploymentStatusRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusRequest, FetchBundleDeploymentStatusResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -177,6 +245,37 @@ return clientCall(request, FetchBundleDeploymentStatusResponse::builder)
             .handleBody(com.oracle.aidataplatform.dp.model.BundleDeploymentStatus.class, FetchBundleDeploymentStatusResponse.Builder::bundleDeploymentStatus)
                 .handleResponseHeaderString("opc-request-id", 
             FetchBundleDeploymentStatusResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<FetchBundleDeploymentStatusActionResponse> fetchBundleDeploymentStatusAction(FetchBundleDeploymentStatusActionRequest request, final com.oracle.bmc.responses.AsyncHandler<FetchBundleDeploymentStatusActionRequest, FetchBundleDeploymentStatusActionResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getFetchBundleDeploymentStatusDetails(), "fetchBundleDeploymentStatusDetails is required");
+        
+
+
+return clientCall(request, FetchBundleDeploymentStatusActionResponse::builder)
+        .logger(LOG, "fetchBundleDeploymentStatusAction")
+        .serviceDetails("Bundle", "FetchBundleDeploymentStatusAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(FetchBundleDeploymentStatusActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("getBundleDeploymentStatus")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.BundleDeploymentStatus.class, FetchBundleDeploymentStatusActionResponse.Builder::bundleDeploymentStatus)
+                .handleResponseHeaderString("opc-request-id", 
+            FetchBundleDeploymentStatusActionResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
@@ -216,6 +315,40 @@ return clientCall(request, PurgeBundleResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<PurgeBundleActionResponse> purgeBundleAction(PurgeBundleActionRequest request, final com.oracle.bmc.responses.AsyncHandler<PurgeBundleActionRequest, PurgeBundleActionResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getPurgeBundleDetails(), "purgeBundleDetails is required");
+        
+
+
+return clientCall(request, PurgeBundleActionResponse::builder)
+        .logger(LOG, "purgeBundleAction")
+        .serviceDetails("Bundle", "PurgeBundleAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(PurgeBundleActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("purgeBundle")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            PurgeBundleActionResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            PurgeBundleActionResponse.Builder::aidpAsyncOperationKey)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<SyncBundleResponse> syncBundle(SyncBundleRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncBundleRequest, SyncBundleResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -245,6 +378,40 @@ return clientCall(request, SyncBundleResponse::builder)
             SyncBundleResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("aidp-async-operation-key", 
             SyncBundleResponse.Builder::aidpAsyncOperationKey)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<SyncBundleActionResponse> syncBundleAction(SyncBundleActionRequest request, final com.oracle.bmc.responses.AsyncHandler<SyncBundleActionRequest, SyncBundleActionResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getSyncBundleDetails(), "syncBundleDetails is required");
+        
+
+
+return clientCall(request, SyncBundleActionResponse::builder)
+        .logger(LOG, "syncBundleAction")
+        .serviceDetails("Bundle", "SyncBundleAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SyncBundleActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("syncBundle")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            SyncBundleActionResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            SyncBundleActionResponse.Builder::aidpAsyncOperationKey)
 .callAsync(handler);
     }
 

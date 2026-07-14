@@ -87,7 +87,7 @@ class VolumeClient(object):
 
     def create_volume(self, ai_data_platform_id, create_volume_details, **kwargs):
         """
-        Creates a volume in AI Data Platform Workbench.
+        Creates a volume.
 
 
         :param str ai_data_platform_id: (required)

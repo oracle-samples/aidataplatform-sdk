@@ -47,7 +47,7 @@ class BearerTokenAuth(Auth):
     def token(self):
         """
         Gets the token of this BearerTokenAuth.
-        The bearer token used for auth
+        The bearer token or session-variable reference used for auth
 
 
         :return: The token of this BearerTokenAuth.
@@ -59,7 +59,7 @@ class BearerTokenAuth(Auth):
     def token(self, token):
         """
         Sets the token of this BearerTokenAuth.
-        The bearer token used for auth
+        The bearer token or session-variable reference used for auth
 
 
         :param token: The token of this BearerTokenAuth.

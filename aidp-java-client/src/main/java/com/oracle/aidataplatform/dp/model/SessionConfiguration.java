@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Session configuration for an agent flow
+ * Session configuration for an Agent.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=SessionConfiguration.Builder.class)
@@ -22,14 +22,14 @@ public final class SessionConfiguration  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Map of session variable name \u2192 variable definition
+     * Map of session variable name to variable definition.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("variables")
 private java.util.Map<String, SessionVariableDetails> variables;
 
         /**
-         * Map of session variable name \u2192 variable definition
+         * Map of session variable name to variable definition.
          * @param variables the value to set
          * @return this builder
          **/
@@ -80,14 +80,14 @@ return this;
 
 
         /**
-     * Map of session variable name \u2192 variable definition
+     * Map of session variable name to variable definition.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("variables")
     private final java.util.Map<String, SessionVariableDetails> variables;
 
         /**
-     * Map of session variable name \u2192 variable definition
+     * Map of session variable name to variable definition.
      * @return the value
      **/
     

@@ -105,19 +105,6 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
     public String getOpcRequestId() {
         return opcRequestId;
     }
-        /**
-     * The DH User Principal Header .
-     */
-    private String dhUserPrincipal;
-
-    
-
-        /**
-     * The DH User Principal Header .
-     */
-    public String getDhUserPrincipal() {
-        return dhUserPrincipal;
-    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<ListRegisteredModelsRequest, java.lang.Void> {
@@ -234,21 +221,6 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             return this;
         }
 
-            /**
-     * The DH User Principal Header .
-     */
-        private String dhUserPrincipal = null;
-
-        /**
-         * The DH User Principal Header .
-         * @param dhUserPrincipal the value to set
-         * @return this builder instance
-         */
-        public Builder dhUserPrincipal(String dhUserPrincipal) {
-            this.dhUserPrincipal = dhUserPrincipal;
-            return this;
-        }
-
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -275,7 +247,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
          * @return this builder instance
          */
         public Builder copy(ListRegisteredModelsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());filter(o.getFilter());maxResults(o.getMaxResults());pageToken(o.getPageToken());orderBy(o.getOrderBy());opcRequestId(o.getOpcRequestId());dhUserPrincipal(o.getDhUserPrincipal());
+            aiDataPlatformId(o.getAiDataPlatformId());filter(o.getFilter());maxResults(o.getMaxResults());pageToken(o.getPageToken());orderBy(o.getOrderBy());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -314,9 +286,8 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             request.pageToken = pageToken;
             request.orderBy = orderBy;
             request.opcRequestId = opcRequestId;
-            request.dhUserPrincipal = dhUserPrincipal;
             return request;
-            // new ListRegisteredModelsRequest(aiDataPlatformId, filter, maxResults, pageToken, orderBy, opcRequestId, dhUserPrincipal);
+            // new ListRegisteredModelsRequest(aiDataPlatformId, filter, maxResults, pageToken, orderBy, opcRequestId);
         }
     }
 
@@ -331,8 +302,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             .maxResults(maxResults)
             .pageToken(pageToken)
             .orderBy(orderBy)
-            .opcRequestId(opcRequestId)
-            .dhUserPrincipal(dhUserPrincipal);
+            .opcRequestId(opcRequestId);
     }
 
     /**
@@ -354,7 +324,6 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
         sb.append(",pageToken=").append(String.valueOf(this.pageToken));
         sb.append(",orderBy=").append(String.valueOf(this.orderBy));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
-        sb.append(",dhUserPrincipal=").append(String.valueOf(this.dhUserPrincipal));
         sb.append(")");
         return sb.toString();
     }
@@ -375,8 +344,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             && java.util.Objects.equals(this.maxResults, other.maxResults)
             && java.util.Objects.equals(this.pageToken, other.pageToken)
             && java.util.Objects.equals(this.orderBy, other.orderBy)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.dhUserPrincipal, other.dhUserPrincipal);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
     @Override
@@ -389,7 +357,6 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
         result = (result * PRIME) + (this.pageToken == null ? 43 : this.pageToken.hashCode());
         result = (result * PRIME) + (this.orderBy == null ? 43 : this.orderBy.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
-        result = (result * PRIME) + (this.dhUserPrincipal == null ? 43 : this.dhUserPrincipal.hashCode());
         return result;
     }
 }

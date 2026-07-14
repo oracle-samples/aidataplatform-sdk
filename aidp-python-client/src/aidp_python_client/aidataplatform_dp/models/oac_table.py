@@ -21,7 +21,7 @@ class OacTable(Table):
 
         :param entity_type:
             The value to assign to the entity_type property of this OacTable.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:

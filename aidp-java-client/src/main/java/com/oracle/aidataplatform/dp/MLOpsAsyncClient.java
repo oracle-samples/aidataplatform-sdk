@@ -106,8 +106,6 @@ return clientCall(request, CreateExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.CreateExperimentResponseDetails.class, CreateExperimentResponse.Builder::createExperimentResponseDetails)
@@ -143,8 +141,6 @@ return clientCall(request, CreateExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.CreateExperimentRunResponseDetails.class, CreateExperimentRunResponse.Builder::createExperimentRunResponseDetails)
@@ -178,8 +174,6 @@ return clientCall(request, CreateModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.CreateModelVersionResponseDetails.class, CreateModelVersionResponse.Builder::createModelVersionResponseDetails)
@@ -213,8 +207,6 @@ return clientCall(request, CreateRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.CreateRegisteredModelResponseDetails.class, CreateRegisteredModelResponse.Builder::createRegisteredModelResponseDetails)
@@ -250,8 +242,6 @@ return clientCall(request, CreateWorkspaceModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.CreateModelVersionResponseDetails.class, CreateWorkspaceModelVersionResponse.Builder::createModelVersionResponseDetails)
@@ -287,8 +277,6 @@ return clientCall(request, DeleteExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentResponseDetails.class, DeleteExperimentResponse.Builder::deleteExperimentResponseDetails)
@@ -324,8 +312,6 @@ return clientCall(request, DeleteExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentRunResponseDetails.class, DeleteExperimentRunResponse.Builder::deleteExperimentRunResponseDetails)
@@ -361,8 +347,6 @@ return clientCall(request, DeleteExperimentRunTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentRunTagResponseDetails.class, DeleteExperimentRunTagResponse.Builder::deleteExperimentRunTagResponseDetails)
@@ -398,8 +382,6 @@ return clientCall(request, DeleteExperimentTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteExperimentTagResponseDetails.class, DeleteExperimentTagResponse.Builder::deleteExperimentTagResponseDetails)
@@ -433,8 +415,6 @@ return clientCall(request, DeleteModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteModelVersionResponseDetails.class, DeleteModelVersionResponse.Builder::deleteModelVersionResponseDetails)
@@ -468,8 +448,6 @@ return clientCall(request, DeleteModelVersionTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteModelVersionTagResponseDetails.class, DeleteModelVersionTagResponse.Builder::deleteModelVersionTagResponseDetails)
@@ -503,8 +481,6 @@ return clientCall(request, DeleteRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteRegisteredModelResponseDetails.class, DeleteRegisteredModelResponse.Builder::deleteRegisteredModelResponseDetails)
@@ -538,8 +514,6 @@ return clientCall(request, DeleteRegisteredModelTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.DeleteRegisteredModelTagResponseDetails.class, DeleteRegisteredModelTagResponse.Builder::deleteRegisteredModelTagResponseDetails)
@@ -577,8 +551,6 @@ return clientCall(request, GetExperimentByIdResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.ExperimentResponse.class, GetExperimentByIdResponse.Builder::experimentResponse)
@@ -616,8 +588,6 @@ return clientCall(request, GetExperimentByNameResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.ExperimentResponse.class, GetExperimentByNameResponse.Builder::experimentResponse)
@@ -655,8 +625,6 @@ return clientCall(request, GetExperimentRunByIdResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.GetExperimentRunResponseDetails.class, GetExperimentRunByIdResponse.Builder::getExperimentRunResponseDetails)
@@ -708,8 +676,6 @@ return clientCall(request, GetExperimentRunMetricHistoryResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.ExperimentRunMetricHistoryCollection.class, GetExperimentRunMetricHistoryResponse.Builder::experimentRunMetricHistoryCollection)
@@ -751,8 +717,6 @@ return clientCall(request, GetModelVersionResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.GetModelVersionResponseDetails.class, GetModelVersionResponse.Builder::getModelVersionResponseDetails)
@@ -788,8 +752,6 @@ return clientCall(request, GetRegisteredModelResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.GetRegisteredModelResponseDetails.class, GetRegisteredModelResponse.Builder::getRegisteredModelResponseDetails)
@@ -835,8 +797,6 @@ return clientCall(request, ListArtifactsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.ArtifactList.class, ListArtifactsResponse.Builder::artifactList)
@@ -870,8 +830,6 @@ return clientCall(request, ListExperimentRunsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.ExperimentRunCollection.class, ListExperimentRunsResponse.Builder::experimentRunCollection)
@@ -905,8 +863,6 @@ return clientCall(request, ListExperimentsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.ExperimentCollection.class, ListExperimentsResponse.Builder::experimentCollection)
@@ -940,8 +896,6 @@ return clientCall(request, ListLoggedModelsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.LoggedModelCollection.class, ListLoggedModelsResponse.Builder::loggedModelCollection)
@@ -987,8 +941,6 @@ return clientCall(request, ListModelVersionsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.ModelVersionCollection.class, ListModelVersionsResponse.Builder::modelVersionCollection)
@@ -1034,8 +986,6 @@ return clientCall(request, ListRegisteredModelsResponse::builder)
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.RegisteredModelCollection.class, ListRegisteredModelsResponse.Builder::registeredModelCollection)
@@ -1071,8 +1021,6 @@ return clientCall(request, LogExperimentRunBatchResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunBatchResponseDetails.class, LogExperimentRunBatchResponse.Builder::logExperimentRunBatchResponseDetails)
@@ -1108,8 +1056,6 @@ return clientCall(request, LogExperimentRunInputsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunInputsResponseDetails.class, LogExperimentRunInputsResponse.Builder::logExperimentRunInputsResponseDetails)
@@ -1145,8 +1091,6 @@ return clientCall(request, LogExperimentRunMetricResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunMetricResponseDetails.class, LogExperimentRunMetricResponse.Builder::logExperimentRunMetricResponseDetails)
@@ -1182,8 +1126,6 @@ return clientCall(request, LogExperimentRunModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunModelResponseDetails.class, LogExperimentRunModelResponse.Builder::logExperimentRunModelResponseDetails)
@@ -1219,8 +1161,6 @@ return clientCall(request, LogExperimentRunParamResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.LogExperimentRunParamResponseDetails.class, LogExperimentRunParamResponse.Builder::logExperimentRunParamResponseDetails)
@@ -1254,8 +1194,6 @@ return clientCall(request, RenameRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.RenameRegisteredModelResponseDetails.class, RenameRegisteredModelResponse.Builder::renameRegisteredModelResponseDetails)
@@ -1289,8 +1227,6 @@ return clientCall(request, RestoreExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.RestoreExperimentResponseDetails.class, RestoreExperimentResponse.Builder::restoreExperimentResponseDetails)
@@ -1326,8 +1262,6 @@ return clientCall(request, RestoreExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.RestoreExperimentRunResponseDetails.class, RestoreExperimentRunResponse.Builder::restoreExperimentRunResponseDetails)
@@ -1363,8 +1297,6 @@ return clientCall(request, SetExperimentRunTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.SetExperimentRunTagResponseDetails.class, SetExperimentRunTagResponse.Builder::setExperimentRunTagResponseDetails)
@@ -1400,8 +1332,6 @@ return clientCall(request, SetExperimentTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.SetExperimentTagResponseDetails.class, SetExperimentTagResponse.Builder::setExperimentTagResponseDetails)
@@ -1435,8 +1365,6 @@ return clientCall(request, SetModelVersionTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.SetModelVersionTagResponseDetails.class, SetModelVersionTagResponse.Builder::setModelVersionTagResponseDetails)
@@ -1470,8 +1398,6 @@ return clientCall(request, SetRegisteredModelTagResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.SetRegisteredModelTagResponseDetails.class, SetRegisteredModelTagResponse.Builder::setRegisteredModelTagResponseDetails)
@@ -1505,8 +1431,6 @@ return clientCall(request, TransitionModelVersionStageResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.TransitionModelVersionStageResponseDetails.class, TransitionModelVersionStageResponse.Builder::transitionModelVersionStageResponseDetails)
@@ -1542,8 +1466,6 @@ return clientCall(request, UpdateExperimentResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentResponseDetails.class, UpdateExperimentResponse.Builder::updateExperimentResponseDetails)
@@ -1579,8 +1501,6 @@ return clientCall(request, UpdateExperimentRunResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentRunResponseDetails.class, UpdateExperimentRunResponse.Builder::updateExperimentRunResponseDetails)
@@ -1616,8 +1536,6 @@ return clientCall(request, UpdateExperimentRunTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentRunTagsResponseDetails.class, UpdateExperimentRunTagsResponse.Builder::updateExperimentRunTagsResponseDetails)
@@ -1653,8 +1571,6 @@ return clientCall(request, UpdateExperimentTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateExperimentTagsResponseDetails.class, UpdateExperimentTagsResponse.Builder::updateExperimentTagsResponseDetails)
@@ -1688,8 +1604,6 @@ return clientCall(request, UpdateModelVersionResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelVersionResponseDetails.class, UpdateModelVersionResponse.Builder::updateModelVersionResponseDetails)
@@ -1723,8 +1637,6 @@ return clientCall(request, UpdateModelVersionTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelVersionTagsResponseDetails.class, UpdateModelVersionTagsResponse.Builder::updateModelVersionTagsResponseDetails)
@@ -1758,8 +1670,6 @@ return clientCall(request, UpdateRegisteredModelResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateRegisteredModelResponseDetails.class, UpdateRegisteredModelResponse.Builder::updateRegisteredModelResponseDetails)
@@ -1793,8 +1703,6 @@ return clientCall(request, UpdateRegisteredModelTagsResponse::builder)
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
-                
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
         
         .hasBody()
             .handleBody(com.oracle.aidataplatform.dp.model.UpdateRegisteredModelTagsResponseDetails.class, UpdateRegisteredModelTagsResponse.Builder::updateRegisteredModelTagsResponseDetails)

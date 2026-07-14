@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * LifecycleState of an Agent Flow Session or Deployment.
+ * LifecycleState of an Agent Session or Deployment.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum DeploymentLifecycleState implements com.oracle.bmc.http.internal.BmcEnum {
@@ -13,9 +13,15 @@ public enum DeploymentLifecycleState implements com.oracle.bmc.http.internal.Bmc
     Inactive("INACTIVE"),
     Failed("FAILED"),
     Deleted("DELETED"),
-    ;
-
     
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownEnumValue(null);
+
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(DeploymentLifecycleState.class);
 
     private final String value;
     private static java.util.Map<String, DeploymentLifecycleState> map;
@@ -23,8 +29,9 @@ public enum DeploymentLifecycleState implements com.oracle.bmc.http.internal.Bmc
     static {
         map = new java.util.HashMap<>();
         for (DeploymentLifecycleState v : DeploymentLifecycleState.values()) {
+            if (v != UnknownEnumValue) {
                 map.put(v.getValue(), v);
-            
+            }
         }
     }
 
@@ -42,6 +49,7 @@ public enum DeploymentLifecycleState implements com.oracle.bmc.http.internal.Bmc
         if (map.containsKey(key)) {
             return map.get(key);
         }
-        throw new IllegalArgumentException("Invalid DeploymentLifecycleState: " + key);
+        LOG.warn("Received unknown value '{}' for enum 'DeploymentLifecycleState', returning UnknownEnumValue", key);
+        return UnknownEnumValue;
     }
 }

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Validation error for a component in agent flow diagram.
+* Validation error for a component in agent diagram.
 */
 export interface ValidationError {
     /**

@@ -506,6 +506,39 @@ return clientCall(request, PatchClusterLibraryResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<QueryReplicaIdsResponse> queryReplicaIds(QueryReplicaIdsRequest request, final com.oracle.bmc.responses.AsyncHandler<QueryReplicaIdsRequest, QueryReplicaIdsResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getQueryReplicaIdsDetails(), "queryReplicaIdsDetails is required");
+        
+
+
+return clientCall(request, QueryReplicaIdsResponse::builder)
+        .logger(LOG, "queryReplicaIds")
+        .serviceDetails("Cluster", "QueryReplicaIds", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(QueryReplicaIdsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("queryReplicaIds")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.QueryReplicaIdsResult.class, QueryReplicaIdsResponse.Builder::queryReplicaIdsResult)
+                .handleResponseHeaderString("opc-request-id", 
+            QueryReplicaIdsResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<RestartClusterResponse> restartCluster(RestartClusterRequest request, final com.oracle.bmc.responses.AsyncHandler<RestartClusterRequest, RestartClusterResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");

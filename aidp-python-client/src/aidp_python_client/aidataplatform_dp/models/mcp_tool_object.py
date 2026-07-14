@@ -21,7 +21,8 @@ class McpToolObject(McpObject):
 
         :param object_type:
             The value to assign to the object_type property of this McpToolObject.
-            Allowed values for this property are: "TOOL", "PROMPT", "RESOURCE"
+            Allowed values for this property are: "TOOL", "PROMPT", "RESOURCE", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type object_type: str
 
         :param name:

@@ -485,7 +485,7 @@ Example: {@code {"orcl-cloud": {"free-tier-retained": "true"}}}
     public String toString(boolean includeByteArrayContents) {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("DownloadFileWithParResult(");
-        sb.append("parUrl=").append(String.valueOf(this.parUrl));
+        sb.append("parUrl=").append("<redacted>");
         sb.append(", eTag=").append(String.valueOf(this.eTag));
         sb.append(", locationUri=").append(String.valueOf(this.locationUri));
         sb.append(", size=").append(String.valueOf(this.size));

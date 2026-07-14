@@ -22,7 +22,7 @@ export interface UpdateClusterRequest extends common.BaseRequest {
 /**
  * The information to be updated.
  */
- 'updateClusterDetails':  model.UpdateAgentFlowComputeDetails| model.UpdateSparkClusterDetails;
+ 'updateClusterDetails':  model.UpdateAiComputeDetails| model.UpdateSparkClusterDetails;
 /**
  * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
 * {@code if-match} parameter to the value of the etag from a previous GET or POST response for

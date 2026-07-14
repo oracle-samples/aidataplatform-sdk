@@ -19,7 +19,10 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhSchema.class, name = "ALH"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwSchema.class, name = "ADW"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = KafkaTopicSchema.class, name = "KAFKA_TOPIC"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureSchema.class, name = "AZURE_SQLSERVER"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeSchema.class, name = "SNOWFLAKE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpSchema.class, name = "ATP"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlSchema.class, name = "MYSQL"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardSchema.class, name = "STANDARD"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacSchema.class, name = "ORACLE_ANALYTICS"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchema.class, name = "EXADATA")

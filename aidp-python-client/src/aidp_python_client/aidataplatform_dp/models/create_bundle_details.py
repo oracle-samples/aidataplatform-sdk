@@ -129,7 +129,7 @@ class CreateBundleDetails(object):
     @property
     def bundled_resources(self):
         """
-        **[Required]** Gets the bundled_resources of this CreateBundleDetails.
+        Gets the bundled_resources of this CreateBundleDetails.
         List of workspace resource descriptors (jobs, agentflows) to be included.
         Each has minimally resourceType and resourceKey.
 

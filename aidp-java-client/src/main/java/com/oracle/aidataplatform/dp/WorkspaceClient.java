@@ -119,8 +119,6 @@ return clientCall(request, CreateGitFolderResponse::builder)
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("gitFolders")
         .accept("application/json")
                 
-                .appendHeader("dh-user-principal", request.getDhUserPrincipal())
-                
                 .appendHeader("opc-retry-token", request.getOpcRetryToken())
                 
                 .appendHeader("if-match", request.getIfMatch())

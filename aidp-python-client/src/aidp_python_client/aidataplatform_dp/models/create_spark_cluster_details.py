@@ -21,7 +21,7 @@ class CreateSparkClusterDetails(CreateClusterDetails):
 
         :param type:
             The value to assign to the type property of this CreateSparkClusterDetails.
-            Allowed values for this property are: "USER", "AGENT_FLOW_COMPUTE"
+            Allowed values for this property are: "USER", "AI_COMPUTE"
         :type type: str
 
         :param display_name:

@@ -37,6 +37,10 @@ class RevokeTablePermissionDetails(object):
     #: This constant has a value of "ADMIN"
     PERMISSIONS_ADMIN = "ADMIN"
 
+    #: A constant which can be used with the row_filter_type property of a RevokeTablePermissionDetails.
+    #: This constant has a value of "SQL"
+    ROW_FILTER_TYPE_SQL = "SQL"
+
     def __init__(self, **kwargs):
         """
         Initializes a new RevokeTablePermissionDetails object with values from keyword arguments.
@@ -59,25 +63,40 @@ class RevokeTablePermissionDetails(object):
             The value to assign to the exclude_columns property of this RevokeTablePermissionDetails.
         :type exclude_columns: list[str]
 
+        :param row_filter_type:
+            The value to assign to the row_filter_type property of this RevokeTablePermissionDetails.
+            Allowed values for this property are: "SQL"
+        :type row_filter_type: str
+
+        :param row_filter:
+            The value to assign to the row_filter property of this RevokeTablePermissionDetails.
+        :type row_filter: str
+
         """
         self.swagger_types = {
             'assignees': 'PermissionAssignees',
             'permissions': 'list[str]',
             'include_columns': 'list[str]',
-            'exclude_columns': 'list[str]'
+            'exclude_columns': 'list[str]',
+            'row_filter_type': 'str',
+            'row_filter': 'str'
         }
 
         self.attribute_map = {
             'assignees': 'assignees',
             'permissions': 'permissions',
             'include_columns': 'includeColumns',
-            'exclude_columns': 'excludeColumns'
+            'exclude_columns': 'excludeColumns',
+            'row_filter_type': 'rowFilterType',
+            'row_filter': 'rowFilter'
         }
 
         self._assignees = None
         self._permissions = None
         self._include_columns = None
         self._exclude_columns = None
+        self._row_filter_type = None
+        self._row_filter = None
 
     @property
     def assignees(self):
@@ -181,6 +200,62 @@ class RevokeTablePermissionDetails(object):
         :type: list[str]
         """
         self._exclude_columns = exclude_columns
+
+    @property
+    def row_filter_type(self):
+        """
+        Gets the row_filter_type of this RevokeTablePermissionDetails.
+        Type of row filter expression.
+
+        Allowed values for this property are: "SQL"
+
+
+        :return: The row_filter_type of this RevokeTablePermissionDetails.
+        :rtype: str
+        """
+        return self._row_filter_type
+
+    @row_filter_type.setter
+    def row_filter_type(self, row_filter_type):
+        """
+        Sets the row_filter_type of this RevokeTablePermissionDetails.
+        Type of row filter expression.
+
+
+        :param row_filter_type: The row_filter_type of this RevokeTablePermissionDetails.
+        :type: str
+        """
+        allowed_values = ["SQL"]
+        if not value_allowed_none_or_none_sentinel(row_filter_type, allowed_values):
+            raise ValueError(
+                "Invalid value for `row_filter_type`, must be None or one of {0}"
+                .format(allowed_values)
+            )
+        self._row_filter_type = row_filter_type
+
+    @property
+    def row_filter(self):
+        """
+        Gets the row_filter of this RevokeTablePermissionDetails.
+        Row filter expression applied while assigning table permissions.
+
+
+        :return: The row_filter of this RevokeTablePermissionDetails.
+        :rtype: str
+        """
+        return self._row_filter
+
+    @row_filter.setter
+    def row_filter(self, row_filter):
+        """
+        Sets the row_filter of this RevokeTablePermissionDetails.
+        Row filter expression applied while assigning table permissions.
+
+
+        :param row_filter: The row_filter of this RevokeTablePermissionDetails.
+        :type: str
+        """
+        self._row_filter = row_filter
 
     def __repr__(self):
         return formatted_flat_dict(self)

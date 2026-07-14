@@ -52,9 +52,5 @@ export interface CheckoutBranchRequest extends common.BaseRequest {
 * 
  */
  'ifMatch'?: string;
-/**
- * The DH User Principal Header .
- */
- 'dhUserPrincipal'?: string;
 }
 

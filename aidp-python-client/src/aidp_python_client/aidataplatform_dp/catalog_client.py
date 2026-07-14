@@ -87,7 +87,7 @@ class CatalogClient(object):
 
     def catalog_test_connection(self, ai_data_platform_id, catalog_test_connection_details, **kwargs):
         """
-        Test the connection of an AI Data Platform Workbench to an external catalog.
+        Tests the connection to an external catalog.
 
 
         :param str ai_data_platform_id: (required)
@@ -183,7 +183,7 @@ class CatalogClient(object):
 
     def create_catalog(self, ai_data_platform_id, create_catalog_details, **kwargs):
         """
-        Create a catalog in the AI Data Platform Workbench with the given ID.
+        Creates a catalog with the given ID.
 
 
         :param str ai_data_platform_id: (required)
@@ -279,7 +279,7 @@ class CatalogClient(object):
 
     def delete_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
         """
-        Deletes the specified catalog from an AI Data Platform Workbench.
+        Deletes the specified catalog.
 
 
         :param str ai_data_platform_id: (required)
@@ -376,7 +376,7 @@ class CatalogClient(object):
 
     def get_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
         """
-        Gets detailed information about an AI Data Platform Workbench catalog with a given catalog key.
+        Gets detailed information about a catalog with a given catalog key.
 
 
         :param str ai_data_platform_id: (required)
@@ -473,7 +473,7 @@ class CatalogClient(object):
 
     def list_catalog_permissions(self, ai_data_platform_id, catalog_key, **kwargs):
         """
-        Gets a list of all permissions in the specified catalog of an AI Data Platform Workbench.
+        Gets a list of all permissions in the specified catalog.
 
 
         :param str ai_data_platform_id: (required)
@@ -612,7 +612,7 @@ class CatalogClient(object):
 
     def list_catalogs(self, ai_data_platform_id, **kwargs):
         """
-        Get a list of catalogs in an AI Data Platform Workbench with a given ID.
+        Gets a list of catalogs with a given ID.
 
 
         :param str ai_data_platform_id: (required)
@@ -775,7 +775,7 @@ class CatalogClient(object):
 
     def manage_catalog_permission(self, ai_data_platform_id, catalog_key, manage_catalog_permission_details, **kwargs):
         """
-        Update permission details for a catalog in an AI Data Platform Workbench.
+        Updates permission details for a catalog.
 
 
         :param str ai_data_platform_id: (required)
@@ -872,7 +872,7 @@ class CatalogClient(object):
 
     def refresh_catalog(self, ai_data_platform_id, catalog_key, **kwargs):
         """
-        Refresh a catalog in an AI Data Platform Workbench through a crawler.
+        Refreshes a catalog through a crawler.
 
 
         :param str ai_data_platform_id: (required)
@@ -975,7 +975,7 @@ class CatalogClient(object):
 
     def update_catalog(self, ai_data_platform_id, catalog_key, update_catalog_details, **kwargs):
         """
-        Update the details of an AI Data Platform Workbench catalog with the given information.
+        Updates the details of a catalog with the given information.
 
 
         :param str ai_data_platform_id: (required)
