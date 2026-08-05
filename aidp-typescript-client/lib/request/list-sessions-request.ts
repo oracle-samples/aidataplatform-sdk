@@ -35,5 +35,39 @@ export interface ListSessionsRequest extends common.BaseRequest {
  * Agent flow key of the attached agent flow.
  */
  'agentFlowKey'?: string;
+/**
+ * For list pagination. The maximum number of results per page, or items to return in a
+* paginated \"List\" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+ */
+ 'limit'?: number;
+/**
+ * For list pagination. The value of the opc-next-page response header from the previous
+* \"List\" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+ */
+ 'page'?: string;
+/**
+ * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+ */
+ 'sortOrder'?: ListSessionsRequest.SortOrder;
+/**
+ * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending.
+ */
+ 'sortBy'?: ListSessionsRequest.SortBy;
 }
 
+export namespace ListSessionsRequest {
+
+  export enum SortOrder {
+    Asc = ("ASC"),
+    Desc = ("DESC")
+  }
+
+  export enum SortBy {
+    TimeCreated = ("timeCreated")
+  }
+
+}

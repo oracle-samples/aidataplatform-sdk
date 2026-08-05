@@ -24,6 +24,7 @@ public final class QueryReplicaIdsDetails  {
     public static class Builder {
                 /**
      * The metric to use when discovering replica identifiers for the selected compute cluster.
+* Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 * 
      **/
     
@@ -32,6 +33,7 @@ private String metricName;
 
         /**
          * The metric to use when discovering replica identifiers for the selected compute cluster.
+* Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 * 
          * @param metricName the value to set
          * @return this builder
@@ -112,6 +114,7 @@ return this;
 
         /**
      * The metric to use when discovering replica identifiers for the selected compute cluster.
+* Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 * 
      **/
     
@@ -120,6 +123,7 @@ return this;
 
         /**
      * The metric to use when discovering replica identifiers for the selected compute cluster.
+* Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 * 
      * @return the value
      **/

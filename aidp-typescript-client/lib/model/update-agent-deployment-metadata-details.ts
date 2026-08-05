@@ -13,10 +13,15 @@ export interface UpdateAgentDeploymentMetadataDetails {
     */
     'deploymentKey'?: string;
     'agentCardConfigDetail'?: model.AgentCardConfigDetail;
+    /**
+    * Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+    */
+    'updateAgentFlowAgentCardConfig'?: boolean;
 
 }
 
 export namespace UpdateAgentDeploymentMetadataDetails {
+
 
 
 
@@ -28,6 +33,7 @@ export namespace UpdateAgentDeploymentMetadataDetails {
                 
                 
                 model.AgentCardConfigDetail.getJsonObj(obj.agentCardConfigDetail) : undefined,
+
         }};
 
         
@@ -43,6 +49,7 @@ export namespace UpdateAgentDeploymentMetadataDetails {
                 
                 
                 model.AgentCardConfigDetail.getDeserializedJsonObj(obj.agentCardConfigDetail) : undefined,
+
          }};
 
         

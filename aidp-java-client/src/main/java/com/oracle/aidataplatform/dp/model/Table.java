@@ -14,6 +14,7 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwTable.class, name = "ADW"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhTable.class, name = "ALH"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlTable.class, name = "MYSQL"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = GoogleBigqueryTable.class, name = "GOOGLE_BIGQUERY"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureTable.class, name = "AZURE_SQLSERVER"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardTable.class, name = "STANDARD"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataTable.class, name = "EXADATA"),

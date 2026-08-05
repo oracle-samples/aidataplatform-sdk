@@ -454,6 +454,10 @@ return clientCall(request, GetJobRunResponse::builder)
         
         .basePath("/20260430")
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("jobRuns").appendPathParam(request.getJobRunKey())
+            
+                
+                    
+                    .appendQueryParam("shouldIncludeTaskRunSummaries", request.getShouldIncludeTaskRunSummaries())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
@@ -618,6 +622,8 @@ return clientCall(request, ListJobRunsResponse::builder)
             ListJobRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
             ListJobRunsResponse.Builder::opcNextPage)
+                .handleResponseHeaderString("opc-prev-page", 
+            ListJobRunsResponse.Builder::opcPrevPage)
 
                 .callSync();
     }
@@ -819,6 +825,8 @@ return clientCall(request, ListTaskRunsResponse::builder)
             ListTaskRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
             ListTaskRunsResponse.Builder::opcNextPage)
+                .handleResponseHeaderString("opc-prev-page", 
+            ListTaskRunsResponse.Builder::opcPrevPage)
 
                 .callSync();
     }

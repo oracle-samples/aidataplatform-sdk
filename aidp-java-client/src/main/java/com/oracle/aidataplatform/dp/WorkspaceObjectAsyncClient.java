@@ -708,6 +708,10 @@ return clientCall(request, UploadWorkspaceObjectWithParResponse::builder)
             
                 
                     
+                    .appendQueryParam("shouldCreateRecursively", request.getShouldCreateRecursively())
+            
+                
+                    
                     .appendQueryParam("objectDescription", request.getObjectDescription())
         .accept("application/json")
                 

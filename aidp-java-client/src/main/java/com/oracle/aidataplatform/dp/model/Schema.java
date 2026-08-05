@@ -25,7 +25,8 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlSchema.class, name = "MYSQL"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardSchema.class, name = "STANDARD"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacSchema.class, name = "ORACLE_ANALYTICS"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchema.class, name = "EXADATA")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchema.class, name = "EXADATA"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = GoogleBigquerySchema.class, name = "GOOGLE_BIGQUERY")
 })
 
 public class Schema  {

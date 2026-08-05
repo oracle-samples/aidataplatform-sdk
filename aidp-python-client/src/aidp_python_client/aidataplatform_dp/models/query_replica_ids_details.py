@@ -52,6 +52,7 @@ class QueryReplicaIdsDetails(object):
         """
         **[Required]** Gets the metric_name of this QueryReplicaIdsDetails.
         The metric to use when discovering replica identifiers for the selected compute cluster.
+        Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 
 
         :return: The metric_name of this QueryReplicaIdsDetails.
@@ -64,6 +65,7 @@ class QueryReplicaIdsDetails(object):
         """
         Sets the metric_name of this QueryReplicaIdsDetails.
         The metric to use when discovering replica identifiers for the selected compute cluster.
+        Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 
 
         :param metric_name: The metric_name of this QueryReplicaIdsDetails.

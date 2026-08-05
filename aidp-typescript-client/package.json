@@ -1,6 +1,6 @@
 {
   "name": "aidp-typescript-client",
-  "version": "2.0.1",
+  "version": "4.1.0",
   "description": "TypeScript SDK for the AI Data Platform Data Plane APIs.",
   "keywords": [
     "oracle",

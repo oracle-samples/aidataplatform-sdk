@@ -13476,6 +13476,10 @@ export class NotebookClient {
             'cluster_id': listSessionsRequest.clusterId,
             'path': listSessionsRequest.path,
             'agentFlowKey': listSessionsRequest.agentFlowKey,
+            'limit': listSessionsRequest.limit,
+            'page': listSessionsRequest.page,
+            'sortOrder': listSessionsRequest.sortOrder,
+            'sortBy': listSessionsRequest.sortBy,
         };
 
         let headerParams = {
@@ -13509,13 +13513,13 @@ export class NotebookClient {
                 type: "model.SessionCollection",
                 responseHeaders: [
                     {
-                        value: response.headers.get("etag"),
-                        key: "etag",
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
                         dataType: "string"
                     },
                     {
-                        value: response.headers.get("opc-request-id"),
-                        key: "opcRequestId",
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
                         dataType: "string"
                     },
                     ]
@@ -16690,6 +16694,325 @@ export class SchemaClient {
     }
 
 }
+export enum SemanticCatalogApiKeys {
+}
+/**
+* This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+*/
+export class SemanticCatalogClient {
+    protected static serviceEndpointTemplate = 'https://datalake.{region}.oci.{secondLevelDomain}';
+    protected static endpointServiceName = '';
+    protected "_realmSpecificEndpointTemplateEnabled" : boolean | undefined = undefined;
+    protected "_endpoint" : string = '';
+    protected "_defaultHeaders" : any = {};
+    protected "_clientConfiguration": common.ClientConfiguration;
+    protected _circuitBreaker: typeof Breaker | null = null;
+    protected _httpOptions: any = undefined;
+    protected _bodyDuplexMode: any = undefined;
+    public targetService = "SemanticCatalog";
+    protected _regionId : string = '';
+    protected "_region" : common.Region;
+    protected _lastSetRegionOrRegionId : string = "";
+
+    protected _httpClient: common.HttpClient;
+    protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+    constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+      const requestSigner = params.authenticationDetailsProvider
+        ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+        : null;
+      this._authProvider = params.authenticationDetailsProvider;
+      if (clientConfiguration) {
+        this._clientConfiguration = clientConfiguration;
+        this._circuitBreaker = clientConfiguration.circuitBreaker ? clientConfiguration.circuitBreaker!.circuit : null;
+        this._httpOptions = clientConfiguration.httpOptions ? clientConfiguration.httpOptions : undefined;
+        this._bodyDuplexMode = clientConfiguration.bodyDuplexMode ? clientConfiguration.bodyDuplexMode : undefined;
+      }
+
+      if (!developerToolConfiguration.isServiceEnabled("aidp"))
+        {
+            let errmsg = "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+            throw errmsg.concat("aidp");
+        }
+
+      // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+      const specCircuitBreakerEnabled = true;
+      if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) && (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)) {
+        this._circuitBreaker = new common.CircuitBreaker().circuit;
+      }
+      this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions, this._bodyDuplexMode);
+
+      if (params.authenticationDetailsProvider &&
+            common.isRegionProvider(params.authenticationDetailsProvider)) {
+        const provider: common.RegionProvider = params.authenticationDetailsProvider;
+        if (provider.getRegion()) {
+          this.region = provider.getRegion();
+        }
+      }
+    }
+
+    /**
+      * Get the endpoint that is being used to call (ex, https://www.example.com).
+      */
+    public get endpoint() {
+        return this._endpoint;
+    }
+
+    /**
+      * Sets the endpoint to call (ex, https://www.example.com).
+      * @param endpoint The endpoint of the service.
+      */
+    public set endpoint(endpoint: string) {
+        this._endpoint = endpoint;
+        this._endpoint = this._endpoint + '/20260430';
+        if (this.logger)
+            this.logger.info(`SemanticCatalogClient endpoint set to ${this._endpoint}`);
+    }
+
+    public get logger() {
+        return common.LOG.logger;
+    }
+
+    /**
+      * Determines whether realm specific endpoint should be used or not.
+      * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+      * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+      */
+    public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled : boolean) {
+        this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+        if (this.logger)
+            this.logger.info(`realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`);
+        if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+            this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+                SemanticCatalogClient.serviceEndpointTemplate,
+                this._region,
+                SemanticCatalogClient.endpointServiceName,
+                
+            );
+        } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+            this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+                SemanticCatalogClient.serviceEndpointTemplate,
+                this._regionId,
+                SemanticCatalogClient.endpointServiceName,
+                
+            );
+        }
+    }
+
+    /**
+      * Sets the region to call (ex, Region.US_PHOENIX_1).
+      * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+      * @param region The region of the service.
+      */
+    public set region(region: common.Region) {
+        this._region = region;
+        this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+            SemanticCatalogClient.serviceEndpointTemplate,
+            region,
+            SemanticCatalogClient.endpointServiceName,
+            
+        );
+        this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+      }
+
+    /**
+      * Sets the regionId to call (ex, 'us-phoenix-1').
+      *
+      * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+      * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+      * and then call {@link #endpoint(String) endpoint}.
+      * @param regionId The public region ID.
+      */
+    public set regionId(regionId: string) {
+        this._regionId = regionId;
+        this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+            SemanticCatalogClient.serviceEndpointTemplate,
+            regionId,
+            SemanticCatalogClient.endpointServiceName,
+            
+        );
+        this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+    }
+
+    
+
+    /**
+     * Shutdown the circuit breaker used by the client when it is no longer needed
+     */
+    public shutdownCircuitBreaker() {
+        if (this._circuitBreaker) {
+            this._circuitBreaker.shutdown();
+        }
+    }
+
+    /**
+    * Close the provider if possible which in turn shuts down any associated circuit breaker
+    */
+    public closeProvider() {
+        if (this._authProvider) {
+            if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+                (<common.AbstractRequestingAuthenticationDetailsProvider>this._authProvider).closeProvider();
+        }
+    }
+
+    /**
+     * Close the client once it is no longer needed
+     */
+    public close() {
+        this.shutdownCircuitBreaker();
+        this.closeProvider();
+    }
+    
+    /**
+     * (Preview) Returns complete lineage for the provided anchor node in CSV format.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ExportLineageRequest
+     * @return ExportLineageResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportLineage.ts.html |here} to see how to use ExportLineage API.
+     */
+    public async exportLineage (exportLineageRequest: requests.ExportLineageRequest) : Promise<responses.ExportLineageResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation SemanticCatalogClient#exportLineage.");
+        const operationName = "exportLineage";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": exportLineageRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': exportLineageRequest.opcRetryToken,'opc-request-id': exportLineageRequest.opcRequestId,'if-match': exportLineageRequest.ifMatch,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            exportLineageRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/actions/exportLineage',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(exportLineageRequest.exportLineageDetails, "ExportLineageDetails"
+                            , model.ExportLineageDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ExportLineageResponse>{},
+
+                body: response.body!,
+                bodyKey: "value",
+                bodyModel: "string",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("Content-Disposition"),
+                        key: "contentDisposition",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns lineage for a given entity object.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param FetchEntityLineageRequest
+     * @return FetchEntityLineageResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/FetchEntityLineage.ts.html |here} to see how to use FetchEntityLineage API.
+     */
+    public async fetchEntityLineage (fetchEntityLineageRequest: requests.FetchEntityLineageRequest) : Promise<responses.FetchEntityLineageResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation SemanticCatalogClient#fetchEntityLineage.");
+        const operationName = "fetchEntityLineage";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": fetchEntityLineageRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+            'limit': fetchEntityLineageRequest.limit,
+            'page': fetchEntityLineageRequest.page,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': fetchEntityLineageRequest.opcRetryToken,'opc-request-id': fetchEntityLineageRequest.opcRequestId,'if-match': fetchEntityLineageRequest.ifMatch,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            fetchEntityLineageRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/actions/fetchLineage',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(fetchEntityLineageRequest.fetchEntityLineageDetails, "FetchEntityLineageDetails"
+                            , model.FetchEntityLineageDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.FetchEntityLineageResponse>{},
+                body: await response.json(),
+                bodyKey: "entityLineage",
+                bodyModel:  model.EntityLineage,
+                type: "model.EntityLineage",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+}
 export enum UserSettingApiKeys {
 }
 /**
@@ -18550,6 +18873,7 @@ export class VolumeClient {
         const queryParams = { 
             'isOverwrite': uploadFileWithParRequest.isOverwrite,
             'shouldGenerateNewPar': uploadFileWithParRequest.shouldGenerateNewPar,
+            'shouldCreateRecursively': uploadFileWithParRequest.shouldCreateRecursively,
         };
 
         let headerParams = {
@@ -19487,6 +19811,7 @@ export class WorkflowClient {
         };
 
         const queryParams = { 
+            'shouldIncludeTaskRunSummaries': getJobRunRequest.shouldIncludeTaskRunSummaries,
         };
 
         let headerParams = {
@@ -19757,6 +20082,11 @@ export class WorkflowClient {
                         key: "opcNextPage",
                         dataType: "string"
                     },
+                    {
+                        value: response.headers.get("opc-prev-page"),
+                        key: "opcPrevPage",
+                        dataType: "string"
+                    },
                     ]
             });
 
@@ -20003,6 +20333,11 @@ export class WorkflowClient {
                     {
                         value: response.headers.get("opc-next-page"),
                         key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-prev-page"),
+                        key: "opcPrevPage",
                         dataType: "string"
                     },
                     ]
@@ -22446,6 +22781,7 @@ export class WorkspaceObjectClient {
         const queryParams = { 
             'isOverwrite': uploadWorkspaceObjectWithParRequest.isOverwrite,
             'shouldGenerateNewPar': uploadWorkspaceObjectWithParRequest.shouldGenerateNewPar,
+            'shouldCreateRecursively': uploadWorkspaceObjectWithParRequest.shouldCreateRecursively,
             'objectDescription': uploadWorkspaceObjectWithParRequest.objectDescription,
         };
 

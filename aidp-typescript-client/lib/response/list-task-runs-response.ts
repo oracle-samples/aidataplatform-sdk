@@ -17,6 +17,12 @@ export interface ListTaskRunsResponse {
      */
     'opcNextPage': string;
     /**
+     * For list pagination. When this header appears in the response, previous pages of results remain. For
+* important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+    'opcPrevPage': string;
+    /**
      * The returned model.TaskRunCollection instance.
      */
     'taskRunCollection': model.TaskRunCollection;

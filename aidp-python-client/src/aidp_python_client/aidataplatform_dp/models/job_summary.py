@@ -309,7 +309,7 @@ class JobSummary(object):
     def run_as(self):
         """
         Gets the run_as of this JobSummary.
-        The id with which the job run as.
+        This points to the user or service account executing the job.
 
 
         :return: The run_as of this JobSummary.
@@ -321,7 +321,7 @@ class JobSummary(object):
     def run_as(self, run_as):
         """
         Sets the run_as of this JobSummary.
-        The id with which the job run as.
+        This points to the user or service account executing the job.
 
 
         :param run_as: The run_as of this JobSummary.

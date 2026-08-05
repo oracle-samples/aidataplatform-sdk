@@ -26,19 +26,26 @@ class UpdateAgentDeploymentMetadataDetails(object):
             The value to assign to the agent_card_config_detail property of this UpdateAgentDeploymentMetadataDetails.
         :type agent_card_config_detail: oci.aidataplatform_dp.models.AgentCardConfigDetail
 
+        :param update_agent_flow_agent_card_config:
+            The value to assign to the update_agent_flow_agent_card_config property of this UpdateAgentDeploymentMetadataDetails.
+        :type update_agent_flow_agent_card_config: bool
+
         """
         self.swagger_types = {
             'deployment_key': 'str',
-            'agent_card_config_detail': 'AgentCardConfigDetail'
+            'agent_card_config_detail': 'AgentCardConfigDetail',
+            'update_agent_flow_agent_card_config': 'bool'
         }
 
         self.attribute_map = {
             'deployment_key': 'deploymentKey',
-            'agent_card_config_detail': 'agentCardConfigDetail'
+            'agent_card_config_detail': 'agentCardConfigDetail',
+            'update_agent_flow_agent_card_config': 'updateAgentFlowAgentCardConfig'
         }
 
         self._deployment_key = None
         self._agent_card_config_detail = None
+        self._update_agent_flow_agent_card_config = None
 
     @property
     def deployment_key(self):
@@ -83,6 +90,30 @@ class UpdateAgentDeploymentMetadataDetails(object):
         :type: oci.aidataplatform_dp.models.AgentCardConfigDetail
         """
         self._agent_card_config_detail = agent_card_config_detail
+
+    @property
+    def update_agent_flow_agent_card_config(self):
+        """
+        Gets the update_agent_flow_agent_card_config of this UpdateAgentDeploymentMetadataDetails.
+        Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+
+
+        :return: The update_agent_flow_agent_card_config of this UpdateAgentDeploymentMetadataDetails.
+        :rtype: bool
+        """
+        return self._update_agent_flow_agent_card_config
+
+    @update_agent_flow_agent_card_config.setter
+    def update_agent_flow_agent_card_config(self, update_agent_flow_agent_card_config):
+        """
+        Sets the update_agent_flow_agent_card_config of this UpdateAgentDeploymentMetadataDetails.
+        Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+
+
+        :param update_agent_flow_agent_card_config: The update_agent_flow_agent_card_config of this UpdateAgentDeploymentMetadataDetails.
+        :type: bool
+        """
+        self._update_agent_flow_agent_card_config = update_agent_flow_agent_card_config
 
     def __repr__(self):
         return formatted_flat_dict(self)

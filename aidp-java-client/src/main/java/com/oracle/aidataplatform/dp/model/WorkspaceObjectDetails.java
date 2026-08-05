@@ -116,7 +116,7 @@ public Builder timeCreated(java.util.Date timeCreated) {
     return this;
 }
             /**
-     * The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      **/
@@ -125,7 +125,7 @@ public Builder timeCreated(java.util.Date timeCreated) {
 private java.util.Date timeUpdated;
 
         /**
-         * The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+         * The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
          * @param timeUpdated the value to set
@@ -320,7 +320,7 @@ return this;
 
 
         /**
-     * The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      **/
@@ -329,7 +329,7 @@ return this;
     private final java.util.Date timeUpdated;
 
         /**
-     * The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      * @return the value

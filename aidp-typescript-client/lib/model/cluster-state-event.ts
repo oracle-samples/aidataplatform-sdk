@@ -12,6 +12,18 @@ export interface ClusterStateEvent extends model.ClusterEvent {
     * State of cluster.
     */
     'state'?: ClusterStateEvent.State;
+    /**
+    * Phase
+    */
+    'phase'?: ClusterStateEvent.Phase;
+    /**
+    * Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+    */
+    'source'?: ClusterStateEvent.Source;
+    /**
+    * In case of a failed state, this will capture the reason for error.
+    */
+    'stateMessage'?: string;
 
    "type": string;
 }
@@ -41,9 +53,29 @@ export namespace ClusterStateEvent {
 }
 
 
+    export enum Phase {
+    
+    Started = "STARTED",
+    Completed = "COMPLETED"
+
+}
+
+
+    export enum Source {
+    
+    User = "USER",
+    System = "SYSTEM"
+
+}
+
+
+
     export function getJsonObj(obj: ClusterStateEvent, isParentJsonObj?: boolean): object {
         const jsonObj = {...isParentJsonObj? obj : model.ClusterEvent.getJsonObj(obj) as ClusterStateEvent, ...{
             
+
+
+
 
         }};
 
@@ -55,6 +87,9 @@ export namespace ClusterStateEvent {
     export function getDeserializedJsonObj(obj: ClusterStateEvent, isParentJsonObj?: boolean): object {
         const jsonObj = {...isParentJsonObj? obj : model.ClusterEvent.getDeserializedJsonObj(obj) as ClusterStateEvent, ...{
             
+
+
+
 
          }};
 

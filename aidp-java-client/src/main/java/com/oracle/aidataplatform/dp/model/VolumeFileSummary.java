@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class VolumeFileSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"path", "displayName", "timeCreated", "timeUpdated", "type", "description", "metadata", "compositeEtag", "systemTags", "createdBy", "createdByName"})
-    public VolumeFileSummary(String path, String displayName, java.util.Date timeCreated, java.util.Date timeUpdated, Type type, String description, java.util.Map<String, String> metadata, String compositeEtag, java.util.Map<String, java.util.Map<String, Object>> systemTags, String createdBy, String createdByName) {
+    @java.beans.ConstructorProperties({"path", "displayName", "timeCreated", "timeUpdated", "type", "description", "metadata", "compositeEtag", "systemTags", "createdBy", "createdByName", "updatedBy"})
+    public VolumeFileSummary(String path, String displayName, java.util.Date timeCreated, java.util.Date timeUpdated, Type type, String description, java.util.Map<String, String> metadata, String compositeEtag, java.util.Map<String, java.util.Map<String, Object>> systemTags, String createdBy, String createdByName, String updatedBy) {
         super();
         this.path = path;
         this.displayName = displayName;
@@ -26,6 +26,7 @@ public final class VolumeFileSummary  {
         this.systemTags = systemTags;
         this.createdBy = createdBy;
         this.createdByName = createdByName;
+        this.updatedBy = updatedBy;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -250,6 +251,24 @@ public Builder createdByName(String createdByName) {
     this.createdByName = createdByName;
     return this;
 }
+            /**
+     * OCID of the user who last updated this file.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("updatedBy")
+private String updatedBy;
+
+        /**
+         * OCID of the user who last updated this file.
+         * @param updatedBy the value to set
+         * @return this builder
+         **/
+        
+
+public Builder updatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
+    return this;
+}
 
 
         public VolumeFileSummary build() {
@@ -263,7 +282,8 @@ public Builder createdByName(String createdByName) {
                 , this.compositeEtag
                 , this.systemTags
                 , this.createdBy
-                , this.createdByName);            return model;
+                , this.createdByName
+                , this.updatedBy);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -279,6 +299,7 @@ public Builder createdByName(String createdByName) {
     this.systemTags(model.getSystemTags());
     this.createdBy(model.getCreatedBy());
     this.createdByName(model.getCreatedByName());
+    this.updatedBy(model.getUpdatedBy());
 return this;
         }
     }
@@ -551,6 +572,23 @@ Example: {@code {"orcl-cloud": {"free-tier-retained": "true"}}}
         return createdByName;
     }
 
+
+        /**
+     * OCID of the user who last updated this file.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("updatedBy")
+    private final String updatedBy;
+
+        /**
+     * OCID of the user who last updated this file.
+     * @return the value
+     **/
+    
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -575,6 +613,7 @@ Example: {@code {"orcl-cloud": {"free-tier-retained": "true"}}}
         sb.append(", systemTags=").append(String.valueOf(this.systemTags));
         sb.append(", createdBy=").append(String.valueOf(this.createdBy));
         sb.append(", createdByName=").append(String.valueOf(this.createdByName));
+        sb.append(", updatedBy=").append(String.valueOf(this.updatedBy));
         sb.append(")");
         return sb.toString();
     }
@@ -599,7 +638,8 @@ Example: {@code {"orcl-cloud": {"free-tier-retained": "true"}}}
             java.util.Objects.equals(this.compositeEtag, other.compositeEtag) &&
             java.util.Objects.equals(this.systemTags, other.systemTags) &&
             java.util.Objects.equals(this.createdBy, other.createdBy) &&
-            java.util.Objects.equals(this.createdByName, other.createdByName);
+            java.util.Objects.equals(this.createdByName, other.createdByName) &&
+            java.util.Objects.equals(this.updatedBy, other.updatedBy);
     }
 
     @Override
@@ -617,6 +657,7 @@ Example: {@code {"orcl-cloud": {"free-tier-retained": "true"}}}
         result = (result * PRIME) + (this.systemTags == null ? 43 : this.systemTags.hashCode());
         result = (result * PRIME) + (this.createdBy == null ? 43 : this.createdBy.hashCode());
         result = (result * PRIME) + (this.createdByName == null ? 43 : this.createdByName.hashCode());
+        result = (result * PRIME) + (this.updatedBy == null ? 43 : this.updatedBy.hashCode());
         return result;
     }
 

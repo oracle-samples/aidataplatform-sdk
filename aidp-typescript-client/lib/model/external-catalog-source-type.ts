@@ -16,6 +16,7 @@ export enum ExternalCatalogSourceType {
     Mysql = "MYSQL",
     AzureSqlserver = "AZURE_SQLSERVER",
     Snowflake = "SNOWFLAKE",
+    GoogleBigquery = "GOOGLE_BIGQUERY",
     OracleAnalytics = "ORACLE_ANALYTICS",
     
     /**

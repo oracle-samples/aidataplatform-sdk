@@ -134,14 +134,14 @@ public Builder updatedByName(String updatedByName) {
     return this;
 }
             /**
-     * The id with which the job run as.
+     * This points to the user or service account executing the job.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("runAs")
 private String runAs;
 
         /**
-         * The id with which the job run as.
+         * This points to the user or service account executing the job.
          * @param runAs the value to set
          * @return this builder
          **/
@@ -531,14 +531,14 @@ return this;
 
 
         /**
-     * The id with which the job run as.
+     * This points to the user or service account executing the job.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("runAs")
     private final String runAs;
 
         /**
-     * The id with which the job run as.
+     * This points to the user or service account executing the job.
      * @return the value
      **/
     

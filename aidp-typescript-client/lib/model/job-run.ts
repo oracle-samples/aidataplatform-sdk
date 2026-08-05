@@ -142,6 +142,10 @@ export interface JobRun {
     * The collection of lifecycle states.
     */
     'lifecycleStates'?: Array<model.LifecycleState>;
+    /**
+    * This points to the user or service account executing the job.
+    */
+    'runAs'?: string;
 
 }
 
@@ -204,6 +208,7 @@ export namespace JobRun {
     */
     UnknownValue = "UNKNOWN_VALUE"
 }
+
 
 
 
@@ -286,6 +291,7 @@ export namespace JobRun {
                 obj.lifecycleStates.map((item)=>{return model.LifecycleState.getJsonObj(item)})
                 
                  : undefined,
+
         }};
 
         
@@ -372,6 +378,7 @@ export namespace JobRun {
                 obj.lifecycleStates.map((item)=>{return model.LifecycleState.getDeserializedJsonObj(item)})
                 
                  : undefined,
+
          }};
 
         

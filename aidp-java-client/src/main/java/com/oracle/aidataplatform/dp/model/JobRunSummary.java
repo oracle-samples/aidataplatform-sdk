@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class JobRunSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "name", "state", "jobKey", "jobName", "executionDuration", "launched", "startTime", "endTime", "timeCreated", "timeUpdated", "createdBy", "createdByName"})
-    public JobRunSummary(String key, String name, State state, String jobKey, String jobName, Long executionDuration, Launched launched, Long startTime, Long endTime, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String createdByName) {
+    @java.beans.ConstructorProperties({"key", "name", "state", "jobKey", "jobName", "executionDuration", "launched", "startTime", "endTime", "timeCreated", "timeUpdated", "createdBy", "createdByName", "runAs"})
+    public JobRunSummary(String key, String name, State state, String jobKey, String jobName, Long executionDuration, Launched launched, Long startTime, Long endTime, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String createdByName, String runAs) {
         super();
         this.key = key;
         this.name = name;
@@ -28,6 +28,7 @@ public final class JobRunSummary  {
         this.timeUpdated = timeUpdated;
         this.createdBy = createdBy;
         this.createdByName = createdByName;
+        this.runAs = runAs;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -258,6 +259,24 @@ public Builder createdByName(String createdByName) {
     this.createdByName = createdByName;
     return this;
 }
+            /**
+     * This points to the user or service account executing the job.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("runAs")
+private String runAs;
+
+        /**
+         * This points to the user or service account executing the job.
+         * @param runAs the value to set
+         * @return this builder
+         **/
+        
+
+public Builder runAs(String runAs) {
+    this.runAs = runAs;
+    return this;
+}
 
 
         public JobRunSummary build() {
@@ -273,7 +292,8 @@ public Builder createdByName(String createdByName) {
                 , this.timeCreated
                 , this.timeUpdated
                 , this.createdBy
-                , this.createdByName);            return model;
+                , this.createdByName
+                , this.runAs);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -291,6 +311,7 @@ public Builder createdByName(String createdByName) {
     this.timeUpdated(model.getTimeUpdated());
     this.createdBy(model.getCreatedBy());
     this.createdByName(model.getCreatedByName());
+    this.runAs(model.getRunAs());
 return this;
         }
     }
@@ -568,6 +589,23 @@ return this;
         return createdByName;
     }
 
+
+        /**
+     * This points to the user or service account executing the job.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("runAs")
+    private final String runAs;
+
+        /**
+     * This points to the user or service account executing the job.
+     * @return the value
+     **/
+    
+    public String getRunAs() {
+        return runAs;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -594,6 +632,7 @@ return this;
         sb.append(", timeUpdated=").append(String.valueOf(this.timeUpdated));
         sb.append(", createdBy=").append(String.valueOf(this.createdBy));
         sb.append(", createdByName=").append(String.valueOf(this.createdByName));
+        sb.append(", runAs=").append(String.valueOf(this.runAs));
         sb.append(")");
         return sb.toString();
     }
@@ -620,7 +659,8 @@ return this;
             java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
             java.util.Objects.equals(this.timeUpdated, other.timeUpdated) &&
             java.util.Objects.equals(this.createdBy, other.createdBy) &&
-            java.util.Objects.equals(this.createdByName, other.createdByName);
+            java.util.Objects.equals(this.createdByName, other.createdByName) &&
+            java.util.Objects.equals(this.runAs, other.runAs);
     }
 
     @Override
@@ -640,6 +680,7 @@ return this;
         result = (result * PRIME) + (this.timeUpdated == null ? 43 : this.timeUpdated.hashCode());
         result = (result * PRIME) + (this.createdBy == null ? 43 : this.createdBy.hashCode());
         result = (result * PRIME) + (this.createdByName == null ? 43 : this.createdByName.hashCode());
+        result = (result * PRIME) + (this.runAs == null ? 43 : this.runAs.hashCode());
         return result;
     }
 
