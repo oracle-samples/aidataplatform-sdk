@@ -26,19 +26,26 @@ class SessionConfiguration(object):
             The value to assign to the session_retention_config property of this SessionConfiguration.
         :type session_retention_config: oci.aidataplatform_dp.models.SessionRetentionConfiguration
 
+        :param file_config:
+            The value to assign to the file_config property of this SessionConfiguration.
+        :type file_config: oci.aidataplatform_dp.models.FileConfiguration
+
         """
         self.swagger_types = {
             'variables': 'dict(str, SessionVariableDetails)',
-            'session_retention_config': 'SessionRetentionConfiguration'
+            'session_retention_config': 'SessionRetentionConfiguration',
+            'file_config': 'FileConfiguration'
         }
 
         self.attribute_map = {
             'variables': 'variables',
-            'session_retention_config': 'sessionRetentionConfig'
+            'session_retention_config': 'sessionRetentionConfig',
+            'file_config': 'fileConfig'
         }
 
         self._variables = None
         self._session_retention_config = None
+        self._file_config = None
 
     @property
     def variables(self):
@@ -83,6 +90,26 @@ class SessionConfiguration(object):
         :type: oci.aidataplatform_dp.models.SessionRetentionConfiguration
         """
         self._session_retention_config = session_retention_config
+
+    @property
+    def file_config(self):
+        """
+        Gets the file_config of this SessionConfiguration.
+
+        :return: The file_config of this SessionConfiguration.
+        :rtype: oci.aidataplatform_dp.models.FileConfiguration
+        """
+        return self._file_config
+
+    @file_config.setter
+    def file_config(self, file_config):
+        """
+        Sets the file_config of this SessionConfiguration.
+
+        :param file_config: The file_config of this SessionConfiguration.
+        :type: oci.aidataplatform_dp.models.FileConfiguration
+        """
+        self._file_config = file_config
 
     def __repr__(self):
         return formatted_flat_dict(self)

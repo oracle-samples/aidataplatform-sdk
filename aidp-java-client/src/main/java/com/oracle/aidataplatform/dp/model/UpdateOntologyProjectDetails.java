@@ -12,14 +12,18 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class UpdateOntologyProjectDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "description", "namespace", "workspaceBasePath", "lifecycleState"})
-    public UpdateOntologyProjectDetails(String key, String displayName, String description, String namespace, String workspaceBasePath, String lifecycleState) {
+    @java.beans.ConstructorProperties({"key", "displayName", "description", "namespace", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath", "lifecycleState"})
+    public UpdateOntologyProjectDetails(String key, String displayName, String description, String namespace, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath, String lifecycleState) {
         super();
         this.key = key;
         this.displayName = displayName;
         this.description = description;
         this.namespace = namespace;
         this.workspaceBasePath = workspaceBasePath;
+        this.sourceType = sourceType;
+        this.gitRepositoryKey = gitRepositoryKey;
+        this.gitBranchName = gitBranchName;
+        this.gitFolderPath = gitFolderPath;
         this.lifecycleState = lifecycleState;
     }
 
@@ -65,14 +69,94 @@ public Builder namespace(String namespace) {
     this.namespace = namespace;
     return this;
 }
-        
+            /**
+     * Root path for volume-backed ontology project content. Defaults to a workspace-relative path; managed-volume deployments may store this as an OMS managed-volume path.
+     **/
+    
 @com.fasterxml.jackson.annotation.JsonProperty("workspaceBasePath")
 private String workspaceBasePath;
 
-
+        /**
+         * Root path for volume-backed ontology project content. Defaults to a workspace-relative path; managed-volume deployments may store this as an OMS managed-volume path.
+         * @param workspaceBasePath the value to set
+         * @return this builder
+         **/
+        
 
 public Builder workspaceBasePath(String workspaceBasePath) {
     this.workspaceBasePath = workspaceBasePath;
+    return this;
+}
+            /**
+     * Project content source.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("sourceType")
+private OntologyProjectSourceType sourceType;
+
+        /**
+         * Project content source.
+         * @param sourceType the value to set
+         * @return this builder
+         **/
+        
+
+public Builder sourceType(OntologyProjectSourceType sourceType) {
+    this.sourceType = sourceType;
+    return this;
+}
+            /**
+     * Git repository key for git-backed ontology projects.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("gitRepositoryKey")
+private String gitRepositoryKey;
+
+        /**
+         * Git repository key for git-backed ontology projects.
+         * @param gitRepositoryKey the value to set
+         * @return this builder
+         **/
+        
+
+public Builder gitRepositoryKey(String gitRepositoryKey) {
+    this.gitRepositoryKey = gitRepositoryKey;
+    return this;
+}
+            /**
+     * Git branch name for git-backed ontology projects.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("gitBranchName")
+private String gitBranchName;
+
+        /**
+         * Git branch name for git-backed ontology projects.
+         * @param gitBranchName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder gitBranchName(String gitBranchName) {
+    this.gitBranchName = gitBranchName;
+    return this;
+}
+            /**
+     * Workspace-relative Git folder path for git-backed ontology project content.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
+private String gitFolderPath;
+
+        /**
+         * Workspace-relative Git folder path for git-backed ontology project content.
+         * @param gitFolderPath the value to set
+         * @return this builder
+         **/
+        
+
+public Builder gitFolderPath(String gitFolderPath) {
+    this.gitFolderPath = gitFolderPath;
     return this;
 }
         
@@ -93,6 +177,10 @@ public Builder lifecycleState(String lifecycleState) {
                 , this.description
                 , this.namespace
                 , this.workspaceBasePath
+                , this.sourceType
+                , this.gitRepositoryKey
+                , this.gitBranchName
+                , this.gitFolderPath
                 , this.lifecycleState);            return model;
         }
 
@@ -103,6 +191,10 @@ public Builder lifecycleState(String lifecycleState) {
     this.description(model.getDescription());
     this.namespace(model.getNamespace());
     this.workspaceBasePath(model.getWorkspaceBasePath());
+    this.sourceType(model.getSourceType());
+    this.gitRepositoryKey(model.getGitRepositoryKey());
+    this.gitBranchName(model.getGitBranchName());
+    this.gitFolderPath(model.getGitFolderPath());
     this.lifecycleState(model.getLifecycleState());
 return this;
         }
@@ -163,13 +255,88 @@ return this;
     }
 
 
+        /**
+     * Root path for volume-backed ontology project content. Defaults to a workspace-relative path; managed-volume deployments may store this as an OMS managed-volume path.
+     **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("workspaceBasePath")
     private final String workspaceBasePath;
 
+        /**
+     * Root path for volume-backed ontology project content. Defaults to a workspace-relative path; managed-volume deployments may store this as an OMS managed-volume path.
+     * @return the value
+     **/
     
     public String getWorkspaceBasePath() {
         return workspaceBasePath;
+    }
+
+    
+        /**
+     * Project content source.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("sourceType")
+    private final OntologyProjectSourceType sourceType;
+
+        /**
+     * Project content source.
+     * @return the value
+     **/
+    
+    public OntologyProjectSourceType getSourceType() {
+        return sourceType;
+    }
+
+
+        /**
+     * Git repository key for git-backed ontology projects.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("gitRepositoryKey")
+    private final String gitRepositoryKey;
+
+        /**
+     * Git repository key for git-backed ontology projects.
+     * @return the value
+     **/
+    
+    public String getGitRepositoryKey() {
+        return gitRepositoryKey;
+    }
+
+
+        /**
+     * Git branch name for git-backed ontology projects.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("gitBranchName")
+    private final String gitBranchName;
+
+        /**
+     * Git branch name for git-backed ontology projects.
+     * @return the value
+     **/
+    
+    public String getGitBranchName() {
+        return gitBranchName;
+    }
+
+
+        /**
+     * Workspace-relative Git folder path for git-backed ontology project content.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
+    private final String gitFolderPath;
+
+        /**
+     * Workspace-relative Git folder path for git-backed ontology project content.
+     * @return the value
+     **/
+    
+    public String getGitFolderPath() {
+        return gitFolderPath;
     }
 
 
@@ -200,6 +367,10 @@ return this;
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", namespace=").append(String.valueOf(this.namespace));
         sb.append(", workspaceBasePath=").append(String.valueOf(this.workspaceBasePath));
+        sb.append(", sourceType=").append(String.valueOf(this.sourceType));
+        sb.append(", gitRepositoryKey=").append(String.valueOf(this.gitRepositoryKey));
+        sb.append(", gitBranchName=").append(String.valueOf(this.gitBranchName));
+        sb.append(", gitFolderPath=").append(String.valueOf(this.gitFolderPath));
         sb.append(", lifecycleState=").append(String.valueOf(this.lifecycleState));
         sb.append(")");
         return sb.toString();
@@ -220,6 +391,10 @@ return this;
             java.util.Objects.equals(this.description, other.description) &&
             java.util.Objects.equals(this.namespace, other.namespace) &&
             java.util.Objects.equals(this.workspaceBasePath, other.workspaceBasePath) &&
+            java.util.Objects.equals(this.sourceType, other.sourceType) &&
+            java.util.Objects.equals(this.gitRepositoryKey, other.gitRepositoryKey) &&
+            java.util.Objects.equals(this.gitBranchName, other.gitBranchName) &&
+            java.util.Objects.equals(this.gitFolderPath, other.gitFolderPath) &&
             java.util.Objects.equals(this.lifecycleState, other.lifecycleState);
     }
 
@@ -232,6 +407,10 @@ return this;
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.namespace == null ? 43 : this.namespace.hashCode());
         result = (result * PRIME) + (this.workspaceBasePath == null ? 43 : this.workspaceBasePath.hashCode());
+        result = (result * PRIME) + (this.sourceType == null ? 43 : this.sourceType.hashCode());
+        result = (result * PRIME) + (this.gitRepositoryKey == null ? 43 : this.gitRepositoryKey.hashCode());
+        result = (result * PRIME) + (this.gitBranchName == null ? 43 : this.gitBranchName.hashCode());
+        result = (result * PRIME) + (this.gitFolderPath == null ? 43 : this.gitFolderPath.hashCode());
         result = (result * PRIME) + (this.lifecycleState == null ? 43 : this.lifecycleState.hashCode());
         return result;
     }

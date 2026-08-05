@@ -186,6 +186,7 @@ from .create_master_catalog_details import CreateMasterCatalogDetails
 from .create_model_version_details import CreateModelVersionDetails
 from .create_model_version_response_details import CreateModelVersionResponseDetails
 from .create_nl_to_sql_tool_details import CreateNlToSqlToolDetails
+from .create_ontology_folder_details import CreateOntologyFolderDetails
 from .create_ontology_project_details import CreateOntologyProjectDetails
 from .create_or_update_bundle_overrides_details import CreateOrUpdateBundleOverridesDetails
 from .create_prompt_tool_details import CreatePromptToolDetails
@@ -261,12 +262,14 @@ from .download_cluster_logs_details import DownloadClusterLogsDetails
 from .download_file_with_par_result import DownloadFileWithParResult
 from .driver_config import DriverConfig
 from .embedding_model_details import EmbeddingModelDetails
+from .entity_lineage import EntityLineage
 from .exadata_schema import ExadataSchema
 from .exadata_schema_summary import ExadataSchemaSummary
 from .exadata_table import ExadataTable
 from .exadata_table_summary import ExadataTableSummary
 from .execute_database_user_workflows_details import ExecuteDatabaseUserWorkflowsDetails
 from .execute_sql_command_details import ExecuteSqlCommandDetails
+from .expand_ontology_graph_details import ExpandOntologyGraphDetails
 from .experiment import Experiment
 from .experiment_collection import ExperimentCollection
 from .experiment_response import ExperimentResponse
@@ -284,6 +287,7 @@ from .experiment_run_tag_key import ExperimentRunTagKey
 from .experiment_tag import ExperimentTag
 from .experiment_tag_key import ExperimentTagKey
 from .export_contents_details import ExportContentsDetails
+from .export_lineage_details import ExportLineageDetails
 from .export_task_run_output_details import ExportTaskRunOutputDetails
 from .exported_contents import ExportedContents
 from .exported_task_run_output_contents import ExportedTaskRunOutputContents
@@ -295,12 +299,20 @@ from .feature_status_collection import FeatureStatusCollection
 from .feature_status_result import FeatureStatusResult
 from .feature_status_summary import FeatureStatusSummary
 from .fetch_bundle_deployment_status_details import FetchBundleDeploymentStatusDetails
+from .fetch_entity_lineage_details import FetchEntityLineageDetails
+from .fetch_lineage_graph_node_neighbors_details import FetchLineageGraphNodeNeighborsDetails
+from .fetch_lineage_graph_node_references_details import FetchLineageGraphNodeReferencesDetails
 from .fetch_mcp_objects_details import FetchMcpObjectsDetails
 from .fetch_mcp_objects_result import FetchMcpObjectsResult
 from .fetch_output_details import FetchOutputDetails
+from .fetch_process_node_column_links_details import FetchProcessNodeColumnLinksDetails
 from .field_info import FieldInfo
+from .file_configuration import FileConfiguration
 from .file_dependency import FileDependency
+from .file_read_configuration import FileReadConfiguration
+from .file_write_configuration import FileWriteConfiguration
 from .filter_types import FilterTypes
+from .find_ontology_graph_paths_details import FindOntologyGraphPathsDetails
 from .generate_temp_file_upload_target_response_details import GenerateTempFileUploadTargetResponseDetails
 from .get_bundle_overrides_details import GetBundleOverridesDetails
 from .get_experiment_run_response_details import GetExperimentRunResponseDetails
@@ -322,6 +334,10 @@ from .git_rebase_details import GitRebaseDetails
 from .git_repair_work_tree_details import GitRepairWorkTreeDetails
 from .git_repository import GitRepository
 from .git_reset_details import GitResetDetails
+from .google_bigquery_schema import GoogleBigquerySchema
+from .google_bigquery_schema_summary import GoogleBigquerySchemaSummary
+from .google_bigquery_table import GoogleBigqueryTable
+from .google_bigquery_table_summary import GoogleBigqueryTableSummary
 from .grouped_search_criteria import GroupedSearchCriteria
 from .guardrails_configuration import GuardrailsConfiguration
 from .history_collection import HistoryCollection
@@ -382,6 +398,11 @@ from .knowledge_base_summary import KnowledgeBaseSummary
 from .knowledge_base_vector_index_details import KnowledgeBaseVectorIndexDetails
 from .libraries import Libraries
 from .lifecycle_state import LifecycleState
+from .lineage_graph_node_neighbors_filter import LineageGraphNodeNeighborsFilter
+from .lineage_node_details import LineageNodeDetails
+from .lineage_node_details_collection import LineageNodeDetailsCollection
+from .lineage_object import LineageObject
+from .lineage_relationship import LineageRelationship
 from .list_experiment_runs_details import ListExperimentRunsDetails
 from .list_experiments_details import ListExperimentsDetails
 from .list_filter import ListFilter
@@ -471,6 +492,8 @@ from .nl_to_sql_tool import NlToSqlTool
 from .nl_to_sql_tool_configuration import NlToSqlToolConfiguration
 from .nl_to_sql_tool_input_schema import NlToSqlToolInputSchema
 from .no_auth import NoAuth
+from .node_filter_object import NodeFilterObject
+from .node_filter_predicates import NodeFilterPredicates
 from .node_input import NodeInput
 from .node_io import NodeIo
 from .node_io_color import NodeIoColor
@@ -480,19 +503,41 @@ from .notify_cluster_event_handler_details import NotifyClusterEventHandlerDetai
 from .o_auth import OAuth
 from .o_auth_admin_setting import OAuthAdminSetting
 from .o_auth_configuration import OAuthConfiguration
-from .oac_child_item_collection import OacChildItemCollection
-from .oac_child_item_summary import OacChildItemSummary
+from .oac_object_collection import OacObjectCollection
+from .oac_object_column import OacObjectColumn
+from .oac_object_summary import OacObjectSummary
+from .oac_object_table import OacObjectTable
+from .oac_object_table_summary import OacObjectTableSummary
+from .oac_object_table_summary_collection import OacObjectTableSummaryCollection
 from .oac_schema import OacSchema
 from .oac_schema_summary import OacSchemaSummary
 from .oac_table import OacTable
 from .oac_table_summary import OacTableSummary
+from .object_lineage import ObjectLineage
+from .object_lineage_request_details import ObjectLineageRequestDetails
+from .object_neighbors_fetch_request_details import ObjectNeighborsFetchRequestDetails
 from .object_recent_search_summary import ObjectRecentSearchSummary
 from .object_search_summary import ObjectSearchSummary
 from .object_suggest_summary import ObjectSuggestSummary
 from .oci_logging import OciLogging
 from .oci_resource_principal_auth import OciResourcePrincipalAuth
+from .ontology_graph import OntologyGraph
+from .ontology_graph_edge import OntologyGraphEdge
+from .ontology_graph_expansion import OntologyGraphExpansion
+from .ontology_graph_node import OntologyGraphNode
+from .ontology_graph_path import OntologyGraphPath
+from .ontology_graph_path_collection import OntologyGraphPathCollection
+from .ontology_graph_search_result import OntologyGraphSearchResult
+from .ontology_graph_search_result_collection import OntologyGraphSearchResultCollection
 from .ontology_project import OntologyProject
 from .ontology_project_collection import OntologyProjectCollection
+from .ontology_project_file_content import OntologyProjectFileContent
+from .ontology_project_object import OntologyProjectObject
+from .ontology_project_object_collection import OntologyProjectObjectCollection
+from .ontology_project_status import OntologyProjectStatus
+from .ontology_project_status_collection import OntologyProjectStatusCollection
+from .ontology_project_validation_result import OntologyProjectValidationResult
+from .ontology_publish_target_connection_reference import OntologyPublishTargetConnectionReference
 from .oracle_schema import OracleSchema
 from .oracle_schema_summary import OracleSchemaSummary
 from .oracle_table import OracleTable
@@ -500,8 +545,11 @@ from .oracle_table_summary import OracleTableSummary
 from .output_parameter import OutputParameter
 from .par_details import ParDetails
 from .parameter import Parameter
+from .pass_through_node_filter_predicate import PassThroughNodeFilterPredicate
 from .patch_cluster_library_details import PatchClusterLibraryDetails
 from .patch_session_details import PatchSessionDetails
+from .path_filter_object import PathFilterObject
+from .path_filter_predicates import PathFilterPredicates
 from .perform_infer_schema_details import PerformInferSchemaDetails
 from .permission_assignees import PermissionAssignees
 from .permission_summary import PermissionSummary
@@ -512,12 +560,18 @@ from .point import Point
 from .preview_agent_card_details import PreviewAgentCardDetails
 from .principals_with_workspace_access_collection import PrincipalsWithWorkspaceAccessCollection
 from .principals_with_workspace_access_summary import PrincipalsWithWorkspaceAccessSummary
+from .process_node_column_details import ProcessNodeColumnDetails
+from .process_node_column_link import ProcessNodeColumnLink
+from .process_node_column_links_collection import ProcessNodeColumnLinksCollection
+from .process_node_column_links_filter import ProcessNodeColumnLinksFilter
+from .process_node_column_links_request_details import ProcessNodeColumnLinksRequestDetails
 from .prompt_attacks_prevention_policy import PromptAttacksPreventionPolicy
 from .prompt_result import PromptResult
 from .prompt_test_tool_result import PromptTestToolResult
 from .prompt_tool import PromptTool
 from .prompt_tool_configuration import PromptToolConfiguration
 from .provision_user_schema_details import ProvisionUserSchemaDetails
+from .publish_ontology_project_details import PublishOntologyProjectDetails
 from .purge_bundle_details import PurgeBundleDetails
 from .python_task import PythonTask
 from .query_replica_ids_details import QueryReplicaIdsDetails
@@ -699,6 +753,7 @@ from .transition_model_version_stage_details import TransitionModelVersionStageD
 from .transition_model_version_stage_response_details import TransitionModelVersionStageResponseDetails
 from .txt_file_definition import TxtFileDefinition
 from .uninstall_cluster_library_details import UninstallClusterLibraryDetails
+from .unpublish_ontology_project_details import UnpublishOntologyProjectDetails
 from .update_admin_setting_details import UpdateAdminSettingDetails
 from .update_agent_deployment_details import UpdateAgentDeploymentDetails
 from .update_agent_deployment_metadata_details import UpdateAgentDeploymentMetadataDetails
@@ -769,6 +824,7 @@ from .update_workspace_async_operation_status_details import UpdateWorkspaceAsyn
 from .update_workspace_details import UpdateWorkspaceDetails
 from .upload_file_with_par_details import UploadFileWithParDetails
 from .upload_file_with_par_result import UploadFileWithParResult
+from .upsert_ontology_file_details import UpsertOntologyFileDetails
 from .user_setting import UserSetting
 from .user_setting_collection import UserSettingCollection
 from .user_setting_summary import UserSettingSummary
@@ -998,6 +1054,7 @@ aidataplatform_dp_type_mapping = {
     "CreateModelVersionDetails": CreateModelVersionDetails,
     "CreateModelVersionResponseDetails": CreateModelVersionResponseDetails,
     "CreateNlToSqlToolDetails": CreateNlToSqlToolDetails,
+    "CreateOntologyFolderDetails": CreateOntologyFolderDetails,
     "CreateOntologyProjectDetails": CreateOntologyProjectDetails,
     "CreateOrUpdateBundleOverridesDetails": CreateOrUpdateBundleOverridesDetails,
     "CreatePromptToolDetails": CreatePromptToolDetails,
@@ -1073,12 +1130,14 @@ aidataplatform_dp_type_mapping = {
     "DownloadFileWithParResult": DownloadFileWithParResult,
     "DriverConfig": DriverConfig,
     "EmbeddingModelDetails": EmbeddingModelDetails,
+    "EntityLineage": EntityLineage,
     "ExadataSchema": ExadataSchema,
     "ExadataSchemaSummary": ExadataSchemaSummary,
     "ExadataTable": ExadataTable,
     "ExadataTableSummary": ExadataTableSummary,
     "ExecuteDatabaseUserWorkflowsDetails": ExecuteDatabaseUserWorkflowsDetails,
     "ExecuteSqlCommandDetails": ExecuteSqlCommandDetails,
+    "ExpandOntologyGraphDetails": ExpandOntologyGraphDetails,
     "Experiment": Experiment,
     "ExperimentCollection": ExperimentCollection,
     "ExperimentResponse": ExperimentResponse,
@@ -1096,6 +1155,7 @@ aidataplatform_dp_type_mapping = {
     "ExperimentTag": ExperimentTag,
     "ExperimentTagKey": ExperimentTagKey,
     "ExportContentsDetails": ExportContentsDetails,
+    "ExportLineageDetails": ExportLineageDetails,
     "ExportTaskRunOutputDetails": ExportTaskRunOutputDetails,
     "ExportedContents": ExportedContents,
     "ExportedTaskRunOutputContents": ExportedTaskRunOutputContents,
@@ -1107,12 +1167,20 @@ aidataplatform_dp_type_mapping = {
     "FeatureStatusResult": FeatureStatusResult,
     "FeatureStatusSummary": FeatureStatusSummary,
     "FetchBundleDeploymentStatusDetails": FetchBundleDeploymentStatusDetails,
+    "FetchEntityLineageDetails": FetchEntityLineageDetails,
+    "FetchLineageGraphNodeNeighborsDetails": FetchLineageGraphNodeNeighborsDetails,
+    "FetchLineageGraphNodeReferencesDetails": FetchLineageGraphNodeReferencesDetails,
     "FetchMcpObjectsDetails": FetchMcpObjectsDetails,
     "FetchMcpObjectsResult": FetchMcpObjectsResult,
     "FetchOutputDetails": FetchOutputDetails,
+    "FetchProcessNodeColumnLinksDetails": FetchProcessNodeColumnLinksDetails,
     "FieldInfo": FieldInfo,
+    "FileConfiguration": FileConfiguration,
     "FileDependency": FileDependency,
+    "FileReadConfiguration": FileReadConfiguration,
+    "FileWriteConfiguration": FileWriteConfiguration,
     "FilterTypes": FilterTypes,
+    "FindOntologyGraphPathsDetails": FindOntologyGraphPathsDetails,
     "GenerateTempFileUploadTargetResponseDetails": GenerateTempFileUploadTargetResponseDetails,
     "GetBundleOverridesDetails": GetBundleOverridesDetails,
     "GetExperimentRunResponseDetails": GetExperimentRunResponseDetails,
@@ -1134,6 +1202,10 @@ aidataplatform_dp_type_mapping = {
     "GitRepairWorkTreeDetails": GitRepairWorkTreeDetails,
     "GitRepository": GitRepository,
     "GitResetDetails": GitResetDetails,
+    "GoogleBigquerySchema": GoogleBigquerySchema,
+    "GoogleBigquerySchemaSummary": GoogleBigquerySchemaSummary,
+    "GoogleBigqueryTable": GoogleBigqueryTable,
+    "GoogleBigqueryTableSummary": GoogleBigqueryTableSummary,
     "GroupedSearchCriteria": GroupedSearchCriteria,
     "GuardrailsConfiguration": GuardrailsConfiguration,
     "HistoryCollection": HistoryCollection,
@@ -1194,6 +1266,11 @@ aidataplatform_dp_type_mapping = {
     "KnowledgeBaseVectorIndexDetails": KnowledgeBaseVectorIndexDetails,
     "Libraries": Libraries,
     "LifecycleState": LifecycleState,
+    "LineageGraphNodeNeighborsFilter": LineageGraphNodeNeighborsFilter,
+    "LineageNodeDetails": LineageNodeDetails,
+    "LineageNodeDetailsCollection": LineageNodeDetailsCollection,
+    "LineageObject": LineageObject,
+    "LineageRelationship": LineageRelationship,
     "ListExperimentRunsDetails": ListExperimentRunsDetails,
     "ListExperimentsDetails": ListExperimentsDetails,
     "ListFilter": ListFilter,
@@ -1283,6 +1360,8 @@ aidataplatform_dp_type_mapping = {
     "NlToSqlToolConfiguration": NlToSqlToolConfiguration,
     "NlToSqlToolInputSchema": NlToSqlToolInputSchema,
     "NoAuth": NoAuth,
+    "NodeFilterObject": NodeFilterObject,
+    "NodeFilterPredicates": NodeFilterPredicates,
     "NodeInput": NodeInput,
     "NodeIo": NodeIo,
     "NodeIoColor": NodeIoColor,
@@ -1292,19 +1371,41 @@ aidataplatform_dp_type_mapping = {
     "OAuth": OAuth,
     "OAuthAdminSetting": OAuthAdminSetting,
     "OAuthConfiguration": OAuthConfiguration,
-    "OacChildItemCollection": OacChildItemCollection,
-    "OacChildItemSummary": OacChildItemSummary,
+    "OacObjectCollection": OacObjectCollection,
+    "OacObjectColumn": OacObjectColumn,
+    "OacObjectSummary": OacObjectSummary,
+    "OacObjectTable": OacObjectTable,
+    "OacObjectTableSummary": OacObjectTableSummary,
+    "OacObjectTableSummaryCollection": OacObjectTableSummaryCollection,
     "OacSchema": OacSchema,
     "OacSchemaSummary": OacSchemaSummary,
     "OacTable": OacTable,
     "OacTableSummary": OacTableSummary,
+    "ObjectLineage": ObjectLineage,
+    "ObjectLineageRequestDetails": ObjectLineageRequestDetails,
+    "ObjectNeighborsFetchRequestDetails": ObjectNeighborsFetchRequestDetails,
     "ObjectRecentSearchSummary": ObjectRecentSearchSummary,
     "ObjectSearchSummary": ObjectSearchSummary,
     "ObjectSuggestSummary": ObjectSuggestSummary,
     "OciLogging": OciLogging,
     "OciResourcePrincipalAuth": OciResourcePrincipalAuth,
+    "OntologyGraph": OntologyGraph,
+    "OntologyGraphEdge": OntologyGraphEdge,
+    "OntologyGraphExpansion": OntologyGraphExpansion,
+    "OntologyGraphNode": OntologyGraphNode,
+    "OntologyGraphPath": OntologyGraphPath,
+    "OntologyGraphPathCollection": OntologyGraphPathCollection,
+    "OntologyGraphSearchResult": OntologyGraphSearchResult,
+    "OntologyGraphSearchResultCollection": OntologyGraphSearchResultCollection,
     "OntologyProject": OntologyProject,
     "OntologyProjectCollection": OntologyProjectCollection,
+    "OntologyProjectFileContent": OntologyProjectFileContent,
+    "OntologyProjectObject": OntologyProjectObject,
+    "OntologyProjectObjectCollection": OntologyProjectObjectCollection,
+    "OntologyProjectStatus": OntologyProjectStatus,
+    "OntologyProjectStatusCollection": OntologyProjectStatusCollection,
+    "OntologyProjectValidationResult": OntologyProjectValidationResult,
+    "OntologyPublishTargetConnectionReference": OntologyPublishTargetConnectionReference,
     "OracleSchema": OracleSchema,
     "OracleSchemaSummary": OracleSchemaSummary,
     "OracleTable": OracleTable,
@@ -1312,8 +1413,11 @@ aidataplatform_dp_type_mapping = {
     "OutputParameter": OutputParameter,
     "ParDetails": ParDetails,
     "Parameter": Parameter,
+    "PassThroughNodeFilterPredicate": PassThroughNodeFilterPredicate,
     "PatchClusterLibraryDetails": PatchClusterLibraryDetails,
     "PatchSessionDetails": PatchSessionDetails,
+    "PathFilterObject": PathFilterObject,
+    "PathFilterPredicates": PathFilterPredicates,
     "PerformInferSchemaDetails": PerformInferSchemaDetails,
     "PermissionAssignees": PermissionAssignees,
     "PermissionSummary": PermissionSummary,
@@ -1324,12 +1428,18 @@ aidataplatform_dp_type_mapping = {
     "PreviewAgentCardDetails": PreviewAgentCardDetails,
     "PrincipalsWithWorkspaceAccessCollection": PrincipalsWithWorkspaceAccessCollection,
     "PrincipalsWithWorkspaceAccessSummary": PrincipalsWithWorkspaceAccessSummary,
+    "ProcessNodeColumnDetails": ProcessNodeColumnDetails,
+    "ProcessNodeColumnLink": ProcessNodeColumnLink,
+    "ProcessNodeColumnLinksCollection": ProcessNodeColumnLinksCollection,
+    "ProcessNodeColumnLinksFilter": ProcessNodeColumnLinksFilter,
+    "ProcessNodeColumnLinksRequestDetails": ProcessNodeColumnLinksRequestDetails,
     "PromptAttacksPreventionPolicy": PromptAttacksPreventionPolicy,
     "PromptResult": PromptResult,
     "PromptTestToolResult": PromptTestToolResult,
     "PromptTool": PromptTool,
     "PromptToolConfiguration": PromptToolConfiguration,
     "ProvisionUserSchemaDetails": ProvisionUserSchemaDetails,
+    "PublishOntologyProjectDetails": PublishOntologyProjectDetails,
     "PurgeBundleDetails": PurgeBundleDetails,
     "PythonTask": PythonTask,
     "QueryReplicaIdsDetails": QueryReplicaIdsDetails,
@@ -1511,6 +1621,7 @@ aidataplatform_dp_type_mapping = {
     "TransitionModelVersionStageResponseDetails": TransitionModelVersionStageResponseDetails,
     "TxtFileDefinition": TxtFileDefinition,
     "UninstallClusterLibraryDetails": UninstallClusterLibraryDetails,
+    "UnpublishOntologyProjectDetails": UnpublishOntologyProjectDetails,
     "UpdateAdminSettingDetails": UpdateAdminSettingDetails,
     "UpdateAgentDeploymentDetails": UpdateAgentDeploymentDetails,
     "UpdateAgentDeploymentMetadataDetails": UpdateAgentDeploymentMetadataDetails,
@@ -1581,6 +1692,7 @@ aidataplatform_dp_type_mapping = {
     "UpdateWorkspaceDetails": UpdateWorkspaceDetails,
     "UploadFileWithParDetails": UploadFileWithParDetails,
     "UploadFileWithParResult": UploadFileWithParResult,
+    "UpsertOntologyFileDetails": UpsertOntologyFileDetails,
     "UserSetting": UserSetting,
     "UserSettingCollection": UserSettingCollection,
     "UserSettingSummary": UserSettingSummary,

@@ -19,7 +19,8 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwTableSummary.class, name = "ADW"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OracleTableSummary.class, name = "ORACLE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpTableSummary.class, name = "ATP"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeTableSummary.class, name = "SNOWFLAKE")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeTableSummary.class, name = "SNOWFLAKE"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = GoogleBigqueryTableSummary.class, name = "GOOGLE_BIGQUERY")
 })
 
 public class TableSummary  {

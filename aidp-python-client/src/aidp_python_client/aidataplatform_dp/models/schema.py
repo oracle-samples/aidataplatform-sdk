@@ -58,6 +58,10 @@ class Schema(object):
     ENTITY_TYPE_SNOWFLAKE = "SNOWFLAKE"
 
     #: A constant which can be used with the entity_type property of a Schema.
+    #: This constant has a value of "GOOGLE_BIGQUERY"
+    ENTITY_TYPE_GOOGLE_BIGQUERY = "GOOGLE_BIGQUERY"
+
+    #: A constant which can be used with the entity_type property of a Schema.
     #: This constant has a value of "ORACLE_ANALYTICS"
     ENTITY_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
 
@@ -89,12 +93,13 @@ class Schema(object):
         * :class:`~oci.aidataplatform_dp.models.StandardSchema`
         * :class:`~oci.aidataplatform_dp.models.OacSchema`
         * :class:`~oci.aidataplatform_dp.models.ExadataSchema`
+        * :class:`~oci.aidataplatform_dp.models.GoogleBigquerySchema`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
         :param entity_type:
             The value to assign to the entity_type property of this Schema.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type entity_type: str
 
@@ -235,6 +240,9 @@ class Schema(object):
 
         if type == 'EXADATA':
             return 'ExadataSchema'
+
+        if type == 'GOOGLE_BIGQUERY':
+            return 'GoogleBigquerySchema'
         else:
             return 'Schema'
 
@@ -244,7 +252,7 @@ class Schema(object):
         **[Required]** Gets the entity_type of this Schema.
         An enum to decide the type of the derived model.
 
-        Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -263,7 +271,7 @@ class Schema(object):
         :param entity_type: The entity_type of this Schema.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(entity_type, allowed_values):
             entity_type = 'UNKNOWN_ENUM_VALUE'
         self._entity_type = entity_type

@@ -38,7 +38,7 @@ export interface JobSummary {
     'path'?: string;
     'schedule'?: model.Schedule;
     /**
-    * The id with which the job run as.
+    * This points to the user or service account executing the job.
     */
     'runAs'?: string;
     /**

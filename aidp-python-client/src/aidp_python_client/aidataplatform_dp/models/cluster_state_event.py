@@ -81,6 +81,22 @@ class ClusterStateEvent(ClusterEvent):
     #: This constant has a value of "NETWORK_CONFIGURATION_DETACH_FAILED"
     STATE_NETWORK_CONFIGURATION_DETACH_FAILED = "NETWORK_CONFIGURATION_DETACH_FAILED"
 
+    #: A constant which can be used with the phase property of a ClusterStateEvent.
+    #: This constant has a value of "STARTED"
+    PHASE_STARTED = "STARTED"
+
+    #: A constant which can be used with the phase property of a ClusterStateEvent.
+    #: This constant has a value of "COMPLETED"
+    PHASE_COMPLETED = "COMPLETED"
+
+    #: A constant which can be used with the source property of a ClusterStateEvent.
+    #: This constant has a value of "USER"
+    SOURCE_USER = "USER"
+
+    #: A constant which can be used with the source property of a ClusterStateEvent.
+    #: This constant has a value of "SYSTEM"
+    SOURCE_SYSTEM = "SYSTEM"
+
     def __init__(self, **kwargs):
         """
         Initializes a new ClusterStateEvent object with values from keyword arguments. The default value of the :py:attr:`~oci.aidataplatform_dp.models.ClusterStateEvent.type` attribute
@@ -97,19 +113,42 @@ class ClusterStateEvent(ClusterEvent):
             Allowed values for this property are: "ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED"
         :type state: str
 
+        :param phase:
+            The value to assign to the phase property of this ClusterStateEvent.
+            Allowed values for this property are: "STARTED", "COMPLETED"
+        :type phase: str
+
+        :param source:
+            The value to assign to the source property of this ClusterStateEvent.
+            Allowed values for this property are: "USER", "SYSTEM"
+        :type source: str
+
+        :param state_message:
+            The value to assign to the state_message property of this ClusterStateEvent.
+        :type state_message: str
+
         """
         self.swagger_types = {
             'type': 'str',
-            'state': 'str'
+            'state': 'str',
+            'phase': 'str',
+            'source': 'str',
+            'state_message': 'str'
         }
 
         self.attribute_map = {
             'type': 'type',
-            'state': 'state'
+            'state': 'state',
+            'phase': 'phase',
+            'source': 'source',
+            'state_message': 'stateMessage'
         }
 
         self._type = None
         self._state = None
+        self._phase = None
+        self._source = None
+        self._state_message = None
         self._type = 'CLUSTER_STATE_EVENT'
 
     @property
@@ -143,6 +182,94 @@ class ClusterStateEvent(ClusterEvent):
                 .format(allowed_values)
             )
         self._state = state
+
+    @property
+    def phase(self):
+        """
+        Gets the phase of this ClusterStateEvent.
+        Phase
+
+        Allowed values for this property are: "STARTED", "COMPLETED"
+
+
+        :return: The phase of this ClusterStateEvent.
+        :rtype: str
+        """
+        return self._phase
+
+    @phase.setter
+    def phase(self, phase):
+        """
+        Sets the phase of this ClusterStateEvent.
+        Phase
+
+
+        :param phase: The phase of this ClusterStateEvent.
+        :type: str
+        """
+        allowed_values = ["STARTED", "COMPLETED"]
+        if not value_allowed_none_or_none_sentinel(phase, allowed_values):
+            raise ValueError(
+                "Invalid value for `phase`, must be None or one of {0}"
+                .format(allowed_values)
+            )
+        self._phase = phase
+
+    @property
+    def source(self):
+        """
+        Gets the source of this ClusterStateEvent.
+        Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+
+        Allowed values for this property are: "USER", "SYSTEM"
+
+
+        :return: The source of this ClusterStateEvent.
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """
+        Sets the source of this ClusterStateEvent.
+        Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+
+
+        :param source: The source of this ClusterStateEvent.
+        :type: str
+        """
+        allowed_values = ["USER", "SYSTEM"]
+        if not value_allowed_none_or_none_sentinel(source, allowed_values):
+            raise ValueError(
+                "Invalid value for `source`, must be None or one of {0}"
+                .format(allowed_values)
+            )
+        self._source = source
+
+    @property
+    def state_message(self):
+        """
+        Gets the state_message of this ClusterStateEvent.
+        In case of a failed state, this will capture the reason for error.
+
+
+        :return: The state_message of this ClusterStateEvent.
+        :rtype: str
+        """
+        return self._state_message
+
+    @state_message.setter
+    def state_message(self, state_message):
+        """
+        Sets the state_message of this ClusterStateEvent.
+        In case of a failed state, this will capture the reason for error.
+
+
+        :param state_message: The state_message of this ClusterStateEvent.
+        :type: str
+        """
+        self._state_message = state_message
 
     def __repr__(self):
         return formatted_flat_dict(self)

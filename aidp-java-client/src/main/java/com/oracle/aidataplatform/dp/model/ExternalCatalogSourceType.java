@@ -17,6 +17,7 @@ public enum ExternalCatalogSourceType implements com.oracle.bmc.http.internal.Bm
     Mysql("MYSQL"),
     AzureSqlserver("AZURE_SQLSERVER"),
     Snowflake("SNOWFLAKE"),
+    GoogleBigquery("GOOGLE_BIGQUERY"),
     OracleAnalytics("ORACLE_ANALYTICS"),
     
 

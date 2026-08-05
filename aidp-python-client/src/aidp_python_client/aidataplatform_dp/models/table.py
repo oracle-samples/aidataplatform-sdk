@@ -50,6 +50,10 @@ class Table(object):
     ENTITY_TYPE_SNOWFLAKE = "SNOWFLAKE"
 
     #: A constant which can be used with the entity_type property of a Table.
+    #: This constant has a value of "GOOGLE_BIGQUERY"
+    ENTITY_TYPE_GOOGLE_BIGQUERY = "GOOGLE_BIGQUERY"
+
+    #: A constant which can be used with the entity_type property of a Table.
     #: This constant has a value of "ORACLE_ANALYTICS"
     ENTITY_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
 
@@ -86,6 +90,7 @@ class Table(object):
         * :class:`~oci.aidataplatform_dp.models.AdwTable`
         * :class:`~oci.aidataplatform_dp.models.AlhTable`
         * :class:`~oci.aidataplatform_dp.models.MysqlTable`
+        * :class:`~oci.aidataplatform_dp.models.GoogleBigqueryTable`
         * :class:`~oci.aidataplatform_dp.models.SqlServerOnAzureTable`
         * :class:`~oci.aidataplatform_dp.models.StandardTable`
         * :class:`~oci.aidataplatform_dp.models.ExadataTable`
@@ -97,7 +102,7 @@ class Table(object):
 
         :param entity_type:
             The value to assign to the entity_type property of this Table.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type entity_type: str
 
@@ -262,6 +267,9 @@ class Table(object):
         if type == 'MYSQL':
             return 'MysqlTable'
 
+        if type == 'GOOGLE_BIGQUERY':
+            return 'GoogleBigqueryTable'
+
         if type == 'AZURE_SQLSERVER':
             return 'SqlServerOnAzureTable'
 
@@ -288,7 +296,7 @@ class Table(object):
         **[Required]** Gets the entity_type of this Table.
         An enum to decide the type of the derived model
 
-        Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -307,7 +315,7 @@ class Table(object):
         :param entity_type: The entity_type of this Table.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(entity_type, allowed_values):
             entity_type = 'UNKNOWN_ENUM_VALUE'
         self._entity_type = entity_type

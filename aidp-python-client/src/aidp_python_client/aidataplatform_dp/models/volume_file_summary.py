@@ -72,6 +72,10 @@ class VolumeFileSummary(object):
             The value to assign to the created_by_name property of this VolumeFileSummary.
         :type created_by_name: str
 
+        :param updated_by:
+            The value to assign to the updated_by property of this VolumeFileSummary.
+        :type updated_by: str
+
         """
         self.swagger_types = {
             'path': 'str',
@@ -84,7 +88,8 @@ class VolumeFileSummary(object):
             'composite_etag': 'str',
             'system_tags': 'dict(str, dict(str, object))',
             'created_by': 'str',
-            'created_by_name': 'str'
+            'created_by_name': 'str',
+            'updated_by': 'str'
         }
 
         self.attribute_map = {
@@ -98,7 +103,8 @@ class VolumeFileSummary(object):
             'composite_etag': 'compositeEtag',
             'system_tags': 'systemTags',
             'created_by': 'createdBy',
-            'created_by_name': 'createdByName'
+            'created_by_name': 'createdByName',
+            'updated_by': 'updatedBy'
         }
 
         self._path = None
@@ -112,6 +118,7 @@ class VolumeFileSummary(object):
         self._system_tags = None
         self._created_by = None
         self._created_by_name = None
+        self._updated_by = None
 
     @property
     def path(self):
@@ -394,6 +401,30 @@ class VolumeFileSummary(object):
         :type: str
         """
         self._created_by_name = created_by_name
+
+    @property
+    def updated_by(self):
+        """
+        Gets the updated_by of this VolumeFileSummary.
+        OCID of the user who last updated this file.
+
+
+        :return: The updated_by of this VolumeFileSummary.
+        :rtype: str
+        """
+        return self._updated_by
+
+    @updated_by.setter
+    def updated_by(self, updated_by):
+        """
+        Sets the updated_by of this VolumeFileSummary.
+        OCID of the user who last updated this file.
+
+
+        :param updated_by: The updated_by of this VolumeFileSummary.
+        :type: str
+        """
+        self._updated_by = updated_by
 
     def __repr__(self):
         return formatted_flat_dict(self)

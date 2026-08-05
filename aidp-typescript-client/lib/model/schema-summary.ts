@@ -97,6 +97,8 @@ export namespace SchemaSummary {
                     return model.OracleSchemaSummary.getJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlSchemaSummary.getJsonObj(<model.MysqlSchemaSummary>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchemaSummary.getJsonObj(<model.GoogleBigquerySchemaSummary>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchemaSummary.getJsonObj(<model.OacSchemaSummary>(<object>jsonObj), true);
                 case "ATP":
@@ -147,6 +149,8 @@ export namespace SchemaSummary {
                     return model.OracleSchemaSummary.getDeserializedJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlSchemaSummary.getDeserializedJsonObj(<model.MysqlSchemaSummary>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchemaSummary.getDeserializedJsonObj(<model.GoogleBigquerySchemaSummary>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchemaSummary.getDeserializedJsonObj(<model.OacSchemaSummary>(<object>jsonObj), true);
                 case "ATP":
