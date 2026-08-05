@@ -33,7 +33,7 @@ export interface Job {
     */
     'updatedByName'?: string;
     /**
-    * The id with which the job run as.
+    * This points to the user or service account executing the job.
     */
     'runAs'?: string;
     /**

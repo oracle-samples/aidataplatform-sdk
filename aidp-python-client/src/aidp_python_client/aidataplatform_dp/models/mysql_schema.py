@@ -21,7 +21,7 @@ class MysqlSchema(Schema):
 
         :param entity_type:
             The value to assign to the entity_type property of this MysqlSchema.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:

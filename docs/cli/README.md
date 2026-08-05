@@ -29,6 +29,7 @@ This guide summarizes the command groups, commands, options, and payload require
 - [Notebook](#notebook)
 - [Role](#role)
 - [Schema](#schema)
+- [Semantic Catalog](#semantic-catalog)
 - [User Setting](#user-setting)
 - [Volume](#volume)
 - [Workflow](#workflow)
@@ -325,6 +326,68 @@ Create an Agent.
 }
 ```
 
+**Request Body (`FileConfiguration`):**
+- `isEnabled` (boolean, optional) —
+- `read` (object, optional) —
+- `write` (object, optional) —
+
+**Example:**
+```json
+{
+  "isEnabled": true,
+  "read": {},
+  "write": {}
+}
+```
+
+**Request Body (`FileReadConfiguration`):**
+- `allowedFileTypes` (array, optional) —
+- `isEnabled` (boolean, optional) —
+- `isPersistenceEnabled` (boolean, optional) —
+- `maxFileCount` (integer, optional) —
+- `maxFileSizeMb` (integer, optional) —
+- `retentionDays` (integer, optional) —
+- `targetPath` (string, optional) —
+
+**Example:**
+```json
+{
+  "allowedFileTypes": "pdf",
+  "isEnabled": true,
+  "isPersistenceEnabled": true,
+  "maxFileCount": 0,
+  "maxFileSizeMb": 0,
+  "retentionDays": 0,
+  "targetPath": "<string>"
+}
+```
+
+**Request Body (`FileWriteConfiguration`):**
+- `allowedFileTypes` (array, optional) —
+- `downloadLinkExpiry` (string, optional) —
+- `isDownloadToCatalogEnabled` (boolean, optional) —
+- `isEnabled` (boolean, optional) —
+- `isPersistenceEnabled` (boolean, optional) —
+- `maxFileSizeMb` (integer, optional) —
+- `retentionDays` (integer, optional) —
+- `targetPath` (string, optional) —
+- `visibility` (string, optional) —
+
+**Example:**
+```json
+{
+  "allowedFileTypes": "pdf",
+  "downloadLinkExpiry": "SESSION_DURATION",
+  "isDownloadToCatalogEnabled": true,
+  "isEnabled": true,
+  "isPersistenceEnabled": true,
+  "maxFileSizeMb": 0,
+  "retentionDays": 0,
+  "targetPath": "<string>",
+  "visibility": "END_USER_ONLY"
+}
+```
+
 **Request Body (`GuardrailsConfiguration`):**
 - `description` (string, optional) —
 - `key` (string, optional) —
@@ -422,12 +485,14 @@ Create an Agent.
 ```
 
 **Request Body (`SessionConfiguration`):**
+- `fileConfig` (object, optional) —
 - `sessionRetentionConfig` (object, optional) —
 - `variables` (object, optional) —
 
 **Example:**
 ```json
 {
+  "fileConfig": {},
   "sessionRetentionConfig": {},
   "variables": {}
 }
@@ -1200,6 +1265,68 @@ Update an Agent with provided details.
 }
 ```
 
+**Request Body (`FileConfiguration`):**
+- `isEnabled` (boolean, optional) —
+- `read` (object, optional) —
+- `write` (object, optional) —
+
+**Example:**
+```json
+{
+  "isEnabled": true,
+  "read": {},
+  "write": {}
+}
+```
+
+**Request Body (`FileReadConfiguration`):**
+- `allowedFileTypes` (array, optional) —
+- `isEnabled` (boolean, optional) —
+- `isPersistenceEnabled` (boolean, optional) —
+- `maxFileCount` (integer, optional) —
+- `maxFileSizeMb` (integer, optional) —
+- `retentionDays` (integer, optional) —
+- `targetPath` (string, optional) —
+
+**Example:**
+```json
+{
+  "allowedFileTypes": "pdf",
+  "isEnabled": true,
+  "isPersistenceEnabled": true,
+  "maxFileCount": 0,
+  "maxFileSizeMb": 0,
+  "retentionDays": 0,
+  "targetPath": "<string>"
+}
+```
+
+**Request Body (`FileWriteConfiguration`):**
+- `allowedFileTypes` (array, optional) —
+- `downloadLinkExpiry` (string, optional) —
+- `isDownloadToCatalogEnabled` (boolean, optional) —
+- `isEnabled` (boolean, optional) —
+- `isPersistenceEnabled` (boolean, optional) —
+- `maxFileSizeMb` (integer, optional) —
+- `retentionDays` (integer, optional) —
+- `targetPath` (string, optional) —
+- `visibility` (string, optional) —
+
+**Example:**
+```json
+{
+  "allowedFileTypes": "pdf",
+  "downloadLinkExpiry": "SESSION_DURATION",
+  "isDownloadToCatalogEnabled": true,
+  "isEnabled": true,
+  "isPersistenceEnabled": true,
+  "maxFileSizeMb": 0,
+  "retentionDays": 0,
+  "targetPath": "<string>",
+  "visibility": "END_USER_ONLY"
+}
+```
+
 **Request Body (`GuardrailsConfiguration`):**
 - `description` (string, optional) —
 - `key` (string, optional) —
@@ -1297,12 +1424,14 @@ Update an Agent with provided details.
 ```
 
 **Request Body (`SessionConfiguration`):**
+- `fileConfig` (object, optional) —
 - `sessionRetentionConfig` (object, optional) —
 - `variables` (object, optional) —
 
 **Example:**
 ```json
 {
+  "fileConfig": {},
   "sessionRetentionConfig": {},
   "variables": {}
 }
@@ -1463,12 +1592,14 @@ Update the deployment metadata for an Agent.
 **Request Body (`UpdateAgentDeploymentMetadataDetails`):**
 - `agentCardConfigDetail` (object, optional) —
 - `deploymentKey` (string, optional) —
+- `updateAgentFlowAgentCardConfig` (boolean, optional) —
 
 **Example:**
 ```json
 {
   "agentCardConfigDetail": {},
-  "deploymentKey": "<string>"
+  "deploymentKey": "<string>",
+  "updateAgentFlowAgentCardConfig": true
 }
 ```
 ---
@@ -4403,11 +4534,13 @@ Experiments, experiment runs, registered models, and model versions.
 
 **Request Body (`DeleteExperimentDetails`):**
 - `experiment_id` (string, required) —
+- `is_permanent` (boolean, optional) —
 
 **Example:**
 ```json
 {
-  "experiment_id": "<string>"
+  "experiment_id": "<string>",
+  "is_permanent": true
 }
 ```
 ---
@@ -4429,11 +4562,13 @@ Experiments, experiment runs, registered models, and model versions.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 
 **Request Body (`DeleteExperimentRunDetails`):**
+- `is_permanent` (boolean, optional) —
 - `run_id` (string, required) —
 
 **Example:**
 ```json
 {
+  "is_permanent": true,
   "run_id": "<string>"
 }
 ```
@@ -5931,6 +6066,10 @@ Returns a list of all available sessions.
 - `cluster-id` (string, optional) — Cluster ID attached to a session.
 - `path` (string, optional) — Notebook file path attached to a session.
 - `agent-flow-key` (string, optional) — Agent flow key of the attached agent flow.
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `sort-order` (string, optional) — The sort order to use, either ascending (ASC) or descending (DESC). Allowed values are: "ASC", "DESC"
+- `sort-by` (string, optional) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Allowed values are: "timeCreated"
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 ---
 **Return:** [Back to Notebook](#notebook) • [Top](#top)
@@ -7454,6 +7593,141 @@ Updates a view with given information.
 ---
 **Return:** [Back to Schema](#schema) • [Top](#top)
 
+## <a id="semantic-catalog"></a>Semantic Catalog
+Entity lineages.
+**Command Index:**
+- [semantic-catalog export-lineage](#semantic-catalog-export-lineage)
+- [semantic-catalog fetch-entity-lineage](#semantic-catalog-fetch-entity-lineage)
+### Commands
+
+#### `aidp semantic-catalog export-lineage`
+<a id="semantic-catalog-export-lineage"></a>
+(Preview) Returns complete lineage for the provided anchor node in CSV format.
+
+**Usage:**
+
+`aidp semantic-catalog export-lineage <AI-DATA-PLATFORM-ID> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
+**Request Body (`ExportLineageDetails`):**
+- `anchorNode` (string, required) —
+- `direction` (string, required) —
+
+**Example:**
+```json
+{
+  "anchorNode": "<string>",
+  "direction": "UPSTREAM"
+}
+```
+---
+**Return:** [Back to Semantic-Catalog](#semantic-catalog) • [Top](#top)
+
+#### `aidp semantic-catalog fetch-entity-lineage`
+<a id="semantic-catalog-fetch-entity-lineage"></a>
+(Preview) Returns lineage for a given entity object.
+
+**Usage:**
+
+`aidp semantic-catalog fetch-entity-lineage <AI-DATA-PLATFORM-ID> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+**Options:**
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
+**Request Body (`FetchEntityLineageDetails`):**
+- `anchorNode` (string, required) —
+- `direction` (string, required) —
+- `level` (string, required) —
+- `maxDepth` (integer, required) —
+- `nodeFilters` (object, optional) —
+- `pathFilters` (object, optional) —
+- `shouldIncludeEdges` (boolean, optional) —
+
+**Example:**
+```json
+{
+  "anchorNode": "<string>",
+  "direction": "UPSTREAM",
+  "level": "ENTITY",
+  "maxDepth": 0,
+  "nodeFilters": {},
+  "pathFilters": {},
+  "shouldIncludeEdges": true
+}
+```
+
+**Request Body (`NodeFilterObject`):**
+- `predicates` (object, required) —
+
+**Example:**
+```json
+{
+  "predicates": {}
+}
+```
+
+**Request Body (`NodeFilterPredicates`):**
+- `displayNameContains` (string, optional) —
+- `typeEquals` (string, optional) —
+
+**Example:**
+```json
+{
+  "displayNameContains": "<string>",
+  "typeEquals": "<string>"
+}
+```
+
+**Request Body (`PassThroughNodeFilterPredicate`):**
+- `depth` (integer, optional) —
+- `id` (string, optional) —
+
+**Example:**
+```json
+{
+  "depth": 0,
+  "id": "<string>"
+}
+```
+
+**Request Body (`PathFilterObject`):**
+- `predicates` (object, required) —
+
+**Example:**
+```json
+{
+  "predicates": {}
+}
+```
+
+**Request Body (`PathFilterPredicates`):**
+- `anchorNodeColumnsIn` (array, optional) —
+- `parentIdIn` (array, optional) —
+- `passThroughNode` (object, optional) —
+
+**Example:**
+```json
+{
+  "anchorNodeColumnsIn": [],
+  "parentIdIn": [],
+  "passThroughNode": {}
+}
+```
+---
+**Return:** [Back to Semantic-Catalog](#semantic-catalog) • [Top](#top)
+
 ## <a id="user-setting"></a>User Setting
 User settings.
 **Command Index:**
@@ -8118,6 +8392,7 @@ Uploads a volume file by generating PAR. If file exists, then it will be updated
 **Options:**
 - `is-overwrite` (boolean, optional) — A boolean which decides if overwrite is allowed
 - `should-generate-new-par` (boolean, optional) — Flag to toggle to generate short living par
+- `should-create-recursively` (boolean, optional) — A boolean which decides if parent directories should be created recursively during upload.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `path` (string, required) — The absolute path of the file or folder
 - `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
@@ -8841,6 +9116,7 @@ Returns detailed information about a given job run.
 - `workspace-key` (string, required) — The key of the Workspace
 - `job-run-key` (string, required) — Job run key.
 **Options:**
+- `should-include-task-run-summaries` (boolean, optional) — A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
 - `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 ---
@@ -10277,6 +10553,7 @@ Creates a workspace file by generating PAR or updates the metadata by close file
 **Options:**
 - `is-overwrite` (boolean, optional) — A boolean which decides if overwrite is allowed
 - `should-generate-new-par` (boolean, optional) — Flag to toggle to generate short living par
+- `should-create-recursively` (boolean, optional) — A boolean which decides if parent directories should be created recursively during upload.
 - `object-description` (string, optional) — The description of the workspace object
 - `should-update-recent` (boolean, optional) — A flag to identify if the recent list should be updated.
 - `path` (string, required) — The absolute path of the file or folder

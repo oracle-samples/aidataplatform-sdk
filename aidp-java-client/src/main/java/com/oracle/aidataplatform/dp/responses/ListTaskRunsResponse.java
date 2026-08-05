@@ -33,6 +33,19 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
     }
     
     /**
+     * For list pagination. When this header appears in the response, previous pages of results remain.
+     */
+    private String opcPrevPage;
+
+    /**
+     * For list pagination. When this header appears in the response, previous pages of results remain.
+     * @return the value
+     */
+    public String getOpcPrevPage() {
+        return opcPrevPage;
+    }
+    
+    /**
      * The returned {@code TaskRunCollection} instance.
      */
     private com.oracle.aidataplatform.dp.model.TaskRunCollection taskRunCollection;
@@ -46,11 +59,12 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
     }
 
 
-    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "taskRunCollection"})
-    private ListTaskRunsResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, com.oracle.aidataplatform.dp.model.TaskRunCollection taskRunCollection) {
+    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "opcPrevPage", "taskRunCollection"})
+    private ListTaskRunsResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, String opcPrevPage, com.oracle.aidataplatform.dp.model.TaskRunCollection taskRunCollection) {
         super(__httpStatusCode__, headers);
         this.opcRequestId = opcRequestId;
         this.opcNextPage = opcNextPage;
+        this.opcPrevPage = opcPrevPage;
         this.taskRunCollection = taskRunCollection;
 
     }
@@ -103,6 +117,21 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
         }
 
         /**
+         * For list pagination. When this header appears in the response, previous pages of results remain.
+         */
+        private String opcPrevPage;
+
+        /**
+         * For list pagination. When this header appears in the response, previous pages of results remain.
+         * @param opcPrevPage the value to set
+         * @return this builder
+         */
+        public Builder opcPrevPage(String opcPrevPage) {
+            this.opcPrevPage = opcPrevPage;
+            return this;
+        }
+
+        /**
          * The returned {@code TaskRunCollection} instance.
          */
         private com.oracle.aidataplatform.dp.model.TaskRunCollection taskRunCollection;
@@ -125,7 +154,7 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
         public Builder copy(ListTaskRunsResponse o) {
             __httpStatusCode__(o.get__httpStatusCode__());
             headers(o.getHeaders());
-            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());
+            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());opcPrevPage(o.getOpcPrevPage());
             taskRunCollection(o.getTaskRunCollection());
             
             return this;
@@ -137,7 +166,7 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
          */
         @Override
         public ListTaskRunsResponse build() {
-            return new ListTaskRunsResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, taskRunCollection);
+            return new ListTaskRunsResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, opcPrevPage, taskRunCollection);
         }
     }
 
@@ -156,6 +185,7 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
         sb.append("super=").append(super.toString());
         sb.append(",opcRequestId=").append(String.valueOf(opcRequestId));
         sb.append(",opcNextPage=").append(String.valueOf(opcNextPage));
+        sb.append(",opcPrevPage=").append(String.valueOf(opcPrevPage));
         sb.append(",taskRunCollection=").append(String.valueOf(taskRunCollection));
         sb.append(")");
         return sb.toString();
@@ -174,6 +204,7 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
         return super.equals(o)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.opcNextPage, other.opcNextPage)
+            && java.util.Objects.equals(this.opcPrevPage, other.opcPrevPage)
             && java.util.Objects.equals(this.taskRunCollection, other.taskRunCollection);
     }
 
@@ -183,6 +214,7 @@ public class ListTaskRunsResponse extends com.oracle.bmc.responses.BmcResponse {
         int result = super.hashCode();
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.opcNextPage == null ? 43 : this.opcNextPage.hashCode());
+        result = (result * PRIME) + (this.opcPrevPage == null ? 43 : this.opcPrevPage.hashCode());
         result = (result * PRIME) + (this.taskRunCollection == null ? 43 : this.taskRunCollection.hashCode());
         return result;
     }

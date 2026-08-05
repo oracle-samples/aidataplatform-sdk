@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface CreateJobDetails {
     /**
-    * The id with which the job run as.
+    * This points to the user or service account executing the job.
     */
     'runAs'?: string;
     /**

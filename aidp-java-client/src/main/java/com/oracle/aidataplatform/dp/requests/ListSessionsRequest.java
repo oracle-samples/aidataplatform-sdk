@@ -93,6 +93,143 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
     public String getAgentFlowKey() {
         return agentFlowKey;
     }
+        /**
+     * For list pagination. The maximum number of results per page, or items to return in a
+* paginated "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+    private Integer limit;
+
+    
+
+        /**
+     * For list pagination. The maximum number of results per page, or items to return in a
+* paginated "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+    public Integer getLimit() {
+        return limit;
+    }
+        /**
+     * For list pagination. The value of the opc-next-page response header from the previous
+* "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+    private String page;
+
+    
+
+        /**
+     * For list pagination. The value of the opc-next-page response header from the previous
+* "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+    public String getPage() {
+        return page;
+    }
+        /**
+     * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+     */
+    private SortOrder sortOrder;
+
+        /**
+     * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+     **/
+    public enum SortOrder implements com.oracle.bmc.http.internal.BmcEnum {
+        Asc("ASC"),
+        Desc("DESC"),
+        ;
+
+        
+
+        private final String value;
+        private static java.util.Map<String, SortOrder> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (SortOrder v : SortOrder.values()) {
+                    map.put(v.getValue(), v);
+                
+            }
+        }
+
+        SortOrder(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static SortOrder create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            throw new IllegalArgumentException("Invalid SortOrder: " + key);
+        }
+    };
+
+        /**
+     * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+     */
+    public SortOrder getSortOrder() {
+        return sortOrder;
+    }
+        /**
+     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending.
+     */
+    private SortBy sortBy;
+
+        /**
+     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending.
+     **/
+    public enum SortBy implements com.oracle.bmc.http.internal.BmcEnum {
+        TimeCreated("timeCreated"),
+        ;
+
+        
+
+        private final String value;
+        private static java.util.Map<String, SortBy> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (SortBy v : SortBy.values()) {
+                    map.put(v.getValue(), v);
+                
+            }
+        }
+
+        SortBy(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static SortBy create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            throw new IllegalArgumentException("Invalid SortBy: " + key);
+        }
+    };
+
+        /**
+     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending.
+     */
+    public SortBy getSortBy() {
+        return sortBy;
+    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<ListSessionsRequest, java.lang.Void> {
@@ -197,6 +334,78 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
             return this;
         }
 
+            /**
+     * For list pagination. The maximum number of results per page, or items to return in a
+* paginated "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+        private Integer limit = null;
+
+        /**
+         * For list pagination. The maximum number of results per page, or items to return in a
+* paginated "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+         * @param limit the value to set
+         * @return this builder instance
+         */
+        public Builder limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+            /**
+     * For list pagination. The value of the opc-next-page response header from the previous
+* "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
+        private String page = null;
+
+        /**
+         * For list pagination. The value of the opc-next-page response header from the previous
+* "List" call. For important details about how pagination works, see
+* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+         * @param page the value to set
+         * @return this builder instance
+         */
+        public Builder page(String page) {
+            this.page = page;
+            return this;
+        }
+
+            /**
+     * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+     */
+        private SortOrder sortOrder = null;
+
+        /**
+         * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+         * @param sortOrder the value to set
+         * @return this builder instance
+         */
+        public Builder sortOrder(SortOrder sortOrder) {
+            this.sortOrder = sortOrder;
+            return this;
+        }
+
+            /**
+     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending.
+     */
+        private SortBy sortBy = null;
+
+        /**
+         * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending.
+         * @param sortBy the value to set
+         * @return this builder instance
+         */
+        public Builder sortBy(SortBy sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -223,7 +432,7 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
          * @return this builder instance
          */
         public Builder copy(ListSessionsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());clusterId(o.getClusterId());path(o.getPath());opcRequestId(o.getOpcRequestId());agentFlowKey(o.getAgentFlowKey());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());clusterId(o.getClusterId());path(o.getPath());opcRequestId(o.getOpcRequestId());agentFlowKey(o.getAgentFlowKey());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -262,8 +471,12 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
             request.path = path;
             request.opcRequestId = opcRequestId;
             request.agentFlowKey = agentFlowKey;
+            request.limit = limit;
+            request.page = page;
+            request.sortOrder = sortOrder;
+            request.sortBy = sortBy;
             return request;
-            // new ListSessionsRequest(aiDataPlatformId, workspaceKey, clusterId, path, opcRequestId, agentFlowKey);
+            // new ListSessionsRequest(aiDataPlatformId, workspaceKey, clusterId, path, opcRequestId, agentFlowKey, limit, page, sortOrder, sortBy);
         }
     }
 
@@ -278,7 +491,11 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
             .clusterId(clusterId)
             .path(path)
             .opcRequestId(opcRequestId)
-            .agentFlowKey(agentFlowKey);
+            .agentFlowKey(agentFlowKey)
+            .limit(limit)
+            .page(page)
+            .sortOrder(sortOrder)
+            .sortBy(sortBy);
     }
 
     /**
@@ -300,6 +517,10 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
         sb.append(",path=").append(String.valueOf(this.path));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(",agentFlowKey=").append(String.valueOf(this.agentFlowKey));
+        sb.append(",limit=").append(String.valueOf(this.limit));
+        sb.append(",page=").append(String.valueOf(this.page));
+        sb.append(",sortOrder=").append(String.valueOf(this.sortOrder));
+        sb.append(",sortBy=").append(String.valueOf(this.sortBy));
         sb.append(")");
         return sb.toString();
     }
@@ -320,7 +541,11 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
             && java.util.Objects.equals(this.clusterId, other.clusterId)
             && java.util.Objects.equals(this.path, other.path)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
-            && java.util.Objects.equals(this.agentFlowKey, other.agentFlowKey);
+            && java.util.Objects.equals(this.agentFlowKey, other.agentFlowKey)
+            && java.util.Objects.equals(this.limit, other.limit)
+            && java.util.Objects.equals(this.page, other.page)
+            && java.util.Objects.equals(this.sortOrder, other.sortOrder)
+            && java.util.Objects.equals(this.sortBy, other.sortBy);
     }
 
     @Override
@@ -333,6 +558,10 @@ public class ListSessionsRequest extends com.oracle.bmc.requests.BmcRequest<java
         result = (result * PRIME) + (this.path == null ? 43 : this.path.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.agentFlowKey == null ? 43 : this.agentFlowKey.hashCode());
+        result = (result * PRIME) + (this.limit == null ? 43 : this.limit.hashCode());
+        result = (result * PRIME) + (this.page == null ? 43 : this.page.hashCode());
+        result = (result * PRIME) + (this.sortOrder == null ? 43 : this.sortOrder.hashCode());
+        result = (result * PRIME) + (this.sortBy == null ? 43 : this.sortBy.hashCode());
         return result;
     }
 }

@@ -32,15 +32,75 @@ public Builder state(State state) {
     this.state = state;
     return this;
 }
+            /**
+     * Phase
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("phase")
+private Phase phase;
+
+        /**
+         * Phase
+         * @param phase the value to set
+         * @return this builder
+         **/
+        
+
+public Builder phase(Phase phase) {
+    this.phase = phase;
+    return this;
+}
+            /**
+     * Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("source")
+private Source source;
+
+        /**
+         * Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+         * @param source the value to set
+         * @return this builder
+         **/
+        
+
+public Builder source(Source source) {
+    this.source = source;
+    return this;
+}
+            /**
+     * In case of a failed state, this will capture the reason for error.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("stateMessage")
+private String stateMessage;
+
+        /**
+         * In case of a failed state, this will capture the reason for error.
+         * @param stateMessage the value to set
+         * @return this builder
+         **/
+        
+
+public Builder stateMessage(String stateMessage) {
+    this.stateMessage = stateMessage;
+    return this;
+}
 
 
         public ClusterStateEvent build() {
-            ClusterStateEvent model = new ClusterStateEvent(this.state);            return model;
+            ClusterStateEvent model = new ClusterStateEvent(this.state
+                , this.phase
+                , this.source
+                , this.stateMessage);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(ClusterStateEvent model) {
                 this.state(model.getState());
+    this.phase(model.getPhase());
+    this.source(model.getSource());
+    this.stateMessage(model.getStateMessage());
 return this;
         }
     }
@@ -59,9 +119,12 @@ return this;
 
     
     @Deprecated
-    public ClusterStateEvent(State state) {
+    public ClusterStateEvent(State state, Phase phase, Source source, String stateMessage) {
     super();
         this.state = state;
+        this.phase = phase;
+        this.source = source;
+        this.stateMessage = stateMessage;
     }
 
     /**
@@ -133,6 +196,131 @@ return this;
         return state;
     }
 
+    /**
+     * Phase
+     **/
+    public enum Phase implements com.oracle.bmc.http.internal.BmcEnum {
+        Started("STARTED"),
+        Completed("COMPLETED"),
+        ;
+
+        
+
+        private final String value;
+        private static java.util.Map<String, Phase> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (Phase v : Phase.values()) {
+                    map.put(v.getValue(), v);
+                
+            }
+        }
+
+        Phase(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static Phase create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            throw new IllegalArgumentException("Invalid Phase: " + key);
+        }
+    };
+        /**
+     * Phase
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("phase")
+    private final Phase phase;
+
+        /**
+     * Phase
+     * @return the value
+     **/
+    
+    public Phase getPhase() {
+        return phase;
+    }
+
+    /**
+     * Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+     **/
+    public enum Source implements com.oracle.bmc.http.internal.BmcEnum {
+        User("USER"),
+        System("SYSTEM"),
+        ;
+
+        
+
+        private final String value;
+        private static java.util.Map<String, Source> map;
+
+        static {
+            map = new java.util.HashMap<>();
+            for (Source v : Source.values()) {
+                    map.put(v.getValue(), v);
+                
+            }
+        }
+
+        Source(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static Source create(String key) {
+            if (map.containsKey(key)) {
+                return map.get(key);
+            }
+            throw new IllegalArgumentException("Invalid Source: " + key);
+        }
+    };
+        /**
+     * Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("source")
+    private final Source source;
+
+        /**
+     * Cluster state change source. This can be either USER representing end user, or SYSTEM including maintenance and system error scenario
+     * @return the value
+     **/
+    
+    public Source getSource() {
+        return source;
+    }
+
+
+        /**
+     * In case of a failed state, this will capture the reason for error.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("stateMessage")
+    private final String stateMessage;
+
+        /**
+     * In case of a failed state, this will capture the reason for error.
+     * @return the value
+     **/
+    
+    public String getStateMessage() {
+        return stateMessage;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -148,6 +336,9 @@ return this;
         sb.append("ClusterStateEvent(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", state=").append(String.valueOf(this.state));
+        sb.append(", phase=").append(String.valueOf(this.phase));
+        sb.append(", source=").append(String.valueOf(this.source));
+        sb.append(", stateMessage=").append(String.valueOf(this.stateMessage));
         sb.append(")");
         return sb.toString();
     }
@@ -163,6 +354,9 @@ return this;
 
         ClusterStateEvent other = (ClusterStateEvent) o;
         return java.util.Objects.equals(this.state, other.state) &&
+            java.util.Objects.equals(this.phase, other.phase) &&
+            java.util.Objects.equals(this.source, other.source) &&
+            java.util.Objects.equals(this.stateMessage, other.stateMessage) &&
             super.equals(other);
     }
 
@@ -171,6 +365,9 @@ return this;
         final int PRIME = 59;
         int result = super.hashCode();
         result = (result * PRIME) + (this.state == null ? 43 : this.state.hashCode());
+        result = (result * PRIME) + (this.phase == null ? 43 : this.phase.hashCode());
+        result = (result * PRIME) + (this.source == null ? 43 : this.source.hashCode());
+        result = (result * PRIME) + (this.stateMessage == null ? 43 : this.stateMessage.hashCode());
         return result;
     }
 

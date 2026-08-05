@@ -28,6 +28,10 @@ export interface GetJobRunRequest extends common.BaseRequest {
  */
  'opcRequestId'?: string;
 /**
+ * A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+ */
+ 'shouldIncludeTaskRunSummaries'?: boolean;
+/**
  * A flag to identify if the recent list should be updated.
  */
  'shouldUpdateRecent'?: boolean;

@@ -1740,6 +1740,9 @@ class VolumeClient(object):
         :param bool should_generate_new_par: (optional)
             Flag to toggle to generate short living par
 
+        :param bool should_create_recursively: (optional)
+            A boolean which decides if parent directories should be created recursively during upload.
+
         :param bool should_update_recent: (optional)
             A flag to identify if the recent list should be updated.
 
@@ -1775,6 +1778,7 @@ class VolumeClient(object):
             "retry_strategy",
             "is_overwrite",
             "should_generate_new_par",
+            "should_create_recursively",
             "should_update_recent",
             "opc_retry_token",
             "opc_request_id"
@@ -1797,7 +1801,8 @@ class VolumeClient(object):
 
         query_params = {
             "isOverwrite": kwargs.get("is_overwrite", missing),
-            "shouldGenerateNewPar": kwargs.get("should_generate_new_par", missing)
+            "shouldGenerateNewPar": kwargs.get("should_generate_new_par", missing),
+            "shouldCreateRecursively": kwargs.get("should_create_recursively", missing)
         }
         query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
 
