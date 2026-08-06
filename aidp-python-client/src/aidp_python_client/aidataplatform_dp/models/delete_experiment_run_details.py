@@ -22,16 +22,23 @@ class DeleteExperimentRunDetails(object):
             The value to assign to the run_id property of this DeleteExperimentRunDetails.
         :type run_id: str
 
+        :param is_permanent:
+            The value to assign to the is_permanent property of this DeleteExperimentRunDetails.
+        :type is_permanent: bool
+
         """
         self.swagger_types = {
-            'run_id': 'str'
+            'run_id': 'str',
+            'is_permanent': 'bool'
         }
 
         self.attribute_map = {
-            'run_id': 'run_id'
+            'run_id': 'run_id',
+            'is_permanent': 'is_permanent'
         }
 
         self._run_id = None
+        self._is_permanent = None
 
     @property
     def run_id(self):
@@ -56,6 +63,30 @@ class DeleteExperimentRunDetails(object):
         :type: str
         """
         self._run_id = run_id
+
+    @property
+    def is_permanent(self):
+        """
+        Gets the is_permanent of this DeleteExperimentRunDetails.
+        If true, the run is permanently deleted from the database instead of being soft deleted. Defaults to false.
+
+
+        :return: The is_permanent of this DeleteExperimentRunDetails.
+        :rtype: bool
+        """
+        return self._is_permanent
+
+    @is_permanent.setter
+    def is_permanent(self, is_permanent):
+        """
+        Sets the is_permanent of this DeleteExperimentRunDetails.
+        If true, the run is permanently deleted from the database instead of being soft deleted. Defaults to false.
+
+
+        :param is_permanent: The is_permanent of this DeleteExperimentRunDetails.
+        :type: bool
+        """
+        self._is_permanent = is_permanent
 
     def __repr__(self):
         return formatted_flat_dict(self)

@@ -12,11 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class SessionConfiguration  {
     @Deprecated
-    @java.beans.ConstructorProperties({"variables", "sessionRetentionConfig"})
-    public SessionConfiguration(java.util.Map<String, SessionVariableDetails> variables, SessionRetentionConfiguration sessionRetentionConfig) {
+    @java.beans.ConstructorProperties({"variables", "sessionRetentionConfig", "fileConfig"})
+    public SessionConfiguration(java.util.Map<String, SessionVariableDetails> variables, SessionRetentionConfiguration sessionRetentionConfig, FileConfiguration fileConfig) {
         super();
         this.variables = variables;
         this.sessionRetentionConfig = sessionRetentionConfig;
+        this.fileConfig = fileConfig;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -49,17 +50,29 @@ public Builder sessionRetentionConfig(SessionRetentionConfiguration sessionReten
     this.sessionRetentionConfig = sessionRetentionConfig;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("fileConfig")
+private FileConfiguration fileConfig;
+
+
+
+public Builder fileConfig(FileConfiguration fileConfig) {
+    this.fileConfig = fileConfig;
+    return this;
+}
 
 
         public SessionConfiguration build() {
             SessionConfiguration model = new SessionConfiguration(this.variables
-                , this.sessionRetentionConfig);            return model;
+                , this.sessionRetentionConfig
+                , this.fileConfig);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(SessionConfiguration model) {
                 this.variables(model.getVariables());
     this.sessionRetentionConfig(model.getSessionRetentionConfig());
+    this.fileConfig(model.getFileConfig());
 return this;
         }
     }
@@ -105,6 +118,16 @@ return this;
         return sessionRetentionConfig;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("fileConfig")
+    private final FileConfiguration fileConfig;
+
+    
+    public FileConfiguration getFileConfig() {
+        return fileConfig;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -120,6 +143,7 @@ return this;
         sb.append("SessionConfiguration(");
         sb.append("variables=").append(String.valueOf(this.variables));
         sb.append(", sessionRetentionConfig=").append(String.valueOf(this.sessionRetentionConfig));
+        sb.append(", fileConfig=").append(String.valueOf(this.fileConfig));
         sb.append(")");
         return sb.toString();
     }
@@ -135,7 +159,8 @@ return this;
 
         SessionConfiguration other = (SessionConfiguration) o;
         return java.util.Objects.equals(this.variables, other.variables) &&
-            java.util.Objects.equals(this.sessionRetentionConfig, other.sessionRetentionConfig);
+            java.util.Objects.equals(this.sessionRetentionConfig, other.sessionRetentionConfig) &&
+            java.util.Objects.equals(this.fileConfig, other.fileConfig);
     }
 
     @Override
@@ -144,6 +169,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.variables == null ? 43 : this.variables.hashCode());
         result = (result * PRIME) + (this.sessionRetentionConfig == null ? 43 : this.sessionRetentionConfig.hashCode());
+        result = (result * PRIME) + (this.fileConfig == null ? 43 : this.fileConfig.hashCode());
         return result;
     }
 

@@ -24,6 +24,7 @@ export enum AsyncOperationActionType {
     MoveVolumeFile = "MOVE_VOLUME_FILE",
     DeleteVolumeFile = "DELETE_VOLUME_FILE",
     DeleteVolumeFolder = "DELETE_VOLUME_FOLDER",
+    LoadModelsInCatalog = "LOAD_MODELS_IN_CATALOG",
     CreateWorkspace = "CREATE_WORKSPACE",
     UpdateWorkspace = "UPDATE_WORKSPACE",
     DeleteWorkspace = "DELETE_WORKSPACE",

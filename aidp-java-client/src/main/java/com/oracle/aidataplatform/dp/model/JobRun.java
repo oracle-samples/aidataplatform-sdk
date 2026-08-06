@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class JobRun  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "name", "jobKey", "jobName", "parentJobRunKey", "rootJobRunKey", "parentTaskRunKey", "tasks", "createdBy", "createdByName", "maxConcurrentRuns", "gitConfig", "queue", "originalAttemptRunId", "state", "schedule", "clusterSpec", "clusterInstance", "parameters", "unifiedJobAndJobRunParameters", "repairHistory", "systemParameters", "startTime", "endTime", "setupDuration", "executionDuration", "cleanupDuration", "runDuration", "timeCreated", "timeUpdated", "launched", "version", "taskToTaskRunMap", "taskRunSummaryMap", "timeoutSeconds", "repairedTasks", "repairMode", "lifecycleStates"})
-    public JobRun(String key, String name, String jobKey, String jobName, String parentJobRunKey, String rootJobRunKey, String parentTaskRunKey, java.util.List<Task> tasks, String createdBy, String createdByName, Integer maxConcurrentRuns, GitConfig gitConfig, Queue queue, String originalAttemptRunId, State state, Schedule schedule, ClusterSpec clusterSpec, ClusterInstance clusterInstance, java.util.List<Parameter> parameters, java.util.List<Parameter> unifiedJobAndJobRunParameters, java.util.List<RepairHistory> repairHistory, java.util.Map<String, String> systemParameters, Long startTime, Long endTime, Long setupDuration, Long executionDuration, Long cleanupDuration, Long runDuration, java.util.Date timeCreated, java.util.Date timeUpdated, Launched launched, Integer version, java.util.Map<String, String> taskToTaskRunMap, java.util.Map<String, Object> taskRunSummaryMap, Integer timeoutSeconds, java.util.List<String> repairedTasks, RepairMode repairMode, java.util.List<LifecycleState> lifecycleStates) {
+    @java.beans.ConstructorProperties({"key", "name", "jobKey", "jobName", "parentJobRunKey", "rootJobRunKey", "parentTaskRunKey", "tasks", "createdBy", "createdByName", "maxConcurrentRuns", "gitConfig", "queue", "originalAttemptRunId", "state", "schedule", "clusterSpec", "clusterInstance", "parameters", "unifiedJobAndJobRunParameters", "repairHistory", "systemParameters", "startTime", "endTime", "setupDuration", "executionDuration", "cleanupDuration", "runDuration", "timeCreated", "timeUpdated", "launched", "version", "taskToTaskRunMap", "taskRunSummaryMap", "timeoutSeconds", "repairedTasks", "repairMode", "lifecycleStates", "runAs"})
+    public JobRun(String key, String name, String jobKey, String jobName, String parentJobRunKey, String rootJobRunKey, String parentTaskRunKey, java.util.List<Task> tasks, String createdBy, String createdByName, Integer maxConcurrentRuns, GitConfig gitConfig, Queue queue, String originalAttemptRunId, State state, Schedule schedule, ClusterSpec clusterSpec, ClusterInstance clusterInstance, java.util.List<Parameter> parameters, java.util.List<Parameter> unifiedJobAndJobRunParameters, java.util.List<RepairHistory> repairHistory, java.util.Map<String, String> systemParameters, Long startTime, Long endTime, Long setupDuration, Long executionDuration, Long cleanupDuration, Long runDuration, java.util.Date timeCreated, java.util.Date timeUpdated, Launched launched, Integer version, java.util.Map<String, String> taskToTaskRunMap, java.util.Map<String, Object> taskRunSummaryMap, Integer timeoutSeconds, java.util.List<String> repairedTasks, RepairMode repairMode, java.util.List<LifecycleState> lifecycleStates, String runAs) {
         super();
         this.key = key;
         this.name = name;
@@ -53,6 +53,7 @@ public final class JobRun  {
         this.repairedTasks = repairedTasks;
         this.repairMode = repairMode;
         this.lifecycleStates = lifecycleStates;
+        this.runAs = runAs;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -693,6 +694,24 @@ public Builder lifecycleStates(java.util.List<LifecycleState> lifecycleStates) {
     this.lifecycleStates = lifecycleStates;
     return this;
 }
+            /**
+     * This points to the user or service account executing the job.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("runAs")
+private String runAs;
+
+        /**
+         * This points to the user or service account executing the job.
+         * @param runAs the value to set
+         * @return this builder
+         **/
+        
+
+public Builder runAs(String runAs) {
+    this.runAs = runAs;
+    return this;
+}
 
 
         public JobRun build() {
@@ -733,7 +752,8 @@ public Builder lifecycleStates(java.util.List<LifecycleState> lifecycleStates) {
                 , this.timeoutSeconds
                 , this.repairedTasks
                 , this.repairMode
-                , this.lifecycleStates);            return model;
+                , this.lifecycleStates
+                , this.runAs);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -776,6 +796,7 @@ public Builder lifecycleStates(java.util.List<LifecycleState> lifecycleStates) {
     this.repairedTasks(model.getRepairedTasks());
     this.repairMode(model.getRepairMode());
     this.lifecycleStates(model.getLifecycleStates());
+    this.runAs(model.getRunAs());
 return this;
         }
     }
@@ -1488,6 +1509,23 @@ return this;
         return lifecycleStates;
     }
 
+
+        /**
+     * This points to the user or service account executing the job.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("runAs")
+    private final String runAs;
+
+        /**
+     * This points to the user or service account executing the job.
+     * @return the value
+     **/
+    
+    public String getRunAs() {
+        return runAs;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -1539,6 +1577,7 @@ return this;
         sb.append(", repairedTasks=").append(String.valueOf(this.repairedTasks));
         sb.append(", repairMode=").append(String.valueOf(this.repairMode));
         sb.append(", lifecycleStates=").append(String.valueOf(this.lifecycleStates));
+        sb.append(", runAs=").append(String.valueOf(this.runAs));
         sb.append(")");
         return sb.toString();
     }
@@ -1590,7 +1629,8 @@ return this;
             java.util.Objects.equals(this.timeoutSeconds, other.timeoutSeconds) &&
             java.util.Objects.equals(this.repairedTasks, other.repairedTasks) &&
             java.util.Objects.equals(this.repairMode, other.repairMode) &&
-            java.util.Objects.equals(this.lifecycleStates, other.lifecycleStates);
+            java.util.Objects.equals(this.lifecycleStates, other.lifecycleStates) &&
+            java.util.Objects.equals(this.runAs, other.runAs);
     }
 
     @Override
@@ -1635,6 +1675,7 @@ return this;
         result = (result * PRIME) + (this.repairedTasks == null ? 43 : this.repairedTasks.hashCode());
         result = (result * PRIME) + (this.repairMode == null ? 43 : this.repairMode.hashCode());
         result = (result * PRIME) + (this.lifecycleStates == null ? 43 : this.lifecycleStates.hashCode());
+        result = (result * PRIME) + (this.runAs == null ? 43 : this.runAs.hashCode());
         return result;
     }
 

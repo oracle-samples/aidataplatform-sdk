@@ -135,7 +135,7 @@ public class Task  {
 
         /**
      * The maximum number of times to retry an unsuccessful run. 
-* A run is considered to be unsuccessful if it fails with status FAILED or INTERNAL_ERROR. Maximum value is 300.
+* A run is considered to be unsuccessful if it fails with status FAILED or INTERNAL_ERROR. Maximum value is 10. This property is not applicable for streaming task.
 * 
      **/
     
@@ -144,7 +144,7 @@ public class Task  {
 
         /**
      * The maximum number of times to retry an unsuccessful run. 
-* A run is considered to be unsuccessful if it fails with status FAILED or INTERNAL_ERROR. Maximum value is 300.
+* A run is considered to be unsuccessful if it fails with status FAILED or INTERNAL_ERROR. Maximum value is 10. This property is not applicable for streaming task.
 * 
      * @return the value
      **/
@@ -156,7 +156,7 @@ public class Task  {
 
         /**
      * An optional minimal interval in milliseconds between the start of the failed run and the subsequent retry run. 
-* If value is not provided, the run would be immediately retried. Maximum value is 10 mins (600000)
+* If value is not provided, the run would be immediately retried. Maximum value is 10 mins (600000). This property is not applicable for streaming task.
 * 
      **/
     
@@ -165,7 +165,7 @@ public class Task  {
 
         /**
      * An optional minimal interval in milliseconds between the start of the failed run and the subsequent retry run. 
-* If value is not provided, the run would be immediately retried. Maximum value is 10 mins (600000)
+* If value is not provided, the run would be immediately retried. Maximum value is 10 mins (600000). This property is not applicable for streaming task.
 * 
      * @return the value
      **/
@@ -176,14 +176,14 @@ public class Task  {
 
 
         /**
-     * An optional policy to specify whether to retry a task when it times out. The default behavior is to not retry on timeout.
+     * An optional policy to specify whether to retry a task when it times out. The default behavior is to not retry on timeout. This property is not applicable for streaming task.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isRetryOnTimeout")
     private final Boolean isRetryOnTimeout;
 
         /**
-     * An optional policy to specify whether to retry a task when it times out. The default behavior is to not retry on timeout.
+     * An optional policy to specify whether to retry a task when it times out. The default behavior is to not retry on timeout. This property is not applicable for streaming task.
      * @return the value
      **/
     

@@ -62,6 +62,10 @@ class WorkspaceObjectSummary(object):
             The value to assign to the created_by_name property of this WorkspaceObjectSummary.
         :type created_by_name: str
 
+        :param updated_by:
+            The value to assign to the updated_by property of this WorkspaceObjectSummary.
+        :type updated_by: str
+
         """
         self.swagger_types = {
             'path': 'str',
@@ -74,7 +78,8 @@ class WorkspaceObjectSummary(object):
             'description': 'str',
             'system_tags': 'dict(str, dict(str, object))',
             'created_by': 'str',
-            'created_by_name': 'str'
+            'created_by_name': 'str',
+            'updated_by': 'str'
         }
 
         self.attribute_map = {
@@ -88,7 +93,8 @@ class WorkspaceObjectSummary(object):
             'description': 'description',
             'system_tags': 'systemTags',
             'created_by': 'createdBy',
-            'created_by_name': 'createdByName'
+            'created_by_name': 'createdByName',
+            'updated_by': 'updatedBy'
         }
 
         self._path = None
@@ -102,6 +108,7 @@ class WorkspaceObjectSummary(object):
         self._system_tags = None
         self._created_by = None
         self._created_by_name = None
+        self._updated_by = None
 
     @property
     def path(self):
@@ -185,7 +192,7 @@ class WorkspaceObjectSummary(object):
     def time_updated(self):
         """
         Gets the time_updated of this WorkspaceObjectSummary.
-        The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+        The date and time the workspace object was last updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
         Example: `2016-08-25T21:10:29.600Z`
 
 
@@ -198,7 +205,7 @@ class WorkspaceObjectSummary(object):
     def time_updated(self, time_updated):
         """
         Sets the time_updated of this WorkspaceObjectSummary.
-        The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+        The date and time the workspace object was last updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
         Example: `2016-08-25T21:10:29.600Z`
 
 
@@ -378,6 +385,30 @@ class WorkspaceObjectSummary(object):
         :type: str
         """
         self._created_by_name = created_by_name
+
+    @property
+    def updated_by(self):
+        """
+        Gets the updated_by of this WorkspaceObjectSummary.
+        OCID of the user who last updated this object.
+
+
+        :return: The updated_by of this WorkspaceObjectSummary.
+        :rtype: str
+        """
+        return self._updated_by
+
+    @updated_by.setter
+    def updated_by(self, updated_by):
+        """
+        Sets the updated_by of this WorkspaceObjectSummary.
+        OCID of the user who last updated this object.
+
+
+        :param updated_by: The updated_by of this WorkspaceObjectSummary.
+        :type: str
+        """
+        self._updated_by = updated_by
 
     def __repr__(self):
         return formatted_flat_dict(self)

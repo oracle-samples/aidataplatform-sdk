@@ -151,6 +151,8 @@ export namespace Table {
                     return model.AlhTable.getJsonObj(<model.AlhTable>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlTable.getJsonObj(<model.MysqlTable>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigqueryTable.getJsonObj(<model.GoogleBigqueryTable>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureTable.getJsonObj(<model.SqlServerOnAzureTable>(<object>jsonObj), true);
                 case "STANDARD":
@@ -224,6 +226,8 @@ export namespace Table {
                     return model.AlhTable.getDeserializedJsonObj(<model.AlhTable>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlTable.getDeserializedJsonObj(<model.MysqlTable>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigqueryTable.getDeserializedJsonObj(<model.GoogleBigqueryTable>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureTable.getDeserializedJsonObj(<model.SqlServerOnAzureTable>(<object>jsonObj), true);
                 case "STANDARD":

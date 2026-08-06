@@ -7,21 +7,6 @@ import com.oracle.aidataplatform.dp.model.*;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
     /**
-     * For optimistic concurrency control. See {@code if-match}.
-* 
-     */
-    private String etag;
-
-    /**
-     * For optimistic concurrency control. See {@code if-match}.
-* 
-     * @return the value
-     */
-    public String getEtag() {
-        return etag;
-    }
-    
-    /**
      * Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
      */
     private String opcRequestId;
@@ -32,6 +17,19 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
      */
     public String getOpcRequestId() {
         return opcRequestId;
+    }
+    
+    /**
+     * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+     */
+    private String opcNextPage;
+
+    /**
+     * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+     * @return the value
+     */
+    public String getOpcNextPage() {
+        return opcNextPage;
     }
     
     /**
@@ -48,11 +46,11 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
     }
 
 
-    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "etag", "opcRequestId", "sessionCollection"})
-    private ListSessionsResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String etag, String opcRequestId, com.oracle.aidataplatform.dp.model.SessionCollection sessionCollection) {
+    @java.beans.ConstructorProperties({"__httpStatusCode__", "headers", "opcRequestId", "opcNextPage", "sessionCollection"})
+    private ListSessionsResponse(int __httpStatusCode__,  java.util.Map<String, java.util.List<String>> headers, String opcRequestId, String opcNextPage, com.oracle.aidataplatform.dp.model.SessionCollection sessionCollection) {
         super(__httpStatusCode__, headers);
-        this.etag = etag;
         this.opcRequestId = opcRequestId;
+        this.opcNextPage = opcNextPage;
         this.sessionCollection = sessionCollection;
 
     }
@@ -75,23 +73,6 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
         }
 
         /**
-         * For optimistic concurrency control. See {@code if-match}.
-* 
-         */
-        private String etag;
-
-        /**
-         * For optimistic concurrency control. See {@code if-match}.
-* 
-         * @param etag the value to set
-         * @return this builder
-         */
-        public Builder etag(String etag) {
-            this.etag = etag;
-            return this;
-        }
-
-        /**
          * Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
          */
         private String opcRequestId;
@@ -103,6 +84,21 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
          */
         public Builder opcRequestId(String opcRequestId) {
             this.opcRequestId = opcRequestId;
+            return this;
+        }
+
+        /**
+         * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+         */
+        private String opcNextPage;
+
+        /**
+         * For pagination of a list of items. When paging through a list, if this header appears in the response, then a partial list might have been returned. Include this value as the {@code page} parameter for the subsequent GET request to get the next batch of items.
+         * @param opcNextPage the value to set
+         * @return this builder
+         */
+        public Builder opcNextPage(String opcNextPage) {
+            this.opcNextPage = opcNextPage;
             return this;
         }
 
@@ -129,7 +125,7 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
         public Builder copy(ListSessionsResponse o) {
             __httpStatusCode__(o.get__httpStatusCode__());
             headers(o.getHeaders());
-            etag(o.getEtag());opcRequestId(o.getOpcRequestId());
+            opcRequestId(o.getOpcRequestId());opcNextPage(o.getOpcNextPage());
             sessionCollection(o.getSessionCollection());
             
             return this;
@@ -141,7 +137,7 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
          */
         @Override
         public ListSessionsResponse build() {
-            return new ListSessionsResponse(__httpStatusCode__, headers, etag, opcRequestId, sessionCollection);
+            return new ListSessionsResponse(__httpStatusCode__, headers, opcRequestId, opcNextPage, sessionCollection);
         }
     }
 
@@ -158,8 +154,8 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("(");
         sb.append("super=").append(super.toString());
-        sb.append(",etag=").append(String.valueOf(etag));
         sb.append(",opcRequestId=").append(String.valueOf(opcRequestId));
+        sb.append(",opcNextPage=").append(String.valueOf(opcNextPage));
         sb.append(",sessionCollection=").append(String.valueOf(sessionCollection));
         sb.append(")");
         return sb.toString();
@@ -176,8 +172,8 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
 
         ListSessionsResponse other = (ListSessionsResponse) o;
         return super.equals(o)
-            && java.util.Objects.equals(this.etag, other.etag)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
+            && java.util.Objects.equals(this.opcNextPage, other.opcNextPage)
             && java.util.Objects.equals(this.sessionCollection, other.sessionCollection);
     }
 
@@ -185,8 +181,8 @@ public class ListSessionsResponse extends com.oracle.bmc.responses.BmcResponse {
     public int hashCode() {
         final int PRIME = 59;
         int result = super.hashCode();
-        result = (result * PRIME) + (this.etag == null ? 43 : this.etag.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
+        result = (result * PRIME) + (this.opcNextPage == null ? 43 : this.opcNextPage.hashCode());
         result = (result * PRIME) + (this.sessionCollection == null ? 43 : this.sessionCollection.hashCode());
         return result;
     }

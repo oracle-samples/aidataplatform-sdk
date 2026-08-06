@@ -15,6 +15,7 @@ SERVICE_ENDPOINTS = {
     "notebook": "https://datahub-dp.{domain}",
     "role": "https://datahub-dp.{domain}",
     "schema": "https://datahub-dp.{domain}",
+    "semantic_catalog": "https://datahub-dp.{domain}",
     "user_setting": "https://datahub-dp.{domain}",
     "volume": "https://datahub-dp.{domain}",
     "workflow": "https://datahub-dp.{domain}",

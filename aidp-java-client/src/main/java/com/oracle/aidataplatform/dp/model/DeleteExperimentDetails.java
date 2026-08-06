@@ -12,10 +12,11 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class DeleteExperimentDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"experimentId"})
-    public DeleteExperimentDetails(String experimentId) {
+    @java.beans.ConstructorProperties({"experimentId", "isPermanent"})
+    public DeleteExperimentDetails(String experimentId, Boolean isPermanent) {
         super();
         this.experimentId = experimentId;
+        this.isPermanent = isPermanent;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -38,15 +39,35 @@ public Builder experimentId(String experimentId) {
     this.experimentId = experimentId;
     return this;
 }
+            /**
+     * If true, the experiment is permanently deleted from the database instead of being soft deleted. Permanent deletion is rejected if the experiment has any associated run. Defaults to false.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("is_permanent")
+private Boolean isPermanent;
+
+        /**
+         * If true, the experiment is permanently deleted from the database instead of being soft deleted. Permanent deletion is rejected if the experiment has any associated run. Defaults to false.
+         * @param isPermanent the value to set
+         * @return this builder
+         **/
+        
+
+public Builder isPermanent(Boolean isPermanent) {
+    this.isPermanent = isPermanent;
+    return this;
+}
 
 
         public DeleteExperimentDetails build() {
-            DeleteExperimentDetails model = new DeleteExperimentDetails(this.experimentId);            return model;
+            DeleteExperimentDetails model = new DeleteExperimentDetails(this.experimentId
+                , this.isPermanent);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(DeleteExperimentDetails model) {
                 this.experimentId(model.getExperimentId());
+    this.isPermanent(model.getIsPermanent());
 return this;
         }
     }
@@ -82,6 +103,23 @@ return this;
         return experimentId;
     }
 
+
+        /**
+     * If true, the experiment is permanently deleted from the database instead of being soft deleted. Permanent deletion is rejected if the experiment has any associated run. Defaults to false.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("is_permanent")
+    private final Boolean isPermanent;
+
+        /**
+     * If true, the experiment is permanently deleted from the database instead of being soft deleted. Permanent deletion is rejected if the experiment has any associated run. Defaults to false.
+     * @return the value
+     **/
+    
+    public Boolean getIsPermanent() {
+        return isPermanent;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -96,6 +134,7 @@ return this;
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("DeleteExperimentDetails(");
         sb.append("experimentId=").append(String.valueOf(this.experimentId));
+        sb.append(", isPermanent=").append(String.valueOf(this.isPermanent));
         sb.append(")");
         return sb.toString();
     }
@@ -110,7 +149,8 @@ return this;
         }
 
         DeleteExperimentDetails other = (DeleteExperimentDetails) o;
-        return java.util.Objects.equals(this.experimentId, other.experimentId);
+        return java.util.Objects.equals(this.experimentId, other.experimentId) &&
+            java.util.Objects.equals(this.isPermanent, other.isPermanent);
     }
 
     @Override
@@ -118,6 +158,7 @@ return this;
         final int PRIME = 59;
         int result = 1;
         result = (result * PRIME) + (this.experimentId == null ? 43 : this.experimentId.hashCode());
+        result = (result * PRIME) + (this.isPermanent == null ? 43 : this.isPermanent.hashCode());
         return result;
     }
 

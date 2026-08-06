@@ -68,6 +68,19 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         return opcRequestId;
     }
         /**
+     * A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+     */
+    private Boolean shouldIncludeTaskRunSummaries;
+
+    
+
+        /**
+     * A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+     */
+    public Boolean getShouldIncludeTaskRunSummaries() {
+        return shouldIncludeTaskRunSummaries;
+    }
+        /**
      * A flag to identify if the recent list should be updated.
      */
     private Boolean shouldUpdateRecent;
@@ -155,6 +168,21 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         }
 
             /**
+     * A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+     */
+        private Boolean shouldIncludeTaskRunSummaries = null;
+
+        /**
+         * A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+         * @param shouldIncludeTaskRunSummaries the value to set
+         * @return this builder instance
+         */
+        public Builder shouldIncludeTaskRunSummaries(Boolean shouldIncludeTaskRunSummaries) {
+            this.shouldIncludeTaskRunSummaries = shouldIncludeTaskRunSummaries;
+            return this;
+        }
+
+            /**
      * A flag to identify if the recent list should be updated.
      */
         private Boolean shouldUpdateRecent = null;
@@ -195,7 +223,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
          * @return this builder instance
          */
         public Builder copy(GetJobRunRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());jobRunKey(o.getJobRunKey());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());jobRunKey(o.getJobRunKey());opcRequestId(o.getOpcRequestId());shouldIncludeTaskRunSummaries(o.getShouldIncludeTaskRunSummaries());shouldUpdateRecent(o.getShouldUpdateRecent());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -232,9 +260,10 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             request.workspaceKey = workspaceKey;
             request.jobRunKey = jobRunKey;
             request.opcRequestId = opcRequestId;
+            request.shouldIncludeTaskRunSummaries = shouldIncludeTaskRunSummaries;
             request.shouldUpdateRecent = shouldUpdateRecent;
             return request;
-            // new GetJobRunRequest(aiDataPlatformId, workspaceKey, jobRunKey, opcRequestId, shouldUpdateRecent);
+            // new GetJobRunRequest(aiDataPlatformId, workspaceKey, jobRunKey, opcRequestId, shouldIncludeTaskRunSummaries, shouldUpdateRecent);
         }
     }
 
@@ -248,6 +277,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             .workspaceKey(workspaceKey)
             .jobRunKey(jobRunKey)
             .opcRequestId(opcRequestId)
+            .shouldIncludeTaskRunSummaries(shouldIncludeTaskRunSummaries)
             .shouldUpdateRecent(shouldUpdateRecent);
     }
 
@@ -268,6 +298,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",jobRunKey=").append(String.valueOf(this.jobRunKey));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
+        sb.append(",shouldIncludeTaskRunSummaries=").append(String.valueOf(this.shouldIncludeTaskRunSummaries));
         sb.append(",shouldUpdateRecent=").append(String.valueOf(this.shouldUpdateRecent));
         sb.append(")");
         return sb.toString();
@@ -288,6 +319,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.jobRunKey, other.jobRunKey)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
+            && java.util.Objects.equals(this.shouldIncludeTaskRunSummaries, other.shouldIncludeTaskRunSummaries)
             && java.util.Objects.equals(this.shouldUpdateRecent, other.shouldUpdateRecent);
     }
 
@@ -299,6 +331,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.jobRunKey == null ? 43 : this.jobRunKey.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
+        result = (result * PRIME) + (this.shouldIncludeTaskRunSummaries == null ? 43 : this.shouldIncludeTaskRunSummaries.hashCode());
         result = (result * PRIME) + (this.shouldUpdateRecent == null ? 43 : this.shouldUpdateRecent.hashCode());
         return result;
     }

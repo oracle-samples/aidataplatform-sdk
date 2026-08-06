@@ -989,6 +989,9 @@ class WorkflowClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
+        :param bool should_include_task_run_summaries: (optional)
+            A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+
         :param bool should_update_recent: (optional)
             A flag to identify if the recent list should be updated.
 
@@ -1010,6 +1013,7 @@ class WorkflowClient(object):
         expected_kwargs = [
             "retry_strategy",
             "opc_request_id",
+            "should_include_task_run_summaries",
             "should_update_recent"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
@@ -1029,6 +1033,11 @@ class WorkflowClient(object):
             if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
+        query_params = {
+            "shouldIncludeTaskRunSummaries": kwargs.get("should_include_task_run_summaries", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -1047,6 +1056,7 @@ class WorkflowClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="JobRun")
         else:
@@ -1054,6 +1064,7 @@ class WorkflowClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="JobRun")
 

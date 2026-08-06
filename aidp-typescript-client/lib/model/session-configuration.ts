@@ -13,10 +13,12 @@ export interface SessionConfiguration {
     */
     'variables'?: { [key: string]: model.SessionVariableDetails; };
     'sessionRetentionConfig'?: model.SessionRetentionConfiguration;
+    'fileConfig'?: model.FileConfiguration;
 
 }
 
 export namespace SessionConfiguration {
+
 
 
 
@@ -32,6 +34,10 @@ export namespace SessionConfiguration {
                 
                 
                 model.SessionRetentionConfiguration.getJsonObj(obj.sessionRetentionConfig) : undefined,
+                'fileConfig': obj.fileConfig ?
+                
+                
+                model.FileConfiguration.getJsonObj(obj.fileConfig) : undefined,
         }};
 
         
@@ -51,6 +57,10 @@ export namespace SessionConfiguration {
                 
                 
                 model.SessionRetentionConfiguration.getDeserializedJsonObj(obj.sessionRetentionConfig) : undefined,
+                    'fileConfig': obj.fileConfig ?
+                
+                
+                model.FileConfiguration.getDeserializedJsonObj(obj.fileConfig) : undefined,
          }};
 
         

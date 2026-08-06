@@ -57,6 +57,10 @@ export interface JobRunSummary {
     * Name of the user who created this record
     */
     'createdByName'?: string;
+    /**
+    * This points to the user or service account executing the job.
+    */
+    'runAs'?: string;
 
 }
 
@@ -86,6 +90,7 @@ export namespace JobRunSummary {
 
 
 
+
     export function getJsonObj(obj: JobRunSummary): object {
         const jsonObj = {...obj, ...{
             
@@ -95,6 +100,7 @@ export namespace JobRunSummary {
                 
                 
                 model.State.getJsonObj(obj.state) : undefined,
+
 
 
 
@@ -121,6 +127,7 @@ export namespace JobRunSummary {
                 
                 
                 model.State.getDeserializedJsonObj(obj.state) : undefined,
+
 
 
 

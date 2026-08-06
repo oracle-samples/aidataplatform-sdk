@@ -10,6 +10,7 @@ import common = require("oci-common");
 export interface QueryReplicaIdsDetails {
     /**
     * The metric to use when discovering replica identifiers for the selected compute cluster.
+* Allowed values are CpuUtilization, MemoryUtilization, NetworkReceiveBytes, and NetworkTransmitBytes.
 * 
     */
     'metricName': string;
