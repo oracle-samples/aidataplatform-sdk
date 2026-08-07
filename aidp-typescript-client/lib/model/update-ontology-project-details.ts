@@ -9,12 +9,35 @@ export interface UpdateOntologyProjectDetails {
     'displayName'?: string;
     'description'?: string;
     'namespace'?: string;
+    /**
+    * Root path for volume-backed ontology project content. Defaults to a workspace-relative path; managed-volume deployments may store this as an OMS managed-volume path.
+    */
     'workspaceBasePath'?: string;
+    /**
+    * Project content source.
+    */
+    'sourceType'?: model.OntologyProjectSourceType;
+    /**
+    * Git repository key for git-backed ontology projects.
+    */
+    'gitRepositoryKey'?: string;
+    /**
+    * Git branch name for git-backed ontology projects.
+    */
+    'gitBranchName'?: string;
+    /**
+    * Workspace-relative Git folder path for git-backed ontology project content.
+    */
+    'gitFolderPath'?: string;
     'lifecycleState'?: string;
 
 }
 
 export namespace UpdateOntologyProjectDetails {
+
+
+
+
 
 
 
@@ -31,6 +54,10 @@ export namespace UpdateOntologyProjectDetails {
 
 
 
+
+
+
+
         }};
 
         
@@ -41,6 +68,10 @@ export namespace UpdateOntologyProjectDetails {
     export function getDeserializedJsonObj(obj: UpdateOntologyProjectDetails): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+
 
 
 

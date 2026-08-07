@@ -16,6 +16,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [Notebook (NotebookClient)](#client-notebookclient)
 - [Role (RoleClient)](#client-roleclient)
 - [Schema (SchemaClient)](#client-schemaclient)
+- [Semantic Catalog (SemanticCatalogClient)](#client-semanticcatalogclient)
 - [User Setting (UserSettingClient)](#client-usersettingclient)
 - [Volume (VolumeClient)](#client-volumeclient)
 - [Workflow (WorkflowClient)](#client-workflowclient)
@@ -5776,14 +5777,18 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `path` | `string` | Notebook file path attached to a session. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `agentFlowKey` | `string` | Agent flow key of the attached agent flow. |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `ListSessionsRequest.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `sortBy` | `ListSessionsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. |
 
 **Response Interface:** `responses.ListSessionsResponse`
 
 **Response Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `sessionCollection` | `model.SessionCollection` | The returned model.SessionCollection instance. |
 
 **Payload `SessionCollection` Summary:**
@@ -7294,6 +7299,79 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Schema (SchemaClient)](#client-schemaclient) • [Top](#top)
 
 
+## <a id="client-semanticcatalogclient"></a>SemanticCatalogClient
+**Operations:**
+- [`exportLineage`](#operation-semanticcatalogclient-exportlineage)
+- [`fetchEntityLineage`](#operation-semanticcatalogclient-fetchentitylineage)
+
+### <a id="operation-semanticcatalogclient-exportlineage"></a>`exportLineage`
+**Description:** (Preview) Returns complete lineage for the provided anchor node in CSV format.
+
+**Request Interface:** `requests.ExportLineageRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `exportLineageDetails` | `model.ExportLineageDetails` | The information needed to export lineage. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+
+**Response Interface:** `responses.ExportLineageResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `contentDisposition` | `string` | Attachment filename in {@code AnchorNodeName_Timestamp.csv} format. |
+| `value` | `stream.Readable | ReadableStream` | The returned stream.Readable | ReadableStream instance. |
+**Return:** [Back to Semantic Catalog (SemanticCatalogClient)](#client-semanticcatalogclient) • [Top](#top)
+
+
+### <a id="operation-semanticcatalogclient-fetchentitylineage"></a>`fetchEntityLineage`
+**Description:** (Preview) Returns lineage for a given entity object.
+
+**Request Interface:** `requests.FetchEntityLineageRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `fetchEntityLineageDetails` | `model.FetchEntityLineageDetails` | The information needed to obtain desired lineage. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+
+**Response Interface:** `responses.FetchEntityLineageResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `entityLineage` | `model.EntityLineage` | The returned model.EntityLineage instance. |
+
+**Payload `EntityLineage` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `nodes` | `Array<model.LineageObject>` | Set of links that are involved in the lineage. |
+| `links` | `Array<model.LineageRelationship>` | Set of links between the objects in the 'objects' set. |
+**Return:** [Back to Semantic Catalog (SemanticCatalogClient)](#client-semanticcatalogclient) • [Top](#top)
+
+
 ## <a id="client-usersettingclient"></a>UserSettingClient
 **Operations:**
 - [`createUserSetting`](#operation-usersettingclient-createusersetting)
@@ -8072,6 +8150,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `isOverwrite` | `boolean` | A boolean which decides if overwrite is allowed |
 | `shouldGenerateNewPar` | `boolean` | Flag to toggle to generate short living par |
+| `shouldCreateRecursively` | `boolean` | A boolean which decides if parent directories should be created recursively during upload. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
@@ -8193,6 +8272,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
 | `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
@@ -8266,7 +8346,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `createdByName` | `string` | Name of the user who created this record |
 | `updatedBy` | `string` | The username of the latest updater. The OCID of the IAM user. |
 | `updatedByName` | `string` | Name of the user who updated this record. |
-| `runAs` | `string` | The id with which the job run as. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 | `name` | `string` | A user-friendly name. Does not have to be unique, and is changeable. |
 | `description` | `string` | A description for the job. |
 | `maxConcurrentRuns` | `number` | Indicates the number of executions for the same job that can be run concurrently. The maximum value cannot exceed 1000. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -8347,6 +8427,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
 | `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
@@ -8523,7 +8604,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `createdByName` | `string` | Name of the user who created this record |
 | `updatedBy` | `string` | The username of the latest updater. The OCID of the IAM user. |
 | `updatedByName` | `string` | Name of the user who updated this record. |
-| `runAs` | `string` | The id with which the job run as. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 | `name` | `string` | A user-friendly name. Does not have to be unique, and is changeable. |
 | `description` | `string` | A description for the job. |
 | `maxConcurrentRuns` | `number` | Indicates the number of executions for the same job that can be run concurrently. The maximum value cannot exceed 1000. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -8554,6 +8635,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldIncludeTaskRunSummaries` | `boolean` | A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
 **Response Interface:** `responses.GetJobRunResponse`
@@ -8600,6 +8682,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
 | `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
@@ -8728,6 +8811,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
 | `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcPrevPage` | `string` | For list pagination. When this header appears in the response, previous pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `jobRunCollection` | `model.JobRunCollection` | The returned model.JobRunCollection instance. |
 
 **Payload `JobRunCollection` Summary:**
@@ -8854,6 +8938,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
 | `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcPrevPage` | `string` | For list pagination. When this header appears in the response, previous pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `taskRunCollection` | `model.TaskRunCollection` | The returned model.TaskRunCollection instance. |
 
 **Payload `TaskRunCollection` Summary:**
@@ -8961,6 +9046,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
 | `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
@@ -9002,7 +9088,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `createdByName` | `string` | Name of the user who created this record |
 | `updatedBy` | `string` | The username of the latest updater. The OCID of the IAM user. |
 | `updatedByName` | `string` | Name of the user who updated this record. |
-| `runAs` | `string` | The id with which the job run as. |
+| `runAs` | `string` | This points to the user or service account executing the job. |
 | `name` | `string` | A user-friendly name. Does not have to be unique, and is changeable. |
 | `description` | `string` | A description for the job. |
 | `maxConcurrentRuns` | `number` | Indicates the number of executions for the same job that can be run concurrently. The maximum value cannot exceed 1000. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -9532,7 +9618,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `key` | `string` | The key of the Workspace Object. |
 | `displayName` | `string` | The name of the Workspace Object. This will be the name of the file/folder in the workspace. Example: Notebook1.ipynb, Folder1 |
 | `timeCreated` | `Date` | The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the workspace object was last updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `type` | `WorkspaceObjectDetails.Type` | The type of the workspace object. |
 | `description` | `string` | The description for the file and folder. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
@@ -9877,7 +9963,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `key` | `string` | The key of the Workspace Object. |
 | `displayName` | `string` | The name of the Workspace Object. This will be the name of the file/folder in the workspace. Example: Notebook1.ipynb, Folder1 |
 | `timeCreated` | `Date` | The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the workspace object was last updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `type` | `WorkspaceObjectDetails.Type` | The type of the workspace object. |
 | `description` | `string` | The description for the file and folder. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
@@ -9921,7 +10007,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `key` | `string` | The key of the Workspace Object. |
 | `displayName` | `string` | The name of the Workspace Object. This will be the name of the file/folder in the workspace. Example: Notebook1.ipynb, Folder1 |
 | `timeCreated` | `Date` | The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the workspace object was last updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `type` | `WorkspaceObjectDetails.Type` | The type of the workspace object. |
 | `description` | `string` | The description for the file and folder. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
@@ -9984,6 +10070,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `isOverwrite` | `boolean` | A boolean which decides if overwrite is allowed |
 | `shouldGenerateNewPar` | `boolean` | Flag to toggle to generate short living par |
+| `shouldCreateRecursively` | `boolean` | A boolean which decides if parent directories should be created recursively during upload. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 | `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |

@@ -386,16 +386,32 @@ return clientCall(request, ListSessionsResponse::builder)
                 
                     
                     .appendQueryParam("agentFlowKey", request.getAgentFlowKey())
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
         
         
             .handleBody(com.oracle.aidataplatform.dp.model.SessionCollection.class, ListSessionsResponse.Builder::sessionCollection)
-                .handleResponseHeaderString("etag", 
-            ListSessionsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             ListSessionsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListSessionsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 

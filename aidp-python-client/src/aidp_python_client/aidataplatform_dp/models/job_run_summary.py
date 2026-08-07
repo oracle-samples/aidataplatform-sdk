@@ -80,6 +80,10 @@ class JobRunSummary(object):
             The value to assign to the created_by_name property of this JobRunSummary.
         :type created_by_name: str
 
+        :param run_as:
+            The value to assign to the run_as property of this JobRunSummary.
+        :type run_as: str
+
         """
         self.swagger_types = {
             'key': 'str',
@@ -94,7 +98,8 @@ class JobRunSummary(object):
             'time_created': 'datetime',
             'time_updated': 'datetime',
             'created_by': 'str',
-            'created_by_name': 'str'
+            'created_by_name': 'str',
+            'run_as': 'str'
         }
 
         self.attribute_map = {
@@ -110,7 +115,8 @@ class JobRunSummary(object):
             'time_created': 'timeCreated',
             'time_updated': 'timeUpdated',
             'created_by': 'createdBy',
-            'created_by_name': 'createdByName'
+            'created_by_name': 'createdByName',
+            'run_as': 'runAs'
         }
 
         self._key = None
@@ -126,6 +132,7 @@ class JobRunSummary(object):
         self._time_updated = None
         self._created_by = None
         self._created_by_name = None
+        self._run_as = None
 
     @property
     def key(self):
@@ -440,6 +447,30 @@ class JobRunSummary(object):
         :type: str
         """
         self._created_by_name = created_by_name
+
+    @property
+    def run_as(self):
+        """
+        Gets the run_as of this JobRunSummary.
+        This points to the user or service account executing the job.
+
+
+        :return: The run_as of this JobRunSummary.
+        :rtype: str
+        """
+        return self._run_as
+
+    @run_as.setter
+    def run_as(self, run_as):
+        """
+        Sets the run_as of this JobRunSummary.
+        This points to the user or service account executing the job.
+
+
+        :param run_as: The run_as of this JobRunSummary.
+        :type: str
+        """
+        self._run_as = run_as
 
     def __repr__(self):
         return formatted_flat_dict(self)

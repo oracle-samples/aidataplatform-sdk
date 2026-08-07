@@ -86,6 +86,19 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
         return shouldGenerateNewPar;
     }
         /**
+     * A boolean which decides if parent directories should be created recursively during upload.
+     */
+    private Boolean shouldCreateRecursively;
+
+    
+
+        /**
+     * A boolean which decides if parent directories should be created recursively during upload.
+     */
+    public Boolean getShouldCreateRecursively() {
+        return shouldCreateRecursively;
+    }
+        /**
      * A flag to identify if the recent list should be updated.
      */
     private Boolean shouldUpdateRecent;
@@ -249,6 +262,21 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
         }
 
             /**
+     * A boolean which decides if parent directories should be created recursively during upload.
+     */
+        private Boolean shouldCreateRecursively = null;
+
+        /**
+         * A boolean which decides if parent directories should be created recursively during upload.
+         * @param shouldCreateRecursively the value to set
+         * @return this builder instance
+         */
+        public Builder shouldCreateRecursively(Boolean shouldCreateRecursively) {
+            this.shouldCreateRecursively = shouldCreateRecursively;
+            return this;
+        }
+
+            /**
      * A flag to identify if the recent list should be updated.
      */
         private Boolean shouldUpdateRecent = null;
@@ -337,7 +365,7 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
          * @return this builder instance
          */
         public Builder copy(UploadFileWithParRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());volumeKey(o.getVolumeKey());uploadFileWithParDetails(o.getUploadFileWithParDetails());path(o.getPath());isOverwrite(o.getIsOverwrite());shouldGenerateNewPar(o.getShouldGenerateNewPar());shouldUpdateRecent(o.getShouldUpdateRecent());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());volumeKey(o.getVolumeKey());uploadFileWithParDetails(o.getUploadFileWithParDetails());path(o.getPath());isOverwrite(o.getIsOverwrite());shouldGenerateNewPar(o.getShouldGenerateNewPar());shouldCreateRecursively(o.getShouldCreateRecursively());shouldUpdateRecent(o.getShouldUpdateRecent());opcRetryToken(o.getOpcRetryToken());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -387,11 +415,12 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
             request.path = path;
             request.isOverwrite = isOverwrite;
             request.shouldGenerateNewPar = shouldGenerateNewPar;
+            request.shouldCreateRecursively = shouldCreateRecursively;
             request.shouldUpdateRecent = shouldUpdateRecent;
             request.opcRetryToken = opcRetryToken;
             request.opcRequestId = opcRequestId;
             return request;
-            // new UploadFileWithParRequest(aiDataPlatformId, volumeKey, uploadFileWithParDetails, path, isOverwrite, shouldGenerateNewPar, shouldUpdateRecent, opcRetryToken, opcRequestId);
+            // new UploadFileWithParRequest(aiDataPlatformId, volumeKey, uploadFileWithParDetails, path, isOverwrite, shouldGenerateNewPar, shouldCreateRecursively, shouldUpdateRecent, opcRetryToken, opcRequestId);
         }
     }
 
@@ -407,6 +436,7 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
             .path(path)
             .isOverwrite(isOverwrite)
             .shouldGenerateNewPar(shouldGenerateNewPar)
+            .shouldCreateRecursively(shouldCreateRecursively)
             .shouldUpdateRecent(shouldUpdateRecent)
             .opcRetryToken(opcRetryToken)
             .opcRequestId(opcRequestId);
@@ -431,6 +461,7 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
         sb.append(",path=").append(String.valueOf(this.path));
         sb.append(",isOverwrite=").append(String.valueOf(this.isOverwrite));
         sb.append(",shouldGenerateNewPar=").append(String.valueOf(this.shouldGenerateNewPar));
+        sb.append(",shouldCreateRecursively=").append(String.valueOf(this.shouldCreateRecursively));
         sb.append(",shouldUpdateRecent=").append(String.valueOf(this.shouldUpdateRecent));
         sb.append(",opcRetryToken=").append(String.valueOf(this.opcRetryToken));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
@@ -455,6 +486,7 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
             && java.util.Objects.equals(this.path, other.path)
             && java.util.Objects.equals(this.isOverwrite, other.isOverwrite)
             && java.util.Objects.equals(this.shouldGenerateNewPar, other.shouldGenerateNewPar)
+            && java.util.Objects.equals(this.shouldCreateRecursively, other.shouldCreateRecursively)
             && java.util.Objects.equals(this.shouldUpdateRecent, other.shouldUpdateRecent)
             && java.util.Objects.equals(this.opcRetryToken, other.opcRetryToken)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
@@ -470,6 +502,7 @@ public class UploadFileWithParRequest extends com.oracle.bmc.requests.BmcRequest
         result = (result * PRIME) + (this.path == null ? 43 : this.path.hashCode());
         result = (result * PRIME) + (this.isOverwrite == null ? 43 : this.isOverwrite.hashCode());
         result = (result * PRIME) + (this.shouldGenerateNewPar == null ? 43 : this.shouldGenerateNewPar.hashCode());
+        result = (result * PRIME) + (this.shouldCreateRecursively == null ? 43 : this.shouldCreateRecursively.hashCode());
         result = (result * PRIME) + (this.shouldUpdateRecent == null ? 43 : this.shouldUpdateRecent.hashCode());
         result = (result * PRIME) + (this.opcRetryToken == null ? 43 : this.opcRetryToken.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());

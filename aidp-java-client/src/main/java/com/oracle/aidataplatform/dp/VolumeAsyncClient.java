@@ -782,6 +782,10 @@ return clientCall(request, UploadFileWithParResponse::builder)
                 
                     
                     .appendQueryParam("shouldGenerateNewPar", request.getShouldGenerateNewPar())
+            
+                
+                    
+                    .appendQueryParam("shouldCreateRecursively", request.getShouldCreateRecursively())
         .accept("application/json")
                 
                 .appendHeader("should-update-recent", request.getShouldUpdateRecent())

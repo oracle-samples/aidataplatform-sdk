@@ -35,7 +35,7 @@ export interface WorkspaceObjectDetails {
     */
     'timeCreated': Date;
     /**
-    * The date and time the workspace object was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+    * The date and time the workspace object was last updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */

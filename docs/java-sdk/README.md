@@ -16,6 +16,7 @@ This document summarizes the available service clients in the AIDP Java SDK and 
 - [Notebook (`NotebookClient`)](#notebookclient-client)
 - [Role (`RoleClient`)](#roleclient-client)
 - [Schema (`SchemaClient`)](#schemaclient-client)
+- [Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client)
 - [User Setting (`UserSettingClient`)](#usersettingclient-client)
 - [Volume (`VolumeClient`)](#volumeclient-client)
 - [Workflow (`WorkflowClient`)](#workflowclient-client)
@@ -712,7 +713,7 @@ Get detailed information for a particular async operation
 **Response Fields:**
 - `key` (string) — Gets the key of this AsyncOperation. The unique key that identifies an async operation
 - `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
 - `resourceDisplayName` (string) — Gets the resource_display_name of this AsyncOperation. The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName But for workspace/cluster it is workspace and cluster displayName field.
 - `createdBy` (string) — Gets the created_by of this AsyncOperation. The principal Id who started the async operation
@@ -1090,7 +1091,7 @@ Gets detailed information about a catalog with a given catalog key.
 - `description` (string) — Gets the description of this Catalog. Short description of the catalog.
 - `catalogGuid` (string) — Gets the catalog_guid of this Catalog. Unique identifier for catalog.
 - `catalogType` (string) — Gets the catalog_type of this Catalog. Type of catalog. Allowed values for this property are: "EXTERNAL", "INTERNAL", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `connectionDetails` (oci.aidataplatform_dp.models.CatalogConnectionDetails) — Gets the connection_details of this Catalog.
 - `lifecycleState` (string) — Gets the lifecycle_state of this Catalog. The current status of the catalog. Allowed values for this property are: "ACTIVE", "CREATING", "DELETING", "UPDATING", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this Catalog. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
@@ -3839,6 +3840,10 @@ Returns a list of all available sessions.
 - `path` (`string`) — Notebook file path attached to a session.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `agentFlowKey` (`string`) — Agent flow key of the attached agent flow.
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Allowed values are: "timeCreated"
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `listSessionsResponse`
@@ -4369,7 +4374,7 @@ Returns detailed information about a specified schema.
 **Return Response:** `getSchemaResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 - `description` (string) — Gets the description of this Schema. Schema description.
@@ -4401,7 +4406,7 @@ Returns detailed information about a table.
 **Return Response:** `getTableResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Table. The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
 - `displayName` (string) — Gets the display_name of this Table. Table name.
 - `catalogKey` (string) — Gets the catalog_key of this Table. The name of the catalog to which this table belongs.
@@ -4782,7 +4787,7 @@ Updates a schema.
 **Return Response:** `updateSchemaResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 - `description` (string) — Gets the description of this Schema. Schema description.
@@ -4851,6 +4856,53 @@ Updates a view with given information.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this View. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
 
 **Return:** [Back to Schema (`SchemaClient`)](#schemaclient-client) • [Top](#top)
+
+
+## <a id="semanticcatalogclient-client"></a>Semantic Catalog (`SemanticCatalogClient`)
+**Operations:**
+- [`exportLineage`](#semanticcatalogclient-exportlineage)
+- [`fetchEntityLineage`](#semanticcatalogclient-fetchentitylineage)
+
+### <a id="semanticcatalogclient-exportlineage"></a>`exportLineage`
+(Preview) Returns complete lineage for the provided anchor node in CSV format.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `exportLineageDetails` (`oci.aidataplatform_dp.models.ExportLineageDetails`) — The information needed to export lineage.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `exportLineageResponse`
+
+**Return:** [Back to Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client) • [Top](#top)
+
+
+### <a id="semanticcatalogclient-fetchentitylineage"></a>`fetchEntityLineage`
+(Preview) Returns lineage for a given entity object.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `fetchEntityLineageDetails` (`oci.aidataplatform_dp.models.FetchEntityLineageDetails`) — The information needed to obtain desired lineage.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `fetchEntityLineageResponse`
+
+**Response Fields:**
+- `nodes` (list[oci.aidataplatform_dp.models.LineageObject]) — Gets the nodes of this EntityLineage. Set of links that are involved in the lineage.
+- `links` (list[oci.aidataplatform_dp.models.LineageRelationship]) — Gets the links of this EntityLineage. Set of links between the objects in the 'objects' set.
+
+**Return:** [Back to Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client) • [Top](#top)
 
 
 ## <a id="usersettingclient-client"></a>User Setting (`UserSettingClient`)
@@ -5366,6 +5418,7 @@ Uploads a volume file by generating PAR. If file exists, then it will be updated
 **Optional Parameters:**
 - `isOverwrite` (`boolean`) — A boolean which decides if overwrite is allowed
 - `shouldGenerateNewPar` (`boolean`) — Flag to toggle to generate short living par
+- `shouldCreateRecursively` (`boolean`) — A boolean which decides if parent directories should be created recursively during upload.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
@@ -5466,6 +5519,7 @@ Cancels a job run.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
 - `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
+- `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
@@ -5511,7 +5565,7 @@ Creates a job.
 - `createdByName` (string) — Gets the created_by_name of this Job. Name of the user who created this record
 - `updatedBy` (string) — Gets the updated_by of this Job. The username of the latest updater. The OCID of the IAM user.
 - `updatedByName` (string) — Gets the updated_by_name of this Job. Name of the user who updated this record.
-- `runAs` (string) — Gets the run_as of this Job. The id with which the job run as.
+- `runAs` (string) — Gets the run_as of this Job. This points to the user or service account executing the job.
 - `name` (string) — Gets the name of this Job. A user-friendly name. Does not have to be unique, and is changeable.
 - `description` (string) — Gets the description of this Job. A description for the job.
 - `schedule` (oci.aidataplatform_dp.models.Schedule) — Gets the schedule of this Job.
@@ -5585,6 +5639,7 @@ Creates a job run.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
 - `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
+- `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
@@ -5699,7 +5754,7 @@ Returns detailed information about a given job.
 - `createdByName` (string) — Gets the created_by_name of this Job. Name of the user who created this record
 - `updatedBy` (string) — Gets the updated_by of this Job. The username of the latest updater. The OCID of the IAM user.
 - `updatedByName` (string) — Gets the updated_by_name of this Job. Name of the user who updated this record.
-- `runAs` (string) — Gets the run_as of this Job. The id with which the job run as.
+- `runAs` (string) — Gets the run_as of this Job. This points to the user or service account executing the job.
 - `name` (string) — Gets the name of this Job. A user-friendly name. Does not have to be unique, and is changeable.
 - `description` (string) — Gets the description of this Job. A description for the job.
 - `schedule` (oci.aidataplatform_dp.models.Schedule) — Gets the schedule of this Job.
@@ -5728,6 +5783,7 @@ Returns detailed information about a given job run.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldIncludeTaskRunSummaries` (`boolean`) — A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
@@ -5772,6 +5828,7 @@ Returns detailed information about a given job run.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
 - `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
+- `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
@@ -6029,6 +6086,7 @@ Repairs and reruns a job run.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
 - `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
+- `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
@@ -6056,7 +6114,7 @@ Updates details for a job.
 - `createdByName` (string) — Gets the created_by_name of this Job. Name of the user who created this record
 - `updatedBy` (string) — Gets the updated_by of this Job. The username of the latest updater. The OCID of the IAM user.
 - `updatedByName` (string) — Gets the updated_by_name of this Job. Name of the user who updated this record.
-- `runAs` (string) — Gets the run_as of this Job. The id with which the job run as.
+- `runAs` (string) — Gets the run_as of this Job. This points to the user or service account executing the job.
 - `name` (string) — Gets the name of this Job. A user-friendly name. Does not have to be unique, and is changeable.
 - `description` (string) — Gets the description of this Job. A description for the job.
 - `schedule` (oci.aidataplatform_dp.models.Schedule) — Gets the schedule of this Job.
@@ -6430,7 +6488,7 @@ Copy a workspace object to different location.
 - `key` (string) — Gets the key of this WorkspaceObjectDetails. The key of the Workspace Object.
 - `displayName` (string) — Gets the display_name of this WorkspaceObjectDetails. The name of the Workspace Object. This will be the name of the file/folder in the workspace. Example: Notebook1.ipynb, Folder1
 - `timeCreated` (datetime) — Gets the time_created of this WorkspaceObjectDetails. The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
-- `timeUpdated` (datetime) — Gets the time_updated of this WorkspaceObjectDetails. The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
+- `timeUpdated` (datetime) — Gets the time_updated of this WorkspaceObjectDetails. The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
 - `type` (string) — Gets the type of this WorkspaceObjectDetails. The type of the workspace object. Allowed values for this property are: "NOTEBOOK", "JOB", "LAKE_FLOW", "AGENT_LAKE_FLOW", "GENERATED_ARTIFACT", "LIBRARY", "FILE", "FOLDER", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `description` (string) — Gets the description of this WorkspaceObjectDetails. The description for the file and folder.
 - `systemTags` (dict(str, dict(str, object))) — Gets the system_tags of this WorkspaceObjectDetails. System tags for this resource. Each key is predefined and scoped to a namespace. Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
@@ -6643,7 +6701,7 @@ Moves a workspace object to different location.
 - `key` (string) — Gets the key of this WorkspaceObjectDetails. The key of the Workspace Object.
 - `displayName` (string) — Gets the display_name of this WorkspaceObjectDetails. The name of the Workspace Object. This will be the name of the file/folder in the workspace. Example: Notebook1.ipynb, Folder1
 - `timeCreated` (datetime) — Gets the time_created of this WorkspaceObjectDetails. The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
-- `timeUpdated` (datetime) — Gets the time_updated of this WorkspaceObjectDetails. The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
+- `timeUpdated` (datetime) — Gets the time_updated of this WorkspaceObjectDetails. The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
 - `type` (string) — Gets the type of this WorkspaceObjectDetails. The type of the workspace object. Allowed values for this property are: "NOTEBOOK", "JOB", "LAKE_FLOW", "AGENT_LAKE_FLOW", "GENERATED_ARTIFACT", "LIBRARY", "FILE", "FOLDER", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `description` (string) — Gets the description of this WorkspaceObjectDetails. The description for the file and folder.
 - `systemTags` (dict(str, dict(str, object))) — Gets the system_tags of this WorkspaceObjectDetails. System tags for this resource. Each key is predefined and scoped to a namespace. Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
@@ -6672,7 +6730,7 @@ Renames a workspace object.
 - `key` (string) — Gets the key of this WorkspaceObjectDetails. The key of the Workspace Object.
 - `displayName` (string) — Gets the display_name of this WorkspaceObjectDetails. The name of the Workspace Object. This will be the name of the file/folder in the workspace. Example: Notebook1.ipynb, Folder1
 - `timeCreated` (datetime) — Gets the time_created of this WorkspaceObjectDetails. The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
-- `timeUpdated` (datetime) — Gets the time_updated of this WorkspaceObjectDetails. The date and time the workspace object was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
+- `timeUpdated` (datetime) — Gets the time_updated of this WorkspaceObjectDetails. The date and time the workspace object was last updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>. Example: `2016-08-25T21:10:29.600Z`
 - `type` (string) — Gets the type of this WorkspaceObjectDetails. The type of the workspace object. Allowed values for this property are: "NOTEBOOK", "JOB", "LAKE_FLOW", "AGENT_LAKE_FLOW", "GENERATED_ARTIFACT", "LIBRARY", "FILE", "FOLDER", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `description` (string) — Gets the description of this WorkspaceObjectDetails. The description for the file and folder.
 - `systemTags` (dict(str, dict(str, object))) — Gets the system_tags of this WorkspaceObjectDetails. System tags for this resource. Each key is predefined and scoped to a namespace. Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
@@ -6713,6 +6771,7 @@ Creates a workspace file by generating PAR or updates the metadata by close file
 **Optional Parameters:**
 - `isOverwrite` (`boolean`) — A boolean which decides if overwrite is allowed
 - `shouldGenerateNewPar` (`boolean`) — Flag to toggle to generate short living par
+- `shouldCreateRecursively` (`boolean`) — A boolean which decides if parent directories should be created recursively during upload.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.

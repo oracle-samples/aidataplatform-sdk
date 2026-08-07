@@ -122,6 +122,8 @@ export namespace Schema {
                     return model.OacSchema.getJsonObj(<model.OacSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchema.getJsonObj(<model.GoogleBigquerySchema>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -173,6 +175,8 @@ export namespace Schema {
                     return model.OacSchema.getDeserializedJsonObj(<model.OacSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getDeserializedJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchema.getDeserializedJsonObj(<model.GoogleBigquerySchema>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

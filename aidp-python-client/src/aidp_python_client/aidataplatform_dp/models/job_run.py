@@ -190,6 +190,10 @@ class JobRun(object):
             The value to assign to the lifecycle_states property of this JobRun.
         :type lifecycle_states: list[oci.aidataplatform_dp.models.LifecycleState]
 
+        :param run_as:
+            The value to assign to the run_as property of this JobRun.
+        :type run_as: str
+
         """
         self.swagger_types = {
             'key': 'str',
@@ -229,7 +233,8 @@ class JobRun(object):
             'timeout_seconds': 'int',
             'repaired_tasks': 'list[str]',
             'repair_mode': 'str',
-            'lifecycle_states': 'list[LifecycleState]'
+            'lifecycle_states': 'list[LifecycleState]',
+            'run_as': 'str'
         }
 
         self.attribute_map = {
@@ -270,7 +275,8 @@ class JobRun(object):
             'timeout_seconds': 'timeoutSeconds',
             'repaired_tasks': 'repairedTasks',
             'repair_mode': 'repairMode',
-            'lifecycle_states': 'lifecycleStates'
+            'lifecycle_states': 'lifecycleStates',
+            'run_as': 'runAs'
         }
 
         self._key = None
@@ -311,6 +317,7 @@ class JobRun(object):
         self._repaired_tasks = None
         self._repair_mode = None
         self._lifecycle_states = None
+        self._run_as = None
 
     @property
     def key(self):
@@ -1211,6 +1218,30 @@ class JobRun(object):
         :type: list[oci.aidataplatform_dp.models.LifecycleState]
         """
         self._lifecycle_states = lifecycle_states
+
+    @property
+    def run_as(self):
+        """
+        Gets the run_as of this JobRun.
+        This points to the user or service account executing the job.
+
+
+        :return: The run_as of this JobRun.
+        :rtype: str
+        """
+        return self._run_as
+
+    @run_as.setter
+    def run_as(self, run_as):
+        """
+        Sets the run_as of this JobRun.
+        This points to the user or service account executing the job.
+
+
+        :param run_as: The run_as of this JobRun.
+        :type: str
+        """
+        self._run_as = run_as
 
     def __repr__(self):
         return formatted_flat_dict(self)

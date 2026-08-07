@@ -32,6 +32,10 @@ export interface UploadFileWithParRequest extends common.BaseRequest {
  */
  'shouldGenerateNewPar'?: boolean;
 /**
+ * A boolean which decides if parent directories should be created recursively during upload.
+ */
+ 'shouldCreateRecursively'?: boolean;
+/**
  * A flag to identify if the recent list should be updated.
  */
  'shouldUpdateRecent'?: boolean;

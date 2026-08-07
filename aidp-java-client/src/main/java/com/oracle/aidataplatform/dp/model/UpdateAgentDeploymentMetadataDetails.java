@@ -12,11 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class UpdateAgentDeploymentMetadataDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"deploymentKey", "agentCardConfigDetail"})
-    public UpdateAgentDeploymentMetadataDetails(String deploymentKey, AgentCardConfigDetail agentCardConfigDetail) {
+    @java.beans.ConstructorProperties({"deploymentKey", "agentCardConfigDetail", "updateAgentFlowAgentCardConfig"})
+    public UpdateAgentDeploymentMetadataDetails(String deploymentKey, AgentCardConfigDetail agentCardConfigDetail, Boolean updateAgentFlowAgentCardConfig) {
         super();
         this.deploymentKey = deploymentKey;
         this.agentCardConfigDetail = agentCardConfigDetail;
+        this.updateAgentFlowAgentCardConfig = updateAgentFlowAgentCardConfig;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -49,17 +50,37 @@ public Builder agentCardConfigDetail(AgentCardConfigDetail agentCardConfigDetail
     this.agentCardConfigDetail = agentCardConfigDetail;
     return this;
 }
+            /**
+     * Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("updateAgentFlowAgentCardConfig")
+private Boolean updateAgentFlowAgentCardConfig;
+
+        /**
+         * Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+         * @param updateAgentFlowAgentCardConfig the value to set
+         * @return this builder
+         **/
+        
+
+public Builder updateAgentFlowAgentCardConfig(Boolean updateAgentFlowAgentCardConfig) {
+    this.updateAgentFlowAgentCardConfig = updateAgentFlowAgentCardConfig;
+    return this;
+}
 
 
         public UpdateAgentDeploymentMetadataDetails build() {
             UpdateAgentDeploymentMetadataDetails model = new UpdateAgentDeploymentMetadataDetails(this.deploymentKey
-                , this.agentCardConfigDetail);            return model;
+                , this.agentCardConfigDetail
+                , this.updateAgentFlowAgentCardConfig);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(UpdateAgentDeploymentMetadataDetails model) {
                 this.deploymentKey(model.getDeploymentKey());
     this.agentCardConfigDetail(model.getAgentCardConfigDetail());
+    this.updateAgentFlowAgentCardConfig(model.getUpdateAgentFlowAgentCardConfig());
 return this;
         }
     }
@@ -105,6 +126,23 @@ return this;
         return agentCardConfigDetail;
     }
 
+
+        /**
+     * Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("updateAgentFlowAgentCardConfig")
+    private final Boolean updateAgentFlowAgentCardConfig;
+
+        /**
+     * Whether to update the Agent Flow's stored agent card config after deployment metadata is updated.
+     * @return the value
+     **/
+    
+    public Boolean getUpdateAgentFlowAgentCardConfig() {
+        return updateAgentFlowAgentCardConfig;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -120,6 +158,7 @@ return this;
         sb.append("UpdateAgentDeploymentMetadataDetails(");
         sb.append("deploymentKey=").append(String.valueOf(this.deploymentKey));
         sb.append(", agentCardConfigDetail=").append(String.valueOf(this.agentCardConfigDetail));
+        sb.append(", updateAgentFlowAgentCardConfig=").append(String.valueOf(this.updateAgentFlowAgentCardConfig));
         sb.append(")");
         return sb.toString();
     }
@@ -135,7 +174,8 @@ return this;
 
         UpdateAgentDeploymentMetadataDetails other = (UpdateAgentDeploymentMetadataDetails) o;
         return java.util.Objects.equals(this.deploymentKey, other.deploymentKey) &&
-            java.util.Objects.equals(this.agentCardConfigDetail, other.agentCardConfigDetail);
+            java.util.Objects.equals(this.agentCardConfigDetail, other.agentCardConfigDetail) &&
+            java.util.Objects.equals(this.updateAgentFlowAgentCardConfig, other.updateAgentFlowAgentCardConfig);
     }
 
     @Override
@@ -144,6 +184,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.deploymentKey == null ? 43 : this.deploymentKey.hashCode());
         result = (result * PRIME) + (this.agentCardConfigDetail == null ? 43 : this.agentCardConfigDetail.hashCode());
+        result = (result * PRIME) + (this.updateAgentFlowAgentCardConfig == null ? 43 : this.updateAgentFlowAgentCardConfig.hashCode());
         return result;
     }
 

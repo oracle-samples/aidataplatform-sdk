@@ -91,6 +91,8 @@ export namespace TableSummary {
                     return model.AtpTableSummary.getJsonObj(<model.AtpTableSummary>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeTableSummary.getJsonObj(<model.SnowflakeTableSummary>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigqueryTableSummary.getJsonObj(<model.GoogleBigqueryTableSummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -136,6 +138,8 @@ export namespace TableSummary {
                     return model.AtpTableSummary.getDeserializedJsonObj(<model.AtpTableSummary>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeTableSummary.getDeserializedJsonObj(<model.SnowflakeTableSummary>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigqueryTableSummary.getDeserializedJsonObj(<model.GoogleBigqueryTableSummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

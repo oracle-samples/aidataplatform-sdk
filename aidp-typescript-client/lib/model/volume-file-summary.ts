@@ -63,6 +63,10 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
     * Name of the user who created this file.
     */
     'createdByName'?: string;
+    /**
+    * OCID of the user who last updated this file.
+    */
+    'updatedBy'?: string;
 
 }
 
@@ -90,9 +94,11 @@ export namespace VolumeFileSummary {
 
 
 
+
     export function getJsonObj(obj: VolumeFileSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 
@@ -114,6 +120,7 @@ export namespace VolumeFileSummary {
     export function getDeserializedJsonObj(obj: VolumeFileSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 
