@@ -12,12 +12,14 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OacObjectTableSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"id", "name", "description"})
-    public OacObjectTableSummary(String id, String name, String description) {
+    @java.beans.ConstructorProperties({"id", "name", "description", "childTables", "tables"})
+    public OacObjectTableSummary(String id, String name, String description, java.util.List<OacObjectTableSummary> childTables, java.util.List<OacObjectTableSummary> tables) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
+        this.childTables = childTables;
+        this.tables = tables;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -76,12 +78,50 @@ public Builder description(String description) {
     this.description = description;
     return this;
 }
+            /**
+     * Child tables nested under this Oracle Analytics table.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("childTables")
+private java.util.List<OacObjectTableSummary> childTables;
+
+        /**
+         * Child tables nested under this Oracle Analytics table.
+         * @param childTables the value to set
+         * @return this builder
+         **/
+        
+
+public Builder childTables(java.util.List<OacObjectTableSummary> childTables) {
+    this.childTables = childTables;
+    return this;
+}
+            /**
+     * Additional tables nested under this Oracle Analytics table.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("tables")
+private java.util.List<OacObjectTableSummary> tables;
+
+        /**
+         * Additional tables nested under this Oracle Analytics table.
+         * @param tables the value to set
+         * @return this builder
+         **/
+        
+
+public Builder tables(java.util.List<OacObjectTableSummary> tables) {
+    this.tables = tables;
+    return this;
+}
 
 
         public OacObjectTableSummary build() {
             OacObjectTableSummary model = new OacObjectTableSummary(this.id
                 , this.name
-                , this.description);            return model;
+                , this.description
+                , this.childTables
+                , this.tables);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -89,6 +129,8 @@ public Builder description(String description) {
                 this.id(model.getId());
     this.name(model.getName());
     this.description(model.getDescription());
+    this.childTables(model.getChildTables());
+    this.tables(model.getTables());
 return this;
         }
     }
@@ -158,6 +200,40 @@ return this;
         return description;
     }
 
+
+        /**
+     * Child tables nested under this Oracle Analytics table.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("childTables")
+    private final java.util.List<OacObjectTableSummary> childTables;
+
+        /**
+     * Child tables nested under this Oracle Analytics table.
+     * @return the value
+     **/
+    
+    public java.util.List<OacObjectTableSummary> getChildTables() {
+        return childTables;
+    }
+
+
+        /**
+     * Additional tables nested under this Oracle Analytics table.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("tables")
+    private final java.util.List<OacObjectTableSummary> tables;
+
+        /**
+     * Additional tables nested under this Oracle Analytics table.
+     * @return the value
+     **/
+    
+    public java.util.List<OacObjectTableSummary> getTables() {
+        return tables;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -174,6 +250,8 @@ return this;
         sb.append("id=").append(String.valueOf(this.id));
         sb.append(", name=").append(String.valueOf(this.name));
         sb.append(", description=").append(String.valueOf(this.description));
+        sb.append(", childTables=").append(String.valueOf(this.childTables));
+        sb.append(", tables=").append(String.valueOf(this.tables));
         sb.append(")");
         return sb.toString();
     }
@@ -190,7 +268,9 @@ return this;
         OacObjectTableSummary other = (OacObjectTableSummary) o;
         return java.util.Objects.equals(this.id, other.id) &&
             java.util.Objects.equals(this.name, other.name) &&
-            java.util.Objects.equals(this.description, other.description);
+            java.util.Objects.equals(this.description, other.description) &&
+            java.util.Objects.equals(this.childTables, other.childTables) &&
+            java.util.Objects.equals(this.tables, other.tables);
     }
 
     @Override
@@ -200,6 +280,8 @@ return this;
         result = (result * PRIME) + (this.id == null ? 43 : this.id.hashCode());
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
+        result = (result * PRIME) + (this.childTables == null ? 43 : this.childTables.hashCode());
+        result = (result * PRIME) + (this.tables == null ? 43 : this.tables.hashCode());
         return result;
     }
 

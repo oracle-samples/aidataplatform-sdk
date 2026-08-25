@@ -695,6 +695,43 @@ return clientCall(request, UpdateWorkspaceObjectResponse::builder)
 
     @Override
     
+    public UploadAndExtractWorkspaceZipResponse uploadAndExtractWorkspaceZip(UploadAndExtractWorkspaceZipRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getUploadAndExtractZipDetails(), "uploadAndExtractZipDetails is required");
+        
+
+
+return clientCall(request, UploadAndExtractWorkspaceZipResponse::builder)
+        .logger(LOG, "uploadAndExtractWorkspaceZip")
+        .serviceDetails("WorkspaceObject", "UploadAndExtractWorkspaceZip", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(UploadAndExtractWorkspaceZipRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("uploadAndExtractZip")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.UploadAndExtractZipResult.class, UploadAndExtractWorkspaceZipResponse.Builder::uploadAndExtractZipResult)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            UploadAndExtractWorkspaceZipResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            UploadAndExtractWorkspaceZipResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public UploadWorkspaceObjectWithParResponse uploadWorkspaceObjectWithPar(UploadWorkspaceObjectWithParRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -758,6 +795,43 @@ return clientCall(request, UploadWorkspaceObjectWithParResponse::builder)
             UploadWorkspaceObjectWithParResponse.Builder::type)
                 .handleResponseHeaderDate("time-updated", 
             UploadWorkspaceObjectWithParResponse.Builder::timeUpdated)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ZipAndDownloadWorkspaceFolderResponse zipAndDownloadWorkspaceFolder(ZipAndDownloadWorkspaceFolderRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getZipAndDownloadFolderDetails(), "zipAndDownloadFolderDetails is required");
+        
+
+
+return clientCall(request, ZipAndDownloadWorkspaceFolderResponse::builder)
+        .logger(LOG, "zipAndDownloadWorkspaceFolder")
+        .serviceDetails("WorkspaceObject", "ZipAndDownloadWorkspaceFolder", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ZipAndDownloadWorkspaceFolderRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("zipAndDownloadFolder")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ZipAndDownloadFolderResult.class, ZipAndDownloadWorkspaceFolderResponse.Builder::zipAndDownloadFolderResult)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            ZipAndDownloadWorkspaceFolderResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            ZipAndDownloadWorkspaceFolderResponse.Builder::opcRequestId)
 
                 .callSync();
     }

@@ -52,6 +52,10 @@ class BundleDeploymentStatus(object):
             The value to assign to the message property of this BundleDeploymentStatus.
         :type message: str
 
+        :param publish:
+            The value to assign to the publish property of this BundleDeploymentStatus.
+        :type publish: oci.aidataplatform_dp.models.BundlePublishLocation
+
         :param resources:
             The value to assign to the resources property of this BundleDeploymentStatus.
         :type resources: list[oci.aidataplatform_dp.models.BundleDeployedResource]
@@ -62,6 +66,7 @@ class BundleDeploymentStatus(object):
             'time_started': 'datetime',
             'time_completed': 'datetime',
             'message': 'str',
+            'publish': 'BundlePublishLocation',
             'resources': 'list[BundleDeployedResource]'
         }
 
@@ -70,6 +75,7 @@ class BundleDeploymentStatus(object):
             'time_started': 'timeStarted',
             'time_completed': 'timeCompleted',
             'message': 'message',
+            'publish': 'publish',
             'resources': 'resources'
         }
 
@@ -77,6 +83,7 @@ class BundleDeploymentStatus(object):
         self._time_started = None
         self._time_completed = None
         self._message = None
+        self._publish = None
         self._resources = None
 
     @property
@@ -180,6 +187,26 @@ class BundleDeploymentStatus(object):
         :type: str
         """
         self._message = message
+
+    @property
+    def publish(self):
+        """
+        Gets the publish of this BundleDeploymentStatus.
+
+        :return: The publish of this BundleDeploymentStatus.
+        :rtype: oci.aidataplatform_dp.models.BundlePublishLocation
+        """
+        return self._publish
+
+    @publish.setter
+    def publish(self, publish):
+        """
+        Sets the publish of this BundleDeploymentStatus.
+
+        :param publish: The publish of this BundleDeploymentStatus.
+        :type: oci.aidataplatform_dp.models.BundlePublishLocation
+        """
+        self._publish = publish
 
     @property
     def resources(self):

@@ -24,6 +24,10 @@ export interface ListCatalogsRequest extends common.BaseRequest {
  */
  'catalogType'?: ListCatalogsRequest.CatalogType;
 /**
+ * When true, skip user OCID translation and return raw OCIDs.
+ */
+ 'shouldSkipOcidTranslation'?: boolean;
+/**
  * For list pagination. The maximum number of results per page, or items to return in a
 * paginated \"List\" call. For important details about how pagination works, see
 * [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).

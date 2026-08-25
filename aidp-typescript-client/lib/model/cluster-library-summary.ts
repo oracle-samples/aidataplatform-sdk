@@ -17,6 +17,14 @@ export interface ClusterLibrarySummary {
     */
     'timeUpdated'?: Date;
     /**
+    * Email address or identifier of the user who installed the library.
+    */
+    'installedBy'?: string;
+    /**
+    * Display name of the user who installed the library.
+    */
+    'installedByName'?: string;
+    /**
     * Additional context or detail about the current state of the library, especially useful when the status is {@code FAILED}, {@code SKIPPED}, or requires user intervention.
 * This message can contain information such as the reason for failure, the step where the installation failed, or other diagnostic messages.
 * 
@@ -31,6 +39,8 @@ export interface ClusterLibrarySummary {
 }
 
 export namespace ClusterLibrarySummary {
+
+
 
 
 
@@ -61,16 +71,22 @@ export namespace ClusterLibrarySummary {
 
 
 
+
+
         }};
 
         
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
+                case "PYPI":
+                    return model.PypiClusterLibrarySummary.getJsonObj(<model.PypiClusterLibrarySummary>(<object>jsonObj), true);
                 case "WORKSPACE_FILE":
                     return model.WorkspaceFileClusterLibrarySummary.getJsonObj(<model.WorkspaceFileClusterLibrarySummary>(<object>jsonObj), true);
                 case "VOLUME_FILE":
                     return model.VolumeFileClusterLibrarySummary.getJsonObj(<model.VolumeFileClusterLibrarySummary>(<object>jsonObj), true);
+                case "MAVEN":
+                    return model.MavenClusterLibrarySummary.getJsonObj(<model.MavenClusterLibrarySummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`)
 
@@ -86,16 +102,22 @@ export namespace ClusterLibrarySummary {
 
 
 
+
+
          }};
 
         
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
+                case "PYPI":
+                    return model.PypiClusterLibrarySummary.getDeserializedJsonObj(<model.PypiClusterLibrarySummary>(<object>jsonObj), true);
                 case "WORKSPACE_FILE":
                     return model.WorkspaceFileClusterLibrarySummary.getDeserializedJsonObj(<model.WorkspaceFileClusterLibrarySummary>(<object>jsonObj), true);
                 case "VOLUME_FILE":
                     return model.VolumeFileClusterLibrarySummary.getDeserializedJsonObj(<model.VolumeFileClusterLibrarySummary>(<object>jsonObj), true);
+                case "MAVEN":
+                    return model.MavenClusterLibrarySummary.getDeserializedJsonObj(<model.MavenClusterLibrarySummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`)
         }

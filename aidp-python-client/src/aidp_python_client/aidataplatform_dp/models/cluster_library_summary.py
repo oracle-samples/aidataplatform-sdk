@@ -54,8 +54,10 @@ class ClusterLibrarySummary(object):
         Initializes a new ClusterLibrarySummary object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
         to a service operations then you should favor using a subclass over the base class:
 
+        * :class:`~oci.aidataplatform_dp.models.PypiClusterLibrarySummary`
         * :class:`~oci.aidataplatform_dp.models.WorkspaceFileClusterLibrarySummary`
         * :class:`~oci.aidataplatform_dp.models.VolumeFileClusterLibrarySummary`
+        * :class:`~oci.aidataplatform_dp.models.MavenClusterLibrarySummary`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
@@ -70,6 +72,14 @@ class ClusterLibrarySummary(object):
         :param time_updated:
             The value to assign to the time_updated property of this ClusterLibrarySummary.
         :type time_updated: datetime
+
+        :param installed_by:
+            The value to assign to the installed_by property of this ClusterLibrarySummary.
+        :type installed_by: str
+
+        :param installed_by_name:
+            The value to assign to the installed_by_name property of this ClusterLibrarySummary.
+        :type installed_by_name: str
 
         :param state_message:
             The value to assign to the state_message property of this ClusterLibrarySummary.
@@ -86,6 +96,8 @@ class ClusterLibrarySummary(object):
             'type': 'str',
             'time_created': 'datetime',
             'time_updated': 'datetime',
+            'installed_by': 'str',
+            'installed_by_name': 'str',
             'state_message': 'str',
             'status': 'str'
         }
@@ -94,6 +106,8 @@ class ClusterLibrarySummary(object):
             'type': 'type',
             'time_created': 'timeCreated',
             'time_updated': 'timeUpdated',
+            'installed_by': 'installedBy',
+            'installed_by_name': 'installedByName',
             'state_message': 'stateMessage',
             'status': 'status'
         }
@@ -101,6 +115,8 @@ class ClusterLibrarySummary(object):
         self._type = None
         self._time_created = None
         self._time_updated = None
+        self._installed_by = None
+        self._installed_by_name = None
         self._state_message = None
         self._status = None
 
@@ -112,11 +128,17 @@ class ClusterLibrarySummary(object):
         """
         type = object_dictionary['type']
 
+        if type == 'PYPI':
+            return 'PypiClusterLibrarySummary'
+
         if type == 'WORKSPACE_FILE':
             return 'WorkspaceFileClusterLibrarySummary'
 
         if type == 'VOLUME_FILE':
             return 'VolumeFileClusterLibrarySummary'
+
+        if type == 'MAVEN':
+            return 'MavenClusterLibrarySummary'
         else:
             return 'ClusterLibrarySummary'
 
@@ -191,6 +213,54 @@ class ClusterLibrarySummary(object):
         :type: datetime
         """
         self._time_updated = time_updated
+
+    @property
+    def installed_by(self):
+        """
+        Gets the installed_by of this ClusterLibrarySummary.
+        Email address or identifier of the user who installed the library.
+
+
+        :return: The installed_by of this ClusterLibrarySummary.
+        :rtype: str
+        """
+        return self._installed_by
+
+    @installed_by.setter
+    def installed_by(self, installed_by):
+        """
+        Sets the installed_by of this ClusterLibrarySummary.
+        Email address or identifier of the user who installed the library.
+
+
+        :param installed_by: The installed_by of this ClusterLibrarySummary.
+        :type: str
+        """
+        self._installed_by = installed_by
+
+    @property
+    def installed_by_name(self):
+        """
+        Gets the installed_by_name of this ClusterLibrarySummary.
+        Display name of the user who installed the library.
+
+
+        :return: The installed_by_name of this ClusterLibrarySummary.
+        :rtype: str
+        """
+        return self._installed_by_name
+
+    @installed_by_name.setter
+    def installed_by_name(self, installed_by_name):
+        """
+        Sets the installed_by_name of this ClusterLibrarySummary.
+        Display name of the user who installed the library.
+
+
+        :param installed_by_name: The installed_by_name of this ClusterLibrarySummary.
+        :type: str
+        """
+        self._installed_by_name = installed_by_name
 
     @property
     def state_message(self):

@@ -24,10 +24,20 @@ export interface OacObjectTable {
     * The Oracle Analytics columns in the table.
     */
     'columns'?: Array<model.OacObjectColumn>;
+    /**
+    * Child tables nested under this Oracle Analytics table.
+    */
+    'childTables'?: Array<model.OacObjectTable>;
+    /**
+    * Additional tables nested under this Oracle Analytics table.
+    */
+    'tables'?: Array<model.OacObjectTable>;
 
 }
 
 export namespace OacObjectTable {
+
+
 
 
 
@@ -42,6 +52,16 @@ export namespace OacObjectTable {
                 'columns': obj.columns ?
                 
                 obj.columns.map((item)=>{return model.OacObjectColumn.getJsonObj(item)})
+                
+                 : undefined,
+                'childTables': obj.childTables ?
+                
+                obj.childTables.map((item)=>{return model.OacObjectTable.getJsonObj(item)})
+                
+                 : undefined,
+                'tables': obj.tables ?
+                
+                obj.tables.map((item)=>{return model.OacObjectTable.getJsonObj(item)})
                 
                  : undefined,
         }};
@@ -60,6 +80,16 @@ export namespace OacObjectTable {
                     'columns': obj.columns ?
                 
                 obj.columns.map((item)=>{return model.OacObjectColumn.getDeserializedJsonObj(item)})
+                
+                 : undefined,
+                    'childTables': obj.childTables ?
+                
+                obj.childTables.map((item)=>{return model.OacObjectTable.getDeserializedJsonObj(item)})
+                
+                 : undefined,
+                    'tables': obj.tables ?
+                
+                obj.tables.map((item)=>{return model.OacObjectTable.getDeserializedJsonObj(item)})
                 
                  : undefined,
          }};

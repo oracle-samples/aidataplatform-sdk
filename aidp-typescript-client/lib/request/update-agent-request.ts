@@ -16,7 +16,7 @@ export interface UpdateAgentRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**

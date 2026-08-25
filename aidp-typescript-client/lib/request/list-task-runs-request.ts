@@ -36,10 +36,7 @@ export interface ListTaskRunsRequest extends common.BaseRequest {
  */
  'rootJobRunKey'?: string;
 /**
- * For list pagination. The maximum number of results per page, or items to return in a
-* paginated \"List\" call. For important details about how pagination works, see
-* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
-* 
+ * For list pagination. The maximum number of results per page, or items to return in a paginated List call.
  */
  'limit'?: number;
 /**

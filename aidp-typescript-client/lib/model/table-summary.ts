@@ -79,6 +79,8 @@ export namespace TableSummary {
                     return model.MysqlTableSummary.getJsonObj(<model.MysqlTableSummary>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataTableSummary.getJsonObj(<model.ExadataTableSummary>(<object>jsonObj), true);
+                case "DB2":
+                    return model.Db2TableSummary.getJsonObj(<model.Db2TableSummary>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureTableSummary.getJsonObj(<model.SqlServerOnAzureTableSummary>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
@@ -91,8 +93,6 @@ export namespace TableSummary {
                     return model.AtpTableSummary.getJsonObj(<model.AtpTableSummary>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeTableSummary.getJsonObj(<model.SnowflakeTableSummary>(<object>jsonObj), true);
-                case "GOOGLE_BIGQUERY":
-                    return model.GoogleBigqueryTableSummary.getJsonObj(<model.GoogleBigqueryTableSummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -126,6 +126,8 @@ export namespace TableSummary {
                     return model.MysqlTableSummary.getDeserializedJsonObj(<model.MysqlTableSummary>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataTableSummary.getDeserializedJsonObj(<model.ExadataTableSummary>(<object>jsonObj), true);
+                case "DB2":
+                    return model.Db2TableSummary.getDeserializedJsonObj(<model.Db2TableSummary>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureTableSummary.getDeserializedJsonObj(<model.SqlServerOnAzureTableSummary>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
@@ -138,8 +140,6 @@ export namespace TableSummary {
                     return model.AtpTableSummary.getDeserializedJsonObj(<model.AtpTableSummary>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeTableSummary.getDeserializedJsonObj(<model.SnowflakeTableSummary>(<object>jsonObj), true);
-                case "GOOGLE_BIGQUERY":
-                    return model.GoogleBigqueryTableSummary.getDeserializedJsonObj(<model.GoogleBigqueryTableSummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

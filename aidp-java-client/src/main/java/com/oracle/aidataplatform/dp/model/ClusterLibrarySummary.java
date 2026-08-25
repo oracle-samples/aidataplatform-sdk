@@ -10,17 +10,21 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="type", defaultImpl=ClusterLibrarySummary.class)
 @com.fasterxml.jackson.annotation.JsonSubTypes({
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = PypiClusterLibrarySummary.class, name = "PYPI"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = WorkspaceFileClusterLibrarySummary.class, name = "WORKSPACE_FILE"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = VolumeFileClusterLibrarySummary.class, name = "VOLUME_FILE")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = VolumeFileClusterLibrarySummary.class, name = "VOLUME_FILE"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MavenClusterLibrarySummary.class, name = "MAVEN")
 })
 
 public class ClusterLibrarySummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"timeCreated", "timeUpdated", "stateMessage", "status"})
-    protected ClusterLibrarySummary(java.util.Date timeCreated, java.util.Date timeUpdated, String stateMessage, Status status) {
+    @java.beans.ConstructorProperties({"timeCreated", "timeUpdated", "installedBy", "installedByName", "stateMessage", "status"})
+    protected ClusterLibrarySummary(java.util.Date timeCreated, java.util.Date timeUpdated, String installedBy, String installedByName, String stateMessage, Status status) {
         super();
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
+        this.installedBy = installedBy;
+        this.installedByName = installedByName;
         this.stateMessage = stateMessage;
         this.status = status;
     }
@@ -59,6 +63,40 @@ public class ClusterLibrarySummary  {
     
     public java.util.Date getTimeUpdated() {
         return timeUpdated;
+    }
+
+
+        /**
+     * Email address or identifier of the user who installed the library.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("installedBy")
+    private final String installedBy;
+
+        /**
+     * Email address or identifier of the user who installed the library.
+     * @return the value
+     **/
+    
+    public String getInstalledBy() {
+        return installedBy;
+    }
+
+
+        /**
+     * Display name of the user who installed the library.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("installedByName")
+    private final String installedByName;
+
+        /**
+     * Display name of the user who installed the library.
+     * @return the value
+     **/
+    
+    public String getInstalledByName() {
+        return installedByName;
     }
 
 
@@ -166,6 +204,8 @@ public class ClusterLibrarySummary  {
         sb.append("ClusterLibrarySummary(");
         sb.append("timeCreated=").append(String.valueOf(this.timeCreated));
         sb.append(", timeUpdated=").append(String.valueOf(this.timeUpdated));
+        sb.append(", installedBy=").append(String.valueOf(this.installedBy));
+        sb.append(", installedByName=").append(String.valueOf(this.installedByName));
         sb.append(", stateMessage=").append(String.valueOf(this.stateMessage));
         sb.append(", status=").append(String.valueOf(this.status));
         sb.append(")");
@@ -184,6 +224,8 @@ public class ClusterLibrarySummary  {
         ClusterLibrarySummary other = (ClusterLibrarySummary) o;
         return java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
             java.util.Objects.equals(this.timeUpdated, other.timeUpdated) &&
+            java.util.Objects.equals(this.installedBy, other.installedBy) &&
+            java.util.Objects.equals(this.installedByName, other.installedByName) &&
             java.util.Objects.equals(this.stateMessage, other.stateMessage) &&
             java.util.Objects.equals(this.status, other.status);
     }
@@ -194,6 +236,8 @@ public class ClusterLibrarySummary  {
         int result = 1;
         result = (result * PRIME) + (this.timeCreated == null ? 43 : this.timeCreated.hashCode());
         result = (result * PRIME) + (this.timeUpdated == null ? 43 : this.timeUpdated.hashCode());
+        result = (result * PRIME) + (this.installedBy == null ? 43 : this.installedBy.hashCode());
+        result = (result * PRIME) + (this.installedByName == null ? 43 : this.installedByName.hashCode());
         result = (result * PRIME) + (this.stateMessage == null ? 43 : this.stateMessage.hashCode());
         result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
         return result;

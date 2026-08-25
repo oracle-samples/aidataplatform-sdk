@@ -15,6 +15,7 @@ public enum SchemaPrivilege implements com.oracle.bmc.http.internal.BmcEnum {
     CreateVolume("CREATE_VOLUME"),
     CreateTable("CREATE_TABLE"),
     CreateKnowledgeBase("CREATE_KNOWLEDGE_BASE"),
+    CreateModel("CREATE_MODEL"),
     Admin("ADMIN"),
     
 

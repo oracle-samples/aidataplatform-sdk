@@ -26,6 +26,10 @@ class WorkspaceNetworkConfigurationDetails(object):
             The value to assign to the nsg_ids property of this WorkspaceNetworkConfigurationDetails.
         :type nsg_ids: list[str]
 
+        :param dns_zones:
+            The value to assign to the dns_zones property of this WorkspaceNetworkConfigurationDetails.
+        :type dns_zones: list[str]
+
         :param scan_details:
             The value to assign to the scan_details property of this WorkspaceNetworkConfigurationDetails.
         :type scan_details: list[oci.aidataplatform_dp.models.Scan]
@@ -34,17 +38,20 @@ class WorkspaceNetworkConfigurationDetails(object):
         self.swagger_types = {
             'subnet_id': 'str',
             'nsg_ids': 'list[str]',
+            'dns_zones': 'list[str]',
             'scan_details': 'list[Scan]'
         }
 
         self.attribute_map = {
             'subnet_id': 'subnetId',
             'nsg_ids': 'nsgIds',
+            'dns_zones': 'dnsZones',
             'scan_details': 'scanDetails'
         }
 
         self._subnet_id = None
         self._nsg_ids = None
+        self._dns_zones = None
         self._scan_details = None
 
     @property
@@ -94,6 +101,32 @@ class WorkspaceNetworkConfigurationDetails(object):
         :type: list[str]
         """
         self._nsg_ids = nsg_ids
+
+    @property
+    def dns_zones(self):
+        """
+        Gets the dns_zones of this WorkspaceNetworkConfigurationDetails.
+        An array of fully qualified domain names to whitelist for workspace network access.
+        Example: `[ \"app.examplecorp.com\", \"app.examplecorp2.com\" ]`
+
+
+        :return: The dns_zones of this WorkspaceNetworkConfigurationDetails.
+        :rtype: list[str]
+        """
+        return self._dns_zones
+
+    @dns_zones.setter
+    def dns_zones(self, dns_zones):
+        """
+        Sets the dns_zones of this WorkspaceNetworkConfigurationDetails.
+        An array of fully qualified domain names to whitelist for workspace network access.
+        Example: `[ \"app.examplecorp.com\", \"app.examplecorp2.com\" ]`
+
+
+        :param dns_zones: The dns_zones of this WorkspaceNetworkConfigurationDetails.
+        :type: list[str]
+        """
+        self._dns_zones = dns_zones
 
     @property
     def scan_details(self):

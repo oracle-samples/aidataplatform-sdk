@@ -16,7 +16,7 @@ export interface PreviewAgentAgentCardRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * Request details for previewing an agent card
+ * Request details for previewing an agent card.
  */
  'previewAgentCardDetails':  model.PreviewAgentCardDetails;
 /**

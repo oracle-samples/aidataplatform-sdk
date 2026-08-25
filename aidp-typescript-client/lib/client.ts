@@ -181,7 +181,7 @@ export class AgentClient {
     }
     
     /**
-     * Copy an Agent.
+     * Copies an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CopyAgentRequest
      * @return CopyAgentResponse
@@ -266,7 +266,7 @@ export class AgentClient {
     }
 
     /**
-     * Create an Agent.
+     * Creates an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateAgentRequest
      * @return CreateAgentResponse
@@ -350,7 +350,7 @@ export class AgentClient {
     }
 
     /**
-     * Delete an Agent from the schema
+     * Delete an agent from the schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteAgentRequest
      * @return DeleteAgentResponse
@@ -413,7 +413,7 @@ export class AgentClient {
     }
 
     /**
-     * Delete an Agent Deployment.
+     * Deletes an agent deployment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteAgentDeploymentRequest
      * @return DeleteAgentDeploymentResponse
@@ -477,7 +477,7 @@ export class AgentClient {
     }
 
     /**
-     * Delete an Agent Session.
+     * Deletes an agent Session.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteAgentSessionRequest
      * @return DeleteAgentSessionResponse
@@ -541,7 +541,7 @@ export class AgentClient {
     }
 
     /**
-     * Deploys an Agent.
+     * Deploys a specified agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeployAgentRequest
      * @return DeployAgentResponse
@@ -631,7 +631,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns detailed information about an Agent.
+     * Returns detailed information about an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetAgentRequest
      * @return GetAgentResponse
@@ -703,7 +703,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns detailed information about an Agent deployment.
+     * Returns detailed information about an agent deployment.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetAgentDeploymentRequest
      * @return GetAgentDeploymentResponse
@@ -776,7 +776,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns detailed information about an Agent Session.
+     * Returns detailed information about an agent session.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetAgentSessionRequest
      * @return GetAgentSessionResponse
@@ -923,7 +923,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns a list of deployments of an agent.
+     * Returns a list of all deployments of an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAgentDeploymentsRequest
      * @return ListAgentDeploymentsResponse
@@ -1005,7 +1005,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns a list of permissions for a given Agent.
+     * Returns a list of permissions for a given agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAgentPermissionsRequest
      * @return ListAgentPermissionsResponse
@@ -1081,7 +1081,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns list of Agent Session chat messages.
+     * Returns list of agent session chat messages.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAgentSessionChatHistoriesRequest
      * @return ListAgentSessionChatHistoriesResponse
@@ -1156,7 +1156,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns a list of testing sessions of an Agent.
+     * Returns a list of testing sessions of an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAgentSessionsRequest
      * @return ListAgentSessionsResponse
@@ -1240,7 +1240,7 @@ export class AgentClient {
     }
 
     /**
-     * Returns a list of Agents in a schema.
+     * Returns a list of agents in a schema.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAgentsRequest
      * @return ListAgentsResponse
@@ -1318,7 +1318,7 @@ export class AgentClient {
     }
 
     /**
-     * Update the permissions for a given Agent.
+     * Update the permissions for a given agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ManageAgentPermissionRequest
      * @return ManageAgentPermissionResponse
@@ -1458,7 +1458,7 @@ export class AgentClient {
     }
 
     /**
-     * Redeploys an Agent.
+     * Redeploys an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param RedeployAgentByKeyRequest
      * @return RedeployAgentByKeyResponse
@@ -1548,7 +1548,7 @@ export class AgentClient {
     }
 
     /**
-     * Update an Agent with provided details.
+     * Updates an agent with provided details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateAgentRequest
      * @return UpdateAgentResponse
@@ -1623,7 +1623,7 @@ export class AgentClient {
     }
 
     /**
-     * Update the deployment metadata for an Agent.
+     * Updates the deployment metadata for an agent.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateAgentDeploymentMetadataRequest
      * @return UpdateAgentDeploymentMetadataResponse
@@ -1698,7 +1698,7 @@ export class AgentClient {
     }
 
     /**
-     * Validate the agent json diagram generated by UI.
+     * Validates the agent JSON diagram generated by UI.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ValidateAgentRequest
      * @return ValidateAgentResponse
@@ -2572,85 +2572,7 @@ export class BundleClient {
     }
     
     /**
-     * (Deprecated) Creates a new bundle.
-* <p>
-A bundle is a self-contained, portable representation of selected workspace assets, such as jobs
-* and agent flows, along with their dependencies and associated code artifacts. It captures both
-* the resource configurations and the supporting assets required to recreate those resources in
-* another workspace or environment.
-* <p>
-The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder
-* structure for code artifacts from the location where it was created, so the generated bundle
-* mirrors the source layout.
-* <p>
-Dependencies are tracked inside the bundle under each asset type:
-*   - job and agent flow dependencies are added under the `dependencies` folder inside the
-* `jobs` and `agentflows` folders
-* - code dependencies are added under the `artifacts` directory in the bundle
-* <p>
-Dependency references use template variables, for example:
-*   - compute: `$${jobs.dependencies.training_compute.compute.key}`
-*   - nested jobs: `$${jobs.dependencies.training_job.job.key}`
-*   - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}`
-* <p>
-Bundles also support the special variable `$${bundle.root}`, which points to the root of the
-* bundle folder and is used for referencing artifacts.
-* <p>
-Variables and overrides:
-*   - bundles support parameterization using variables defined in the bundle manifest
-*     (`aidp_workbench.yaml`)
-* <p>
-  Example manifest defaults:
-*     defaults:
-*       variables:
-*         job_compute_key: \"$${jobs.dependencies.small.compute.key}\"
-* <p>
-    - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax
-* <p>
-  Example usage in a job descriptor:
-*     \"clusterKey\": \"$${var.job_compute_key}\"
-* <p>
-    - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle
-*     - this file is intended for environment-specific configuration and should not be committed to Git,
-*       allowing the bundle to remain portable and environment-agnostic
-* <p>
-  Example overrides file:
-*     variables:
-*       job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b
-* <p>
-    - when an override is provided, the referenced dependency (for example, compute) is not created,
-*       and the provided value is used instead
-*     - when no override is provided, the system falls back to the default variable value, which may
-*       reference a dependency included in the bundle (resulting in that dependency being created)
-*     - this mechanism enables environment-specific customization (for example, reusing existing
-*       infrastructure in production while creating new resources in development)
-*     - the same pattern can be used for other environment-specific parameters such as compute shape,
-*       number of OCPUs, or other configuration values
-* <p>
-Git integration and promotion:
-*   - bundles can only be created inside Git-backed workspace folders
-*   - bundles are self-contained packages that include resource definitions, dependency references,
-*     and associated code artifacts required to recreate the bundled resources
-*   - the entire bundle folder can be committed and pushed to a Git repository
-*   - bundles can be pulled into another workspace via Git and deployed there
-*   - bundles can be promoted across environments (for example, dev \u2192 test \u2192 prod) using Git workflows
-*   - because the bundle includes both resource configuration and code dependencies, it can be used
-*     to reliably replicate assets across workspaces
-* <p>
-This operation is asynchronous. The service validates the request, starts bundle
-* creation, and returns an async operation key in the response headers. Use the async
-* operation APIs to track completion.
-* <p>
-Typical use cases:
-* - capture selected workspace resources into a version-controlled bundle
-* - prepare a bundle for later deployment or promotion
-* - establish a bundle root that can later be inspected, updated, or deployed
-* <p>
-Request notes:
-* - `path` identifies the parent folder in the workspace volume where the bundle should be created
-* - `name` identifies the bundle folder name
-* - `bundledResources` identifies which workspace resources should be included
-* 
+     * (Deprecated)
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateBundleRequest
      * @return CreateBundleResponse
@@ -2721,69 +2643,6 @@ Request notes:
 
     /**
      * (Preview) Creates a new bundle.
-* <p>
-A bundle is a self-contained, portable representation of selected workspace assets, such as jobs
-* and agent flows, along with their dependencies and associated code artifacts. It captures both
-* the resource configurations and the supporting assets required to recreate those resources in
-* another workspace or environment.
-* <p>
-The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder
-* structure for code artifacts from the location where it was created, so the generated bundle
-* mirrors the source layout.
-* <p>
-Dependencies are tracked inside the bundle under each asset type:
-*   - job and agent flow dependencies are added under the `dependencies` folder inside the
-* `jobs` and `agentflows` folders
-* - code dependencies are added under the `artifacts` directory in the bundle
-* <p>
-Dependency references use template variables, for example:
-*   - compute: `$${jobs.dependencies.training_compute.compute.key}`
-*   - nested jobs: `$${jobs.dependencies.training_job.job.key}`
-*   - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}`
-* <p>
-Bundles also support the special variable `$${bundle.root}`, which points to the root of the
-* bundle folder and is used for referencing artifacts.
-* <p>
-Variables and overrides:
-*   - bundles support parameterization using variables defined in the bundle manifest
-*     (`aidp_workbench.yaml`)
-* <p>
-  Example manifest defaults:
-*     defaults:
-*       variables:
-*         job_compute_key: \"$${jobs.dependencies.small.compute.key}\"
-* <p>
-    - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax
-* <p>
-  Example usage in a job descriptor:
-*     \"clusterKey\": \"$${var.job_compute_key}\"
-* <p>
-    - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle
-*     - this file is intended for environment-specific configuration and should not be committed to Git,
-*       allowing the bundle to remain portable and environment-agnostic
-* <p>
-  Example overrides file:
-*     variables:
-*       job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b
-* <p>
-    - when an override is provided, the referenced dependency (for example, compute) is not created,
-*       and the provided value is used instead
-*     - when no override is provided, the system falls back to the default variable value, which may
-*       reference a dependency included in the bundle (resulting in that dependency being created)
-*     - this mechanism enables environment-specific customization (for example, reusing existing
-*       infrastructure in production while creating new resources in development)
-*     - the same pattern can be used for other environment-specific parameters such as compute shape,
-*       number of OCPUs, or other configuration values
-* <p>
-Git integration and promotion:
-*   - bundles can only be created inside Git-backed workspace folders
-*   - bundles are self-contained packages that include resource definitions, dependency references,
-*     and associated code artifacts required to recreate the bundled resources
-*   - the entire bundle folder can be committed and pushed to a Git repository
-*   - bundles can be pulled into another workspace via Git and deployed there
-*   - bundles can be promoted across environments (for example, dev \u2192 test \u2192 prod) using Git workflows
-*   - because the bundle includes both resource configuration and code dependencies, it can be used
-*     to reliably replicate assets across workspaces
 * <p>
 This operation is asynchronous. The service validates the request, starts bundle
 * creation, and returns an async operation key in the response headers. Use the async
@@ -2868,24 +2727,7 @@ Request notes:
     }
 
     /**
-     * (Deprecated) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
-* Returns an async job key for tracking deployment progress.
-* <p>
-This operation is asynchronous. The request is accepted for background execution and
-* returns an async operation key in the response headers.
-* <p>
-Deployment typically uses:
-* - the bundle manifest at the bundle root
-* - top-level resource descriptors in the bundle
-* - dependency descriptors referenced by those top-level resources
-* - default or override variable values when present
-* <p>
-Use this operation when you want to apply the bundle contents into the target
-* workspace state.
-* <p>
-Request notes:
-* - `path` identifies the bundle root folder in the workspace volume
-* 
+     * (Deprecated)
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeployBundleRequest
      * @return DeployBundleResponse
@@ -2955,23 +2797,7 @@ Request notes:
     }
 
     /**
-     * (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
-* Returns an async job key for tracking deployment progress.
-* <p>
-This operation is asynchronous. The request is accepted for background execution and
-* returns an async operation key in the response headers.
-* <p>
-Deployment typically uses:
-* - the bundle manifest at the bundle root
-* - top-level resource descriptors in the bundle
-* - dependency descriptors referenced by those top-level resources
-* - default or override variable values when present
-* <p>
-Use this operation when you want to apply the bundle contents into the target
-* workspace state.
-* <p>
-Request notes:
-* - `path` identifies the bundle root folder in the workspace volume
+     * Deprecated compatibility API. Use `publish` for new callers.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeployBundleActionRequest
@@ -3042,27 +2868,7 @@ Request notes:
     }
 
     /**
-     * (Deprecated) Returns a high-level summary of the most recent deployment activity recorded for the
-* specified bundle.
-* <p>
-This operation is useful after deploy or purge requests when you want the latest
-* bundle-level deployment outcome rather than raw async operation details.
-* <p>
-The response can include:
-* - overall deployment status
-* - start and completion timestamps
-* - summary message
-* - resources associated with the last recorded deployment result
-* <p>
-Typical status values include:
-* - `IN_PROGRESS`
-* - `SUCCEEDED`
-* - `FAILED`
-* - `NOT_DEPLOYED`
-* <p>
-Request notes:
-* - `path` identifies the bundle root folder in the workspace volume
-* 
+     * (Deprecated)
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param FetchBundleDeploymentStatusRequest
      * @return FetchBundleDeploymentStatusResponse
@@ -3131,26 +2937,7 @@ Request notes:
     }
 
     /**
-     * (Preview) Returns a high-level summary of the most recent deployment activity recorded for the
-* specified bundle.
-* <p>
-This operation is useful after deploy or purge requests when you want the latest
-* bundle-level deployment outcome rather than raw async operation details.
-* <p>
-The response can include:
-* - overall deployment status
-* - start and completion timestamps
-* - summary message
-* - resources associated with the last recorded deployment result
-* <p>
-Typical status values include:
-* - `IN_PROGRESS`
-* - `SUCCEEDED`
-* - `FAILED`
-* - `NOT_DEPLOYED`
-* <p>
-Request notes:
-* - `path` identifies the bundle root folder in the workspace volume
+     * Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param FetchBundleDeploymentStatusActionRequest
@@ -3220,22 +3007,164 @@ Request notes:
     }
 
     /**
-     * (Deprecated) Tears down all resources deployed by the specified bundle in the workspace.
+     * (Preview) Returns the latest publish summary.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param FetchBundlePublishStatusActionRequest
+     * @return FetchBundlePublishStatusActionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/FetchBundlePublishStatusAction.ts.html |here} to see how to use FetchBundlePublishStatusAction API.
+     */
+    public async fetchBundlePublishStatusAction (fetchBundlePublishStatusActionRequest: requests.FetchBundlePublishStatusActionRequest) : Promise<responses.FetchBundlePublishStatusActionResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation BundleClient#fetchBundlePublishStatusAction.");
+        const operationName = "fetchBundlePublishStatusAction";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": fetchBundlePublishStatusActionRequest.aiDataPlatformId,
+            "{workspaceKey}": fetchBundlePublishStatusActionRequest.workspaceKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': fetchBundlePublishStatusActionRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            fetchBundlePublishStatusActionRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/getBundlePublishStatus',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(fetchBundlePublishStatusActionRequest.fetchBundlePublishStatusDetails, "FetchBundlePublishStatusDetails"
+                            , model.FetchBundlePublishStatusDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.FetchBundlePublishStatusActionResponse>{},
+                body: await response.json(),
+                bodyKey: "bundlePublishStatus",
+                bodyModel:  model.BundlePublishStatus,
+                type: "model.BundlePublishStatus",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Publishes the specified bundle, creating or updating jobs and agent flows according to the bundle manifest.
+* Returns an async job key for tracking publish progress.
 * <p>
-This operation is intended to tear down resources that were created or managed through
-* bundle deployment. It does not delete the bundle files themselves from the workspace
-* volume.
+This operation is asynchronous. The request is accepted for background execution and
+* returns an async operation key in the response headers.
 * <p>
-This operation is asynchronous. The service accepts the purge request, starts the
-* background teardown workflow, and returns async operation headers.
+Publishing typically uses:
+* - the bundle manifest at the bundle root
+* - top-level resource descriptors in the bundle
+* - dependency descriptors referenced by those top-level resources
+* - default or override variable values when present
 * <p>
-Typical use cases:
-* - remove resources that were previously deployed from a bundle
-* - clean up a workspace before re-deploying or retiring a bundle
+Use this operation when you want to apply the bundle contents into the target
+* workspace state.
 * <p>
 Request notes:
 * - `path` identifies the bundle root folder in the workspace volume
 * 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param PublishBundleActionRequest
+     * @return PublishBundleActionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/PublishBundleAction.ts.html |here} to see how to use PublishBundleAction API.
+     */
+    public async publishBundleAction (publishBundleActionRequest: requests.PublishBundleActionRequest) : Promise<responses.PublishBundleActionResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation BundleClient#publishBundleAction.");
+        const operationName = "publishBundleAction";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": publishBundleActionRequest.aiDataPlatformId,
+            "{workspaceKey}": publishBundleActionRequest.workspaceKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': publishBundleActionRequest.opcRetryToken,'opc-request-id': publishBundleActionRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            publishBundleActionRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/publishBundle',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(publishBundleActionRequest.publishBundleDetails, "PublishBundleDetails"
+                            , model.PublishBundleDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.PublishBundleActionResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Deprecated)
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param PurgeBundleRequest
      * @return PurgeBundleResponse
@@ -3390,41 +3319,7 @@ Request notes:
     }
 
     /**
-     * (Deprecated) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins.
-* Returns an async job key for tracking sync progress.
-* <p>
-This operation is intended for cases where the bundle should be refreshed to reflect
-* newer source changes while preserving the bundle structure and identity.
-* <p>
-Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source
-* jobs and agent flows that were captured when the bundle was created. The source metadata
-* is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and
-* workspace. The operation refreshes source-controlled bundle content while preserving the
-* bundle identity and runtime metadata.
-* <p>
-During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp`
-* directory, compares existing and staged descriptors, preserves existing variable aliases
-* and override references where possible, merges existing manifest default variables, and
-* then promotes the refreshed source-controlled files back into the bundle root.
-* <p>
-Sync preserves environment-specific and deployment runtime files such as
-* `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the
-* refreshed source snapshot.
-* <p>
-This operation is asynchronous and returns async operation headers when accepted.
-* <p>
-Typical use cases:
-* - refresh bundle contents after upstream workspace resources have changed
-* - reconcile descriptor or artifact content with current resource origins
-* - preserve local bundle overrides while pulling in source resource updates
-* - keep a Git-backed bundle current before committing or promoting it
-* <p>
-Request notes:
-* - `path` identifies the bundle root folder in the workspace volume
-* - the bundle must contain a valid `aidp_workbench.yaml`
-* - the bundle must contain `.aidp/resource_origins.yaml`
-* - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
-* 
+     * (Deprecated)
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param SyncBundleRequest
      * @return SyncBundleResponse
@@ -3500,28 +3395,13 @@ Request notes:
 This operation is intended for cases where the bundle should be refreshed to reflect
 * newer source changes while preserving the bundle structure and identity.
 * <p>
-Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source
-* jobs and agent flows that were captured when the bundle was created. The source metadata
-* is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and
-* workspace. The operation refreshes source-controlled bundle content while preserving the
-* bundle identity and runtime metadata.
-* <p>
-During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp`
-* directory, compares existing and staged descriptors, preserves existing variable aliases
-* and override references where possible, merges existing manifest default variables, and
-* then promotes the refreshed source-controlled files back into the bundle root.
-* <p>
-Sync preserves environment-specific and deployment runtime files such as
-* `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the
-* refreshed source snapshot.
-* <p>
 This operation is asynchronous and returns async operation headers when accepted.
 * <p>
 Typical use cases:
 * - refresh bundle contents after upstream workspace resources have changed
 * - reconcile descriptor or artifact content with current resource origins
 * - preserve local bundle overrides while pulling in source resource updates
-* - keep a Git-backed bundle current before committing or promoting it
+* - keep a bundle current before promoting it
 * <p>
 Request notes:
 * - `path` identifies the bundle root folder in the workspace volume
@@ -4002,6 +3882,7 @@ export class CatalogClient {
 
         const queryParams = { 
             'isCatalogGuid': getCatalogRequest.isCatalogGuid,
+            'shouldSkipOcidTranslation': getCatalogRequest.shouldSkipOcidTranslation,
         };
 
         let headerParams = {
@@ -4150,6 +4031,7 @@ export class CatalogClient {
             'displayName': listCatalogsRequest.displayName,
             'catalogState': listCatalogsRequest.catalogState,
             'catalogType': listCatalogsRequest.catalogType,
+            'shouldSkipOcidTranslation': listCatalogsRequest.shouldSkipOcidTranslation,
             'limit': listCatalogsRequest.limit,
             'page': listCatalogsRequest.page,
             'sortOrder': listCatalogsRequest.sortOrder,
@@ -4579,6 +4461,74 @@ export class ClusterClient {
     }
     
     /**
+     * Creates one Spark Compute by copying all source Compute settings and configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CloneComputeRequest
+     * @return CloneComputeResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CloneCompute.ts.html |here} to see how to use CloneCompute API.
+     */
+    public async cloneCompute (cloneComputeRequest: requests.CloneComputeRequest) : Promise<responses.CloneComputeResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation ClusterClient#cloneCompute.");
+        const operationName = "cloneCompute";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": cloneComputeRequest.aiDataPlatformId,
+            "{workspaceKey}": cloneComputeRequest.workspaceKey,
+            "{clusterKey}": cloneComputeRequest.clusterKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': cloneComputeRequest.opcRetryToken,'opc-request-id': cloneComputeRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            cloneComputeRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/cloneCompute',
+            method: 'POST',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.CloneComputeResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * Creates a new cluster with the provided details.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateClusterRequest
@@ -4805,6 +4755,101 @@ export class ClusterClient {
     }
 
     /**
+     * Writes selected Compute configuration values supplied by the caller to a workspace YAML file without overwriting an existing file.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ExportComputeConfigurationRequest
+     * @return ExportComputeConfigurationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportComputeConfiguration.ts.html |here} to see how to use ExportComputeConfiguration API.
+     */
+    public async exportComputeConfiguration (exportComputeConfigurationRequest: requests.ExportComputeConfigurationRequest) : Promise<responses.ExportComputeConfigurationResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation ClusterClient#exportComputeConfiguration.");
+        const operationName = "exportComputeConfiguration";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": exportComputeConfigurationRequest.aiDataPlatformId,
+            "{workspaceKey}": exportComputeConfigurationRequest.workspaceKey,
+            "{clusterKey}": exportComputeConfigurationRequest.clusterKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': exportComputeConfigurationRequest.opcRetryToken,'opc-request-id': exportComputeConfigurationRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            exportComputeConfigurationRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/exportComputeConfiguration',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(exportComputeConfigurationRequest.exportComputeConfigurationDetails, "ExportComputeConfigurationDetails"
+                            , model.ExportComputeConfigurationDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ExportComputeConfigurationResponse>{},
+
+                body: response.body!,
+                bodyKey: "value",
+                bodyModel: "string",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("location"),
+                        key: "location",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("content-location"),
+                        key: "contentLocation",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("path"),
+                        key: "path",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("type"),
+                        key: "type",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("time-updated"),
+                        key: "timeUpdated",
+                        dataType: "Date"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * Returns detailed information about a cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetClusterRequest
@@ -4877,6 +4922,73 @@ export class ClusterClient {
     }
 
     /**
+     * Gets cluster-scoped Python and JAR libraries and environment variables from Spark Compute.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetComputeConfigurationRequest
+     * @return GetComputeConfigurationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetComputeConfiguration.ts.html |here} to see how to use GetComputeConfiguration API.
+     */
+    public async getComputeConfiguration (getComputeConfigurationRequest: requests.GetComputeConfigurationRequest) : Promise<responses.GetComputeConfigurationResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation ClusterClient#getComputeConfiguration.");
+        const operationName = "getComputeConfiguration";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getComputeConfigurationRequest.aiDataPlatformId,
+            "{workspaceKey}": getComputeConfigurationRequest.workspaceKey,
+            "{clusterKey}": getComputeConfigurationRequest.clusterKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getComputeConfigurationRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getComputeConfigurationRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/getComputeConfiguration',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetComputeConfigurationResponse>{},
+                body: await response.json(),
+                bodyKey: "computeConfiguration",
+                bodyModel:  model.ComputeConfiguration,
+                type: "model.ComputeConfiguration",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * Gets information about the master catalog default cluster.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetDefaultClusterRequest
@@ -4929,6 +5041,77 @@ export class ClusterClient {
                     {
                         value: response.headers.get("etag"),
                         key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Imports one or more unique workspace YAML files into an active Spark Compute.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ImportComputeConfigurationRequest
+     * @return ImportComputeConfigurationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ImportComputeConfiguration.ts.html |here} to see how to use ImportComputeConfiguration API.
+     */
+    public async importComputeConfiguration (importComputeConfigurationRequest: requests.ImportComputeConfigurationRequest) : Promise<responses.ImportComputeConfigurationResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation ClusterClient#importComputeConfiguration.");
+        const operationName = "importComputeConfiguration";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": importComputeConfigurationRequest.aiDataPlatformId,
+            "{workspaceKey}": importComputeConfigurationRequest.workspaceKey,
+            "{clusterKey}": importComputeConfigurationRequest.clusterKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': importComputeConfigurationRequest.opcRetryToken,'opc-request-id': importComputeConfigurationRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            importComputeConfigurationRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/actions/importComputeConfiguration',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(importComputeConfigurationRequest.importComputeConfigurationDetails, "ImportComputeConfigurationDetails"
+                            , model.ImportComputeConfigurationDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ImportComputeConfigurationResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
                         dataType: "string"
                     },
                     {
@@ -5553,6 +5736,86 @@ export class ClusterClient {
                     {
                         value: response.headers.get("opc-next-page"),
                         key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Searches Maven packages available for cluster library installation.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param SearchMavenPackagesRequest
+     * @return SearchMavenPackagesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchMavenPackages.ts.html |here} to see how to use SearchMavenPackages API.
+     */
+    public async searchMavenPackages (searchMavenPackagesRequest: requests.SearchMavenPackagesRequest) : Promise<responses.SearchMavenPackagesResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation ClusterClient#searchMavenPackages.");
+        const operationName = "searchMavenPackages";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": searchMavenPackagesRequest.aiDataPlatformId,
+            "{workspaceKey}": searchMavenPackagesRequest.workspaceKey,
+            "{clusterKey}": searchMavenPackagesRequest.clusterKey,
+        };
+
+        const queryParams = { 
+            'mavenSearchQuery': searchMavenPackagesRequest.mavenSearchQuery,
+            'limit': searchMavenPackagesRequest.limit,
+            'page': searchMavenPackagesRequest.page,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': searchMavenPackagesRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            searchMavenPackagesRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/clusters/{clusterKey}/mavenPackages',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.SearchMavenPackagesResponse>{},
+                body: await response.json(),
+                bodyKey: "mavenSearchSummaryCollection",
+                bodyModel:  model.MavenSearchSummaryCollection,
+                type: "model.MavenSearchSummaryCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-prev-page"),
+                        key: "opcPrevPage",
                         dataType: "string"
                     },
                     ]
@@ -13298,7 +13561,8 @@ export class NotebookClient {
     }
 
     /**
-     * Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter.
+     * Returns content for a given file or metadata for a directory. Directory content listing is not supported; requests with type=directory and
+* content=1 return 400 and should use content=0 to retrieve directory metadata. You can optionally specify a type and/or format argument via URL parameter.
 * When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text
 * is requested, but the file is binary, then the request returns a 400 message and a JSON response with a Reason field identifying the issue. The value
 * of the Reason field is \u2018bad format\u2019 or \u2018bad type\u2019, depending on what was requested.
@@ -15271,6 +15535,7 @@ export class SchemaClient {
         };
 
         const queryParams = { 
+            'shouldSkipOcidTranslation': getSchemaRequest.shouldSkipOcidTranslation,
         };
 
         let headerParams = {
@@ -15342,6 +15607,7 @@ export class SchemaClient {
         };
 
         const queryParams = { 
+            'shouldSkipOcidTranslation': getTableRequest.shouldSkipOcidTranslation,
         };
 
         let headerParams = {
@@ -15559,6 +15825,7 @@ export class SchemaClient {
 
         const queryParams = { 
             'catalogKey': listSchemasRequest.catalogKey,
+            'shouldSkipOcidTranslation': listSchemasRequest.shouldSkipOcidTranslation,
             'displayName': listSchemasRequest.displayName,
             'limit': listSchemasRequest.limit,
             'page': listSchemasRequest.page,
@@ -15710,6 +15977,7 @@ export class SchemaClient {
 
         const queryParams = { 
             'catalogKey': listTablesRequest.catalogKey,
+            'shouldSkipOcidTranslation': listTablesRequest.shouldSkipOcidTranslation,
             'schemaKey': listTablesRequest.schemaKey,
             'displayName': listTablesRequest.displayName,
             'limit': listTablesRequest.limit,
@@ -18770,6 +19038,80 @@ export class VolumeClient {
     }
 
     /**
+     * Creates or updates an asynchronous volume ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UploadAndExtractVolumeZipRequest
+     * @return UploadAndExtractVolumeZipResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadAndExtractVolumeZip.ts.html |here} to see how to use UploadAndExtractVolumeZip API.
+     */
+    public async uploadAndExtractVolumeZip (uploadAndExtractVolumeZipRequest: requests.UploadAndExtractVolumeZipRequest) : Promise<responses.UploadAndExtractVolumeZipResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation VolumeClient#uploadAndExtractVolumeZip.");
+        const operationName = "uploadAndExtractVolumeZip";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": uploadAndExtractVolumeZipRequest.aiDataPlatformId,
+            "{volumeKey}": uploadAndExtractVolumeZipRequest.volumeKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': uploadAndExtractVolumeZipRequest.opcRetryToken,'opc-request-id': uploadAndExtractVolumeZipRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            uploadAndExtractVolumeZipRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}/actions/uploadAndExtractZip',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(uploadAndExtractVolumeZipRequest.uploadAndExtractZipDetails, "UploadAndExtractZipDetails"
+                            , model.UploadAndExtractZipDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.UploadAndExtractVolumeZipResponse>{},
+                body: await response.json(),
+                bodyKey: "uploadAndExtractZipResult",
+                bodyModel:  model.UploadAndExtractZipResult,
+                type: "model.UploadAndExtractZipResult",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * Uploads a file to volume. If the file already exists, it is updated.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -18922,6 +19264,80 @@ export class VolumeClient {
                     {
                         value: response.headers.get("etag"),
                         key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Starts asynchronous creation of a ZIP archive for a volume folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ZipAndDownloadVolumeFolderRequest
+     * @return ZipAndDownloadVolumeFolderResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ZipAndDownloadVolumeFolder.ts.html |here} to see how to use ZipAndDownloadVolumeFolder API.
+     */
+    public async zipAndDownloadVolumeFolder (zipAndDownloadVolumeFolderRequest: requests.ZipAndDownloadVolumeFolderRequest) : Promise<responses.ZipAndDownloadVolumeFolderResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation VolumeClient#zipAndDownloadVolumeFolder.");
+        const operationName = "zipAndDownloadVolumeFolder";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": zipAndDownloadVolumeFolderRequest.aiDataPlatformId,
+            "{volumeKey}": zipAndDownloadVolumeFolderRequest.volumeKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': zipAndDownloadVolumeFolderRequest.opcRetryToken,'opc-request-id': zipAndDownloadVolumeFolderRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            zipAndDownloadVolumeFolderRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/volumes/{volumeKey}/actions/zipAndDownloadFolder',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(zipAndDownloadVolumeFolderRequest.zipAndDownloadFolderDetails, "ZipAndDownloadFolderDetails"
+                            , model.ZipAndDownloadFolderDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ZipAndDownloadVolumeFolderResponse>{},
+                body: await response.json(),
+                bodyKey: "zipAndDownloadFolderResult",
+                bodyModel:  model.ZipAndDownloadFolderResult,
+                type: "model.ZipAndDownloadFolderResult",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
                         dataType: "string"
                     },
                     {
@@ -19884,6 +20300,7 @@ export class WorkflowClient {
         };
 
         const queryParams = { 
+            'shouldIncludeTaskRunRetries': getTaskRunRequest.shouldIncludeTaskRunRetries,
         };
 
         let headerParams = {
@@ -20253,6 +20670,89 @@ export class WorkflowClient {
                     {
                         value: response.headers.get("opc-next-page"),
                         key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Returns detailed information about retries of a task run with a given task run key.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListTaskRunRetriesRequest
+     * @return ListTaskRunRetriesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListTaskRunRetries.ts.html |here} to see how to use ListTaskRunRetries API.
+     */
+    public async listTaskRunRetries (listTaskRunRetriesRequest: requests.ListTaskRunRetriesRequest) : Promise<responses.ListTaskRunRetriesResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation WorkflowClient#listTaskRunRetries.");
+        const operationName = "listTaskRunRetries";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": listTaskRunRetriesRequest.aiDataPlatformId,
+            "{workspaceKey}": listTaskRunRetriesRequest.workspaceKey,
+            "{taskRunKey}": listTaskRunRetriesRequest.taskRunKey,
+        };
+
+        const queryParams = { 
+            'displayName': listTaskRunRetriesRequest.displayName,
+            'status': listTaskRunRetriesRequest.status,
+            'limit': listTaskRunRetriesRequest.limit,
+            'page': listTaskRunRetriesRequest.page,
+            'sortOrder': listTaskRunRetriesRequest.sortOrder,
+            'sortBy': listTaskRunRetriesRequest.sortBy,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': listTaskRunRetriesRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            listTaskRunRetriesRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/taskRuns/{taskRunKey}/retries',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ListTaskRunRetriesResponse>{},
+                body: await response.json(),
+                bodyKey: "taskRunRetryCollection",
+                bodyModel:  model.TaskRunRetryCollection,
+                type: "model.TaskRunRetryCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-prev-page"),
+                        key: "opcPrevPage",
                         dataType: "string"
                     },
                     ]
@@ -22760,6 +23260,81 @@ export class WorkspaceObjectClient {
     }
 
     /**
+     * Creates or updates an asynchronous workspace ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UploadAndExtractWorkspaceZipRequest
+     * @return UploadAndExtractWorkspaceZipResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UploadAndExtractWorkspaceZip.ts.html |here} to see how to use UploadAndExtractWorkspaceZip API.
+     */
+    public async uploadAndExtractWorkspaceZip (uploadAndExtractWorkspaceZipRequest: requests.UploadAndExtractWorkspaceZipRequest) : Promise<responses.UploadAndExtractWorkspaceZipResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation WorkspaceObjectClient#uploadAndExtractWorkspaceZip.");
+        const operationName = "uploadAndExtractWorkspaceZip";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": uploadAndExtractWorkspaceZipRequest.aiDataPlatformId,
+            "{workspaceKey}": uploadAndExtractWorkspaceZipRequest.workspaceKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': uploadAndExtractWorkspaceZipRequest.opcRetryToken,'opc-request-id': uploadAndExtractWorkspaceZipRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            uploadAndExtractWorkspaceZipRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/uploadAndExtractZip',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(uploadAndExtractWorkspaceZipRequest.uploadAndExtractZipDetails, "UploadAndExtractZipDetails"
+                            , model.UploadAndExtractZipDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.UploadAndExtractWorkspaceZipResponse>{},
+                body: await response.json(),
+                bodyKey: "uploadAndExtractZipResult",
+                bodyModel:  model.UploadAndExtractZipResult,
+                type: "model.UploadAndExtractZipResult",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -22847,6 +23422,80 @@ export class WorkspaceObjectClient {
                         value: response.headers.get("time-updated"),
                         key: "timeUpdated",
                         dataType: "Date"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Starts asynchronous creation of a ZIP archive for a workspace folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ZipAndDownloadWorkspaceFolderRequest
+     * @return ZipAndDownloadWorkspaceFolderResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ZipAndDownloadWorkspaceFolder.ts.html |here} to see how to use ZipAndDownloadWorkspaceFolder API.
+     */
+    public async zipAndDownloadWorkspaceFolder (zipAndDownloadWorkspaceFolderRequest: requests.ZipAndDownloadWorkspaceFolderRequest) : Promise<responses.ZipAndDownloadWorkspaceFolderResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation WorkspaceObjectClient#zipAndDownloadWorkspaceFolder.");
+        const operationName = "zipAndDownloadWorkspaceFolder";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": zipAndDownloadWorkspaceFolderRequest.aiDataPlatformId,
+            "{workspaceKey}": zipAndDownloadWorkspaceFolderRequest.workspaceKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': zipAndDownloadWorkspaceFolderRequest.opcRetryToken,'opc-request-id': zipAndDownloadWorkspaceFolderRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            zipAndDownloadWorkspaceFolderRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/actions/zipAndDownloadFolder',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(zipAndDownloadWorkspaceFolderRequest.zipAndDownloadFolderDetails, "ZipAndDownloadFolderDetails"
+                            , model.ZipAndDownloadFolderDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ZipAndDownloadWorkspaceFolderResponse>{},
+                body: await response.json(),
+                bodyKey: "zipAndDownloadFolderResult",
+                bodyModel:  model.ZipAndDownloadFolderResult,
+                type: "model.ZipAndDownloadFolderResult",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
                     },
                     ]
             });

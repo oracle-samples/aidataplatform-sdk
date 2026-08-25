@@ -38,9 +38,29 @@ class OacObjectColumn(object):
             The value to assign to the type property of this OacObjectColumn.
         :type type: str
 
+        :param hierarchy_id:
+            The value to assign to the hierarchy_id property of this OacObjectColumn.
+        :type hierarchy_id: str
+
+        :param hierarchy_display_name:
+            The value to assign to the hierarchy_display_name property of this OacObjectColumn.
+        :type hierarchy_display_name: str
+
+        :param dimension_id:
+            The value to assign to the dimension_id property of this OacObjectColumn.
+        :type dimension_id: str
+
+        :param table_name:
+            The value to assign to the table_name property of this OacObjectColumn.
+        :type table_name: str
+
+        :param levels:
+            The value to assign to the levels property of this OacObjectColumn.
+        :type levels: list[oci.aidataplatform_dp.models.OacObjectHierarchyLevel]
+
         :param sql_info:
             The value to assign to the sql_info property of this OacObjectColumn.
-        :type sql_info: object
+        :type sql_info: oci.aidataplatform_dp.models.OacObjectColumnSqlInfo
 
         """
         self.swagger_types = {
@@ -49,7 +69,12 @@ class OacObjectColumn(object):
             'formula': 'str',
             'is_time': 'bool',
             'type': 'str',
-            'sql_info': 'object'
+            'hierarchy_id': 'str',
+            'hierarchy_display_name': 'str',
+            'dimension_id': 'str',
+            'table_name': 'str',
+            'levels': 'list[OacObjectHierarchyLevel]',
+            'sql_info': 'OacObjectColumnSqlInfo'
         }
 
         self.attribute_map = {
@@ -58,6 +83,11 @@ class OacObjectColumn(object):
             'formula': 'formula',
             'is_time': 'isTime',
             'type': 'type',
+            'hierarchy_id': 'hierarchyID',
+            'hierarchy_display_name': 'hierarchyDisplayName',
+            'dimension_id': 'dimensionID',
+            'table_name': 'tableName',
+            'levels': 'levels',
             'sql_info': 'sqlInfo'
         }
 
@@ -66,6 +96,11 @@ class OacObjectColumn(object):
         self._formula = None
         self._is_time = None
         self._type = None
+        self._hierarchy_id = None
+        self._hierarchy_display_name = None
+        self._dimension_id = None
+        self._table_name = None
+        self._levels = None
         self._sql_info = None
 
     @property
@@ -189,14 +224,132 @@ class OacObjectColumn(object):
         self._type = type
 
     @property
+    def hierarchy_id(self):
+        """
+        Gets the hierarchy_id of this OacObjectColumn.
+        The hierarchy identifier reported for an Oracle Analytics hierarchical column.
+
+
+        :return: The hierarchy_id of this OacObjectColumn.
+        :rtype: str
+        """
+        return self._hierarchy_id
+
+    @hierarchy_id.setter
+    def hierarchy_id(self, hierarchy_id):
+        """
+        Sets the hierarchy_id of this OacObjectColumn.
+        The hierarchy identifier reported for an Oracle Analytics hierarchical column.
+
+
+        :param hierarchy_id: The hierarchy_id of this OacObjectColumn.
+        :type: str
+        """
+        self._hierarchy_id = hierarchy_id
+
+    @property
+    def hierarchy_display_name(self):
+        """
+        Gets the hierarchy_display_name of this OacObjectColumn.
+        The hierarchy display name reported for a hierarchical column in an OAC data object.
+
+
+        :return: The hierarchy_display_name of this OacObjectColumn.
+        :rtype: str
+        """
+        return self._hierarchy_display_name
+
+    @hierarchy_display_name.setter
+    def hierarchy_display_name(self, hierarchy_display_name):
+        """
+        Sets the hierarchy_display_name of this OacObjectColumn.
+        The hierarchy display name reported for a hierarchical column in an OAC data object.
+
+
+        :param hierarchy_display_name: The hierarchy_display_name of this OacObjectColumn.
+        :type: str
+        """
+        self._hierarchy_display_name = hierarchy_display_name
+
+    @property
+    def dimension_id(self):
+        """
+        Gets the dimension_id of this OacObjectColumn.
+        The dimension identifier reported for an Oracle Analytics hierarchical column.
+
+
+        :return: The dimension_id of this OacObjectColumn.
+        :rtype: str
+        """
+        return self._dimension_id
+
+    @dimension_id.setter
+    def dimension_id(self, dimension_id):
+        """
+        Sets the dimension_id of this OacObjectColumn.
+        The dimension identifier reported for an Oracle Analytics hierarchical column.
+
+
+        :param dimension_id: The dimension_id of this OacObjectColumn.
+        :type: str
+        """
+        self._dimension_id = dimension_id
+
+    @property
+    def table_name(self):
+        """
+        Gets the table_name of this OacObjectColumn.
+        The table name reported for a hierarchical column in an OAC data object.
+
+
+        :return: The table_name of this OacObjectColumn.
+        :rtype: str
+        """
+        return self._table_name
+
+    @table_name.setter
+    def table_name(self, table_name):
+        """
+        Sets the table_name of this OacObjectColumn.
+        The table name reported for a hierarchical column in an OAC data object.
+
+
+        :param table_name: The table_name of this OacObjectColumn.
+        :type: str
+        """
+        self._table_name = table_name
+
+    @property
+    def levels(self):
+        """
+        Gets the levels of this OacObjectColumn.
+        The hierarchy levels reported for an Oracle Analytics hierarchical column.
+
+
+        :return: The levels of this OacObjectColumn.
+        :rtype: list[oci.aidataplatform_dp.models.OacObjectHierarchyLevel]
+        """
+        return self._levels
+
+    @levels.setter
+    def levels(self, levels):
+        """
+        Sets the levels of this OacObjectColumn.
+        The hierarchy levels reported for an Oracle Analytics hierarchical column.
+
+
+        :param levels: The levels of this OacObjectColumn.
+        :type: list[oci.aidataplatform_dp.models.OacObjectHierarchyLevel]
+        """
+        self._levels = levels
+
+    @property
     def sql_info(self):
         """
         Gets the sql_info of this OacObjectColumn.
-        Additional SQL metadata reported by Oracle Analytics for the column.
-
 
         :return: The sql_info of this OacObjectColumn.
-        :rtype: object
+        :rtype: oci.aidataplatform_dp.models.OacObjectColumnSqlInfo
         """
         return self._sql_info
 
@@ -204,11 +357,9 @@ class OacObjectColumn(object):
     def sql_info(self, sql_info):
         """
         Sets the sql_info of this OacObjectColumn.
-        Additional SQL metadata reported by Oracle Analytics for the column.
-
 
         :param sql_info: The sql_info of this OacObjectColumn.
-        :type: object
+        :type: oci.aidataplatform_dp.models.OacObjectColumnSqlInfo
         """
         self._sql_info = sql_info
 

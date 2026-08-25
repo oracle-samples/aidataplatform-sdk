@@ -20,11 +20,21 @@ public class ClusterClient extends com.oracle.bmc.http.internal.BaseSyncClient i
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(ClusterClient.class);
 
 
-
     ClusterClient(
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider
             ) {
+        this(
+            builder,
+            authenticationDetailsProvider,
+            true
+        );
+     }
+    ClusterClient(
+            com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider
+            ,
+            boolean isStreamWarningEnabled) {
         super(
             builder,
             authenticationDetailsProvider,
@@ -32,7 +42,15 @@ public class ClusterClient extends com.oracle.bmc.http.internal.BaseSyncClient i
             
         );
 
+        if (isStreamWarningEnabled && com.oracle.bmc.util.StreamUtils.isExtraStreamLogsEnabled()) {
+             LOG.warn(com.oracle.bmc.util.StreamUtils.getStreamWarningMessage(
+                "ClusterClient",
+                 "exportComputeConfiguration"
+                 )
+             );
+        }
     }
+
 
 
     
@@ -49,6 +67,7 @@ public class ClusterClient extends com.oracle.bmc.http.internal.BaseSyncClient i
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, ClusterClient> {
+        private boolean isStreamWarningEnabled = true;
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             final String packageName = "dp";
@@ -57,12 +76,23 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         }
 
         /**
+         * Enable/disable the stream warnings for the client
+         *
+         * @param isStreamWarningEnabled executorService
+         * @return this builder
+         */
+        public Builder isStreamWarningEnabled(boolean isStreamWarningEnabled) {
+            this.isStreamWarningEnabled = isStreamWarningEnabled;
+            return this;
+        }
+
+        /**
          * Build the client.
          * @param authenticationDetailsProvider authentication details provider
          * @return the client
          */
         public ClusterClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
-            return new ClusterClient(this, authenticationDetailsProvider);
+            return new ClusterClient(this, authenticationDetailsProvider, isStreamWarningEnabled);
         }
     }
 
@@ -74,6 +104,42 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
     @Override
     public void setRegion(String regionId) {
         super.setRegion(regionId);
+    }
+
+    @Override
+    
+    public CloneComputeResponse cloneCompute(CloneComputeRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+
+
+return clientCall(request, CloneComputeResponse::builder)
+        .logger(LOG, "cloneCompute")
+        .serviceDetails("Cluster", "CloneCompute", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CloneComputeRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("cloneCompute")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            CloneComputeResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            CloneComputeResponse.Builder::opcRequestId)
+
+                .callSync();
     }
 
     @Override
@@ -195,6 +261,53 @@ return clientCall(request, DownloadClusterLogsResponse::builder)
 
     @Override
     
+    public ExportComputeConfigurationResponse exportComputeConfiguration(ExportComputeConfigurationRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getExportComputeConfigurationDetails(), "exportComputeConfigurationDetails is required");
+        
+
+
+return clientCall(request, ExportComputeConfigurationResponse::builder)
+        .logger(LOG, "exportComputeConfiguration")
+        .serviceDetails("Cluster", "ExportComputeConfiguration", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ExportComputeConfigurationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("exportComputeConfiguration")
+        .accept("application/x-yaml")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(java.io.InputStream.class, ExportComputeConfigurationResponse.Builder::inputStream)
+                .handleResponseHeaderString("location", 
+            ExportComputeConfigurationResponse.Builder::location)
+                .handleResponseHeaderString("content-location", 
+            ExportComputeConfigurationResponse.Builder::contentLocation)
+                .handleResponseHeaderString("opc-request-id", 
+            ExportComputeConfigurationResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("path", 
+            ExportComputeConfigurationResponse.Builder::path)
+                .handleResponseHeaderString("type", 
+            ExportComputeConfigurationResponse.Builder::type)
+                .handleResponseHeaderDate("time-updated", 
+            ExportComputeConfigurationResponse.Builder::timeUpdated)
+
+                .callSync();
+    }
+
+    @Override
+    
     public GetClusterResponse getCluster(GetClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -232,6 +345,39 @@ return clientCall(request, GetClusterResponse::builder)
 
     @Override
     
+    public GetComputeConfigurationResponse getComputeConfiguration(GetComputeConfigurationRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+
+
+return clientCall(request, GetComputeConfigurationResponse::builder)
+        .logger(LOG, "getComputeConfiguration")
+        .serviceDetails("Cluster", "GetComputeConfiguration", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetComputeConfigurationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("getComputeConfiguration")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.ComputeConfiguration.class, GetComputeConfigurationResponse.Builder::computeConfiguration)
+                .handleResponseHeaderString("opc-request-id", 
+            GetComputeConfigurationResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public GetDefaultClusterResponse getDefaultCluster(GetDefaultClusterRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -257,6 +403,44 @@ return clientCall(request, GetDefaultClusterResponse::builder)
             GetDefaultClusterResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             GetDefaultClusterResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ImportComputeConfigurationResponse importComputeConfiguration(ImportComputeConfigurationRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getImportComputeConfigurationDetails(), "importComputeConfigurationDetails is required");
+        
+
+
+return clientCall(request, ImportComputeConfigurationResponse::builder)
+        .logger(LOG, "importComputeConfiguration")
+        .serviceDetails("Cluster", "ImportComputeConfiguration", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ImportComputeConfigurationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("importComputeConfiguration")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            ImportComputeConfigurationResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            ImportComputeConfigurationResponse.Builder::opcRequestId)
 
                 .callSync();
     }
@@ -642,6 +826,57 @@ return clientCall(request, SearchClusterLogsResponse::builder)
             SearchClusterLogsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
             SearchClusterLogsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public SearchMavenPackagesResponse searchMavenPackages(SearchMavenPackagesRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getMavenSearchQuery(), "mavenSearchQuery is required");
+        
+
+
+return clientCall(request, SearchMavenPackagesResponse::builder)
+        .logger(LOG, "searchMavenPackages")
+        .serviceDetails("Cluster", "SearchMavenPackages", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(SearchMavenPackagesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("mavenPackages")
+            
+                
+                    
+                    .appendQueryParam("mavenSearchQuery", request.getMavenSearchQuery())
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.MavenSearchSummaryCollection.class, SearchMavenPackagesResponse.Builder::mavenSearchSummaryCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            SearchMavenPackagesResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            SearchMavenPackagesResponse.Builder::opcNextPage)
+                .handleResponseHeaderString("opc-prev-page", 
+            SearchMavenPackagesResponse.Builder::opcPrevPage)
 
                 .callSync();
     }

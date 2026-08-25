@@ -27,5 +27,9 @@ export interface GetTaskRunRequest extends common.BaseRequest {
 * 
  */
  'opcRequestId'?: string;
+/**
+ * Indicates whether a get task run response should include task run retries.
+ */
+ 'shouldIncludeTaskRunRetries'?: boolean;
 }
 

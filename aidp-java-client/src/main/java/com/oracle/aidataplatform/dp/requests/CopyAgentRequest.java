@@ -34,27 +34,27 @@ public class CopyAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.ora
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
     }
         /**
-     * Details for copying the agent
+     * Details for copying the agent.
      */
     private com.oracle.aidataplatform.dp.model.CopyAgentDetails copyAgentDetails;
 
     
 
         /**
-     * Details for copying the agent
+     * Details for copying the agent.
      */
     public com.oracle.aidataplatform.dp.model.CopyAgentDetails getCopyAgentDetails() {
         return copyAgentDetails;
@@ -184,12 +184,12 @@ public class CopyAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.ora
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class CopyAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.ora
         }
 
             /**
-     * Details for copying the agent
+     * Details for copying the agent.
      */
         private com.oracle.aidataplatform.dp.model.CopyAgentDetails copyAgentDetails = null;
 
         /**
-         * Details for copying the agent
+         * Details for copying the agent.
          * @param copyAgentDetails the value to set
          * @return this builder instance
          */

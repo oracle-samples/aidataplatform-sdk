@@ -101,6 +101,9 @@ from .bundle_deployed_resource import BundleDeployedResource
 from .bundle_deployment_status import BundleDeploymentStatus
 from .bundle_overrides import BundleOverrides
 from .bundle_overrides_with_path import BundleOverridesWithPath
+from .bundle_publish_location import BundlePublishLocation
+from .bundle_publish_status import BundlePublishStatus
+from .bundle_published_resource import BundlePublishedResource
 from .bundle_validation_result import BundleValidationResult
 from .bundled_resource import BundledResource
 from .catalog import Catalog
@@ -135,6 +138,9 @@ from .cluster_spec import ClusterSpec
 from .cluster_state_event import ClusterStateEvent
 from .cluster_summary import ClusterSummary
 from .commit_push_details import CommitPushDetails
+from .compute_configuration import ComputeConfiguration
+from .compute_configuration_libraries import ComputeConfigurationLibraries
+from .compute_configuration_library_entry import ComputeConfigurationLibraryEntry
 from .compute_dependency import ComputeDependency
 from .compute_override_item import ComputeOverrideItem
 from .conflict_resolve_details import ConflictResolveDetails
@@ -232,6 +238,10 @@ from .data_lake_cluster_summary import DataLakeClusterSummary
 from .data_lake_metadata import DataLakeMetadata
 from .dataset import Dataset
 from .dataset_input import DatasetInput
+from .db2_schema import Db2Schema
+from .db2_schema_summary import Db2SchemaSummary
+from .db2_table import Db2Table
+from .db2_table_summary import Db2TableSummary
 from .de_provision_user_schemas_details import DeProvisionUserSchemasDetails
 from .default_cluster import DefaultCluster
 from .delete_experiment_details import DeleteExperimentDetails
@@ -286,6 +296,7 @@ from .experiment_run_tag import ExperimentRunTag
 from .experiment_run_tag_key import ExperimentRunTagKey
 from .experiment_tag import ExperimentTag
 from .experiment_tag_key import ExperimentTagKey
+from .export_compute_configuration_details import ExportComputeConfigurationDetails
 from .export_contents_details import ExportContentsDetails
 from .export_lineage_details import ExportLineageDetails
 from .export_task_run_output_details import ExportTaskRunOutputDetails
@@ -299,6 +310,7 @@ from .feature_status_collection import FeatureStatusCollection
 from .feature_status_result import FeatureStatusResult
 from .feature_status_summary import FeatureStatusSummary
 from .fetch_bundle_deployment_status_details import FetchBundleDeploymentStatusDetails
+from .fetch_bundle_publish_status_details import FetchBundlePublishStatusDetails
 from .fetch_entity_lineage_details import FetchEntityLineageDetails
 from .fetch_lineage_graph_node_neighbors_details import FetchLineageGraphNodeNeighborsDetails
 from .fetch_lineage_graph_node_references_details import FetchLineageGraphNodeReferencesDetails
@@ -334,10 +346,6 @@ from .git_rebase_details import GitRebaseDetails
 from .git_repair_work_tree_details import GitRepairWorkTreeDetails
 from .git_repository import GitRepository
 from .git_reset_details import GitResetDetails
-from .google_bigquery_schema import GoogleBigquerySchema
-from .google_bigquery_schema_summary import GoogleBigquerySchemaSummary
-from .google_bigquery_table import GoogleBigqueryTable
-from .google_bigquery_table_summary import GoogleBigqueryTableSummary
 from .grouped_search_criteria import GroupedSearchCriteria
 from .guardrails_configuration import GuardrailsConfiguration
 from .history_collection import HistoryCollection
@@ -352,8 +360,10 @@ from .identity_domain_summary import IdentityDomainSummary
 from .identity_group_collection import IdentityGroupCollection
 from .identity_group_summary import IdentityGroupSummary
 from .identity_user_collection import IdentityUserCollection
+from .identity_user_metadatum import IdentityUserMetadatum
 from .identity_user_summary import IdentityUserSummary
 from .if_else_task import IfElseTask
+from .import_compute_configuration_details import ImportComputeConfigurationDetails
 from .infer_schema import InferSchema
 from .infer_schema_column import InferSchemaColumn
 from .infer_schema_properties import InferSchemaProperties
@@ -453,6 +463,9 @@ from .master_catalog_collection import MasterCatalogCollection
 from .master_catalog_permission_collection import MasterCatalogPermissionCollection
 from .master_catalog_permission_summary import MasterCatalogPermissionSummary
 from .master_catalog_summary import MasterCatalogSummary
+from .maven_cluster_library_summary import MavenClusterLibrarySummary
+from .maven_search_summary import MavenSearchSummary
+from .maven_search_summary_collection import MavenSearchSummaryCollection
 from .mcp_object import McpObject
 from .mcp_prompt_object import McpPromptObject
 from .mcp_resource_object import McpResourceObject
@@ -505,6 +518,8 @@ from .o_auth_admin_setting import OAuthAdminSetting
 from .o_auth_configuration import OAuthConfiguration
 from .oac_object_collection import OacObjectCollection
 from .oac_object_column import OacObjectColumn
+from .oac_object_column_sql_info import OacObjectColumnSqlInfo
+from .oac_object_hierarchy_level import OacObjectHierarchyLevel
 from .oac_object_summary import OacObjectSummary
 from .oac_object_table import OacObjectTable
 from .oac_object_table_summary import OacObjectTableSummary
@@ -571,8 +586,10 @@ from .prompt_test_tool_result import PromptTestToolResult
 from .prompt_tool import PromptTool
 from .prompt_tool_configuration import PromptToolConfiguration
 from .provision_user_schema_details import ProvisionUserSchemaDetails
+from .publish_bundle_details import PublishBundleDetails
 from .publish_ontology_project_details import PublishOntologyProjectDetails
 from .purge_bundle_details import PurgeBundleDetails
+from .pypi_cluster_library_summary import PypiClusterLibrarySummary
 from .python_task import PythonTask
 from .query_replica_ids_details import QueryReplicaIdsDetails
 from .query_replica_ids_result import QueryReplicaIdsResult
@@ -727,6 +744,8 @@ from .task_run import TaskRun
 from .task_run_collection import TaskRunCollection
 from .task_run_output import TaskRunOutput
 from .task_run_retry import TaskRunRetry
+from .task_run_retry_collection import TaskRunRetryCollection
+from .task_run_retry_summary import TaskRunRetrySummary
 from .task_run_summary import TaskRunSummary
 from .test_custom_tool_details import TestCustomToolDetails
 from .test_http_tool_details import TestHttpToolDetails
@@ -822,6 +841,8 @@ from .update_view_details import UpdateViewDetails
 from .update_volume_details import UpdateVolumeDetails
 from .update_workspace_async_operation_status_details import UpdateWorkspaceAsyncOperationStatusDetails
 from .update_workspace_details import UpdateWorkspaceDetails
+from .upload_and_extract_zip_details import UploadAndExtractZipDetails
+from .upload_and_extract_zip_result import UploadAndExtractZipResult
 from .upload_file_with_par_details import UploadFileWithParDetails
 from .upload_file_with_par_result import UploadFileWithParResult
 from .upsert_ontology_file_details import UpsertOntologyFileDetails
@@ -869,6 +890,8 @@ from .workspace_permission_collection import WorkspacePermissionCollection
 from .workspace_permission_summary import WorkspacePermissionSummary
 from .workspace_search_criteria import WorkspaceSearchCriteria
 from .workspace_summary import WorkspaceSummary
+from .zip_and_download_folder_details import ZipAndDownloadFolderDetails
+from .zip_and_download_folder_result import ZipAndDownloadFolderResult
 
 # Maps type names to classes for aidataplatform_dp services.
 aidataplatform_dp_type_mapping = {
@@ -969,6 +992,9 @@ aidataplatform_dp_type_mapping = {
     "BundleDeploymentStatus": BundleDeploymentStatus,
     "BundleOverrides": BundleOverrides,
     "BundleOverridesWithPath": BundleOverridesWithPath,
+    "BundlePublishLocation": BundlePublishLocation,
+    "BundlePublishStatus": BundlePublishStatus,
+    "BundlePublishedResource": BundlePublishedResource,
     "BundleValidationResult": BundleValidationResult,
     "BundledResource": BundledResource,
     "Catalog": Catalog,
@@ -1003,6 +1029,9 @@ aidataplatform_dp_type_mapping = {
     "ClusterStateEvent": ClusterStateEvent,
     "ClusterSummary": ClusterSummary,
     "CommitPushDetails": CommitPushDetails,
+    "ComputeConfiguration": ComputeConfiguration,
+    "ComputeConfigurationLibraries": ComputeConfigurationLibraries,
+    "ComputeConfigurationLibraryEntry": ComputeConfigurationLibraryEntry,
     "ComputeDependency": ComputeDependency,
     "ComputeOverrideItem": ComputeOverrideItem,
     "ConflictResolveDetails": ConflictResolveDetails,
@@ -1100,6 +1129,10 @@ aidataplatform_dp_type_mapping = {
     "DataLakeMetadata": DataLakeMetadata,
     "Dataset": Dataset,
     "DatasetInput": DatasetInput,
+    "Db2Schema": Db2Schema,
+    "Db2SchemaSummary": Db2SchemaSummary,
+    "Db2Table": Db2Table,
+    "Db2TableSummary": Db2TableSummary,
     "DeProvisionUserSchemasDetails": DeProvisionUserSchemasDetails,
     "DefaultCluster": DefaultCluster,
     "DeleteExperimentDetails": DeleteExperimentDetails,
@@ -1154,6 +1187,7 @@ aidataplatform_dp_type_mapping = {
     "ExperimentRunTagKey": ExperimentRunTagKey,
     "ExperimentTag": ExperimentTag,
     "ExperimentTagKey": ExperimentTagKey,
+    "ExportComputeConfigurationDetails": ExportComputeConfigurationDetails,
     "ExportContentsDetails": ExportContentsDetails,
     "ExportLineageDetails": ExportLineageDetails,
     "ExportTaskRunOutputDetails": ExportTaskRunOutputDetails,
@@ -1167,6 +1201,7 @@ aidataplatform_dp_type_mapping = {
     "FeatureStatusResult": FeatureStatusResult,
     "FeatureStatusSummary": FeatureStatusSummary,
     "FetchBundleDeploymentStatusDetails": FetchBundleDeploymentStatusDetails,
+    "FetchBundlePublishStatusDetails": FetchBundlePublishStatusDetails,
     "FetchEntityLineageDetails": FetchEntityLineageDetails,
     "FetchLineageGraphNodeNeighborsDetails": FetchLineageGraphNodeNeighborsDetails,
     "FetchLineageGraphNodeReferencesDetails": FetchLineageGraphNodeReferencesDetails,
@@ -1202,10 +1237,6 @@ aidataplatform_dp_type_mapping = {
     "GitRepairWorkTreeDetails": GitRepairWorkTreeDetails,
     "GitRepository": GitRepository,
     "GitResetDetails": GitResetDetails,
-    "GoogleBigquerySchema": GoogleBigquerySchema,
-    "GoogleBigquerySchemaSummary": GoogleBigquerySchemaSummary,
-    "GoogleBigqueryTable": GoogleBigqueryTable,
-    "GoogleBigqueryTableSummary": GoogleBigqueryTableSummary,
     "GroupedSearchCriteria": GroupedSearchCriteria,
     "GuardrailsConfiguration": GuardrailsConfiguration,
     "HistoryCollection": HistoryCollection,
@@ -1220,8 +1251,10 @@ aidataplatform_dp_type_mapping = {
     "IdentityGroupCollection": IdentityGroupCollection,
     "IdentityGroupSummary": IdentityGroupSummary,
     "IdentityUserCollection": IdentityUserCollection,
+    "IdentityUserMetadatum": IdentityUserMetadatum,
     "IdentityUserSummary": IdentityUserSummary,
     "IfElseTask": IfElseTask,
+    "ImportComputeConfigurationDetails": ImportComputeConfigurationDetails,
     "InferSchema": InferSchema,
     "InferSchemaColumn": InferSchemaColumn,
     "InferSchemaProperties": InferSchemaProperties,
@@ -1321,6 +1354,9 @@ aidataplatform_dp_type_mapping = {
     "MasterCatalogPermissionCollection": MasterCatalogPermissionCollection,
     "MasterCatalogPermissionSummary": MasterCatalogPermissionSummary,
     "MasterCatalogSummary": MasterCatalogSummary,
+    "MavenClusterLibrarySummary": MavenClusterLibrarySummary,
+    "MavenSearchSummary": MavenSearchSummary,
+    "MavenSearchSummaryCollection": MavenSearchSummaryCollection,
     "McpObject": McpObject,
     "McpPromptObject": McpPromptObject,
     "McpResourceObject": McpResourceObject,
@@ -1373,6 +1409,8 @@ aidataplatform_dp_type_mapping = {
     "OAuthConfiguration": OAuthConfiguration,
     "OacObjectCollection": OacObjectCollection,
     "OacObjectColumn": OacObjectColumn,
+    "OacObjectColumnSqlInfo": OacObjectColumnSqlInfo,
+    "OacObjectHierarchyLevel": OacObjectHierarchyLevel,
     "OacObjectSummary": OacObjectSummary,
     "OacObjectTable": OacObjectTable,
     "OacObjectTableSummary": OacObjectTableSummary,
@@ -1439,8 +1477,10 @@ aidataplatform_dp_type_mapping = {
     "PromptTool": PromptTool,
     "PromptToolConfiguration": PromptToolConfiguration,
     "ProvisionUserSchemaDetails": ProvisionUserSchemaDetails,
+    "PublishBundleDetails": PublishBundleDetails,
     "PublishOntologyProjectDetails": PublishOntologyProjectDetails,
     "PurgeBundleDetails": PurgeBundleDetails,
+    "PypiClusterLibrarySummary": PypiClusterLibrarySummary,
     "PythonTask": PythonTask,
     "QueryReplicaIdsDetails": QueryReplicaIdsDetails,
     "QueryReplicaIdsResult": QueryReplicaIdsResult,
@@ -1595,6 +1635,8 @@ aidataplatform_dp_type_mapping = {
     "TaskRunCollection": TaskRunCollection,
     "TaskRunOutput": TaskRunOutput,
     "TaskRunRetry": TaskRunRetry,
+    "TaskRunRetryCollection": TaskRunRetryCollection,
+    "TaskRunRetrySummary": TaskRunRetrySummary,
     "TaskRunSummary": TaskRunSummary,
     "TestCustomToolDetails": TestCustomToolDetails,
     "TestHttpToolDetails": TestHttpToolDetails,
@@ -1690,6 +1732,8 @@ aidataplatform_dp_type_mapping = {
     "UpdateVolumeDetails": UpdateVolumeDetails,
     "UpdateWorkspaceAsyncOperationStatusDetails": UpdateWorkspaceAsyncOperationStatusDetails,
     "UpdateWorkspaceDetails": UpdateWorkspaceDetails,
+    "UploadAndExtractZipDetails": UploadAndExtractZipDetails,
+    "UploadAndExtractZipResult": UploadAndExtractZipResult,
     "UploadFileWithParDetails": UploadFileWithParDetails,
     "UploadFileWithParResult": UploadFileWithParResult,
     "UpsertOntologyFileDetails": UpsertOntologyFileDetails,
@@ -1736,5 +1780,7 @@ aidataplatform_dp_type_mapping = {
     "WorkspacePermissionCollection": WorkspacePermissionCollection,
     "WorkspacePermissionSummary": WorkspacePermissionSummary,
     "WorkspaceSearchCriteria": WorkspaceSearchCriteria,
-    "WorkspaceSummary": WorkspaceSummary
+    "WorkspaceSummary": WorkspaceSummary,
+    "ZipAndDownloadFolderDetails": ZipAndDownloadFolderDetails,
+    "ZipAndDownloadFolderResult": ZipAndDownloadFolderResult
 }

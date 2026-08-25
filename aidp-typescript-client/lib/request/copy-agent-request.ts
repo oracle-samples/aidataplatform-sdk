@@ -16,11 +16,11 @@ export interface CopyAgentRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**
- * Details for copying the agent
+ * Details for copying the agent.
  */
  'copyAgentDetails':  model.CopyAgentDetails;
 /**

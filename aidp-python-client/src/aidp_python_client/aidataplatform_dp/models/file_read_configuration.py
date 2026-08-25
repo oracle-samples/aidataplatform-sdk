@@ -169,7 +169,7 @@ class FileReadConfiguration(object):
     def max_file_size_mb(self):
         """
         Gets the max_file_size_mb of this FileReadConfiguration.
-        Maximum uploaded file size in megabytes.
+        Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB.
 
 
         :return: The max_file_size_mb of this FileReadConfiguration.
@@ -181,7 +181,7 @@ class FileReadConfiguration(object):
     def max_file_size_mb(self, max_file_size_mb):
         """
         Sets the max_file_size_mb of this FileReadConfiguration.
-        Maximum uploaded file size in megabytes.
+        Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB.
 
 
         :param max_file_size_mb: The max_file_size_mb of this FileReadConfiguration.
@@ -193,7 +193,7 @@ class FileReadConfiguration(object):
     def max_file_count(self):
         """
         Gets the max_file_count of this FileReadConfiguration.
-        Maximum number of files allowed in a request/session.
+        Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative.
 
 
         :return: The max_file_count of this FileReadConfiguration.
@@ -205,7 +205,7 @@ class FileReadConfiguration(object):
     def max_file_count(self, max_file_count):
         """
         Sets the max_file_count of this FileReadConfiguration.
-        Maximum number of files allowed in a request/session.
+        Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative.
 
 
         :param max_file_count: The max_file_count of this FileReadConfiguration.
@@ -217,7 +217,7 @@ class FileReadConfiguration(object):
     def target_path(self):
         """
         Gets the target_path of this FileReadConfiguration.
-        Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+        Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
 
 
         :return: The target_path of this FileReadConfiguration.
@@ -229,7 +229,7 @@ class FileReadConfiguration(object):
     def target_path(self, target_path):
         """
         Sets the target_path of this FileReadConfiguration.
-        Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+        Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
 
 
         :param target_path: The target_path of this FileReadConfiguration.

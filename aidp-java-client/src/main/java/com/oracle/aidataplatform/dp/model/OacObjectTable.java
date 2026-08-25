@@ -12,13 +12,15 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OacObjectTable  {
     @Deprecated
-    @java.beans.ConstructorProperties({"id", "name", "description", "columns"})
-    public OacObjectTable(String id, String name, String description, java.util.List<OacObjectColumn> columns) {
+    @java.beans.ConstructorProperties({"id", "name", "description", "columns", "childTables", "tables"})
+    public OacObjectTable(String id, String name, String description, java.util.List<OacObjectColumn> columns, java.util.List<OacObjectTable> childTables, java.util.List<OacObjectTable> tables) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
         this.columns = columns;
+        this.childTables = childTables;
+        this.tables = tables;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -95,13 +97,51 @@ public Builder columns(java.util.List<OacObjectColumn> columns) {
     this.columns = columns;
     return this;
 }
+            /**
+     * Child tables nested under this Oracle Analytics table.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("childTables")
+private java.util.List<OacObjectTable> childTables;
+
+        /**
+         * Child tables nested under this Oracle Analytics table.
+         * @param childTables the value to set
+         * @return this builder
+         **/
+        
+
+public Builder childTables(java.util.List<OacObjectTable> childTables) {
+    this.childTables = childTables;
+    return this;
+}
+            /**
+     * Additional tables nested under this Oracle Analytics table.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("tables")
+private java.util.List<OacObjectTable> tables;
+
+        /**
+         * Additional tables nested under this Oracle Analytics table.
+         * @param tables the value to set
+         * @return this builder
+         **/
+        
+
+public Builder tables(java.util.List<OacObjectTable> tables) {
+    this.tables = tables;
+    return this;
+}
 
 
         public OacObjectTable build() {
             OacObjectTable model = new OacObjectTable(this.id
                 , this.name
                 , this.description
-                , this.columns);            return model;
+                , this.columns
+                , this.childTables
+                , this.tables);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -110,6 +150,8 @@ public Builder columns(java.util.List<OacObjectColumn> columns) {
     this.name(model.getName());
     this.description(model.getDescription());
     this.columns(model.getColumns());
+    this.childTables(model.getChildTables());
+    this.tables(model.getTables());
 return this;
         }
     }
@@ -196,6 +238,40 @@ return this;
         return columns;
     }
 
+
+        /**
+     * Child tables nested under this Oracle Analytics table.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("childTables")
+    private final java.util.List<OacObjectTable> childTables;
+
+        /**
+     * Child tables nested under this Oracle Analytics table.
+     * @return the value
+     **/
+    
+    public java.util.List<OacObjectTable> getChildTables() {
+        return childTables;
+    }
+
+
+        /**
+     * Additional tables nested under this Oracle Analytics table.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("tables")
+    private final java.util.List<OacObjectTable> tables;
+
+        /**
+     * Additional tables nested under this Oracle Analytics table.
+     * @return the value
+     **/
+    
+    public java.util.List<OacObjectTable> getTables() {
+        return tables;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -213,6 +289,8 @@ return this;
         sb.append(", name=").append(String.valueOf(this.name));
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", columns=").append(String.valueOf(this.columns));
+        sb.append(", childTables=").append(String.valueOf(this.childTables));
+        sb.append(", tables=").append(String.valueOf(this.tables));
         sb.append(")");
         return sb.toString();
     }
@@ -230,7 +308,9 @@ return this;
         return java.util.Objects.equals(this.id, other.id) &&
             java.util.Objects.equals(this.name, other.name) &&
             java.util.Objects.equals(this.description, other.description) &&
-            java.util.Objects.equals(this.columns, other.columns);
+            java.util.Objects.equals(this.columns, other.columns) &&
+            java.util.Objects.equals(this.childTables, other.childTables) &&
+            java.util.Objects.equals(this.tables, other.tables);
     }
 
     @Override
@@ -241,6 +321,8 @@ return this;
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.columns == null ? 43 : this.columns.hashCode());
+        result = (result * PRIME) + (this.childTables == null ? 43 : this.childTables.hashCode());
+        result = (result * PRIME) + (this.tables == null ? 43 : this.tables.hashCode());
         return result;
     }
 

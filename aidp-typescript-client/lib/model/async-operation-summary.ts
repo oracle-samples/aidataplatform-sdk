@@ -53,6 +53,10 @@ export interface AsyncOperationSummary {
     */
     'status': model.AsyncOperationStatus;
     /**
+    * status details
+    */
+    'statusDetails'?: string;
+    /**
     * The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName
 * But for workspace/cluster it is workspace and cluster displayName field.
 * 
@@ -62,6 +66,7 @@ export interface AsyncOperationSummary {
 }
 
 export namespace AsyncOperationSummary {
+
 
 
 
@@ -86,6 +91,7 @@ export namespace AsyncOperationSummary {
 
 
 
+
         }};
 
         
@@ -96,6 +102,7 @@ export namespace AsyncOperationSummary {
     export function getDeserializedJsonObj(obj: AsyncOperationSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

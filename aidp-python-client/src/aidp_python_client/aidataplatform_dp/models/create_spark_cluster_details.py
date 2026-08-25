@@ -64,6 +64,10 @@ class CreateSparkClusterDetails(CreateClusterDetails):
             The value to assign to the subscription property of this CreateSparkClusterDetails.
         :type subscription: oci.aidataplatform_dp.models.SubscriptionDetails
 
+        :param yaml_paths:
+            The value to assign to the yaml_paths property of this CreateSparkClusterDetails.
+        :type yaml_paths: list[str]
+
         """
         self.swagger_types = {
             'type': 'str',
@@ -76,7 +80,8 @@ class CreateSparkClusterDetails(CreateClusterDetails):
             'logging_config': 'LoggingConfig',
             'auto_termination_minutes': 'int',
             'attach_to_notebook_config': 'AttachToNotebookConfig',
-            'subscription': 'SubscriptionDetails'
+            'subscription': 'SubscriptionDetails',
+            'yaml_paths': 'list[str]'
         }
 
         self.attribute_map = {
@@ -90,7 +95,8 @@ class CreateSparkClusterDetails(CreateClusterDetails):
             'logging_config': 'loggingConfig',
             'auto_termination_minutes': 'autoTerminationMinutes',
             'attach_to_notebook_config': 'attachToNotebookConfig',
-            'subscription': 'subscription'
+            'subscription': 'subscription',
+            'yaml_paths': 'yamlPaths'
         }
 
         self._type = None
@@ -104,6 +110,7 @@ class CreateSparkClusterDetails(CreateClusterDetails):
         self._auto_termination_minutes = None
         self._attach_to_notebook_config = None
         self._subscription = None
+        self._yaml_paths = None
         self._type = 'USER'
 
     @property
@@ -229,6 +236,30 @@ class CreateSparkClusterDetails(CreateClusterDetails):
         :type: oci.aidataplatform_dp.models.SubscriptionDetails
         """
         self._subscription = subscription
+
+    @property
+    def yaml_paths(self):
+        """
+        Gets the yaml_paths of this CreateSparkClusterDetails.
+        Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+
+
+        :return: The yaml_paths of this CreateSparkClusterDetails.
+        :rtype: list[str]
+        """
+        return self._yaml_paths
+
+    @yaml_paths.setter
+    def yaml_paths(self, yaml_paths):
+        """
+        Sets the yaml_paths of this CreateSparkClusterDetails.
+        Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+
+
+        :param yaml_paths: The yaml_paths of this CreateSparkClusterDetails.
+        :type: list[str]
+        """
+        self._yaml_paths = yaml_paths
 
     def __repr__(self):
         return formatted_flat_dict(self)

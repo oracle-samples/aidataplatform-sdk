@@ -151,12 +151,12 @@ export namespace Table {
                     return model.AlhTable.getJsonObj(<model.AlhTable>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlTable.getJsonObj(<model.MysqlTable>(<object>jsonObj), true);
-                case "GOOGLE_BIGQUERY":
-                    return model.GoogleBigqueryTable.getJsonObj(<model.GoogleBigqueryTable>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureTable.getJsonObj(<model.SqlServerOnAzureTable>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardTable.getJsonObj(<model.StandardTable>(<object>jsonObj), true);
+                case "DB2":
+                    return model.Db2Table.getJsonObj(<model.Db2Table>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataTable.getJsonObj(<model.ExadataTable>(<object>jsonObj), true);
                 case "ATP":
@@ -226,12 +226,12 @@ export namespace Table {
                     return model.AlhTable.getDeserializedJsonObj(<model.AlhTable>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlTable.getDeserializedJsonObj(<model.MysqlTable>(<object>jsonObj), true);
-                case "GOOGLE_BIGQUERY":
-                    return model.GoogleBigqueryTable.getDeserializedJsonObj(<model.GoogleBigqueryTable>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureTable.getDeserializedJsonObj(<model.SqlServerOnAzureTable>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardTable.getDeserializedJsonObj(<model.StandardTable>(<object>jsonObj), true);
+                case "DB2":
+                    return model.Db2Table.getDeserializedJsonObj(<model.Db2Table>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataTable.getDeserializedJsonObj(<model.ExadataTable>(<object>jsonObj), true);
                 case "ATP":

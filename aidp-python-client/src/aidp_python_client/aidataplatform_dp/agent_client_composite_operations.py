@@ -37,10 +37,10 @@ class AgentClientCompositeOperations(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.CopyAgentDetails copy_agent_details: (required)
-            Details for copying the agent
+            Details for copying the agent.
 
         :param list[str] wait_for_states:
             An array of states to wait on. These should be valid values for :py:attr:`~oci.aidataplatform_dp.models.Agent.lifecycle_state`
@@ -86,7 +86,7 @@ class AgentClientCompositeOperations(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.CreateAgentDetails create_agent_details: (required)
-            Details for the new Agent.
+            Details for the new agent.
 
         :param list[str] wait_for_states:
             An array of states to wait on. These should be valid values for :py:attr:`~oci.aidataplatform_dp.models.Agent.lifecycle_state`
@@ -132,7 +132,7 @@ class AgentClientCompositeOperations(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.UpdateAgentDetails update_agent_details: (required)
             The information to be updated.

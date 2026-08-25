@@ -48,7 +48,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`validateAgent`](#operation-agentclient-validateagent)
 
 ### <a id="operation-agentclient-copyagent"></a>`copyAgent`
-**Description:** Copy an Agent.
+**Description:** Copies an agent.
 
 **Request Interface:** `requests.CopyAgentRequest`
 
@@ -58,8 +58,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `copyAgentDetails` | `model.CopyAgentDetails` | Details for copying the agent |
+| `agentKey` | `string` | The UUID of the agent. |
+| `copyAgentDetails` | `model.CopyAgentDetails` | Details for copying the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -74,7 +74,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Response Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `location` | `string` | URL for the created Agent. The Agent key is generated after this request is sent. |
+| `location` | `string` | URL for the created agent. The agent key is generated after this request is sent. |
 | `contentLocation` | `string` | Same as location. |
 | `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
@@ -107,7 +107,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-createagent"></a>`createAgent`
-**Description:** Create an Agent.
+**Description:** Creates an agent.
 
 **Request Interface:** `requests.CreateAgentRequest`
 
@@ -117,7 +117,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `createAgentDetails` | `model.CreateAgentDetails` | Details for the new Agent. |
+| `createAgentDetails` | `model.CreateAgentDetails` | Details for the new agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -131,7 +131,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Response Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `location` | `string` | URL for the created Agent. The Agent key is generated after this request is sent. |
+| `location` | `string` | URL for the created agent. The agent key is generated after this request is sent. |
 | `contentLocation` | `string` | Same as location. |
 | `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
@@ -164,7 +164,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-deleteagent"></a>`deleteAgent`
-**Description:** Delete an Agent from the schema
+**Description:** Delete an agent from the schema.
 
 **Request Interface:** `requests.DeleteAgentRequest`
 
@@ -174,7 +174,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -193,7 +193,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-deleteagentdeployment"></a>`deleteAgentDeployment`
-**Description:** Delete an Agent Deployment.
+**Description:** Deletes an agent deployment.
 
 **Request Interface:** `requests.DeleteAgentDeploymentRequest`
 
@@ -203,8 +203,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `agentDeploymentKey` | `string` | The UUID of the Agent Deployment |
+| `agentKey` | `string` | The UUID of the agent. |
+| `agentDeploymentKey` | `string` | The UUID of the agent deployment. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -222,7 +222,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-deleteagentsession"></a>`deleteAgentSession`
-**Description:** Delete an Agent Session.
+**Description:** Deletes an agent Session.
 
 **Request Interface:** `requests.DeleteAgentSessionRequest`
 
@@ -232,8 +232,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `sessionId` | `string` | The UUID of the Agent Session |
+| `agentKey` | `string` | The UUID of the agent. |
+| `sessionId` | `string` | The UUID of the agent session. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -251,7 +251,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-deployagent"></a>`deployAgent`
-**Description:** Deploys an Agent.
+**Description:** Deploys a specified agent.
 
 **Request Interface:** `requests.DeployAgentRequest`
 
@@ -261,8 +261,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `deployAgentDetails` | `model.DeployAgentDetails` | Details of a deployable Agent. |
+| `agentKey` | `string` | The UUID of the agent. |
+| `deployAgentDetails` | `model.DeployAgentDetails` | Details of a deployable agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -303,7 +303,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-getagent"></a>`getAgent`
-**Description:** Returns detailed information about an Agent.
+**Description:** Returns detailed information about an agent.
 
 **Request Interface:** `requests.GetAgentRequest`
 
@@ -313,7 +313,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -357,7 +357,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-getagentdeployment"></a>`getAgentDeployment`
-**Description:** Returns detailed information about an Agent deployment.
+**Description:** Returns detailed information about an agent deployment.
 
 **Request Interface:** `requests.GetAgentDeploymentRequest`
 
@@ -367,8 +367,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `agentDeploymentKey` | `string` | The UUID of the Agent Deployment |
+| `agentKey` | `string` | The UUID of the agent. |
+| `agentDeploymentKey` | `string` | The UUID of the agent deployment. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -405,7 +405,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-getagentsession"></a>`getAgentSession`
-**Description:** Returns detailed information about an Agent Session.
+**Description:** Returns detailed information about an agent session.
 
 **Request Interface:** `requests.GetAgentSessionRequest`
 
@@ -415,8 +415,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `sessionId` | `string` | The UUID of the Agent Session |
+| `agentKey` | `string` | The UUID of the agent. |
+| `sessionId` | `string` | The UUID of the agent session. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -461,8 +461,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `sessionId` | `string` | The UUID of the Agent Session |
+| `agentKey` | `string` | The UUID of the agent. |
+| `sessionId` | `string` | The UUID of the agent session. |
 | `traceKey` | `string` | A filter to return only resources that match the given display trace key exactly. |
 
 **Optional Fields:**
@@ -492,7 +492,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-listagentdeployments"></a>`listAgentDeployments`
-**Description:** Returns a list of deployments of an agent.
+**Description:** Returns a list of all deployments of an agent.
 
 **Request Interface:** `requests.ListAgentDeploymentsRequest`
 
@@ -502,7 +502,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -536,7 +536,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-listagentpermissions"></a>`listAgentPermissions`
-**Description:** Returns a list of permissions for a given Agent.
+**Description:** Returns a list of permissions for a given agent.
 
 **Request Interface:** `requests.ListAgentPermissionsRequest`
 
@@ -546,7 +546,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -575,7 +575,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-listagentsessionchathistories"></a>`listAgentSessionChatHistories`
-**Description:** Returns list of Agent Session chat messages.
+**Description:** Returns list of agent session chat messages.
 
 **Request Interface:** `requests.ListAgentSessionChatHistoriesRequest`
 
@@ -585,8 +585,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `sessionId` | `string` | The UUID of the Agent Session |
+| `agentKey` | `string` | The UUID of the agent. |
+| `sessionId` | `string` | The UUID of the agent session. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -612,7 +612,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-listagentsessions"></a>`listAgentSessions`
-**Description:** Returns a list of testing sessions of an Agent.
+**Description:** Returns a list of testing sessions of an agent.
 
 **Request Interface:** `requests.ListAgentSessionsRequest`
 
@@ -622,7 +622,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -654,7 +654,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-listagents"></a>`listAgents`
-**Description:** Returns a list of Agents in a schema.
+**Description:** Returns a list of agents in a schema.
 
 **Request Interface:** `requests.ListAgentsRequest`
 
@@ -694,7 +694,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-manageagentpermission"></a>`manageAgentPermission`
-**Description:** Update the permissions for a given Agent.
+**Description:** Update the permissions for a given agent.
 
 **Request Interface:** `requests.ManageAgentPermissionRequest`
 
@@ -704,7 +704,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 | `manageAgentPermissionDetails` | `model.ManageAgentPermissionDetails` | The information to be updated. |
 
 **Optional Fields:**
@@ -734,7 +734,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `previewAgentCardDetails` | `model.PreviewAgentCardDetails` | Request details for previewing an agent card |
+| `previewAgentCardDetails` | `model.PreviewAgentCardDetails` | Request details for previewing an agent card. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -761,7 +761,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-redeployagentbykey"></a>`redeployAgentByKey`
-**Description:** Redeploys an Agent.
+**Description:** Redeploys an agent.
 
 **Request Interface:** `requests.RedeployAgentByKeyRequest`
 
@@ -771,8 +771,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `updateAgentDeploymentDetails` | `model.UpdateAgentDeploymentDetails` | Details for updating an Agent deployment asynchronously. |
+| `agentKey` | `string` | The UUID of the agent. |
+| `updateAgentDeploymentDetails` | `model.UpdateAgentDeploymentDetails` | Details for updating an agent deployment asynchronously. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -786,7 +786,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Response Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `location` | `string` | URI for the newly created Agent deployment. |
+| `location` | `string` | URI for the newly created agent deployment. |
 | `contentLocation` | `string` | Same as location. |
 | `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
 | `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
@@ -814,7 +814,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-updateagent"></a>`updateAgent`
-**Description:** Update an Agent with provided details.
+**Description:** Updates an agent with provided details.
 
 **Request Interface:** `requests.UpdateAgentRequest`
 
@@ -824,7 +824,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 | `updateAgentDetails` | `model.UpdateAgentDetails` | The information to be updated. |
 
 **Optional Fields:**
@@ -870,7 +870,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-updateagentdeploymentmetadata"></a>`updateAgentDeploymentMetadata`
-**Description:** Update the deployment metadata for an Agent.
+**Description:** Updates the deployment metadata for an agent.
 
 **Request Interface:** `requests.UpdateAgentDeploymentMetadataRequest`
 
@@ -880,8 +880,8 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
-| `updateAgentDeploymentMetadataDetails` | `model.UpdateAgentDeploymentMetadataDetails` | Agent card details to update |
+| `agentKey` | `string` | The UUID of the agent. |
+| `updateAgentDeploymentMetadataDetails` | `model.UpdateAgentDeploymentMetadataDetails` | Agent card details to update. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -921,7 +921,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-agentclient-validateagent"></a>`validateAgent`
-**Description:** Validate the agent json diagram generated by UI.
+**Description:** Validates the agent JSON diagram generated by UI.
 
 **Request Interface:** `requests.ValidateAgentRequest`
 
@@ -931,7 +931,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `agentKey` | `string` | The UUID of the Agent |
+| `agentKey` | `string` | The UUID of the agent. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -1000,6 +1000,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `timeStarted` | `Date` | The date and time the Async operation was started, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339). Example: {@code 2016-08-25T21:10:29.600Z} |
 | `timeFinished` | `Date` | The date and time the Async operation finished, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339). Example: {@code 2016-08-25T21:10:29.600Z} |
 | `status` | `model.AsyncOperationStatus` | The state of the Table. |
+| `statusDetails` | `string` | status details |
 | `errorCode` | `string` | Represents the error code of a failure |
 | `errorMessage` | `string` | Representss extra error information of a failure |
 **Return:** [Back to Async Operations (AsyncOperationsClient)](#client-asyncoperationsclient) • [Top](#top)
@@ -1122,13 +1123,15 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`deployBundleAction`](#operation-bundleclient-deploybundleaction)
 - [`fetchBundleDeploymentStatus`](#operation-bundleclient-fetchbundledeploymentstatus)
 - [`fetchBundleDeploymentStatusAction`](#operation-bundleclient-fetchbundledeploymentstatusaction)
+- [`fetchBundlePublishStatusAction`](#operation-bundleclient-fetchbundlepublishstatusaction)
+- [`publishBundleAction`](#operation-bundleclient-publishbundleaction)
 - [`purgeBundle`](#operation-bundleclient-purgebundle)
 - [`purgeBundleAction`](#operation-bundleclient-purgebundleaction)
 - [`syncBundle`](#operation-bundleclient-syncbundle)
 - [`syncBundleAction`](#operation-bundleclient-syncbundleaction)
 
 ### <a id="operation-bundleclient-createbundle"></a>`createBundle`
-**Description:** (Deprecated) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+**Description:** (Deprecated)
 
 **Request Interface:** `requests.CreateBundleRequest`
 
@@ -1157,7 +1160,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-createbundleaction"></a>`createBundleAction`
-**Description:** (Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+**Description:** (Preview) Creates a new bundle. This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
 
 **Request Interface:** `requests.CreateBundleActionRequest`
 
@@ -1186,7 +1189,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-deploybundle"></a>`deployBundle`
-**Description:** (Deprecated) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** (Deprecated)
 
 **Request Interface:** `requests.DeployBundleRequest`
 
@@ -1215,7 +1218,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-deploybundleaction"></a>`deployBundleAction`
-**Description:** (Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** Deprecated compatibility API. Use `publish` for new callers.
 
 **Request Interface:** `requests.DeployBundleActionRequest`
 
@@ -1244,7 +1247,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-fetchbundledeploymentstatus"></a>`fetchBundleDeploymentStatus`
-**Description:** (Deprecated) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** (Deprecated)
 
 **Request Interface:** `requests.FetchBundleDeploymentStatusRequest`
 
@@ -1281,7 +1284,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-fetchbundledeploymentstatusaction"></a>`fetchBundleDeploymentStatusAction`
-**Description:** (Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 
 **Request Interface:** `requests.FetchBundleDeploymentStatusActionRequest`
 
@@ -1317,8 +1320,74 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
 
 
+### <a id="operation-bundleclient-fetchbundlepublishstatusaction"></a>`fetchBundlePublishStatusAction`
+**Description:** (Preview) Returns the latest publish summary.
+
+**Request Interface:** `requests.FetchBundlePublishStatusActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `fetchBundlePublishStatusDetails` | `model.FetchBundlePublishStatusDetails` | Publish status request. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.FetchBundlePublishStatusActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `bundlePublishStatus` | `model.BundlePublishStatus` | The returned model.BundlePublishStatus instance. |
+
+**Payload `BundlePublishStatus` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `status` | `BundlePublishStatus.Status` | Publish status. |
+| `timeStarted` | `Date` | Publish start time. |
+| `timeCompleted` | `Date` | Publish end time. |
+| `message` | `string` | Publish summary. |
+| `resources` | `Array<model.BundlePublishedResource>` | Published resources. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
+### <a id="operation-bundleclient-publishbundleaction"></a>`publishBundleAction`
+**Description:** (Preview) Publishes the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking publish progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Publishing typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Request Interface:** `requests.PublishBundleActionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `publishBundleDetails` | `model.PublishBundleDetails` | Request payload for bundle publish. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.PublishBundleActionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+**Return:** [Back to Bundle (BundleClient)](#client-bundleclient) • [Top](#top)
+
+
 ### <a id="operation-bundleclient-purgebundle"></a>`purgeBundle`
-**Description:** (Deprecated) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - `path` identifies the bundle root folder in the workspace volume
+**Description:** (Deprecated)
 
 **Request Interface:** `requests.PurgeBundleRequest`
 
@@ -1376,7 +1445,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-syncbundle"></a>`syncBundle`
-**Description:** (Deprecated) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+**Description:** (Deprecated)
 
 **Request Interface:** `requests.SyncBundleRequest`
 
@@ -1405,7 +1474,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-bundleclient-syncbundleaction"></a>`syncBundleAction`
-**Description:** (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+**Description:** (Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a bundle current before promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
 
 **Request Interface:** `requests.SyncBundleActionRequest`
 
@@ -1551,6 +1620,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `isCatalogGuid` | `boolean` | A boolean which decides if catalogKey path parameter is catalog GUID (UUID) or name. |
+| `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
@@ -1637,6 +1707,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
 | `catalogState` | `ListCatalogsRequest.CatalogState` | The state of the catalog. |
 | `catalogType` | `ListCatalogsRequest.CatalogType` | The type of the catalog. |
+| `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
@@ -1750,11 +1821,15 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 ## <a id="client-clusterclient"></a>ClusterClient
 **Operations:**
+- [`cloneCompute`](#operation-clusterclient-clonecompute)
 - [`createCluster`](#operation-clusterclient-createcluster)
 - [`deleteCluster`](#operation-clusterclient-deletecluster)
 - [`downloadClusterLogs`](#operation-clusterclient-downloadclusterlogs)
+- [`exportComputeConfiguration`](#operation-clusterclient-exportcomputeconfiguration)
 - [`getCluster`](#operation-clusterclient-getcluster)
+- [`getComputeConfiguration`](#operation-clusterclient-getcomputeconfiguration)
 - [`getDefaultCluster`](#operation-clusterclient-getdefaultcluster)
+- [`importComputeConfiguration`](#operation-clusterclient-importcomputeconfiguration)
 - [`listClusterLibraries`](#operation-clusterclient-listclusterlibraries)
 - [`listClusterPermissions`](#operation-clusterclient-listclusterpermissions)
 - [`listClusters`](#operation-clusterclient-listclusters)
@@ -1763,10 +1838,40 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`queryReplicaIds`](#operation-clusterclient-queryreplicaids)
 - [`restartCluster`](#operation-clusterclient-restartcluster)
 - [`searchClusterLogs`](#operation-clusterclient-searchclusterlogs)
+- [`searchMavenPackages`](#operation-clusterclient-searchmavenpackages)
 - [`startCluster`](#operation-clusterclient-startcluster)
 - [`stopCluster`](#operation-clusterclient-stopcluster)
 - [`summarizeMetricsData`](#operation-clusterclient-summarizemetricsdata)
 - [`updateCluster`](#operation-clusterclient-updatecluster)
+
+### <a id="operation-clusterclient-clonecompute"></a>`cloneCompute`
+**Description:** Creates one Spark Compute by copying all source Compute settings and configuration.
+
+**Request Interface:** `requests.CloneComputeRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `clusterKey` | `string` | Cluster key. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.CloneComputeResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
+
 
 ### <a id="operation-clusterclient-createcluster"></a>`createCluster`
 **Description:** Creates a new cluster with the provided details.
@@ -1879,6 +1984,41 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
 
 
+### <a id="operation-clusterclient-exportcomputeconfiguration"></a>`exportComputeConfiguration`
+**Description:** Writes selected Compute configuration values supplied by the caller to a workspace YAML file without overwriting an existing file.
+
+**Request Interface:** `requests.ExportComputeConfigurationRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `clusterKey` | `string` | Cluster key. |
+| `exportComputeConfigurationDetails` | `model.ExportComputeConfigurationDetails` | Selected identifiers and destination for the YAML export. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ExportComputeConfigurationResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `location` | `string` | URL for the created workspace object. |
+| `contentLocation` | `string` | Same as location. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `path` | `string` | Full path of the YAML workspace object. |
+| `type` | `string` | Workspace object type. |
+| `timeUpdated` | `Date` | Date and time when the YAML workspace object was created. |
+| `value` | `stream.Readable | ReadableStream` | The returned stream.Readable | ReadableStream instance. |
+**Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
+
+
 ### <a id="operation-clusterclient-getcluster"></a>`getCluster`
 **Description:** Returns detailed information about a cluster.
 
@@ -1928,6 +2068,40 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
 
 
+### <a id="operation-clusterclient-getcomputeconfiguration"></a>`getComputeConfiguration`
+**Description:** Gets cluster-scoped Python and JAR libraries and environment variables from Spark Compute.
+
+**Request Interface:** `requests.GetComputeConfigurationRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `clusterKey` | `string` | Cluster key. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetComputeConfigurationResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `computeConfiguration` | `model.ComputeConfiguration` | The returned model.ComputeConfiguration instance. |
+
+**Payload `ComputeConfiguration` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `clusterKey` | `string` | Source cluster key. |
+| `environmentVariables` | `{ [key: string]: string` | Environment-variable keys and authoritative values configured on the source Compute. |
+**Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
+
+
 ### <a id="operation-clusterclient-getdefaultcluster"></a>`getDefaultCluster`
 **Description:** Gets information about the master catalog default cluster.
 
@@ -1961,6 +2135,36 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `jdbcEndpointUrl` | `string` | Spark JDBC URL. |
 | `logId` | `string` | The OCID of the log where cluster logs are published and retrieved. This logId is always created within the logGroupId returned in the response payload. |
 | `logGroupId` | `string` | The unique OCID that identifies a specific log group within OCI Logging. This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance. |
+**Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
+
+
+### <a id="operation-clusterclient-importcomputeconfiguration"></a>`importComputeConfiguration`
+**Description:** Imports one or more unique workspace YAML files into an active Spark Compute.
+
+**Request Interface:** `requests.ImportComputeConfigurationRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `clusterKey` | `string` | Cluster key. |
+| `importComputeConfigurationDetails` | `model.ImportComputeConfigurationDetails` | YAML workspace paths to import. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ImportComputeConfigurationResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
 **Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
 
 
@@ -2274,6 +2478,44 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `items` | `Array<model.ClusterLogsSummary>` | List of cluster logs. |
+**Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
+
+
+### <a id="operation-clusterclient-searchmavenpackages"></a>`searchMavenPackages`
+**Description:** Searches Maven packages available for cluster library installation.
+
+**Request Interface:** `requests.SearchMavenPackagesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `clusterKey` | `string` | Cluster key. |
+| `mavenSearchQuery` | `string` | Search text matched against Maven package metadata, including group and artifact identifiers. For example, {@code commons-csv} can return {@code org.apache.commons:commons-csv}. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.SearchMavenPackagesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcPrevPage` | `string` | For list pagination. When this header appears in the response, previous pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `mavenSearchSummaryCollection` | `model.MavenSearchSummaryCollection` | The returned model.MavenSearchSummaryCollection instance. |
+
+**Payload `MavenSearchSummaryCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.MavenSearchSummary>` | Maven package search results. |
 **Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
 
 
@@ -5667,7 +5909,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 
 
 ### <a id="operation-notebookclient-getcontent"></a>`getContent`
-**Description:** Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter. When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text is requested, but the file is binary, then the request returns a 400 message and a JSON response with a Reason field identifying the issue. The value of the Reason field is ‘bad format’ or ‘bad type’, depending on what was requested.
+**Description:** Returns content for a given file or metadata for a directory. Directory content listing is not supported; requests with type=directory and content=1 return 400 and should use content=0 to retrieve directory metadata. You can optionally specify a type and/or format argument via URL parameter. When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text is requested, but the file is binary, then the request returns a 400 message and a JSON response with a Reason field identifying the issue. The value of the Reason field is ‘bad format’ or ‘bad type’, depending on what was requested.
 
 **Request Interface:** `requests.GetContentRequest`
 
@@ -6560,6 +6802,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
+| `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
@@ -6605,6 +6848,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
+| `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
@@ -6739,6 +6983,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
+| `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
 | `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
@@ -6816,6 +7061,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
+| `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
 | `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
@@ -7570,8 +7816,10 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`manageVolumePermission`](#operation-volumeclient-managevolumepermission)
 - [`updateDir`](#operation-volumeclient-updatedir)
 - [`updateVolume`](#operation-volumeclient-updatevolume)
+- [`uploadAndExtractVolumeZip`](#operation-volumeclient-uploadandextractvolumezip)
 - [`uploadFile`](#operation-volumeclient-uploadfile)
 - [`uploadFileWithPar`](#operation-volumeclient-uploadfilewithpar)
+- [`zipAndDownloadVolumeFolder`](#operation-volumeclient-zipanddownloadvolumefolder)
 
 ### <a id="operation-volumeclient-createvolume"></a>`createVolume`
 **Description:** Creates a volume.
@@ -8096,6 +8344,43 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Volume (VolumeClient)](#client-volumeclient) • [Top](#top)
 
 
+### <a id="operation-volumeclient-uploadandextractvolumezip"></a>`uploadAndExtractVolumeZip`
+**Description:** Creates or updates an asynchronous volume ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+
+**Request Interface:** `requests.UploadAndExtractVolumeZipRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `volumeKey` | `string` | The key of the volume. |
+| `uploadAndExtractZipDetails` | `model.UploadAndExtractZipDetails` | Details for uploading and extracting the volume ZIP file. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.UploadAndExtractVolumeZipResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `uploadAndExtractZipResult` | `model.UploadAndExtractZipResult` | The returned model.UploadAndExtractZipResult instance. |
+
+**Payload `UploadAndExtractZipResult` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `operationKey` | `string` | Async operation key for upload and extraction. |
+| `uploadUrl` | `string` | PAR URL where the caller uploads the zip bytes. Returned for CREATE. |
+| `destinationFolderPath` | `string` | Final workspace folder path where the zip will be extracted. Returned for CREATE. |
+**Return:** [Back to Volume (VolumeClient)](#client-volumeclient) • [Top](#top)
+
+
 ### <a id="operation-volumeclient-uploadfile"></a>`uploadFile`
 **Description:** Uploads a file to volume. If the file already exists, it is updated.
 
@@ -8182,6 +8467,43 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Volume (VolumeClient)](#client-volumeclient) • [Top](#top)
 
 
+### <a id="operation-volumeclient-zipanddownloadvolumefolder"></a>`zipAndDownloadVolumeFolder`
+**Description:** Starts asynchronous creation of a ZIP archive for a volume folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+
+**Request Interface:** `requests.ZipAndDownloadVolumeFolderRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `volumeKey` | `string` | The key of the volume. |
+| `zipAndDownloadFolderDetails` | `model.ZipAndDownloadFolderDetails` | Details for zipping a volume folder for download. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ZipAndDownloadVolumeFolderResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `zipAndDownloadFolderResult` | `model.ZipAndDownloadFolderResult` | The returned model.ZipAndDownloadFolderResult instance. |
+
+**Payload `ZipAndDownloadFolderResult` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `operationKey` | `string` | Async operation key for zip creation. |
+| `downloadUrl` | `string` | PAR URL for downloading the generated archive after async operation success. |
+| `archiveName` | `string` | Generated archive basename, including its .zip or .aidp extension. |
+**Return:** [Back to Volume (VolumeClient)](#client-volumeclient) • [Top](#top)
+
+
 ## <a id="client-workflowclient"></a>WorkflowClient
 **Operations:**
 - [`cancelJobRun`](#operation-workflowclient-canceljobrun)
@@ -8199,6 +8521,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`listJobRuns`](#operation-workflowclient-listjobruns)
 - [`listJobs`](#operation-workflowclient-listjobs)
 - [`listRecentJobRuns`](#operation-workflowclient-listrecentjobruns)
+- [`listTaskRunRetries`](#operation-workflowclient-listtaskrunretries)
 - [`listTaskRuns`](#operation-workflowclient-listtaskruns)
 - [`manageJobPermission`](#operation-workflowclient-managejobpermission)
 - [`repairJobRun`](#operation-workflowclient-repairjobrun)
@@ -8703,6 +9026,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | Field | Type | Description |
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+| `shouldIncludeTaskRunRetries` | `boolean` | Indicates whether a get task run response should include task run retries. |
 
 **Response Interface:** `responses.GetTaskRunResponse`
 
@@ -8842,7 +9166,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `path` | `string` | The fully qualified path where the job is stored. |
 | `createdBy` | `string` | A filter to return only resources that are created by given user with username that matches exactly. |
 | `updatedBy` | `string` | A filter to return only resources that was last updated by given user with username that matches exactly. |
-| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated List call. |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
 | `sortBy` | `ListJobsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
@@ -8905,6 +9229,47 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
 
 
+### <a id="operation-workflowclient-listtaskrunretries"></a>`listTaskRunRetries`
+**Description:** Returns detailed information about retries of a task run with a given task run key.
+
+**Request Interface:** `requests.ListTaskRunRetriesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `taskRunKey` | `string` | Task run key. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
+| `status` | `Array<ListTaskRunRetriesRequest.Status>` | The field to filter based on state. |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `sortBy` | `ListTaskRunRetriesRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListTaskRunRetriesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcPrevPage` | `string` | For list pagination. When this header appears in the response, previous pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `taskRunRetryCollection` | `model.TaskRunRetryCollection` | The returned model.TaskRunRetryCollection instance. |
+
+**Payload `TaskRunRetryCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.TaskRunRetrySummary>` | List of TaskRun retries. |
+**Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
+
+
 ### <a id="operation-workflowclient-listtaskruns"></a>`listTaskRuns`
 **Description:** Returns a list of task runs.
 
@@ -8925,7 +9290,7 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `status` | `Array<ListTaskRunsRequest.Status>` | The field to filter based on state. |
 | `parentJobRunKey` | `string` | The field to filter based on parent job run key. |
 | `rootJobRunKey` | `string` | The field to filter based on root job run key. |
-| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated List call. |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
 | `sortBy` | `ListTaskRunsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
@@ -9579,7 +9944,9 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 - [`moveWorkspaceObject`](#operation-workspaceobjectclient-moveworkspaceobject)
 - [`renameWorkspaceObject`](#operation-workspaceobjectclient-renameworkspaceobject)
 - [`updateWorkspaceObject`](#operation-workspaceobjectclient-updateworkspaceobject)
+- [`uploadAndExtractWorkspaceZip`](#operation-workspaceobjectclient-uploadandextractworkspacezip)
 - [`uploadWorkspaceObjectWithPar`](#operation-workspaceobjectclient-uploadworkspaceobjectwithpar)
+- [`zipAndDownloadWorkspaceFolder`](#operation-workspaceobjectclient-zipanddownloadworkspacefolder)
 
 ### <a id="operation-workspaceobjectclient-copyworkspaceobject"></a>`copyWorkspaceObject`
 **Description:** Copy a workspace object to different location.
@@ -10051,6 +10418,43 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 **Return:** [Back to Workspace Object (WorkspaceObjectClient)](#client-workspaceobjectclient) • [Top](#top)
 
 
+### <a id="operation-workspaceobjectclient-uploadandextractworkspacezip"></a>`uploadAndExtractWorkspaceZip`
+**Description:** Creates or updates an asynchronous workspace ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+
+**Request Interface:** `requests.UploadAndExtractWorkspaceZipRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `uploadAndExtractZipDetails` | `model.UploadAndExtractZipDetails` | Details for uploading and extracting the workspace ZIP file. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.UploadAndExtractWorkspaceZipResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `uploadAndExtractZipResult` | `model.UploadAndExtractZipResult` | The returned model.UploadAndExtractZipResult instance. |
+
+**Payload `UploadAndExtractZipResult` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `operationKey` | `string` | Async operation key for upload and extraction. |
+| `uploadUrl` | `string` | PAR URL where the caller uploads the zip bytes. Returned for CREATE. |
+| `destinationFolderPath` | `string` | Final workspace folder path where the zip will be extracted. Returned for CREATE. |
+**Return:** [Back to Workspace Object (WorkspaceObjectClient)](#client-workspaceobjectclient) • [Top](#top)
+
+
 ### <a id="operation-workspaceobjectclient-uploadworkspaceobjectwithpar"></a>`uploadWorkspaceObjectWithPar`
 **Description:** Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 
@@ -10103,4 +10507,41 @@ This document summarizes the available service clients in the AIDP TypeScript SD
 | `updatedTime` | `string` | The last modified time of the file. |
 | `description` | `string` | The file description. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
+**Return:** [Back to Workspace Object (WorkspaceObjectClient)](#client-workspaceobjectclient) • [Top](#top)
+
+
+### <a id="operation-workspaceobjectclient-zipanddownloadworkspacefolder"></a>`zipAndDownloadWorkspaceFolder`
+**Description:** Starts asynchronous creation of a ZIP archive for a workspace folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+
+**Request Interface:** `requests.ZipAndDownloadWorkspaceFolderRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `workspaceKey` | `string` | The key of the Workspace |
+| `zipAndDownloadFolderDetails` | `model.ZipAndDownloadFolderDetails` | Details for zipping a workspace folder for download. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ZipAndDownloadWorkspaceFolderResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `zipAndDownloadFolderResult` | `model.ZipAndDownloadFolderResult` | The returned model.ZipAndDownloadFolderResult instance. |
+
+**Payload `ZipAndDownloadFolderResult` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `operationKey` | `string` | Async operation key for zip creation. |
+| `downloadUrl` | `string` | PAR URL for downloading the generated archive after async operation success. |
+| `archiveName` | `string` | Generated archive basename, including its .zip or .aidp extension. |
 **Return:** [Back to Workspace Object (WorkspaceObjectClient)](#client-workspaceobjectclient) • [Top](#top)
