@@ -7,12 +7,12 @@ import com.oracle.aidataplatform.dp.model.*;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public class RedeployAgentByKeyResponse extends com.oracle.bmc.responses.BmcResponse {
     /**
-     * URI for the newly created Agent deployment.
+     * URI for the newly created agent deployment.
      */
     private String location;
 
     /**
-     * URI for the newly created Agent deployment.
+     * URI for the newly created agent deployment.
      * @return the value
      */
     public String getLocation() {
@@ -121,12 +121,12 @@ public class RedeployAgentByKeyResponse extends com.oracle.bmc.responses.BmcResp
         }
 
         /**
-         * URI for the newly created Agent deployment.
+         * URI for the newly created agent deployment.
          */
         private String location;
 
         /**
-         * URI for the newly created Agent deployment.
+         * URI for the newly created agent deployment.
          * @param location the value to set
          * @return this builder
          */

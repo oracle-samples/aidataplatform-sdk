@@ -34,6 +34,19 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         return schemaKey;
     }
         /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    private Boolean shouldSkipOcidTranslation;
+
+    
+
+        /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    public Boolean getShouldSkipOcidTranslation() {
+        return shouldSkipOcidTranslation;
+    }
+        /**
      * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,
@@ -104,6 +117,21 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         }
 
             /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+        private Boolean shouldSkipOcidTranslation = null;
+
+        /**
+         * When true, skip user OCID translation and return raw OCIDs.
+         * @param shouldSkipOcidTranslation the value to set
+         * @return this builder instance
+         */
+        public Builder shouldSkipOcidTranslation(Boolean shouldSkipOcidTranslation) {
+            this.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
+            return this;
+        }
+
+            /**
      * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,
@@ -167,7 +195,7 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
          * @return this builder instance
          */
         public Builder copy(GetSchemaRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());schemaKey(o.getSchemaKey());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());
+            aiDataPlatformId(o.getAiDataPlatformId());schemaKey(o.getSchemaKey());shouldSkipOcidTranslation(o.getShouldSkipOcidTranslation());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -202,10 +230,11 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             GetSchemaRequest request = new GetSchemaRequest();
             request.aiDataPlatformId = aiDataPlatformId;
             request.schemaKey = schemaKey;
+            request.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
             request.opcRequestId = opcRequestId;
             request.shouldUpdateRecent = shouldUpdateRecent;
             return request;
-            // new GetSchemaRequest(aiDataPlatformId, schemaKey, opcRequestId, shouldUpdateRecent);
+            // new GetSchemaRequest(aiDataPlatformId, schemaKey, shouldSkipOcidTranslation, opcRequestId, shouldUpdateRecent);
         }
     }
 
@@ -217,6 +246,7 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         return new Builder()
             .aiDataPlatformId(aiDataPlatformId)
             .schemaKey(schemaKey)
+            .shouldSkipOcidTranslation(shouldSkipOcidTranslation)
             .opcRequestId(opcRequestId)
             .shouldUpdateRecent(shouldUpdateRecent);
     }
@@ -236,6 +266,7 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         sb.append("super=").append(super.toString());
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",schemaKey=").append(String.valueOf(this.schemaKey));
+        sb.append(",shouldSkipOcidTranslation=").append(String.valueOf(this.shouldSkipOcidTranslation));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(",shouldUpdateRecent=").append(String.valueOf(this.shouldUpdateRecent));
         sb.append(")");
@@ -255,6 +286,7 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         return super.equals(o)
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.schemaKey, other.schemaKey)
+            && java.util.Objects.equals(this.shouldSkipOcidTranslation, other.shouldSkipOcidTranslation)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.shouldUpdateRecent, other.shouldUpdateRecent);
     }
@@ -265,6 +297,7 @@ public class GetSchemaRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         int result = super.hashCode();
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.schemaKey == null ? 43 : this.schemaKey.hashCode());
+        result = (result * PRIME) + (this.shouldSkipOcidTranslation == null ? 43 : this.shouldSkipOcidTranslation.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.shouldUpdateRecent == null ? 43 : this.shouldUpdateRecent.hashCode());
         return result;

@@ -572,7 +572,8 @@ class NotebookClient(object):
 
     def get_content(self, ai_data_platform_id, workspace_key, content_path, **kwargs):
         """
-        Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter.
+        Returns content for a given file or metadata for a directory. Directory content listing is not supported; requests with type=directory and
+        content=1 return 400 and should use content=0 to retrieve directory metadata. You can optionally specify a type and/or format argument via URL parameter.
         When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text
         is requested, but the file is binary, then the request returns a 400 message and a JSON response with a Reason field identifying the issue. The value
         of the Reason field is \u2018bad format\u2019 or \u2018bad type\u2019, depending on what was requested.

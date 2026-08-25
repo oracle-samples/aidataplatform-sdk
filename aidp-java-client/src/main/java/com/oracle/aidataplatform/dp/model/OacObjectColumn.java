@@ -12,14 +12,19 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OacObjectColumn  {
     @Deprecated
-    @java.beans.ConstructorProperties({"name", "description", "formula", "isTime", "type", "sqlInfo"})
-    public OacObjectColumn(String name, String description, String formula, Boolean isTime, String type, Object sqlInfo) {
+    @java.beans.ConstructorProperties({"name", "description", "formula", "isTime", "type", "hierarchyID", "hierarchyDisplayName", "dimensionID", "tableName", "levels", "sqlInfo"})
+    public OacObjectColumn(String name, String description, String formula, Boolean isTime, String type, String hierarchyID, String hierarchyDisplayName, String dimensionID, String tableName, java.util.List<OacObjectHierarchyLevel> levels, OacObjectColumnSqlInfo sqlInfo) {
         super();
         this.name = name;
         this.description = description;
         this.formula = formula;
         this.isTime = isTime;
         this.type = type;
+        this.hierarchyID = hierarchyID;
+        this.hierarchyDisplayName = hierarchyDisplayName;
+        this.dimensionID = dimensionID;
+        this.tableName = tableName;
+        this.levels = levels;
         this.sqlInfo = sqlInfo;
     }
 
@@ -116,20 +121,102 @@ public Builder type(String type) {
     return this;
 }
             /**
-     * Additional SQL metadata reported by Oracle Analytics for the column.
+     * The hierarchy identifier reported for an Oracle Analytics hierarchical column.
      **/
     
-@com.fasterxml.jackson.annotation.JsonProperty("sqlInfo")
-private Object sqlInfo;
+@com.fasterxml.jackson.annotation.JsonProperty("hierarchyID")
+private String hierarchyID;
 
         /**
-         * Additional SQL metadata reported by Oracle Analytics for the column.
-         * @param sqlInfo the value to set
+         * The hierarchy identifier reported for an Oracle Analytics hierarchical column.
+         * @param hierarchyID the value to set
          * @return this builder
          **/
         
 
-public Builder sqlInfo(Object sqlInfo) {
+public Builder hierarchyID(String hierarchyID) {
+    this.hierarchyID = hierarchyID;
+    return this;
+}
+            /**
+     * The hierarchy display name reported for a hierarchical column in an OAC data object.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("hierarchyDisplayName")
+private String hierarchyDisplayName;
+
+        /**
+         * The hierarchy display name reported for a hierarchical column in an OAC data object.
+         * @param hierarchyDisplayName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder hierarchyDisplayName(String hierarchyDisplayName) {
+    this.hierarchyDisplayName = hierarchyDisplayName;
+    return this;
+}
+            /**
+     * The dimension identifier reported for an Oracle Analytics hierarchical column.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("dimensionID")
+private String dimensionID;
+
+        /**
+         * The dimension identifier reported for an Oracle Analytics hierarchical column.
+         * @param dimensionID the value to set
+         * @return this builder
+         **/
+        
+
+public Builder dimensionID(String dimensionID) {
+    this.dimensionID = dimensionID;
+    return this;
+}
+            /**
+     * The table name reported for a hierarchical column in an OAC data object.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("tableName")
+private String tableName;
+
+        /**
+         * The table name reported for a hierarchical column in an OAC data object.
+         * @param tableName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder tableName(String tableName) {
+    this.tableName = tableName;
+    return this;
+}
+            /**
+     * The hierarchy levels reported for an Oracle Analytics hierarchical column.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("levels")
+private java.util.List<OacObjectHierarchyLevel> levels;
+
+        /**
+         * The hierarchy levels reported for an Oracle Analytics hierarchical column.
+         * @param levels the value to set
+         * @return this builder
+         **/
+        
+
+public Builder levels(java.util.List<OacObjectHierarchyLevel> levels) {
+    this.levels = levels;
+    return this;
+}
+        
+@com.fasterxml.jackson.annotation.JsonProperty("sqlInfo")
+private OacObjectColumnSqlInfo sqlInfo;
+
+
+
+public Builder sqlInfo(OacObjectColumnSqlInfo sqlInfo) {
     this.sqlInfo = sqlInfo;
     return this;
 }
@@ -141,6 +228,11 @@ public Builder sqlInfo(Object sqlInfo) {
                 , this.formula
                 , this.isTime
                 , this.type
+                , this.hierarchyID
+                , this.hierarchyDisplayName
+                , this.dimensionID
+                , this.tableName
+                , this.levels
                 , this.sqlInfo);            return model;
         }
 
@@ -151,6 +243,11 @@ public Builder sqlInfo(Object sqlInfo) {
     this.formula(model.getFormula());
     this.isTime(model.getIsTime());
     this.type(model.getType());
+    this.hierarchyID(model.getHierarchyID());
+    this.hierarchyDisplayName(model.getHierarchyDisplayName());
+    this.dimensionID(model.getDimensionID());
+    this.tableName(model.getTableName());
+    this.levels(model.getLevels());
     this.sqlInfo(model.getSqlInfo());
 return this;
         }
@@ -257,18 +354,96 @@ return this;
 
 
         /**
-     * Additional SQL metadata reported by Oracle Analytics for the column.
+     * The hierarchy identifier reported for an Oracle Analytics hierarchical column.
      **/
     
-    @com.fasterxml.jackson.annotation.JsonProperty("sqlInfo")
-    private final Object sqlInfo;
+    @com.fasterxml.jackson.annotation.JsonProperty("hierarchyID")
+    private final String hierarchyID;
 
         /**
-     * Additional SQL metadata reported by Oracle Analytics for the column.
+     * The hierarchy identifier reported for an Oracle Analytics hierarchical column.
      * @return the value
      **/
     
-    public Object getSqlInfo() {
+    public String getHierarchyID() {
+        return hierarchyID;
+    }
+
+
+        /**
+     * The hierarchy display name reported for a hierarchical column in an OAC data object.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("hierarchyDisplayName")
+    private final String hierarchyDisplayName;
+
+        /**
+     * The hierarchy display name reported for a hierarchical column in an OAC data object.
+     * @return the value
+     **/
+    
+    public String getHierarchyDisplayName() {
+        return hierarchyDisplayName;
+    }
+
+
+        /**
+     * The dimension identifier reported for an Oracle Analytics hierarchical column.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("dimensionID")
+    private final String dimensionID;
+
+        /**
+     * The dimension identifier reported for an Oracle Analytics hierarchical column.
+     * @return the value
+     **/
+    
+    public String getDimensionID() {
+        return dimensionID;
+    }
+
+
+        /**
+     * The table name reported for a hierarchical column in an OAC data object.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("tableName")
+    private final String tableName;
+
+        /**
+     * The table name reported for a hierarchical column in an OAC data object.
+     * @return the value
+     **/
+    
+    public String getTableName() {
+        return tableName;
+    }
+
+
+        /**
+     * The hierarchy levels reported for an Oracle Analytics hierarchical column.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("levels")
+    private final java.util.List<OacObjectHierarchyLevel> levels;
+
+        /**
+     * The hierarchy levels reported for an Oracle Analytics hierarchical column.
+     * @return the value
+     **/
+    
+    public java.util.List<OacObjectHierarchyLevel> getLevels() {
+        return levels;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("sqlInfo")
+    private final OacObjectColumnSqlInfo sqlInfo;
+
+    
+    public OacObjectColumnSqlInfo getSqlInfo() {
         return sqlInfo;
     }
 
@@ -290,6 +465,11 @@ return this;
         sb.append(", formula=").append(String.valueOf(this.formula));
         sb.append(", isTime=").append(String.valueOf(this.isTime));
         sb.append(", type=").append(String.valueOf(this.type));
+        sb.append(", hierarchyID=").append(String.valueOf(this.hierarchyID));
+        sb.append(", hierarchyDisplayName=").append(String.valueOf(this.hierarchyDisplayName));
+        sb.append(", dimensionID=").append(String.valueOf(this.dimensionID));
+        sb.append(", tableName=").append(String.valueOf(this.tableName));
+        sb.append(", levels=").append(String.valueOf(this.levels));
         sb.append(", sqlInfo=").append(String.valueOf(this.sqlInfo));
         sb.append(")");
         return sb.toString();
@@ -310,6 +490,11 @@ return this;
             java.util.Objects.equals(this.formula, other.formula) &&
             java.util.Objects.equals(this.isTime, other.isTime) &&
             java.util.Objects.equals(this.type, other.type) &&
+            java.util.Objects.equals(this.hierarchyID, other.hierarchyID) &&
+            java.util.Objects.equals(this.hierarchyDisplayName, other.hierarchyDisplayName) &&
+            java.util.Objects.equals(this.dimensionID, other.dimensionID) &&
+            java.util.Objects.equals(this.tableName, other.tableName) &&
+            java.util.Objects.equals(this.levels, other.levels) &&
             java.util.Objects.equals(this.sqlInfo, other.sqlInfo);
     }
 
@@ -322,6 +507,11 @@ return this;
         result = (result * PRIME) + (this.formula == null ? 43 : this.formula.hashCode());
         result = (result * PRIME) + (this.isTime == null ? 43 : this.isTime.hashCode());
         result = (result * PRIME) + (this.type == null ? 43 : this.type.hashCode());
+        result = (result * PRIME) + (this.hierarchyID == null ? 43 : this.hierarchyID.hashCode());
+        result = (result * PRIME) + (this.hierarchyDisplayName == null ? 43 : this.hierarchyDisplayName.hashCode());
+        result = (result * PRIME) + (this.dimensionID == null ? 43 : this.dimensionID.hashCode());
+        result = (result * PRIME) + (this.tableName == null ? 43 : this.tableName.hashCode());
+        result = (result * PRIME) + (this.levels == null ? 43 : this.levels.hashCode());
         result = (result * PRIME) + (this.sqlInfo == null ? 43 : this.sqlInfo.hashCode());
         return result;
     }

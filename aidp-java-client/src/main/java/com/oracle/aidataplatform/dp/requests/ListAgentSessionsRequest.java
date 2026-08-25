@@ -34,14 +34,14 @@ public class ListAgentSessionsRequest extends com.oracle.bmc.requests.BmcRequest
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
@@ -244,12 +244,12 @@ public class ListAgentSessionsRequest extends com.oracle.bmc.requests.BmcRequest
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */

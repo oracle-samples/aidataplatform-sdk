@@ -20,6 +20,10 @@ export interface ListTablesRequest extends common.BaseRequest {
  */
  'schemaKey': string;
 /**
+ * When true, skip user OCID translation and return raw OCIDs.
+ */
+ 'shouldSkipOcidTranslation'?: boolean;
+/**
  * A filter to return only resources that match the given display name exactly.
  */
  'displayName'?: string;

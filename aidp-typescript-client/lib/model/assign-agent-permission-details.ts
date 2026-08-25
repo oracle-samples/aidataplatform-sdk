@@ -31,7 +31,8 @@ export namespace AssignAgentPermissionDetails {
     
     Read = "READ",
     Manage = "MANAGE",
-    Admin = "ADMIN"
+    Admin = "ADMIN",
+    Use = "USE"
 
 }
 

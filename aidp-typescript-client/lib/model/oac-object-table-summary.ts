@@ -20,10 +20,20 @@ export interface OacObjectTableSummary {
     * The Oracle Analytics table description.
     */
     'description'?: string;
+    /**
+    * Child tables nested under this Oracle Analytics table.
+    */
+    'childTables'?: Array<model.OacObjectTableSummary>;
+    /**
+    * Additional tables nested under this Oracle Analytics table.
+    */
+    'tables'?: Array<model.OacObjectTableSummary>;
 
 }
 
 export namespace OacObjectTableSummary {
+
+
 
 
 
@@ -34,6 +44,16 @@ export namespace OacObjectTableSummary {
 
 
 
+                'childTables': obj.childTables ?
+                
+                obj.childTables.map((item)=>{return model.OacObjectTableSummary.getJsonObj(item)})
+                
+                 : undefined,
+                'tables': obj.tables ?
+                
+                obj.tables.map((item)=>{return model.OacObjectTableSummary.getJsonObj(item)})
+                
+                 : undefined,
         }};
 
         
@@ -47,6 +67,16 @@ export namespace OacObjectTableSummary {
 
 
 
+                    'childTables': obj.childTables ?
+                
+                obj.childTables.map((item)=>{return model.OacObjectTableSummary.getDeserializedJsonObj(item)})
+                
+                 : undefined,
+                    'tables': obj.tables ?
+                
+                obj.tables.map((item)=>{return model.OacObjectTableSummary.getDeserializedJsonObj(item)})
+                
+                 : undefined,
          }};
 
         

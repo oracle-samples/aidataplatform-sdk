@@ -12,11 +12,15 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class TaskRunRetry  {
     @Deprecated
-    @java.beans.ConstructorProperties({"startTime", "endTime", "clusterValidationStartTime", "state", "setupDuration", "executionDuration", "cleanupDuration", "outputKey", "externalId", "retryNumber"})
-    public TaskRunRetry(Long startTime, Long endTime, Long clusterValidationStartTime, State state, Long setupDuration, Long executionDuration, Long cleanupDuration, String outputKey, String externalId, Integer retryNumber) {
+    @java.beans.ConstructorProperties({"key", "name", "taskRunKey", "startTime", "endTime", "version", "clusterValidationStartTime", "state", "setupDuration", "executionDuration", "cleanupDuration", "outputKey", "externalId", "retryNumber"})
+    public TaskRunRetry(String key, String name, String taskRunKey, Long startTime, Long endTime, Integer version, Long clusterValidationStartTime, State state, Long setupDuration, Long executionDuration, Long cleanupDuration, String outputKey, String externalId, Integer retryNumber) {
         super();
+        this.key = key;
+        this.name = name;
+        this.taskRunKey = taskRunKey;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.version = version;
         this.clusterValidationStartTime = clusterValidationStartTime;
         this.state = state;
         this.setupDuration = setupDuration;
@@ -30,6 +34,60 @@ public final class TaskRunRetry  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
+     * The OCID of the task run.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("key")
+private String key;
+
+        /**
+         * The OCID of the task run.
+         * @param key the value to set
+         * @return this builder
+         **/
+        
+
+public Builder key(String key) {
+    this.key = key;
+    return this;
+}
+            /**
+     * A user-friendly name. Does not have to be unique, and is changeable.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("name")
+private String name;
+
+        /**
+         * A user-friendly name. Does not have to be unique, and is changeable.
+         * @param name the value to set
+         * @return this builder
+         **/
+        
+
+public Builder name(String name) {
+    this.name = name;
+    return this;
+}
+            /**
+     * The OCID of the task run.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("taskRunKey")
+private String taskRunKey;
+
+        /**
+         * The OCID of the task run.
+         * @param taskRunKey the value to set
+         * @return this builder
+         **/
+        
+
+public Builder taskRunKey(String taskRunKey) {
+    this.taskRunKey = taskRunKey;
+    return this;
+}
+            /**
      * The time at which the job execution started in epoch milliseconds.
      **/
     
@@ -63,6 +121,24 @@ private Long endTime;
 
 public Builder endTime(Long endTime) {
     this.endTime = endTime;
+    return this;
+}
+            /**
+     * Current version of job run object in repository.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("version")
+private Integer version;
+
+        /**
+         * Current version of job run object in repository.
+         * @param version the value to set
+         * @return this builder
+         **/
+        
+
+public Builder version(Integer version) {
+    this.version = version;
     return this;
 }
             /**
@@ -204,8 +280,12 @@ public Builder retryNumber(Integer retryNumber) {
 
 
         public TaskRunRetry build() {
-            TaskRunRetry model = new TaskRunRetry(this.startTime
+            TaskRunRetry model = new TaskRunRetry(this.key
+                , this.name
+                , this.taskRunKey
+                , this.startTime
                 , this.endTime
+                , this.version
                 , this.clusterValidationStartTime
                 , this.state
                 , this.setupDuration
@@ -218,8 +298,12 @@ public Builder retryNumber(Integer retryNumber) {
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(TaskRunRetry model) {
-                this.startTime(model.getStartTime());
+                this.key(model.getKey());
+    this.name(model.getName());
+    this.taskRunKey(model.getTaskRunKey());
+    this.startTime(model.getStartTime());
     this.endTime(model.getEndTime());
+    this.version(model.getVersion());
     this.clusterValidationStartTime(model.getClusterValidationStartTime());
     this.state(model.getState());
     this.setupDuration(model.getSetupDuration());
@@ -245,6 +329,57 @@ return this;
     }
 
     
+
+
+        /**
+     * The OCID of the task run.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("key")
+    private final String key;
+
+        /**
+     * The OCID of the task run.
+     * @return the value
+     **/
+    
+    public String getKey() {
+        return key;
+    }
+
+
+        /**
+     * A user-friendly name. Does not have to be unique, and is changeable.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("name")
+    private final String name;
+
+        /**
+     * A user-friendly name. Does not have to be unique, and is changeable.
+     * @return the value
+     **/
+    
+    public String getName() {
+        return name;
+    }
+
+
+        /**
+     * The OCID of the task run.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("taskRunKey")
+    private final String taskRunKey;
+
+        /**
+     * The OCID of the task run.
+     * @return the value
+     **/
+    
+    public String getTaskRunKey() {
+        return taskRunKey;
+    }
 
 
         /**
@@ -278,6 +413,23 @@ return this;
     
     public Long getEndTime() {
         return endTime;
+    }
+
+
+        /**
+     * Current version of job run object in repository.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("version")
+    private final Integer version;
+
+        /**
+     * Current version of job run object in repository.
+     * @return the value
+     **/
+    
+    public Integer getVersion() {
+        return version;
     }
 
 
@@ -422,8 +574,12 @@ return this;
     public String toString(boolean includeByteArrayContents) {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("TaskRunRetry(");
-        sb.append("startTime=").append(String.valueOf(this.startTime));
+        sb.append("key=").append(String.valueOf(this.key));
+        sb.append(", name=").append(String.valueOf(this.name));
+        sb.append(", taskRunKey=").append(String.valueOf(this.taskRunKey));
+        sb.append(", startTime=").append(String.valueOf(this.startTime));
         sb.append(", endTime=").append(String.valueOf(this.endTime));
+        sb.append(", version=").append(String.valueOf(this.version));
         sb.append(", clusterValidationStartTime=").append(String.valueOf(this.clusterValidationStartTime));
         sb.append(", state=").append(String.valueOf(this.state));
         sb.append(", setupDuration=").append(String.valueOf(this.setupDuration));
@@ -446,8 +602,12 @@ return this;
         }
 
         TaskRunRetry other = (TaskRunRetry) o;
-        return java.util.Objects.equals(this.startTime, other.startTime) &&
+        return java.util.Objects.equals(this.key, other.key) &&
+            java.util.Objects.equals(this.name, other.name) &&
+            java.util.Objects.equals(this.taskRunKey, other.taskRunKey) &&
+            java.util.Objects.equals(this.startTime, other.startTime) &&
             java.util.Objects.equals(this.endTime, other.endTime) &&
+            java.util.Objects.equals(this.version, other.version) &&
             java.util.Objects.equals(this.clusterValidationStartTime, other.clusterValidationStartTime) &&
             java.util.Objects.equals(this.state, other.state) &&
             java.util.Objects.equals(this.setupDuration, other.setupDuration) &&
@@ -462,8 +622,12 @@ return this;
     public int hashCode() {
         final int PRIME = 59;
         int result = 1;
+        result = (result * PRIME) + (this.key == null ? 43 : this.key.hashCode());
+        result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
+        result = (result * PRIME) + (this.taskRunKey == null ? 43 : this.taskRunKey.hashCode());
         result = (result * PRIME) + (this.startTime == null ? 43 : this.startTime.hashCode());
         result = (result * PRIME) + (this.endTime == null ? 43 : this.endTime.hashCode());
+        result = (result * PRIME) + (this.version == null ? 43 : this.version.hashCode());
         result = (result * PRIME) + (this.clusterValidationStartTime == null ? 43 : this.clusterValidationStartTime.hashCode());
         result = (result * PRIME) + (this.state == null ? 43 : this.state.hashCode());
         result = (result * PRIME) + (this.setupDuration == null ? 43 : this.setupDuration.hashCode());

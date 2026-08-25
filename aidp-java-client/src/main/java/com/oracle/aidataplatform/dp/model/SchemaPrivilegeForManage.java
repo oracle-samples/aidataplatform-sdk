@@ -15,6 +15,7 @@ public enum SchemaPrivilegeForManage implements com.oracle.bmc.http.internal.Bmc
     CreateTable("CREATE_TABLE"),
     Admin("ADMIN"),
     CreateKnowledgeBase("CREATE_KNOWLEDGE_BASE"),
+    CreateModel("CREATE_MODEL"),
     ;
 
     

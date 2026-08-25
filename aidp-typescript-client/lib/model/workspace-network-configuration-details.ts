@@ -19,6 +19,12 @@ export interface WorkspaceNetworkConfigurationDetails {
     */
     'nsgIds'?: Array<string>;
     /**
+    * An array of fully qualified domain names to whitelist for workspace network access.
+* Example: {@code [ \"app.examplecorp.com\", \"app.examplecorp2.com\" ]}
+* 
+    */
+    'dnsZones'?: Array<string>;
+    /**
     * An array of fqdn/port pairs used to create private endpoint. Each object is a simple key-value pair with FQDN as key and port number as value.
 * [ { fqdn: \"scan1.oracle.com\", port: \"1521\"}, { fqdn: \"scan2.oracle.com\", port: \"1521\" } ]
 * 
@@ -32,9 +38,11 @@ export namespace WorkspaceNetworkConfigurationDetails {
 
 
 
+
     export function getJsonObj(obj: WorkspaceNetworkConfigurationDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
                 'scanDetails': obj.scanDetails ?
@@ -52,6 +60,7 @@ export namespace WorkspaceNetworkConfigurationDetails {
     export function getDeserializedJsonObj(obj: WorkspaceNetworkConfigurationDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
                     'scanDetails': obj.scanDetails ?

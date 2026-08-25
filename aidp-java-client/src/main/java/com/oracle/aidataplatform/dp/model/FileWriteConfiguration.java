@@ -104,14 +104,14 @@ public Builder maxFileSizeMb(Long maxFileSizeMb) {
     return this;
 }
             /**
-     * Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+     * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("targetPath")
 private String targetPath;
 
         /**
-         * Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+         * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
          * @param targetPath the value to set
          * @return this builder
          **/
@@ -306,14 +306,14 @@ return this;
 
 
         /**
-     * Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+     * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("targetPath")
     private final String targetPath;
 
         /**
-     * Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+     * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
      * @return the value
      **/
     

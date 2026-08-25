@@ -54,6 +54,10 @@ class SchemaPermissionSummary(object):
     GRANTEE_PERMISSIONS_CREATE_KNOWLEDGE_BASE = "CREATE_KNOWLEDGE_BASE"
 
     #: A constant which can be used with the grantee_permissions property of a SchemaPermissionSummary.
+    #: This constant has a value of "CREATE_MODEL"
+    GRANTEE_PERMISSIONS_CREATE_MODEL = "CREATE_MODEL"
+
+    #: A constant which can be used with the grantee_permissions property of a SchemaPermissionSummary.
     #: This constant has a value of "ADMIN"
     GRANTEE_PERMISSIONS_ADMIN = "ADMIN"
 
@@ -78,7 +82,7 @@ class SchemaPermissionSummary(object):
 
         :param grantee_permissions:
             The value to assign to the grantee_permissions property of this SchemaPermissionSummary.
-            Allowed values for items in this list are: "SELECT", "MANAGE", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "ADMIN", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for items in this list are: "SELECT", "MANAGE", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL", "ADMIN", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type grantee_permissions: list[str]
 
@@ -200,7 +204,7 @@ class SchemaPermissionSummary(object):
         **[Required]** Gets the grantee_permissions of this SchemaPermissionSummary.
         Selected permissions for a schema.
 
-        Allowed values for items in this list are: "SELECT", "MANAGE", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "ADMIN", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for items in this list are: "SELECT", "MANAGE", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL", "ADMIN", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -219,7 +223,7 @@ class SchemaPermissionSummary(object):
         :param grantee_permissions: The grantee_permissions of this SchemaPermissionSummary.
         :type: list[str]
         """
-        allowed_values = ["SELECT", "MANAGE", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "ADMIN"]
+        allowed_values = ["SELECT", "MANAGE", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL", "ADMIN"]
         if grantee_permissions:
             grantee_permissions[:] = ['UNKNOWN_ENUM_VALUE' if not value_allowed_none_or_none_sentinel(x, allowed_values) else x for x in grantee_permissions]
         self._grantee_permissions = grantee_permissions

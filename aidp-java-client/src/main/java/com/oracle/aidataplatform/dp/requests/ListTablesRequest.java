@@ -47,6 +47,19 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         return schemaKey;
     }
         /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    private Boolean shouldSkipOcidTranslation;
+
+    
+
+        /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    public Boolean getShouldSkipOcidTranslation() {
+        return shouldSkipOcidTranslation;
+    }
+        /**
      * A filter to return only resources that match the given display name exactly.
      */
     private String displayName;
@@ -233,6 +246,21 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         }
 
             /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+        private Boolean shouldSkipOcidTranslation = null;
+
+        /**
+         * When true, skip user OCID translation and return raw OCIDs.
+         * @param shouldSkipOcidTranslation the value to set
+         * @return this builder instance
+         */
+        public Builder shouldSkipOcidTranslation(Boolean shouldSkipOcidTranslation) {
+            this.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
+            return this;
+        }
+
+            /**
      * A filter to return only resources that match the given display name exactly.
      */
         private String displayName = null;
@@ -368,7 +396,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
          * @return this builder instance
          */
         public Builder copy(ListTablesRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());catalogKey(o.getCatalogKey());schemaKey(o.getSchemaKey());displayName(o.getDisplayName());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());catalogKey(o.getCatalogKey());schemaKey(o.getSchemaKey());shouldSkipOcidTranslation(o.getShouldSkipOcidTranslation());displayName(o.getDisplayName());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -404,6 +432,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             request.aiDataPlatformId = aiDataPlatformId;
             request.catalogKey = catalogKey;
             request.schemaKey = schemaKey;
+            request.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
             request.displayName = displayName;
             request.limit = limit;
             request.page = page;
@@ -411,7 +440,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             request.sortBy = sortBy;
             request.opcRequestId = opcRequestId;
             return request;
-            // new ListTablesRequest(aiDataPlatformId, catalogKey, schemaKey, displayName, limit, page, sortOrder, sortBy, opcRequestId);
+            // new ListTablesRequest(aiDataPlatformId, catalogKey, schemaKey, shouldSkipOcidTranslation, displayName, limit, page, sortOrder, sortBy, opcRequestId);
         }
     }
 
@@ -424,6 +453,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             .aiDataPlatformId(aiDataPlatformId)
             .catalogKey(catalogKey)
             .schemaKey(schemaKey)
+            .shouldSkipOcidTranslation(shouldSkipOcidTranslation)
             .displayName(displayName)
             .limit(limit)
             .page(page)
@@ -448,6 +478,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",catalogKey=").append(String.valueOf(this.catalogKey));
         sb.append(",schemaKey=").append(String.valueOf(this.schemaKey));
+        sb.append(",shouldSkipOcidTranslation=").append(String.valueOf(this.shouldSkipOcidTranslation));
         sb.append(",displayName=").append(String.valueOf(this.displayName));
         sb.append(",limit=").append(String.valueOf(this.limit));
         sb.append(",page=").append(String.valueOf(this.page));
@@ -472,6 +503,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.catalogKey, other.catalogKey)
             && java.util.Objects.equals(this.schemaKey, other.schemaKey)
+            && java.util.Objects.equals(this.shouldSkipOcidTranslation, other.shouldSkipOcidTranslation)
             && java.util.Objects.equals(this.displayName, other.displayName)
             && java.util.Objects.equals(this.limit, other.limit)
             && java.util.Objects.equals(this.page, other.page)
@@ -487,6 +519,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.catalogKey == null ? 43 : this.catalogKey.hashCode());
         result = (result * PRIME) + (this.schemaKey == null ? 43 : this.schemaKey.hashCode());
+        result = (result * PRIME) + (this.shouldSkipOcidTranslation == null ? 43 : this.shouldSkipOcidTranslation.hashCode());
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
         result = (result * PRIME) + (this.limit == null ? 43 : this.limit.hashCode());
         result = (result * PRIME) + (this.page == null ? 43 : this.page.hashCode());

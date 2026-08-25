@@ -13,7 +13,8 @@ export enum SchemaPrivilegeForManage {
     CreateVolume = "CREATE_VOLUME",
     CreateTable = "CREATE_TABLE",
     Admin = "ADMIN",
-    CreateKnowledgeBase = "CREATE_KNOWLEDGE_BASE"
+    CreateKnowledgeBase = "CREATE_KNOWLEDGE_BASE",
+    CreateModel = "CREATE_MODEL"
     
 }
 

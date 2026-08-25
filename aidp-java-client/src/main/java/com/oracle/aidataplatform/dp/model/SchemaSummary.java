@@ -14,7 +14,7 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchemaSummary.class, name = "EXADATA"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OracleSchemaSummary.class, name = "ORACLE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlSchemaSummary.class, name = "MYSQL"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = GoogleBigquerySchemaSummary.class, name = "GOOGLE_BIGQUERY"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = Db2SchemaSummary.class, name = "DB2"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacSchemaSummary.class, name = "ORACLE_ANALYTICS"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpSchemaSummary.class, name = "ATP"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = KafkaTopicSchemaSummary.class, name = "KAFKA_TOPIC"),

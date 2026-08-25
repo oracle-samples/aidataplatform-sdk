@@ -16,11 +16,11 @@ export interface UpdateAgentDeploymentMetadataRequest extends common.BaseRequest
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**
- * Agent card details to update
+ * Agent card details to update.
  */
  'updateAgentDeploymentMetadataDetails':  model.UpdateAgentDeploymentMetadataDetails;
 /**

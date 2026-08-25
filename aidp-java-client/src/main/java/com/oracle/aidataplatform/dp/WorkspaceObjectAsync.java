@@ -209,6 +209,19 @@ public interface WorkspaceObjectAsync extends AutoCloseable {
     java.util.concurrent.Future<UpdateWorkspaceObjectResponse> updateWorkspaceObject(UpdateWorkspaceObjectRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateWorkspaceObjectRequest, UpdateWorkspaceObjectResponse> handler);
     
     /**
+     * Creates or updates an asynchronous workspace ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+* 
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UploadAndExtractWorkspaceZipResponse> uploadAndExtractWorkspaceZip(UploadAndExtractWorkspaceZipRequest request, com.oracle.bmc.responses.AsyncHandler<UploadAndExtractWorkspaceZipRequest, UploadAndExtractWorkspaceZipResponse> handler);
+    
+    /**
      * Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 * 
      * 
@@ -220,5 +233,17 @@ public interface WorkspaceObjectAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<UploadWorkspaceObjectWithParResponse> uploadWorkspaceObjectWithPar(UploadWorkspaceObjectWithParRequest request, com.oracle.bmc.responses.AsyncHandler<UploadWorkspaceObjectWithParRequest, UploadWorkspaceObjectWithParResponse> handler);
+    
+    /**
+     * Starts asynchronous creation of a ZIP archive for a workspace folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ZipAndDownloadWorkspaceFolderResponse> zipAndDownloadWorkspaceFolder(ZipAndDownloadWorkspaceFolderRequest request, com.oracle.bmc.responses.AsyncHandler<ZipAndDownloadWorkspaceFolderRequest, ZipAndDownloadWorkspaceFolderResponse> handler);
     
 }

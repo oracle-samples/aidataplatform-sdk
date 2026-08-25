@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 export interface CreateAgentResponse {
     /**
-     * URL for the created Agent. The Agent key is generated after this request is sent.
+     * URL for the created agent. The agent key is generated after this request is sent.
      */
     'location': string;
     /**

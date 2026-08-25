@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 export interface RedeployAgentByKeyResponse {
     /**
-     * URI for the newly created Agent deployment.
+     * URI for the newly created agent deployment.
      */
     'location': string;
     /**

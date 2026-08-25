@@ -211,6 +211,10 @@ return clientCall(request, GetCatalogResponse::builder)
                 
                     
                     .appendQueryParam("isCatalogGuid", request.getIsCatalogGuid())
+            
+                
+                    
+                    .appendQueryParam("shouldSkipOcidTranslation", request.getShouldSkipOcidTranslation())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
@@ -303,6 +307,10 @@ return clientCall(request, ListCatalogsResponse::builder)
                 
                     .appendEnumQueryParam("catalogType", request.getCatalogType())
                     
+            
+                
+                    
+                    .appendQueryParam("shouldSkipOcidTranslation", request.getShouldSkipOcidTranslation())
             
                 
                     

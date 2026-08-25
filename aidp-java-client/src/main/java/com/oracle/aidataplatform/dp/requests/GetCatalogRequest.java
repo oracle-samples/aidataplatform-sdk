@@ -47,6 +47,19 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         return isCatalogGuid;
     }
         /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    private Boolean shouldSkipOcidTranslation;
+
+    
+
+        /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    public Boolean getShouldSkipOcidTranslation() {
+        return shouldSkipOcidTranslation;
+    }
+        /**
      * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,
@@ -132,6 +145,21 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         }
 
             /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+        private Boolean shouldSkipOcidTranslation = null;
+
+        /**
+         * When true, skip user OCID translation and return raw OCIDs.
+         * @param shouldSkipOcidTranslation the value to set
+         * @return this builder instance
+         */
+        public Builder shouldSkipOcidTranslation(Boolean shouldSkipOcidTranslation) {
+            this.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
+            return this;
+        }
+
+            /**
      * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,
@@ -195,7 +223,7 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
          * @return this builder instance
          */
         public Builder copy(GetCatalogRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());catalogKey(o.getCatalogKey());isCatalogGuid(o.getIsCatalogGuid());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());
+            aiDataPlatformId(o.getAiDataPlatformId());catalogKey(o.getCatalogKey());isCatalogGuid(o.getIsCatalogGuid());shouldSkipOcidTranslation(o.getShouldSkipOcidTranslation());opcRequestId(o.getOpcRequestId());shouldUpdateRecent(o.getShouldUpdateRecent());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -231,10 +259,11 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             request.aiDataPlatformId = aiDataPlatformId;
             request.catalogKey = catalogKey;
             request.isCatalogGuid = isCatalogGuid;
+            request.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
             request.opcRequestId = opcRequestId;
             request.shouldUpdateRecent = shouldUpdateRecent;
             return request;
-            // new GetCatalogRequest(aiDataPlatformId, catalogKey, isCatalogGuid, opcRequestId, shouldUpdateRecent);
+            // new GetCatalogRequest(aiDataPlatformId, catalogKey, isCatalogGuid, shouldSkipOcidTranslation, opcRequestId, shouldUpdateRecent);
         }
     }
 
@@ -247,6 +276,7 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             .aiDataPlatformId(aiDataPlatformId)
             .catalogKey(catalogKey)
             .isCatalogGuid(isCatalogGuid)
+            .shouldSkipOcidTranslation(shouldSkipOcidTranslation)
             .opcRequestId(opcRequestId)
             .shouldUpdateRecent(shouldUpdateRecent);
     }
@@ -267,6 +297,7 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         sb.append(",aiDataPlatformId=").append(String.valueOf(this.aiDataPlatformId));
         sb.append(",catalogKey=").append(String.valueOf(this.catalogKey));
         sb.append(",isCatalogGuid=").append(String.valueOf(this.isCatalogGuid));
+        sb.append(",shouldSkipOcidTranslation=").append(String.valueOf(this.shouldSkipOcidTranslation));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(",shouldUpdateRecent=").append(String.valueOf(this.shouldUpdateRecent));
         sb.append(")");
@@ -287,6 +318,7 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.catalogKey, other.catalogKey)
             && java.util.Objects.equals(this.isCatalogGuid, other.isCatalogGuid)
+            && java.util.Objects.equals(this.shouldSkipOcidTranslation, other.shouldSkipOcidTranslation)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.shouldUpdateRecent, other.shouldUpdateRecent);
     }
@@ -298,6 +330,7 @@ public class GetCatalogRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         result = (result * PRIME) + (this.aiDataPlatformId == null ? 43 : this.aiDataPlatformId.hashCode());
         result = (result * PRIME) + (this.catalogKey == null ? 43 : this.catalogKey.hashCode());
         result = (result * PRIME) + (this.isCatalogGuid == null ? 43 : this.isCatalogGuid.hashCode());
+        result = (result * PRIME) + (this.shouldSkipOcidTranslation == null ? 43 : this.shouldSkipOcidTranslation.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.shouldUpdateRecent == null ? 43 : this.shouldUpdateRecent.hashCode());
         return result;

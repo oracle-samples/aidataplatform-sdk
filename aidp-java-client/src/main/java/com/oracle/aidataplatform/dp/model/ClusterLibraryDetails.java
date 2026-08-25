@@ -30,6 +30,8 @@ public class ClusterLibraryDetails  {
     public enum Type implements com.oracle.bmc.http.internal.BmcEnum {
         WorkspaceFile("WORKSPACE_FILE"),
         VolumeFile("VOLUME_FILE"),
+        Pypi("PYPI"),
+        Maven("MAVEN"),
         ;
 
         

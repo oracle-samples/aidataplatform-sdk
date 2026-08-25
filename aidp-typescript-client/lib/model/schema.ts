@@ -118,12 +118,12 @@ export namespace Schema {
                     return model.MysqlSchema.getJsonObj(<model.MysqlSchema>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchema.getJsonObj(<model.StandardSchema>(<object>jsonObj), true);
+                case "DB2":
+                    return model.Db2Schema.getJsonObj(<model.Db2Schema>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchema.getJsonObj(<model.OacSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
-                case "GOOGLE_BIGQUERY":
-                    return model.GoogleBigquerySchema.getJsonObj(<model.GoogleBigquerySchema>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -171,12 +171,12 @@ export namespace Schema {
                     return model.MysqlSchema.getDeserializedJsonObj(<model.MysqlSchema>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchema.getDeserializedJsonObj(<model.StandardSchema>(<object>jsonObj), true);
+                case "DB2":
+                    return model.Db2Schema.getDeserializedJsonObj(<model.Db2Schema>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchema.getDeserializedJsonObj(<model.OacSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getDeserializedJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
-                case "GOOGLE_BIGQUERY":
-                    return model.GoogleBigquerySchema.getDeserializedJsonObj(<model.GoogleBigquerySchema>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

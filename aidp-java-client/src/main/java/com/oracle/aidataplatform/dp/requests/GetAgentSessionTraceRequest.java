@@ -34,27 +34,27 @@ public class GetAgentSessionTraceRequest extends com.oracle.bmc.requests.BmcRequ
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
     }
         /**
-     * The UUID of the Agent Session
+     * The UUID of the agent session.
      */
     private String sessionId;
 
     
 
         /**
-     * The UUID of the Agent Session
+     * The UUID of the agent session.
      */
     public String getSessionId() {
         return sessionId;
@@ -130,12 +130,12 @@ public class GetAgentSessionTraceRequest extends com.oracle.bmc.requests.BmcRequ
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */
@@ -145,12 +145,12 @@ public class GetAgentSessionTraceRequest extends com.oracle.bmc.requests.BmcRequ
         }
 
             /**
-     * The UUID of the Agent Session
+     * The UUID of the agent session.
      */
         private String sessionId = null;
 
         /**
-         * The UUID of the Agent Session
+         * The UUID of the agent session.
          * @param sessionId the value to set
          * @return this builder instance
          */

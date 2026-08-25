@@ -234,6 +234,18 @@ public interface VolumeAsync extends AutoCloseable {
     java.util.concurrent.Future<UpdateVolumeResponse> updateVolume(UpdateVolumeRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateVolumeRequest, UpdateVolumeResponse> handler);
     
     /**
+     * Creates or updates an asynchronous volume ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UploadAndExtractVolumeZipResponse> uploadAndExtractVolumeZip(UploadAndExtractVolumeZipRequest request, com.oracle.bmc.responses.AsyncHandler<UploadAndExtractVolumeZipRequest, UploadAndExtractVolumeZipResponse> handler);
+    
+    /**
      * Uploads a file to volume. If the file already exists, it is updated.
 * 
      * 
@@ -258,5 +270,17 @@ public interface VolumeAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<UploadFileWithParResponse> uploadFileWithPar(UploadFileWithParRequest request, com.oracle.bmc.responses.AsyncHandler<UploadFileWithParRequest, UploadFileWithParResponse> handler);
+    
+    /**
+     * Starts asynchronous creation of a ZIP archive for a volume folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ZipAndDownloadVolumeFolderResponse> zipAndDownloadVolumeFolder(ZipAndDownloadVolumeFolderRequest request, com.oracle.bmc.responses.AsyncHandler<ZipAndDownloadVolumeFolderRequest, ZipAndDownloadVolumeFolderResponse> handler);
     
 }
