@@ -352,6 +352,7 @@ from .identity_domain_summary import IdentityDomainSummary
 from .identity_group_collection import IdentityGroupCollection
 from .identity_group_summary import IdentityGroupSummary
 from .identity_user_collection import IdentityUserCollection
+from .identity_user_metadatum import IdentityUserMetadatum
 from .identity_user_summary import IdentityUserSummary
 from .if_else_task import IfElseTask
 from .infer_schema import InferSchema
@@ -1220,6 +1221,7 @@ aidataplatform_dp_type_mapping = {
     "IdentityGroupCollection": IdentityGroupCollection,
     "IdentityGroupSummary": IdentityGroupSummary,
     "IdentityUserCollection": IdentityUserCollection,
+    "IdentityUserMetadatum": IdentityUserMetadatum,
     "IdentityUserSummary": IdentityUserSummary,
     "IfElseTask": IfElseTask,
     "InferSchema": InferSchema,

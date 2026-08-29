@@ -652,6 +652,8 @@ import * as IdentityGroupSummary from './identity-group-summary';
 export import IdentityGroupSummary = IdentityGroupSummary.IdentityGroupSummary;
 import * as IdentityUserCollection from './identity-user-collection';
 export import IdentityUserCollection = IdentityUserCollection.IdentityUserCollection;
+import * as IdentityUserMetadatum from './identity-user-metadatum';
+export import IdentityUserMetadatum = IdentityUserMetadatum.IdentityUserMetadatum;
 import * as IdentityUserSummary from './identity-user-summary';
 export import IdentityUserSummary = IdentityUserSummary.IdentityUserSummary;
 import * as InferSchema from './infer-schema';

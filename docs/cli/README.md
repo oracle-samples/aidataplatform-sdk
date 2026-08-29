@@ -24,12 +24,12 @@ This guide summarizes the command groups, commands, options, and payload require
 - [Catalog](#catalog)
 - [Cluster](#cluster)
 - [Credentials](#credentials)
+- [Data Lineage](#data-lineage)
 - [Delta Share](#delta-share)
 - [ML Ops](#mlops)
 - [Notebook](#notebook)
 - [Role](#role)
 - [Schema](#schema)
-- [Semantic Catalog](#semantic-catalog)
 - [User Setting](#user-setting)
 - [Volume](#volume)
 - [Workflow](#workflow)
@@ -3666,6 +3666,141 @@ Updates a credential object. The operation completes synchronously; callers can 
 ```
 ---
 **Return:** [Back to Credentials](#credentials) • [Top](#top)
+
+## <a id="data-lineage"></a>Data Lineage
+Entity lineages.
+**Command Index:**
+- [data-lineage export](#data-lineage-export)
+- [data-lineage fetch-entity-lineage](#data-lineage-fetch-entity-lineage)
+### Commands
+
+#### `aidp data-lineage export`
+<a id="data-lineage-export"></a>
+(Preview) Returns complete lineage for the provided anchor node in CSV format.
+
+**Usage:**
+
+`aidp data-lineage export <AI-DATA-PLATFORM-ID> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+**Options:**
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
+**Request Body (`ExportLineageDetails`):**
+- `anchorNode` (string, required) —
+- `direction` (string, required) —
+
+**Example:**
+```json
+{
+  "anchorNode": "<string>",
+  "direction": "UPSTREAM"
+}
+```
+---
+**Return:** [Back to Data-Lineage](#data-lineage) • [Top](#top)
+
+#### `aidp data-lineage fetch-entity-lineage`
+<a id="data-lineage-fetch-entity-lineage"></a>
+(Preview) Returns lineage for a given entity object.
+
+**Usage:**
+
+`aidp data-lineage fetch-entity-lineage <AI-DATA-PLATFORM-ID> --body <JSON>`
+
+**Path Arguments:**
+- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
+**Options:**
+- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
+- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
+- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+
+**Request Body (`FetchEntityLineageDetails`):**
+- `anchorNode` (string, required) —
+- `direction` (string, required) —
+- `level` (string, required) —
+- `maxDepth` (integer, required) —
+- `nodeFilters` (object, optional) —
+- `pathFilters` (object, optional) —
+- `shouldIncludeEdges` (boolean, optional) —
+
+**Example:**
+```json
+{
+  "anchorNode": "<string>",
+  "direction": "UPSTREAM",
+  "level": "ENTITY",
+  "maxDepth": 0,
+  "nodeFilters": {},
+  "pathFilters": {},
+  "shouldIncludeEdges": true
+}
+```
+
+**Request Body (`NodeFilterObject`):**
+- `predicates` (object, required) —
+
+**Example:**
+```json
+{
+  "predicates": {}
+}
+```
+
+**Request Body (`NodeFilterPredicates`):**
+- `displayNameContains` (string, optional) —
+- `typeEquals` (string, optional) —
+
+**Example:**
+```json
+{
+  "displayNameContains": "<string>",
+  "typeEquals": "<string>"
+}
+```
+
+**Request Body (`PassThroughNodeFilterPredicate`):**
+- `depth` (integer, optional) —
+- `id` (string, optional) —
+
+**Example:**
+```json
+{
+  "depth": 0,
+  "id": "<string>"
+}
+```
+
+**Request Body (`PathFilterObject`):**
+- `predicates` (object, required) —
+
+**Example:**
+```json
+{
+  "predicates": {}
+}
+```
+
+**Request Body (`PathFilterPredicates`):**
+- `anchorNodeColumnsIn` (array, optional) —
+- `parentIdIn` (array, optional) —
+- `passThroughNode` (object, optional) —
+
+**Example:**
+```json
+{
+  "anchorNodeColumnsIn": [],
+  "parentIdIn": [],
+  "passThroughNode": {}
+}
+```
+---
+**Return:** [Back to Data-Lineage](#data-lineage) • [Top](#top)
 
 ## <a id="delta-share"></a>Delta Share
 Recipients, shares, recipient permissions, and share data assets.
@@ -7592,141 +7727,6 @@ Updates a view with given information.
 ```
 ---
 **Return:** [Back to Schema](#schema) • [Top](#top)
-
-## <a id="semantic-catalog"></a>Semantic Catalog
-Entity lineages.
-**Command Index:**
-- [semantic-catalog export-lineage](#semantic-catalog-export-lineage)
-- [semantic-catalog fetch-entity-lineage](#semantic-catalog-fetch-entity-lineage)
-### Commands
-
-#### `aidp semantic-catalog export-lineage`
-<a id="semantic-catalog-export-lineage"></a>
-(Preview) Returns complete lineage for the provided anchor node in CSV format.
-
-**Usage:**
-
-`aidp semantic-catalog export-lineage <AI-DATA-PLATFORM-ID> --body <JSON>`
-
-**Path Arguments:**
-- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-**Options:**
-- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-
-**Request Body (`ExportLineageDetails`):**
-- `anchorNode` (string, required) —
-- `direction` (string, required) —
-
-**Example:**
-```json
-{
-  "anchorNode": "<string>",
-  "direction": "UPSTREAM"
-}
-```
----
-**Return:** [Back to Semantic-Catalog](#semantic-catalog) • [Top](#top)
-
-#### `aidp semantic-catalog fetch-entity-lineage`
-<a id="semantic-catalog-fetch-entity-lineage"></a>
-(Preview) Returns lineage for a given entity object.
-
-**Usage:**
-
-`aidp semantic-catalog fetch-entity-lineage <AI-DATA-PLATFORM-ID> --body <JSON>`
-
-**Path Arguments:**
-- `ai-data-platform-id` (string, required) — The OCID of the AI Data Platform (Data Lake) instance.
-**Options:**
-- `limit` (integer, optional) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see List Pagination.
-- `page` (string, optional) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see List Pagination.
-- `opc-retry-token` (string, optional) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `opc-request-id` (string, optional) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `if-match` (string, optional) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-
-**Request Body (`FetchEntityLineageDetails`):**
-- `anchorNode` (string, required) —
-- `direction` (string, required) —
-- `level` (string, required) —
-- `maxDepth` (integer, required) —
-- `nodeFilters` (object, optional) —
-- `pathFilters` (object, optional) —
-- `shouldIncludeEdges` (boolean, optional) —
-
-**Example:**
-```json
-{
-  "anchorNode": "<string>",
-  "direction": "UPSTREAM",
-  "level": "ENTITY",
-  "maxDepth": 0,
-  "nodeFilters": {},
-  "pathFilters": {},
-  "shouldIncludeEdges": true
-}
-```
-
-**Request Body (`NodeFilterObject`):**
-- `predicates` (object, required) —
-
-**Example:**
-```json
-{
-  "predicates": {}
-}
-```
-
-**Request Body (`NodeFilterPredicates`):**
-- `displayNameContains` (string, optional) —
-- `typeEquals` (string, optional) —
-
-**Example:**
-```json
-{
-  "displayNameContains": "<string>",
-  "typeEquals": "<string>"
-}
-```
-
-**Request Body (`PassThroughNodeFilterPredicate`):**
-- `depth` (integer, optional) —
-- `id` (string, optional) —
-
-**Example:**
-```json
-{
-  "depth": 0,
-  "id": "<string>"
-}
-```
-
-**Request Body (`PathFilterObject`):**
-- `predicates` (object, required) —
-
-**Example:**
-```json
-{
-  "predicates": {}
-}
-```
-
-**Request Body (`PathFilterPredicates`):**
-- `anchorNodeColumnsIn` (array, optional) —
-- `parentIdIn` (array, optional) —
-- `passThroughNode` (object, optional) —
-
-**Example:**
-```json
-{
-  "anchorNodeColumnsIn": [],
-  "parentIdIn": [],
-  "passThroughNode": {}
-}
-```
----
-**Return:** [Back to Semantic-Catalog](#semantic-catalog) • [Top](#top)
 
 ## <a id="user-setting"></a>User Setting
 User settings.

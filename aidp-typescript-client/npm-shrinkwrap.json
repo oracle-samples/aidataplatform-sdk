@@ -1,12 +1,12 @@
 {
   "name": "aidp-typescript-client",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "aidp-typescript-client",
-      "version": "4.1.0",
+      "version": "4.1.1",
       "license": "UPL-1.0",
       "dependencies": {
         "oci-common": "2.126.3"

@@ -16,7 +16,7 @@ from .models import aidataplatform_dp_type_mapping
 missing = Sentinel("Missing")
 
 
-class SemanticCatalogClient(object):
+class DataLineageClient(object):
     """
     Use the AI Data Platform Data Plane API to manage workspaces and objects in the workspace.
     """
@@ -82,7 +82,7 @@ class SemanticCatalogClient(object):
             'service_endpoint_template': 'https://datalake.{region}.oci.{secondLevelDomain}',
             'skip_deserialization': kwargs.get('skip_deserialization', False)
         }
-        self.base_client = BaseClient("semantic_catalog", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
+        self.base_client = BaseClient("data_lineage", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
     def export_lineage(self, ai_data_platform_id, export_lineage_details, **kwargs):

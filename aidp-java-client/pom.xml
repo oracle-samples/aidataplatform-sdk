@@ -6,7 +6,7 @@
 
   <groupId>com.oracle.aidataplatform</groupId>
   <artifactId>aidp-java-client</artifactId>
-  <version>4.1.0</version>
+  <version>4.1.1</version>
   <packaging>jar</packaging>
   <name>aidp-java-client</name>
   <description>Java SDK to use Oracle AI Data Platform Workbench.</description>

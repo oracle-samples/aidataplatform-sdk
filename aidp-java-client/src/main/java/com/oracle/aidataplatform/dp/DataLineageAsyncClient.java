@@ -9,7 +9,7 @@ import com.oracle.aidataplatform.dp.responses.*;
 import java.util.Objects;
 
 /**
-* Async client implementation for SemanticCatalog service. <br/>
+* Async client implementation for DataLineage service. <br/>
 * There are two ways to use async client:
 * 1. Use AsyncHandler: using AsyncHandler, if the response to the call is an {@link java.io.InputStream}, like
 * getObject Api in object storage service, developers need to process the stream in AsyncHandler, and not anywhere else, 
@@ -22,14 +22,14 @@ import java.util.Objects;
 * Please refer to https://github.com/oracle/oci-java-sdk/blob/master/bmc-examples/src/main/java/ResteasyClientWithObjectStorageExample.java
 */
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
-public class SemanticCatalogAsyncClient extends com.oracle.bmc.http.internal.BaseAsyncClient implements SemanticCatalogAsync {
+public class DataLineageAsyncClient extends com.oracle.bmc.http.internal.BaseAsyncClient implements DataLineageAsync {
     /**
-     * Service instance for SemanticCatalog.
+     * Service instance for DataLineage.
      */
-    public static final com.oracle.bmc.Service SERVICE = com.oracle.bmc.Services.serviceBuilder().serviceName("SEMANTICCATALOG").serviceEndpointPrefix("datahub-dp").serviceEndpointTemplate("https://datalake.{region}.oci.{secondLevelDomain}").build();
+    public static final com.oracle.bmc.Service SERVICE = com.oracle.bmc.Services.serviceBuilder().serviceName("DATALINEAGE").serviceEndpointPrefix("datahub-dp").serviceEndpointTemplate("https://datalake.{region}.oci.{secondLevelDomain}").build();
 
-    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(SemanticCatalogAsyncClient.class);
-    SemanticCatalogAsyncClient (
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(DataLineageAsyncClient.class);
+    DataLineageAsyncClient (
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
         this(
@@ -39,7 +39,7 @@ public class SemanticCatalogAsyncClient extends com.oracle.bmc.http.internal.Bas
         );
     }
 
-    SemanticCatalogAsyncClient (
+    DataLineageAsyncClient (
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
             boolean isStreamWarningEnabled) {
@@ -50,7 +50,7 @@ public class SemanticCatalogAsyncClient extends com.oracle.bmc.http.internal.Bas
 
         if (isStreamWarningEnabled && com.oracle.bmc.util.StreamUtils.isExtraStreamLogsEnabled()) {
              LOG.warn(com.oracle.bmc.util.StreamUtils.getStreamWarningMessage(
-                "SemanticCatalogAsyncClient",
+                "DataLineageAsyncClient",
                  "exportLineage"
                  )
              );
@@ -72,7 +72,7 @@ public class SemanticCatalogAsyncClient extends com.oracle.bmc.http.internal.Bas
      * Builder class for this client. The "authenticationDetailsProvider" is required and must be passed to the
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
-    public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, SemanticCatalogAsyncClient> {
+    public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, DataLineageAsyncClient> {
         private boolean isStreamWarningEnabled = true;
         private Builder(com.oracle.bmc.Service service) {
             super(service);
@@ -97,8 +97,8 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
          * @param authenticationDetailsProvider authentication details provider
          * @return the client
          */
-        public SemanticCatalogAsyncClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
-            return new SemanticCatalogAsyncClient(this, authenticationDetailsProvider, isStreamWarningEnabled);
+        public DataLineageAsyncClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
+            return new DataLineageAsyncClient(this, authenticationDetailsProvider, isStreamWarningEnabled);
         }
     }
 
@@ -123,7 +123,7 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
 return clientCall(request, ExportLineageResponse::builder)
         .logger(LOG, "exportLineage")
-        .serviceDetails("SemanticCatalog", "ExportLineage", "")
+        .serviceDetails("DataLineage", "ExportLineage", "")
         .method(com.oracle.bmc.http.client.Method.POST)
         .requestBuilder(ExportLineageRequest::builder)
         
@@ -158,7 +158,7 @@ return clientCall(request, ExportLineageResponse::builder)
 
 return clientCall(request, FetchEntityLineageResponse::builder)
         .logger(LOG, "fetchEntityLineage")
-        .serviceDetails("SemanticCatalog", "FetchEntityLineage", "")
+        .serviceDetails("DataLineage", "FetchEntityLineage", "")
         .method(com.oracle.bmc.http.client.Method.POST)
         .requestBuilder(FetchEntityLineageRequest::builder)
         
@@ -198,7 +198,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider) {
+    public DataLineageAsyncClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider) {
         this(
             builder(),
             authenticationDetailsProvider
@@ -214,7 +214,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider, com.oracle.bmc.ClientConfiguration configuration) {
+    public DataLineageAsyncClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider, com.oracle.bmc.ClientConfiguration configuration) {
         this(
             builder()
                 .configuration(configuration),
@@ -231,7 +231,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider, com.oracle.bmc.ClientConfiguration configuration, com.oracle.bmc.http.ClientConfigurator clientConfigurator) {
+    public DataLineageAsyncClient(com.oracle.bmc.auth.BasicAuthenticationDetailsProvider authenticationDetailsProvider, com.oracle.bmc.ClientConfiguration configuration, com.oracle.bmc.http.ClientConfigurator clientConfigurator) {
         this(
             builder()
                 .configuration(configuration)
@@ -250,7 +250,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient(
+    public DataLineageAsyncClient(
         com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
         com.oracle.bmc.ClientConfiguration configuration,
         com.oracle.bmc.http.ClientConfigurator clientConfigurator,
@@ -275,7 +275,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient (
+    public DataLineageAsyncClient (
         com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
         com.oracle.bmc.ClientConfiguration configuration,
         com.oracle.bmc.http.ClientConfigurator clientConfigurator,
@@ -303,7 +303,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient (
+    public DataLineageAsyncClient (
         com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
         com.oracle.bmc.ClientConfiguration configuration,
         com.oracle.bmc.http.ClientConfigurator clientConfigurator,
@@ -334,7 +334,7 @@ return clientCall(request, FetchEntityLineageResponse::builder)
      * @deprecated Use the {@link #builder() builder} instead.
      */
     @Deprecated
-    public SemanticCatalogAsyncClient (
+    public DataLineageAsyncClient (
         com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
         com.oracle.bmc.ClientConfiguration configuration,
         com.oracle.bmc.http.ClientConfigurator clientConfigurator,

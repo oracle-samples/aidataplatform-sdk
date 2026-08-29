@@ -10,13 +10,13 @@ This document summarizes the available service clients in the AIDP Java SDK and 
 - [Catalog (`CatalogClient`)](#catalogclient-client)
 - [Cluster (`ClusterClient`)](#clusterclient-client)
 - [Credentials (`CredentialsClient`)](#credentialsclient-client)
+- [Data Lineage (`DataLineageClient`)](#datalineageclient-client)
 - [Delta Share (`DeltaShareClient`)](#deltashareclient-client)
 - [Git (`GitClient`)](#gitclient-client)
 - [ML Ops (`MLOpsClient`)](#mlopsclient-client)
 - [Notebook (`NotebookClient`)](#notebookclient-client)
 - [Role (`RoleClient`)](#roleclient-client)
 - [Schema (`SchemaClient`)](#schemaclient-client)
-- [Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client)
 - [User Setting (`UserSettingClient`)](#usersettingclient-client)
 - [Volume (`VolumeClient`)](#volumeclient-client)
 - [Workflow (`WorkflowClient`)](#workflowclient-client)
@@ -1836,6 +1836,53 @@ Updates a credential object. The operation completes synchronously; callers can 
 **Return Response:** `updateCredentialResponse`
 
 **Return:** [Back to Credentials (`CredentialsClient`)](#credentialsclient-client) • [Top](#top)
+
+
+## <a id="datalineageclient-client"></a>Data Lineage (`DataLineageClient`)
+**Operations:**
+- [`exportLineage`](#datalineageclient-exportlineage)
+- [`fetchEntityLineage`](#datalineageclient-fetchentitylineage)
+
+### <a id="datalineageclient-exportlineage"></a>`exportLineage`
+(Preview) Returns complete lineage for the provided anchor node in CSV format.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `exportLineageDetails` (`oci.aidataplatform_dp.models.ExportLineageDetails`) — The information needed to export lineage.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `exportLineageResponse`
+
+**Return:** [Back to Data Lineage (`DataLineageClient`)](#datalineageclient-client) • [Top](#top)
+
+
+### <a id="datalineageclient-fetchentitylineage"></a>`fetchEntityLineage`
+(Preview) Returns lineage for a given entity object.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `fetchEntityLineageDetails` (`oci.aidataplatform_dp.models.FetchEntityLineageDetails`) — The information needed to obtain desired lineage.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `fetchEntityLineageResponse`
+
+**Response Fields:**
+- `nodes` (list[oci.aidataplatform_dp.models.LineageObject]) — Gets the nodes of this EntityLineage. Set of links that are involved in the lineage.
+- `links` (list[oci.aidataplatform_dp.models.LineageRelationship]) — Gets the links of this EntityLineage. Set of links between the objects in the 'objects' set.
+
+**Return:** [Back to Data Lineage (`DataLineageClient`)](#datalineageclient-client) • [Top](#top)
 
 
 ## <a id="deltashareclient-client"></a>Delta Share (`DeltaShareClient`)
@@ -4856,53 +4903,6 @@ Updates a view with given information.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this View. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
 
 **Return:** [Back to Schema (`SchemaClient`)](#schemaclient-client) • [Top](#top)
-
-
-## <a id="semanticcatalogclient-client"></a>Semantic Catalog (`SemanticCatalogClient`)
-**Operations:**
-- [`exportLineage`](#semanticcatalogclient-exportlineage)
-- [`fetchEntityLineage`](#semanticcatalogclient-fetchentitylineage)
-
-### <a id="semanticcatalogclient-exportlineage"></a>`exportLineage`
-(Preview) Returns complete lineage for the provided anchor node in CSV format.
-
-**Required Parameters:**
-- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
-- `exportLineageDetails` (`oci.aidataplatform_dp.models.ExportLineageDetails`) — The information needed to export lineage.
-
-**Optional Parameters:**
-- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
-
-**Return Response:** `exportLineageResponse`
-
-**Return:** [Back to Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client) • [Top](#top)
-
-
-### <a id="semanticcatalogclient-fetchentitylineage"></a>`fetchEntityLineage`
-(Preview) Returns lineage for a given entity object.
-
-**Required Parameters:**
-- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
-- `fetchEntityLineageDetails` (`oci.aidataplatform_dp.models.FetchEntityLineageDetails`) — The information needed to obtain desired lineage.
-
-**Optional Parameters:**
-- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
-- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
-- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
-
-**Return Response:** `fetchEntityLineageResponse`
-
-**Response Fields:**
-- `nodes` (list[oci.aidataplatform_dp.models.LineageObject]) — Gets the nodes of this EntityLineage. Set of links that are involved in the lineage.
-- `links` (list[oci.aidataplatform_dp.models.LineageRelationship]) — Gets the links of this EntityLineage. Set of links between the objects in the 'objects' set.
-
-**Return:** [Back to Semantic Catalog (`SemanticCatalogClient`)](#semanticcatalogclient-client) • [Top](#top)
 
 
 ## <a id="usersettingclient-client"></a>User Setting (`UserSettingClient`)
