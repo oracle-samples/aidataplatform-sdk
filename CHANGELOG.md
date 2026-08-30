@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- **Breaking:** The `ExportLineage` and `FetchEntityLineage` operations moved from Semantic Catalog to Data Lineage.
+- **Breaking:** Semantic Catalog was renamed to Data Lineage.
 
 ## [4.1.0] - 2026-08-07
 
