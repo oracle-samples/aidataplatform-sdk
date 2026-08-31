@@ -5,13 +5,12 @@ package com.oracle.aidataplatform.dp;
 import com.oracle.aidataplatform.dp.requests.*;
 import com.oracle.aidataplatform.dp.responses.*;
 
-/**
- * Use the AI Data Platform Data Plane API to manage workspaces and objects in the workspace.
- * This service client uses CircuitBreakerUtils.DEFAULT_CIRCUIT_BREAKER for all the operations by default if no circuit breaker configuration is defined by the user.
- */
+    /**
+    * Use the AI Data Platform Data Plane API to manage workspaces and objects in the workspace.
+    */
 
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
-public interface SemanticCatalog extends AutoCloseable {
+public interface DataLineageAsync extends AutoCloseable {
 
     /**
      * Rebuilds the client from scratch.
@@ -21,7 +20,7 @@ public interface SemanticCatalog extends AutoCloseable {
 
     /**
      * Sets the endpoint to call (ex, https://www.example.com).
-     * @param endpoint The endpoint of the service.
+     * @param endpoint The endpoint of the serice.
      */
     void setEndpoint(String endpoint);
 
@@ -33,7 +32,7 @@ public interface SemanticCatalog extends AutoCloseable {
     /**
      * Sets the region to call (ex, Region.US_PHOENIX_1).
      * <p>
-     * Note, this will call {@link #setEndpoint(String) setEndpoint} after resolving the endpoint.  If the service is not available in this Region, however, an IllegalArgumentException will be raised.
+     * Note, this will call {@link #setEndpoint(String) setEndpoint} after resolving the endpoint.  If the service is not available in this region, however, an IllegalArgumentException will be raised.
      * @param region The region of the service.
      */
     void setRegion(com.oracle.bmc.Region region);
@@ -61,23 +60,26 @@ public interface SemanticCatalog extends AutoCloseable {
     /**
      * (Preview) Returns complete lineage for the provided anchor node in CSV format.
 * 
+     * 
      * @param request The request object containing the details to send
-     * @return A response object containing details about the completed operation
-     * @throws BmcException when an error occurs.
-     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
-     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
      */
-    ExportLineageResponse exportLineage(ExportLineageRequest request);
+    java.util.concurrent.Future<ExportLineageResponse> exportLineage(ExportLineageRequest request, com.oracle.bmc.responses.AsyncHandler<ExportLineageRequest, ExportLineageResponse> handler);
     
     /**
      * (Preview) Returns lineage for a given entity object.
+     * 
      * @param request The request object containing the details to send
-     * @return A response object containing details about the completed operation
-     * @throws BmcException when an error occurs.
-     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
-     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
      */
-    FetchEntityLineageResponse fetchEntityLineage(FetchEntityLineageRequest request);
+    java.util.concurrent.Future<FetchEntityLineageResponse> fetchEntityLineage(FetchEntityLineageRequest request, com.oracle.bmc.responses.AsyncHandler<FetchEntityLineageRequest, FetchEntityLineageResponse> handler);
     
-
 }
