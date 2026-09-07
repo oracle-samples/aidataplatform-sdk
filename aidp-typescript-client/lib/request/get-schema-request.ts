@@ -16,6 +16,10 @@ export interface GetSchemaRequest extends common.BaseRequest {
  */
  'schemaKey': string;
 /**
+ * When true, skip user OCID translation and return raw OCIDs.
+ */
+ 'shouldSkipOcidTranslation'?: boolean;
+/**
  * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,

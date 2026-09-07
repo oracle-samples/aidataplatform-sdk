@@ -48,13 +48,13 @@ This document summarizes the available service clients in the AIDP Java SDK and 
 - [`validateAgent`](#agentclient-validateagent)
 
 ### <a id="agentclient-copyagent"></a>`copyAgent`
-Copy an Agent.
+Copies an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `copyAgentDetails` (`oci.aidataplatform_dp.models.CopyAgentDetails`) — Details for copying the agent
+- `agentKey` (`string`) — The UUID of the agent.
+- `copyAgentDetails` (`oci.aidataplatform_dp.models.CopyAgentDetails`) — Details for copying the agent.
 
 **Optional Parameters:**
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
@@ -95,12 +95,12 @@ Copy an Agent.
 
 
 ### <a id="agentclient-createagent"></a>`createAgent`
-Create an Agent.
+Creates an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `createAgentDetails` (`oci.aidataplatform_dp.models.CreateAgentDetails`) — Details for the new Agent.
+- `createAgentDetails` (`oci.aidataplatform_dp.models.CreateAgentDetails`) — Details for the new agent.
 
 **Optional Parameters:**
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
@@ -140,12 +140,12 @@ Create an Agent.
 
 
 ### <a id="agentclient-deleteagent"></a>`deleteAgent`
-Delete an Agent from the schema
+Delete an agent from the schema.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 
 **Optional Parameters:**
 - `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
@@ -159,13 +159,13 @@ Delete an Agent from the schema
 
 
 ### <a id="agentclient-deleteagentdeployment"></a>`deleteAgentDeployment`
-Delete an Agent Deployment.
+Deletes an agent deployment.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `agentDeploymentKey` (`string`) — The UUID of the Agent Deployment
+- `agentKey` (`string`) — The UUID of the agent.
+- `agentDeploymentKey` (`string`) — The UUID of the agent deployment.
 
 **Optional Parameters:**
 - `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
@@ -178,13 +178,13 @@ Delete an Agent Deployment.
 
 
 ### <a id="agentclient-deleteagentsession"></a>`deleteAgentSession`
-Delete an Agent Session.
+Deletes an agent Session.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `sessionId` (`string`) — The UUID of the Agent Session
+- `agentKey` (`string`) — The UUID of the agent.
+- `sessionId` (`string`) — The UUID of the agent session.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
@@ -197,13 +197,13 @@ Delete an Agent Session.
 
 
 ### <a id="agentclient-deployagent"></a>`deployAgent`
-Deploys an Agent.
+Deploys a specified agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `deployAgentDetails` (`oci.aidataplatform_dp.models.DeployAgentDetails`) — Details of a deployable Agent.
+- `agentKey` (`string`) — The UUID of the agent.
+- `deployAgentDetails` (`oci.aidataplatform_dp.models.DeployAgentDetails`) — Details of a deployable agent.
 
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
@@ -234,12 +234,12 @@ Deploys an Agent.
 
 
 ### <a id="agentclient-getagent"></a>`getAgent`
-Returns detailed information about an Agent.
+Returns detailed information about an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
@@ -278,13 +278,13 @@ Returns detailed information about an Agent.
 
 
 ### <a id="agentclient-getagentdeployment"></a>`getAgentDeployment`
-Returns detailed information about an Agent deployment.
+Returns detailed information about an agent deployment.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `agentDeploymentKey` (`string`) — The UUID of the Agent Deployment
+- `agentKey` (`string`) — The UUID of the agent.
+- `agentDeploymentKey` (`string`) — The UUID of the agent deployment.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
@@ -314,13 +314,13 @@ Returns detailed information about an Agent deployment.
 
 
 ### <a id="agentclient-getagentsession"></a>`getAgentSession`
-Returns detailed information about an Agent Session.
+Returns detailed information about an agent session.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `sessionId` (`string`) — The UUID of the Agent Session
+- `agentKey` (`string`) — The UUID of the agent.
+- `sessionId` (`string`) — The UUID of the agent session.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
@@ -352,8 +352,8 @@ Returns trace details for a given message key.
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `sessionId` (`string`) — The UUID of the Agent Session
+- `agentKey` (`string`) — The UUID of the agent.
+- `sessionId` (`string`) — The UUID of the agent session.
 - `traceKey` (`string`) — A filter to return only resources that match the given display trace key exactly.
 
 **Optional Parameters:**
@@ -374,12 +374,12 @@ Returns trace details for a given message key.
 
 
 ### <a id="agentclient-listagentdeployments"></a>`listAgentDeployments`
-Returns a list of deployments of an agent.
+Returns a list of all deployments of an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 
 **Optional Parameters:**
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
@@ -404,12 +404,12 @@ Returns a list of deployments of an agent.
 
 
 ### <a id="agentclient-listagentpermissions"></a>`listAgentPermissions`
-Returns a list of permissions for a given Agent.
+Returns a list of permissions for a given agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 
 **Optional Parameters:**
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
@@ -429,13 +429,13 @@ Returns a list of permissions for a given Agent.
 
 
 ### <a id="agentclient-listagentsessionchathistories"></a>`listAgentSessionChatHistories`
-Returns list of Agent Session chat messages.
+Returns list of agent session chat messages.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `sessionId` (`string`) — The UUID of the Agent Session
+- `agentKey` (`string`) — The UUID of the agent.
+- `sessionId` (`string`) — The UUID of the agent session.
 
 **Optional Parameters:**
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
@@ -452,12 +452,12 @@ Returns list of Agent Session chat messages.
 
 
 ### <a id="agentclient-listagentsessions"></a>`listAgentSessions`
-Returns a list of testing sessions of an Agent.
+Returns a list of testing sessions of an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 
 **Optional Parameters:**
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
@@ -479,7 +479,7 @@ Returns a list of testing sessions of an Agent.
 
 
 ### <a id="agentclient-listagents"></a>`listAgents`
-Returns a list of Agents in a schema.
+Returns a list of agents in a schema.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -505,12 +505,12 @@ Returns a list of Agents in a schema.
 
 
 ### <a id="agentclient-manageagentpermission"></a>`manageAgentPermission`
-Update the permissions for a given Agent.
+Update the permissions for a given agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 - `manageAgentPermissionDetails` (`oci.aidataplatform_dp.models.ManageAgentPermissionDetails`) — The information to be updated.
 
 **Optional Parameters:**
@@ -530,7 +530,7 @@ Returns the agent card based on the given agent card configuration.
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `previewAgentCardDetails` (`oci.aidataplatform_dp.models.PreviewAgentCardDetails`) — Request details for previewing an agent card
+- `previewAgentCardDetails` (`oci.aidataplatform_dp.models.PreviewAgentCardDetails`) — Request details for previewing an agent card.
 
 **Optional Parameters:**
 - `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
@@ -548,13 +548,13 @@ Returns the agent card based on the given agent card configuration.
 
 
 ### <a id="agentclient-redeployagentbykey"></a>`redeployAgentByKey`
-Redeploys an Agent.
+Redeploys an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `updateAgentDeploymentDetails` (`oci.aidataplatform_dp.models.UpdateAgentDeploymentDetails`) — Details for updating an Agent deployment asynchronously.
+- `agentKey` (`string`) — The UUID of the agent.
+- `updateAgentDeploymentDetails` (`oci.aidataplatform_dp.models.UpdateAgentDeploymentDetails`) — Details for updating an agent deployment asynchronously.
 
 **Optional Parameters:**
 - `ifMatch` (`string`) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
@@ -586,12 +586,12 @@ Redeploys an Agent.
 
 
 ### <a id="agentclient-updateagent"></a>`updateAgent`
-Update an Agent with provided details.
+Updates an agent with provided details.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 - `updateAgentDetails` (`oci.aidataplatform_dp.models.UpdateAgentDetails`) — The information to be updated.
 
 **Optional Parameters:**
@@ -632,13 +632,13 @@ Update an Agent with provided details.
 
 
 ### <a id="agentclient-updateagentdeploymentmetadata"></a>`updateAgentDeploymentMetadata`
-Update the deployment metadata for an Agent.
+Updates the deployment metadata for an agent.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
-- `updateAgentDeploymentMetadataDetails` (`oci.aidataplatform_dp.models.UpdateAgentDeploymentMetadataDetails`) — Agent card details to update
+- `agentKey` (`string`) — The UUID of the agent.
+- `updateAgentDeploymentMetadataDetails` (`oci.aidataplatform_dp.models.UpdateAgentDeploymentMetadataDetails`) — Agent card details to update.
 
 **Optional Parameters:**
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
@@ -671,12 +671,12 @@ Update the deployment metadata for an Agent.
 
 
 ### <a id="agentclient-validateagent"></a>`validateAgent`
-Validate the agent json diagram generated by UI.
+Validates the agent JSON diagram generated by UI.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspaceKey` (`string`) — The key of the Workspace
-- `agentKey` (`string`) — The UUID of the Agent
+- `agentKey` (`string`) — The UUID of the agent.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
@@ -713,7 +713,7 @@ Get detailed information for a particular async operation
 **Response Fields:**
 - `key` (string) — Gets the key of this AsyncOperation. The unique key that identifies an async operation
 - `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
 - `resourceDisplayName` (string) — Gets the resource_display_name of this AsyncOperation. The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName But for workspace/cluster it is workspace and cluster displayName field.
 - `createdBy` (string) — Gets the created_by of this AsyncOperation. The principal Id who started the async operation
@@ -721,6 +721,7 @@ Get detailed information for a particular async operation
 - `timeStarted` (datetime) — Gets the time_started of this AsyncOperation. The date and time the Async operation was started, in the format defined by `RFC 3339`. Example: `2016-08-25T21:10:29.600Z`  https://tools.ietf.org/html/rfc3339
 - `timeFinished` (datetime) — Gets the time_finished of this AsyncOperation. The date and time the Async operation finished, in the format defined by `RFC 3339`. Example: `2016-08-25T21:10:29.600Z`  https://tools.ietf.org/html/rfc3339
 - `status` (string) — Gets the status of this AsyncOperation. The state of the Table. Allowed values for this property are: "IN_PROGRESS", "SUCCEEDED", "FAILED", "CANCELED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `statusDetails` (string) — Gets the status_details of this AsyncOperation. status details
 - `errorCode` (string) — Gets the error_code of this AsyncOperation. Represents the error code of a failure
 - `errorMessage` (string) — Gets the error_message of this AsyncOperation. Representss extra error information of a failure
 
@@ -806,13 +807,15 @@ Searches audit logs.
 - [`deployBundleAction`](#bundleclient-deploybundleaction)
 - [`fetchBundleDeploymentStatus`](#bundleclient-fetchbundledeploymentstatus)
 - [`fetchBundleDeploymentStatusAction`](#bundleclient-fetchbundledeploymentstatusaction)
+- [`fetchBundlePublishStatusAction`](#bundleclient-fetchbundlepublishstatusaction)
+- [`publishBundleAction`](#bundleclient-publishbundleaction)
 - [`purgeBundle`](#bundleclient-purgebundle)
 - [`purgeBundleAction`](#bundleclient-purgebundleaction)
 - [`syncBundle`](#bundleclient-syncbundle)
 - [`syncBundleAction`](#bundleclient-syncbundleaction)
 
 ### <a id="bundleclient-createbundle"></a>`createBundle`
-(Deprecated) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+(Deprecated)
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -830,7 +833,7 @@ Searches audit logs.
 
 
 ### <a id="bundleclient-createbundleaction"></a>`createBundleAction`
-(Preview) Creates a new bundle. A bundle is a self-contained, portable representation of selected workspace assets, such as jobs and agent flows, along with their dependencies and associated code artifacts. It captures both the resource configurations and the supporting assets required to recreate those resources in another workspace or environment. The bundle manifest is named `aidp_workbench.yaml`. The bundle preserves the workspace folder structure for code artifacts from the location where it was created, so the generated bundle mirrors the source layout. Dependencies are tracked inside the bundle under each asset type: - job and agent flow dependencies are added under the `dependencies` folder inside the `jobs` and `agentflows` folders - code dependencies are added under the `artifacts` directory in the bundle Dependency references use template variables, for example: - compute: `$${jobs.dependencies.training_compute.compute.key}` - nested jobs: `$${jobs.dependencies.training_job.job.key}` - aicompute: `$${jobs.dependencies.training_aicompute.aicompute.key}` Bundles also support the special variable `$${bundle.root}`, which points to the root of the bundle folder and is used for referencing artifacts. Variables and overrides: - bundles support parameterization using variables defined in the bundle manifest (`aidp_workbench.yaml`) Example manifest defaults: defaults: variables: job_compute_key: "$${jobs.dependencies.small.compute.key}" - variables can be referenced in resource descriptors using the `$${var.<name>}` syntax Example usage in a job descriptor: "clusterKey": "$${var.job_compute_key}" - workspace-specific overrides can be provided via `.aidp/overrides.yaml` inside the bundle - this file is intended for environment-specific configuration and should not be committed to Git, allowing the bundle to remain portable and environment-agnostic Example overrides file: variables: job_compute_key: f6e7f5d8-d965-4009-95d9-02e993d9a16b - when an override is provided, the referenced dependency (for example, compute) is not created, and the provided value is used instead - when no override is provided, the system falls back to the default variable value, which may reference a dependency included in the bundle (resulting in that dependency being created) - this mechanism enables environment-specific customization (for example, reusing existing infrastructure in production while creating new resources in development) - the same pattern can be used for other environment-specific parameters such as compute shape, number of OCPUs, or other configuration values Git integration and promotion: - bundles can only be created inside Git-backed workspace folders - bundles are self-contained packages that include resource definitions, dependency references, and associated code artifacts required to recreate the bundled resources - the entire bundle folder can be committed and pushed to a Git repository - bundles can be pulled into another workspace via Git and deployed there - bundles can be promoted across environments (for example, dev → test → prod) using Git workflows - because the bundle includes both resource configuration and code dependencies, it can be used to reliably replicate assets across workspaces This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
+(Preview) Creates a new bundle. This operation is asynchronous. The service validates the request, starts bundle creation, and returns an async operation key in the response headers. Use the async operation APIs to track completion. Typical use cases: - capture selected workspace resources into a version-controlled bundle - prepare a bundle for later deployment or promotion - establish a bundle root that can later be inspected, updated, or deployed Request notes: - `path` identifies the parent folder in the workspace volume where the bundle should be created - `name` identifies the bundle folder name - `bundledResources` identifies which workspace resources should be included
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -848,7 +851,7 @@ Searches audit logs.
 
 
 ### <a id="bundleclient-deploybundle"></a>`deployBundle`
-(Deprecated) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+(Deprecated)
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -866,7 +869,7 @@ Searches audit logs.
 
 
 ### <a id="bundleclient-deploybundleaction"></a>`deployBundleAction`
-(Preview) Deploys the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking deployment progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Deployment typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+Deprecated compatibility API. Use `publish` for new callers.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -884,7 +887,7 @@ Searches audit logs.
 
 
 ### <a id="bundleclient-fetchbundledeploymentstatus"></a>`fetchBundleDeploymentStatus`
-(Deprecated) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+(Deprecated)
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -902,13 +905,14 @@ Searches audit logs.
 - `timeStarted` (datetime) — Gets the time_started of this BundleDeploymentStatus. The deployment start time
 - `timeCompleted` (datetime) — Gets the time_completed of this BundleDeploymentStatus. The deployment end time
 - `message` (string) — Gets the message of this BundleDeploymentStatus. Optional summary message for the last deployment.
+- `publish` (oci.aidataplatform_dp.models.BundlePublishLocation) — Gets the publish of this BundleDeploymentStatus.
 - `resources` (list[oci.aidataplatform_dp.models.BundleDeployedResource]) — Gets the resources of this BundleDeploymentStatus. List of resources from the last deployment.
 
 **Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
 
 
 ### <a id="bundleclient-fetchbundledeploymentstatusaction"></a>`fetchBundleDeploymentStatusAction`
-(Preview) Returns a high-level summary of the most recent deployment activity recorded for the specified bundle. This operation is useful after deploy or purge requests when you want the latest bundle-level deployment outcome rather than raw async operation details. The response can include: - overall deployment status - start and completion timestamps - summary message - resources associated with the last recorded deployment result Typical status values include: - `IN_PROGRESS` - `SUCCEEDED` - `FAILED` - `NOT_DEPLOYED` Request notes: - `path` identifies the bundle root folder in the workspace volume
+Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -926,13 +930,57 @@ Searches audit logs.
 - `timeStarted` (datetime) — Gets the time_started of this BundleDeploymentStatus. The deployment start time
 - `timeCompleted` (datetime) — Gets the time_completed of this BundleDeploymentStatus. The deployment end time
 - `message` (string) — Gets the message of this BundleDeploymentStatus. Optional summary message for the last deployment.
+- `publish` (oci.aidataplatform_dp.models.BundlePublishLocation) — Gets the publish of this BundleDeploymentStatus.
 - `resources` (list[oci.aidataplatform_dp.models.BundleDeployedResource]) — Gets the resources of this BundleDeploymentStatus. List of resources from the last deployment.
 
 **Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
 
 
+### <a id="bundleclient-fetchbundlepublishstatusaction"></a>`fetchBundlePublishStatusAction`
+(Preview) Returns the latest publish summary.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `fetchBundlePublishStatusDetails` (`oci.aidataplatform_dp.models.FetchBundlePublishStatusDetails`) — Publish status request.
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `fetchBundlePublishStatusActionResponse`
+
+**Response Fields:**
+- `status` (string) — Gets the status of this BundlePublishStatus. Publish status. Allowed values for this property are: "SUCCEEDED", "FAILED", "IN_PROGRESS", "NOT_PUBLISHED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `timeStarted` (datetime) — Gets the time_started of this BundlePublishStatus. Publish start time.
+- `timeCompleted` (datetime) — Gets the time_completed of this BundlePublishStatus. Publish end time.
+- `message` (string) — Gets the message of this BundlePublishStatus. Publish summary.
+- `publish` (oci.aidataplatform_dp.models.BundlePublishLocation) — Gets the publish of this BundlePublishStatus.
+- `resources` (list[oci.aidataplatform_dp.models.BundlePublishedResource]) — Gets the resources of this BundlePublishStatus. Published resources.
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
+### <a id="bundleclient-publishbundleaction"></a>`publishBundleAction`
+(Preview) Publishes the specified bundle, creating or updating jobs and agent flows according to the bundle manifest. Returns an async job key for tracking publish progress. This operation is asynchronous. The request is accepted for background execution and returns an async operation key in the response headers. Publishing typically uses: - the bundle manifest at the bundle root - top-level resource descriptors in the bundle - dependency descriptors referenced by those top-level resources - default or override variable values when present Use this operation when you want to apply the bundle contents into the target workspace state. Request notes: - `path` identifies the bundle root folder in the workspace volume
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `publishBundleDetails` (`oci.aidataplatform_dp.models.PublishBundleDetails`) — Request payload for bundle publish.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `publishBundleActionResponse`
+
+**Return:** [Back to Bundle (`BundleClient`)](#bundleclient-client) • [Top](#top)
+
+
 ### <a id="bundleclient-purgebundle"></a>`purgeBundle`
-(Deprecated) Tears down all resources deployed by the specified bundle in the workspace. This operation is intended to tear down resources that were created or managed through bundle deployment. It does not delete the bundle files themselves from the workspace volume. This operation is asynchronous. The service accepts the purge request, starts the background teardown workflow, and returns async operation headers. Typical use cases: - remove resources that were previously deployed from a bundle - clean up a workspace before re-deploying or retiring a bundle Request notes: - `path` identifies the bundle root folder in the workspace volume
+(Deprecated)
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -968,7 +1016,7 @@ Searches audit logs.
 
 
 ### <a id="bundleclient-syncbundle"></a>`syncBundle`
-(Deprecated) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+(Deprecated)
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -986,7 +1034,7 @@ Searches audit logs.
 
 
 ### <a id="bundleclient-syncbundleaction"></a>`syncBundleAction`
-(Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. Sync uses the bundle's recorded origin metadata to rebuild the bundle from the source jobs and agent flows that were captured when the bundle was created. The source metadata is stored in `.aidp/resource_origins.yaml` and must match the requested AIDP/Data Lake and workspace. The operation refreshes source-controlled bundle content while preserving the bundle identity and runtime metadata. During sync, the service stages a refreshed bundle snapshot under the bundle `.aidp` directory, compares existing and staged descriptors, preserves existing variable aliases and override references where possible, merges existing manifest default variables, and then promotes the refreshed source-controlled files back into the bundle root. Sync preserves environment-specific and deployment runtime files such as `.aidp/overrides.yaml` and `.aidp/aidp.state.json`. These files are not replaced by the refreshed source snapshot. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a Git-backed bundle current before committing or promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
+(Preview) Synchronizes the code, descriptors, and mapping in the bundle by reconciling the contents with the resource origins. Returns an async job key for tracking sync progress. This operation is intended for cases where the bundle should be refreshed to reflect newer source changes while preserving the bundle structure and identity. This operation is asynchronous and returns async operation headers when accepted. Typical use cases: - refresh bundle contents after upstream workspace resources have changed - reconcile descriptor or artifact content with current resource origins - preserve local bundle overrides while pulling in source resource updates - keep a bundle current before promoting it Request notes: - `path` identifies the bundle root folder in the workspace volume - the bundle must contain a valid `aidp_workbench.yaml` - the bundle must contain `.aidp/resource_origins.yaml` - origin metadata must refer to the same AIDP/Data Lake and workspace as the request
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -1079,6 +1127,7 @@ Gets detailed information about a catalog with a given catalog key.
 
 **Optional Parameters:**
 - `isCatalogGuid` (`boolean`) — A boolean which decides if catalogKey path parameter is catalog GUID (UUID) or name.
+- `shouldSkipOcidTranslation` (`boolean`) — When true, skip user OCID translation and return raw OCIDs.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
@@ -1091,7 +1140,7 @@ Gets detailed information about a catalog with a given catalog key.
 - `description` (string) — Gets the description of this Catalog. Short description of the catalog.
 - `catalogGuid` (string) — Gets the catalog_guid of this Catalog. Unique identifier for catalog.
 - `catalogType` (string) — Gets the catalog_type of this Catalog. Type of catalog. Allowed values for this property are: "EXTERNAL", "INTERNAL", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `connectionDetails` (oci.aidataplatform_dp.models.CatalogConnectionDetails) — Gets the connection_details of this Catalog.
 - `lifecycleState` (string) — Gets the lifecycle_state of this Catalog. The current status of the catalog. Allowed values for this property are: "ACTIVE", "CREATING", "DELETING", "UPDATING", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this Catalog. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
@@ -1138,6 +1187,7 @@ Gets a list of catalogs with a given ID.
 - `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
 - `catalogState` (`string`) — The state of the catalog. Allowed values are: "ACTIVE", "CREATING", "DELETING"
 - `catalogType` (`string`) — The type of the catalog. Allowed values are: "INTERNAL", "EXTERNAL"
+- `shouldSkipOcidTranslation` (`boolean`) — When true, skip user OCID translation and return raw OCIDs.
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
@@ -1212,11 +1262,15 @@ Updates the details of a catalog with the given information.
 
 ## <a id="clusterclient-client"></a>Cluster (`ClusterClient`)
 **Operations:**
+- [`cloneCompute`](#clusterclient-clonecompute)
 - [`createCluster`](#clusterclient-createcluster)
 - [`deleteCluster`](#clusterclient-deletecluster)
 - [`downloadClusterLogs`](#clusterclient-downloadclusterlogs)
+- [`exportComputeConfiguration`](#clusterclient-exportcomputeconfiguration)
 - [`getCluster`](#clusterclient-getcluster)
+- [`getComputeConfiguration`](#clusterclient-getcomputeconfiguration)
 - [`getDefaultCluster`](#clusterclient-getdefaultcluster)
+- [`importComputeConfiguration`](#clusterclient-importcomputeconfiguration)
 - [`listClusterLibraries`](#clusterclient-listclusterlibraries)
 - [`listClusterPermissions`](#clusterclient-listclusterpermissions)
 - [`listClusters`](#clusterclient-listclusters)
@@ -1225,10 +1279,29 @@ Updates the details of a catalog with the given information.
 - [`queryReplicaIds`](#clusterclient-queryreplicaids)
 - [`restartCluster`](#clusterclient-restartcluster)
 - [`searchClusterLogs`](#clusterclient-searchclusterlogs)
+- [`searchMavenPackages`](#clusterclient-searchmavenpackages)
 - [`startCluster`](#clusterclient-startcluster)
 - [`stopCluster`](#clusterclient-stopcluster)
 - [`summarizeMetricsData`](#clusterclient-summarizemetricsdata)
 - [`updateCluster`](#clusterclient-updatecluster)
+
+### <a id="clusterclient-clonecompute"></a>`cloneCompute`
+Creates one Spark Compute by copying all source Compute settings and configuration.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `clusterKey` (`string`) — Cluster key.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `cloneComputeResponse`
+
+**Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
+
 
 ### <a id="clusterclient-createcluster"></a>`createCluster`
 Creates a new cluster with the provided details.
@@ -1306,6 +1379,25 @@ Downloads logs within the specified cluster and time range. The logs can be filt
 **Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
 
 
+### <a id="clusterclient-exportcomputeconfiguration"></a>`exportComputeConfiguration`
+Writes selected Compute configuration values supplied by the caller to a workspace YAML file without overwriting an existing file.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `clusterKey` (`string`) — Cluster key.
+- `exportComputeConfigurationDetails` (`oci.aidataplatform_dp.models.ExportComputeConfigurationDetails`) — Selected identifiers and destination for the YAML export.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `exportComputeConfigurationResponse`
+
+**Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
+
+
 ### <a id="clusterclient-getcluster"></a>`getCluster`
 Returns detailed information about a cluster.
 
@@ -1344,6 +1436,28 @@ Returns detailed information about a cluster.
 **Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
 
 
+### <a id="clusterclient-getcomputeconfiguration"></a>`getComputeConfiguration`
+Gets cluster-scoped Python and JAR libraries and environment variables from Spark Compute.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `clusterKey` (`string`) — Cluster key.
+
+**Optional Parameters:**
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `getComputeConfigurationResponse`
+
+**Response Fields:**
+- `clusterKey` (string) — Gets the cluster_key of this ComputeConfiguration. Source cluster key.
+- `environmentVariables` (dict(str, str)) — Gets the environment_variables of this ComputeConfiguration. Environment-variable keys and authoritative values configured on the source Compute.
+- `libraries` (oci.aidataplatform_dp.models.ComputeConfigurationLibraries) — Gets the libraries of this ComputeConfiguration.
+
+**Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
+
+
 ### <a id="clusterclient-getdefaultcluster"></a>`getDefaultCluster`
 Gets information about the master catalog default cluster.
 
@@ -1366,6 +1480,25 @@ Gets information about the master catalog default cluster.
 - `logId` (string) — Gets the log_id of this DefaultCluster. The OCID of the log where cluster logs are published and retrieved. This logId is always created within the logGroupId returned in the response payload.
 - `logGroupId` (string) — Gets the log_group_id of this DefaultCluster. The unique OCID that identifies a specific log group within OCI Logging. This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer’s tenancy as the AI Data Platform Workbench instance.
 - `subscription` (oci.aidataplatform_dp.models.SubscriptionDetails) — Gets the subscription of this DefaultCluster.
+
+**Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
+
+
+### <a id="clusterclient-importcomputeconfiguration"></a>`importComputeConfiguration`
+Imports one or more unique workspace YAML files into an active Spark Compute.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `clusterKey` (`string`) — Cluster key.
+- `importComputeConfigurationDetails` (`oci.aidataplatform_dp.models.ImportComputeConfigurationDetails`) — YAML workspace paths to import.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `importComputeConfigurationResponse`
 
 **Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
 
@@ -1571,6 +1704,29 @@ Searches logs within the specified cluster and time range. Supports pagination a
 
 **Response Fields:**
 - `items` (list[oci.aidataplatform_dp.models.ClusterLogsSummary]) — Gets the items of this ClusterLogCollection. List of cluster logs.
+
+**Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
+
+
+### <a id="clusterclient-searchmavenpackages"></a>`searchMavenPackages`
+Searches Maven packages available for cluster library installation.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `clusterKey` (`string`) — Cluster key.
+- `mavenSearchQuery` (`string`) — Search text matched against Maven package metadata, including group and artifact identifiers. For example, `commons-csv` can return `org.apache.commons:commons-csv`.
+
+**Optional Parameters:**
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `searchMavenPackagesResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.MavenSearchSummary]) — Gets the items of this MavenSearchSummaryCollection. Maven package search results.
 
 **Return:** [Back to Cluster (`ClusterClient`)](#clusterclient-client) • [Top](#top)
 
@@ -3812,7 +3968,7 @@ Exports the notebook file contents. You can optionally specify HTML or ipynb for
 
 
 ### <a id="notebookclient-getcontent"></a>`getContent`
-Returns a list of contents for a given file or directory. You can optionally specify a type and/or format argument via URL parameter. When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text is requested, but the file is binary, then the request returns a 400 message and a JSON response with a Reason field identifying the issue. The value of the Reason field is ‘bad format’ or ‘bad type’, depending on what was requested.
+Returns content for a given file or metadata for a directory. Directory content listing is not supported; requests with type=directory and content=1 return 400 and should use content=0 to retrieve directory metadata. You can optionally specify a type and/or format argument via URL parameter. When given, the Content service returns a model in the requested type and/or format. If the request cannot be satisfied, for example if type=text is requested, but the file is binary, then the request returns a 400 message and a JSON response with a Reason field identifying the issue. The value of the Reason field is ‘bad format’ or ‘bad type’, depending on what was requested.
 
 **Required Parameters:**
 - `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -4414,6 +4570,7 @@ Returns detailed information about a specified schema.
 - `schemaKey` (`string`) — The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 
 **Optional Parameters:**
+- `shouldSkipOcidTranslation` (`boolean`) — When true, skip user OCID translation and return raw OCIDs.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
@@ -4421,7 +4578,7 @@ Returns detailed information about a specified schema.
 **Return Response:** `getSchemaResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 - `description` (string) — Gets the description of this Schema. Schema description.
@@ -4446,6 +4603,7 @@ Returns detailed information about a table.
 - `tableKey` (`string`) — The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
 
 **Optional Parameters:**
+- `shouldSkipOcidTranslation` (`boolean`) — When true, skip user OCID translation and return raw OCIDs.
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `shouldUpdateRecent` (`boolean`) — A flag to identify if the recent list should be updated.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
@@ -4453,7 +4611,7 @@ Returns detailed information about a table.
 **Return Response:** `getTableResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Table. The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
 - `displayName` (string) — Gets the display_name of this Table. Table name.
 - `catalogKey` (string) — Gets the catalog_key of this Table. The name of the catalog to which this table belongs.
@@ -4541,6 +4699,7 @@ Returns a list of schemas.
 - `catalogKey` (`string`) — The key of the catalog.
 
 **Optional Parameters:**
+- `shouldSkipOcidTranslation` (`boolean`) — When true, skip user OCID translation and return raw OCIDs.
 - `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
@@ -4590,6 +4749,7 @@ Returns a list of tables in a schema.
 - `schemaKey` (`string`) — The fully qualified name of the Data Lake Schema in the format <catalog_name>.<schema_name>
 
 **Optional Parameters:**
+- `shouldSkipOcidTranslation` (`boolean`) — When true, skip user OCID translation and return raw OCIDs.
 - `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
 - `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
@@ -4834,7 +4994,7 @@ Updates a schema.
 **Return Response:** `updateSchemaResponse`
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 - `description` (string) — Gets the description of this Schema. Schema description.
@@ -5040,8 +5200,10 @@ Updates a view with given information.
 - [`manageVolumePermission`](#volumeclient-managevolumepermission)
 - [`updateDir`](#volumeclient-updatedir)
 - [`updateVolume`](#volumeclient-updatevolume)
+- [`uploadAndExtractVolumeZip`](#volumeclient-uploadandextractvolumezip)
 - [`uploadFile`](#volumeclient-uploadfile)
 - [`uploadFileWithPar`](#volumeclient-uploadfilewithpar)
+- [`zipAndDownloadVolumeFolder`](#volumeclient-zipanddownloadvolumefolder)
 
 ### <a id="volumeclient-createvolume"></a>`createVolume`
 Creates a volume.
@@ -5384,6 +5546,29 @@ Updates a volume with the provided information.
 **Return:** [Back to Volume (`VolumeClient`)](#volumeclient-client) • [Top](#top)
 
 
+### <a id="volumeclient-uploadandextractvolumezip"></a>`uploadAndExtractVolumeZip`
+Creates or updates an asynchronous volume ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `volumeKey` (`string`) — The key of the volume.
+- `uploadAndExtractZipDetails` (`oci.aidataplatform_dp.models.UploadAndExtractZipDetails`) — Details for uploading and extracting the volume ZIP file.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `uploadAndExtractVolumeZipResponse`
+
+**Response Fields:**
+- `operationKey` (string) — Gets the operation_key of this UploadAndExtractZipResult. Async operation key for upload and extraction.
+- `uploadUrl` (string) — Gets the upload_url of this UploadAndExtractZipResult. PAR URL where the caller uploads the zip bytes. Returned for CREATE.
+- `destinationFolderPath` (string) — Gets the destination_folder_path of this UploadAndExtractZipResult. Final workspace folder path where the zip will be extracted. Returned for CREATE.
+
+**Return:** [Back to Volume (`VolumeClient`)](#volumeclient-client) • [Top](#top)
+
+
 ### <a id="volumeclient-uploadfile"></a>`uploadFile`
 Uploads a file to volume. If the file already exists, it is updated.
 
@@ -5441,6 +5626,29 @@ Uploads a volume file by generating PAR. If file exists, then it will be updated
 **Return:** [Back to Volume (`VolumeClient`)](#volumeclient-client) • [Top](#top)
 
 
+### <a id="volumeclient-zipanddownloadvolumefolder"></a>`zipAndDownloadVolumeFolder`
+Starts asynchronous creation of a ZIP archive for a volume folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `volumeKey` (`string`) — The key of the volume.
+- `zipAndDownloadFolderDetails` (`oci.aidataplatform_dp.models.ZipAndDownloadFolderDetails`) — Details for zipping a volume folder for download.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `zipAndDownloadVolumeFolderResponse`
+
+**Response Fields:**
+- `operationKey` (string) — Gets the operation_key of this ZipAndDownloadFolderResult. Async operation key for zip creation.
+- `downloadUrl` (string) — Gets the download_url of this ZipAndDownloadFolderResult. PAR URL for downloading the generated archive after async operation success.
+- `archiveName` (string) — Gets the archive_name of this ZipAndDownloadFolderResult. Generated archive basename, including its .zip or .aidp extension.
+
+**Return:** [Back to Volume (`VolumeClient`)](#volumeclient-client) • [Top](#top)
+
+
 ## <a id="workflowclient-client"></a>Workflow (`WorkflowClient`)
 **Operations:**
 - [`cancelJobRun`](#workflowclient-canceljobrun)
@@ -5458,6 +5666,7 @@ Uploads a volume file by generating PAR. If file exists, then it will be updated
 - [`listJobRuns`](#workflowclient-listjobruns)
 - [`listJobs`](#workflowclient-listjobs)
 - [`listRecentJobRuns`](#workflowclient-listrecentjobruns)
+- [`listTaskRunRetries`](#workflowclient-listtaskrunretries)
 - [`listTaskRuns`](#workflowclient-listtaskruns)
 - [`manageJobPermission`](#workflowclient-managejobpermission)
 - [`repairJobRun`](#workflowclient-repairjobrun)
@@ -5843,6 +6052,7 @@ Returns detailed information about a task run with a given task run key.
 
 **Optional Parameters:**
 - `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `shouldIncludeTaskRunRetries` (`boolean`) — Indicates whether a get task run response should include task run retries.
 - `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
 
 **Return Response:** `getTaskRunResponse`
@@ -5942,7 +6152,7 @@ Returns a list of jobs.
 - `path` (`string`) — The fully qualified path where the job is stored.
 - `createdBy` (`string`) — A filter to return only resources that are created by given user with username that matches exactly.
 - `updatedBy` (`string`) — A filter to return only resources that was last updated by given user with username that matches exactly.
-- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated List call.
 - `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
@@ -5982,6 +6192,32 @@ Returns a list of the latest job runs for a given job key.
 **Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
 
 
+### <a id="workflowclient-listtaskrunretries"></a>`listTaskRunRetries`
+Returns detailed information about retries of a task run with a given task run key.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `taskRunKey` (`string`) — Task run key.
+
+**Optional Parameters:**
+- `displayName` (`string`) — A filter to return only resources that match the given display name exactly.
+- `status` (`list[str]`) — The field to filter based on state. Allowed values are: "PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `listTaskRunRetriesResponse`
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.TaskRunRetrySummary]) — Gets the items of this TaskRunRetryCollection. List of TaskRun retries.
+
+**Return:** [Back to Workflow (`WorkflowClient`)](#workflowclient-client) • [Top](#top)
+
+
 ### <a id="workflowclient-listtaskruns"></a>`listTaskRuns`
 Returns a list of task runs.
 
@@ -5995,7 +6231,7 @@ Returns a list of task runs.
 - `status` (`list[str]`) — The field to filter based on state. Allowed values are: "PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
 - `parentJobRunKey` (`string`) — The field to filter based on parent job run key.
 - `rootJobRunKey` (`string`) — The field to filter based on root job run key.
-- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `limit` (`number`) — For list pagination. The maximum number of results per page, or items to return in a paginated List call.
 - `page` (`string`) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `sortOrder` (`string`) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sortBy` (`string`) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
@@ -6465,7 +6701,9 @@ Updates the status of a workspace.
 - [`moveWorkspaceObject`](#workspaceobjectclient-moveworkspaceobject)
 - [`renameWorkspaceObject`](#workspaceobjectclient-renameworkspaceobject)
 - [`updateWorkspaceObject`](#workspaceobjectclient-updateworkspaceobject)
+- [`uploadAndExtractWorkspaceZip`](#workspaceobjectclient-uploadandextractworkspacezip)
 - [`uploadWorkspaceObjectWithPar`](#workspaceobjectclient-uploadworkspaceobjectwithpar)
+- [`zipAndDownloadWorkspaceFolder`](#workspaceobjectclient-zipanddownloadworkspacefolder)
 
 ### <a id="workspaceobjectclient-copyworkspaceobject"></a>`copyWorkspaceObject`
 Copy a workspace object to different location.
@@ -6759,6 +6997,29 @@ Updates a workspace object with the provided information.
 **Return:** [Back to Workspace Object (`WorkspaceObjectClient`)](#workspaceobjectclient-client) • [Top](#top)
 
 
+### <a id="workspaceobjectclient-uploadandextractworkspacezip"></a>`uploadAndExtractWorkspaceZip`
+Creates or updates an asynchronous workspace ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `uploadAndExtractZipDetails` (`oci.aidataplatform_dp.models.UploadAndExtractZipDetails`) — Details for uploading and extracting the workspace ZIP file.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `uploadAndExtractWorkspaceZipResponse`
+
+**Response Fields:**
+- `operationKey` (string) — Gets the operation_key of this UploadAndExtractZipResult. Async operation key for upload and extraction.
+- `uploadUrl` (string) — Gets the upload_url of this UploadAndExtractZipResult. PAR URL where the caller uploads the zip bytes. Returned for CREATE.
+- `destinationFolderPath` (string) — Gets the destination_folder_path of this UploadAndExtractZipResult. Final workspace folder path where the zip will be extracted. Returned for CREATE.
+
+**Return:** [Back to Workspace Object (`WorkspaceObjectClient`)](#workspaceobjectclient-client) • [Top](#top)
+
+
 ### <a id="workspaceobjectclient-uploadworkspaceobjectwithpar"></a>`uploadWorkspaceObjectWithPar`
 Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 
@@ -6792,5 +7053,28 @@ Creates a workspace file by generating PAR or updates the metadata by close file
 - `updatedTime` (string) — Gets the updated_time of this UploadFileWithParResult. The last modified time of the file.
 - `description` (string) — Gets the description of this UploadFileWithParResult. The file description.
 - `systemTags` (dict(str, dict(str, object))) — Gets the system_tags of this UploadFileWithParResult. System tags for this resource. Each key is predefined and scoped to a namespace. Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
+
+**Return:** [Back to Workspace Object (`WorkspaceObjectClient`)](#workspaceobjectclient-client) • [Top](#top)
+
+
+### <a id="workspaceobjectclient-zipanddownloadworkspacefolder"></a>`zipAndDownloadWorkspaceFolder`
+Starts asynchronous creation of a ZIP archive for a workspace folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+
+**Required Parameters:**
+- `aiDataPlatformId` (`string`) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `workspaceKey` (`string`) — The key of the Workspace
+- `zipAndDownloadFolderDetails` (`oci.aidataplatform_dp.models.ZipAndDownloadFolderDetails`) — Details for zipping a workspace folder for download.
+
+**Optional Parameters:**
+- `opcRetryToken` (`string`) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opcRequestId` (`string`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+
+**Return Response:** `zipAndDownloadWorkspaceFolderResponse`
+
+**Response Fields:**
+- `operationKey` (string) — Gets the operation_key of this ZipAndDownloadFolderResult. Async operation key for zip creation.
+- `downloadUrl` (string) — Gets the download_url of this ZipAndDownloadFolderResult. PAR URL for downloading the generated archive after async operation success.
+- `archiveName` (string) — Gets the archive_name of this ZipAndDownloadFolderResult. Generated archive basename, including its .zip or .aidp extension.
 
 **Return:** [Back to Workspace Object (`WorkspaceObjectClient`)](#workspaceobjectclient-client) • [Top](#top)

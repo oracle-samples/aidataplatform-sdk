@@ -34,25 +34,39 @@ class OacObjectTable(object):
             The value to assign to the columns property of this OacObjectTable.
         :type columns: list[oci.aidataplatform_dp.models.OacObjectColumn]
 
+        :param child_tables:
+            The value to assign to the child_tables property of this OacObjectTable.
+        :type child_tables: list[oci.aidataplatform_dp.models.OacObjectTable]
+
+        :param tables:
+            The value to assign to the tables property of this OacObjectTable.
+        :type tables: list[oci.aidataplatform_dp.models.OacObjectTable]
+
         """
         self.swagger_types = {
             'id': 'str',
             'name': 'str',
             'description': 'str',
-            'columns': 'list[OacObjectColumn]'
+            'columns': 'list[OacObjectColumn]',
+            'child_tables': 'list[OacObjectTable]',
+            'tables': 'list[OacObjectTable]'
         }
 
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
             'description': 'description',
-            'columns': 'columns'
+            'columns': 'columns',
+            'child_tables': 'childTables',
+            'tables': 'tables'
         }
 
         self._id = None
         self._name = None
         self._description = None
         self._columns = None
+        self._child_tables = None
+        self._tables = None
 
     @property
     def id(self):
@@ -149,6 +163,54 @@ class OacObjectTable(object):
         :type: list[oci.aidataplatform_dp.models.OacObjectColumn]
         """
         self._columns = columns
+
+    @property
+    def child_tables(self):
+        """
+        Gets the child_tables of this OacObjectTable.
+        Child tables nested under this Oracle Analytics table.
+
+
+        :return: The child_tables of this OacObjectTable.
+        :rtype: list[oci.aidataplatform_dp.models.OacObjectTable]
+        """
+        return self._child_tables
+
+    @child_tables.setter
+    def child_tables(self, child_tables):
+        """
+        Sets the child_tables of this OacObjectTable.
+        Child tables nested under this Oracle Analytics table.
+
+
+        :param child_tables: The child_tables of this OacObjectTable.
+        :type: list[oci.aidataplatform_dp.models.OacObjectTable]
+        """
+        self._child_tables = child_tables
+
+    @property
+    def tables(self):
+        """
+        Gets the tables of this OacObjectTable.
+        Additional tables nested under this Oracle Analytics table.
+
+
+        :return: The tables of this OacObjectTable.
+        :rtype: list[oci.aidataplatform_dp.models.OacObjectTable]
+        """
+        return self._tables
+
+    @tables.setter
+    def tables(self, tables):
+        """
+        Sets the tables of this OacObjectTable.
+        Additional tables nested under this Oracle Analytics table.
+
+
+        :param tables: The tables of this OacObjectTable.
+        :type: list[oci.aidataplatform_dp.models.OacObjectTable]
+        """
+        self._tables = tables
 
     def __repr__(self):
         return formatted_flat_dict(self)

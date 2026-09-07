@@ -29,13 +29,35 @@ export interface OacObjectColumn {
     */
     'type'?: string;
     /**
-    * Additional SQL metadata reported by Oracle Analytics for the column.
+    * The hierarchy identifier reported for an Oracle Analytics hierarchical column.
     */
-    'sqlInfo'?: any;
+    'hierarchyID'?: string;
+    /**
+    * The hierarchy display name reported for a hierarchical column in an OAC data object.
+    */
+    'hierarchyDisplayName'?: string;
+    /**
+    * The dimension identifier reported for an Oracle Analytics hierarchical column.
+    */
+    'dimensionID'?: string;
+    /**
+    * The table name reported for a hierarchical column in an OAC data object.
+    */
+    'tableName'?: string;
+    /**
+    * The hierarchy levels reported for an Oracle Analytics hierarchical column.
+    */
+    'levels'?: Array<model.OacObjectHierarchyLevel>;
+    'sqlInfo'?: model.OacObjectColumnSqlInfo;
 
 }
 
 export namespace OacObjectColumn {
+
+
+
+
+
 
 
 
@@ -52,6 +74,18 @@ export namespace OacObjectColumn {
 
 
 
+
+
+
+                'levels': obj.levels ?
+                
+                obj.levels.map((item)=>{return model.OacObjectHierarchyLevel.getJsonObj(item)})
+                
+                 : undefined,
+                'sqlInfo': obj.sqlInfo ?
+                
+                
+                model.OacObjectColumnSqlInfo.getJsonObj(obj.sqlInfo) : undefined,
         }};
 
         
@@ -68,6 +102,18 @@ export namespace OacObjectColumn {
 
 
 
+
+
+
+                    'levels': obj.levels ?
+                
+                obj.levels.map((item)=>{return model.OacObjectHierarchyLevel.getDeserializedJsonObj(item)})
+                
+                 : undefined,
+                    'sqlInfo': obj.sqlInfo ?
+                
+                
+                model.OacObjectColumnSqlInfo.getDeserializedJsonObj(obj.sqlInfo) : undefined,
          }};
 
         

@@ -110,6 +110,24 @@ public Builder subscription(SubscriptionDetails subscription) {
     this.subscription = subscription;
     return this;
 }
+            /**
+     * Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("yamlPaths")
+private java.util.List<String> yamlPaths;
+
+        /**
+         * Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+         * @param yamlPaths the value to set
+         * @return this builder
+         **/
+        
+
+public Builder yamlPaths(java.util.List<String> yamlPaths) {
+    this.yamlPaths = yamlPaths;
+    return this;
+}
 
 
         public CreateSparkClusterDetails build() {
@@ -122,7 +140,8 @@ public Builder subscription(SubscriptionDetails subscription) {
                 , this.loggingConfig
                 , this.autoTerminationMinutes
                 , this.attachToNotebookConfig
-                , this.subscription);            return model;
+                , this.subscription
+                , this.yamlPaths);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -137,6 +156,7 @@ public Builder subscription(SubscriptionDetails subscription) {
     this.autoTerminationMinutes(model.getAutoTerminationMinutes());
     this.attachToNotebookConfig(model.getAttachToNotebookConfig());
     this.subscription(model.getSubscription());
+    this.yamlPaths(model.getYamlPaths());
 return this;
         }
     }
@@ -155,7 +175,7 @@ return this;
 
     
     @Deprecated
-    public CreateSparkClusterDetails(String displayName, String description, DriverConfig driverConfig, String nodeType, WorkerConfig workerConfig, ClusterRuntimeConfig clusterRuntimeConfig, LoggingConfig loggingConfig, Integer autoTerminationMinutes, AttachToNotebookConfig attachToNotebookConfig, SubscriptionDetails subscription) {
+    public CreateSparkClusterDetails(String displayName, String description, DriverConfig driverConfig, String nodeType, WorkerConfig workerConfig, ClusterRuntimeConfig clusterRuntimeConfig, LoggingConfig loggingConfig, Integer autoTerminationMinutes, AttachToNotebookConfig attachToNotebookConfig, SubscriptionDetails subscription, java.util.List<String> yamlPaths) {
     super(displayName, description, driverConfig, nodeType);
         this.workerConfig = workerConfig;
         this.clusterRuntimeConfig = clusterRuntimeConfig;
@@ -163,6 +183,7 @@ return this;
         this.autoTerminationMinutes = autoTerminationMinutes;
         this.attachToNotebookConfig = attachToNotebookConfig;
         this.subscription = subscription;
+        this.yamlPaths = yamlPaths;
     }
 
 
@@ -232,6 +253,23 @@ return this;
         return subscription;
     }
 
+
+        /**
+     * Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("yamlPaths")
+    private final java.util.List<String> yamlPaths;
+
+        /**
+     * Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+     * @return the value
+     **/
+    
+    public java.util.List<String> getYamlPaths() {
+        return yamlPaths;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -252,6 +290,7 @@ return this;
         sb.append(", autoTerminationMinutes=").append(String.valueOf(this.autoTerminationMinutes));
         sb.append(", attachToNotebookConfig=").append(String.valueOf(this.attachToNotebookConfig));
         sb.append(", subscription=").append(String.valueOf(this.subscription));
+        sb.append(", yamlPaths=").append(String.valueOf(this.yamlPaths));
         sb.append(")");
         return sb.toString();
     }
@@ -272,6 +311,7 @@ return this;
             java.util.Objects.equals(this.autoTerminationMinutes, other.autoTerminationMinutes) &&
             java.util.Objects.equals(this.attachToNotebookConfig, other.attachToNotebookConfig) &&
             java.util.Objects.equals(this.subscription, other.subscription) &&
+            java.util.Objects.equals(this.yamlPaths, other.yamlPaths) &&
             super.equals(other);
     }
 
@@ -285,6 +325,7 @@ return this;
         result = (result * PRIME) + (this.autoTerminationMinutes == null ? 43 : this.autoTerminationMinutes.hashCode());
         result = (result * PRIME) + (this.attachToNotebookConfig == null ? 43 : this.attachToNotebookConfig.hashCode());
         result = (result * PRIME) + (this.subscription == null ? 43 : this.subscription.hashCode());
+        result = (result * PRIME) + (this.yamlPaths == null ? 43 : this.yamlPaths.hashCode());
         return result;
     }
 

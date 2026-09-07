@@ -59,6 +59,10 @@ export interface AsyncOperation {
     */
     'status': model.AsyncOperationStatus;
     /**
+    * status details
+    */
+    'statusDetails'?: string;
+    /**
     * Represents the error code of a failure
 * 
     */
@@ -72,6 +76,7 @@ export interface AsyncOperation {
 }
 
 export namespace AsyncOperation {
+
 
 
 
@@ -100,6 +105,7 @@ export namespace AsyncOperation {
 
 
 
+
         }};
 
         
@@ -110,6 +116,7 @@ export namespace AsyncOperation {
     export function getDeserializedJsonObj(obj: AsyncOperation): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

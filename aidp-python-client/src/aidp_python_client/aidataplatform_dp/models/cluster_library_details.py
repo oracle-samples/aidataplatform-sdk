@@ -29,6 +29,14 @@ class ClusterLibraryDetails(object):
     #: This constant has a value of "VOLUME_FILE"
     TYPE_VOLUME_FILE = "VOLUME_FILE"
 
+    #: A constant which can be used with the type property of a ClusterLibraryDetails.
+    #: This constant has a value of "PYPI"
+    TYPE_PYPI = "PYPI"
+
+    #: A constant which can be used with the type property of a ClusterLibraryDetails.
+    #: This constant has a value of "MAVEN"
+    TYPE_MAVEN = "MAVEN"
+
     def __init__(self, **kwargs):
         """
         Initializes a new ClusterLibraryDetails object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
@@ -46,7 +54,7 @@ class ClusterLibraryDetails(object):
 
         :param type:
             The value to assign to the type property of this ClusterLibraryDetails.
-            Allowed values for this property are: "WORKSPACE_FILE", "VOLUME_FILE"
+            Allowed values for this property are: "WORKSPACE_FILE", "VOLUME_FILE", "PYPI", "MAVEN"
         :type type: str
 
         """
@@ -117,7 +125,7 @@ class ClusterLibraryDetails(object):
         Gets the type of this ClusterLibraryDetails.
         Library type.
 
-        Allowed values for this property are: "WORKSPACE_FILE", "VOLUME_FILE"
+        Allowed values for this property are: "WORKSPACE_FILE", "VOLUME_FILE", "PYPI", "MAVEN"
 
 
         :return: The type of this ClusterLibraryDetails.
@@ -135,7 +143,7 @@ class ClusterLibraryDetails(object):
         :param type: The type of this ClusterLibraryDetails.
         :type: str
         """
-        allowed_values = ["WORKSPACE_FILE", "VOLUME_FILE"]
+        allowed_values = ["WORKSPACE_FILE", "VOLUME_FILE", "PYPI", "MAVEN"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
                 "Invalid value for `type`, must be None or one of {0}"

@@ -34,14 +34,14 @@ public class PreviewAgentAgentCardRequest extends com.oracle.bmc.requests.BmcReq
         return workspaceKey;
     }
         /**
-     * Request details for previewing an agent card
+     * Request details for previewing an agent card.
      */
     private com.oracle.aidataplatform.dp.model.PreviewAgentCardDetails previewAgentCardDetails;
 
     
 
         /**
-     * Request details for previewing an agent card
+     * Request details for previewing an agent card.
      */
     public com.oracle.aidataplatform.dp.model.PreviewAgentCardDetails getPreviewAgentCardDetails() {
         return previewAgentCardDetails;
@@ -171,12 +171,12 @@ public class PreviewAgentAgentCardRequest extends com.oracle.bmc.requests.BmcReq
         }
 
             /**
-     * Request details for previewing an agent card
+     * Request details for previewing an agent card.
      */
         private com.oracle.aidataplatform.dp.model.PreviewAgentCardDetails previewAgentCardDetails = null;
 
         /**
-         * Request details for previewing an agent card
+         * Request details for previewing an agent card.
          * @param previewAgentCardDetails the value to set
          * @return this builder instance
          */

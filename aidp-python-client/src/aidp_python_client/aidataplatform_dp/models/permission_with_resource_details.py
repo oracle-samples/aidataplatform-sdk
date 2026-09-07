@@ -85,6 +85,10 @@ class PermissionWithResourceDetails(object):
     #: This constant has a value of "CREATE_KNOWLEDGE_BASE"
     PERMISSIONS_CREATE_KNOWLEDGE_BASE = "CREATE_KNOWLEDGE_BASE"
 
+    #: A constant which can be used with the permissions property of a PermissionWithResourceDetails.
+    #: This constant has a value of "CREATE_MODEL"
+    PERMISSIONS_CREATE_MODEL = "CREATE_MODEL"
+
     #: A constant which can be used with the resource_type property of a PermissionWithResourceDetails.
     #: This constant has a value of "WORKSPACE"
     RESOURCE_TYPE_WORKSPACE = "WORKSPACE"
@@ -148,7 +152,7 @@ class PermissionWithResourceDetails(object):
 
         :param permissions:
             The value to assign to the permissions property of this PermissionWithResourceDetails.
-            Allowed values for this property are: "USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE"
+            Allowed values for this property are: "USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"
         :type permissions: str
 
         :param resource_type:
@@ -183,7 +187,7 @@ class PermissionWithResourceDetails(object):
         **[Required]** Gets the permissions of this PermissionWithResourceDetails.
         Permission or privilege name.
 
-        Allowed values for this property are: "USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE"
+        Allowed values for this property are: "USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"
 
 
         :return: The permissions of this PermissionWithResourceDetails.
@@ -201,7 +205,7 @@ class PermissionWithResourceDetails(object):
         :param permissions: The permissions of this PermissionWithResourceDetails.
         :type: str
         """
-        allowed_values = ["USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE"]
+        allowed_values = ["USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"]
         if not value_allowed_none_or_none_sentinel(permissions, allowed_values):
             raise ValueError(
                 "Invalid value for `permissions`, must be None or one of {0}"

@@ -13,13 +13,14 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class BundleDeploymentStatus  {
     @Deprecated
-    @java.beans.ConstructorProperties({"status", "timeStarted", "timeCompleted", "message", "resources"})
-    public BundleDeploymentStatus(Status status, java.util.Date timeStarted, java.util.Date timeCompleted, String message, java.util.List<BundleDeployedResource> resources) {
+    @java.beans.ConstructorProperties({"status", "timeStarted", "timeCompleted", "message", "publish", "resources"})
+    public BundleDeploymentStatus(Status status, java.util.Date timeStarted, java.util.Date timeCompleted, String message, BundlePublishLocation publish, java.util.List<BundleDeployedResource> resources) {
         super();
         this.status = status;
         this.timeStarted = timeStarted;
         this.timeCompleted = timeCompleted;
         this.message = message;
+        this.publish = publish;
         this.resources = resources;
     }
 
@@ -97,6 +98,16 @@ public Builder message(String message) {
     this.message = message;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("publish")
+private BundlePublishLocation publish;
+
+
+
+public Builder publish(BundlePublishLocation publish) {
+    this.publish = publish;
+    return this;
+}
             /**
      * List of resources from the last deployment.
      **/
@@ -122,6 +133,7 @@ public Builder resources(java.util.List<BundleDeployedResource> resources) {
                 , this.timeStarted
                 , this.timeCompleted
                 , this.message
+                , this.publish
                 , this.resources);            return model;
         }
 
@@ -131,6 +143,7 @@ public Builder resources(java.util.List<BundleDeployedResource> resources) {
     this.timeStarted(model.getTimeStarted());
     this.timeCompleted(model.getTimeCompleted());
     this.message(model.getMessage());
+    this.publish(model.getPublish());
     this.resources(model.getResources());
 return this;
         }
@@ -266,6 +279,16 @@ return this;
     }
 
 
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("publish")
+    private final BundlePublishLocation publish;
+
+    
+    public BundlePublishLocation getPublish() {
+        return publish;
+    }
+
+
         /**
      * List of resources from the last deployment.
      **/
@@ -299,6 +322,7 @@ return this;
         sb.append(", timeStarted=").append(String.valueOf(this.timeStarted));
         sb.append(", timeCompleted=").append(String.valueOf(this.timeCompleted));
         sb.append(", message=").append(String.valueOf(this.message));
+        sb.append(", publish=").append(String.valueOf(this.publish));
         sb.append(", resources=").append(String.valueOf(this.resources));
         sb.append(")");
         return sb.toString();
@@ -318,6 +342,7 @@ return this;
             java.util.Objects.equals(this.timeStarted, other.timeStarted) &&
             java.util.Objects.equals(this.timeCompleted, other.timeCompleted) &&
             java.util.Objects.equals(this.message, other.message) &&
+            java.util.Objects.equals(this.publish, other.publish) &&
             java.util.Objects.equals(this.resources, other.resources);
     }
 
@@ -329,6 +354,7 @@ return this;
         result = (result * PRIME) + (this.timeStarted == null ? 43 : this.timeStarted.hashCode());
         result = (result * PRIME) + (this.timeCompleted == null ? 43 : this.timeCompleted.hashCode());
         result = (result * PRIME) + (this.message == null ? 43 : this.message.hashCode());
+        result = (result * PRIME) + (this.publish == null ? 43 : this.publish.hashCode());
         result = (result * PRIME) + (this.resources == null ? 43 : this.resources.hashCode());
         return result;
     }

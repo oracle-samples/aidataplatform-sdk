@@ -9,9 +9,29 @@ import common = require("oci-common");
 */
 export interface UninstallClusterLibraryDetails extends model.ClusterLibraryDetails {
     /**
-    * Name of the library to uninstall.
+    * Name of the workspace or volume file library to uninstall.
     */
     'name'?: string;
+    /**
+    * PyPI package specifier to uninstall. Example - {@code requests==2.31.0}.
+    */
+    'pythonPackage'?: string;
+    /**
+    * Optional pip index URL associated with the PyPI package. Example - {@code https://pypi.org/simple}.
+    */
+    'pipIndexUrl'?: string;
+    /**
+    * Maven coordinate in {@code groupId:artifactId:version} format.
+    */
+    'coordinate'?: string;
+    /**
+    * Optional Maven repository name or URL associated with the module.
+    */
+    'repository'?: string;
+    /**
+    * Optional Maven dependency exclusions.
+    */
+    'exclusions'?: Array<string>;
 
    "operation": string;
 }
@@ -19,9 +39,19 @@ export interface UninstallClusterLibraryDetails extends model.ClusterLibraryDeta
 export namespace UninstallClusterLibraryDetails {
 
 
+
+
+
+
+
     export function getJsonObj(obj: UninstallClusterLibraryDetails, isParentJsonObj?: boolean): object {
         const jsonObj = {...isParentJsonObj? obj : model.ClusterLibraryDetails.getJsonObj(obj) as UninstallClusterLibraryDetails, ...{
             
+
+
+
+
+
 
         }};
 
@@ -33,6 +63,11 @@ export namespace UninstallClusterLibraryDetails {
     export function getDeserializedJsonObj(obj: UninstallClusterLibraryDetails, isParentJsonObj?: boolean): object {
         const jsonObj = {...isParentJsonObj? obj : model.ClusterLibraryDetails.getDeserializedJsonObj(obj) as UninstallClusterLibraryDetails, ...{
             
+
+
+
+
+
 
          }};
 

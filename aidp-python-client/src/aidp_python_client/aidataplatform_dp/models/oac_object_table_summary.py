@@ -30,22 +30,36 @@ class OacObjectTableSummary(object):
             The value to assign to the description property of this OacObjectTableSummary.
         :type description: str
 
+        :param child_tables:
+            The value to assign to the child_tables property of this OacObjectTableSummary.
+        :type child_tables: list[oci.aidataplatform_dp.models.OacObjectTableSummary]
+
+        :param tables:
+            The value to assign to the tables property of this OacObjectTableSummary.
+        :type tables: list[oci.aidataplatform_dp.models.OacObjectTableSummary]
+
         """
         self.swagger_types = {
             'id': 'str',
             'name': 'str',
-            'description': 'str'
+            'description': 'str',
+            'child_tables': 'list[OacObjectTableSummary]',
+            'tables': 'list[OacObjectTableSummary]'
         }
 
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
-            'description': 'description'
+            'description': 'description',
+            'child_tables': 'childTables',
+            'tables': 'tables'
         }
 
         self._id = None
         self._name = None
         self._description = None
+        self._child_tables = None
+        self._tables = None
 
     @property
     def id(self):
@@ -118,6 +132,54 @@ class OacObjectTableSummary(object):
         :type: str
         """
         self._description = description
+
+    @property
+    def child_tables(self):
+        """
+        Gets the child_tables of this OacObjectTableSummary.
+        Child tables nested under this Oracle Analytics table.
+
+
+        :return: The child_tables of this OacObjectTableSummary.
+        :rtype: list[oci.aidataplatform_dp.models.OacObjectTableSummary]
+        """
+        return self._child_tables
+
+    @child_tables.setter
+    def child_tables(self, child_tables):
+        """
+        Sets the child_tables of this OacObjectTableSummary.
+        Child tables nested under this Oracle Analytics table.
+
+
+        :param child_tables: The child_tables of this OacObjectTableSummary.
+        :type: list[oci.aidataplatform_dp.models.OacObjectTableSummary]
+        """
+        self._child_tables = child_tables
+
+    @property
+    def tables(self):
+        """
+        Gets the tables of this OacObjectTableSummary.
+        Additional tables nested under this Oracle Analytics table.
+
+
+        :return: The tables of this OacObjectTableSummary.
+        :rtype: list[oci.aidataplatform_dp.models.OacObjectTableSummary]
+        """
+        return self._tables
+
+    @tables.setter
+    def tables(self, tables):
+        """
+        Sets the tables of this OacObjectTableSummary.
+        Additional tables nested under this Oracle Analytics table.
+
+
+        :param tables: The tables of this OacObjectTableSummary.
+        :type: list[oci.aidataplatform_dp.models.OacObjectTableSummary]
+        """
+        self._tables = tables
 
     def __repr__(self):
         return formatted_flat_dict(self)

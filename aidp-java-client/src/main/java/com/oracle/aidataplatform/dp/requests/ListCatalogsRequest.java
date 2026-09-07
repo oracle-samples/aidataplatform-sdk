@@ -135,6 +135,19 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
         return catalogType;
     }
         /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    private Boolean shouldSkipOcidTranslation;
+
+    
+
+        /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+    public Boolean getShouldSkipOcidTranslation() {
+        return shouldSkipOcidTranslation;
+    }
+        /**
      * For list pagination. The maximum number of results per page, or items to return in a
 * paginated "List" call. For important details about how pagination works, see
 * [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -329,6 +342,21 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
+     * When true, skip user OCID translation and return raw OCIDs.
+     */
+        private Boolean shouldSkipOcidTranslation = null;
+
+        /**
+         * When true, skip user OCID translation and return raw OCIDs.
+         * @param shouldSkipOcidTranslation the value to set
+         * @return this builder instance
+         */
+        public Builder shouldSkipOcidTranslation(Boolean shouldSkipOcidTranslation) {
+            this.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
+            return this;
+        }
+
+            /**
      * For list pagination. The maximum number of results per page, or items to return in a
 * paginated "List" call. For important details about how pagination works, see
 * [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -453,7 +481,7 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
          * @return this builder instance
          */
         public Builder copy(ListCatalogsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());displayName(o.getDisplayName());catalogState(o.getCatalogState());catalogType(o.getCatalogType());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());displayName(o.getDisplayName());catalogState(o.getCatalogState());catalogType(o.getCatalogType());shouldSkipOcidTranslation(o.getShouldSkipOcidTranslation());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -490,13 +518,14 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
             request.displayName = displayName;
             request.catalogState = catalogState;
             request.catalogType = catalogType;
+            request.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
             request.limit = limit;
             request.page = page;
             request.sortOrder = sortOrder;
             request.sortBy = sortBy;
             request.opcRequestId = opcRequestId;
             return request;
-            // new ListCatalogsRequest(aiDataPlatformId, displayName, catalogState, catalogType, limit, page, sortOrder, sortBy, opcRequestId);
+            // new ListCatalogsRequest(aiDataPlatformId, displayName, catalogState, catalogType, shouldSkipOcidTranslation, limit, page, sortOrder, sortBy, opcRequestId);
         }
     }
 
@@ -510,6 +539,7 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
             .displayName(displayName)
             .catalogState(catalogState)
             .catalogType(catalogType)
+            .shouldSkipOcidTranslation(shouldSkipOcidTranslation)
             .limit(limit)
             .page(page)
             .sortOrder(sortOrder)
@@ -534,6 +564,7 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
         sb.append(",displayName=").append(String.valueOf(this.displayName));
         sb.append(",catalogState=").append(String.valueOf(this.catalogState));
         sb.append(",catalogType=").append(String.valueOf(this.catalogType));
+        sb.append(",shouldSkipOcidTranslation=").append(String.valueOf(this.shouldSkipOcidTranslation));
         sb.append(",limit=").append(String.valueOf(this.limit));
         sb.append(",page=").append(String.valueOf(this.page));
         sb.append(",sortOrder=").append(String.valueOf(this.sortOrder));
@@ -558,6 +589,7 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
             && java.util.Objects.equals(this.displayName, other.displayName)
             && java.util.Objects.equals(this.catalogState, other.catalogState)
             && java.util.Objects.equals(this.catalogType, other.catalogType)
+            && java.util.Objects.equals(this.shouldSkipOcidTranslation, other.shouldSkipOcidTranslation)
             && java.util.Objects.equals(this.limit, other.limit)
             && java.util.Objects.equals(this.page, other.page)
             && java.util.Objects.equals(this.sortOrder, other.sortOrder)
@@ -573,6 +605,7 @@ public class ListCatalogsRequest extends com.oracle.bmc.requests.BmcRequest<java
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
         result = (result * PRIME) + (this.catalogState == null ? 43 : this.catalogState.hashCode());
         result = (result * PRIME) + (this.catalogType == null ? 43 : this.catalogType.hashCode());
+        result = (result * PRIME) + (this.shouldSkipOcidTranslation == null ? 43 : this.shouldSkipOcidTranslation.hashCode());
         result = (result * PRIME) + (this.limit == null ? 43 : this.limit.hashCode());
         result = (result * PRIME) + (this.page == null ? 43 : this.page.hashCode());
         result = (result * PRIME) + (this.sortOrder == null ? 43 : this.sortOrder.hashCode());

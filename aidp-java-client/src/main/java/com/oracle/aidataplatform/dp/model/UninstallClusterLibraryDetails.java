@@ -22,14 +22,14 @@ public Builder type(Type type) {
     return this;
 }
             /**
-     * Name of the library to uninstall.
+     * Name of the workspace or volume file library to uninstall.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("name")
 private String name;
 
         /**
-         * Name of the library to uninstall.
+         * Name of the workspace or volume file library to uninstall.
          * @param name the value to set
          * @return this builder
          **/
@@ -39,17 +39,117 @@ public Builder name(String name) {
     this.name = name;
     return this;
 }
+            /**
+     * PyPI package specifier to uninstall. Example - {@code requests==2.31.0}.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("pythonPackage")
+private String pythonPackage;
+
+        /**
+         * PyPI package specifier to uninstall. Example - {@code requests==2.31.0}.
+         * @param pythonPackage the value to set
+         * @return this builder
+         **/
+        
+
+public Builder pythonPackage(String pythonPackage) {
+    this.pythonPackage = pythonPackage;
+    return this;
+}
+            /**
+     * Optional pip index URL associated with the PyPI package. Example - {@code https://pypi.org/simple}.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("pipIndexUrl")
+private String pipIndexUrl;
+
+        /**
+         * Optional pip index URL associated with the PyPI package. Example - {@code https://pypi.org/simple}.
+         * @param pipIndexUrl the value to set
+         * @return this builder
+         **/
+        
+
+public Builder pipIndexUrl(String pipIndexUrl) {
+    this.pipIndexUrl = pipIndexUrl;
+    return this;
+}
+            /**
+     * Maven coordinate in {@code groupId:artifactId:version} format.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("coordinate")
+private String coordinate;
+
+        /**
+         * Maven coordinate in {@code groupId:artifactId:version} format.
+         * @param coordinate the value to set
+         * @return this builder
+         **/
+        
+
+public Builder coordinate(String coordinate) {
+    this.coordinate = coordinate;
+    return this;
+}
+            /**
+     * Optional Maven repository name or URL associated with the module.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("repository")
+private String repository;
+
+        /**
+         * Optional Maven repository name or URL associated with the module.
+         * @param repository the value to set
+         * @return this builder
+         **/
+        
+
+public Builder repository(String repository) {
+    this.repository = repository;
+    return this;
+}
+            /**
+     * Optional Maven dependency exclusions.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("exclusions")
+private java.util.List<String> exclusions;
+
+        /**
+         * Optional Maven dependency exclusions.
+         * @param exclusions the value to set
+         * @return this builder
+         **/
+        
+
+public Builder exclusions(java.util.List<String> exclusions) {
+    this.exclusions = exclusions;
+    return this;
+}
 
 
         public UninstallClusterLibraryDetails build() {
             UninstallClusterLibraryDetails model = new UninstallClusterLibraryDetails(this.type
-                , this.name);            return model;
+                , this.name
+                , this.pythonPackage
+                , this.pipIndexUrl
+                , this.coordinate
+                , this.repository
+                , this.exclusions);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(UninstallClusterLibraryDetails model) {
                 this.type(model.getType());
     this.name(model.getName());
+    this.pythonPackage(model.getPythonPackage());
+    this.pipIndexUrl(model.getPipIndexUrl());
+    this.coordinate(model.getCoordinate());
+    this.repository(model.getRepository());
+    this.exclusions(model.getExclusions());
 return this;
         }
     }
@@ -68,26 +168,116 @@ return this;
 
     
     @Deprecated
-    public UninstallClusterLibraryDetails(Type type, String name) {
+    public UninstallClusterLibraryDetails(Type type, String name, String pythonPackage, String pipIndexUrl, String coordinate, String repository, java.util.List<String> exclusions) {
     super(type);
         this.name = name;
+        this.pythonPackage = pythonPackage;
+        this.pipIndexUrl = pipIndexUrl;
+        this.coordinate = coordinate;
+        this.repository = repository;
+        this.exclusions = exclusions;
     }
 
 
         /**
-     * Name of the library to uninstall.
+     * Name of the workspace or volume file library to uninstall.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("name")
     private final String name;
 
         /**
-     * Name of the library to uninstall.
+     * Name of the workspace or volume file library to uninstall.
      * @return the value
      **/
     
     public String getName() {
         return name;
+    }
+
+
+        /**
+     * PyPI package specifier to uninstall. Example - {@code requests==2.31.0}.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("pythonPackage")
+    private final String pythonPackage;
+
+        /**
+     * PyPI package specifier to uninstall. Example - {@code requests==2.31.0}.
+     * @return the value
+     **/
+    
+    public String getPythonPackage() {
+        return pythonPackage;
+    }
+
+
+        /**
+     * Optional pip index URL associated with the PyPI package. Example - {@code https://pypi.org/simple}.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("pipIndexUrl")
+    private final String pipIndexUrl;
+
+        /**
+     * Optional pip index URL associated with the PyPI package. Example - {@code https://pypi.org/simple}.
+     * @return the value
+     **/
+    
+    public String getPipIndexUrl() {
+        return pipIndexUrl;
+    }
+
+
+        /**
+     * Maven coordinate in {@code groupId:artifactId:version} format.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("coordinate")
+    private final String coordinate;
+
+        /**
+     * Maven coordinate in {@code groupId:artifactId:version} format.
+     * @return the value
+     **/
+    
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+
+        /**
+     * Optional Maven repository name or URL associated with the module.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("repository")
+    private final String repository;
+
+        /**
+     * Optional Maven repository name or URL associated with the module.
+     * @return the value
+     **/
+    
+    public String getRepository() {
+        return repository;
+    }
+
+
+        /**
+     * Optional Maven dependency exclusions.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("exclusions")
+    private final java.util.List<String> exclusions;
+
+        /**
+     * Optional Maven dependency exclusions.
+     * @return the value
+     **/
+    
+    public java.util.List<String> getExclusions() {
+        return exclusions;
     }
 
     @Override
@@ -105,6 +295,11 @@ return this;
         sb.append("UninstallClusterLibraryDetails(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", name=").append(String.valueOf(this.name));
+        sb.append(", pythonPackage=").append(String.valueOf(this.pythonPackage));
+        sb.append(", pipIndexUrl=").append(String.valueOf(this.pipIndexUrl));
+        sb.append(", coordinate=").append(String.valueOf(this.coordinate));
+        sb.append(", repository=").append(String.valueOf(this.repository));
+        sb.append(", exclusions=").append(String.valueOf(this.exclusions));
         sb.append(")");
         return sb.toString();
     }
@@ -120,6 +315,11 @@ return this;
 
         UninstallClusterLibraryDetails other = (UninstallClusterLibraryDetails) o;
         return java.util.Objects.equals(this.name, other.name) &&
+            java.util.Objects.equals(this.pythonPackage, other.pythonPackage) &&
+            java.util.Objects.equals(this.pipIndexUrl, other.pipIndexUrl) &&
+            java.util.Objects.equals(this.coordinate, other.coordinate) &&
+            java.util.Objects.equals(this.repository, other.repository) &&
+            java.util.Objects.equals(this.exclusions, other.exclusions) &&
             super.equals(other);
     }
 
@@ -128,6 +328,11 @@ return this;
         final int PRIME = 59;
         int result = super.hashCode();
         result = (result * PRIME) + (this.name == null ? 43 : this.name.hashCode());
+        result = (result * PRIME) + (this.pythonPackage == null ? 43 : this.pythonPackage.hashCode());
+        result = (result * PRIME) + (this.pipIndexUrl == null ? 43 : this.pipIndexUrl.hashCode());
+        result = (result * PRIME) + (this.coordinate == null ? 43 : this.coordinate.hashCode());
+        result = (result * PRIME) + (this.repository == null ? 43 : this.repository.hashCode());
+        result = (result * PRIME) + (this.exclusions == null ? 43 : this.exclusions.hashCode());
         return result;
     }
 

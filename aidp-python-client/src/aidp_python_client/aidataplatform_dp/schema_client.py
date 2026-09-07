@@ -873,6 +873,9 @@ class SchemaClient(object):
         :param str schema_key: (required)
             The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 
+        :param bool should_skip_ocid_translation: (optional)
+            When true, skip user OCID translation and return raw OCIDs.
+
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
             Oracle about a particular request, please provide the request ID.
@@ -899,6 +902,7 @@ class SchemaClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
+            "should_skip_ocid_translation",
             "opc_request_id",
             "should_update_recent"
         ]
@@ -918,6 +922,11 @@ class SchemaClient(object):
             if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
+        query_params = {
+            "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -936,6 +945,7 @@ class SchemaClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="Schema")
         else:
@@ -943,6 +953,7 @@ class SchemaClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="Schema")
 
@@ -958,6 +969,9 @@ class SchemaClient(object):
 
         :param str table_key: (required)
             The fully qualified name of the table in the format <catalog_name>.<schema_name>.<table_name>.
+
+        :param bool should_skip_ocid_translation: (optional)
+            When true, skip user OCID translation and return raw OCIDs.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -985,6 +999,7 @@ class SchemaClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
+            "should_skip_ocid_translation",
             "opc_request_id",
             "should_update_recent"
         ]
@@ -1004,6 +1019,11 @@ class SchemaClient(object):
             if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
+        query_params = {
+            "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -1022,6 +1042,7 @@ class SchemaClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="Table")
         else:
@@ -1029,6 +1050,7 @@ class SchemaClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="Table")
 
@@ -1269,6 +1291,9 @@ class SchemaClient(object):
         :param str catalog_key: (required)
             The key of the catalog.
 
+        :param bool should_skip_ocid_translation: (optional)
+            When true, skip user OCID translation and return raw OCIDs.
+
         :param str display_name: (optional)
             A filter to return only resources that match the given display name exactly.
 
@@ -1319,6 +1344,7 @@ class SchemaClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
+            "should_skip_ocid_translation",
             "display_name",
             "limit",
             "page",
@@ -1357,6 +1383,7 @@ class SchemaClient(object):
 
         query_params = {
             "catalogKey": catalog_key,
+            "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing),
             "displayName": kwargs.get("display_name", missing),
             "limit": kwargs.get("limit", missing),
             "page": kwargs.get("page", missing),
@@ -1548,6 +1575,9 @@ class SchemaClient(object):
         :param str schema_key: (required)
             The fully qualified name of the Data Lake Schema in the format <catalog_name>.<schema_name>
 
+        :param bool should_skip_ocid_translation: (optional)
+            When true, skip user OCID translation and return raw OCIDs.
+
         :param str display_name: (optional)
             A filter to return only resources that match the given display name exactly.
 
@@ -1598,6 +1628,7 @@ class SchemaClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
+            "should_skip_ocid_translation",
             "display_name",
             "limit",
             "page",
@@ -1636,6 +1667,7 @@ class SchemaClient(object):
 
         query_params = {
             "catalogKey": catalog_key,
+            "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing),
             "schemaKey": schema_key,
             "displayName": kwargs.get("display_name", missing),
             "limit": kwargs.get("limit", missing),

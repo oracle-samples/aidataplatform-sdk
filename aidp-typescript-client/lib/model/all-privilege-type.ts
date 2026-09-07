@@ -25,6 +25,7 @@ export enum AllPrivilegeType {
     CreateVolume = "CREATE_VOLUME",
     CreateTable = "CREATE_TABLE",
     CreateKnowledgeBase = "CREATE_KNOWLEDGE_BASE",
+    CreateModel = "CREATE_MODEL",
     
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

@@ -28,7 +28,7 @@ export interface FileWriteConfiguration {
     */
     'maxFileSizeMb'?: number;
     /**
-    * Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+    * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
     */
     'targetPath'?: string;
     /**

@@ -58,6 +58,18 @@ public interface ClusterAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
+     * Creates one Spark Compute by copying all source Compute settings and configuration.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<CloneComputeResponse> cloneCompute(CloneComputeRequest request, com.oracle.bmc.responses.AsyncHandler<CloneComputeRequest, CloneComputeResponse> handler);
+    
+    /**
      * Creates a new cluster with the provided details.
      * 
      * @param request The request object containing the details to send
@@ -97,6 +109,18 @@ public interface ClusterAsync extends AutoCloseable {
     java.util.concurrent.Future<DownloadClusterLogsResponse> downloadClusterLogs(DownloadClusterLogsRequest request, com.oracle.bmc.responses.AsyncHandler<DownloadClusterLogsRequest, DownloadClusterLogsResponse> handler);
     
     /**
+     * Writes selected Compute configuration values supplied by the caller to a workspace YAML file without overwriting an existing file.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ExportComputeConfigurationResponse> exportComputeConfiguration(ExportComputeConfigurationRequest request, com.oracle.bmc.responses.AsyncHandler<ExportComputeConfigurationRequest, ExportComputeConfigurationResponse> handler);
+    
+    /**
      * Returns detailed information about a cluster.
      * 
      * @param request The request object containing the details to send
@@ -109,6 +133,18 @@ public interface ClusterAsync extends AutoCloseable {
     java.util.concurrent.Future<GetClusterResponse> getCluster(GetClusterRequest request, com.oracle.bmc.responses.AsyncHandler<GetClusterRequest, GetClusterResponse> handler);
     
     /**
+     * Gets cluster-scoped Python and JAR libraries and environment variables from Spark Compute.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetComputeConfigurationResponse> getComputeConfiguration(GetComputeConfigurationRequest request, com.oracle.bmc.responses.AsyncHandler<GetComputeConfigurationRequest, GetComputeConfigurationResponse> handler);
+    
+    /**
      * Gets information about the master catalog default cluster.
      * 
      * @param request The request object containing the details to send
@@ -119,6 +155,18 @@ public interface ClusterAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<GetDefaultClusterResponse> getDefaultCluster(GetDefaultClusterRequest request, com.oracle.bmc.responses.AsyncHandler<GetDefaultClusterRequest, GetDefaultClusterResponse> handler);
+    
+    /**
+     * Imports one or more unique workspace YAML files into an active Spark Compute.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ImportComputeConfigurationResponse> importComputeConfiguration(ImportComputeConfigurationRequest request, com.oracle.bmc.responses.AsyncHandler<ImportComputeConfigurationRequest, ImportComputeConfigurationResponse> handler);
     
     /**
      * Gets a list of libraries installed on a cluster.
@@ -218,6 +266,18 @@ public interface ClusterAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<SearchClusterLogsResponse> searchClusterLogs(SearchClusterLogsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchClusterLogsRequest, SearchClusterLogsResponse> handler);
+    
+    /**
+     * Searches Maven packages available for cluster library installation.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<SearchMavenPackagesResponse> searchMavenPackages(SearchMavenPackagesRequest request, com.oracle.bmc.responses.AsyncHandler<SearchMavenPackagesRequest, SearchMavenPackagesResponse> handler);
     
     /**
      * Starts a cluster that has halted operation.

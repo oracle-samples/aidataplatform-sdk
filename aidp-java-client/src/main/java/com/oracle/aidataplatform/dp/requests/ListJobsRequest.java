@@ -112,20 +112,14 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
         return updatedBy;
     }
         /**
-     * For list pagination. The maximum number of results per page, or items to return in a
-* paginated "List" call. For important details about how pagination works, see
-* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
-* 
+     * For list pagination. The maximum number of results per page, or items to return in a paginated List call.
      */
     private Integer limit;
 
     
 
         /**
-     * For list pagination. The maximum number of results per page, or items to return in a
-* paginated "List" call. For important details about how pagination works, see
-* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
-* 
+     * For list pagination. The maximum number of results per page, or items to return in a paginated List call.
      */
     public Integer getLimit() {
         return limit;
@@ -370,18 +364,12 @@ public class ListJobsRequest extends com.oracle.bmc.requests.BmcRequest<java.lan
         }
 
             /**
-     * For list pagination. The maximum number of results per page, or items to return in a
-* paginated "List" call. For important details about how pagination works, see
-* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
-* 
+     * For list pagination. The maximum number of results per page, or items to return in a paginated List call.
      */
         private Integer limit = null;
 
         /**
-         * For list pagination. The maximum number of results per page, or items to return in a
-* paginated "List" call. For important details about how pagination works, see
-* [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
-* 
+         * For list pagination. The maximum number of results per page, or items to return in a paginated List call.
          * @param limit the value to set
          * @return this builder instance
          */

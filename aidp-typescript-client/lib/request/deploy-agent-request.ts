@@ -16,11 +16,11 @@ export interface DeployAgentRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**
- * Details of a deployable Agent.
+ * Details of a deployable agent.
  */
  'deployAgentDetails':  model.DeployAgentDetails;
 /**

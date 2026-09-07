@@ -34,27 +34,27 @@ public class DeleteAgentDeploymentRequest extends com.oracle.bmc.requests.BmcReq
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
     }
         /**
-     * The UUID of the Agent Deployment
+     * The UUID of the agent deployment.
      */
     private String agentDeploymentKey;
 
     
 
         /**
-     * The UUID of the Agent Deployment
+     * The UUID of the agent deployment.
      */
     public String getAgentDeploymentKey() {
         return agentDeploymentKey;
@@ -138,12 +138,12 @@ public class DeleteAgentDeploymentRequest extends com.oracle.bmc.requests.BmcReq
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */
@@ -153,12 +153,12 @@ public class DeleteAgentDeploymentRequest extends com.oracle.bmc.requests.BmcReq
         }
 
             /**
-     * The UUID of the Agent Deployment
+     * The UUID of the agent deployment.
      */
         private String agentDeploymentKey = null;
 
         /**
-         * The UUID of the Agent Deployment
+         * The UUID of the agent deployment.
          * @param agentDeploymentKey the value to set
          * @return this builder instance
          */

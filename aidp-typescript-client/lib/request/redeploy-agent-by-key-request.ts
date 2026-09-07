@@ -16,11 +16,11 @@ export interface RedeployAgentByKeyRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**
- * Details for updating an Agent deployment asynchronously.
+ * Details for updating an agent deployment asynchronously.
  */
  'updateAgentDeploymentDetails':  model.UpdateAgentDeploymentDetails;
 /**

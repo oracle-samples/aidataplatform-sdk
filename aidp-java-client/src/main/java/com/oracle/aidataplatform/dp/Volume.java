@@ -207,6 +207,16 @@ public interface Volume extends AutoCloseable {
     UpdateVolumeResponse updateVolume(UpdateVolumeRequest request);
     
     /**
+     * Creates or updates an asynchronous volume ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    UploadAndExtractVolumeZipResponse uploadAndExtractVolumeZip(UploadAndExtractVolumeZipRequest request);
+    
+    /**
      * Uploads a file to volume. If the file already exists, it is updated.
 * 
 *
@@ -254,6 +264,16 @@ public interface Volume extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     UploadFileWithParResponse uploadFileWithPar(UploadFileWithParRequest request);
+    
+    /**
+     * Starts asynchronous creation of a ZIP archive for a volume folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ZipAndDownloadVolumeFolderResponse zipAndDownloadVolumeFolder(ZipAndDownloadVolumeFolderRequest request);
     
 
     /**

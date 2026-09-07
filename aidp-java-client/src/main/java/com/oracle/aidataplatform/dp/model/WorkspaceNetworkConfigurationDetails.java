@@ -12,11 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class WorkspaceNetworkConfigurationDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"subnetId", "nsgIds", "scanDetails"})
-    public WorkspaceNetworkConfigurationDetails(String subnetId, java.util.List<String> nsgIds, java.util.List<Scan> scanDetails) {
+    @java.beans.ConstructorProperties({"subnetId", "nsgIds", "dnsZones", "scanDetails"})
+    public WorkspaceNetworkConfigurationDetails(String subnetId, java.util.List<String> nsgIds, java.util.List<String> dnsZones, java.util.List<Scan> scanDetails) {
         super();
         this.subnetId = subnetId;
         this.nsgIds = nsgIds;
+        this.dnsZones = dnsZones;
         this.scanDetails = scanDetails;
     }
 
@@ -63,6 +64,28 @@ public Builder nsgIds(java.util.List<String> nsgIds) {
     return this;
 }
             /**
+     * An array of fully qualified domain names to whitelist for workspace network access.
+* Example: {@code [ "app.examplecorp.com", "app.examplecorp2.com" ]}
+* 
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("dnsZones")
+private java.util.List<String> dnsZones;
+
+        /**
+         * An array of fully qualified domain names to whitelist for workspace network access.
+* Example: {@code [ "app.examplecorp.com", "app.examplecorp2.com" ]}
+* 
+         * @param dnsZones the value to set
+         * @return this builder
+         **/
+        
+
+public Builder dnsZones(java.util.List<String> dnsZones) {
+    this.dnsZones = dnsZones;
+    return this;
+}
+            /**
      * An array of fqdn/port pairs used to create private endpoint. Each object is a simple key-value pair with FQDN as key and port number as value.
 * [ { fqdn: "scan1.oracle.com", port: "1521"}, { fqdn: "scan2.oracle.com", port: "1521" } ]
 * 
@@ -89,6 +112,7 @@ public Builder scanDetails(java.util.List<Scan> scanDetails) {
         public WorkspaceNetworkConfigurationDetails build() {
             WorkspaceNetworkConfigurationDetails model = new WorkspaceNetworkConfigurationDetails(this.subnetId
                 , this.nsgIds
+                , this.dnsZones
                 , this.scanDetails);            return model;
         }
 
@@ -96,6 +120,7 @@ public Builder scanDetails(java.util.List<Scan> scanDetails) {
         public Builder copy(WorkspaceNetworkConfigurationDetails model) {
                 this.subnetId(model.getSubnetId());
     this.nsgIds(model.getNsgIds());
+    this.dnsZones(model.getDnsZones());
     this.scanDetails(model.getScanDetails());
 return this;
         }
@@ -155,6 +180,27 @@ return this;
 
 
         /**
+     * An array of fully qualified domain names to whitelist for workspace network access.
+* Example: {@code [ "app.examplecorp.com", "app.examplecorp2.com" ]}
+* 
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("dnsZones")
+    private final java.util.List<String> dnsZones;
+
+        /**
+     * An array of fully qualified domain names to whitelist for workspace network access.
+* Example: {@code [ "app.examplecorp.com", "app.examplecorp2.com" ]}
+* 
+     * @return the value
+     **/
+    
+    public java.util.List<String> getDnsZones() {
+        return dnsZones;
+    }
+
+
+        /**
      * An array of fqdn/port pairs used to create private endpoint. Each object is a simple key-value pair with FQDN as key and port number as value.
 * [ { fqdn: "scan1.oracle.com", port: "1521"}, { fqdn: "scan2.oracle.com", port: "1521" } ]
 * 
@@ -189,6 +235,7 @@ return this;
         sb.append("WorkspaceNetworkConfigurationDetails(");
         sb.append("subnetId=").append(String.valueOf(this.subnetId));
         sb.append(", nsgIds=").append(String.valueOf(this.nsgIds));
+        sb.append(", dnsZones=").append(String.valueOf(this.dnsZones));
         sb.append(", scanDetails=").append(String.valueOf(this.scanDetails));
         sb.append(")");
         return sb.toString();
@@ -206,6 +253,7 @@ return this;
         WorkspaceNetworkConfigurationDetails other = (WorkspaceNetworkConfigurationDetails) o;
         return java.util.Objects.equals(this.subnetId, other.subnetId) &&
             java.util.Objects.equals(this.nsgIds, other.nsgIds) &&
+            java.util.Objects.equals(this.dnsZones, other.dnsZones) &&
             java.util.Objects.equals(this.scanDetails, other.scanDetails);
     }
 
@@ -215,6 +263,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.subnetId == null ? 43 : this.subnetId.hashCode());
         result = (result * PRIME) + (this.nsgIds == null ? 43 : this.nsgIds.hashCode());
+        result = (result * PRIME) + (this.dnsZones == null ? 43 : this.dnsZones.hashCode());
         result = (result * PRIME) + (this.scanDetails == null ? 43 : this.scanDetails.hashCode());
         return result;
     }

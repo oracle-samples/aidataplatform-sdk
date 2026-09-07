@@ -748,6 +748,43 @@ return clientCall(request, UpdateVolumeResponse::builder)
 
     @Override
     
+    public UploadAndExtractVolumeZipResponse uploadAndExtractVolumeZip(UploadAndExtractVolumeZipRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");
+        Objects.requireNonNull(request.getUploadAndExtractZipDetails(), "uploadAndExtractZipDetails is required");
+        
+
+
+return clientCall(request, UploadAndExtractVolumeZipResponse::builder)
+        .logger(LOG, "uploadAndExtractVolumeZip")
+        .serviceDetails("Volume", "UploadAndExtractVolumeZip", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(UploadAndExtractVolumeZipRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("volumes").appendPathParam(request.getVolumeKey()).appendPathParam("actions").appendPathParam("uploadAndExtractZip")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.UploadAndExtractZipResult.class, UploadAndExtractVolumeZipResponse.Builder::uploadAndExtractZipResult)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            UploadAndExtractVolumeZipResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            UploadAndExtractVolumeZipResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public UploadFileResponse uploadFile(UploadFileRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -853,6 +890,43 @@ return clientCall(request, UploadFileWithParResponse::builder)
             UploadFileWithParResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             UploadFileWithParResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public ZipAndDownloadVolumeFolderResponse zipAndDownloadVolumeFolder(ZipAndDownloadVolumeFolderRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getVolumeKey(), "volumeKey must not be blank");
+        Objects.requireNonNull(request.getZipAndDownloadFolderDetails(), "zipAndDownloadFolderDetails is required");
+        
+
+
+return clientCall(request, ZipAndDownloadVolumeFolderResponse::builder)
+        .logger(LOG, "zipAndDownloadVolumeFolder")
+        .serviceDetails("Volume", "ZipAndDownloadVolumeFolder", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ZipAndDownloadVolumeFolderRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("volumes").appendPathParam(request.getVolumeKey()).appendPathParam("actions").appendPathParam("zipAndDownloadFolder")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ZipAndDownloadFolderResult.class, ZipAndDownloadVolumeFolderResponse.Builder::zipAndDownloadFolderResult)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            ZipAndDownloadVolumeFolderResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            ZipAndDownloadVolumeFolderResponse.Builder::opcRequestId)
 
                 .callSync();
     }

@@ -18,6 +18,18 @@ class TaskRunRetry(object):
         Initializes a new TaskRunRetry object with values from keyword arguments.
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
+        :param key:
+            The value to assign to the key property of this TaskRunRetry.
+        :type key: str
+
+        :param name:
+            The value to assign to the name property of this TaskRunRetry.
+        :type name: str
+
+        :param task_run_key:
+            The value to assign to the task_run_key property of this TaskRunRetry.
+        :type task_run_key: str
+
         :param start_time:
             The value to assign to the start_time property of this TaskRunRetry.
         :type start_time: int
@@ -25,6 +37,10 @@ class TaskRunRetry(object):
         :param end_time:
             The value to assign to the end_time property of this TaskRunRetry.
         :type end_time: int
+
+        :param version:
+            The value to assign to the version property of this TaskRunRetry.
+        :type version: int
 
         :param cluster_validation_start_time:
             The value to assign to the cluster_validation_start_time property of this TaskRunRetry.
@@ -60,8 +76,12 @@ class TaskRunRetry(object):
 
         """
         self.swagger_types = {
+            'key': 'str',
+            'name': 'str',
+            'task_run_key': 'str',
             'start_time': 'int',
             'end_time': 'int',
+            'version': 'int',
             'cluster_validation_start_time': 'int',
             'state': 'State',
             'setup_duration': 'int',
@@ -73,8 +93,12 @@ class TaskRunRetry(object):
         }
 
         self.attribute_map = {
+            'key': 'key',
+            'name': 'name',
+            'task_run_key': 'taskRunKey',
             'start_time': 'startTime',
             'end_time': 'endTime',
+            'version': 'version',
             'cluster_validation_start_time': 'clusterValidationStartTime',
             'state': 'state',
             'setup_duration': 'setupDuration',
@@ -85,8 +109,12 @@ class TaskRunRetry(object):
             'retry_number': 'retryNumber'
         }
 
+        self._key = None
+        self._name = None
+        self._task_run_key = None
         self._start_time = None
         self._end_time = None
+        self._version = None
         self._cluster_validation_start_time = None
         self._state = None
         self._setup_duration = None
@@ -95,6 +123,78 @@ class TaskRunRetry(object):
         self._output_key = None
         self._external_id = None
         self._retry_number = None
+
+    @property
+    def key(self):
+        """
+        **[Required]** Gets the key of this TaskRunRetry.
+        The OCID of the task run.
+
+
+        :return: The key of this TaskRunRetry.
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """
+        Sets the key of this TaskRunRetry.
+        The OCID of the task run.
+
+
+        :param key: The key of this TaskRunRetry.
+        :type: str
+        """
+        self._key = key
+
+    @property
+    def name(self):
+        """
+        **[Required]** Gets the name of this TaskRunRetry.
+        A user-friendly name. Does not have to be unique, and is changeable.
+
+
+        :return: The name of this TaskRunRetry.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this TaskRunRetry.
+        A user-friendly name. Does not have to be unique, and is changeable.
+
+
+        :param name: The name of this TaskRunRetry.
+        :type: str
+        """
+        self._name = name
+
+    @property
+    def task_run_key(self):
+        """
+        **[Required]** Gets the task_run_key of this TaskRunRetry.
+        The OCID of the task run.
+
+
+        :return: The task_run_key of this TaskRunRetry.
+        :rtype: str
+        """
+        return self._task_run_key
+
+    @task_run_key.setter
+    def task_run_key(self, task_run_key):
+        """
+        Sets the task_run_key of this TaskRunRetry.
+        The OCID of the task run.
+
+
+        :param task_run_key: The task_run_key of this TaskRunRetry.
+        :type: str
+        """
+        self._task_run_key = task_run_key
 
     @property
     def start_time(self):
@@ -143,6 +243,30 @@ class TaskRunRetry(object):
         :type: int
         """
         self._end_time = end_time
+
+    @property
+    def version(self):
+        """
+        Gets the version of this TaskRunRetry.
+        Current version of job run object in repository.
+
+
+        :return: The version of this TaskRunRetry.
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this TaskRunRetry.
+        Current version of job run object in repository.
+
+
+        :param version: The version of this TaskRunRetry.
+        :type: int
+        """
+        self._version = version
 
     @property
     def cluster_validation_start_time(self):
@@ -311,7 +435,7 @@ class TaskRunRetry(object):
     @property
     def retry_number(self):
         """
-        Gets the retry_number of this TaskRunRetry.
+        **[Required]** Gets the retry_number of this TaskRunRetry.
         Sequence number of the retry attempt. 0 for the original. 1, 2, 3, ... for subsequent retry attempts.
 
 

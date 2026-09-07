@@ -41,6 +41,10 @@ class AssignSchemaPermissionDetails(object):
     #: This constant has a value of "CREATE_KNOWLEDGE_BASE"
     PERMISSIONS_CREATE_KNOWLEDGE_BASE = "CREATE_KNOWLEDGE_BASE"
 
+    #: A constant which can be used with the permissions property of a AssignSchemaPermissionDetails.
+    #: This constant has a value of "CREATE_MODEL"
+    PERMISSIONS_CREATE_MODEL = "CREATE_MODEL"
+
     def __init__(self, **kwargs):
         """
         Initializes a new AssignSchemaPermissionDetails object with values from keyword arguments.
@@ -52,7 +56,7 @@ class AssignSchemaPermissionDetails(object):
 
         :param permissions:
             The value to assign to the permissions property of this AssignSchemaPermissionDetails.
-            Allowed values for items in this list are: "SELECT", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "ADMIN", "CREATE_KNOWLEDGE_BASE"
+            Allowed values for items in this list are: "SELECT", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "ADMIN", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"
         :type permissions: list[str]
 
         """
@@ -95,7 +99,7 @@ class AssignSchemaPermissionDetails(object):
         **[Required]** Gets the permissions of this AssignSchemaPermissionDetails.
         The permissions assigned to the assignees.
 
-        Allowed values for items in this list are: "SELECT", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "ADMIN", "CREATE_KNOWLEDGE_BASE"
+        Allowed values for items in this list are: "SELECT", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "ADMIN", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"
 
 
         :return: The permissions of this AssignSchemaPermissionDetails.
@@ -113,7 +117,7 @@ class AssignSchemaPermissionDetails(object):
         :param permissions: The permissions of this AssignSchemaPermissionDetails.
         :type: list[str]
         """
-        allowed_values = ["SELECT", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "ADMIN", "CREATE_KNOWLEDGE_BASE"]
+        allowed_values = ["SELECT", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "ADMIN", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"]
         
         if permissions and permissions is not NONE_SENTINEL:
             for value in permissions:

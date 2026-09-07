@@ -66,14 +66,14 @@ public Builder allowedFileTypes(java.util.List<FileAllowedFileType> allowedFileT
     return this;
 }
             /**
-     * Maximum uploaded file size in megabytes.
+     * Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("maxFileSizeMb")
 private Long maxFileSizeMb;
 
         /**
-         * Maximum uploaded file size in megabytes.
+         * Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB.
          * @param maxFileSizeMb the value to set
          * @return this builder
          **/
@@ -84,14 +84,14 @@ public Builder maxFileSizeMb(Long maxFileSizeMb) {
     return this;
 }
             /**
-     * Maximum number of files allowed in a request/session.
+     * Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("maxFileCount")
 private Integer maxFileCount;
 
         /**
-         * Maximum number of files allowed in a request/session.
+         * Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative.
          * @param maxFileCount the value to set
          * @return this builder
          **/
@@ -102,14 +102,14 @@ public Builder maxFileCount(Integer maxFileCount) {
     return this;
 }
             /**
-     * Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+     * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("targetPath")
 private String targetPath;
 
         /**
-         * Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+         * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
          * @param targetPath the value to set
          * @return this builder
          **/
@@ -230,14 +230,14 @@ return this;
 
 
         /**
-     * Maximum uploaded file size in megabytes.
+     * Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("maxFileSizeMb")
     private final Long maxFileSizeMb;
 
         /**
-     * Maximum uploaded file size in megabytes.
+     * Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB.
      * @return the value
      **/
     
@@ -247,14 +247,14 @@ return this;
 
 
         /**
-     * Maximum number of files allowed in a request/session.
+     * Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("maxFileCount")
     private final Integer maxFileCount;
 
         /**
-     * Maximum number of files allowed in a request/session.
+     * Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative.
      * @return the value
      **/
     
@@ -264,14 +264,14 @@ return this;
 
 
         /**
-     * Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+     * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("targetPath")
     private final String targetPath;
 
         /**
-     * Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+     * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
      * @return the value
      **/
     

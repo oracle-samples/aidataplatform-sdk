@@ -21,7 +21,9 @@ export namespace ClusterLibraryDetails {
     export enum Type {
     
     WorkspaceFile = "WORKSPACE_FILE",
-    VolumeFile = "VOLUME_FILE"
+    VolumeFile = "VOLUME_FILE",
+    Pypi = "PYPI",
+    Maven = "MAVEN"
 
 }
 

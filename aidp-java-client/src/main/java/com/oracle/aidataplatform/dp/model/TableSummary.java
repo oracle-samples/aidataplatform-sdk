@@ -14,13 +14,13 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhTableSummary.class, name = "ALH"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlTableSummary.class, name = "MYSQL"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataTableSummary.class, name = "EXADATA"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = Db2TableSummary.class, name = "DB2"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureTableSummary.class, name = "AZURE_SQLSERVER"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OacTableSummary.class, name = "ORACLE_ANALYTICS"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwTableSummary.class, name = "ADW"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OracleTableSummary.class, name = "ORACLE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpTableSummary.class, name = "ATP"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeTableSummary.class, name = "SNOWFLAKE"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = GoogleBigqueryTableSummary.class, name = "GOOGLE_BIGQUERY")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeTableSummary.class, name = "SNOWFLAKE")
 })
 
 public class TableSummary  {

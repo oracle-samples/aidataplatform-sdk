@@ -31,6 +31,14 @@ class VolumeFileClusterLibrarySummary(ClusterLibrarySummary):
             The value to assign to the time_updated property of this VolumeFileClusterLibrarySummary.
         :type time_updated: datetime
 
+        :param installed_by:
+            The value to assign to the installed_by property of this VolumeFileClusterLibrarySummary.
+        :type installed_by: str
+
+        :param installed_by_name:
+            The value to assign to the installed_by_name property of this VolumeFileClusterLibrarySummary.
+        :type installed_by_name: str
+
         :param state_message:
             The value to assign to the state_message property of this VolumeFileClusterLibrarySummary.
         :type state_message: str
@@ -53,6 +61,8 @@ class VolumeFileClusterLibrarySummary(ClusterLibrarySummary):
             'type': 'str',
             'time_created': 'datetime',
             'time_updated': 'datetime',
+            'installed_by': 'str',
+            'installed_by_name': 'str',
             'state_message': 'str',
             'status': 'str',
             'name': 'str',
@@ -63,6 +73,8 @@ class VolumeFileClusterLibrarySummary(ClusterLibrarySummary):
             'type': 'type',
             'time_created': 'timeCreated',
             'time_updated': 'timeUpdated',
+            'installed_by': 'installedBy',
+            'installed_by_name': 'installedByName',
             'state_message': 'stateMessage',
             'status': 'status',
             'name': 'name',
@@ -72,6 +84,8 @@ class VolumeFileClusterLibrarySummary(ClusterLibrarySummary):
         self._type = None
         self._time_created = None
         self._time_updated = None
+        self._installed_by = None
+        self._installed_by_name = None
         self._state_message = None
         self._status = None
         self._name = None

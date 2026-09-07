@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AsyncOperationSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "resourceType", "actionType", "resourceName", "createdBy", "createdByName", "timeStarted", "timeFinished", "status", "resourceDisplayName"})
-    public AsyncOperationSummary(String key, AsyncOperationResourceType resourceType, AsyncOperationActionType actionType, String resourceName, String createdBy, String createdByName, java.util.Date timeStarted, java.util.Date timeFinished, AsyncOperationStatus status, String resourceDisplayName) {
+    @java.beans.ConstructorProperties({"key", "resourceType", "actionType", "resourceName", "createdBy", "createdByName", "timeStarted", "timeFinished", "status", "statusDetails", "resourceDisplayName"})
+    public AsyncOperationSummary(String key, AsyncOperationResourceType resourceType, AsyncOperationActionType actionType, String resourceName, String createdBy, String createdByName, java.util.Date timeStarted, java.util.Date timeFinished, AsyncOperationStatus status, String statusDetails, String resourceDisplayName) {
         super();
         this.key = key;
         this.resourceType = resourceType;
@@ -24,6 +24,7 @@ public final class AsyncOperationSummary  {
         this.timeStarted = timeStarted;
         this.timeFinished = timeFinished;
         this.status = status;
+        this.statusDetails = statusDetails;
         this.resourceDisplayName = resourceDisplayName;
     }
 
@@ -208,6 +209,24 @@ public Builder status(AsyncOperationStatus status) {
     return this;
 }
             /**
+     * status details
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("statusDetails")
+private String statusDetails;
+
+        /**
+         * status details
+         * @param statusDetails the value to set
+         * @return this builder
+         **/
+        
+
+public Builder statusDetails(String statusDetails) {
+    this.statusDetails = statusDetails;
+    return this;
+}
+            /**
      * The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName
 * But for workspace/cluster it is workspace and cluster displayName field.
 * 
@@ -241,6 +260,7 @@ public Builder resourceDisplayName(String resourceDisplayName) {
                 , this.timeStarted
                 , this.timeFinished
                 , this.status
+                , this.statusDetails
                 , this.resourceDisplayName);            return model;
         }
 
@@ -255,6 +275,7 @@ public Builder resourceDisplayName(String resourceDisplayName) {
     this.timeStarted(model.getTimeStarted());
     this.timeFinished(model.getTimeFinished());
     this.status(model.getStatus());
+    this.statusDetails(model.getStatusDetails());
     this.resourceDisplayName(model.getResourceDisplayName());
 return this;
         }
@@ -445,6 +466,23 @@ return this;
 
 
         /**
+     * status details
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("statusDetails")
+    private final String statusDetails;
+
+        /**
+     * status details
+     * @return the value
+     **/
+    
+    public String getStatusDetails() {
+        return statusDetails;
+    }
+
+
+        /**
      * The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName
 * But for workspace/cluster it is workspace and cluster displayName field.
 * 
@@ -486,6 +524,7 @@ return this;
         sb.append(", timeStarted=").append(String.valueOf(this.timeStarted));
         sb.append(", timeFinished=").append(String.valueOf(this.timeFinished));
         sb.append(", status=").append(String.valueOf(this.status));
+        sb.append(", statusDetails=").append(String.valueOf(this.statusDetails));
         sb.append(", resourceDisplayName=").append(String.valueOf(this.resourceDisplayName));
         sb.append(")");
         return sb.toString();
@@ -510,6 +549,7 @@ return this;
             java.util.Objects.equals(this.timeStarted, other.timeStarted) &&
             java.util.Objects.equals(this.timeFinished, other.timeFinished) &&
             java.util.Objects.equals(this.status, other.status) &&
+            java.util.Objects.equals(this.statusDetails, other.statusDetails) &&
             java.util.Objects.equals(this.resourceDisplayName, other.resourceDisplayName);
     }
 
@@ -526,6 +566,7 @@ return this;
         result = (result * PRIME) + (this.timeStarted == null ? 43 : this.timeStarted.hashCode());
         result = (result * PRIME) + (this.timeFinished == null ? 43 : this.timeFinished.hashCode());
         result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
+        result = (result * PRIME) + (this.statusDetails == null ? 43 : this.statusDetails.hashCode());
         result = (result * PRIME) + (this.resourceDisplayName == null ? 43 : this.resourceDisplayName.hashCode());
         return result;
     }

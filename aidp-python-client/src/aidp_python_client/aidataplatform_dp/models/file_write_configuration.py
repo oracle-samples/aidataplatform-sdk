@@ -251,7 +251,7 @@ class FileWriteConfiguration(object):
     def target_path(self):
         """
         Gets the target_path of this FileWriteConfiguration.
-        Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+        Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
 
 
         :return: The target_path of this FileWriteConfiguration.
@@ -263,7 +263,7 @@ class FileWriteConfiguration(object):
     def target_path(self, target_path):
         """
         Sets the target_path of this FileWriteConfiguration.
-        Strict relative workspace folder or volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+        Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where generated/downloadable files should be stored for retention or delivery.
 
 
         :param target_path: The target_path of this FileWriteConfiguration.

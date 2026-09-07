@@ -67,6 +67,19 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
     public String getOpcRequestId() {
         return opcRequestId;
     }
+        /**
+     * Indicates whether a get task run response should include task run retries.
+     */
+    private Boolean shouldIncludeTaskRunRetries;
+
+    
+
+        /**
+     * Indicates whether a get task run response should include task run retries.
+     */
+    public Boolean getShouldIncludeTaskRunRetries() {
+        return shouldIncludeTaskRunRetries;
+    }
     
 
     public static class Builder implements com.oracle.bmc.requests.BmcRequest.Builder<GetTaskRunRequest, java.lang.Void> {
@@ -141,6 +154,21 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             return this;
         }
 
+            /**
+     * Indicates whether a get task run response should include task run retries.
+     */
+        private Boolean shouldIncludeTaskRunRetries = null;
+
+        /**
+         * Indicates whether a get task run response should include task run retries.
+         * @param shouldIncludeTaskRunRetries the value to set
+         * @return this builder instance
+         */
+        public Builder shouldIncludeTaskRunRetries(Boolean shouldIncludeTaskRunRetries) {
+            this.shouldIncludeTaskRunRetries = shouldIncludeTaskRunRetries;
+            return this;
+        }
+
         /**
          * Set the invocation callback for the request to be built.
          * @param invocationCallback the invocation callback to be set for the request
@@ -167,7 +195,7 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
          * @return this builder instance
          */
         public Builder copy(GetTaskRunRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());taskRunKey(o.getTaskRunKey());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());taskRunKey(o.getTaskRunKey());opcRequestId(o.getOpcRequestId());shouldIncludeTaskRunRetries(o.getShouldIncludeTaskRunRetries());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -204,8 +232,9 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             request.workspaceKey = workspaceKey;
             request.taskRunKey = taskRunKey;
             request.opcRequestId = opcRequestId;
+            request.shouldIncludeTaskRunRetries = shouldIncludeTaskRunRetries;
             return request;
-            // new GetTaskRunRequest(aiDataPlatformId, workspaceKey, taskRunKey, opcRequestId);
+            // new GetTaskRunRequest(aiDataPlatformId, workspaceKey, taskRunKey, opcRequestId, shouldIncludeTaskRunRetries);
         }
     }
 
@@ -218,7 +247,8 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             .aiDataPlatformId(aiDataPlatformId)
             .workspaceKey(workspaceKey)
             .taskRunKey(taskRunKey)
-            .opcRequestId(opcRequestId);
+            .opcRequestId(opcRequestId)
+            .shouldIncludeTaskRunRetries(shouldIncludeTaskRunRetries);
     }
 
     /**
@@ -238,6 +268,7 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         sb.append(",workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(",taskRunKey=").append(String.valueOf(this.taskRunKey));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
+        sb.append(",shouldIncludeTaskRunRetries=").append(String.valueOf(this.shouldIncludeTaskRunRetries));
         sb.append(")");
         return sb.toString();
     }
@@ -256,7 +287,8 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             && java.util.Objects.equals(this.aiDataPlatformId, other.aiDataPlatformId)
             && java.util.Objects.equals(this.workspaceKey, other.workspaceKey)
             && java.util.Objects.equals(this.taskRunKey, other.taskRunKey)
-            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
+            && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
+            && java.util.Objects.equals(this.shouldIncludeTaskRunRetries, other.shouldIncludeTaskRunRetries);
     }
 
     @Override
@@ -267,6 +299,7 @@ public class GetTaskRunRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.taskRunKey == null ? 43 : this.taskRunKey.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
+        result = (result * PRIME) + (this.shouldIncludeTaskRunRetries == null ? 43 : this.shouldIncludeTaskRunRetries.hashCode());
         return result;
     }
 }

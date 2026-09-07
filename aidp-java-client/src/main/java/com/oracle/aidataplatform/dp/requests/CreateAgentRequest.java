@@ -34,14 +34,14 @@ public class CreateAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         return workspaceKey;
     }
         /**
-     * Details for the new Agent.
+     * Details for the new agent.
      */
     private com.oracle.aidataplatform.dp.model.CreateAgentDetails createAgentDetails;
 
     
 
         /**
-     * Details for the new Agent.
+     * Details for the new agent.
      */
     public com.oracle.aidataplatform.dp.model.CreateAgentDetails getCreateAgentDetails() {
         return createAgentDetails;
@@ -150,12 +150,12 @@ public class CreateAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         }
 
             /**
-     * Details for the new Agent.
+     * Details for the new agent.
      */
         private com.oracle.aidataplatform.dp.model.CreateAgentDetails createAgentDetails = null;
 
         /**
-         * Details for the new Agent.
+         * Details for the new agent.
          * @param createAgentDetails the value to set
          * @return this builder instance
          */
