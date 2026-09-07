@@ -16,11 +16,11 @@ export interface DeleteAgentSessionRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**
- * The UUID of the Agent Session
+ * The UUID of the agent session.
  */
  'sessionId': string;
 /**

@@ -9,6 +9,18 @@ import common = require("oci-common");
 */
 export interface TaskRunRetry {
     /**
+    * The OCID of the task run.
+    */
+    'key': string;
+    /**
+    * A user-friendly name. Does not have to be unique, and is changeable.
+    */
+    'name': string;
+    /**
+    * The OCID of the task run.
+    */
+    'taskRunKey': string;
+    /**
     * The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'startTime'?: number;
@@ -16,6 +28,10 @@ export interface TaskRunRetry {
     * The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'endTime'?: number;
+    /**
+    * Current version of job run object in repository. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'version'?: number;
     /**
     * The time at which the cluster validation started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
@@ -44,7 +60,7 @@ export interface TaskRunRetry {
     /**
     * Sequence number of the retry attempt. 0 for the original. 1, 2, 3, ... for subsequent retry attempts. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
-    'retryNumber'?: number;
+    'retryNumber': number;
 
 }
 
@@ -60,9 +76,17 @@ export namespace TaskRunRetry {
 
 
 
+
+
+
+
     export function getJsonObj(obj: TaskRunRetry): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+
 
 
 
@@ -86,6 +110,10 @@ export namespace TaskRunRetry {
     export function getDeserializedJsonObj(obj: TaskRunRetry): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+
 
 
 

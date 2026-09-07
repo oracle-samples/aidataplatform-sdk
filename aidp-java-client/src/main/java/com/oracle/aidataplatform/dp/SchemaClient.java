@@ -419,6 +419,10 @@ return clientCall(request, GetSchemaResponse::builder)
         
         .basePath("/20260430")
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("schemas").appendPathParam(request.getSchemaKey())
+            
+                
+                    
+                    .appendQueryParam("shouldSkipOcidTranslation", request.getShouldSkipOcidTranslation())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
@@ -454,6 +458,10 @@ return clientCall(request, GetTableResponse::builder)
         
         .basePath("/20260430")
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("tables").appendPathParam(request.getTableKey())
+            
+                
+                    
+                    .appendQueryParam("shouldSkipOcidTranslation", request.getShouldSkipOcidTranslation())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
@@ -582,6 +590,10 @@ return clientCall(request, ListSchemasResponse::builder)
             
                 
                     
+                    .appendQueryParam("shouldSkipOcidTranslation", request.getShouldSkipOcidTranslation())
+            
+                
+                    
                     .appendQueryParam("displayName", request.getDisplayName())
             
                 
@@ -689,6 +701,10 @@ return clientCall(request, ListTablesResponse::builder)
                 
                     
                     .appendQueryParam("catalogKey", request.getCatalogKey())
+            
+                
+                    
+                    .appendQueryParam("shouldSkipOcidTranslation", request.getShouldSkipOcidTranslation())
             
                 
                     

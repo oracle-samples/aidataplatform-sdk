@@ -20,15 +20,15 @@ export interface FileReadConfiguration {
     */
     'allowedFileTypes'?: Array<FileReadConfiguration.AllowedFileTypes>;
     /**
-    * Maximum uploaded file size in megabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Requested maximum uploaded file size in megabytes. When omitted, Agent Service applies the 10 MiB default; explicit values may raise the per-file limit up to 50 MiB while the active session remains capped at 500 MiB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'maxFileSizeMb'?: number;
     /**
-    * Maximum number of files allowed in a request/session. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * Maximum number of active files allowed in a session. When omitted, Agent Service applies the five-file default; explicit values may raise the limit to twenty while the aggregate byte quota remains authoritative. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'maxFileCount'?: number;
     /**
-    * Strict relative workspace folder or volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access. Path segments must not be empty, absolute, traversal segments, backslash-separated, contain control characters, or contain malformed dot-separated volume refs.
+    * Canonical /Volumes/catalog/schema/volume path, optionally followed by safe folder segments, or a legacy relative volumeRef/workspaceFolder path where uploaded/readable files are stored or located for later runtime access.
     */
     'targetPath'?: string;
     /**

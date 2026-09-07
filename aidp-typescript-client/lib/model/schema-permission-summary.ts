@@ -49,6 +49,7 @@ export namespace SchemaPermissionSummary {
     CreateVolume = "CREATE_VOLUME",
     CreateTable = "CREATE_TABLE",
     CreateKnowledgeBase = "CREATE_KNOWLEDGE_BASE",
+    CreateModel = "CREATE_MODEL",
     Admin = "ADMIN",
     /**
     * This value is used if a service returns a value for this enum that is not recognized by this

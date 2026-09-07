@@ -240,6 +240,17 @@ public interface WorkspaceObject extends AutoCloseable {
     UpdateWorkspaceObjectResponse updateWorkspaceObject(UpdateWorkspaceObjectRequest request);
     
     /**
+     * Creates or updates an asynchronous workspace ZIP upload and extraction operation. CREATE returns a PAR URL for uploading the ZIP bytes and an async operation key. UPDATE records the uploaded ZIP metadata so extraction can continue.
+* 
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    UploadAndExtractWorkspaceZipResponse uploadAndExtractWorkspaceZip(UploadAndExtractWorkspaceZipRequest request);
+    
+    /**
      * Creates a workspace file by generating PAR or updates the metadata by close file. If file exists, then it will be updated.
 * 
      * @param request The request object containing the details to send
@@ -249,6 +260,16 @@ public interface WorkspaceObject extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     UploadWorkspaceObjectWithParResponse uploadWorkspaceObjectWithPar(UploadWorkspaceObjectWithParRequest request);
+    
+    /**
+     * Starts asynchronous creation of a ZIP archive for a workspace folder. The response includes a PAR URL for downloading the archive after the operation succeeds.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ZipAndDownloadWorkspaceFolderResponse zipAndDownloadWorkspaceFolder(ZipAndDownloadWorkspaceFolderRequest request);
     
 
 }

@@ -1090,6 +1090,9 @@ class WorkflowClient(object):
             The only valid characters for request IDs are letters, numbers,
             underscore, and dash.
 
+        :param bool should_include_task_run_retries: (optional)
+            Indicates whether a get task run response should include task run retries.
+
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
 
@@ -1107,7 +1110,8 @@ class WorkflowClient(object):
         # Don't accept unknown kwargs
         expected_kwargs = [
             "retry_strategy",
-            "opc_request_id"
+            "opc_request_id",
+            "should_include_task_run_retries"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
         if extra_kwargs:
@@ -1126,6 +1130,11 @@ class WorkflowClient(object):
             if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
+        query_params = {
+            "shouldIncludeTaskRunRetries": kwargs.get("should_include_task_run_retries", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
         header_params = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -1143,6 +1152,7 @@ class WorkflowClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="TaskRun")
         else:
@@ -1150,6 +1160,7 @@ class WorkflowClient(object):
                 resource_path=resource_path,
                 method=method,
                 path_params=path_params,
+                query_params=query_params,
                 header_params=header_params,
                 response_type="TaskRun")
 
@@ -1486,11 +1497,7 @@ class WorkflowClient(object):
             A filter to return only resources that was last updated by given user with username that matches exactly.
 
         :param int limit: (optional)
-            For list pagination. The maximum number of results per page, or items to return in a
-            paginated \"List\" call. For important details about how pagination works, see
-            `List Pagination`__.
-
-            __ https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+            For list pagination. The maximum number of results per page, or items to return in a paginated List call.
 
         :param str page: (optional)
             For list pagination. The value of the opc-next-page response header from the previous
@@ -1755,6 +1762,163 @@ class WorkflowClient(object):
                 header_params=header_params,
                 response_type="JobRunCollection")
 
+    def list_task_run_retries(self, ai_data_platform_id, workspace_key, task_run_key, **kwargs):
+        """
+        Returns detailed information about retries of a task run with a given task run key.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str workspace_key: (required)
+            The key of the Workspace
+
+        :param str task_run_key: (required)
+            Task run key.
+
+        :param str display_name: (optional)
+            A filter to return only resources that match the given display name exactly.
+
+        :param list[str] status: (optional)
+            The field to filter based on state.
+
+            Allowed values are: "PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
+
+        :param int limit: (optional)
+            For list pagination. The maximum number of results per page, or items to return in a
+            paginated \"List\" call. For important details about how pagination works, see
+            `List Pagination`__.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+
+        :param str page: (optional)
+            For list pagination. The value of the opc-next-page response header from the previous
+            \"List\" call. For important details about how pagination works, see
+            `List Pagination`__.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+
+        :param str sort_order: (optional)
+            The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+
+            Allowed values are: "ASC", "DESC"
+
+        :param str sort_by: (optional)
+            The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending.
+
+            Allowed values are: "timeCreated", "displayName", "status"
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.TaskRunRetryCollection`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/workspaces/{workspaceKey}/taskRuns/{taskRunKey}/retries"
+        method = "GET"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "display_name",
+            "status",
+            "limit",
+            "page",
+            "sort_order",
+            "sort_by",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "list_task_run_retries got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id,
+            "workspaceKey": workspace_key,
+            "taskRunKey": task_run_key
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        if 'status' in kwargs:
+            status_allowed_values = ["PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
+            for status_item in kwargs['status']:
+                if status_item not in status_allowed_values:
+                    raise ValueError(
+                        "Invalid value for `status`, must be one of {0}".format(status_allowed_values)
+                    )
+
+        if 'sort_order' in kwargs:
+            sort_order_allowed_values = ["ASC", "DESC"]
+            if kwargs['sort_order'] not in sort_order_allowed_values:
+                raise ValueError(
+                    "Invalid value for `sort_order`, must be one of {0}".format(sort_order_allowed_values)
+                )
+
+        if 'sort_by' in kwargs:
+            sort_by_allowed_values = ["timeCreated", "displayName", "status"]
+            if kwargs['sort_by'] not in sort_by_allowed_values:
+                raise ValueError(
+                    "Invalid value for `sort_by`, must be one of {0}".format(sort_by_allowed_values)
+                )
+
+        query_params = {
+            "displayName": kwargs.get("display_name", missing),
+            "status": self.base_client.generate_collection_format_param(kwargs.get("status", missing), 'multi'),
+            "limit": kwargs.get("limit", missing),
+            "page": kwargs.get("page", missing),
+            "sortOrder": kwargs.get("sort_order", missing),
+            "sortBy": kwargs.get("sort_by", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="TaskRunRetryCollection")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="TaskRunRetryCollection")
+
     def list_task_runs(self, ai_data_platform_id, workspace_key, job_run_key, **kwargs):
         """
         Returns a list of task runs.
@@ -1786,11 +1950,7 @@ class WorkflowClient(object):
             The field to filter based on root job run key.
 
         :param int limit: (optional)
-            For list pagination. The maximum number of results per page, or items to return in a
-            paginated \"List\" call. For important details about how pagination works, see
-            `List Pagination`__.
-
-            __ https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+            For list pagination. The maximum number of results per page, or items to return in a paginated List call.
 
         :param str page: (optional)
             For list pagination. The value of the opc-next-page response header from the previous

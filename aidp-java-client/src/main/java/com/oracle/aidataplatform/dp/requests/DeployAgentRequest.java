@@ -34,27 +34,27 @@ public class DeployAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
     }
         /**
-     * Details of a deployable Agent.
+     * Details of a deployable agent.
      */
     private com.oracle.aidataplatform.dp.model.DeployAgentDetails deployAgentDetails;
 
     
 
         /**
-     * Details of a deployable Agent.
+     * Details of a deployable agent.
      */
     public com.oracle.aidataplatform.dp.model.DeployAgentDetails getDeployAgentDetails() {
         return deployAgentDetails;
@@ -150,12 +150,12 @@ public class DeployAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */
@@ -165,12 +165,12 @@ public class DeployAgentRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         }
 
             /**
-     * Details of a deployable Agent.
+     * Details of a deployable agent.
      */
         private com.oracle.aidataplatform.dp.model.DeployAgentDetails deployAgentDetails = null;
 
         /**
-         * Details of a deployable Agent.
+         * Details of a deployable agent.
          * @param deployAgentDetails the value to set
          * @return this builder instance
          */

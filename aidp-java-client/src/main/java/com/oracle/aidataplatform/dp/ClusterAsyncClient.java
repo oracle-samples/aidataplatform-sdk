@@ -29,15 +29,34 @@ public class ClusterAsyncClient extends com.oracle.bmc.http.internal.BaseAsyncCl
     public static final com.oracle.bmc.Service SERVICE = com.oracle.bmc.Services.serviceBuilder().serviceName("CLUSTER").serviceEndpointPrefix("datahub-dp").serviceEndpointTemplate("https://datalake.{region}.oci.{secondLevelDomain}").build();
 
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(ClusterAsyncClient.class);
-
     ClusterAsyncClient (
             com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
             com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
+        this(
+            builder,
+            authenticationDetailsProvider,
+            true
+        );
+    }
+
+    ClusterAsyncClient (
+            com.oracle.bmc.common.ClientBuilderBase<?, ?> builder,
+            com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider,
+            boolean isStreamWarningEnabled) {
         super(
             builder,
             authenticationDetailsProvider
         );
+
+        if (isStreamWarningEnabled && com.oracle.bmc.util.StreamUtils.isExtraStreamLogsEnabled()) {
+             LOG.warn(com.oracle.bmc.util.StreamUtils.getStreamWarningMessage(
+                "ClusterAsyncClient",
+                 "exportComputeConfiguration"
+                 )
+             );
+        }
     }
+
 
 
     
@@ -54,6 +73,7 @@ public class ClusterAsyncClient extends com.oracle.bmc.http.internal.BaseAsyncCl
      * {@link #build(AbstractAuthenticationDetailsProvider)} method.
      */
     public static class Builder extends com.oracle.bmc.common.RegionalClientBuilder<Builder, ClusterAsyncClient> {
+        private boolean isStreamWarningEnabled = true;
         private Builder(com.oracle.bmc.Service service) {
             super(service);
             final String packageName = "dp";
@@ -62,12 +82,23 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
         }
 
         /**
+         * Enable/disable the stream warnings for the client
+         *
+         * @param isStreamWarningEnabled executorService
+         * @return this builder
+         */
+        public Builder isStreamWarningEnabled(boolean isStreamWarningEnabled) {
+            this.isStreamWarningEnabled = isStreamWarningEnabled;
+            return this;
+        }
+
+        /**
          * Build the client.
          * @param authenticationDetailsProvider authentication details provider
          * @return the client
          */
         public ClusterAsyncClient build(@jakarta.annotation.Nonnull com.oracle.bmc.auth.AbstractAuthenticationDetailsProvider authenticationDetailsProvider) {
-            return new ClusterAsyncClient(this, authenticationDetailsProvider);
+            return new ClusterAsyncClient(this, authenticationDetailsProvider, isStreamWarningEnabled);
         }
     }
 
@@ -79,6 +110,40 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
     @Override
     public void setRegion(String regionId) {
         super.setRegion(regionId);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<CloneComputeResponse> cloneCompute(CloneComputeRequest request, final com.oracle.bmc.responses.AsyncHandler<CloneComputeRequest, CloneComputeResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+
+
+return clientCall(request, CloneComputeResponse::builder)
+        .logger(LOG, "cloneCompute")
+        .serviceDetails("Cluster", "CloneCompute", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CloneComputeRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("cloneCompute")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            CloneComputeResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            CloneComputeResponse.Builder::opcRequestId)
+.callAsync(handler);
     }
 
     @Override
@@ -194,6 +259,51 @@ return clientCall(request, DownloadClusterLogsResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<ExportComputeConfigurationResponse> exportComputeConfiguration(ExportComputeConfigurationRequest request, final com.oracle.bmc.responses.AsyncHandler<ExportComputeConfigurationRequest, ExportComputeConfigurationResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getExportComputeConfigurationDetails(), "exportComputeConfigurationDetails is required");
+        
+
+
+return clientCall(request, ExportComputeConfigurationResponse::builder)
+        .logger(LOG, "exportComputeConfiguration")
+        .serviceDetails("Cluster", "ExportComputeConfiguration", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ExportComputeConfigurationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("exportComputeConfiguration")
+        .accept("application/x-yaml")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(java.io.InputStream.class, ExportComputeConfigurationResponse.Builder::inputStream)
+                .handleResponseHeaderString("location", 
+            ExportComputeConfigurationResponse.Builder::location)
+                .handleResponseHeaderString("content-location", 
+            ExportComputeConfigurationResponse.Builder::contentLocation)
+                .handleResponseHeaderString("opc-request-id", 
+            ExportComputeConfigurationResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("path", 
+            ExportComputeConfigurationResponse.Builder::path)
+                .handleResponseHeaderString("type", 
+            ExportComputeConfigurationResponse.Builder::type)
+                .handleResponseHeaderDate("time-updated", 
+            ExportComputeConfigurationResponse.Builder::timeUpdated)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<GetClusterResponse> getCluster(GetClusterRequest request, final com.oracle.bmc.responses.AsyncHandler<GetClusterRequest, GetClusterResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -229,6 +339,37 @@ return clientCall(request, GetClusterResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<GetComputeConfigurationResponse> getComputeConfiguration(GetComputeConfigurationRequest request, final com.oracle.bmc.responses.AsyncHandler<GetComputeConfigurationRequest, GetComputeConfigurationResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+
+
+return clientCall(request, GetComputeConfigurationResponse::builder)
+        .logger(LOG, "getComputeConfiguration")
+        .serviceDetails("Cluster", "GetComputeConfiguration", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetComputeConfigurationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("getComputeConfiguration")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.ComputeConfiguration.class, GetComputeConfigurationResponse.Builder::computeConfiguration)
+                .handleResponseHeaderString("opc-request-id", 
+            GetComputeConfigurationResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<GetDefaultClusterResponse> getDefaultCluster(GetDefaultClusterRequest request, final com.oracle.bmc.responses.AsyncHandler<GetDefaultClusterRequest, GetDefaultClusterResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -253,6 +394,42 @@ return clientCall(request, GetDefaultClusterResponse::builder)
             GetDefaultClusterResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             GetDefaultClusterResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<ImportComputeConfigurationResponse> importComputeConfiguration(ImportComputeConfigurationRequest request, final com.oracle.bmc.responses.AsyncHandler<ImportComputeConfigurationRequest, ImportComputeConfigurationResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getImportComputeConfigurationDetails(), "importComputeConfigurationDetails is required");
+        
+
+
+return clientCall(request, ImportComputeConfigurationResponse::builder)
+        .logger(LOG, "importComputeConfiguration")
+        .serviceDetails("Cluster", "ImportComputeConfiguration", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ImportComputeConfigurationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("actions").appendPathParam("importComputeConfiguration")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            ImportComputeConfigurationResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            ImportComputeConfigurationResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
@@ -622,6 +799,55 @@ return clientCall(request, SearchClusterLogsResponse::builder)
             SearchClusterLogsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
             SearchClusterLogsResponse.Builder::opcNextPage)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<SearchMavenPackagesResponse> searchMavenPackages(SearchMavenPackagesRequest request, final com.oracle.bmc.responses.AsyncHandler<SearchMavenPackagesRequest, SearchMavenPackagesResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getClusterKey(), "clusterKey must not be blank");
+        Objects.requireNonNull(request.getMavenSearchQuery(), "mavenSearchQuery is required");
+        
+
+
+return clientCall(request, SearchMavenPackagesResponse::builder)
+        .logger(LOG, "searchMavenPackages")
+        .serviceDetails("Cluster", "SearchMavenPackages", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(SearchMavenPackagesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("clusters").appendPathParam(request.getClusterKey()).appendPathParam("mavenPackages")
+            
+                
+                    
+                    .appendQueryParam("mavenSearchQuery", request.getMavenSearchQuery())
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.MavenSearchSummaryCollection.class, SearchMavenPackagesResponse.Builder::mavenSearchSummaryCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            SearchMavenPackagesResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            SearchMavenPackagesResponse.Builder::opcNextPage)
+                .handleResponseHeaderString("opc-prev-page", 
+            SearchMavenPackagesResponse.Builder::opcPrevPage)
 .callAsync(handler);
     }
 

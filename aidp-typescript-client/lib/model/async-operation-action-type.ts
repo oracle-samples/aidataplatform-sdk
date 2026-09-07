@@ -21,6 +21,8 @@ export enum AsyncOperationActionType {
     CreateVolume = "CREATE_VOLUME",
     DeleteVolume = "DELETE_VOLUME",
     CopyVolumeFile = "COPY_VOLUME_FILE",
+    UploadAndExtractZip = "UPLOAD_AND_EXTRACT_ZIP",
+    ZipAndDownloadFolder = "ZIP_AND_DOWNLOAD_FOLDER",
     MoveVolumeFile = "MOVE_VOLUME_FILE",
     DeleteVolumeFile = "DELETE_VOLUME_FILE",
     DeleteVolumeFolder = "DELETE_VOLUME_FOLDER",

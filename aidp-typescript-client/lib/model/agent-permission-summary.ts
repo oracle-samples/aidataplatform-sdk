@@ -53,6 +53,7 @@ export namespace AgentPermissionSummary {
     Read = "READ",
     Manage = "MANAGE",
     Admin = "ADMIN",
+    Use = "USE",
     /**
     * This value is used if a service returns a value for this enum that is not recognized by this
     * version of the SDK.

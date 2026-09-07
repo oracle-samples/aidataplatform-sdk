@@ -288,6 +288,75 @@ return clientCall(request, FetchBundleDeploymentStatusActionResponse::builder)
 
     @Override
     
+    public FetchBundlePublishStatusActionResponse fetchBundlePublishStatusAction(FetchBundlePublishStatusActionRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getFetchBundlePublishStatusDetails(), "fetchBundlePublishStatusDetails is required");
+        
+
+
+return clientCall(request, FetchBundlePublishStatusActionResponse::builder)
+        .logger(LOG, "fetchBundlePublishStatusAction")
+        .serviceDetails("Bundle", "FetchBundlePublishStatusAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(FetchBundlePublishStatusActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("getBundlePublishStatus")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.BundlePublishStatus.class, FetchBundlePublishStatusActionResponse.Builder::bundlePublishStatus)
+                .handleResponseHeaderString("opc-request-id", 
+            FetchBundlePublishStatusActionResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public PublishBundleActionResponse publishBundleAction(PublishBundleActionRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        Objects.requireNonNull(request.getPublishBundleDetails(), "publishBundleDetails is required");
+        
+
+
+return clientCall(request, PublishBundleActionResponse::builder)
+        .logger(LOG, "publishBundleAction")
+        .serviceDetails("Bundle", "PublishBundleAction", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(PublishBundleActionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("actions").appendPathParam("publishBundle")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            PublishBundleActionResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            PublishBundleActionResponse.Builder::aidpAsyncOperationKey)
+
+                .callSync();
+    }
+
+    @Override
+    
     public PurgeBundleResponse purgeBundle(PurgeBundleRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");

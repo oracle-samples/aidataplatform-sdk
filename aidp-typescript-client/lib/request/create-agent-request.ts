@@ -16,7 +16,7 @@ export interface CreateAgentRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * Details for the new Agent.
+ * Details for the new agent.
  */
  'createAgentDetails':  model.CreateAgentDetails;
 /**

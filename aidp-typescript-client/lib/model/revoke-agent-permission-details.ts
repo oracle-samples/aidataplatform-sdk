@@ -31,7 +31,8 @@ export namespace RevokeAgentPermissionDetails {
     
     Read = "READ",
     Manage = "MANAGE",
-    Admin = "ADMIN"
+    Admin = "ADMIN",
+    Use = "USE"
 
 }
 

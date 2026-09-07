@@ -25,6 +25,7 @@ export interface BundleDeploymentStatus {
     * Optional summary message for the last deployment.
     */
     'message'?: string;
+    'publish'?: model.BundlePublishLocation;
     /**
     * List of resources from the last deployment.
     */
@@ -52,6 +53,7 @@ export namespace BundleDeploymentStatus {
 
 
 
+
     export function getJsonObj(obj: BundleDeploymentStatus): object {
         const jsonObj = {...obj, ...{
             
@@ -59,6 +61,10 @@ export namespace BundleDeploymentStatus {
 
 
 
+                'publish': obj.publish ?
+                
+                
+                model.BundlePublishLocation.getJsonObj(obj.publish) : undefined,
                 'resources': obj.resources ?
                 
                 obj.resources.map((item)=>{return model.BundleDeployedResource.getJsonObj(item)})
@@ -78,6 +84,10 @@ export namespace BundleDeploymentStatus {
 
 
 
+                    'publish': obj.publish ?
+                
+                
+                model.BundlePublishLocation.getDeserializedJsonObj(obj.publish) : undefined,
                     'resources': obj.resources ?
                 
                 obj.resources.map((item)=>{return model.BundleDeployedResource.getDeserializedJsonObj(item)})

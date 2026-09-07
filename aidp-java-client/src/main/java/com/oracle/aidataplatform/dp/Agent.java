@@ -59,7 +59,7 @@ public interface Agent extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Copy an Agent.
+     * Copies an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -69,7 +69,7 @@ public interface Agent extends AutoCloseable {
     CopyAgentResponse copyAgent(CopyAgentRequest request);
     
     /**
-     * Create an Agent.
+     * Creates an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -79,7 +79,7 @@ public interface Agent extends AutoCloseable {
     CreateAgentResponse createAgent(CreateAgentRequest request);
     
     /**
-     * Delete an Agent from the schema
+     * Delete an agent from the schema.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -89,7 +89,7 @@ public interface Agent extends AutoCloseable {
     DeleteAgentResponse deleteAgent(DeleteAgentRequest request);
     
     /**
-     * Delete an Agent Deployment.
+     * Deletes an agent deployment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -99,7 +99,7 @@ public interface Agent extends AutoCloseable {
     DeleteAgentDeploymentResponse deleteAgentDeployment(DeleteAgentDeploymentRequest request);
     
     /**
-     * Delete an Agent Session.
+     * Deletes an agent Session.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -109,7 +109,7 @@ public interface Agent extends AutoCloseable {
     DeleteAgentSessionResponse deleteAgentSession(DeleteAgentSessionRequest request);
     
     /**
-     * Deploys an Agent.
+     * Deploys a specified agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -119,7 +119,7 @@ public interface Agent extends AutoCloseable {
     DeployAgentResponse deployAgent(DeployAgentRequest request);
     
     /**
-     * Returns detailed information about an Agent.
+     * Returns detailed information about an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -129,7 +129,7 @@ public interface Agent extends AutoCloseable {
     GetAgentResponse getAgent(GetAgentRequest request);
     
     /**
-     * Returns detailed information about an Agent deployment.
+     * Returns detailed information about an agent deployment.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -139,7 +139,7 @@ public interface Agent extends AutoCloseable {
     GetAgentDeploymentResponse getAgentDeployment(GetAgentDeploymentRequest request);
     
     /**
-     * Returns detailed information about an Agent Session.
+     * Returns detailed information about an agent session.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -159,7 +159,7 @@ public interface Agent extends AutoCloseable {
     GetAgentSessionTraceResponse getAgentSessionTrace(GetAgentSessionTraceRequest request);
     
     /**
-     * Returns a list of deployments of an agent.
+     * Returns a list of all deployments of an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -169,7 +169,7 @@ public interface Agent extends AutoCloseable {
     ListAgentDeploymentsResponse listAgentDeployments(ListAgentDeploymentsRequest request);
     
     /**
-     * Returns a list of permissions for a given Agent.
+     * Returns a list of permissions for a given agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -179,7 +179,7 @@ public interface Agent extends AutoCloseable {
     ListAgentPermissionsResponse listAgentPermissions(ListAgentPermissionsRequest request);
     
     /**
-     * Returns list of Agent Session chat messages.
+     * Returns list of agent session chat messages.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -189,7 +189,7 @@ public interface Agent extends AutoCloseable {
     ListAgentSessionChatHistoriesResponse listAgentSessionChatHistories(ListAgentSessionChatHistoriesRequest request);
     
     /**
-     * Returns a list of testing sessions of an Agent.
+     * Returns a list of testing sessions of an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -199,7 +199,7 @@ public interface Agent extends AutoCloseable {
     ListAgentSessionsResponse listAgentSessions(ListAgentSessionsRequest request);
     
     /**
-     * Returns a list of Agents in a schema.
+     * Returns a list of agents in a schema.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -209,7 +209,7 @@ public interface Agent extends AutoCloseable {
     ListAgentsResponse listAgents(ListAgentsRequest request);
     
     /**
-     * Update the permissions for a given Agent.
+     * Update the permissions for a given agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -229,7 +229,7 @@ public interface Agent extends AutoCloseable {
     PreviewAgentAgentCardResponse previewAgentAgentCard(PreviewAgentAgentCardRequest request);
     
     /**
-     * Redeploys an Agent.
+     * Redeploys an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -239,7 +239,7 @@ public interface Agent extends AutoCloseable {
     RedeployAgentByKeyResponse redeployAgentByKey(RedeployAgentByKeyRequest request);
     
     /**
-     * Update an Agent with provided details.
+     * Updates an agent with provided details.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -249,7 +249,7 @@ public interface Agent extends AutoCloseable {
     UpdateAgentResponse updateAgent(UpdateAgentRequest request);
     
     /**
-     * Update the deployment metadata for an Agent.
+     * Updates the deployment metadata for an agent.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.
@@ -259,7 +259,7 @@ public interface Agent extends AutoCloseable {
     UpdateAgentDeploymentMetadataResponse updateAgentDeploymentMetadata(UpdateAgentDeploymentMetadataRequest request);
     
     /**
-     * Validate the agent json diagram generated by UI.
+     * Validates the agent JSON diagram generated by UI.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

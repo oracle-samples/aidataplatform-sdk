@@ -28,6 +28,20 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
     this.timeUpdated = timeUpdated;
     return this;
 }
+@com.fasterxml.jackson.annotation.JsonProperty("installedBy")
+private String installedBy;
+
+public Builder installedBy(String installedBy) {
+    this.installedBy = installedBy;
+    return this;
+}
+@com.fasterxml.jackson.annotation.JsonProperty("installedByName")
+private String installedByName;
+
+public Builder installedByName(String installedByName) {
+    this.installedByName = installedByName;
+    return this;
+}
 @com.fasterxml.jackson.annotation.JsonProperty("stateMessage")
 private String stateMessage;
 
@@ -83,6 +97,8 @@ public Builder path(String path) {
         public VolumeFileClusterLibrarySummary build() {
             VolumeFileClusterLibrarySummary model = new VolumeFileClusterLibrarySummary(this.timeCreated
                 , this.timeUpdated
+                , this.installedBy
+                , this.installedByName
                 , this.stateMessage
                 , this.status
                 , this.name
@@ -93,6 +109,8 @@ public Builder path(String path) {
         public Builder copy(VolumeFileClusterLibrarySummary model) {
                 this.timeCreated(model.getTimeCreated());
     this.timeUpdated(model.getTimeUpdated());
+    this.installedBy(model.getInstalledBy());
+    this.installedByName(model.getInstalledByName());
     this.stateMessage(model.getStateMessage());
     this.status(model.getStatus());
     this.name(model.getName());
@@ -115,8 +133,8 @@ return this;
 
     
     @Deprecated
-    public VolumeFileClusterLibrarySummary(java.util.Date timeCreated, java.util.Date timeUpdated, String stateMessage, Status status, String name, String path) {
-    super(timeCreated, timeUpdated, stateMessage, status);
+    public VolumeFileClusterLibrarySummary(java.util.Date timeCreated, java.util.Date timeUpdated, String installedBy, String installedByName, String stateMessage, Status status, String name, String path) {
+    super(timeCreated, timeUpdated, installedBy, installedByName, stateMessage, status);
         this.name = name;
         this.path = path;
     }

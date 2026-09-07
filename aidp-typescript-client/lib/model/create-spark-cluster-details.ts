@@ -17,11 +17,16 @@ export interface CreateSparkClusterDetails extends model.CreateClusterDetails {
     'autoTerminationMinutes'?: number;
     'attachToNotebookConfig'?: model.AttachToNotebookConfig;
     'subscription'?: model.SubscriptionDetails;
+    /**
+    * Optional, unique workspace or volume YAML paths to install after cluster provisioning starts. Use a workspace-relative path, /Workspace/..., or /Volumes/<catalog>/<schema>/<volume>/....
+    */
+    'yamlPaths'?: Array<string>;
 
    "type": string;
 }
 
 export namespace CreateSparkClusterDetails {
+
 
 
 
@@ -53,6 +58,7 @@ export namespace CreateSparkClusterDetails {
                 
                 
                 model.SubscriptionDetails.getJsonObj(obj.subscription) : undefined,
+
         }};
 
         
@@ -84,6 +90,7 @@ export namespace CreateSparkClusterDetails {
                 
                 
                 model.SubscriptionDetails.getDeserializedJsonObj(obj.subscription) : undefined,
+
          }};
 
         

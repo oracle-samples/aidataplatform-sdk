@@ -209,6 +209,16 @@ public interface Workflow extends AutoCloseable {
     ListRecentJobRunsResponse listRecentJobRuns(ListRecentJobRunsRequest request);
     
     /**
+     * Returns detailed information about retries of a task run with a given task run key.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ListTaskRunRetriesResponse listTaskRunRetries(ListTaskRunRetriesRequest request);
+    
+    /**
      * Returns a list of task runs.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation

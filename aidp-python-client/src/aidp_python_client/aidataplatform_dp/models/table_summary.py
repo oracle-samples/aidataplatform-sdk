@@ -42,16 +42,16 @@ class TableSummary(object):
     ENTITY_TYPE_MYSQL = "MYSQL"
 
     #: A constant which can be used with the entity_type property of a TableSummary.
+    #: This constant has a value of "DB2"
+    ENTITY_TYPE_DB2 = "DB2"
+
+    #: A constant which can be used with the entity_type property of a TableSummary.
     #: This constant has a value of "AZURE_SQLSERVER"
     ENTITY_TYPE_AZURE_SQLSERVER = "AZURE_SQLSERVER"
 
     #: A constant which can be used with the entity_type property of a TableSummary.
     #: This constant has a value of "SNOWFLAKE"
     ENTITY_TYPE_SNOWFLAKE = "SNOWFLAKE"
-
-    #: A constant which can be used with the entity_type property of a TableSummary.
-    #: This constant has a value of "GOOGLE_BIGQUERY"
-    ENTITY_TYPE_GOOGLE_BIGQUERY = "GOOGLE_BIGQUERY"
 
     #: A constant which can be used with the entity_type property of a TableSummary.
     #: This constant has a value of "ORACLE_ANALYTICS"
@@ -90,19 +90,19 @@ class TableSummary(object):
         * :class:`~oci.aidataplatform_dp.models.AlhTableSummary`
         * :class:`~oci.aidataplatform_dp.models.MysqlTableSummary`
         * :class:`~oci.aidataplatform_dp.models.ExadataTableSummary`
+        * :class:`~oci.aidataplatform_dp.models.Db2TableSummary`
         * :class:`~oci.aidataplatform_dp.models.SqlServerOnAzureTableSummary`
         * :class:`~oci.aidataplatform_dp.models.OacTableSummary`
         * :class:`~oci.aidataplatform_dp.models.AdwTableSummary`
         * :class:`~oci.aidataplatform_dp.models.OracleTableSummary`
         * :class:`~oci.aidataplatform_dp.models.AtpTableSummary`
         * :class:`~oci.aidataplatform_dp.models.SnowflakeTableSummary`
-        * :class:`~oci.aidataplatform_dp.models.GoogleBigqueryTableSummary`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
         :param entity_type:
             The value to assign to the entity_type property of this TableSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type entity_type: str
 
@@ -197,6 +197,9 @@ class TableSummary(object):
         if type == 'EXADATA':
             return 'ExadataTableSummary'
 
+        if type == 'DB2':
+            return 'Db2TableSummary'
+
         if type == 'AZURE_SQLSERVER':
             return 'SqlServerOnAzureTableSummary'
 
@@ -214,9 +217,6 @@ class TableSummary(object):
 
         if type == 'SNOWFLAKE':
             return 'SnowflakeTableSummary'
-
-        if type == 'GOOGLE_BIGQUERY':
-            return 'GoogleBigqueryTableSummary'
         else:
             return 'TableSummary'
 
@@ -226,7 +226,7 @@ class TableSummary(object):
         **[Required]** Gets the entity_type of this TableSummary.
         An enum to decide the type of the derived model
 
-        Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -245,7 +245,7 @@ class TableSummary(object):
         :param entity_type: The entity_type of this TableSummary.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(entity_type, allowed_values):
             entity_type = 'UNKNOWN_ENUM_VALUE'
         self._entity_type = entity_type

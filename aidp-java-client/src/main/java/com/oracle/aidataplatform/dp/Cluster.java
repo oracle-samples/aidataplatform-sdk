@@ -59,6 +59,16 @@ public interface Cluster extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
+     * Creates one Spark Compute by copying all source Compute settings and configuration.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    CloneComputeResponse cloneCompute(CloneComputeRequest request);
+    
+    /**
      * Creates a new cluster with the provided details.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -92,6 +102,16 @@ public interface Cluster extends AutoCloseable {
     DownloadClusterLogsResponse downloadClusterLogs(DownloadClusterLogsRequest request);
     
     /**
+     * Writes selected Compute configuration values supplied by the caller to a workspace YAML file without overwriting an existing file.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ExportComputeConfigurationResponse exportComputeConfiguration(ExportComputeConfigurationRequest request);
+    
+    /**
      * Returns detailed information about a cluster.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -102,6 +122,16 @@ public interface Cluster extends AutoCloseable {
     GetClusterResponse getCluster(GetClusterRequest request);
     
     /**
+     * Gets cluster-scoped Python and JAR libraries and environment variables from Spark Compute.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetComputeConfigurationResponse getComputeConfiguration(GetComputeConfigurationRequest request);
+    
+    /**
      * Gets information about the master catalog default cluster.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -110,6 +140,16 @@ public interface Cluster extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     GetDefaultClusterResponse getDefaultCluster(GetDefaultClusterRequest request);
+    
+    /**
+     * Imports one or more unique workspace YAML files into an active Spark Compute.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ImportComputeConfigurationResponse importComputeConfiguration(ImportComputeConfigurationRequest request);
     
     /**
      * Gets a list of libraries installed on a cluster.
@@ -193,6 +233,16 @@ public interface Cluster extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     SearchClusterLogsResponse searchClusterLogs(SearchClusterLogsRequest request);
+    
+    /**
+     * Searches Maven packages available for cluster library installation.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    SearchMavenPackagesResponse searchMavenPackages(SearchMavenPackagesRequest request);
     
     /**
      * Starts a cluster that has halted operation.

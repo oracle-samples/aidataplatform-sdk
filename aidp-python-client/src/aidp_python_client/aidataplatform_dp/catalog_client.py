@@ -390,6 +390,9 @@ class CatalogClient(object):
         :param bool is_catalog_guid: (optional)
             A boolean which decides if catalogKey path parameter is catalog GUID (UUID) or name.
 
+        :param bool should_skip_ocid_translation: (optional)
+            When true, skip user OCID translation and return raw OCIDs.
+
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
             Oracle about a particular request, please provide the request ID.
@@ -417,6 +420,7 @@ class CatalogClient(object):
         expected_kwargs = [
             "retry_strategy",
             "is_catalog_guid",
+            "should_skip_ocid_translation",
             "opc_request_id",
             "should_update_recent"
         ]
@@ -437,7 +441,8 @@ class CatalogClient(object):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
         query_params = {
-            "isCatalogGuid": kwargs.get("is_catalog_guid", missing)
+            "isCatalogGuid": kwargs.get("is_catalog_guid", missing),
+            "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing)
         }
         query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
 
@@ -633,6 +638,9 @@ class CatalogClient(object):
 
             Allowed values are: "INTERNAL", "EXTERNAL"
 
+        :param bool should_skip_ocid_translation: (optional)
+            When true, skip user OCID translation and return raw OCIDs.
+
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
             paginated \"List\" call. For important details about how pagination works, see
@@ -684,6 +692,7 @@ class CatalogClient(object):
             "display_name",
             "catalog_state",
             "catalog_type",
+            "should_skip_ocid_translation",
             "limit",
             "page",
             "sort_order",
@@ -737,6 +746,7 @@ class CatalogClient(object):
             "displayName": kwargs.get("display_name", missing),
             "catalogState": kwargs.get("catalog_state", missing),
             "catalogType": kwargs.get("catalog_type", missing),
+            "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing),
             "limit": kwargs.get("limit", missing),
             "page": kwargs.get("page", missing),
             "sortOrder": kwargs.get("sort_order", missing),

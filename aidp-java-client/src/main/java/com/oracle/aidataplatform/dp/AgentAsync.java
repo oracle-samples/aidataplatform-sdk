@@ -58,7 +58,7 @@ public interface AgentAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Copy an Agent.
+     * Copies an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -70,7 +70,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<CopyAgentResponse> copyAgent(CopyAgentRequest request, com.oracle.bmc.responses.AsyncHandler<CopyAgentRequest, CopyAgentResponse> handler);
     
     /**
-     * Create an Agent.
+     * Creates an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -82,7 +82,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateAgentResponse> createAgent(CreateAgentRequest request, com.oracle.bmc.responses.AsyncHandler<CreateAgentRequest, CreateAgentResponse> handler);
     
     /**
-     * Delete an Agent from the schema
+     * Delete an agent from the schema.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -94,7 +94,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteAgentResponse> deleteAgent(DeleteAgentRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAgentRequest, DeleteAgentResponse> handler);
     
     /**
-     * Delete an Agent Deployment.
+     * Deletes an agent deployment.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -106,7 +106,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteAgentDeploymentResponse> deleteAgentDeployment(DeleteAgentDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAgentDeploymentRequest, DeleteAgentDeploymentResponse> handler);
     
     /**
-     * Delete an Agent Session.
+     * Deletes an agent Session.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -118,7 +118,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteAgentSessionResponse> deleteAgentSession(DeleteAgentSessionRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteAgentSessionRequest, DeleteAgentSessionResponse> handler);
     
     /**
-     * Deploys an Agent.
+     * Deploys a specified agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -130,7 +130,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<DeployAgentResponse> deployAgent(DeployAgentRequest request, com.oracle.bmc.responses.AsyncHandler<DeployAgentRequest, DeployAgentResponse> handler);
     
     /**
-     * Returns detailed information about an Agent.
+     * Returns detailed information about an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -142,7 +142,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<GetAgentResponse> getAgent(GetAgentRequest request, com.oracle.bmc.responses.AsyncHandler<GetAgentRequest, GetAgentResponse> handler);
     
     /**
-     * Returns detailed information about an Agent deployment.
+     * Returns detailed information about an agent deployment.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -154,7 +154,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<GetAgentDeploymentResponse> getAgentDeployment(GetAgentDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<GetAgentDeploymentRequest, GetAgentDeploymentResponse> handler);
     
     /**
-     * Returns detailed information about an Agent Session.
+     * Returns detailed information about an agent session.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -178,7 +178,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<GetAgentSessionTraceResponse> getAgentSessionTrace(GetAgentSessionTraceRequest request, com.oracle.bmc.responses.AsyncHandler<GetAgentSessionTraceRequest, GetAgentSessionTraceResponse> handler);
     
     /**
-     * Returns a list of deployments of an agent.
+     * Returns a list of all deployments of an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -190,7 +190,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAgentDeploymentsResponse> listAgentDeployments(ListAgentDeploymentsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAgentDeploymentsRequest, ListAgentDeploymentsResponse> handler);
     
     /**
-     * Returns a list of permissions for a given Agent.
+     * Returns a list of permissions for a given agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -202,7 +202,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAgentPermissionsResponse> listAgentPermissions(ListAgentPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAgentPermissionsRequest, ListAgentPermissionsResponse> handler);
     
     /**
-     * Returns list of Agent Session chat messages.
+     * Returns list of agent session chat messages.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -214,7 +214,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAgentSessionChatHistoriesResponse> listAgentSessionChatHistories(ListAgentSessionChatHistoriesRequest request, com.oracle.bmc.responses.AsyncHandler<ListAgentSessionChatHistoriesRequest, ListAgentSessionChatHistoriesResponse> handler);
     
     /**
-     * Returns a list of testing sessions of an Agent.
+     * Returns a list of testing sessions of an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -226,7 +226,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAgentSessionsResponse> listAgentSessions(ListAgentSessionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAgentSessionsRequest, ListAgentSessionsResponse> handler);
     
     /**
-     * Returns a list of Agents in a schema.
+     * Returns a list of agents in a schema.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -238,7 +238,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<ListAgentsResponse> listAgents(ListAgentsRequest request, com.oracle.bmc.responses.AsyncHandler<ListAgentsRequest, ListAgentsResponse> handler);
     
     /**
-     * Update the permissions for a given Agent.
+     * Update the permissions for a given agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -262,7 +262,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<PreviewAgentAgentCardResponse> previewAgentAgentCard(PreviewAgentAgentCardRequest request, com.oracle.bmc.responses.AsyncHandler<PreviewAgentAgentCardRequest, PreviewAgentAgentCardResponse> handler);
     
     /**
-     * Redeploys an Agent.
+     * Redeploys an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -274,7 +274,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<RedeployAgentByKeyResponse> redeployAgentByKey(RedeployAgentByKeyRequest request, com.oracle.bmc.responses.AsyncHandler<RedeployAgentByKeyRequest, RedeployAgentByKeyResponse> handler);
     
     /**
-     * Update an Agent with provided details.
+     * Updates an agent with provided details.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -286,7 +286,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<UpdateAgentResponse> updateAgent(UpdateAgentRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAgentRequest, UpdateAgentResponse> handler);
     
     /**
-     * Update the deployment metadata for an Agent.
+     * Updates the deployment metadata for an agent.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.
@@ -298,7 +298,7 @@ public interface AgentAsync extends AutoCloseable {
     java.util.concurrent.Future<UpdateAgentDeploymentMetadataResponse> updateAgentDeploymentMetadata(UpdateAgentDeploymentMetadataRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateAgentDeploymentMetadataRequest, UpdateAgentDeploymentMetadataResponse> handler);
     
     /**
-     * Validate the agent json diagram generated by UI.
+     * Validates the agent JSON diagram generated by UI.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

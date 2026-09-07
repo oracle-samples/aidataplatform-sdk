@@ -480,6 +480,10 @@ return clientCall(request, GetTaskRunResponse::builder)
         
         .basePath("/20260430")
         .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("taskRuns").appendPathParam(request.getTaskRunKey())
+            
+                
+                    
+                    .appendQueryParam("shouldIncludeTaskRunRetries", request.getShouldIncludeTaskRunRetries())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
@@ -732,6 +736,63 @@ return clientCall(request, ListRecentJobRunsResponse::builder)
             ListRecentJobRunsResponse.Builder::opcRequestId)
                 .handleResponseHeaderString("opc-next-page", 
             ListRecentJobRunsResponse.Builder::opcNextPage)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<ListTaskRunRetriesResponse> listTaskRunRetries(ListTaskRunRetriesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListTaskRunRetriesRequest, ListTaskRunRetriesResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getWorkspaceKey(), "workspaceKey must not be blank");
+        
+        Validate.notBlank(request.getTaskRunKey(), "taskRunKey must not be blank");
+
+
+return clientCall(request, ListTaskRunRetriesResponse::builder)
+        .logger(LOG, "listTaskRunRetries")
+        .serviceDetails("Workflow", "ListTaskRunRetries", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListTaskRunRetriesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("workspaces").appendPathParam(request.getWorkspaceKey()).appendPathParam("taskRuns").appendPathParam(request.getTaskRunKey()).appendPathParam("retries")
+            
+                
+                    
+                    .appendQueryParam("displayName", request.getDisplayName())
+            
+                .appendListQueryParam("status", request.getStatus(), com.oracle.bmc.util.internal.CollectionFormatType.Multi)
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.TaskRunRetryCollection.class, ListTaskRunRetriesResponse.Builder::taskRunRetryCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListTaskRunRetriesResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListTaskRunRetriesResponse.Builder::opcNextPage)
+                .handleResponseHeaderString("opc-prev-page", 
+            ListTaskRunRetriesResponse.Builder::opcPrevPage)
 .callAsync(handler);
     }
 

@@ -34,27 +34,27 @@ public class UpdateAgentDeploymentMetadataRequest extends com.oracle.bmc.request
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
     }
         /**
-     * Agent card details to update
+     * Agent card details to update.
      */
     private com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentMetadataDetails updateAgentDeploymentMetadataDetails;
 
     
 
         /**
-     * Agent card details to update
+     * Agent card details to update.
      */
     public com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentMetadataDetails getUpdateAgentDeploymentMetadataDetails() {
         return updateAgentDeploymentMetadataDetails;
@@ -184,12 +184,12 @@ public class UpdateAgentDeploymentMetadataRequest extends com.oracle.bmc.request
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */
@@ -199,12 +199,12 @@ public class UpdateAgentDeploymentMetadataRequest extends com.oracle.bmc.request
         }
 
             /**
-     * Agent card details to update
+     * Agent card details to update.
      */
         private com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentMetadataDetails updateAgentDeploymentMetadataDetails = null;
 
         /**
-         * Agent card details to update
+         * Agent card details to update.
          * @param updateAgentDeploymentMetadataDetails the value to set
          * @return this builder instance
          */

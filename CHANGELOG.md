@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [4.2.1] - 2026-09-07
+
+### Added
+
+- Support for `CloneCompute` in the Cluster service. Clone Spark Compute.
+- Support for `ExportComputeConfiguration` in the Cluster service. Export selected Compute configuration.
+- Support for `FetchBundlePublishStatusAction` in the Bundle service. (Preview) Returns bundle publish status.
+- Support for `GetComputeConfiguration` in the Cluster service. Get selectable Compute configuration.
+- Support for `ImportComputeConfiguration` in the Cluster service.
+- Support for `ListTaskRunRetries` in the Workflow service. List task run retry details.
+- Support for `PublishBundleAction` in the Bundle service. (Preview) Publish all bundle resources.
+- Support for `SearchMavenPackages` in the Cluster service.
+- Support for `UploadAndExtractVolumeZip` in the Volume service. Upload and extract a volume ZIP file.
+- Support for `UploadAndExtractWorkspaceZip` in the Workspace Object service. Upload and extract a workspace ZIP file.
+- Support for `ZipAndDownloadVolumeFolder` in the Volume service. Zip and download a volume folder.
+- Support for `ZipAndDownloadWorkspaceFolder` in the Workspace Object service. Zip and download a workspace folder.
+
 ## [4.1.1] - 2026-08-31
 
 ### Changed
@@ -51,35 +68,35 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - The method `CheckoutBranch` in the Git service changed: (Preview) Check out a Git branch.
-  - Added: response code: `200`
-  - Removed: response code: `202`
+    - Added: response code: `200`
+    - Removed: response code: `202`
 - The method `CommitPushGitRepository` in the Git service changed: (Preview) Commit and push Git changes.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 - The method `CreateGitBranch` in the Git service changed: (Preview) Create a Git branch.
-  - Added: response code: `200`
-  - Removed: response code: `202`
+    - Added: response code: `200`
+    - Removed: response code: `202`
 - The method `CreateGitFolder` in the Workspace service changed: Creates a git folder in the workspace.
-  - Added: response code: `200`
-  - Removed: response code: `202`
+    - Added: response code: `200`
+    - Removed: response code: `202`
 - The method `MergeGitRepository` in the Git service changed: (Preview) Merge Git branch.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 - The method `PullGitRepository` in the Git service changed: (Preview) Pull Git changes.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 - The method `RebaseGitRepository` in the Git service changed: (Preview) Rebase Git branch.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 - The method `ResetGitFolderState` in the Git service changed: (Preview) Reset workspace Git state.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 - The method `ResetGitRepository` in the Git service changed: (Preview) Reset Git branch.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 - The method `UpdateGitRepository` in the Git service changed: (Preview) Update Git repository metadata.
-  - Added: response code: `204`
-  - Removed: response code: `202`
+    - Added: response code: `204`
+    - Removed: response code: `202`
 
 ## [1.0.2] - 2026-06-24
 
@@ -101,3 +118,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - Initial Release
 - Added AI Dataplatform SDK and CLI
+

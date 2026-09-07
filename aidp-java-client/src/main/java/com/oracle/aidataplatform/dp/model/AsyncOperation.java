@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AsyncOperation  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "resourceType", "actionType", "resourceName", "resourceDisplayName", "createdBy", "createdByName", "timeStarted", "timeFinished", "status", "errorCode", "errorMessage"})
-    public AsyncOperation(String key, AsyncOperationResourceType resourceType, AsyncOperationActionType actionType, String resourceName, String resourceDisplayName, String createdBy, String createdByName, java.util.Date timeStarted, java.util.Date timeFinished, AsyncOperationStatus status, String errorCode, String errorMessage) {
+    @java.beans.ConstructorProperties({"key", "resourceType", "actionType", "resourceName", "resourceDisplayName", "createdBy", "createdByName", "timeStarted", "timeFinished", "status", "statusDetails", "errorCode", "errorMessage"})
+    public AsyncOperation(String key, AsyncOperationResourceType resourceType, AsyncOperationActionType actionType, String resourceName, String resourceDisplayName, String createdBy, String createdByName, java.util.Date timeStarted, java.util.Date timeFinished, AsyncOperationStatus status, String statusDetails, String errorCode, String errorMessage) {
         super();
         this.key = key;
         this.resourceType = resourceType;
@@ -25,6 +25,7 @@ public final class AsyncOperation  {
         this.timeStarted = timeStarted;
         this.timeFinished = timeFinished;
         this.status = status;
+        this.statusDetails = statusDetails;
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
@@ -232,6 +233,24 @@ public Builder status(AsyncOperationStatus status) {
     return this;
 }
             /**
+     * status details
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("statusDetails")
+private String statusDetails;
+
+        /**
+         * status details
+         * @param statusDetails the value to set
+         * @return this builder
+         **/
+        
+
+public Builder statusDetails(String statusDetails) {
+    this.statusDetails = statusDetails;
+    return this;
+}
+            /**
      * Represents the error code of a failure
 * 
      **/
@@ -284,6 +303,7 @@ public Builder errorMessage(String errorMessage) {
                 , this.timeStarted
                 , this.timeFinished
                 , this.status
+                , this.statusDetails
                 , this.errorCode
                 , this.errorMessage);            return model;
         }
@@ -300,6 +320,7 @@ public Builder errorMessage(String errorMessage) {
     this.timeStarted(model.getTimeStarted());
     this.timeFinished(model.getTimeFinished());
     this.status(model.getStatus());
+    this.statusDetails(model.getStatusDetails());
     this.errorCode(model.getErrorCode());
     this.errorMessage(model.getErrorMessage());
 return this;
@@ -512,6 +533,23 @@ return this;
 
 
         /**
+     * status details
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("statusDetails")
+    private final String statusDetails;
+
+        /**
+     * status details
+     * @return the value
+     **/
+    
+    public String getStatusDetails() {
+        return statusDetails;
+    }
+
+
+        /**
      * Represents the error code of a failure
 * 
      **/
@@ -571,6 +609,7 @@ return this;
         sb.append(", timeStarted=").append(String.valueOf(this.timeStarted));
         sb.append(", timeFinished=").append(String.valueOf(this.timeFinished));
         sb.append(", status=").append(String.valueOf(this.status));
+        sb.append(", statusDetails=").append(String.valueOf(this.statusDetails));
         sb.append(", errorCode=").append(String.valueOf(this.errorCode));
         sb.append(", errorMessage=").append(String.valueOf(this.errorMessage));
         sb.append(")");
@@ -597,6 +636,7 @@ return this;
             java.util.Objects.equals(this.timeStarted, other.timeStarted) &&
             java.util.Objects.equals(this.timeFinished, other.timeFinished) &&
             java.util.Objects.equals(this.status, other.status) &&
+            java.util.Objects.equals(this.statusDetails, other.statusDetails) &&
             java.util.Objects.equals(this.errorCode, other.errorCode) &&
             java.util.Objects.equals(this.errorMessage, other.errorMessage);
     }
@@ -615,6 +655,7 @@ return this;
         result = (result * PRIME) + (this.timeStarted == null ? 43 : this.timeStarted.hashCode());
         result = (result * PRIME) + (this.timeFinished == null ? 43 : this.timeFinished.hashCode());
         result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
+        result = (result * PRIME) + (this.statusDetails == null ? 43 : this.statusDetails.hashCode());
         result = (result * PRIME) + (this.errorCode == null ? 43 : this.errorCode.hashCode());
         result = (result * PRIME) + (this.errorMessage == null ? 43 : this.errorMessage.hashCode());
         return result;

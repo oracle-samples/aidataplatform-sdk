@@ -16,11 +16,11 @@ export interface DeleteAgentDeploymentRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The UUID of the Agent
+ * The UUID of the agent.
  */
  'agentKey': string;
 /**
- * The UUID of the Agent Deployment
+ * The UUID of the agent deployment.
  */
  'agentDeploymentKey': string;
 /**

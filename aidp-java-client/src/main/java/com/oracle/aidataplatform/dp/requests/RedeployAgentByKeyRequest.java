@@ -34,27 +34,27 @@ public class RedeployAgentByKeyRequest extends com.oracle.bmc.requests.BmcReques
         return workspaceKey;
     }
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     private String agentKey;
 
     
 
         /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
     public String getAgentKey() {
         return agentKey;
     }
         /**
-     * Details for updating an Agent deployment asynchronously.
+     * Details for updating an agent deployment asynchronously.
      */
     private com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentDetails updateAgentDeploymentDetails;
 
     
 
         /**
-     * Details for updating an Agent deployment asynchronously.
+     * Details for updating an agent deployment asynchronously.
      */
     public com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentDetails getUpdateAgentDeploymentDetails() {
         return updateAgentDeploymentDetails;
@@ -171,12 +171,12 @@ public class RedeployAgentByKeyRequest extends com.oracle.bmc.requests.BmcReques
         }
 
             /**
-     * The UUID of the Agent
+     * The UUID of the agent.
      */
         private String agentKey = null;
 
         /**
-         * The UUID of the Agent
+         * The UUID of the agent.
          * @param agentKey the value to set
          * @return this builder instance
          */
@@ -186,12 +186,12 @@ public class RedeployAgentByKeyRequest extends com.oracle.bmc.requests.BmcReques
         }
 
             /**
-     * Details for updating an Agent deployment asynchronously.
+     * Details for updating an agent deployment asynchronously.
      */
         private com.oracle.aidataplatform.dp.model.UpdateAgentDeploymentDetails updateAgentDeploymentDetails = null;
 
         /**
-         * Details for updating an Agent deployment asynchronously.
+         * Details for updating an agent deployment asynchronously.
          * @param updateAgentDeploymentDetails the value to set
          * @return this builder instance
          */

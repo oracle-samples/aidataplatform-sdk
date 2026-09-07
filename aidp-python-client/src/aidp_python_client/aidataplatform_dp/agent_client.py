@@ -87,7 +87,7 @@ class AgentClient(object):
 
     def copy_agent(self, ai_data_platform_id, workspace_key, agent_key, copy_agent_details, **kwargs):
         """
-        Copy an Agent.
+        Copies an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -99,10 +99,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.CopyAgentDetails copy_agent_details: (required)
-            Details for copying the agent
+            Details for copying the agent.
 
         :param bool should_update_recent: (optional)
             A flag to identify if the recent list should be updated.
@@ -201,7 +201,7 @@ class AgentClient(object):
 
     def create_agent(self, ai_data_platform_id, workspace_key, create_agent_details, **kwargs):
         """
-        Create an Agent.
+        Creates an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -213,7 +213,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.CreateAgentDetails create_agent_details: (required)
-            Details for the new Agent.
+            Details for the new agent.
 
         :param bool should_update_recent: (optional)
             A flag to identify if the recent list should be updated.
@@ -303,7 +303,7 @@ class AgentClient(object):
 
     def delete_agent(self, ai_data_platform_id, workspace_key, agent_key, **kwargs):
         """
-        Delete an Agent from the schema
+        Delete an agent from the schema.
 
 
         :param str ai_data_platform_id: (required)
@@ -315,7 +315,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str if_match: (optional)
             For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
@@ -399,7 +399,7 @@ class AgentClient(object):
 
     def delete_agent_deployment(self, ai_data_platform_id, workspace_key, agent_key, agent_deployment_key, **kwargs):
         """
-        Delete an Agent Deployment.
+        Deletes an agent deployment.
 
 
         :param str ai_data_platform_id: (required)
@@ -411,10 +411,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str agent_deployment_key: (required)
-            The UUID of the Agent Deployment
+            The UUID of the agent deployment.
 
         :param str if_match: (optional)
             For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
@@ -494,7 +494,7 @@ class AgentClient(object):
 
     def delete_agent_session(self, ai_data_platform_id, workspace_key, agent_key, session_id, **kwargs):
         """
-        Delete an Agent Session.
+        Deletes an agent Session.
 
 
         :param str ai_data_platform_id: (required)
@@ -506,10 +506,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str session_id: (required)
-            The UUID of the Agent Session
+            The UUID of the agent session.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -589,7 +589,7 @@ class AgentClient(object):
 
     def deploy_agent(self, ai_data_platform_id, workspace_key, agent_key, deploy_agent_details, **kwargs):
         """
-        Deploys an Agent.
+        Deploys a specified agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -601,10 +601,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.DeployAgentDetails deploy_agent_details: (required)
-            Details of a deployable Agent.
+            Details of a deployable agent.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -690,7 +690,7 @@ class AgentClient(object):
 
     def get_agent(self, ai_data_platform_id, workspace_key, agent_key, **kwargs):
         """
-        Returns detailed information about an Agent.
+        Returns detailed information about an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -702,7 +702,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -780,7 +780,7 @@ class AgentClient(object):
 
     def get_agent_deployment(self, ai_data_platform_id, workspace_key, agent_key, agent_deployment_key, **kwargs):
         """
-        Returns detailed information about an Agent deployment.
+        Returns detailed information about an agent deployment.
 
 
         :param str ai_data_platform_id: (required)
@@ -792,10 +792,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str agent_deployment_key: (required)
-            The UUID of the Agent Deployment
+            The UUID of the agent deployment.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -869,7 +869,7 @@ class AgentClient(object):
 
     def get_agent_session(self, ai_data_platform_id, workspace_key, agent_key, session_id, **kwargs):
         """
-        Returns detailed information about an Agent Session.
+        Returns detailed information about an agent session.
 
 
         :param str ai_data_platform_id: (required)
@@ -881,10 +881,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str session_id: (required)
-            The UUID of the Agent Session
+            The UUID of the agent session.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
@@ -970,10 +970,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str session_id: (required)
-            The UUID of the Agent Session
+            The UUID of the agent session.
 
         :param str trace_key: (required)
             A filter to return only resources that match the given display trace key exactly.
@@ -1051,7 +1051,7 @@ class AgentClient(object):
 
     def list_agent_deployments(self, ai_data_platform_id, workspace_key, agent_key, **kwargs):
         """
-        Returns a list of deployments of an agent.
+        Returns a list of all deployments of an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -1063,7 +1063,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
@@ -1228,7 +1228,7 @@ class AgentClient(object):
 
     def list_agent_permissions(self, ai_data_platform_id, workspace_key, agent_key, **kwargs):
         """
-        Returns a list of permissions for a given Agent.
+        Returns a list of permissions for a given agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -1240,7 +1240,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
@@ -1370,7 +1370,7 @@ class AgentClient(object):
 
     def list_agent_session_chat_histories(self, ai_data_platform_id, workspace_key, agent_key, session_id, **kwargs):
         """
-        Returns list of Agent Session chat messages.
+        Returns list of agent session chat messages.
 
 
         :param str ai_data_platform_id: (required)
@@ -1382,10 +1382,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str session_id: (required)
-            The UUID of the Agent Session
+            The UUID of the agent session.
 
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
@@ -1483,7 +1483,7 @@ class AgentClient(object):
 
     def list_agent_sessions(self, ai_data_platform_id, workspace_key, agent_key, **kwargs):
         """
-        Returns a list of testing sessions of an Agent.
+        Returns a list of testing sessions of an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -1495,7 +1495,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
@@ -1635,7 +1635,7 @@ class AgentClient(object):
 
     def list_agents(self, ai_data_platform_id, workspace_key, **kwargs):
         """
-        Returns a list of Agents in a schema.
+        Returns a list of agents in a schema.
 
 
         :param str ai_data_platform_id: (required)
@@ -1783,7 +1783,7 @@ class AgentClient(object):
 
     def manage_agent_permission(self, ai_data_platform_id, workspace_key, agent_key, manage_agent_permission_details, **kwargs):
         """
-        Update the permissions for a given Agent.
+        Update the permissions for a given agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -1795,7 +1795,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.ManageAgentPermissionDetails manage_agent_permission_details: (required)
             The information to be updated.
@@ -1896,7 +1896,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param oci.aidataplatform_dp.models.PreviewAgentCardDetails preview_agent_card_details: (required)
-            Request details for previewing an agent card
+            Request details for previewing an agent card.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -1994,7 +1994,7 @@ class AgentClient(object):
 
     def redeploy_agent_by_key(self, ai_data_platform_id, workspace_key, agent_key, update_agent_deployment_details, **kwargs):
         """
-        Redeploys an Agent.
+        Redeploys an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -2006,10 +2006,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.UpdateAgentDeploymentDetails update_agent_deployment_details: (required)
-            Details for updating an Agent deployment asynchronously.
+            Details for updating an agent deployment asynchronously.
 
         :param str if_match: (optional)
             For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
@@ -2103,7 +2103,7 @@ class AgentClient(object):
 
     def update_agent(self, ai_data_platform_id, workspace_key, agent_key, update_agent_details, **kwargs):
         """
-        Update an Agent with provided details.
+        Updates an agent with provided details.
 
 
         :param str ai_data_platform_id: (required)
@@ -2115,7 +2115,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.UpdateAgentDetails update_agent_details: (required)
             The information to be updated.
@@ -2206,7 +2206,7 @@ class AgentClient(object):
 
     def update_agent_deployment_metadata(self, ai_data_platform_id, workspace_key, agent_key, update_agent_deployment_metadata_details, **kwargs):
         """
-        Update the deployment metadata for an Agent.
+        Updates the deployment metadata for an agent.
 
 
         :param str ai_data_platform_id: (required)
@@ -2218,10 +2218,10 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param oci.aidataplatform_dp.models.UpdateAgentDeploymentMetadataDetails update_agent_deployment_metadata_details: (required)
-            Agent card details to update
+            Agent card details to update.
 
         :param bool should_update_recent: (optional)
             A flag to identify if the recent list should be updated.
@@ -2320,7 +2320,7 @@ class AgentClient(object):
 
     def validate_agent(self, ai_data_platform_id, workspace_key, agent_key, **kwargs):
         """
-        Validate the agent json diagram generated by UI.
+        Validates the agent JSON diagram generated by UI.
 
 
         :param str ai_data_platform_id: (required)
@@ -2332,7 +2332,7 @@ class AgentClient(object):
             The key of the Workspace
 
         :param str agent_key: (required)
-            The UUID of the Agent
+            The UUID of the agent.
 
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
