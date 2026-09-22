@@ -22,6 +22,11 @@ Download the required package files from the GitHub release `v1.0.0`. The
 commands below assume you are running them from the local directory where those
 files were downloaded.
 
+### Verify release artifacts
+
+Before installing, verify the artifact checksum, signature, or provenance
+against the verification material published with the matching official release.
+
 ### CLI
 
 For the Python CLI, install Python 3.9 or later and make sure `python3` and
@@ -124,6 +129,10 @@ mvn install:install-file \
 AIDP clients use OCI authentication. Configure an OCI profile before invoking
 the CLI or SDK.
 
+Prefer short-lived, workload-scoped credentials for CI and runtime workloads.
+Do not commit OCI configuration, private keys, session-token files, or
+credential-bearing request bodies, and redact them from logs and support bundles.
+
 For API-key authentication, create an OCI config profile once if you do not
 already have one. OCI CLI can create the file for you if it is installed.
 Existing OCI config profiles can be reused.
@@ -163,11 +172,11 @@ aidp \
   workspace list
 ```
 
-Use `--endpoint <service_endpoint>` when you need an explicit endpoint instead
-of region-based endpoint resolution.
+Use `--endpoint <service_endpoint>` only with a trusted endpoint; otherwise use
+region-based endpoint resolution.
 
 For APIs that accept a JSON body, write the body to a file and pass
-`--body @file.json`.
+`--body @file.json`. Do not commit sensitive bodies or expose them in debug logs.
 
 ### Use the SDK
 

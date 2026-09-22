@@ -29,6 +29,12 @@ export OCI_PROFILE=DEFAULT
 Set `AIDP_KEEP_RESOURCES=true` to keep the created folder, notebook, job, and
 job run for inspection.
 
+## Security notes
+
+Keep `OCI_CONFIG_FILE`, private keys, and session-token files outside the
+repository. Do not commit or expose them in logs or support bundles. Use a
+short-lived, least-privilege OCI identity for CI where available.
+
 ## Run an Example
 
 - [Python](python/README.md)

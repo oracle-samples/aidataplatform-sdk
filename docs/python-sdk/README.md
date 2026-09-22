@@ -1,6 +1,16 @@
 <a id="top"></a>
 # AIDP Python SDK Operations Reference
 This document summarizes the available service clients in the AIDP SDK and details every operation's request parameters and responses.
+
+## Security guidance
+
+Treat `parUrl` values and signed URLs returned by an operation as bearer access
+material. Do not log, commit, paste into tickets, or include them in support
+bundles; redact them before sharing output. Keep OCI configuration, private
+keys, session-token files, and credential-bearing request bodies out of source
+control and logs. Use short-lived, workload-scoped identities and
+least-privilege policies where available.
+
 ## Clients
 - [Agent (AgentClient)](#agent-agentclient)
 - [Async Operations (AsyncOperationsClient)](#async-operations-asyncoperationsclient)
