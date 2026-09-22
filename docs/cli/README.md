@@ -1,6 +1,11 @@
 <a id="top"></a>
 # AIDP CLI Command Reference
 This guide summarizes the command groups, commands, options, and payload requirements exposed by the `aidp` command-line interface.
+## Security guidance
+- Treat PAR URLs and signed URLs returned by commands as bearer access material. Redact them from logs, tickets, and support bundles.
+- Do not commit OCI configuration files, private keys, session-token files, or request bodies containing credentials. Avoid `--debug` when command output could contain sensitive request or response data.
+- Use `--endpoint` only with a trusted, approved service endpoint. Prefer region-based endpoint resolution when an explicit endpoint is not required.
+- Use short-lived, workload-scoped OCI identities and least-privilege permissions where available. Review destructive commands carefully before running them.
 ## Global Options
 - `--debug` — enable debug logging
 - `--profile` / `-p` — OCI config profile (default `DEFAULT`)
