@@ -5,50 +5,45 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Large Language Model configuration
+ * OCI Generative AI Large Language Model configuration.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=LlmConfig.Builder.class)
+@com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="type")
 
-public final class LlmConfig  {
-    @Deprecated
-    @java.beans.ConstructorProperties({"modelId", "provider", "regionId"})
-    public LlmConfig(String modelId, String provider, String regionId) {
-        super();
-        this.modelId = modelId;
-        this.provider = provider;
-        this.regionId = regionId;
-    }
-
+public final class LlmConfig extends BaseLlmConfig {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
-                /**
-     * The unique identifier of the Large Language Model (LLM) to use in the Agent or Tool
-     **/
-    
-@com.fasterxml.jackson.annotation.JsonProperty("modelId")
+    @com.fasterxml.jackson.annotation.JsonProperty("modelId")
 private String modelId;
-
-        /**
-         * The unique identifier of the Large Language Model (LLM) to use in the Agent or Tool
-         * @param modelId the value to set
-         * @return this builder
-         **/
-        
 
 public Builder modelId(String modelId) {
     this.modelId = modelId;
     return this;
 }
+@com.fasterxml.jackson.annotation.JsonProperty("compartmentId")
+private String compartmentId;
+
+public Builder compartmentId(String compartmentId) {
+    this.compartmentId = compartmentId;
+    return this;
+}
+@com.fasterxml.jackson.annotation.JsonProperty("endpointUrl")
+private String endpointUrl;
+
+public Builder endpointUrl(String endpointUrl) {
+    this.endpointUrl = endpointUrl;
+    return this;
+}
             /**
-     * The Large language model provider name
+     * The OCI Generative AI provider name.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("provider")
 private String provider;
 
         /**
-         * The Large language model provider name
+         * The OCI Generative AI provider name.
          * @param provider the value to set
          * @return this builder
          **/
@@ -59,14 +54,14 @@ public Builder provider(String provider) {
     return this;
 }
             /**
-     * The Large language model Region ID
+     * The OCI Generative AI region ID.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("regionId")
 private String regionId;
 
         /**
-         * The Large language model Region ID
+         * The OCI Generative AI region ID.
          * @param regionId the value to set
          * @return this builder
          **/
@@ -80,6 +75,8 @@ public Builder regionId(String regionId) {
 
         public LlmConfig build() {
             LlmConfig model = new LlmConfig(this.modelId
+                , this.compartmentId
+                , this.endpointUrl
                 , this.provider
                 , this.regionId);            return model;
         }
@@ -87,6 +84,8 @@ public Builder regionId(String regionId) {
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(LlmConfig model) {
                 this.modelId(model.getModelId());
+    this.compartmentId(model.getCompartmentId());
+    this.endpointUrl(model.getEndpointUrl());
     this.provider(model.getProvider());
     this.regionId(model.getRegionId());
 return this;
@@ -106,34 +105,23 @@ return this;
     }
 
     
-
-
-        /**
-     * The unique identifier of the Large Language Model (LLM) to use in the Agent or Tool
-     **/
-    
-    @com.fasterxml.jackson.annotation.JsonProperty("modelId")
-    private final String modelId;
-
-        /**
-     * The unique identifier of the Large Language Model (LLM) to use in the Agent or Tool
-     * @return the value
-     **/
-    
-    public String getModelId() {
-        return modelId;
+    @Deprecated
+    public LlmConfig(String modelId, String compartmentId, String endpointUrl, String provider, String regionId) {
+    super(modelId, compartmentId, endpointUrl);
+        this.provider = provider;
+        this.regionId = regionId;
     }
 
 
         /**
-     * The Large language model provider name
+     * The OCI Generative AI provider name.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("provider")
     private final String provider;
 
         /**
-     * The Large language model provider name
+     * The OCI Generative AI provider name.
      * @return the value
      **/
     
@@ -143,14 +131,14 @@ return this;
 
 
         /**
-     * The Large language model Region ID
+     * The OCI Generative AI region ID.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("regionId")
     private final String regionId;
 
         /**
-     * The Large language model Region ID
+     * The OCI Generative AI region ID.
      * @return the value
      **/
     
@@ -171,7 +159,7 @@ return this;
     public String toString(boolean includeByteArrayContents) {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("LlmConfig(");
-        sb.append("modelId=").append(String.valueOf(this.modelId));
+        sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", provider=").append(String.valueOf(this.provider));
         sb.append(", regionId=").append(String.valueOf(this.regionId));
         sb.append(")");
@@ -188,16 +176,15 @@ return this;
         }
 
         LlmConfig other = (LlmConfig) o;
-        return java.util.Objects.equals(this.modelId, other.modelId) &&
-            java.util.Objects.equals(this.provider, other.provider) &&
-            java.util.Objects.equals(this.regionId, other.regionId);
+        return java.util.Objects.equals(this.provider, other.provider) &&
+            java.util.Objects.equals(this.regionId, other.regionId) &&
+            super.equals(other);
     }
 
     @Override
     public int hashCode() {
         final int PRIME = 59;
-        int result = 1;
-        result = (result * PRIME) + (this.modelId == null ? 43 : this.modelId.hashCode());
+        int result = super.hashCode();
         result = (result * PRIME) + (this.provider == null ? 43 : this.provider.hashCode());
         result = (result * PRIME) + (this.regionId == null ? 43 : this.regionId.hashCode());
         return result;

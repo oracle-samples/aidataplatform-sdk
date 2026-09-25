@@ -73,6 +73,19 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         return displayName;
     }
         /**
+     * Filters the response by table type. When omitted, existing ListTables behavior is preserved.
+     */
+    private com.oracle.aidataplatform.dp.model.TableType tableType;
+
+        
+
+        /**
+     * Filters the response by table type. When omitted, existing ListTables behavior is preserved.
+     */
+    public com.oracle.aidataplatform.dp.model.TableType getTableType() {
+        return tableType;
+    }
+        /**
      * For list pagination. The maximum number of results per page, or items to return in a
 * paginated "List" call. For important details about how pagination works, see
 * [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -276,6 +289,21 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         }
 
             /**
+     * Filters the response by table type. When omitted, existing ListTables behavior is preserved.
+     */
+        private com.oracle.aidataplatform.dp.model.TableType tableType = null;
+
+        /**
+         * Filters the response by table type. When omitted, existing ListTables behavior is preserved.
+         * @param tableType the value to set
+         * @return this builder instance
+         */
+        public Builder tableType(com.oracle.aidataplatform.dp.model.TableType tableType) {
+            this.tableType = tableType;
+            return this;
+        }
+
+            /**
      * For list pagination. The maximum number of results per page, or items to return in a
 * paginated "List" call. For important details about how pagination works, see
 * [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -396,7 +424,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
          * @return this builder instance
          */
         public Builder copy(ListTablesRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());catalogKey(o.getCatalogKey());schemaKey(o.getSchemaKey());shouldSkipOcidTranslation(o.getShouldSkipOcidTranslation());displayName(o.getDisplayName());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());catalogKey(o.getCatalogKey());schemaKey(o.getSchemaKey());shouldSkipOcidTranslation(o.getShouldSkipOcidTranslation());displayName(o.getDisplayName());tableType(o.getTableType());limit(o.getLimit());page(o.getPage());sortOrder(o.getSortOrder());sortBy(o.getSortBy());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -434,13 +462,14 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             request.schemaKey = schemaKey;
             request.shouldSkipOcidTranslation = shouldSkipOcidTranslation;
             request.displayName = displayName;
+            request.tableType = tableType;
             request.limit = limit;
             request.page = page;
             request.sortOrder = sortOrder;
             request.sortBy = sortBy;
             request.opcRequestId = opcRequestId;
             return request;
-            // new ListTablesRequest(aiDataPlatformId, catalogKey, schemaKey, shouldSkipOcidTranslation, displayName, limit, page, sortOrder, sortBy, opcRequestId);
+            // new ListTablesRequest(aiDataPlatformId, catalogKey, schemaKey, shouldSkipOcidTranslation, displayName, tableType, limit, page, sortOrder, sortBy, opcRequestId);
         }
     }
 
@@ -455,6 +484,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             .schemaKey(schemaKey)
             .shouldSkipOcidTranslation(shouldSkipOcidTranslation)
             .displayName(displayName)
+            .tableType(tableType)
             .limit(limit)
             .page(page)
             .sortOrder(sortOrder)
@@ -480,6 +510,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         sb.append(",schemaKey=").append(String.valueOf(this.schemaKey));
         sb.append(",shouldSkipOcidTranslation=").append(String.valueOf(this.shouldSkipOcidTranslation));
         sb.append(",displayName=").append(String.valueOf(this.displayName));
+        sb.append(",tableType=").append(String.valueOf(this.tableType));
         sb.append(",limit=").append(String.valueOf(this.limit));
         sb.append(",page=").append(String.valueOf(this.page));
         sb.append(",sortOrder=").append(String.valueOf(this.sortOrder));
@@ -505,6 +536,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
             && java.util.Objects.equals(this.schemaKey, other.schemaKey)
             && java.util.Objects.equals(this.shouldSkipOcidTranslation, other.shouldSkipOcidTranslation)
             && java.util.Objects.equals(this.displayName, other.displayName)
+            && java.util.Objects.equals(this.tableType, other.tableType)
             && java.util.Objects.equals(this.limit, other.limit)
             && java.util.Objects.equals(this.page, other.page)
             && java.util.Objects.equals(this.sortOrder, other.sortOrder)
@@ -521,6 +553,7 @@ public class ListTablesRequest extends com.oracle.bmc.requests.BmcRequest<java.l
         result = (result * PRIME) + (this.schemaKey == null ? 43 : this.schemaKey.hashCode());
         result = (result * PRIME) + (this.shouldSkipOcidTranslation == null ? 43 : this.shouldSkipOcidTranslation.hashCode());
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
+        result = (result * PRIME) + (this.tableType == null ? 43 : this.tableType.hashCode());
         result = (result * PRIME) + (this.limit == null ? 43 : this.limit.hashCode());
         result = (result * PRIME) + (this.page == null ? 43 : this.page.hashCode());
         result = (result * PRIME) + (this.sortOrder == null ? 43 : this.sortOrder.hashCode());

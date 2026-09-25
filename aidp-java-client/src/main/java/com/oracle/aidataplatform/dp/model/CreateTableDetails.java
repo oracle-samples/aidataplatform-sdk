@@ -102,14 +102,14 @@ public Builder description(String description) {
     return this;
 }
             /**
-     * Type of table. Managed, external or mount table.
+     * Type of table. Managed, external, mount or synonym table.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("tableType")
 private TableType tableType;
 
         /**
-         * Type of table. Managed, external or mount table.
+         * Type of table. Managed, external, mount or synonym table.
          * @param tableType the value to set
          * @return this builder
          **/
@@ -308,14 +308,14 @@ return this;
 
     
         /**
-     * Type of table. Managed, external or mount table.
+     * Type of table. Managed, external, mount or synonym table.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("tableType")
     private final TableType tableType;
 
         /**
-     * Type of table. Managed, external or mount table.
+     * Type of table. Managed, external, mount or synonym table.
      * @return the value
      **/
     

@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Returns a list of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+* Returns a list of users with particular AI Data Platform RBAC permissions across workspaces.
 */
 export interface PrincipalsWithWorkspaceAccessCollection {
     /**
-    * List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+    * List of users with particular AI Data Platform RBAC permissions across workspaces.
     */
     'items': Array<model.PrincipalsWithWorkspaceAccessSummary>;
 

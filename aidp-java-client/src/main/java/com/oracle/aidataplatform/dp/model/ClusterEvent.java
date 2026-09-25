@@ -10,6 +10,7 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="type", defaultImpl=ClusterEvent.class)
 @com.fasterxml.jackson.annotation.JsonSubTypes({
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = DriverFailedAndRecoveredEvent.class, name = "DRIVER_FAILED_AND_RECOVERED_EVENT"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ClusterStateEvent.class, name = "CLUSTER_STATE_EVENT"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ClusterPatchEvent.class, name = "CLUSTER_PATCH_EVENT"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ClusterExecutionContextAvailabilityEvent.class, name = "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT")
@@ -68,6 +69,7 @@ public class ClusterEvent  {
         ClusterPatchEvent("CLUSTER_PATCH_EVENT"),
         ClusterExecutionContextAvailabilityEvent("CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT"),
         ClusterStateEvent("CLUSTER_STATE_EVENT"),
+        DriverFailedAndRecoveredEvent("DRIVER_FAILED_AND_RECOVERED_EVENT"),
         ;
 
         

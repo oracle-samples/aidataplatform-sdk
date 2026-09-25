@@ -69,6 +69,7 @@ public class ListTaskRunRetriesRequest extends com.oracle.bmc.requests.BmcReques
      **/
     public enum Status implements com.oracle.bmc.http.internal.BmcEnum {
         Pending("PENDING"),
+        Queued("QUEUED"),
         Running("RUNNING"),
         Skipped("SKIPPED"),
         InternalError("INTERNAL_ERROR"),

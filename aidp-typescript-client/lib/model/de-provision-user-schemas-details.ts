@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Deprovision user schemas created by AI Data Platform Workbench.
+* Deprovision user schemas created by AI Data Platform.
 */
 export interface DeProvisionUserSchemasDetails extends model.ExecuteDatabaseUserWorkflowsDetails {
 

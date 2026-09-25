@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * The default cluster created by AI Data Platform Workbench.
+ * The default cluster created by AI Data Platform.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DefaultCluster.Builder.class)
@@ -134,14 +134,14 @@ public Builder stoppedByName(String stoppedByName) {
     return this;
 }
             /**
-     * The key of the AI Data Platform Workbench workspace where the default cluster is.
+     * The key of the AI Data Platform workspace where the default cluster is.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("workspaceKey")
 private String workspaceKey;
 
         /**
-         * The key of the AI Data Platform Workbench workspace where the default cluster is.
+         * The key of the AI Data Platform workspace where the default cluster is.
          * @param workspaceKey the value to set
          * @return this builder
          **/
@@ -239,7 +239,7 @@ public Builder logId(String logId) {
 }
             /**
      * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
      **/
     
@@ -248,7 +248,7 @@ private String logGroupId;
 
         /**
          * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
          * @param logGroupId the value to set
          * @return this builder
@@ -361,14 +361,14 @@ return this;
 
 
         /**
-     * The key of the AI Data Platform Workbench workspace where the default cluster is.
+     * The key of the AI Data Platform workspace where the default cluster is.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("workspaceKey")
     private final String workspaceKey;
 
         /**
-     * The key of the AI Data Platform Workbench workspace where the default cluster is.
+     * The key of the AI Data Platform workspace where the default cluster is.
      * @return the value
      **/
     
@@ -462,7 +462,7 @@ return this;
 
         /**
      * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
      **/
     
@@ -471,7 +471,7 @@ return this;
 
         /**
      * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
      * @return the value
      **/

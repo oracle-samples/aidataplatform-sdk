@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Results of a cluster list within the AI Data Platform Workbench.
+ * Results of a cluster list within the AI Data Platform.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DataLakeClusterCollection.Builder.class)
@@ -21,14 +21,14 @@ public final class DataLakeClusterCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * List of clusters within the AI Data Platform Workbench.
+     * List of clusters within the AI Data Platform.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("items")
 private java.util.List<DataLakeClusterSummary> items;
 
         /**
-         * List of clusters within the AI Data Platform Workbench.
+         * List of clusters within the AI Data Platform.
          * @param items the value to set
          * @return this builder
          **/
@@ -67,14 +67,14 @@ return this;
 
 
         /**
-     * List of clusters within the AI Data Platform Workbench.
+     * List of clusters within the AI Data Platform.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<DataLakeClusterSummary> items;
 
         /**
-     * List of clusters within the AI Data Platform Workbench.
+     * List of clusters within the AI Data Platform.
      * @return the value
      **/
     

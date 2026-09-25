@@ -32,7 +32,7 @@ class RagToolConfiguration(object):
 
         :param llm:
             The value to assign to the llm property of this RagToolConfiguration.
-        :type llm: oci.aidataplatform_dp.models.LlmConfig
+        :type llm: oci.aidataplatform_dp.models.BaseLlmConfig
 
         :param model_settings:
             The value to assign to the model_settings property of this RagToolConfiguration.
@@ -47,7 +47,7 @@ class RagToolConfiguration(object):
             'catalog_key': 'str',
             'schema_key': 'str',
             'knowledge_base': 'str',
-            'llm': 'LlmConfig',
+            'llm': 'BaseLlmConfig',
             'model_settings': 'dict(str, object)',
             'top_k': 'int'
         }
@@ -146,7 +146,7 @@ class RagToolConfiguration(object):
         Gets the llm of this RagToolConfiguration.
 
         :return: The llm of this RagToolConfiguration.
-        :rtype: oci.aidataplatform_dp.models.LlmConfig
+        :rtype: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         return self._llm
 
@@ -156,7 +156,7 @@ class RagToolConfiguration(object):
         Sets the llm of this RagToolConfiguration.
 
         :param llm: The llm of this RagToolConfiguration.
-        :type: oci.aidataplatform_dp.models.LlmConfig
+        :type: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         self._llm = llm
 

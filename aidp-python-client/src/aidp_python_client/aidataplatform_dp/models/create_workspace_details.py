@@ -58,7 +58,7 @@ class CreateWorkspaceDetails(object):
     def display_name(self):
         """
         **[Required]** Gets the display_name of this CreateWorkspaceDetails.
-        A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+        A user-friendly name that has to be unique in a AI Data Platform instance.
 
 
         :return: The display_name of this CreateWorkspaceDetails.
@@ -70,7 +70,7 @@ class CreateWorkspaceDetails(object):
     def display_name(self, display_name):
         """
         Sets the display_name of this CreateWorkspaceDetails.
-        A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+        A user-friendly name that has to be unique in a AI Data Platform instance.
 
 
         :param display_name: The display_name of this CreateWorkspaceDetails.

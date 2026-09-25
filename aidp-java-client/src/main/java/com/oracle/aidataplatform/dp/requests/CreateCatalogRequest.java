@@ -21,14 +21,14 @@ public class CreateCatalogRequest extends com.oracle.bmc.requests.BmcRequest<com
         return aiDataPlatformId;
     }
         /**
-     * Details for the new AI Data Platform Workbench catalog.
+     * Details for the new AI Data Platform catalog.
      */
     private com.oracle.aidataplatform.dp.model.CreateCatalogDetails createCatalogDetails;
 
     
 
         /**
-     * Details for the new AI Data Platform Workbench catalog.
+     * Details for the new AI Data Platform catalog.
      */
     public com.oracle.aidataplatform.dp.model.CreateCatalogDetails getCreateCatalogDetails() {
         return createCatalogDetails;
@@ -122,12 +122,12 @@ public class CreateCatalogRequest extends com.oracle.bmc.requests.BmcRequest<com
         }
 
             /**
-     * Details for the new AI Data Platform Workbench catalog.
+     * Details for the new AI Data Platform catalog.
      */
         private com.oracle.aidataplatform.dp.model.CreateCatalogDetails createCatalogDetails = null;
 
         /**
-         * Details for the new AI Data Platform Workbench catalog.
+         * Details for the new AI Data Platform catalog.
          * @param createCatalogDetails the value to set
          * @return this builder instance
          */

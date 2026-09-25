@@ -5,15 +5,15 @@ import common = require("oci-common");
 
 
 /**
-* Information about the list of AI Data Platform Workbench clusters contained within a workspace.
+* Information about the list of AI Data Platform clusters contained within a workspace.
 */
 export interface DataLakeClusterSummary {
     /**
-    * Key of the AI Data Platform Workbench workspace.
+    * Key of the AI Data Platform workspace.
     */
     'workspaceKey': string;
     /**
-    * Name of the AI Data Platform Workbench workspace.
+    * Name of the AI Data Platform workspace.
     */
     'workspaceDisplayName': string;
     /**

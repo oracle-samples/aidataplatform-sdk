@@ -309,7 +309,7 @@ class WorkspaceClient(object):
             underscore, and dash.
 
         :param datetime time_data_lake_deletion: (optional)
-            Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
+            Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
 
         :param obj retry_strategy: (optional)
             A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.

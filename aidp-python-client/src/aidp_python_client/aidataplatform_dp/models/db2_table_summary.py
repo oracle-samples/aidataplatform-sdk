@@ -34,7 +34,7 @@ class Db2TableSummary(TableSummary):
 
         :param table_type:
             The value to assign to the table_type property of this Db2TableSummary.
-            Allowed values for this property are: "MANAGED", "EXTERNAL"
+            Allowed values for this property are: "MANAGED", "EXTERNAL", "SYNONYM"
         :type table_type: str
 
         :param time_created:

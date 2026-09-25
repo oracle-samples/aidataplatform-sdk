@@ -11,19 +11,19 @@ export interface CreateOntologyProjectDetails {
     'description'?: string;
     'namespace'?: string;
     /**
-    * Creator name written into the generated project.yaml metadata file.
+    * Creator metadata for the ontology project.
     */
     'creator'?: string;
     /**
-    * Initial semantic ontology version written into project.yaml.
+    * Initial semantic ontology version metadata for the ontology project.
     */
     'ontologyVersion'?: string;
     /**
-    * Base URI written as baseURI in project.yaml.
+    * Base URI metadata for ontology files.
     */
     'baseUri'?: string;
     /**
-    * Default language tag written into project.yaml.
+    * Default language tag metadata for ontology files.
     */
     'defaultLanguage'?: string;
     /**
@@ -46,10 +46,12 @@ export interface CreateOntologyProjectDetails {
     * Workspace-relative Git folder path for git-backed ontology project content.
     */
     'gitFolderPath'?: string;
+    'targetConnection'?: model.OntologyPublishTargetConnectionReference;
 
 }
 
 export namespace CreateOntologyProjectDetails {
+
 
 
 
@@ -82,6 +84,10 @@ export namespace CreateOntologyProjectDetails {
 
 
 
+                'targetConnection': obj.targetConnection ?
+                
+                
+                model.OntologyPublishTargetConnectionReference.getJsonObj(obj.targetConnection) : undefined,
         }};
 
         
@@ -106,6 +112,10 @@ export namespace CreateOntologyProjectDetails {
 
 
 
+                    'targetConnection': obj.targetConnection ?
+                
+                
+                model.OntologyPublishTargetConnectionReference.getDeserializedJsonObj(obj.targetConnection) : undefined,
          }};
 
         

@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * List of all privileges in the AI Data Platform Workbench.
+ * List of all privileges in the AI Data Platform.
 **/
 export enum AllPrivilegeType {
     User = "USER",

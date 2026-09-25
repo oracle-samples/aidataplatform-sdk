@@ -21,6 +21,10 @@ class CreateTableDetails(object):
     #: This constant has a value of "EXTERNAL"
     TABLE_TYPE_EXTERNAL = "EXTERNAL"
 
+    #: A constant which can be used with the table_type property of a CreateTableDetails.
+    #: This constant has a value of "SYNONYM"
+    TABLE_TYPE_SYNONYM = "SYNONYM"
+
     def __init__(self, **kwargs):
         """
         Initializes a new CreateTableDetails object with values from keyword arguments.
@@ -44,7 +48,7 @@ class CreateTableDetails(object):
 
         :param table_type:
             The value to assign to the table_type property of this CreateTableDetails.
-            Allowed values for this property are: "MANAGED", "EXTERNAL"
+            Allowed values for this property are: "MANAGED", "EXTERNAL", "SYNONYM"
         :type table_type: str
 
         :param managed_table_definition:
@@ -205,9 +209,9 @@ class CreateTableDetails(object):
     def table_type(self):
         """
         **[Required]** Gets the table_type of this CreateTableDetails.
-        Type of table. Managed, external or mount table.
+        Type of table. Managed, external, mount or synonym table.
 
-        Allowed values for this property are: "MANAGED", "EXTERNAL"
+        Allowed values for this property are: "MANAGED", "EXTERNAL", "SYNONYM"
 
 
         :return: The table_type of this CreateTableDetails.
@@ -219,13 +223,13 @@ class CreateTableDetails(object):
     def table_type(self, table_type):
         """
         Sets the table_type of this CreateTableDetails.
-        Type of table. Managed, external or mount table.
+        Type of table. Managed, external, mount or synonym table.
 
 
         :param table_type: The table_type of this CreateTableDetails.
         :type: str
         """
-        allowed_values = ["MANAGED", "EXTERNAL"]
+        allowed_values = ["MANAGED", "EXTERNAL", "SYNONYM"]
         if not value_allowed_none_or_none_sentinel(table_type, allowed_values):
             raise ValueError(
                 "Invalid value for `table_type`, must be None or one of {0}"

@@ -20,7 +20,7 @@ class PromptToolConfiguration(object):
 
         :param llm:
             The value to assign to the llm property of this PromptToolConfiguration.
-        :type llm: oci.aidataplatform_dp.models.LlmConfig
+        :type llm: oci.aidataplatform_dp.models.BaseLlmConfig
 
         :param prompt_text:
             The value to assign to the prompt_text property of this PromptToolConfiguration.
@@ -32,7 +32,7 @@ class PromptToolConfiguration(object):
 
         """
         self.swagger_types = {
-            'llm': 'LlmConfig',
+            'llm': 'BaseLlmConfig',
             'prompt_text': 'str',
             'model_settings': 'dict(str, object)'
         }
@@ -53,7 +53,7 @@ class PromptToolConfiguration(object):
         Gets the llm of this PromptToolConfiguration.
 
         :return: The llm of this PromptToolConfiguration.
-        :rtype: oci.aidataplatform_dp.models.LlmConfig
+        :rtype: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         return self._llm
 
@@ -63,7 +63,7 @@ class PromptToolConfiguration(object):
         Sets the llm of this PromptToolConfiguration.
 
         :param llm: The llm of this PromptToolConfiguration.
-        :type: oci.aidataplatform_dp.models.LlmConfig
+        :type: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         self._llm = llm
 

@@ -20,7 +20,7 @@ export interface RagToolConfiguration {
     * The name of the Knowledge Base to use for RAG query
     */
     'knowledgeBase'?: string;
-    'llm'?: model.LlmConfig;
+    'llm'?: model.LlmConfig| model.ThirdPartyLlmConfig;
     /**
     * Model specific inference parameters such as temperature, top-k, max length, response format, etc.
     */
@@ -49,7 +49,7 @@ export namespace RagToolConfiguration {
                 'llm': obj.llm ?
                 
                 
-                model.LlmConfig.getJsonObj(obj.llm) : undefined,
+                model.BaseLlmConfig.getJsonObj(obj.llm) : undefined,
 
 
         }};
@@ -68,7 +68,7 @@ export namespace RagToolConfiguration {
                     'llm': obj.llm ?
                 
                 
-                model.LlmConfig.getDeserializedJsonObj(obj.llm) : undefined,
+                model.BaseLlmConfig.getDeserializedJsonObj(obj.llm) : undefined,
 
 
          }};

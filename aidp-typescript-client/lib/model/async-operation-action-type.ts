@@ -52,6 +52,7 @@ export enum AsyncOperationActionType {
     UpdateGitRepository = "UPDATE_GIT_REPOSITORY",
     CreateBundle = "CREATE_BUNDLE",
     BundleDeploy = "BUNDLE_DEPLOY",
+    BundlePublish = "BUNDLE_PUBLISH",
     BundlePurge = "BUNDLE_PURGE",
     BundleSync = "BUNDLE_SYNC",
     MarkAsBundle = "MARK_AS_BUNDLE",
@@ -63,6 +64,10 @@ export enum AsyncOperationActionType {
     GitOperationRebase = "GIT_OPERATION_REBASE",
     GitOperationReset = "GIT_OPERATION_RESET",
     GitOperationResetState = "GIT_OPERATION_RESET_STATE",
+    ActivateModelDeployment = "ACTIVATE_MODEL_DEPLOYMENT",
+    DeactivateModelDeployment = "DEACTIVATE_MODEL_DEPLOYMENT",
+    RollForwardModelDeployment = "ROLL_FORWARD_MODEL_DEPLOYMENT",
+    RollBackModelDeployment = "ROLL_BACK_MODEL_DEPLOYMENT",
     
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

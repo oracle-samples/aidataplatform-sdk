@@ -21,14 +21,14 @@ public class CatalogTestConnectionRequest extends com.oracle.bmc.requests.BmcReq
         return aiDataPlatformId;
     }
         /**
-     * Details for the AI Data Platform Workbench catalog to be tested for connection.
+     * Details for the AI Data Platform catalog to be tested for connection.
      */
     private com.oracle.aidataplatform.dp.model.CatalogTestConnectionDetails catalogTestConnectionDetails;
 
     
 
         /**
-     * Details for the AI Data Platform Workbench catalog to be tested for connection.
+     * Details for the AI Data Platform catalog to be tested for connection.
      */
     public com.oracle.aidataplatform.dp.model.CatalogTestConnectionDetails getCatalogTestConnectionDetails() {
         return catalogTestConnectionDetails;
@@ -122,12 +122,12 @@ public class CatalogTestConnectionRequest extends com.oracle.bmc.requests.BmcReq
         }
 
             /**
-     * Details for the AI Data Platform Workbench catalog to be tested for connection.
+     * Details for the AI Data Platform catalog to be tested for connection.
      */
         private com.oracle.aidataplatform.dp.model.CatalogTestConnectionDetails catalogTestConnectionDetails = null;
 
         /**
-         * Details for the AI Data Platform Workbench catalog to be tested for connection.
+         * Details for the AI Data Platform catalog to be tested for connection.
          * @param catalogTestConnectionDetails the value to set
          * @return this builder instance
          */

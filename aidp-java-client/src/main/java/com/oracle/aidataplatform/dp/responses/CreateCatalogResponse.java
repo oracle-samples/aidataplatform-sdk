@@ -7,12 +7,12 @@ import com.oracle.aidataplatform.dp.model.*;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public class CreateCatalogResponse extends com.oracle.bmc.responses.BmcResponse {
     /**
-     * URL for the created catalog. The AI Data Platform Workbench catalog key is generated after this request is sent.
+     * URL for the created catalog. The AI Data Platform catalog key is generated after this request is sent.
      */
     private String location;
 
     /**
-     * URL for the created catalog. The AI Data Platform Workbench catalog key is generated after this request is sent.
+     * URL for the created catalog. The AI Data Platform catalog key is generated after this request is sent.
      * @return the value
      */
     public String getLocation() {
@@ -92,12 +92,12 @@ public class CreateCatalogResponse extends com.oracle.bmc.responses.BmcResponse 
         }
 
         /**
-         * URL for the created catalog. The AI Data Platform Workbench catalog key is generated after this request is sent.
+         * URL for the created catalog. The AI Data Platform catalog key is generated after this request is sent.
          */
         private String location;
 
         /**
-         * URL for the created catalog. The AI Data Platform Workbench catalog key is generated after this request is sent.
+         * URL for the created catalog. The AI Data Platform catalog key is generated after this request is sent.
          * @param location the value to set
          * @return this builder
          */

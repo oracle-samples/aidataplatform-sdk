@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OntologyProject  {
     @Deprecated
-    @java.beans.ConstructorProperties({"id", "workspaceId", "key", "displayName", "description", "namespace", "creator", "ontologyVersion", "baseUri", "defaultLanguage", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath", "lifecycleState", "timeCreated", "timeUpdated", "version", "freeformTags", "definedTags", "systemTags"})
-    public OntologyProject(String id, String workspaceId, String key, String displayName, String description, String namespace, String creator, String ontologyVersion, String baseUri, String defaultLanguage, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath, String lifecycleState, java.util.Date timeCreated, java.util.Date timeUpdated, Integer version, java.util.Map<String, String> freeformTags, java.util.Map<String, java.util.Map<String, Object>> definedTags, java.util.Map<String, java.util.Map<String, Object>> systemTags) {
+    @java.beans.ConstructorProperties({"id", "workspaceId", "key", "displayName", "description", "namespace", "creator", "ontologyVersion", "baseUri", "defaultLanguage", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath", "targetConnection", "lifecycleState", "status", "timeCreated", "timeUpdated", "updatedBy", "timePublished", "publishedBy", "version", "freeformTags", "definedTags", "systemTags"})
+    public OntologyProject(String id, String workspaceId, String key, String displayName, String description, String namespace, String creator, String ontologyVersion, String baseUri, String defaultLanguage, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath, OntologyPublishTargetConnectionReference targetConnection, String lifecycleState, String status, java.util.Date timeCreated, java.util.Date timeUpdated, String updatedBy, java.util.Date timePublished, String publishedBy, Integer version, java.util.Map<String, String> freeformTags, java.util.Map<String, java.util.Map<String, Object>> definedTags, java.util.Map<String, java.util.Map<String, Object>> systemTags) {
         super();
         this.id = id;
         this.workspaceId = workspaceId;
@@ -30,9 +30,14 @@ public final class OntologyProject  {
         this.gitRepositoryKey = gitRepositoryKey;
         this.gitBranchName = gitBranchName;
         this.gitFolderPath = gitFolderPath;
+        this.targetConnection = targetConnection;
         this.lifecycleState = lifecycleState;
+        this.status = status;
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
+        this.updatedBy = updatedBy;
+        this.timePublished = timePublished;
+        this.publishedBy = publishedBy;
         this.version = version;
         this.freeformTags = freeformTags;
         this.definedTags = definedTags;
@@ -102,14 +107,14 @@ public Builder namespace(String namespace) {
     return this;
 }
             /**
-     * Creator name written into the generated project.yaml metadata file.
+     * Creator metadata for the ontology project.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("creator")
 private String creator;
 
         /**
-         * Creator name written into the generated project.yaml metadata file.
+         * Creator metadata for the ontology project.
          * @param creator the value to set
          * @return this builder
          **/
@@ -120,14 +125,14 @@ public Builder creator(String creator) {
     return this;
 }
             /**
-     * Semantic ontology version written into project.yaml.
+     * Semantic ontology version metadata for the ontology project.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("ontologyVersion")
 private String ontologyVersion;
 
         /**
-         * Semantic ontology version written into project.yaml.
+         * Semantic ontology version metadata for the ontology project.
          * @param ontologyVersion the value to set
          * @return this builder
          **/
@@ -138,14 +143,14 @@ public Builder ontologyVersion(String ontologyVersion) {
     return this;
 }
             /**
-     * Base URI written as baseURI in project.yaml.
+     * Base URI metadata for ontology files.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("baseUri")
 private String baseUri;
 
         /**
-         * Base URI written as baseURI in project.yaml.
+         * Base URI metadata for ontology files.
          * @param baseUri the value to set
          * @return this builder
          **/
@@ -156,14 +161,14 @@ public Builder baseUri(String baseUri) {
     return this;
 }
             /**
-     * Default language tag written into project.yaml.
+     * Default language tag metadata for ontology files.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("defaultLanguage")
 private String defaultLanguage;
 
         /**
-         * Default language tag written into project.yaml.
+         * Default language tag metadata for ontology files.
          * @param defaultLanguage the value to set
          * @return this builder
          **/
@@ -263,6 +268,16 @@ public Builder gitFolderPath(String gitFolderPath) {
     this.gitFolderPath = gitFolderPath;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("targetConnection")
+private OntologyPublishTargetConnectionReference targetConnection;
+
+
+
+public Builder targetConnection(OntologyPublishTargetConnectionReference targetConnection) {
+    this.targetConnection = targetConnection;
+    return this;
+}
             /**
      * Project lifecycle state. Volume-backed creates initially return CREATING and transition to ACTIVE or FAILED after asynchronous scaffold creation.
      **/
@@ -279,6 +294,24 @@ private String lifecycleState;
 
 public Builder lifecycleState(String lifecycleState) {
     this.lifecycleState = lifecycleState;
+    return this;
+}
+            /**
+     * Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("status")
+private String status;
+
+        /**
+         * Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+         * @param status the value to set
+         * @return this builder
+         **/
+        
+
+public Builder status(String status) {
+    this.status = status;
     return this;
 }
         
@@ -299,6 +332,60 @@ private java.util.Date timeUpdated;
 
 public Builder timeUpdated(java.util.Date timeUpdated) {
     this.timeUpdated = timeUpdated;
+    return this;
+}
+            /**
+     * Actor identifier for the most recent project metadata update.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("updatedBy")
+private String updatedBy;
+
+        /**
+         * Actor identifier for the most recent project metadata update.
+         * @param updatedBy the value to set
+         * @return this builder
+         **/
+        
+
+public Builder updatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
+    return this;
+}
+            /**
+     * Time when the most recent publish request was created for the project.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("timePublished")
+private java.util.Date timePublished;
+
+        /**
+         * Time when the most recent publish request was created for the project.
+         * @param timePublished the value to set
+         * @return this builder
+         **/
+        
+
+public Builder timePublished(java.util.Date timePublished) {
+    this.timePublished = timePublished;
+    return this;
+}
+            /**
+     * Actor identifier for the most recent publish request on the project.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("publishedBy")
+private String publishedBy;
+
+        /**
+         * Actor identifier for the most recent publish request on the project.
+         * @param publishedBy the value to set
+         * @return this builder
+         **/
+        
+
+public Builder publishedBy(String publishedBy) {
+    this.publishedBy = publishedBy;
     return this;
 }
         
@@ -359,9 +446,14 @@ public Builder systemTags(java.util.Map<String, java.util.Map<String, Object>> s
                 , this.gitRepositoryKey
                 , this.gitBranchName
                 , this.gitFolderPath
+                , this.targetConnection
                 , this.lifecycleState
+                , this.status
                 , this.timeCreated
                 , this.timeUpdated
+                , this.updatedBy
+                , this.timePublished
+                , this.publishedBy
                 , this.version
                 , this.freeformTags
                 , this.definedTags
@@ -385,9 +477,14 @@ public Builder systemTags(java.util.Map<String, java.util.Map<String, Object>> s
     this.gitRepositoryKey(model.getGitRepositoryKey());
     this.gitBranchName(model.getGitBranchName());
     this.gitFolderPath(model.getGitFolderPath());
+    this.targetConnection(model.getTargetConnection());
     this.lifecycleState(model.getLifecycleState());
+    this.status(model.getStatus());
     this.timeCreated(model.getTimeCreated());
     this.timeUpdated(model.getTimeUpdated());
+    this.updatedBy(model.getUpdatedBy());
+    this.timePublished(model.getTimePublished());
+    this.publishedBy(model.getPublishedBy());
     this.version(model.getVersion());
     this.freeformTags(model.getFreeformTags());
     this.definedTags(model.getDefinedTags());
@@ -472,14 +569,14 @@ return this;
 
 
         /**
-     * Creator name written into the generated project.yaml metadata file.
+     * Creator metadata for the ontology project.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("creator")
     private final String creator;
 
         /**
-     * Creator name written into the generated project.yaml metadata file.
+     * Creator metadata for the ontology project.
      * @return the value
      **/
     
@@ -489,14 +586,14 @@ return this;
 
 
         /**
-     * Semantic ontology version written into project.yaml.
+     * Semantic ontology version metadata for the ontology project.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("ontologyVersion")
     private final String ontologyVersion;
 
         /**
-     * Semantic ontology version written into project.yaml.
+     * Semantic ontology version metadata for the ontology project.
      * @return the value
      **/
     
@@ -506,14 +603,14 @@ return this;
 
 
         /**
-     * Base URI written as baseURI in project.yaml.
+     * Base URI metadata for ontology files.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("baseUri")
     private final String baseUri;
 
         /**
-     * Base URI written as baseURI in project.yaml.
+     * Base URI metadata for ontology files.
      * @return the value
      **/
     
@@ -523,14 +620,14 @@ return this;
 
 
         /**
-     * Default language tag written into project.yaml.
+     * Default language tag metadata for ontology files.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("defaultLanguage")
     private final String defaultLanguage;
 
         /**
-     * Default language tag written into project.yaml.
+     * Default language tag metadata for ontology files.
      * @return the value
      **/
     
@@ -624,6 +721,16 @@ return this;
     }
 
 
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("targetConnection")
+    private final OntologyPublishTargetConnectionReference targetConnection;
+
+    
+    public OntologyPublishTargetConnectionReference getTargetConnection() {
+        return targetConnection;
+    }
+
+
         /**
      * Project lifecycle state. Volume-backed creates initially return CREATING and transition to ACTIVE or FAILED after asynchronous scaffold creation.
      **/
@@ -638,6 +745,23 @@ return this;
     
     public String getLifecycleState() {
         return lifecycleState;
+    }
+
+
+        /**
+     * Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("status")
+    private final String status;
+
+        /**
+     * Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+     * @return the value
+     **/
+    
+    public String getStatus() {
+        return status;
     }
 
 
@@ -658,6 +782,57 @@ return this;
     
     public java.util.Date getTimeUpdated() {
         return timeUpdated;
+    }
+
+
+        /**
+     * Actor identifier for the most recent project metadata update.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("updatedBy")
+    private final String updatedBy;
+
+        /**
+     * Actor identifier for the most recent project metadata update.
+     * @return the value
+     **/
+    
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+
+        /**
+     * Time when the most recent publish request was created for the project.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("timePublished")
+    private final java.util.Date timePublished;
+
+        /**
+     * Time when the most recent publish request was created for the project.
+     * @return the value
+     **/
+    
+    public java.util.Date getTimePublished() {
+        return timePublished;
+    }
+
+
+        /**
+     * Actor identifier for the most recent publish request on the project.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("publishedBy")
+    private final String publishedBy;
+
+        /**
+     * Actor identifier for the most recent publish request on the project.
+     * @return the value
+     **/
+    
+    public String getPublishedBy() {
+        return publishedBy;
     }
 
 
@@ -728,9 +903,14 @@ return this;
         sb.append(", gitRepositoryKey=").append(String.valueOf(this.gitRepositoryKey));
         sb.append(", gitBranchName=").append(String.valueOf(this.gitBranchName));
         sb.append(", gitFolderPath=").append(String.valueOf(this.gitFolderPath));
+        sb.append(", targetConnection=").append(String.valueOf(this.targetConnection));
         sb.append(", lifecycleState=").append(String.valueOf(this.lifecycleState));
+        sb.append(", status=").append(String.valueOf(this.status));
         sb.append(", timeCreated=").append(String.valueOf(this.timeCreated));
         sb.append(", timeUpdated=").append(String.valueOf(this.timeUpdated));
+        sb.append(", updatedBy=").append(String.valueOf(this.updatedBy));
+        sb.append(", timePublished=").append(String.valueOf(this.timePublished));
+        sb.append(", publishedBy=").append(String.valueOf(this.publishedBy));
         sb.append(", version=").append(String.valueOf(this.version));
         sb.append(", freeformTags=").append(String.valueOf(this.freeformTags));
         sb.append(", definedTags=").append(String.valueOf(this.definedTags));
@@ -764,9 +944,14 @@ return this;
             java.util.Objects.equals(this.gitRepositoryKey, other.gitRepositoryKey) &&
             java.util.Objects.equals(this.gitBranchName, other.gitBranchName) &&
             java.util.Objects.equals(this.gitFolderPath, other.gitFolderPath) &&
+            java.util.Objects.equals(this.targetConnection, other.targetConnection) &&
             java.util.Objects.equals(this.lifecycleState, other.lifecycleState) &&
+            java.util.Objects.equals(this.status, other.status) &&
             java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
             java.util.Objects.equals(this.timeUpdated, other.timeUpdated) &&
+            java.util.Objects.equals(this.updatedBy, other.updatedBy) &&
+            java.util.Objects.equals(this.timePublished, other.timePublished) &&
+            java.util.Objects.equals(this.publishedBy, other.publishedBy) &&
             java.util.Objects.equals(this.version, other.version) &&
             java.util.Objects.equals(this.freeformTags, other.freeformTags) &&
             java.util.Objects.equals(this.definedTags, other.definedTags) &&
@@ -792,9 +977,14 @@ return this;
         result = (result * PRIME) + (this.gitRepositoryKey == null ? 43 : this.gitRepositoryKey.hashCode());
         result = (result * PRIME) + (this.gitBranchName == null ? 43 : this.gitBranchName.hashCode());
         result = (result * PRIME) + (this.gitFolderPath == null ? 43 : this.gitFolderPath.hashCode());
+        result = (result * PRIME) + (this.targetConnection == null ? 43 : this.targetConnection.hashCode());
         result = (result * PRIME) + (this.lifecycleState == null ? 43 : this.lifecycleState.hashCode());
+        result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
         result = (result * PRIME) + (this.timeCreated == null ? 43 : this.timeCreated.hashCode());
         result = (result * PRIME) + (this.timeUpdated == null ? 43 : this.timeUpdated.hashCode());
+        result = (result * PRIME) + (this.updatedBy == null ? 43 : this.updatedBy.hashCode());
+        result = (result * PRIME) + (this.timePublished == null ? 43 : this.timePublished.hashCode());
+        result = (result * PRIME) + (this.publishedBy == null ? 43 : this.publishedBy.hashCode());
         result = (result * PRIME) + (this.version == null ? 43 : this.version.hashCode());
         result = (result * PRIME) + (this.freeformTags == null ? 43 : this.freeformTags.hashCode());
         result = (result * PRIME) + (this.definedTags == null ? 43 : this.definedTags.hashCode());

@@ -32,7 +32,7 @@ export interface DeleteWorkspaceRequest extends common.BaseRequest {
  */
  'opcRequestId'?: string;
 /**
- * Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
+ * Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
  */
  'timeDataLakeDeletion'?: Date;
 }

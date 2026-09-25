@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class Recipient(object):
     """
-    A Delta Share recipient can access the data assets in AI Data Platform Workbench through Delta Share Protocol.
+    A Delta Share recipient can access the data assets in AI Data Platform through Delta Share Protocol.
     """
 
     #: A constant which can be used with the lifecycle_state property of a Recipient.
@@ -117,7 +117,7 @@ class Recipient(object):
     def key(self):
         """
         **[Required]** Gets the key of this Recipient.
-        Unique identifier for this recipient in AI Data Platform Workbench instance.
+        Unique identifier for this recipient in AI Data Platform instance.
 
 
         :return: The key of this Recipient.
@@ -129,7 +129,7 @@ class Recipient(object):
     def key(self, key):
         """
         Sets the key of this Recipient.
-        Unique identifier for this recipient in AI Data Platform Workbench instance.
+        Unique identifier for this recipient in AI Data Platform instance.
 
 
         :param key: The key of this Recipient.
@@ -141,7 +141,7 @@ class Recipient(object):
     def display_name(self):
         """
         **[Required]** Gets the display_name of this Recipient.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :return: The display_name of this Recipient.
@@ -153,7 +153,7 @@ class Recipient(object):
     def display_name(self, display_name):
         """
         Sets the display_name of this Recipient.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :param display_name: The display_name of this Recipient.

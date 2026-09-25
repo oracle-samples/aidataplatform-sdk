@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * A Delta Share recipient can access the data assets in AI Data Platform Workbench through Delta Share Protocol.
+ * A Delta Share recipient can access the data assets in AI Data Platform through Delta Share Protocol.
 * 
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
@@ -32,14 +32,14 @@ public final class Recipient  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Unique identifier for this recipient in AI Data Platform Workbench instance.
+     * Unique identifier for this recipient in AI Data Platform instance.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private String key;
 
         /**
-         * Unique identifier for this recipient in AI Data Platform Workbench instance.
+         * Unique identifier for this recipient in AI Data Platform instance.
          * @param key the value to set
          * @return this builder
          **/
@@ -50,14 +50,14 @@ public Builder key(String key) {
     return this;
 }
             /**
-     * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+     * A user-friendly name. Has to be unique within the AI Data Platform instance.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("displayName")
 private String displayName;
 
         /**
-         * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+         * A user-friendly name. Has to be unique within the AI Data Platform instance.
          * @param displayName the value to set
          * @return this builder
          **/
@@ -296,14 +296,14 @@ return this;
 
 
         /**
-     * Unique identifier for this recipient in AI Data Platform Workbench instance.
+     * Unique identifier for this recipient in AI Data Platform instance.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * Unique identifier for this recipient in AI Data Platform Workbench instance.
+     * Unique identifier for this recipient in AI Data Platform instance.
      * @return the value
      **/
     
@@ -313,14 +313,14 @@ return this;
 
 
         /**
-     * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+     * A user-friendly name. Has to be unique within the AI Data Platform instance.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("displayName")
     private final String displayName;
 
         /**
-     * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+     * A user-friendly name. Has to be unique within the AI Data Platform instance.
      * @return the value
      **/
     

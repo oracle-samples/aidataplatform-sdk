@@ -12,13 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OntologyProjectValidationResult  {
     @Deprecated
-    @java.beans.ConstructorProperties({"projectId", "valid", "operation", "validationReport", "errorCode", "errorMessage"})
-    public OntologyProjectValidationResult(String projectId, Boolean valid, String operation, String validationReport, String errorCode, String errorMessage) {
+    @java.beans.ConstructorProperties({"projectId", "valid", "findings", "errorCode", "errorMessage"})
+    public OntologyProjectValidationResult(String projectId, Boolean valid, java.util.List<OntologyValidationFinding> findings, String errorCode, String errorMessage) {
         super();
         this.projectId = projectId;
         this.valid = valid;
-        this.operation = operation;
-        this.validationReport = validationReport;
+        this.findings = findings;
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
@@ -61,40 +60,14 @@ public Builder valid(Boolean valid) {
     this.valid = valid;
     return this;
 }
-            /**
-     * OT SDK operation name.
-     **/
-    
-@com.fasterxml.jackson.annotation.JsonProperty("operation")
-private String operation;
-
-        /**
-         * OT SDK operation name.
-         * @param operation the value to set
-         * @return this builder
-         **/
         
+@com.fasterxml.jackson.annotation.JsonProperty("findings")
+private java.util.List<OntologyValidationFinding> findings;
 
-public Builder operation(String operation) {
-    this.operation = operation;
-    return this;
-}
-            /**
-     * JSON validation result or error details returned by OT SDK.
-     **/
-    
-@com.fasterxml.jackson.annotation.JsonProperty("validationReport")
-private String validationReport;
 
-        /**
-         * JSON validation result or error details returned by OT SDK.
-         * @param validationReport the value to set
-         * @return this builder
-         **/
-        
 
-public Builder validationReport(String validationReport) {
-    this.validationReport = validationReport;
+public Builder findings(java.util.List<OntologyValidationFinding> findings) {
+    this.findings = findings;
     return this;
 }
             /**
@@ -138,8 +111,7 @@ public Builder errorMessage(String errorMessage) {
         public OntologyProjectValidationResult build() {
             OntologyProjectValidationResult model = new OntologyProjectValidationResult(this.projectId
                 , this.valid
-                , this.operation
-                , this.validationReport
+                , this.findings
                 , this.errorCode
                 , this.errorMessage);            return model;
         }
@@ -148,8 +120,7 @@ public Builder errorMessage(String errorMessage) {
         public Builder copy(OntologyProjectValidationResult model) {
                 this.projectId(model.getProjectId());
     this.valid(model.getValid());
-    this.operation(model.getOperation());
-    this.validationReport(model.getValidationReport());
+    this.findings(model.getFindings());
     this.errorCode(model.getErrorCode());
     this.errorMessage(model.getErrorMessage());
 return this;
@@ -205,37 +176,13 @@ return this;
     }
 
 
-        /**
-     * OT SDK operation name.
-     **/
     
-    @com.fasterxml.jackson.annotation.JsonProperty("operation")
-    private final String operation;
+    @com.fasterxml.jackson.annotation.JsonProperty("findings")
+    private final java.util.List<OntologyValidationFinding> findings;
 
-        /**
-     * OT SDK operation name.
-     * @return the value
-     **/
     
-    public String getOperation() {
-        return operation;
-    }
-
-
-        /**
-     * JSON validation result or error details returned by OT SDK.
-     **/
-    
-    @com.fasterxml.jackson.annotation.JsonProperty("validationReport")
-    private final String validationReport;
-
-        /**
-     * JSON validation result or error details returned by OT SDK.
-     * @return the value
-     **/
-    
-    public String getValidationReport() {
-        return validationReport;
+    public java.util.List<OntologyValidationFinding> getFindings() {
+        return findings;
     }
 
 
@@ -287,8 +234,7 @@ return this;
         sb.append("OntologyProjectValidationResult(");
         sb.append("projectId=").append(String.valueOf(this.projectId));
         sb.append(", valid=").append(String.valueOf(this.valid));
-        sb.append(", operation=").append(String.valueOf(this.operation));
-        sb.append(", validationReport=").append(String.valueOf(this.validationReport));
+        sb.append(", findings=").append(String.valueOf(this.findings));
         sb.append(", errorCode=").append(String.valueOf(this.errorCode));
         sb.append(", errorMessage=").append(String.valueOf(this.errorMessage));
         sb.append(")");
@@ -307,8 +253,7 @@ return this;
         OntologyProjectValidationResult other = (OntologyProjectValidationResult) o;
         return java.util.Objects.equals(this.projectId, other.projectId) &&
             java.util.Objects.equals(this.valid, other.valid) &&
-            java.util.Objects.equals(this.operation, other.operation) &&
-            java.util.Objects.equals(this.validationReport, other.validationReport) &&
+            java.util.Objects.equals(this.findings, other.findings) &&
             java.util.Objects.equals(this.errorCode, other.errorCode) &&
             java.util.Objects.equals(this.errorMessage, other.errorMessage);
     }
@@ -319,8 +264,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.projectId == null ? 43 : this.projectId.hashCode());
         result = (result * PRIME) + (this.valid == null ? 43 : this.valid.hashCode());
-        result = (result * PRIME) + (this.operation == null ? 43 : this.operation.hashCode());
-        result = (result * PRIME) + (this.validationReport == null ? 43 : this.validationReport.hashCode());
+        result = (result * PRIME) + (this.findings == null ? 43 : this.findings.hashCode());
         result = (result * PRIME) + (this.errorCode == null ? 43 : this.errorCode.hashCode());
         result = (result * PRIME) + (this.errorMessage == null ? 43 : this.errorMessage.hashCode());
         return result;

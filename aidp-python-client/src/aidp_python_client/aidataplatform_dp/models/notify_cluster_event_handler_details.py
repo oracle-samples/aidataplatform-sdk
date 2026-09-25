@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class NotifyClusterEventHandlerDetails(object):
     """
-    Notifier API during cluster patching.
+    Details of a cluster event notification.
     """
 
     #: A constant which can be used with the phase property of a NotifyClusterEventHandlerDetails.

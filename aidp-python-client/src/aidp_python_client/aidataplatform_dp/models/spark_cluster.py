@@ -443,7 +443,7 @@ class SparkCluster(Cluster):
         """
         Gets the log_group_id of this SparkCluster.
         The unique OCID that identifies a specific log group within OCI Logging.
-        This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+        This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 
 
         :return: The log_group_id of this SparkCluster.
@@ -456,7 +456,7 @@ class SparkCluster(Cluster):
         """
         Sets the log_group_id of this SparkCluster.
         The unique OCID that identifies a specific log group within OCI Logging.
-        This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+        This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 
 
         :param log_group_id: The log_group_id of this SparkCluster.

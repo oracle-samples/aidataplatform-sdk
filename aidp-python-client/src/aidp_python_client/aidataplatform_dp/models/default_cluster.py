@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DefaultCluster(Cluster):
     """
-    The default cluster created by AI Data Platform Workbench.
+    The default cluster created by AI Data Platform.
     """
 
     def __init__(self, **kwargs):
@@ -227,7 +227,7 @@ class DefaultCluster(Cluster):
     def workspace_key(self):
         """
         Gets the workspace_key of this DefaultCluster.
-        The key of the AI Data Platform Workbench workspace where the default cluster is.
+        The key of the AI Data Platform workspace where the default cluster is.
 
 
         :return: The workspace_key of this DefaultCluster.
@@ -239,7 +239,7 @@ class DefaultCluster(Cluster):
     def workspace_key(self, workspace_key):
         """
         Sets the workspace_key of this DefaultCluster.
-        The key of the AI Data Platform Workbench workspace where the default cluster is.
+        The key of the AI Data Platform workspace where the default cluster is.
 
 
         :param workspace_key: The workspace_key of this DefaultCluster.
@@ -384,7 +384,7 @@ class DefaultCluster(Cluster):
         """
         Gets the log_group_id of this DefaultCluster.
         The unique OCID that identifies a specific log group within OCI Logging.
-        This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+        This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 
 
         :return: The log_group_id of this DefaultCluster.
@@ -397,7 +397,7 @@ class DefaultCluster(Cluster):
         """
         Sets the log_group_id of this DefaultCluster.
         The unique OCID that identifies a specific log group within OCI Logging.
-        This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+        This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 
 
         :param log_group_id: The log_group_id of this DefaultCluster.

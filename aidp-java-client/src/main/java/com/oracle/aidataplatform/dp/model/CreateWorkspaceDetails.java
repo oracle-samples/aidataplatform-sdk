@@ -24,14 +24,14 @@ public final class CreateWorkspaceDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+     * A user-friendly name that has to be unique in a AI Data Platform instance.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("displayName")
 private String displayName;
 
         /**
-         * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+         * A user-friendly name that has to be unique in a AI Data Platform instance.
          * @param displayName the value to set
          * @return this builder
          **/
@@ -130,14 +130,14 @@ return this;
 
 
         /**
-     * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+     * A user-friendly name that has to be unique in a AI Data Platform instance.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("displayName")
     private final String displayName;
 
         /**
-     * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+     * A user-friendly name that has to be unique in a AI Data Platform instance.
      * @return the value
      **/
     

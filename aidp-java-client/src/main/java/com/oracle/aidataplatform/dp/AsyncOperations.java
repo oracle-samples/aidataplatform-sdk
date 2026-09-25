@@ -59,6 +59,18 @@ public interface AsyncOperations extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
+     * Cancels a supported asynchronous operation created by the caller. Support depends on the
+* operation type and its current state.
+* 
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    CancelAsyncOperationResponse cancelAsyncOperation(CancelAsyncOperationRequest request);
+    
+    /**
      * Get detailed information for a particular async operation
 * 
      * @param request The request object containing the details to send

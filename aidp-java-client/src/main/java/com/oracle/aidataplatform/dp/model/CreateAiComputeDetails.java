@@ -52,6 +52,16 @@ public Builder replicaConfig(ReplicaConfig replicaConfig) {
     this.replicaConfig = replicaConfig;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("autoScaleConfiguration")
+private AutoScaleConfiguration autoScaleConfiguration;
+
+
+
+public Builder autoScaleConfiguration(AutoScaleConfiguration autoScaleConfiguration) {
+    this.autoScaleConfiguration = autoScaleConfiguration;
+    return this;
+}
 
 
         public CreateAiComputeDetails build() {
@@ -59,7 +69,8 @@ public Builder replicaConfig(ReplicaConfig replicaConfig) {
                 , this.description
                 , this.driverConfig
                 , this.nodeType
-                , this.replicaConfig);            return model;
+                , this.replicaConfig
+                , this.autoScaleConfiguration);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -69,6 +80,7 @@ public Builder replicaConfig(ReplicaConfig replicaConfig) {
     this.driverConfig(model.getDriverConfig());
     this.nodeType(model.getNodeType());
     this.replicaConfig(model.getReplicaConfig());
+    this.autoScaleConfiguration(model.getAutoScaleConfiguration());
 return this;
         }
     }
@@ -87,9 +99,10 @@ return this;
 
     
     @Deprecated
-    public CreateAiComputeDetails(String displayName, String description, DriverConfig driverConfig, String nodeType, ReplicaConfig replicaConfig) {
+    public CreateAiComputeDetails(String displayName, String description, DriverConfig driverConfig, String nodeType, ReplicaConfig replicaConfig, AutoScaleConfiguration autoScaleConfiguration) {
     super(displayName, description, driverConfig, nodeType);
         this.replicaConfig = replicaConfig;
+        this.autoScaleConfiguration = autoScaleConfiguration;
     }
 
 
@@ -100,6 +113,16 @@ return this;
     
     public ReplicaConfig getReplicaConfig() {
         return replicaConfig;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("autoScaleConfiguration")
+    private final AutoScaleConfiguration autoScaleConfiguration;
+
+    
+    public AutoScaleConfiguration getAutoScaleConfiguration() {
+        return autoScaleConfiguration;
     }
 
     @Override
@@ -117,6 +140,7 @@ return this;
         sb.append("CreateAiComputeDetails(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", replicaConfig=").append(String.valueOf(this.replicaConfig));
+        sb.append(", autoScaleConfiguration=").append(String.valueOf(this.autoScaleConfiguration));
         sb.append(")");
         return sb.toString();
     }
@@ -132,6 +156,7 @@ return this;
 
         CreateAiComputeDetails other = (CreateAiComputeDetails) o;
         return java.util.Objects.equals(this.replicaConfig, other.replicaConfig) &&
+            java.util.Objects.equals(this.autoScaleConfiguration, other.autoScaleConfiguration) &&
             super.equals(other);
     }
 
@@ -140,6 +165,7 @@ return this;
         final int PRIME = 59;
         int result = super.hashCode();
         result = (result * PRIME) + (this.replicaConfig == null ? 43 : this.replicaConfig.hashCode());
+        result = (result * PRIME) + (this.autoScaleConfiguration == null ? 43 : this.autoScaleConfiguration.hashCode());
         return result;
     }
 

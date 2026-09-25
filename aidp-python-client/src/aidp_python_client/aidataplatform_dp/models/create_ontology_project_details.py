@@ -83,6 +83,10 @@ class CreateOntologyProjectDetails(object):
             The value to assign to the git_folder_path property of this CreateOntologyProjectDetails.
         :type git_folder_path: str
 
+        :param target_connection:
+            The value to assign to the target_connection property of this CreateOntologyProjectDetails.
+        :type target_connection: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+
         """
         self.swagger_types = {
             'workspace_id': 'str',
@@ -98,7 +102,8 @@ class CreateOntologyProjectDetails(object):
             'source_type': 'str',
             'git_repository_key': 'str',
             'git_branch_name': 'str',
-            'git_folder_path': 'str'
+            'git_folder_path': 'str',
+            'target_connection': 'OntologyPublishTargetConnectionReference'
         }
 
         self.attribute_map = {
@@ -115,7 +120,8 @@ class CreateOntologyProjectDetails(object):
             'source_type': 'sourceType',
             'git_repository_key': 'gitRepositoryKey',
             'git_branch_name': 'gitBranchName',
-            'git_folder_path': 'gitFolderPath'
+            'git_folder_path': 'gitFolderPath',
+            'target_connection': 'targetConnection'
         }
 
         self._workspace_id = None
@@ -132,6 +138,7 @@ class CreateOntologyProjectDetails(object):
         self._git_repository_key = None
         self._git_branch_name = None
         self._git_folder_path = None
+        self._target_connection = None
 
     @property
     def workspace_id(self):
@@ -237,7 +244,7 @@ class CreateOntologyProjectDetails(object):
     def creator(self):
         """
         Gets the creator of this CreateOntologyProjectDetails.
-        Creator name written into the generated project.yaml metadata file.
+        Creator metadata for the ontology project.
 
 
         :return: The creator of this CreateOntologyProjectDetails.
@@ -249,7 +256,7 @@ class CreateOntologyProjectDetails(object):
     def creator(self, creator):
         """
         Sets the creator of this CreateOntologyProjectDetails.
-        Creator name written into the generated project.yaml metadata file.
+        Creator metadata for the ontology project.
 
 
         :param creator: The creator of this CreateOntologyProjectDetails.
@@ -261,7 +268,7 @@ class CreateOntologyProjectDetails(object):
     def ontology_version(self):
         """
         Gets the ontology_version of this CreateOntologyProjectDetails.
-        Initial semantic ontology version written into project.yaml.
+        Initial semantic ontology version metadata for the ontology project.
 
 
         :return: The ontology_version of this CreateOntologyProjectDetails.
@@ -273,7 +280,7 @@ class CreateOntologyProjectDetails(object):
     def ontology_version(self, ontology_version):
         """
         Sets the ontology_version of this CreateOntologyProjectDetails.
-        Initial semantic ontology version written into project.yaml.
+        Initial semantic ontology version metadata for the ontology project.
 
 
         :param ontology_version: The ontology_version of this CreateOntologyProjectDetails.
@@ -285,7 +292,7 @@ class CreateOntologyProjectDetails(object):
     def base_uri(self):
         """
         Gets the base_uri of this CreateOntologyProjectDetails.
-        Base URI written as baseURI in project.yaml.
+        Base URI metadata for ontology files.
 
 
         :return: The base_uri of this CreateOntologyProjectDetails.
@@ -297,7 +304,7 @@ class CreateOntologyProjectDetails(object):
     def base_uri(self, base_uri):
         """
         Sets the base_uri of this CreateOntologyProjectDetails.
-        Base URI written as baseURI in project.yaml.
+        Base URI metadata for ontology files.
 
 
         :param base_uri: The base_uri of this CreateOntologyProjectDetails.
@@ -309,7 +316,7 @@ class CreateOntologyProjectDetails(object):
     def default_language(self):
         """
         Gets the default_language of this CreateOntologyProjectDetails.
-        Default language tag written into project.yaml.
+        Default language tag metadata for ontology files.
 
 
         :return: The default_language of this CreateOntologyProjectDetails.
@@ -321,7 +328,7 @@ class CreateOntologyProjectDetails(object):
     def default_language(self, default_language):
         """
         Sets the default_language of this CreateOntologyProjectDetails.
-        Default language tag written into project.yaml.
+        Default language tag metadata for ontology files.
 
 
         :param default_language: The default_language of this CreateOntologyProjectDetails.
@@ -456,6 +463,26 @@ class CreateOntologyProjectDetails(object):
         :type: str
         """
         self._git_folder_path = git_folder_path
+
+    @property
+    def target_connection(self):
+        """
+        Gets the target_connection of this CreateOntologyProjectDetails.
+
+        :return: The target_connection of this CreateOntologyProjectDetails.
+        :rtype: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+        """
+        return self._target_connection
+
+    @target_connection.setter
+    def target_connection(self, target_connection):
+        """
+        Sets the target_connection of this CreateOntologyProjectDetails.
+
+        :param target_connection: The target_connection of this CreateOntologyProjectDetails.
+        :type: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+        """
+        self._target_connection = target_connection
 
     def __repr__(self):
         return formatted_flat_dict(self)

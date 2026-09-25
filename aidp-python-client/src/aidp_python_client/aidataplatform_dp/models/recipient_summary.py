@@ -110,7 +110,7 @@ class RecipientSummary(object):
     def key(self):
         """
         **[Required]** Gets the key of this RecipientSummary.
-        Unique identifier for this recipient in AI Data Platform Workbench instance.
+        Unique identifier for this recipient in AI Data Platform instance.
 
 
         :return: The key of this RecipientSummary.
@@ -122,7 +122,7 @@ class RecipientSummary(object):
     def key(self, key):
         """
         Sets the key of this RecipientSummary.
-        Unique identifier for this recipient in AI Data Platform Workbench instance.
+        Unique identifier for this recipient in AI Data Platform instance.
 
 
         :param key: The key of this RecipientSummary.
@@ -134,7 +134,7 @@ class RecipientSummary(object):
     def display_name(self):
         """
         **[Required]** Gets the display_name of this RecipientSummary.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :return: The display_name of this RecipientSummary.
@@ -146,7 +146,7 @@ class RecipientSummary(object):
     def display_name(self, display_name):
         """
         Sets the display_name of this RecipientSummary.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :param display_name: The display_name of this RecipientSummary.

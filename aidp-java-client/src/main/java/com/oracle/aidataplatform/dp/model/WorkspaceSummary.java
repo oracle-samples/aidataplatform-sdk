@@ -36,14 +36,14 @@ public final class WorkspaceSummary  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The key of the AI Data Platform Workbench workspace.
+     * The key of the AI Data Platform workspace.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private String key;
 
         /**
-         * The key of the AI Data Platform Workbench workspace.
+         * The key of the AI Data Platform workspace.
          * @param key the value to set
          * @return this builder
          **/
@@ -54,14 +54,14 @@ public Builder key(String key) {
     return this;
 }
             /**
-     * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+     * A user-friendly name that has to be unique in a AI Data Platform instance.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("displayName")
 private String displayName;
 
         /**
-         * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+         * A user-friendly name that has to be unique in a AI Data Platform instance.
          * @param displayName the value to set
          * @return this builder
          **/
@@ -72,14 +72,14 @@ public Builder displayName(String displayName) {
     return this;
 }
             /**
-     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("type")
 private Type type;
 
         /**
-         * Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+         * Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
          * @param type the value to set
          * @return this builder
          **/
@@ -108,7 +108,7 @@ public Builder description(String description) {
     return this;
 }
             /**
-     * The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the AI Data Platform workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      **/
@@ -117,7 +117,7 @@ public Builder description(String description) {
 private java.util.Date timeCreated;
 
         /**
-         * The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+         * The date and time the AI Data Platform workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
          * @param timeCreated the value to set
@@ -130,7 +130,7 @@ public Builder timeCreated(java.util.Date timeCreated) {
     return this;
 }
             /**
-     * The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the AI Data Platform workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      **/
@@ -139,7 +139,7 @@ public Builder timeCreated(java.util.Date timeCreated) {
 private java.util.Date timeUpdated;
 
         /**
-         * The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+         * The date and time the AI Data Platform workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
          * @param timeUpdated the value to set
@@ -152,14 +152,14 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
     return this;
 }
             /**
-     * The current state of the AI Data Platform Workbench workspace.
+     * The current state of the AI Data Platform workspace.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("lifecycleState")
 private Workspace.LifecycleState lifecycleState;
 
         /**
-         * The current state of the AI Data Platform Workbench workspace.
+         * The current state of the AI Data Platform workspace.
          * @param lifecycleState the value to set
          * @return this builder
          **/
@@ -408,14 +408,14 @@ return this;
 
 
         /**
-     * The key of the AI Data Platform Workbench workspace.
+     * The key of the AI Data Platform workspace.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * The key of the AI Data Platform Workbench workspace.
+     * The key of the AI Data Platform workspace.
      * @return the value
      **/
     
@@ -425,14 +425,14 @@ return this;
 
 
         /**
-     * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+     * A user-friendly name that has to be unique in a AI Data Platform instance.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("displayName")
     private final String displayName;
 
         /**
-     * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+     * A user-friendly name that has to be unique in a AI Data Platform instance.
      * @return the value
      **/
     
@@ -441,7 +441,7 @@ return this;
     }
 
     /**
-     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
      **/
     public enum Type implements com.oracle.bmc.http.internal.BmcEnum {
         Default("DEFAULT"),
@@ -487,14 +487,14 @@ return this;
         }
     };
         /**
-     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("type")
     private final Type type;
 
         /**
-     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+     * Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
      * @return the value
      **/
     
@@ -521,7 +521,7 @@ return this;
 
 
         /**
-     * The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the AI Data Platform workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      **/
@@ -530,7 +530,7 @@ return this;
     private final java.util.Date timeCreated;
 
         /**
-     * The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the AI Data Platform workspace was created, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      * @return the value
@@ -542,7 +542,7 @@ return this;
 
 
         /**
-     * The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the AI Data Platform workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      **/
@@ -551,7 +551,7 @@ return this;
     private final java.util.Date timeUpdated;
 
         /**
-     * The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
+     * The date and time the AI Data Platform workspace was updated, in the format defined by <a href="https://tools.ietf.org/html/rfc3339" target="_blank" rel="noopener noreferrer">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
      * @return the value
@@ -563,14 +563,14 @@ return this;
 
 
         /**
-     * The current state of the AI Data Platform Workbench workspace.
+     * The current state of the AI Data Platform workspace.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("lifecycleState")
     private final Workspace.LifecycleState lifecycleState;
 
         /**
-     * The current state of the AI Data Platform Workbench workspace.
+     * The current state of the AI Data Platform workspace.
      * @return the value
      **/
     

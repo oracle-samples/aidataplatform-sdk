@@ -275,7 +275,7 @@ public Builder logId(String logId) {
 }
             /**
      * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
      **/
     
@@ -284,7 +284,7 @@ private String logGroupId;
 
         /**
          * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
          * @param logGroupId the value to set
          * @return this builder
@@ -538,7 +538,7 @@ return this;
 
         /**
      * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
      **/
     
@@ -547,7 +547,7 @@ return this;
 
         /**
      * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
      * @return the value
      **/

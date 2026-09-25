@@ -5,15 +5,30 @@ import common = require("oci-common");
 
 
 /**
-* Credential Store reference for the ATP connection used by ontology publish.
+* Credential Store or external catalog reference for the ATP/ADW connection used by ontology publish.
+* Provide {@code type} and {@code key}. Legacy {@code credentialKey} and {@code catalogKey} payloads are also accepted.
+* {@code namespace} is valid only with Credential Store targets.
+* 
 */
 export interface OntologyPublishTargetConnectionReference {
     /**
-    * Credential Store key containing the target ATP connection secret pairs.
+    * Target connection reference type. Required when {@code key} is supplied.
     */
-    'credentialKey': string;
+    'type'?: OntologyPublishTargetConnectionReference.Type;
     /**
-    * Credential Store namespace. Defaults to {@code default} when omitted.
+    * Credential Store key or ADW external catalog key. Required when {@code type} is supplied.
+    */
+    'key'?: string;
+    /**
+    * Deprecated. Credential Store key containing the target ATP/ADW connection secret pairs.
+    */
+    'credentialKey'?: string;
+    /**
+    * Deprecated. ADW external catalog key whose decrypted connection properties should be used as the ontology publish target.
+    */
+    'catalogKey'?: string;
+    /**
+    * Credential Store namespace. Defaults to {@code default} when omitted for Credential Store targets; not used with external catalog targets.
     */
     'namespace'?: string;
     /**
@@ -25,12 +40,25 @@ export interface OntologyPublishTargetConnectionReference {
 
 export namespace OntologyPublishTargetConnectionReference {
 
+    export enum Type {
+    
+    CredentialStore = "CREDENTIAL_STORE",
+    ExternalCatalog = "EXTERNAL_CATALOG"
+
+}
+
+
+
+
 
 
 
     export function getJsonObj(obj: OntologyPublishTargetConnectionReference): object {
         const jsonObj = {...obj, ...{
             
+
+
+
 
 
 
@@ -44,6 +72,9 @@ export namespace OntologyPublishTargetConnectionReference {
     export function getDeserializedJsonObj(obj: OntologyPublishTargetConnectionReference): object {
         const jsonObj = {...obj, ...{
             
+
+
+
 
 
 

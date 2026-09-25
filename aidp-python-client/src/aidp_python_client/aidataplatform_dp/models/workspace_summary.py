@@ -152,7 +152,7 @@ class WorkspaceSummary(object):
     def key(self):
         """
         **[Required]** Gets the key of this WorkspaceSummary.
-        The key of the AI Data Platform Workbench workspace.
+        The key of the AI Data Platform workspace.
 
 
         :return: The key of this WorkspaceSummary.
@@ -164,7 +164,7 @@ class WorkspaceSummary(object):
     def key(self, key):
         """
         Sets the key of this WorkspaceSummary.
-        The key of the AI Data Platform Workbench workspace.
+        The key of the AI Data Platform workspace.
 
 
         :param key: The key of this WorkspaceSummary.
@@ -176,7 +176,7 @@ class WorkspaceSummary(object):
     def display_name(self):
         """
         **[Required]** Gets the display_name of this WorkspaceSummary.
-        A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+        A user-friendly name that has to be unique in a AI Data Platform instance.
 
 
         :return: The display_name of this WorkspaceSummary.
@@ -188,7 +188,7 @@ class WorkspaceSummary(object):
     def display_name(self, display_name):
         """
         Sets the display_name of this WorkspaceSummary.
-        A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+        A user-friendly name that has to be unique in a AI Data Platform instance.
 
 
         :param display_name: The display_name of this WorkspaceSummary.
@@ -200,7 +200,7 @@ class WorkspaceSummary(object):
     def type(self):
         """
         **[Required]** Gets the type of this WorkspaceSummary.
-        Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+        Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
 
         Allowed values for this property are: "DEFAULT", "USER", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -215,7 +215,7 @@ class WorkspaceSummary(object):
     def type(self, type):
         """
         Sets the type of this WorkspaceSummary.
-        Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+        Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
 
 
         :param type: The type of this WorkspaceSummary.
@@ -254,7 +254,7 @@ class WorkspaceSummary(object):
     def time_created(self):
         """
         **[Required]** Gets the time_created of this WorkspaceSummary.
-        The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+        The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
         Example: `2016-08-25T21:10:29.600Z`
 
 
@@ -267,7 +267,7 @@ class WorkspaceSummary(object):
     def time_created(self, time_created):
         """
         Sets the time_created of this WorkspaceSummary.
-        The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+        The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
         Example: `2016-08-25T21:10:29.600Z`
 
 
@@ -280,7 +280,7 @@ class WorkspaceSummary(object):
     def time_updated(self):
         """
         Gets the time_updated of this WorkspaceSummary.
-        The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+        The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
         Example: `2016-08-25T21:10:29.600Z`
 
 
@@ -293,7 +293,7 @@ class WorkspaceSummary(object):
     def time_updated(self, time_updated):
         """
         Sets the time_updated of this WorkspaceSummary.
-        The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+        The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
         Example: `2016-08-25T21:10:29.600Z`
 
 
@@ -306,7 +306,7 @@ class WorkspaceSummary(object):
     def lifecycle_state(self):
         """
         **[Required]** Gets the lifecycle_state of this WorkspaceSummary.
-        The current state of the AI Data Platform Workbench workspace.
+        The current state of the AI Data Platform workspace.
 
 
         :return: The lifecycle_state of this WorkspaceSummary.
@@ -318,7 +318,7 @@ class WorkspaceSummary(object):
     def lifecycle_state(self, lifecycle_state):
         """
         Sets the lifecycle_state of this WorkspaceSummary.
-        The current state of the AI Data Platform Workbench workspace.
+        The current state of the AI Data Platform workspace.
 
 
         :param lifecycle_state: The lifecycle_state of this WorkspaceSummary.

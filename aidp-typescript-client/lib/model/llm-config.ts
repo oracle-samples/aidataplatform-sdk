@@ -5,33 +5,28 @@ import common = require("oci-common");
 
 
 /**
-* Large Language Model configuration
+* OCI Generative AI Large Language Model configuration.
 */
-export interface LlmConfig {
+export interface LlmConfig extends model.BaseLlmConfig {
     /**
-    * The unique identifier of the Large Language Model (LLM) to use in the Agent or Tool
-    */
-    'modelId'?: string;
-    /**
-    * The Large language model provider name
+    * The OCI Generative AI provider name.
     */
     'provider'?: string;
     /**
-    * The Large language model Region ID
+    * The OCI Generative AI region ID.
     */
     'regionId'?: string;
 
+   "type": string;
 }
 
 export namespace LlmConfig {
 
 
 
-
-    export function getJsonObj(obj: LlmConfig): object {
-        const jsonObj = {...obj, ...{
+    export function getJsonObj(obj: LlmConfig, isParentJsonObj?: boolean): object {
+        const jsonObj = {...isParentJsonObj? obj : model.BaseLlmConfig.getJsonObj(obj) as LlmConfig, ...{
             
-
 
 
         }};
@@ -40,11 +35,10 @@ export namespace LlmConfig {
         
         return jsonObj;
     }
-    ;
-    export function getDeserializedJsonObj(obj: LlmConfig): object {
-        const jsonObj = {...obj, ...{
+    export const type = 'OCI_GEN_AI';
+    export function getDeserializedJsonObj(obj: LlmConfig, isParentJsonObj?: boolean): object {
+        const jsonObj = {...isParentJsonObj? obj : model.BaseLlmConfig.getDeserializedJsonObj(obj) as LlmConfig, ...{
             
-
 
 
          }};

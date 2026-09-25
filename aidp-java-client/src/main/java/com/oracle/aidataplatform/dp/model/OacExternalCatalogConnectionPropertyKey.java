@@ -14,6 +14,7 @@ public enum OacExternalCatalogConnectionPropertyKey implements com.oracle.bmc.ht
     OacIdcsClientScope("OAC_IDCS_CLIENT_SCOPE"),
     OacIdcsCertificate("OAC_IDCS_CERTIFICATE"),
     OacIdcsPrivateKey("OAC_IDCS_PRIVATE_KEY"),
+    OacDiscoveryUser("OAC_DISCOVERY_USER"),
     ;
 
     

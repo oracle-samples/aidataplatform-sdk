@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface CatalogTestConnectionDetails {
     /**
-    * The AI Data Platform Workbench catalog key.
+    * The AI Data Platform catalog key.
     */
     'key'?: string;
     /**

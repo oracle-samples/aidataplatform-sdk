@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * The details for creating a Delta Share in AI Data Platform Workbench.
+ * The details for creating a Delta Share in AI Data Platform.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CreateShareDetails.Builder.class)
@@ -22,14 +22,14 @@ public final class CreateShareDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+     * A user-friendly name. Has to be unique within the AI Data Platform instance.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("displayName")
 private String displayName;
 
         /**
-         * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+         * A user-friendly name. Has to be unique within the AI Data Platform instance.
          * @param displayName the value to set
          * @return this builder
          **/
@@ -88,14 +88,14 @@ return this;
 
 
         /**
-     * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+     * A user-friendly name. Has to be unique within the AI Data Platform instance.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("displayName")
     private final String displayName;
 
         /**
-     * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+     * A user-friendly name. Has to be unique within the AI Data Platform instance.
      * @return the value
      **/
     

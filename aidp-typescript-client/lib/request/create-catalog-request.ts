@@ -12,7 +12,7 @@ export interface CreateCatalogRequest extends common.BaseRequest {
  */
  'aiDataPlatformId': string;
 /**
- * Details for the new AI Data Platform Workbench catalog.
+ * Details for the new AI Data Platform catalog.
  */
  'createCatalogDetails':  model.CreateCatalogDetails;
 /**

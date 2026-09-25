@@ -25,11 +25,16 @@ class ClusterEvent(object):
     #: This constant has a value of "CLUSTER_STATE_EVENT"
     TYPE_CLUSTER_STATE_EVENT = "CLUSTER_STATE_EVENT"
 
+    #: A constant which can be used with the type property of a ClusterEvent.
+    #: This constant has a value of "DRIVER_FAILED_AND_RECOVERED_EVENT"
+    TYPE_DRIVER_FAILED_AND_RECOVERED_EVENT = "DRIVER_FAILED_AND_RECOVERED_EVENT"
+
     def __init__(self, **kwargs):
         """
         Initializes a new ClusterEvent object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
         to a service operations then you should favor using a subclass over the base class:
 
+        * :class:`~oci.aidataplatform_dp.models.DriverFailedAndRecoveredEvent`
         * :class:`~oci.aidataplatform_dp.models.ClusterStateEvent`
         * :class:`~oci.aidataplatform_dp.models.ClusterPatchEvent`
         * :class:`~oci.aidataplatform_dp.models.ClusterExecutionContextAvailabilityEvent`
@@ -38,7 +43,7 @@ class ClusterEvent(object):
 
         :param type:
             The value to assign to the type property of this ClusterEvent.
-            Allowed values for this property are: "CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT"
+            Allowed values for this property are: "CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT", "DRIVER_FAILED_AND_RECOVERED_EVENT"
         :type type: str
 
         """
@@ -60,6 +65,9 @@ class ClusterEvent(object):
         """
         type = object_dictionary['type']
 
+        if type == 'DRIVER_FAILED_AND_RECOVERED_EVENT':
+            return 'DriverFailedAndRecoveredEvent'
+
         if type == 'CLUSTER_STATE_EVENT':
             return 'ClusterStateEvent'
 
@@ -77,7 +85,7 @@ class ClusterEvent(object):
         **[Required]** Gets the type of this ClusterEvent.
         The type of the cluster event
 
-        Allowed values for this property are: "CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT"
+        Allowed values for this property are: "CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT", "DRIVER_FAILED_AND_RECOVERED_EVENT"
 
 
         :return: The type of this ClusterEvent.
@@ -95,7 +103,7 @@ class ClusterEvent(object):
         :param type: The type of this ClusterEvent.
         :type: str
         """
-        allowed_values = ["CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT"]
+        allowed_values = ["CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT", "DRIVER_FAILED_AND_RECOVERED_EVENT"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
                 "Invalid value for `type`, must be None or one of {0}"

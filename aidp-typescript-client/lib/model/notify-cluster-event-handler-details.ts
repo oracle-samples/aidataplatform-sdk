@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Notifier API during cluster patching.
+* Details of a cluster event notification.
 */
 export interface NotifyClusterEventHandlerDetails {
     /**
@@ -20,7 +20,7 @@ export interface NotifyClusterEventHandlerDetails {
     * State of cluster.
     */
     'state'?: NotifyClusterEventHandlerDetails.State;
-    'clusterEvent'?: model.ClusterStateEvent| model.ClusterPatchEvent| model.ClusterExecutionContextAvailabilityEvent;
+    'clusterEvent'?: model.DriverFailedAndRecoveredEvent| model.ClusterStateEvent| model.ClusterPatchEvent| model.ClusterExecutionContextAvailabilityEvent;
 
 }
 

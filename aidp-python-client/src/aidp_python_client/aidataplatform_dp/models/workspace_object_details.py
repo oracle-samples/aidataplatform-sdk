@@ -10,10 +10,10 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class WorkspaceObjectDetails(object):
     """
-    A WorkspaceObject is a file or folder belonging to an AI Data Platform Workbench workspace.
+    A WorkspaceObject is a file or folder belonging to an AI Data Platform workspace.
     To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to
     an administrator. If you're an administrator who needs to write policies to give users access, see
-    <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform Workbench</a>.
+    <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform</a>.
     """
 
     #: A constant which can be used with the type property of a WorkspaceObjectDetails.

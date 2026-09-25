@@ -10,10 +10,10 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class Catalog(object):
     """
-    AI Data Platform Workbench catalogs enable you to manage your data and metadata.
+    AI Data Platform catalogs enable you to manage your data and metadata.
     To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to
     an administrator. If you're an administrator who needs to write policies to give users access, see
-    <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform Workbench</a>.
+    <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform</a>.
     """
 
     #: A constant which can be used with the catalog_type property of a Catalog.
@@ -205,7 +205,7 @@ class Catalog(object):
     def key(self):
         """
         **[Required]** Gets the key of this Catalog.
-        The AI Data Platform Workbench catalog key.
+        The AI Data Platform catalog key.
 
 
         :return: The key of this Catalog.
@@ -217,7 +217,7 @@ class Catalog(object):
     def key(self, key):
         """
         Sets the key of this Catalog.
-        The AI Data Platform Workbench catalog key.
+        The AI Data Platform catalog key.
 
 
         :param key: The key of this Catalog.
@@ -435,7 +435,7 @@ class Catalog(object):
     def time_created(self):
         """
         **[Required]** Gets the time_created of this Catalog.
-        The date and time the AI Data Platform Workbench catalog was created.
+        The date and time the AI Data Platform catalog was created.
 
 
         :return: The time_created of this Catalog.
@@ -447,7 +447,7 @@ class Catalog(object):
     def time_created(self, time_created):
         """
         Sets the time_created of this Catalog.
-        The date and time the AI Data Platform Workbench catalog was created.
+        The date and time the AI Data Platform catalog was created.
 
 
         :param time_created: The time_created of this Catalog.
@@ -459,7 +459,7 @@ class Catalog(object):
     def time_updated(self):
         """
         Gets the time_updated of this Catalog.
-        The date and time the AI Data Platform Workbench catalog was updated.
+        The date and time the AI Data Platform catalog was updated.
 
 
         :return: The time_updated of this Catalog.
@@ -471,7 +471,7 @@ class Catalog(object):
     def time_updated(self, time_updated):
         """
         Sets the time_updated of this Catalog.
-        The date and time the AI Data Platform Workbench catalog was updated.
+        The date and time the AI Data Platform catalog was updated.
 
 
         :param time_updated: The time_updated of this Catalog.

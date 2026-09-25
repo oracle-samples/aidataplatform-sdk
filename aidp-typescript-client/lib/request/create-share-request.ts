@@ -12,7 +12,7 @@ export interface CreateShareRequest extends common.BaseRequest {
  */
  'aiDataPlatformId': string;
 /**
- * Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+ * Details for the new share for Delta Share protocol in AI Data Platform.
  */
  'createShareDetails':  model.CreateShareDetails;
 /**

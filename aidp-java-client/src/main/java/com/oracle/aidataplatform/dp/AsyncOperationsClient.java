@@ -78,6 +78,41 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
+    public CancelAsyncOperationResponse cancelAsyncOperation(CancelAsyncOperationRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getAsyncOperationKey(), "asyncOperationKey must not be blank");
+
+
+return clientCall(request, CancelAsyncOperationResponse::builder)
+        .logger(LOG, "cancelAsyncOperation")
+        .serviceDetails("AsyncOperations", "CancelAsyncOperation", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CancelAsyncOperationRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("asyncOperations").appendPathParam(request.getAsyncOperationKey()).appendPathParam("actions").appendPathParam("cancel")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.AsyncOperation.class, CancelAsyncOperationResponse.Builder::asyncOperation)
+                .handleResponseHeaderString("etag", 
+            CancelAsyncOperationResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            CancelAsyncOperationResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public GetAsyncOperationResponse getAsyncOperation(GetAsyncOperationRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");

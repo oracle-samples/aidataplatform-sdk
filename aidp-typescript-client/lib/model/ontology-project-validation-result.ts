@@ -16,14 +16,7 @@ export interface OntologyProjectValidationResult {
     * Whether OT SDK validation accepted the project.
     */
     'valid': boolean;
-    /**
-    * OT SDK operation name.
-    */
-    'operation'?: string;
-    /**
-    * JSON validation result or error details returned by OT SDK.
-    */
-    'validationReport'?: string;
+    'findings'?: Array<model.OntologyValidationFinding>;
     /**
     * OT SDK validation error code when validation fails.
     */
@@ -42,14 +35,16 @@ export namespace OntologyProjectValidationResult {
 
 
 
-
     export function getJsonObj(obj: OntologyProjectValidationResult): object {
         const jsonObj = {...obj, ...{
             
 
 
-
-
+                'findings': obj.findings ?
+                
+                obj.findings.map((item)=>{return model.OntologyValidationFinding.getJsonObj(item)})
+                
+                 : undefined,
 
 
         }};
@@ -64,8 +59,11 @@ export namespace OntologyProjectValidationResult {
             
 
 
-
-
+                    'findings': obj.findings ?
+                
+                obj.findings.map((item)=>{return model.OntologyValidationFinding.getDeserializedJsonObj(item)})
+                
+                 : undefined,
 
 
          }};

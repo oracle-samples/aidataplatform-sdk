@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class UpdateShareDetails(object):
     """
-    The details for updating a Delta Share metadata in AI Data Platform Workbench.
+    The details for updating a Delta Share metadata in AI Data Platform.
     """
 
     def __init__(self, **kwargs):
@@ -44,7 +44,7 @@ class UpdateShareDetails(object):
     def display_name(self):
         """
         Gets the display_name of this UpdateShareDetails.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :return: The display_name of this UpdateShareDetails.
@@ -56,7 +56,7 @@ class UpdateShareDetails(object):
     def display_name(self, display_name):
         """
         Sets the display_name of this UpdateShareDetails.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :param display_name: The display_name of this UpdateShareDetails.

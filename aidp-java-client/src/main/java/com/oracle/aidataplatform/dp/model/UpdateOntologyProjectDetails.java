@@ -12,18 +12,20 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class UpdateOntologyProjectDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "description", "namespace", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath", "lifecycleState"})
-    public UpdateOntologyProjectDetails(String key, String displayName, String description, String namespace, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath, String lifecycleState) {
+    @java.beans.ConstructorProperties({"key", "displayName", "description", "namespace", "baseUri", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath", "targetConnection", "lifecycleState"})
+    public UpdateOntologyProjectDetails(String key, String displayName, String description, String namespace, String baseUri, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath, OntologyPublishTargetConnectionReference targetConnection, String lifecycleState) {
         super();
         this.key = key;
         this.displayName = displayName;
         this.description = description;
         this.namespace = namespace;
+        this.baseUri = baseUri;
         this.workspaceBasePath = workspaceBasePath;
         this.sourceType = sourceType;
         this.gitRepositoryKey = gitRepositoryKey;
         this.gitBranchName = gitBranchName;
         this.gitFolderPath = gitFolderPath;
+        this.targetConnection = targetConnection;
         this.lifecycleState = lifecycleState;
     }
 
@@ -67,6 +69,24 @@ private String namespace;
 
 public Builder namespace(String namespace) {
     this.namespace = namespace;
+    return this;
+}
+            /**
+     * Base URI metadata for ontology files.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("baseUri")
+private String baseUri;
+
+        /**
+         * Base URI metadata for ontology files.
+         * @param baseUri the value to set
+         * @return this builder
+         **/
+        
+
+public Builder baseUri(String baseUri) {
+    this.baseUri = baseUri;
     return this;
 }
             /**
@@ -160,6 +180,16 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
         
+@com.fasterxml.jackson.annotation.JsonProperty("targetConnection")
+private OntologyPublishTargetConnectionReference targetConnection;
+
+
+
+public Builder targetConnection(OntologyPublishTargetConnectionReference targetConnection) {
+    this.targetConnection = targetConnection;
+    return this;
+}
+        
 @com.fasterxml.jackson.annotation.JsonProperty("lifecycleState")
 private String lifecycleState;
 
@@ -176,11 +206,13 @@ public Builder lifecycleState(String lifecycleState) {
                 , this.displayName
                 , this.description
                 , this.namespace
+                , this.baseUri
                 , this.workspaceBasePath
                 , this.sourceType
                 , this.gitRepositoryKey
                 , this.gitBranchName
                 , this.gitFolderPath
+                , this.targetConnection
                 , this.lifecycleState);            return model;
         }
 
@@ -190,11 +222,13 @@ public Builder lifecycleState(String lifecycleState) {
     this.displayName(model.getDisplayName());
     this.description(model.getDescription());
     this.namespace(model.getNamespace());
+    this.baseUri(model.getBaseUri());
     this.workspaceBasePath(model.getWorkspaceBasePath());
     this.sourceType(model.getSourceType());
     this.gitRepositoryKey(model.getGitRepositoryKey());
     this.gitBranchName(model.getGitBranchName());
     this.gitFolderPath(model.getGitFolderPath());
+    this.targetConnection(model.getTargetConnection());
     this.lifecycleState(model.getLifecycleState());
 return this;
         }
@@ -252,6 +286,23 @@ return this;
     
     public String getNamespace() {
         return namespace;
+    }
+
+
+        /**
+     * Base URI metadata for ontology files.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("baseUri")
+    private final String baseUri;
+
+        /**
+     * Base URI metadata for ontology files.
+     * @return the value
+     **/
+    
+    public String getBaseUri() {
+        return baseUri;
     }
 
 
@@ -341,6 +392,16 @@ return this;
 
 
     
+    @com.fasterxml.jackson.annotation.JsonProperty("targetConnection")
+    private final OntologyPublishTargetConnectionReference targetConnection;
+
+    
+    public OntologyPublishTargetConnectionReference getTargetConnection() {
+        return targetConnection;
+    }
+
+
+    
     @com.fasterxml.jackson.annotation.JsonProperty("lifecycleState")
     private final String lifecycleState;
 
@@ -366,11 +427,13 @@ return this;
         sb.append(", displayName=").append(String.valueOf(this.displayName));
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", namespace=").append(String.valueOf(this.namespace));
+        sb.append(", baseUri=").append(String.valueOf(this.baseUri));
         sb.append(", workspaceBasePath=").append(String.valueOf(this.workspaceBasePath));
         sb.append(", sourceType=").append(String.valueOf(this.sourceType));
         sb.append(", gitRepositoryKey=").append(String.valueOf(this.gitRepositoryKey));
         sb.append(", gitBranchName=").append(String.valueOf(this.gitBranchName));
         sb.append(", gitFolderPath=").append(String.valueOf(this.gitFolderPath));
+        sb.append(", targetConnection=").append(String.valueOf(this.targetConnection));
         sb.append(", lifecycleState=").append(String.valueOf(this.lifecycleState));
         sb.append(")");
         return sb.toString();
@@ -390,11 +453,13 @@ return this;
             java.util.Objects.equals(this.displayName, other.displayName) &&
             java.util.Objects.equals(this.description, other.description) &&
             java.util.Objects.equals(this.namespace, other.namespace) &&
+            java.util.Objects.equals(this.baseUri, other.baseUri) &&
             java.util.Objects.equals(this.workspaceBasePath, other.workspaceBasePath) &&
             java.util.Objects.equals(this.sourceType, other.sourceType) &&
             java.util.Objects.equals(this.gitRepositoryKey, other.gitRepositoryKey) &&
             java.util.Objects.equals(this.gitBranchName, other.gitBranchName) &&
             java.util.Objects.equals(this.gitFolderPath, other.gitFolderPath) &&
+            java.util.Objects.equals(this.targetConnection, other.targetConnection) &&
             java.util.Objects.equals(this.lifecycleState, other.lifecycleState);
     }
 
@@ -406,11 +471,13 @@ return this;
         result = (result * PRIME) + (this.displayName == null ? 43 : this.displayName.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.namespace == null ? 43 : this.namespace.hashCode());
+        result = (result * PRIME) + (this.baseUri == null ? 43 : this.baseUri.hashCode());
         result = (result * PRIME) + (this.workspaceBasePath == null ? 43 : this.workspaceBasePath.hashCode());
         result = (result * PRIME) + (this.sourceType == null ? 43 : this.sourceType.hashCode());
         result = (result * PRIME) + (this.gitRepositoryKey == null ? 43 : this.gitRepositoryKey.hashCode());
         result = (result * PRIME) + (this.gitBranchName == null ? 43 : this.gitBranchName.hashCode());
         result = (result * PRIME) + (this.gitFolderPath == null ? 43 : this.gitFolderPath.hashCode());
+        result = (result * PRIME) + (this.targetConnection == null ? 43 : this.targetConnection.hashCode());
         result = (result * PRIME) + (this.lifecycleState == null ? 43 : this.lifecycleState.hashCode());
         return result;
     }

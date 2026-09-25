@@ -76,14 +76,14 @@ public class TableSummary  {
 
     
         /**
-     * Type of table. Managed, external or mount table.
+     * Type of table. Managed, external, mount or synonym table.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("tableType")
     private final TableType tableType;
 
         /**
-     * Type of table. Managed, external or mount table.
+     * Type of table. Managed, external, mount or synonym table.
      * @return the value
      **/
     

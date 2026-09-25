@@ -96,7 +96,7 @@ class CatalogTestConnectionDetails(object):
     def key(self):
         """
         Gets the key of this CatalogTestConnectionDetails.
-        The AI Data Platform Workbench catalog key.
+        The AI Data Platform catalog key.
 
 
         :return: The key of this CatalogTestConnectionDetails.
@@ -108,7 +108,7 @@ class CatalogTestConnectionDetails(object):
     def key(self, key):
         """
         Sets the key of this CatalogTestConnectionDetails.
-        The AI Data Platform Workbench catalog key.
+        The AI Data Platform catalog key.
 
 
         :param key: The key of this CatalogTestConnectionDetails.

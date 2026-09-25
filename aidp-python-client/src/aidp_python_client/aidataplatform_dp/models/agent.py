@@ -76,9 +76,17 @@ class Agent(object):
             The value to assign to the deployment_mode property of this Agent.
         :type deployment_mode: str
 
+        :param deployment_state:
+            The value to assign to the deployment_state property of this Agent.
+        :type deployment_state: dict(str, DeploymentLifecycleState)
+
         :param uri:
             The value to assign to the uri property of this Agent.
         :type uri: str
+
+        :param a2a_endpoint_url:
+            The value to assign to the a2a_endpoint_url property of this Agent.
+        :type a2a_endpoint_url: str
 
         :param uri_state:
             The value to assign to the uri_state property of this Agent.
@@ -146,7 +154,9 @@ class Agent(object):
             'dependencies_file_path': 'str',
             'deployment_compute_key': 'str',
             'deployment_mode': 'str',
+            'deployment_state': 'dict(str, DeploymentLifecycleState)',
             'uri': 'str',
+            'a2a_endpoint_url': 'str',
             'uri_state': 'str',
             'lifecycle_state': 'str',
             'lifecycle_details': 'str',
@@ -173,7 +183,9 @@ class Agent(object):
             'dependencies_file_path': 'dependenciesFilePath',
             'deployment_compute_key': 'deploymentComputeKey',
             'deployment_mode': 'deploymentMode',
+            'deployment_state': 'deploymentState',
             'uri': 'uri',
+            'a2a_endpoint_url': 'a2aEndpointUrl',
             'uri_state': 'uriState',
             'lifecycle_state': 'lifecycleState',
             'lifecycle_details': 'lifecycleDetails',
@@ -199,7 +211,9 @@ class Agent(object):
         self._dependencies_file_path = None
         self._deployment_compute_key = None
         self._deployment_mode = None
+        self._deployment_state = None
         self._uri = None
+        self._a2a_endpoint_url = None
         self._uri_state = None
         self._lifecycle_state = None
         self._lifecycle_details = None
@@ -461,6 +475,30 @@ class Agent(object):
         self._deployment_mode = deployment_mode
 
     @property
+    def deployment_state(self):
+        """
+        Gets the deployment_state of this Agent.
+        The latest lifecycle states for the PROD and TEST deployment types.
+
+
+        :return: The deployment_state of this Agent.
+        :rtype: dict(str, DeploymentLifecycleState)
+        """
+        return self._deployment_state
+
+    @deployment_state.setter
+    def deployment_state(self, deployment_state):
+        """
+        Sets the deployment_state of this Agent.
+        The latest lifecycle states for the PROD and TEST deployment types.
+
+
+        :param deployment_state: The deployment_state of this Agent.
+        :type: dict(str, DeploymentLifecycleState)
+        """
+        self._deployment_state = deployment_state
+
+    @property
     def uri(self):
         """
         Gets the uri of this Agent.
@@ -483,6 +521,30 @@ class Agent(object):
         :type: str
         """
         self._uri = uri
+
+    @property
+    def a2a_endpoint_url(self):
+        """
+        Gets the a2a_endpoint_url of this Agent.
+        The A2A endpoint URL for the PROD deployment.
+
+
+        :return: The a2a_endpoint_url of this Agent.
+        :rtype: str
+        """
+        return self._a2a_endpoint_url
+
+    @a2a_endpoint_url.setter
+    def a2a_endpoint_url(self, a2a_endpoint_url):
+        """
+        Sets the a2a_endpoint_url of this Agent.
+        The A2A endpoint URL for the PROD deployment.
+
+
+        :param a2a_endpoint_url: The a2a_endpoint_url of this Agent.
+        :type: str
+        """
+        self._a2a_endpoint_url = a2a_endpoint_url
 
     @property
     def uri_state(self):

@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class RegisteredModel  {
     @Deprecated
-    @java.beans.ConstructorProperties({"name", "creationTimestamp", "lastUpdatedTimestamp", "description", "latestVersions", "aliases", "deploymentJobId", "deploymentJobState", "tags"})
-    public RegisteredModel(String name, Long creationTimestamp, Long lastUpdatedTimestamp, String description, java.util.List<ModelVersion> latestVersions, java.util.List<RegisteredModelAlias> aliases, String deploymentJobId, DeploymentJobState deploymentJobState, java.util.List<RegisteredModelTag> tags) {
+    @java.beans.ConstructorProperties({"name", "creationTimestamp", "lastUpdatedTimestamp", "description", "latestVersions", "aliases", "deploymentJobId", "deploymentJobState", "tags", "deploymentSummary"})
+    public RegisteredModel(String name, Long creationTimestamp, Long lastUpdatedTimestamp, String description, java.util.List<ModelVersion> latestVersions, java.util.List<RegisteredModelAlias> aliases, String deploymentJobId, DeploymentJobState deploymentJobState, java.util.List<RegisteredModelTag> tags, DeploymentSummary deploymentSummary) {
         super();
         this.name = name;
         this.creationTimestamp = creationTimestamp;
@@ -24,6 +24,7 @@ public final class RegisteredModel  {
         this.deploymentJobId = deploymentJobId;
         this.deploymentJobState = deploymentJobState;
         this.tags = tags;
+        this.deploymentSummary = deploymentSummary;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -190,6 +191,16 @@ public Builder tags(java.util.List<RegisteredModelTag> tags) {
     this.tags = tags;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("deployment_summary")
+private DeploymentSummary deploymentSummary;
+
+
+
+public Builder deploymentSummary(DeploymentSummary deploymentSummary) {
+    this.deploymentSummary = deploymentSummary;
+    return this;
+}
 
 
         public RegisteredModel build() {
@@ -201,7 +212,8 @@ public Builder tags(java.util.List<RegisteredModelTag> tags) {
                 , this.aliases
                 , this.deploymentJobId
                 , this.deploymentJobState
-                , this.tags);            return model;
+                , this.tags
+                , this.deploymentSummary);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -215,6 +227,7 @@ public Builder tags(java.util.List<RegisteredModelTag> tags) {
     this.deploymentJobId(model.getDeploymentJobId());
     this.deploymentJobState(model.getDeploymentJobState());
     this.tags(model.getTags());
+    this.deploymentSummary(model.getDeploymentSummary());
 return this;
         }
     }
@@ -386,6 +399,16 @@ return this;
         return tags;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("deployment_summary")
+    private final DeploymentSummary deploymentSummary;
+
+    
+    public DeploymentSummary getDeploymentSummary() {
+        return deploymentSummary;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -408,6 +431,7 @@ return this;
         sb.append(", deploymentJobId=").append(String.valueOf(this.deploymentJobId));
         sb.append(", deploymentJobState=").append(String.valueOf(this.deploymentJobState));
         sb.append(", tags=").append(String.valueOf(this.tags));
+        sb.append(", deploymentSummary=").append(String.valueOf(this.deploymentSummary));
         sb.append(")");
         return sb.toString();
     }
@@ -430,7 +454,8 @@ return this;
             java.util.Objects.equals(this.aliases, other.aliases) &&
             java.util.Objects.equals(this.deploymentJobId, other.deploymentJobId) &&
             java.util.Objects.equals(this.deploymentJobState, other.deploymentJobState) &&
-            java.util.Objects.equals(this.tags, other.tags);
+            java.util.Objects.equals(this.tags, other.tags) &&
+            java.util.Objects.equals(this.deploymentSummary, other.deploymentSummary);
     }
 
     @Override
@@ -446,6 +471,7 @@ return this;
         result = (result * PRIME) + (this.deploymentJobId == null ? 43 : this.deploymentJobId.hashCode());
         result = (result * PRIME) + (this.deploymentJobState == null ? 43 : this.deploymentJobState.hashCode());
         result = (result * PRIME) + (this.tags == null ? 43 : this.tags.hashCode());
+        result = (result * PRIME) + (this.deploymentSummary == null ? 43 : this.deploymentSummary.hashCode());
         return result;
     }
 

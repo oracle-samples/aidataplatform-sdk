@@ -143,6 +143,16 @@ public Builder replicaConfig(ReplicaConfig replicaConfig) {
     this.replicaConfig = replicaConfig;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("autoScaleConfiguration")
+private AutoScaleConfiguration autoScaleConfiguration;
+
+
+
+public Builder autoScaleConfiguration(AutoScaleConfiguration autoScaleConfiguration) {
+    this.autoScaleConfiguration = autoScaleConfiguration;
+    return this;
+}
 
 
         public AiCompute build() {
@@ -163,7 +173,8 @@ public Builder replicaConfig(ReplicaConfig replicaConfig) {
                 , this.updatedByName
                 , this.stoppedBy
                 , this.stoppedByName
-                , this.replicaConfig);            return model;
+                , this.replicaConfig
+                , this.autoScaleConfiguration);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -186,6 +197,7 @@ public Builder replicaConfig(ReplicaConfig replicaConfig) {
     this.stoppedBy(model.getStoppedBy());
     this.stoppedByName(model.getStoppedByName());
     this.replicaConfig(model.getReplicaConfig());
+    this.autoScaleConfiguration(model.getAutoScaleConfiguration());
 return this;
         }
     }
@@ -204,9 +216,10 @@ return this;
 
     
     @Deprecated
-    public AiCompute(String key, String displayName, String description, ClusterType type, java.util.Date timeCreated, java.util.Date timeUpdated, State state, String stateDetails, String nodeType, DriverConfig driverConfig, ActiveClusterResources activeClusterResources, String createdBy, String createdByName, String updatedBy, String updatedByName, String stoppedBy, String stoppedByName, ReplicaConfig replicaConfig) {
+    public AiCompute(String key, String displayName, String description, ClusterType type, java.util.Date timeCreated, java.util.Date timeUpdated, State state, String stateDetails, String nodeType, DriverConfig driverConfig, ActiveClusterResources activeClusterResources, String createdBy, String createdByName, String updatedBy, String updatedByName, String stoppedBy, String stoppedByName, ReplicaConfig replicaConfig, AutoScaleConfiguration autoScaleConfiguration) {
     super(key, displayName, description, type, timeCreated, timeUpdated, state, stateDetails, nodeType, driverConfig, activeClusterResources, createdBy, createdByName, updatedBy, updatedByName, stoppedBy, stoppedByName);
         this.replicaConfig = replicaConfig;
+        this.autoScaleConfiguration = autoScaleConfiguration;
     }
 
 
@@ -217,6 +230,16 @@ return this;
     
     public ReplicaConfig getReplicaConfig() {
         return replicaConfig;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("autoScaleConfiguration")
+    private final AutoScaleConfiguration autoScaleConfiguration;
+
+    
+    public AutoScaleConfiguration getAutoScaleConfiguration() {
+        return autoScaleConfiguration;
     }
 
     @Override
@@ -234,6 +257,7 @@ return this;
         sb.append("AiCompute(");
         sb.append("super=").append(super.toString(includeByteArrayContents));
         sb.append(", replicaConfig=").append(String.valueOf(this.replicaConfig));
+        sb.append(", autoScaleConfiguration=").append(String.valueOf(this.autoScaleConfiguration));
         sb.append(")");
         return sb.toString();
     }
@@ -249,6 +273,7 @@ return this;
 
         AiCompute other = (AiCompute) o;
         return java.util.Objects.equals(this.replicaConfig, other.replicaConfig) &&
+            java.util.Objects.equals(this.autoScaleConfiguration, other.autoScaleConfiguration) &&
             super.equals(other);
     }
 
@@ -257,6 +282,7 @@ return this;
         final int PRIME = 59;
         int result = super.hashCode();
         result = (result * PRIME) + (this.replicaConfig == null ? 43 : this.replicaConfig.hashCode());
+        result = (result * PRIME) + (this.autoScaleConfiguration == null ? 43 : this.autoScaleConfiguration.hashCode());
         return result;
     }
 

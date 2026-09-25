@@ -1,7 +1,7 @@
 {
   "name": "aidp-cli",
-  "version": "4.2.1",
-  "description": "Command line interface for Oracle AI Data Platform Workbench.",
+  "version": "5.0.0",
+  "description": "Command line interface for Oracle AI Data Platform.",
   "keywords": [
     "oracle",
     "aidp",

@@ -671,6 +671,10 @@ return clientCall(request, ListTablesResponse::builder)
                     .appendQueryParam("displayName", request.getDisplayName())
             
                 
+                    .appendEnumQueryParam("tableType", request.getTableType())
+                    
+            
+                
                     
                     .appendQueryParam("limit", request.getLimit())
             

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 export interface CreateCatalogResponse {
     /**
-     * URL for the created catalog. The AI Data Platform Workbench catalog key is generated after this request is sent.
+     * URL for the created catalog. The AI Data Platform catalog key is generated after this request is sent.
      */
     'location': string;
     /**

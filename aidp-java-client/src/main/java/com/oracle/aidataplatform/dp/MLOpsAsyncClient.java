@@ -83,6 +83,36 @@ com.oracle.bmc.internal.Alloy.throwDisabledServiceExceptionIfAppropriate(package
 
     @Override
     
+    public java.util.concurrent.Future<ActivateModelDeploymentResponse> activateModelDeployment(ActivateModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<ActivateModelDeploymentRequest, ActivateModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getActivateModelDeploymentDetails(), "activateModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, ActivateModelDeploymentResponse::builder)
+        .logger(LOG, "activateModelDeployment")
+        .serviceDetails("MLOps", "ActivateModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ActivateModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("activate")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            ActivateModelDeploymentResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            ActivateModelDeploymentResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<CreateExperimentResponse> createExperiment(CreateExperimentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateExperimentRequest, CreateExperimentResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -148,6 +178,39 @@ return clientCall(request, CreateExperimentRunResponse::builder)
             CreateExperimentRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             CreateExperimentRunResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<CreateModelDeploymentResponse> createModelDeployment(CreateModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<CreateModelDeploymentRequest, CreateModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getCreateModelDeploymentDetails(), "createModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, CreateModelDeploymentResponse::builder)
+        .logger(LOG, "createModelDeployment")
+        .serviceDetails("MLOps", "CreateModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(CreateModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("create")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ModelDeployment.class, CreateModelDeploymentResponse.Builder::modelDeployment)
+                .handleResponseHeaderString("etag", 
+            CreateModelDeploymentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            CreateModelDeploymentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
@@ -249,6 +312,36 @@ return clientCall(request, CreateWorkspaceModelVersionResponse::builder)
             CreateWorkspaceModelVersionResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             CreateWorkspaceModelVersionResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<DeactivateModelDeploymentResponse> deactivateModelDeployment(DeactivateModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeactivateModelDeploymentRequest, DeactivateModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getDeactivateModelDeploymentDetails(), "deactivateModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, DeactivateModelDeploymentResponse::builder)
+        .logger(LOG, "deactivateModelDeployment")
+        .serviceDetails("MLOps", "DeactivateModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(DeactivateModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("deactivate")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            DeactivateModelDeploymentResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            DeactivateModelDeploymentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
@@ -389,6 +482,34 @@ return clientCall(request, DeleteExperimentTagResponse::builder)
             DeleteExperimentTagResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             DeleteExperimentTagResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<DeleteModelDeploymentResponse> deleteModelDeployment(DeleteModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<DeleteModelDeploymentRequest, DeleteModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getDeleteModelDeploymentDetails(), "deleteModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, DeleteModelDeploymentResponse::builder)
+        .logger(LOG, "deleteModelDeployment")
+        .serviceDetails("MLOps", "DeleteModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(DeleteModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("delete")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            DeleteModelDeploymentResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
@@ -688,6 +809,115 @@ return clientCall(request, GetExperimentRunMetricHistoryResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<GetModelDeploymentResponse> getModelDeployment(GetModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentRequest, GetModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getDeploymentId(), "deploymentId is required");
+        
+
+
+return clientCall(request, GetModelDeploymentResponse::builder)
+        .logger(LOG, "getModelDeployment")
+        .serviceDetails("MLOps", "GetModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("get")
+            
+                
+                    
+                    .appendQueryParam("deployment_id", request.getDeploymentId())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.ModelDeployment.class, GetModelDeploymentResponse.Builder::modelDeployment)
+                .handleResponseHeaderString("etag", 
+            GetModelDeploymentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            GetModelDeploymentResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<GetModelDeploymentActivityResponse> getModelDeploymentActivity(GetModelDeploymentActivityRequest request, final com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentActivityRequest, GetModelDeploymentActivityResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getActivityId(), "activityId is required");
+        
+
+
+return clientCall(request, GetModelDeploymentActivityResponse::builder)
+        .logger(LOG, "getModelDeploymentActivity")
+        .serviceDetails("MLOps", "GetModelDeploymentActivity", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetModelDeploymentActivityRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("activities").appendPathParam("get")
+            
+                
+                    
+                    .appendQueryParam("activity_id", request.getActivityId())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.DeploymentActivity.class, GetModelDeploymentActivityResponse.Builder::deploymentActivity)
+                .handleResponseHeaderString("etag", 
+            GetModelDeploymentActivityResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            GetModelDeploymentActivityResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<GetModelDeploymentContractResponse> getModelDeploymentContract(GetModelDeploymentContractRequest request, final com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentContractRequest, GetModelDeploymentContractResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getDeploymentId(), "deploymentId is required");
+        
+
+
+return clientCall(request, GetModelDeploymentContractResponse::builder)
+        .logger(LOG, "getModelDeploymentContract")
+        .serviceDetails("MLOps", "GetModelDeploymentContract", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetModelDeploymentContractRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("contract")
+            
+                
+                    
+                    .appendQueryParam("deployment_id", request.getDeploymentId())
+            
+                
+                    
+                    .appendQueryParam("model_version", request.getModelVersion())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.GetModelDeploymentContractResponse.class, GetModelDeploymentContractResponse.Builder::getModelDeploymentContractResponse)
+                .handleResponseHeaderString("etag", 
+            GetModelDeploymentContractResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            GetModelDeploymentContractResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<GetModelVersionResponse> getModelVersion(GetModelVersionRequest request, final com.oracle.bmc.responses.AsyncHandler<GetModelVersionRequest, GetModelVersionResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -759,6 +989,45 @@ return clientCall(request, GetRegisteredModelResponse::builder)
             GetRegisteredModelResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             GetRegisteredModelResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<GetRegisteredModelSummaryResponse> getRegisteredModelSummary(GetRegisteredModelSummaryRequest request, final com.oracle.bmc.responses.AsyncHandler<GetRegisteredModelSummaryRequest, GetRegisteredModelSummaryResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getCatalog(), "catalog is required");
+        
+        Objects.requireNonNull(request.getSchema(), "schema is required");
+        
+
+
+return clientCall(request, GetRegisteredModelSummaryResponse::builder)
+        .logger(LOG, "getRegisteredModelSummary")
+        .serviceDetails("MLOps", "GetRegisteredModelSummary", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetRegisteredModelSummaryRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("registered-models").appendPathParam("summary")
+            
+                
+                    
+                    .appendQueryParam("catalog", request.getCatalog())
+            
+                
+                    
+                    .appendQueryParam("schema", request.getSchema())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.RegisteredModelSummary.class, GetRegisteredModelSummaryResponse.Builder::registeredModelSummary)
+                .handleResponseHeaderString("opc-request-id", 
+            GetRegisteredModelSummaryResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 
@@ -908,6 +1177,37 @@ return clientCall(request, ListLoggedModelsResponse::builder)
 
     @Override
     
+    public java.util.concurrent.Future<ListModelDeploymentActivitiesResponse> listModelDeploymentActivities(ListModelDeploymentActivitiesRequest request, final com.oracle.bmc.responses.AsyncHandler<ListModelDeploymentActivitiesRequest, ListModelDeploymentActivitiesResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getListModelDeploymentActivitiesDetails(), "listModelDeploymentActivitiesDetails is required");
+        
+
+
+return clientCall(request, ListModelDeploymentActivitiesResponse::builder)
+        .logger(LOG, "listModelDeploymentActivities")
+        .serviceDetails("MLOps", "ListModelDeploymentActivities", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ListModelDeploymentActivitiesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("activities").appendPathParam("search")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ModelDeploymentActivitySummaryCollection.class, ListModelDeploymentActivitiesResponse.Builder::modelDeploymentActivitySummaryCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListModelDeploymentActivitiesResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListModelDeploymentActivitiesResponse.Builder::opcNextPage)
+.callAsync(handler);
+    }
+
+    @Override
+    
     public java.util.concurrent.Future<ListModelVersionsResponse> listModelVersions(ListModelVersionsRequest request, final com.oracle.bmc.responses.AsyncHandler<ListModelVersionsRequest, ListModelVersionsResponse> handler) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -983,6 +1283,10 @@ return clientCall(request, ListRegisteredModelsResponse::builder)
                 
                     
                     .appendQueryParam("order_by", request.getOrderBy())
+            
+                
+                    
+                    .appendQueryParam("is_deployment_summary_enabled", request.getIsDeploymentSummaryEnabled())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())
@@ -1269,6 +1573,97 @@ return clientCall(request, RestoreExperimentRunResponse::builder)
             RestoreExperimentRunResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             RestoreExperimentRunResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<RollBackModelDeploymentResponse> rollBackModelDeployment(RollBackModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<RollBackModelDeploymentRequest, RollBackModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getRollBackModelDeploymentDetails(), "rollBackModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, RollBackModelDeploymentResponse::builder)
+        .logger(LOG, "rollBackModelDeployment")
+        .serviceDetails("MLOps", "RollBackModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(RollBackModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("roll-back")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            RollBackModelDeploymentResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            RollBackModelDeploymentResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<RollForwardModelDeploymentResponse> rollForwardModelDeployment(RollForwardModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<RollForwardModelDeploymentRequest, RollForwardModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getRollForwardModelDeploymentDetails(), "rollForwardModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, RollForwardModelDeploymentResponse::builder)
+        .logger(LOG, "rollForwardModelDeployment")
+        .serviceDetails("MLOps", "RollForwardModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(RollForwardModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("roll-forward")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            RollForwardModelDeploymentResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            RollForwardModelDeploymentResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<SearchModelDeploymentsResponse> searchModelDeployments(SearchModelDeploymentsRequest request, final com.oracle.bmc.responses.AsyncHandler<SearchModelDeploymentsRequest, SearchModelDeploymentsResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getSearchModelDeploymentsDetails(), "searchModelDeploymentsDetails is required");
+        
+
+
+return clientCall(request, SearchModelDeploymentsResponse::builder)
+        .logger(LOG, "searchModelDeployments")
+        .serviceDetails("MLOps", "SearchModelDeployments", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SearchModelDeploymentsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("search")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ModelDeploymentCollection.class, SearchModelDeploymentsResponse.Builder::modelDeploymentCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            SearchModelDeploymentsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            SearchModelDeploymentsResponse.Builder::opcNextPage)
 .callAsync(handler);
     }
 
@@ -1578,6 +1973,70 @@ return clientCall(request, UpdateExperimentTagsResponse::builder)
             UpdateExperimentTagsResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             UpdateExperimentTagsResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<UpdateModelDeploymentResponse> updateModelDeployment(UpdateModelDeploymentRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateModelDeploymentRequest, UpdateModelDeploymentResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getUpdateModelDeploymentDetails(), "updateModelDeploymentDetails is required");
+        
+
+
+return clientCall(request, UpdateModelDeploymentResponse::builder)
+        .logger(LOG, "updateModelDeployment")
+        .serviceDetails("MLOps", "UpdateModelDeployment", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(UpdateModelDeploymentRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("update")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.ModelDeployment.class, UpdateModelDeploymentResponse.Builder::modelDeployment)
+                .handleResponseHeaderString("etag", 
+            UpdateModelDeploymentResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            UpdateModelDeploymentResponse.Builder::opcRequestId)
+.callAsync(handler);
+    }
+
+    @Override
+    
+    public java.util.concurrent.Future<UpdateModelDeploymentTagsResponse> updateModelDeploymentTags(UpdateModelDeploymentTagsRequest request, final com.oracle.bmc.responses.AsyncHandler<UpdateModelDeploymentTagsRequest, UpdateModelDeploymentTagsResponse> handler) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        Objects.requireNonNull(request.getUpdateModelDeploymentTagsDetails(), "updateModelDeploymentTagsDetails is required");
+        
+
+
+return clientCall(request, UpdateModelDeploymentTagsResponse::builder)
+        .logger(LOG, "updateModelDeploymentTags")
+        .serviceDetails("MLOps", "UpdateModelDeploymentTags", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(UpdateModelDeploymentTagsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam("update-tags")
+        .accept("application/json")
+                
+                .appendHeader("opc-retry-token", request.getOpcRetryToken())
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.UpdateModelDeploymentTagsResponseDetails.class, UpdateModelDeploymentTagsResponse.Builder::updateModelDeploymentTagsResponseDetails)
+                .handleResponseHeaderString("etag", 
+            UpdateModelDeploymentTagsResponse.Builder::etag)
+                .handleResponseHeaderString("opc-request-id", 
+            UpdateModelDeploymentTagsResponse.Builder::opcRequestId)
 .callAsync(handler);
     }
 

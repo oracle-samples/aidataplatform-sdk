@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* The default cluster created by AI Data Platform Workbench.
+* The default cluster created by AI Data Platform.
 */
 export interface DefaultCluster extends model.Cluster {
     /**
-    * The key of the AI Data Platform Workbench workspace where the default cluster is.
+    * The key of the AI Data Platform workspace where the default cluster is.
     */
     'workspaceKey'?: string;
     'workerConfig'?: model.WorkerConfig;
@@ -30,7 +30,7 @@ export interface DefaultCluster extends model.Cluster {
     'logId'?: string;
     /**
     * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
     */
     'logGroupId'?: string;

@@ -97,11 +97,11 @@ public Builder instructions(String instructions) {
 }
         
 @com.fasterxml.jackson.annotation.JsonProperty("llm")
-private LlmConfig llm;
+private BaseLlmConfig llm;
 
 
 
-public Builder llm(LlmConfig llm) {
+public Builder llm(BaseLlmConfig llm) {
     this.llm = llm;
     return this;
 }
@@ -204,7 +204,7 @@ return this;
 
     
     @Deprecated
-    public UpdateAgentDiagramAgentNodeDetails(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String instructions, LlmConfig llm, java.util.Map<String, Object> modelSettings, MemoryConfiguration memory, java.util.List<Tool> tools) {
+    public UpdateAgentDiagramAgentNodeDetails(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String instructions, BaseLlmConfig llm, java.util.Map<String, Object> modelSettings, MemoryConfiguration memory, java.util.List<Tool> tools) {
     super(nodeType, name, description, positionX, positionY, isExpanded, parentNodeId, configuration, nodeTypeId);
         this.instructions = instructions;
         this.llm = llm;
@@ -233,10 +233,10 @@ return this;
 
     
     @com.fasterxml.jackson.annotation.JsonProperty("llm")
-    private final LlmConfig llm;
+    private final BaseLlmConfig llm;
 
     
-    public LlmConfig getLlm() {
+    public BaseLlmConfig getLlm() {
         return llm;
     }
 

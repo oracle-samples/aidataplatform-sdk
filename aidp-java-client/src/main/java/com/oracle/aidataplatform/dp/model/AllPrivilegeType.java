@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * List of all privileges in the AI Data Platform Workbench.
+ * List of all privileges in the AI Data Platform.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum AllPrivilegeType implements com.oracle.bmc.http.internal.BmcEnum {

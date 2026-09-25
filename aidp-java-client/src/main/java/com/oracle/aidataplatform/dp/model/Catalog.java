@@ -5,10 +5,10 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * AI Data Platform Workbench catalogs enable you to manage your data and metadata.
+ * AI Data Platform catalogs enable you to manage your data and metadata.
 * To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to
 * an administrator. If you're an administrator who needs to write policies to give users access, see
-* <a href="https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html" target="_blank" rel="noopener noreferrer">IAM Policies for Oracle AI Data Platform Workbench</a>.
+* <a href="https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html" target="_blank" rel="noopener noreferrer">IAM Policies for Oracle AI Data Platform</a>.
 * 
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
@@ -38,14 +38,14 @@ public final class Catalog  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private String key;
 
         /**
-         * The AI Data Platform Workbench catalog key.
+         * The AI Data Platform catalog key.
          * @param key the value to set
          * @return this builder
          **/
@@ -192,14 +192,14 @@ public Builder lifecycleStateDetails(String lifecycleStateDetails) {
     return this;
 }
             /**
-     * The date and time the AI Data Platform Workbench catalog was created.
+     * The date and time the AI Data Platform catalog was created.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("timeCreated")
 private java.util.Date timeCreated;
 
         /**
-         * The date and time the AI Data Platform Workbench catalog was created.
+         * The date and time the AI Data Platform catalog was created.
          * @param timeCreated the value to set
          * @return this builder
          **/
@@ -210,14 +210,14 @@ public Builder timeCreated(java.util.Date timeCreated) {
     return this;
 }
             /**
-     * The date and time the AI Data Platform Workbench catalog was updated.
+     * The date and time the AI Data Platform catalog was updated.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("timeUpdated")
 private java.util.Date timeUpdated;
 
         /**
-         * The date and time the AI Data Platform Workbench catalog was updated.
+         * The date and time the AI Data Platform catalog was updated.
          * @param timeUpdated the value to set
          * @return this builder
          **/
@@ -336,14 +336,14 @@ return this;
 
 
         /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      * @return the value
      **/
     
@@ -482,14 +482,14 @@ return this;
 
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was created.
+     * The date and time the AI Data Platform catalog was created.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("timeCreated")
     private final java.util.Date timeCreated;
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was created.
+     * The date and time the AI Data Platform catalog was created.
      * @return the value
      **/
     
@@ -499,14 +499,14 @@ return this;
 
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was updated.
+     * The date and time the AI Data Platform catalog was updated.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("timeUpdated")
     private final java.util.Date timeUpdated;
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was updated.
+     * The date and time the AI Data Platform catalog was updated.
      * @return the value
      **/
     

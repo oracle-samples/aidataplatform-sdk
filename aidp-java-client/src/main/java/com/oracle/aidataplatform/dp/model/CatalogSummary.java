@@ -34,14 +34,14 @@ public final class CatalogSummary  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private String key;
 
         /**
-         * The AI Data Platform Workbench catalog key.
+         * The AI Data Platform catalog key.
          * @param key the value to set
          * @return this builder
          **/
@@ -178,14 +178,14 @@ public Builder lifecycleStateDetails(String lifecycleStateDetails) {
     return this;
 }
             /**
-     * The date and time the AI Data Platform Workbench catalog was created.
+     * The date and time the AI Data Platform catalog was created.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("timeCreated")
 private java.util.Date timeCreated;
 
         /**
-         * The date and time the AI Data Platform Workbench catalog was created.
+         * The date and time the AI Data Platform catalog was created.
          * @param timeCreated the value to set
          * @return this builder
          **/
@@ -196,14 +196,14 @@ public Builder timeCreated(java.util.Date timeCreated) {
     return this;
 }
             /**
-     * The date and time the AI Data Platform Workbench catalog was updated.
+     * The date and time the AI Data Platform catalog was updated.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("timeUpdated")
 private java.util.Date timeUpdated;
 
         /**
-         * The date and time the AI Data Platform Workbench catalog was updated.
+         * The date and time the AI Data Platform catalog was updated.
          * @param timeUpdated the value to set
          * @return this builder
          **/
@@ -340,14 +340,14 @@ return this;
 
 
         /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      * @return the value
      **/
     
@@ -476,14 +476,14 @@ return this;
 
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was created.
+     * The date and time the AI Data Platform catalog was created.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("timeCreated")
     private final java.util.Date timeCreated;
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was created.
+     * The date and time the AI Data Platform catalog was created.
      * @return the value
      **/
     
@@ -493,14 +493,14 @@ return this;
 
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was updated.
+     * The date and time the AI Data Platform catalog was updated.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("timeUpdated")
     private final java.util.Date timeUpdated;
 
         /**
-     * The date and time the AI Data Platform Workbench catalog was updated.
+     * The date and time the AI Data Platform catalog was updated.
      * @return the value
      **/
     

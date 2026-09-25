@@ -8,7 +8,7 @@ import common = require("oci-common");
 * A volumes is a container to store data in its original form and can store semi-structured or unstructured data.
 * Volumes can either be external or managed. To use any of the API operations, you must be authorized in an IAM policy. 
 * If you're not authorized, talk to an administrator. If you're an administrator who needs to write policies to give
-* users access, see <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform Workbench</a>.
+* users access, see <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform</a>.
 * 
 */
 export interface Volume {

@@ -85,6 +85,86 @@ class MLOpsClient(object):
         self.base_client = BaseClient("ml_ops", config, signer, aidataplatform_dp_type_mapping, **base_client_init_kwargs)
         self.retry_strategy = kwargs.get('retry_strategy', retry.DEFAULT_RETRY_STRATEGY)
 
+    def activate_model_deployment(self, ai_data_platform_id, activate_model_deployment_details, **kwargs):
+        """
+        (Preview) Activates a model deployment so the model becomes available for inference.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.ActivateModelDeploymentDetails activate_model_deployment_details: (required)
+            Details for the model deployment activation.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type None
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/activate"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "activate_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=activate_model_deployment_details)
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=activate_model_deployment_details)
+
     def create_experiment(self, ai_data_platform_id, workspace_key, create_experiment_details, **kwargs):
         """
         (Preview) Creates an experiment in a workspace.
@@ -278,6 +358,99 @@ class MLOpsClient(object):
                 header_params=header_params,
                 body=create_experiment_run_details,
                 response_type="CreateExperimentRunResponseDetails")
+
+    def create_model_deployment(self, ai_data_platform_id, create_model_deployment_details, **kwargs):
+        """
+        (Preview) Creates a model deployment for a registered model.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.CreateModelDeploymentDetails create_model_deployment_details: (required)
+            Details for the new model deployment.
+
+        :param str opc_retry_token: (optional)
+            A token that uniquely identifies a request so it can be retried in case of a timeout or
+            server error without risk of running that same action again. Retry tokens expire after 24
+            hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+            has been deleted and removed from the system, then a retry of the original creation request
+            might be rejected.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.ModelDeployment`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/create"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_retry_token",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "create_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-retry-token": kwargs.get("opc_retry_token", missing),
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            if not isinstance(retry_strategy, retry.NoneRetryStrategy):
+                self.base_client.add_opc_retry_token_if_needed(header_params)
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=create_model_deployment_details,
+                response_type="ModelDeployment")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=create_model_deployment_details,
+                response_type="ModelDeployment")
 
     def create_model_version(self, ai_data_platform_id, create_model_version_details, **kwargs):
         """
@@ -561,6 +734,86 @@ class MLOpsClient(object):
                 header_params=header_params,
                 body=create_model_version_details,
                 response_type="CreateModelVersionResponseDetails")
+
+    def deactivate_model_deployment(self, ai_data_platform_id, deactivate_model_deployment_details, **kwargs):
+        """
+        (Preview) Deactivates a model deployment to safely take the model offline.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.DeactivateModelDeploymentDetails deactivate_model_deployment_details: (required)
+            Details for the model deployment deactivation.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type None
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/deactivate"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "deactivate_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=deactivate_model_deployment_details)
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=deactivate_model_deployment_details)
 
     def delete_experiment(self, ai_data_platform_id, workspace_key, delete_experiment_details, **kwargs):
         """
@@ -949,6 +1202,86 @@ class MLOpsClient(object):
                 header_params=header_params,
                 body=delete_experiment_tag_details,
                 response_type="DeleteExperimentTagResponseDetails")
+
+    def delete_model_deployment(self, ai_data_platform_id, delete_model_deployment_details, **kwargs):
+        """
+        (Preview) Deletes a model deployment that is not active.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.DeleteModelDeploymentDetails delete_model_deployment_details: (required)
+            Details for the model deployment to delete.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type None
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/delete"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "delete_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=delete_model_deployment_details)
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=delete_model_deployment_details)
 
     def delete_model_version(self, ai_data_platform_id, delete_model_version_details, **kwargs):
         """
@@ -1703,6 +2036,272 @@ class MLOpsClient(object):
                 header_params=header_params,
                 response_type="ExperimentRunMetricHistoryCollection")
 
+    def get_model_deployment(self, ai_data_platform_id, deployment_id, **kwargs):
+        """
+        (Preview) Returns details for a specified model deployment.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str deployment_id: (required)
+            The unique 32-character hexadecimal ID of the model deployment.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.ModelDeployment`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/get"
+        method = "GET"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "get_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        query_params = {
+            "deployment_id": deployment_id
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="ModelDeployment")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="ModelDeployment")
+
+    def get_model_deployment_activity(self, ai_data_platform_id, activity_id, **kwargs):
+        """
+        (Preview) Returns the full detail for a single deployment activity, including the configuration snapshot and the comment.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str activity_id: (required)
+            The unique 32-character hexadecimal ID of the deployment activity to retrieve.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.DeploymentActivity`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/activities/get"
+        method = "GET"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "get_model_deployment_activity got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        query_params = {
+            "activity_id": activity_id
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="DeploymentActivity")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="DeploymentActivity")
+
+    def get_model_deployment_contract(self, ai_data_platform_id, deployment_id, **kwargs):
+        """
+        (Preview) Returns the model contract (input/output signatures and a sample request) for the query-endpoint playground.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str deployment_id: (required)
+            The unique 32-character hexadecimal ID of the model deployment.
+
+        :param int model_version: (optional)
+            The model version whose contract to return; when omitted the latest (highest) version on the deployment is used.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.GetModelDeploymentContractResponse`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/contract"
+        method = "GET"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "model_version",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "get_model_deployment_contract got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        query_params = {
+            "deployment_id": deployment_id,
+            "model_version": kwargs.get("model_version", missing)
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="GetModelDeploymentContractResponse")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="GetModelDeploymentContractResponse")
+
     def get_model_version(self, ai_data_platform_id, name, version, **kwargs):
         """
         (Preview)  Returns detailed information for a model version.
@@ -1880,6 +2479,97 @@ class MLOpsClient(object):
                 query_params=query_params,
                 header_params=header_params,
                 response_type="GetRegisteredModelResponseDetails")
+
+    def get_registered_model_summary(self, ai_data_platform_id, catalog, schema, **kwargs):
+        """
+        (Preview) Returns aggregate counts of the registered-model footprint within a catalog and schema.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param str catalog: (required)
+            Catalog whose registered-model footprint should be summarized.
+
+        :param str schema: (required)
+            Schema (within the catalog) whose registered-model footprint should be summarized.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.RegisteredModelSummary`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/registered-models/summary"
+        method = "GET"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "get_registered_model_summary got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        query_params = {
+            "catalog": catalog,
+            "schema": schema
+        }
+        query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="RegisteredModelSummary")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                query_params=query_params,
+                header_params=header_params,
+                response_type="RegisteredModelSummary")
 
     def list_artifacts(self, ai_data_platform_id, workspace_key, run_id, **kwargs):
         """
@@ -2240,6 +2930,88 @@ class MLOpsClient(object):
                 body=list_logged_models_details,
                 response_type="LoggedModelCollection")
 
+    def list_model_deployment_activities(self, ai_data_platform_id, list_model_deployment_activities_details, **kwargs):
+        """
+        (Preview) Returns the activity history for a model deployment.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.ListModelDeploymentActivitiesDetails list_model_deployment_activities_details: (required)
+            Filters and pagination for the activity search.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.ModelDeploymentActivitySummaryCollection`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/activities/search"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "list_model_deployment_activities got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=list_model_deployment_activities_details,
+                response_type="ModelDeploymentActivitySummaryCollection")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=list_model_deployment_activities_details,
+                response_type="ModelDeploymentActivitySummaryCollection")
+
     def list_model_versions(self, ai_data_platform_id, **kwargs):
         """
         (Preview) Returns a list of model versions.
@@ -2372,6 +3144,11 @@ class MLOpsClient(object):
             timestamp with an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default.
             Tiebreaks are done by model name ASC.
 
+        :param bool is_deployment_summary_enabled: (optional)
+            Whether to include the per-model deployment_summary (total_deployment and active_deployment)
+            in each returned registered model. The summary is omitted from a model when it cannot be
+            resolved, so an absent summary means \"not requested or unavailable\" rather than zero.
+
         :param str opc_request_id: (optional)
             Unique Oracle-assigned identifier for the request. If you need to contact
             Oracle about a particular request, please provide the request ID.
@@ -2399,6 +3176,7 @@ class MLOpsClient(object):
             "max_results",
             "page_token",
             "order_by",
+            "is_deployment_summary_enabled",
             "opc_request_id"
         ]
         extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
@@ -2420,7 +3198,8 @@ class MLOpsClient(object):
             "filter": kwargs.get("filter", missing),
             "max_results": kwargs.get("max_results", missing),
             "page_token": kwargs.get("page_token", missing),
-            "order_by": kwargs.get("order_by", missing)
+            "order_by": kwargs.get("order_by", missing),
+            "is_deployment_summary_enabled": kwargs.get("is_deployment_summary_enabled", missing)
         }
         query_params = {k: v for (k, v) in six.iteritems(query_params) if v is not missing and v is not None}
 
@@ -3224,6 +4003,248 @@ class MLOpsClient(object):
                 header_params=header_params,
                 body=restore_experiment_run_details,
                 response_type="RestoreExperimentRunResponseDetails")
+
+    def roll_back_model_deployment(self, ai_data_platform_id, roll_back_model_deployment_details, **kwargs):
+        """
+        (Preview) Rolls an active model deployment back to a lower model version of the same registered model.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.RollBackModelDeploymentDetails roll_back_model_deployment_details: (required)
+            Details for the model deployment roll back.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type None
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/roll-back"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "roll_back_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=roll_back_model_deployment_details)
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=roll_back_model_deployment_details)
+
+    def roll_forward_model_deployment(self, ai_data_platform_id, roll_forward_model_deployment_details, **kwargs):
+        """
+        (Preview) Rolls an active model deployment forward to a higher model version of the same registered model.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.RollForwardModelDeploymentDetails roll_forward_model_deployment_details: (required)
+            Details for the model deployment roll forward.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type None
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/roll-forward"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "roll_forward_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=roll_forward_model_deployment_details)
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=roll_forward_model_deployment_details)
+
+    def search_model_deployments(self, ai_data_platform_id, search_model_deployments_details, **kwargs):
+        """
+        (Preview) Returns a list of model deployments matching the given criteria.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.SearchModelDeploymentsDetails search_model_deployments_details: (required)
+            Filters and pagination for the search.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.ModelDeploymentCollection`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/search"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "search_model_deployments got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=search_model_deployments_details,
+                response_type="ModelDeploymentCollection")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=search_model_deployments_details,
+                response_type="ModelDeploymentCollection")
 
     def set_experiment_run_tag(self, ai_data_platform_id, workspace_key, set_experiment_run_tag_details, **kwargs):
         """
@@ -4085,6 +5106,181 @@ class MLOpsClient(object):
                 header_params=header_params,
                 body=update_experiment_tags_details,
                 response_type="UpdateExperimentTagsResponseDetails")
+
+    def update_model_deployment(self, ai_data_platform_id, update_model_deployment_details, **kwargs):
+        """
+        (Preview) Updates a model deployment.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.UpdateModelDeploymentDetails update_model_deployment_details: (required)
+            Details for the model deployment update.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.ModelDeployment`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/update"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "update_model_deployment got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=update_model_deployment_details,
+                response_type="ModelDeployment")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=update_model_deployment_details,
+                response_type="ModelDeployment")
+
+    def update_model_deployment_tags(self, ai_data_platform_id, update_model_deployment_tags_details, **kwargs):
+        """
+        (Preview) Updates tags on a model deployment.
+
+
+        :param str ai_data_platform_id: (required)
+            The `OCID`__ of the AI Data Platform (Data Lake) instance.
+
+            __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+        :param oci.aidataplatform_dp.models.UpdateModelDeploymentTagsDetails update_model_deployment_tags_details: (required)
+            Details for the model deployment tags update.
+
+        :param str opc_retry_token: (optional)
+            A token that uniquely identifies a request so it can be retried in case of a timeout or
+            server error without risk of running that same action again. Retry tokens expire after 24
+            hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+            has been deleted and removed from the system, then a retry of the original creation request
+            might be rejected.
+
+        :param str opc_request_id: (optional)
+            Unique Oracle-assigned identifier for the request. If you need to contact
+            Oracle about a particular request, please provide the request ID.
+            The only valid characters for request IDs are letters, numbers,
+            underscore, and dash.
+
+        :param obj retry_strategy: (optional)
+            A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level.
+
+            This should be one of the strategies available in the :py:mod:`~oci.retry` module. A convenience :py:data:`~oci.retry.DEFAULT_RETRY_STRATEGY`
+            is also available. The specifics of the default retry strategy are described `here <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/sdk_behaviors/retries.html>`__.
+
+            To have this operation explicitly not perform any retries, pass an instance of :py:class:`~oci.retry.NoneRetryStrategy`.
+
+        :return: A :class:`~oci.response.Response` object with data of type :class:`~oci.aidataplatform_dp.models.UpdateModelDeploymentTagsResponseDetails`
+        :rtype: :class:`~oci.response.Response`
+        """
+        resource_path = "/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/update-tags"
+        method = "POST"
+
+        # Don't accept unknown kwargs
+        expected_kwargs = [
+            "retry_strategy",
+            "opc_retry_token",
+            "opc_request_id"
+        ]
+        extra_kwargs = [_key for _key in six.iterkeys(kwargs) if _key not in expected_kwargs]
+        if extra_kwargs:
+            raise ValueError(
+                "update_model_deployment_tags got unknown kwargs: {!r}".format(extra_kwargs))
+
+        path_params = {
+            "aiDataPlatformId": ai_data_platform_id
+        }
+
+        path_params = {k: v for (k, v) in six.iteritems(path_params) if v is not missing}
+
+        for (k, v) in six.iteritems(path_params):
+            if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
+                raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
+
+        header_params = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "opc-retry-token": kwargs.get("opc_retry_token", missing),
+            "opc-request-id": kwargs.get("opc_request_id", missing)
+        }
+        header_params = {k: v for (k, v) in six.iteritems(header_params) if v is not missing and v is not None}
+
+        retry_strategy = self.retry_strategy
+        if kwargs.get('retry_strategy'):
+            retry_strategy = kwargs.get('retry_strategy')
+
+        if retry_strategy:
+            if not isinstance(retry_strategy, retry.NoneRetryStrategy):
+                self.base_client.add_opc_retry_token_if_needed(header_params)
+            return retry_strategy.make_retrying_call(
+                self.base_client.call_api,
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=update_model_deployment_tags_details,
+                response_type="UpdateModelDeploymentTagsResponseDetails")
+        else:
+            return self.base_client.call_api(
+                resource_path=resource_path,
+                method=method,
+                path_params=path_params,
+                header_params=header_params,
+                body=update_model_deployment_tags_details,
+                response_type="UpdateModelDeploymentTagsResponseDetails")
 
     def update_model_version(self, ai_data_platform_id, update_model_version_details, **kwargs):
         """

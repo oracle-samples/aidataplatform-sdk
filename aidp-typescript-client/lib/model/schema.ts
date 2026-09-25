@@ -9,7 +9,7 @@ import common = require("oci-common");
 * and volumes, which contain unstructured data. A default schema is created in all standard catalogs created in the
 * Master Catalog. To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to
 * an administrator. If you're an administrator who needs to write policies to give users access, see
-* <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform Workbench</a>.
+* <a href=\"https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/iam-policies-oracle-ai-data-platform.html\" target=\"_blank\" rel=\"noopener noreferrer\">IAM Policies for Oracle AI Data Platform</a>.
 * 
 */
 export interface Schema {

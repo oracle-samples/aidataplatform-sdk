@@ -85,6 +85,25 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
         return orderBy;
     }
         /**
+     * Whether to include the per-model deployment_summary (total_deployment and active_deployment)
+* in each returned registered model. The summary is omitted from a model when it cannot be
+* resolved, so an absent summary means "not requested or unavailable" rather than zero.
+* 
+     */
+    private Boolean isDeploymentSummaryEnabled;
+
+    
+
+        /**
+     * Whether to include the per-model deployment_summary (total_deployment and active_deployment)
+* in each returned registered model. The summary is omitted from a model when it cannot be
+* resolved, so an absent summary means "not requested or unavailable" rather than zero.
+* 
+     */
+    public Boolean getIsDeploymentSummaryEnabled() {
+        return isDeploymentSummaryEnabled;
+    }
+        /**
      * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,
@@ -199,6 +218,27 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
         }
 
             /**
+     * Whether to include the per-model deployment_summary (total_deployment and active_deployment)
+* in each returned registered model. The summary is omitted from a model when it cannot be
+* resolved, so an absent summary means "not requested or unavailable" rather than zero.
+* 
+     */
+        private Boolean isDeploymentSummaryEnabled = null;
+
+        /**
+         * Whether to include the per-model deployment_summary (total_deployment and active_deployment)
+* in each returned registered model. The summary is omitted from a model when it cannot be
+* resolved, so an absent summary means "not requested or unavailable" rather than zero.
+* 
+         * @param isDeploymentSummaryEnabled the value to set
+         * @return this builder instance
+         */
+        public Builder isDeploymentSummaryEnabled(Boolean isDeploymentSummaryEnabled) {
+            this.isDeploymentSummaryEnabled = isDeploymentSummaryEnabled;
+            return this;
+        }
+
+            /**
      * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,
@@ -247,7 +287,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
          * @return this builder instance
          */
         public Builder copy(ListRegisteredModelsRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());filter(o.getFilter());maxResults(o.getMaxResults());pageToken(o.getPageToken());orderBy(o.getOrderBy());opcRequestId(o.getOpcRequestId());
+            aiDataPlatformId(o.getAiDataPlatformId());filter(o.getFilter());maxResults(o.getMaxResults());pageToken(o.getPageToken());orderBy(o.getOrderBy());isDeploymentSummaryEnabled(o.getIsDeploymentSummaryEnabled());opcRequestId(o.getOpcRequestId());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -285,9 +325,10 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             request.maxResults = maxResults;
             request.pageToken = pageToken;
             request.orderBy = orderBy;
+            request.isDeploymentSummaryEnabled = isDeploymentSummaryEnabled;
             request.opcRequestId = opcRequestId;
             return request;
-            // new ListRegisteredModelsRequest(aiDataPlatformId, filter, maxResults, pageToken, orderBy, opcRequestId);
+            // new ListRegisteredModelsRequest(aiDataPlatformId, filter, maxResults, pageToken, orderBy, isDeploymentSummaryEnabled, opcRequestId);
         }
     }
 
@@ -302,6 +343,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             .maxResults(maxResults)
             .pageToken(pageToken)
             .orderBy(orderBy)
+            .isDeploymentSummaryEnabled(isDeploymentSummaryEnabled)
             .opcRequestId(opcRequestId);
     }
 
@@ -323,6 +365,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
         sb.append(",maxResults=").append(String.valueOf(this.maxResults));
         sb.append(",pageToken=").append(String.valueOf(this.pageToken));
         sb.append(",orderBy=").append(String.valueOf(this.orderBy));
+        sb.append(",isDeploymentSummaryEnabled=").append(String.valueOf(this.isDeploymentSummaryEnabled));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(")");
         return sb.toString();
@@ -344,6 +387,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
             && java.util.Objects.equals(this.maxResults, other.maxResults)
             && java.util.Objects.equals(this.pageToken, other.pageToken)
             && java.util.Objects.equals(this.orderBy, other.orderBy)
+            && java.util.Objects.equals(this.isDeploymentSummaryEnabled, other.isDeploymentSummaryEnabled)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId);
     }
 
@@ -356,6 +400,7 @@ public class ListRegisteredModelsRequest extends com.oracle.bmc.requests.BmcRequ
         result = (result * PRIME) + (this.maxResults == null ? 43 : this.maxResults.hashCode());
         result = (result * PRIME) + (this.pageToken == null ? 43 : this.pageToken.hashCode());
         result = (result * PRIME) + (this.orderBy == null ? 43 : this.orderBy.hashCode());
+        result = (result * PRIME) + (this.isDeploymentSummaryEnabled == null ? 43 : this.isDeploymentSummaryEnabled.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         return result;
     }

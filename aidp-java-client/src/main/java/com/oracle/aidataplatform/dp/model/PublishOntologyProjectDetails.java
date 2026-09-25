@@ -12,11 +12,12 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class PublishOntologyProjectDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"workspaceId", "projectName", "comment", "targetConnection"})
-    public PublishOntologyProjectDetails(String workspaceId, String projectName, String comment, OntologyPublishTargetConnectionReference targetConnection) {
+    @java.beans.ConstructorProperties({"workspaceId", "projectName", "ontologyName", "comment", "targetConnection"})
+    public PublishOntologyProjectDetails(String workspaceId, String projectName, String ontologyName, String comment, OntologyPublishTargetConnectionReference targetConnection) {
         super();
         this.workspaceId = workspaceId;
         this.projectName = projectName;
+        this.ontologyName = ontologyName;
         this.comment = comment;
         this.targetConnection = targetConnection;
     }
@@ -59,6 +60,24 @@ public Builder projectName(String projectName) {
     this.projectName = projectName;
     return this;
 }
+            /**
+     * Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("ontologyName")
+private String ontologyName;
+
+        /**
+         * Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+         * @param ontologyName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder ontologyName(String ontologyName) {
+    this.ontologyName = ontologyName;
+    return this;
+}
         
 @com.fasterxml.jackson.annotation.JsonProperty("comment")
 private String comment;
@@ -84,6 +103,7 @@ public Builder targetConnection(OntologyPublishTargetConnectionReference targetC
         public PublishOntologyProjectDetails build() {
             PublishOntologyProjectDetails model = new PublishOntologyProjectDetails(this.workspaceId
                 , this.projectName
+                , this.ontologyName
                 , this.comment
                 , this.targetConnection);            return model;
         }
@@ -92,6 +112,7 @@ public Builder targetConnection(OntologyPublishTargetConnectionReference targetC
         public Builder copy(PublishOntologyProjectDetails model) {
                 this.workspaceId(model.getWorkspaceId());
     this.projectName(model.getProjectName());
+    this.ontologyName(model.getOntologyName());
     this.comment(model.getComment());
     this.targetConnection(model.getTargetConnection());
 return this;
@@ -147,6 +168,23 @@ return this;
     }
 
 
+        /**
+     * Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("ontologyName")
+    private final String ontologyName;
+
+        /**
+     * Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+     * @return the value
+     **/
+    
+    public String getOntologyName() {
+        return ontologyName;
+    }
+
+
     
     @com.fasterxml.jackson.annotation.JsonProperty("comment")
     private final String comment;
@@ -181,6 +219,7 @@ return this;
         sb.append("PublishOntologyProjectDetails(");
         sb.append("workspaceId=").append(String.valueOf(this.workspaceId));
         sb.append(", projectName=").append(String.valueOf(this.projectName));
+        sb.append(", ontologyName=").append(String.valueOf(this.ontologyName));
         sb.append(", comment=").append(String.valueOf(this.comment));
         sb.append(", targetConnection=").append(String.valueOf(this.targetConnection));
         sb.append(")");
@@ -199,6 +238,7 @@ return this;
         PublishOntologyProjectDetails other = (PublishOntologyProjectDetails) o;
         return java.util.Objects.equals(this.workspaceId, other.workspaceId) &&
             java.util.Objects.equals(this.projectName, other.projectName) &&
+            java.util.Objects.equals(this.ontologyName, other.ontologyName) &&
             java.util.Objects.equals(this.comment, other.comment) &&
             java.util.Objects.equals(this.targetConnection, other.targetConnection);
     }
@@ -209,6 +249,7 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.workspaceId == null ? 43 : this.workspaceId.hashCode());
         result = (result * PRIME) + (this.projectName == null ? 43 : this.projectName.hashCode());
+        result = (result * PRIME) + (this.ontologyName == null ? 43 : this.ontologyName.hashCode());
         result = (result * PRIME) + (this.comment == null ? 43 : this.comment.hashCode());
         result = (result * PRIME) + (this.targetConnection == null ? 43 : this.targetConnection.hashCode());
         return result;

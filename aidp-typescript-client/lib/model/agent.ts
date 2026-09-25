@@ -49,9 +49,17 @@ export interface Agent {
     */
     'deploymentMode'?: string;
     /**
+    * The latest lifecycle states for the PROD and TEST deployment types.
+    */
+    'deploymentState'?: { [key: string]: model.DeploymentLifecycleState; };
+    /**
     * Agent URI.
     */
     'uri'?: string;
+    /**
+    * The A2A endpoint URL for the PROD deployment.
+    */
+    'a2aEndpointUrl'?: string;
     /**
     * Agent URI state.
     */
@@ -122,6 +130,8 @@ export namespace Agent {
 
 
 
+
+
     export enum LifecycleState {
     
     Draft = "DRAFT",
@@ -157,6 +167,12 @@ export namespace Agent {
 
 
 
+
+                'deploymentState': obj.deploymentState ?
+                
+                
+                common.mapContainer(obj.deploymentState, model.DeploymentLifecycleState.getJsonObj)
+                 : undefined,
 
 
 
@@ -203,6 +219,12 @@ export namespace Agent {
 
 
 
+
+                    'deploymentState': obj.deploymentState ?
+                
+                
+                common.mapContainer(obj.deploymentState, model.DeploymentLifecycleState.getDeserializedJsonObj)
+                 : undefined,
 
 
 

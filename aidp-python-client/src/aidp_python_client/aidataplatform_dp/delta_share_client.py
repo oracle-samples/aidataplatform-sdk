@@ -96,7 +96,7 @@ class DeltaShareClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateRecipientDetails create_recipient_details: (required)
-            Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+            Details for the new recipient for Delta Share protocol in AI Data Platform.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -194,7 +194,7 @@ class DeltaShareClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateShareDetails create_share_details: (required)
-            Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+            Details for the new share for Delta Share protocol in AI Data Platform.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or

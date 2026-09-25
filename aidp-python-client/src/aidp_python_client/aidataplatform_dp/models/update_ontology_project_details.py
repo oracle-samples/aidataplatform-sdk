@@ -42,6 +42,10 @@ class UpdateOntologyProjectDetails(object):
             The value to assign to the namespace property of this UpdateOntologyProjectDetails.
         :type namespace: str
 
+        :param base_uri:
+            The value to assign to the base_uri property of this UpdateOntologyProjectDetails.
+        :type base_uri: str
+
         :param workspace_base_path:
             The value to assign to the workspace_base_path property of this UpdateOntologyProjectDetails.
         :type workspace_base_path: str
@@ -63,6 +67,10 @@ class UpdateOntologyProjectDetails(object):
             The value to assign to the git_folder_path property of this UpdateOntologyProjectDetails.
         :type git_folder_path: str
 
+        :param target_connection:
+            The value to assign to the target_connection property of this UpdateOntologyProjectDetails.
+        :type target_connection: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+
         :param lifecycle_state:
             The value to assign to the lifecycle_state property of this UpdateOntologyProjectDetails.
         :type lifecycle_state: str
@@ -73,11 +81,13 @@ class UpdateOntologyProjectDetails(object):
             'display_name': 'str',
             'description': 'str',
             'namespace': 'str',
+            'base_uri': 'str',
             'workspace_base_path': 'str',
             'source_type': 'str',
             'git_repository_key': 'str',
             'git_branch_name': 'str',
             'git_folder_path': 'str',
+            'target_connection': 'OntologyPublishTargetConnectionReference',
             'lifecycle_state': 'str'
         }
 
@@ -86,11 +96,13 @@ class UpdateOntologyProjectDetails(object):
             'display_name': 'displayName',
             'description': 'description',
             'namespace': 'namespace',
+            'base_uri': 'baseUri',
             'workspace_base_path': 'workspaceBasePath',
             'source_type': 'sourceType',
             'git_repository_key': 'gitRepositoryKey',
             'git_branch_name': 'gitBranchName',
             'git_folder_path': 'gitFolderPath',
+            'target_connection': 'targetConnection',
             'lifecycle_state': 'lifecycleState'
         }
 
@@ -98,11 +110,13 @@ class UpdateOntologyProjectDetails(object):
         self._display_name = None
         self._description = None
         self._namespace = None
+        self._base_uri = None
         self._workspace_base_path = None
         self._source_type = None
         self._git_repository_key = None
         self._git_branch_name = None
         self._git_folder_path = None
+        self._target_connection = None
         self._lifecycle_state = None
 
     @property
@@ -184,6 +198,30 @@ class UpdateOntologyProjectDetails(object):
         :type: str
         """
         self._namespace = namespace
+
+    @property
+    def base_uri(self):
+        """
+        Gets the base_uri of this UpdateOntologyProjectDetails.
+        Base URI metadata for ontology files.
+
+
+        :return: The base_uri of this UpdateOntologyProjectDetails.
+        :rtype: str
+        """
+        return self._base_uri
+
+    @base_uri.setter
+    def base_uri(self, base_uri):
+        """
+        Sets the base_uri of this UpdateOntologyProjectDetails.
+        Base URI metadata for ontology files.
+
+
+        :param base_uri: The base_uri of this UpdateOntologyProjectDetails.
+        :type: str
+        """
+        self._base_uri = base_uri
 
     @property
     def workspace_base_path(self):
@@ -312,6 +350,26 @@ class UpdateOntologyProjectDetails(object):
         :type: str
         """
         self._git_folder_path = git_folder_path
+
+    @property
+    def target_connection(self):
+        """
+        Gets the target_connection of this UpdateOntologyProjectDetails.
+
+        :return: The target_connection of this UpdateOntologyProjectDetails.
+        :rtype: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+        """
+        return self._target_connection
+
+    @target_connection.setter
+    def target_connection(self, target_connection):
+        """
+        Sets the target_connection of this UpdateOntologyProjectDetails.
+
+        :param target_connection: The target_connection of this UpdateOntologyProjectDetails.
+        :type: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+        """
+        self._target_connection = target_connection
 
     @property
     def lifecycle_state(self):

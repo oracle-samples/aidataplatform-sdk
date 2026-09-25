@@ -9,15 +9,15 @@ import common = require("oci-common");
 */
 export interface WorkspaceSummary {
     /**
-    * The key of the AI Data Platform Workbench workspace.
+    * The key of the AI Data Platform workspace.
     */
     'key': string;
     /**
-    * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+    * A user-friendly name that has to be unique in a AI Data Platform instance.
     */
     'displayName': string;
     /**
-    * Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user.
+    * Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user.
     */
     'type': WorkspaceSummary.Type;
     /**
@@ -25,19 +25,19 @@ export interface WorkspaceSummary {
     */
     'description'?: string;
     /**
-    * The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+    * The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
     'timeCreated': Date;
     /**
-    * The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
+    * The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>.
 * Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
     'timeUpdated'?: Date;
     /**
-    * The current state of the AI Data Platform Workbench workspace.
+    * The current state of the AI Data Platform workspace.
     */
     'lifecycleState': string;
     /**

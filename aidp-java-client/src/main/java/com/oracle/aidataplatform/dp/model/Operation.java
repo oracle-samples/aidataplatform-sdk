@@ -23,6 +23,7 @@ public enum Operation implements com.oracle.bmc.http.internal.BmcEnum {
     Execute("EXECUTE"),
     ManageAccess("MANAGE_ACCESS"),
     Query("QUERY"),
+    SqlStatement("SQL_STATEMENT"),
     Manage("MANAGE"),
     Read("READ"),
     Write("WRITE"),

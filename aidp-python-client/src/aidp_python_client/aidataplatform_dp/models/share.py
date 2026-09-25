@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class Share(object):
     """
-    A share is used to access the data assets in AI Data Platform Workbench through Delta Share Protocol.
+    A share is used to access the data assets in AI Data Platform through Delta Share Protocol.
     """
 
     #: A constant which can be used with the lifecycle_state property of a Share.
@@ -113,7 +113,7 @@ class Share(object):
     def key(self):
         """
         **[Required]** Gets the key of this Share.
-        Unique identifier for this share in AI Data Platform Workbench instance.
+        Unique identifier for this share in AI Data Platform instance.
 
 
         :return: The key of this Share.
@@ -125,7 +125,7 @@ class Share(object):
     def key(self, key):
         """
         Sets the key of this Share.
-        Unique identifier for this share in AI Data Platform Workbench instance.
+        Unique identifier for this share in AI Data Platform instance.
 
 
         :param key: The key of this Share.
@@ -137,7 +137,7 @@ class Share(object):
     def display_name(self):
         """
         **[Required]** Gets the display_name of this Share.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :return: The display_name of this Share.
@@ -149,7 +149,7 @@ class Share(object):
     def display_name(self, display_name):
         """
         Sets the display_name of this Share.
-        A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+        A user-friendly name. Has to be unique within the AI Data Platform instance.
 
 
         :param display_name: The display_name of this Share.

@@ -76,6 +76,10 @@ class RegisteredModel(object):
             The value to assign to the tags property of this RegisteredModel.
         :type tags: list[oci.aidataplatform_dp.models.RegisteredModelTag]
 
+        :param deployment_summary:
+            The value to assign to the deployment_summary property of this RegisteredModel.
+        :type deployment_summary: oci.aidataplatform_dp.models.DeploymentSummary
+
         """
         self.swagger_types = {
             'name': 'str',
@@ -86,7 +90,8 @@ class RegisteredModel(object):
             'aliases': 'list[RegisteredModelAlias]',
             'deployment_job_id': 'str',
             'deployment_job_state': 'str',
-            'tags': 'list[RegisteredModelTag]'
+            'tags': 'list[RegisteredModelTag]',
+            'deployment_summary': 'DeploymentSummary'
         }
 
         self.attribute_map = {
@@ -98,7 +103,8 @@ class RegisteredModel(object):
             'aliases': 'aliases',
             'deployment_job_id': 'deployment_job_id',
             'deployment_job_state': 'deployment_job_state',
-            'tags': 'tags'
+            'tags': 'tags',
+            'deployment_summary': 'deployment_summary'
         }
 
         self._name = None
@@ -110,6 +116,7 @@ class RegisteredModel(object):
         self._deployment_job_id = None
         self._deployment_job_state = None
         self._tags = None
+        self._deployment_summary = None
 
     @property
     def name(self):
@@ -332,6 +339,26 @@ class RegisteredModel(object):
         :type: list[oci.aidataplatform_dp.models.RegisteredModelTag]
         """
         self._tags = tags
+
+    @property
+    def deployment_summary(self):
+        """
+        Gets the deployment_summary of this RegisteredModel.
+
+        :return: The deployment_summary of this RegisteredModel.
+        :rtype: oci.aidataplatform_dp.models.DeploymentSummary
+        """
+        return self._deployment_summary
+
+    @deployment_summary.setter
+    def deployment_summary(self, deployment_summary):
+        """
+        Sets the deployment_summary of this RegisteredModel.
+
+        :param deployment_summary: The deployment_summary of this RegisteredModel.
+        :type: oci.aidataplatform_dp.models.DeploymentSummary
+        """
+        self._deployment_summary = deployment_summary
 
     def __repr__(self):
         return formatted_flat_dict(self)

@@ -10,6 +10,10 @@ export interface UpdateOntologyProjectDetails {
     'description'?: string;
     'namespace'?: string;
     /**
+    * Base URI metadata for ontology files.
+    */
+    'baseUri'?: string;
+    /**
     * Root path for volume-backed ontology project content. Defaults to a workspace-relative path; managed-volume deployments may store this as an OMS managed-volume path.
     */
     'workspaceBasePath'?: string;
@@ -29,11 +33,14 @@ export interface UpdateOntologyProjectDetails {
     * Workspace-relative Git folder path for git-backed ontology project content.
     */
     'gitFolderPath'?: string;
+    'targetConnection'?: model.OntologyPublishTargetConnectionReference;
     'lifecycleState'?: string;
 
 }
 
 export namespace UpdateOntologyProjectDetails {
+
+
 
 
 
@@ -58,6 +65,11 @@ export namespace UpdateOntologyProjectDetails {
 
 
 
+                'targetConnection': obj.targetConnection ?
+                
+                
+                model.OntologyPublishTargetConnectionReference.getJsonObj(obj.targetConnection) : undefined,
+
         }};
 
         
@@ -77,6 +89,11 @@ export namespace UpdateOntologyProjectDetails {
 
 
 
+
+                    'targetConnection': obj.targetConnection ?
+                
+                
+                model.OntologyPublishTargetConnectionReference.getDeserializedJsonObj(obj.targetConnection) : undefined,
 
          }};
 

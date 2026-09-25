@@ -34,7 +34,7 @@ class SqlServerOnAzureTableSummary(TableSummary):
 
         :param table_type:
             The value to assign to the table_type property of this SqlServerOnAzureTableSummary.
-            Allowed values for this property are: "MANAGED", "EXTERNAL"
+            Allowed values for this property are: "MANAGED", "EXTERNAL", "SYNONYM"
         :type table_type: str
 
         :param time_created:

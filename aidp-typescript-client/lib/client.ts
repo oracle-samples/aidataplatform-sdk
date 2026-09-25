@@ -1940,6 +1940,79 @@ export class AsyncOperationsClient {
     }
     
     /**
+     * Cancels a supported asynchronous operation created by the caller. Support depends on the
+* operation type and its current state.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CancelAsyncOperationRequest
+     * @return CancelAsyncOperationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CancelAsyncOperation.ts.html |here} to see how to use CancelAsyncOperation API.
+     */
+    public async cancelAsyncOperation (cancelAsyncOperationRequest: requests.CancelAsyncOperationRequest) : Promise<responses.CancelAsyncOperationResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation AsyncOperationsClient#cancelAsyncOperation.");
+        const operationName = "cancelAsyncOperation";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": cancelAsyncOperationRequest.aiDataPlatformId,
+            "{asyncOperationKey}": cancelAsyncOperationRequest.asyncOperationKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': cancelAsyncOperationRequest.opcRetryToken,'opc-request-id': cancelAsyncOperationRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            cancelAsyncOperationRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/asyncOperations/{asyncOperationKey}/actions/cancel',
+            method: 'POST',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.CancelAsyncOperationResponse>{},
+                body: await response.json(),
+                bodyKey: "asyncOperation",
+                bodyModel:  model.AsyncOperation,
+                type: "model.AsyncOperation",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * Get detailed information for a particular async operation
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -9955,6 +10028,75 @@ export class MLOpsClient {
     }
     
     /**
+     * (Preview) Activates a model deployment so the model becomes available for inference.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ActivateModelDeploymentRequest
+     * @return ActivateModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ActivateModelDeployment.ts.html |here} to see how to use ActivateModelDeployment API.
+     */
+    public async activateModelDeployment (activateModelDeploymentRequest: requests.ActivateModelDeploymentRequest) : Promise<responses.ActivateModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#activateModelDeployment.");
+        const operationName = "activateModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": activateModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': activateModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            activateModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/activate',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(activateModelDeploymentRequest.activateModelDeploymentDetails, "ActivateModelDeploymentDetails"
+                            , model.ActivateModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ActivateModelDeploymentResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * (Preview) Creates an experiment in a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateExperimentRequest
@@ -10081,6 +10223,79 @@ export class MLOpsClient {
                 bodyKey: "createExperimentRunResponseDetails",
                 bodyModel:  model.CreateExperimentRunResponseDetails,
                 type: "model.CreateExperimentRunResponseDetails",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Creates a model deployment for a registered model.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateModelDeploymentRequest
+     * @return CreateModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreateModelDeployment.ts.html |here} to see how to use CreateModelDeployment API.
+     */
+    public async createModelDeployment (createModelDeploymentRequest: requests.CreateModelDeploymentRequest) : Promise<responses.CreateModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#createModelDeployment.");
+        const operationName = "createModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": createModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': createModelDeploymentRequest.opcRetryToken,'opc-request-id': createModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            createModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/create',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(createModelDeploymentRequest.createModelDeploymentDetails, "CreateModelDeploymentDetails"
+                            , model.CreateModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.CreateModelDeploymentResponse>{},
+                body: await response.json(),
+                bodyKey: "modelDeployment",
+                bodyModel:  model.ModelDeployment,
+                type: "model.ModelDeployment",
                 responseHeaders: [
                     {
                         value: response.headers.get("etag"),
@@ -10305,6 +10520,75 @@ export class MLOpsClient {
                     {
                         value: response.headers.get("etag"),
                         key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Deactivates a model deployment to safely take the model offline.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeactivateModelDeploymentRequest
+     * @return DeactivateModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeactivateModelDeployment.ts.html |here} to see how to use DeactivateModelDeployment API.
+     */
+    public async deactivateModelDeployment (deactivateModelDeploymentRequest: requests.DeactivateModelDeploymentRequest) : Promise<responses.DeactivateModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#deactivateModelDeployment.");
+        const operationName = "deactivateModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": deactivateModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': deactivateModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            deactivateModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/deactivate',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(deactivateModelDeploymentRequest.deactivateModelDeploymentDetails, "DeactivateModelDeploymentDetails"
+                            , model.DeactivateModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.DeactivateModelDeploymentResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
                         dataType: "string"
                     },
                     {
@@ -10603,6 +10887,70 @@ export class MLOpsClient {
                         key: "etag",
                         dataType: "string"
                     },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Deletes a model deployment that is not active.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteModelDeploymentRequest
+     * @return DeleteModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeleteModelDeployment.ts.html |here} to see how to use DeleteModelDeployment API.
+     */
+    public async deleteModelDeployment (deleteModelDeploymentRequest: requests.DeleteModelDeploymentRequest) : Promise<responses.DeleteModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#deleteModelDeployment.");
+        const operationName = "deleteModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": deleteModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': deleteModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            deleteModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/delete',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(deleteModelDeploymentRequest.deleteModelDeploymentDetails, "DeleteModelDeploymentDetails"
+                            , model.DeleteModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.DeleteModelDeploymentResponse>{},
+                responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
                         key: "opcRequestId",
@@ -11202,6 +11550,220 @@ export class MLOpsClient {
     }
 
     /**
+     * (Preview) Returns details for a specified model deployment.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetModelDeploymentRequest
+     * @return GetModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetModelDeployment.ts.html |here} to see how to use GetModelDeployment API.
+     */
+    public async getModelDeployment (getModelDeploymentRequest: requests.GetModelDeploymentRequest) : Promise<responses.GetModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getModelDeployment.");
+        const operationName = "getModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+            'deployment_id': getModelDeploymentRequest.deploymentId,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/get',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetModelDeploymentResponse>{},
+                body: await response.json(),
+                bodyKey: "modelDeployment",
+                bodyModel:  model.ModelDeployment,
+                type: "model.ModelDeployment",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns the full detail for a single deployment activity, including the configuration snapshot and the comment.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetModelDeploymentActivityRequest
+     * @return GetModelDeploymentActivityResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetModelDeploymentActivity.ts.html |here} to see how to use GetModelDeploymentActivity API.
+     */
+    public async getModelDeploymentActivity (getModelDeploymentActivityRequest: requests.GetModelDeploymentActivityRequest) : Promise<responses.GetModelDeploymentActivityResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getModelDeploymentActivity.");
+        const operationName = "getModelDeploymentActivity";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getModelDeploymentActivityRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+            'activity_id': getModelDeploymentActivityRequest.activityId,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getModelDeploymentActivityRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getModelDeploymentActivityRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/activities/get',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetModelDeploymentActivityResponse>{},
+                body: await response.json(),
+                bodyKey: "deploymentActivity",
+                bodyModel:  model.DeploymentActivity,
+                type: "model.DeploymentActivity",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns the model contract (input/output signatures and a sample request) for the query-endpoint playground.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetModelDeploymentContractRequest
+     * @return GetModelDeploymentContractResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetModelDeploymentContract.ts.html |here} to see how to use GetModelDeploymentContract API.
+     */
+    public async getModelDeploymentContract (getModelDeploymentContractRequest: requests.GetModelDeploymentContractRequest) : Promise<responses.GetModelDeploymentContractResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getModelDeploymentContract.");
+        const operationName = "getModelDeploymentContract";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getModelDeploymentContractRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+            'deployment_id': getModelDeploymentContractRequest.deploymentId,
+            'model_version': getModelDeploymentContractRequest.modelVersion,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getModelDeploymentContractRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getModelDeploymentContractRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/contract',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetModelDeploymentContractResponse>{},
+                body: await response.json(),
+                bodyKey: "getModelDeploymentContractResponse",
+                bodyModel:  model.GetModelDeploymentContractResponse,
+                type: "model.GetModelDeploymentContractResponse",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * (Preview)  Returns detailed information for a model version.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetModelVersionRequest
@@ -11329,6 +11891,73 @@ export class MLOpsClient {
                         key: "etag",
                         dataType: "string"
                     },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns aggregate counts of the registered-model footprint within a catalog and schema.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetRegisteredModelSummaryRequest
+     * @return GetRegisteredModelSummaryResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetRegisteredModelSummary.ts.html |here} to see how to use GetRegisteredModelSummary API.
+     */
+    public async getRegisteredModelSummary (getRegisteredModelSummaryRequest: requests.GetRegisteredModelSummaryRequest) : Promise<responses.GetRegisteredModelSummaryResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getRegisteredModelSummary.");
+        const operationName = "getRegisteredModelSummary";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getRegisteredModelSummaryRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+            'catalog': getRegisteredModelSummaryRequest.catalog,
+            'schema': getRegisteredModelSummaryRequest.schema,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getRegisteredModelSummaryRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getRegisteredModelSummaryRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/registered-models/summary',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetRegisteredModelSummaryResponse>{},
+                body: await response.json(),
+                bodyKey: "registeredModelSummary",
+                bodyModel:  model.RegisteredModelSummary,
+                type: "model.RegisteredModelSummary",
+                responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
                         key: "opcRequestId",
@@ -11641,6 +12270,79 @@ export class MLOpsClient {
     }
 
     /**
+     * (Preview) Returns the activity history for a model deployment.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListModelDeploymentActivitiesRequest
+     * @return ListModelDeploymentActivitiesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListModelDeploymentActivities.ts.html |here} to see how to use ListModelDeploymentActivities API.
+     */
+    public async listModelDeploymentActivities (listModelDeploymentActivitiesRequest: requests.ListModelDeploymentActivitiesRequest) : Promise<responses.ListModelDeploymentActivitiesResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#listModelDeploymentActivities.");
+        const operationName = "listModelDeploymentActivities";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": listModelDeploymentActivitiesRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': listModelDeploymentActivitiesRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            listModelDeploymentActivitiesRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/activities/search',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(listModelDeploymentActivitiesRequest.listModelDeploymentActivitiesDetails, "ListModelDeploymentActivitiesDetails"
+                            , model.ListModelDeploymentActivitiesDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ListModelDeploymentActivitiesResponse>{},
+                body: await response.json(),
+                bodyKey: "modelDeploymentActivitySummaryCollection",
+                bodyModel:  model.ModelDeploymentActivitySummaryCollection,
+                type: "model.ModelDeploymentActivitySummaryCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * (Preview) Returns a list of model versions.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListModelVersionsRequest
@@ -11736,6 +12438,7 @@ export class MLOpsClient {
             'max_results': listRegisteredModelsRequest.maxResults,
             'page_token': listRegisteredModelsRequest.pageToken,
             'order_by': listRegisteredModelsRequest.orderBy,
+            'is_deployment_summary_enabled': listRegisteredModelsRequest.isDeploymentSummaryEnabled,
         };
 
         let headerParams = {
@@ -12362,6 +13065,217 @@ export class MLOpsClient {
                     {
                         value: response.headers.get("opc-request-id"),
                         key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Rolls an active model deployment back to a lower model version of the same registered model.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param RollBackModelDeploymentRequest
+     * @return RollBackModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RollBackModelDeployment.ts.html |here} to see how to use RollBackModelDeployment API.
+     */
+    public async rollBackModelDeployment (rollBackModelDeploymentRequest: requests.RollBackModelDeploymentRequest) : Promise<responses.RollBackModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#rollBackModelDeployment.");
+        const operationName = "rollBackModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": rollBackModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': rollBackModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            rollBackModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/roll-back',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(rollBackModelDeploymentRequest.rollBackModelDeploymentDetails, "RollBackModelDeploymentDetails"
+                            , model.RollBackModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.RollBackModelDeploymentResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Rolls an active model deployment forward to a higher model version of the same registered model.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param RollForwardModelDeploymentRequest
+     * @return RollForwardModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/RollForwardModelDeployment.ts.html |here} to see how to use RollForwardModelDeployment API.
+     */
+    public async rollForwardModelDeployment (rollForwardModelDeploymentRequest: requests.RollForwardModelDeploymentRequest) : Promise<responses.RollForwardModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#rollForwardModelDeployment.");
+        const operationName = "rollForwardModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": rollForwardModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': rollForwardModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            rollForwardModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/roll-forward',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(rollForwardModelDeploymentRequest.rollForwardModelDeploymentDetails, "RollForwardModelDeploymentDetails"
+                            , model.RollForwardModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.RollForwardModelDeploymentResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns a list of model deployments matching the given criteria.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param SearchModelDeploymentsRequest
+     * @return SearchModelDeploymentsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchModelDeployments.ts.html |here} to see how to use SearchModelDeployments API.
+     */
+    public async searchModelDeployments (searchModelDeploymentsRequest: requests.SearchModelDeploymentsRequest) : Promise<responses.SearchModelDeploymentsResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#searchModelDeployments.");
+        const operationName = "searchModelDeployments";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": searchModelDeploymentsRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': searchModelDeploymentsRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            searchModelDeploymentsRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/search',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(searchModelDeploymentsRequest.searchModelDeploymentsDetails, "SearchModelDeploymentsDetails"
+                            , model.SearchModelDeploymentsDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.SearchModelDeploymentsResponse>{},
+                body: await response.json(),
+                bodyKey: "modelDeploymentCollection",
+                bodyModel:  model.ModelDeploymentCollection,
+                type: "model.ModelDeploymentCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
                         dataType: "string"
                     },
                     ]
@@ -13016,6 +13930,152 @@ export class MLOpsClient {
                 bodyKey: "updateExperimentTagsResponseDetails",
                 bodyModel:  model.UpdateExperimentTagsResponseDetails,
                 type: "model.UpdateExperimentTagsResponseDetails",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Updates a model deployment.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdateModelDeploymentRequest
+     * @return UpdateModelDeploymentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateModelDeployment.ts.html |here} to see how to use UpdateModelDeployment API.
+     */
+    public async updateModelDeployment (updateModelDeploymentRequest: requests.UpdateModelDeploymentRequest) : Promise<responses.UpdateModelDeploymentResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#updateModelDeployment.");
+        const operationName = "updateModelDeployment";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": updateModelDeploymentRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': updateModelDeploymentRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            updateModelDeploymentRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/update',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(updateModelDeploymentRequest.updateModelDeploymentDetails, "UpdateModelDeploymentDetails"
+                            , model.UpdateModelDeploymentDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.UpdateModelDeploymentResponse>{},
+                body: await response.json(),
+                bodyKey: "modelDeployment",
+                bodyModel:  model.ModelDeployment,
+                type: "model.ModelDeployment",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Updates tags on a model deployment.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdateModelDeploymentTagsRequest
+     * @return UpdateModelDeploymentTagsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdateModelDeploymentTags.ts.html |here} to see how to use UpdateModelDeploymentTags API.
+     */
+    public async updateModelDeploymentTags (updateModelDeploymentTagsRequest: requests.UpdateModelDeploymentTagsRequest) : Promise<responses.UpdateModelDeploymentTagsResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#updateModelDeploymentTags.");
+        const operationName = "updateModelDeploymentTags";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": updateModelDeploymentTagsRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': updateModelDeploymentTagsRequest.opcRetryToken,'opc-request-id': updateModelDeploymentTagsRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            updateModelDeploymentTagsRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/update-tags',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(updateModelDeploymentTagsRequest.updateModelDeploymentTagsDetails, "UpdateModelDeploymentTagsDetails"
+                            , model.UpdateModelDeploymentTagsDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.UpdateModelDeploymentTagsResponse>{},
+                body: await response.json(),
+                bodyKey: "updateModelDeploymentTagsResponseDetails",
+                bodyModel:  model.UpdateModelDeploymentTagsResponseDetails,
+                type: "model.UpdateModelDeploymentTagsResponseDetails",
                 responseHeaders: [
                     {
                         value: response.headers.get("etag"),
@@ -16299,6 +17359,7 @@ export class SchemaClient {
             'shouldSkipOcidTranslation': listTablesRequest.shouldSkipOcidTranslation,
             'schemaKey': listTablesRequest.schemaKey,
             'displayName': listTablesRequest.displayName,
+            'tableType': listTablesRequest.tableType,
             'limit': listTablesRequest.limit,
             'page': listTablesRequest.page,
             'sortOrder': listTablesRequest.sortOrder,

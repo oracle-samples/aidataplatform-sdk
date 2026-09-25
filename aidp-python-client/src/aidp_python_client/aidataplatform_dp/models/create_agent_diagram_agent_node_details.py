@@ -70,7 +70,7 @@ class CreateAgentDiagramAgentNodeDetails(CreateAgentDiagramNodeDetails):
 
         :param llm:
             The value to assign to the llm property of this CreateAgentDiagramAgentNodeDetails.
-        :type llm: oci.aidataplatform_dp.models.LlmConfig
+        :type llm: oci.aidataplatform_dp.models.BaseLlmConfig
 
         :param model_settings:
             The value to assign to the model_settings property of this CreateAgentDiagramAgentNodeDetails.
@@ -98,7 +98,7 @@ class CreateAgentDiagramAgentNodeDetails(CreateAgentDiagramNodeDetails):
             'configuration': 'dict(str, object)',
             'node_type_id': 'str',
             'instructions': 'str',
-            'llm': 'LlmConfig',
+            'llm': 'BaseLlmConfig',
             'model_settings': 'dict(str, object)',
             'memory': 'MemoryConfiguration',
             'tools': 'list[Tool]'
@@ -171,7 +171,7 @@ class CreateAgentDiagramAgentNodeDetails(CreateAgentDiagramNodeDetails):
         Gets the llm of this CreateAgentDiagramAgentNodeDetails.
 
         :return: The llm of this CreateAgentDiagramAgentNodeDetails.
-        :rtype: oci.aidataplatform_dp.models.LlmConfig
+        :rtype: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         return self._llm
 
@@ -181,7 +181,7 @@ class CreateAgentDiagramAgentNodeDetails(CreateAgentDiagramNodeDetails):
         Sets the llm of this CreateAgentDiagramAgentNodeDetails.
 
         :param llm: The llm of this CreateAgentDiagramAgentNodeDetails.
-        :type: oci.aidataplatform_dp.models.LlmConfig
+        :type: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         self._llm = llm
 

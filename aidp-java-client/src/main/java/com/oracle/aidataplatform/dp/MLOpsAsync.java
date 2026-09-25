@@ -58,6 +58,18 @@ public interface MLOpsAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
+     * (Preview) Activates a model deployment so the model becomes available for inference.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ActivateModelDeploymentResponse> activateModelDeployment(ActivateModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<ActivateModelDeploymentRequest, ActivateModelDeploymentResponse> handler);
+    
+    /**
      * (Preview) Creates an experiment in a workspace.
      * 
      * @param request The request object containing the details to send
@@ -80,6 +92,18 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<CreateExperimentRunResponse> createExperimentRun(CreateExperimentRunRequest request, com.oracle.bmc.responses.AsyncHandler<CreateExperimentRunRequest, CreateExperimentRunResponse> handler);
+    
+    /**
+     * (Preview) Creates a model deployment for a registered model.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<CreateModelDeploymentResponse> createModelDeployment(CreateModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<CreateModelDeploymentRequest, CreateModelDeploymentResponse> handler);
     
     /**
      * (Preview) Creates a model version.
@@ -116,6 +140,18 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<CreateWorkspaceModelVersionResponse> createWorkspaceModelVersion(CreateWorkspaceModelVersionRequest request, com.oracle.bmc.responses.AsyncHandler<CreateWorkspaceModelVersionRequest, CreateWorkspaceModelVersionResponse> handler);
+    
+    /**
+     * (Preview) Deactivates a model deployment to safely take the model offline.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DeactivateModelDeploymentResponse> deactivateModelDeployment(DeactivateModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<DeactivateModelDeploymentRequest, DeactivateModelDeploymentResponse> handler);
     
     /**
      * (Preview) Deletes an experiment.
@@ -164,6 +200,18 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<DeleteExperimentTagResponse> deleteExperimentTag(DeleteExperimentTagRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteExperimentTagRequest, DeleteExperimentTagResponse> handler);
+    
+    /**
+     * (Preview) Deletes a model deployment that is not active.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<DeleteModelDeploymentResponse> deleteModelDeployment(DeleteModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteModelDeploymentRequest, DeleteModelDeploymentResponse> handler);
     
     /**
      * (Preview) Deletes a model version.
@@ -262,6 +310,42 @@ public interface MLOpsAsync extends AutoCloseable {
     java.util.concurrent.Future<GetExperimentRunMetricHistoryResponse> getExperimentRunMetricHistory(GetExperimentRunMetricHistoryRequest request, com.oracle.bmc.responses.AsyncHandler<GetExperimentRunMetricHistoryRequest, GetExperimentRunMetricHistoryResponse> handler);
     
     /**
+     * (Preview) Returns details for a specified model deployment.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetModelDeploymentResponse> getModelDeployment(GetModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentRequest, GetModelDeploymentResponse> handler);
+    
+    /**
+     * (Preview) Returns the full detail for a single deployment activity, including the configuration snapshot and the comment.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetModelDeploymentActivityResponse> getModelDeploymentActivity(GetModelDeploymentActivityRequest request, com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentActivityRequest, GetModelDeploymentActivityResponse> handler);
+    
+    /**
+     * (Preview) Returns the model contract (input/output signatures and a sample request) for the query-endpoint playground.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetModelDeploymentContractResponse> getModelDeploymentContract(GetModelDeploymentContractRequest request, com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentContractRequest, GetModelDeploymentContractResponse> handler);
+    
+    /**
      * (Preview)  Returns detailed information for a model version.
      * 
      * @param request The request object containing the details to send
@@ -284,6 +368,18 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<GetRegisteredModelResponse> getRegisteredModel(GetRegisteredModelRequest request, com.oracle.bmc.responses.AsyncHandler<GetRegisteredModelRequest, GetRegisteredModelResponse> handler);
+    
+    /**
+     * (Preview) Returns aggregate counts of the registered-model footprint within a catalog and schema.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetRegisteredModelSummaryResponse> getRegisteredModelSummary(GetRegisteredModelSummaryRequest request, com.oracle.bmc.responses.AsyncHandler<GetRegisteredModelSummaryRequest, GetRegisteredModelSummaryResponse> handler);
     
     /**
      * (Preview) Returns a list of artifacts.
@@ -332,6 +428,18 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<ListLoggedModelsResponse> listLoggedModels(ListLoggedModelsRequest request, com.oracle.bmc.responses.AsyncHandler<ListLoggedModelsRequest, ListLoggedModelsResponse> handler);
+    
+    /**
+     * (Preview) Returns the activity history for a model deployment.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ListModelDeploymentActivitiesResponse> listModelDeploymentActivities(ListModelDeploymentActivitiesRequest request, com.oracle.bmc.responses.AsyncHandler<ListModelDeploymentActivitiesRequest, ListModelDeploymentActivitiesResponse> handler);
     
     /**
      * (Preview) Returns a list of model versions.
@@ -454,6 +562,42 @@ public interface MLOpsAsync extends AutoCloseable {
     java.util.concurrent.Future<RestoreExperimentRunResponse> restoreExperimentRun(RestoreExperimentRunRequest request, com.oracle.bmc.responses.AsyncHandler<RestoreExperimentRunRequest, RestoreExperimentRunResponse> handler);
     
     /**
+     * (Preview) Rolls an active model deployment back to a lower model version of the same registered model.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<RollBackModelDeploymentResponse> rollBackModelDeployment(RollBackModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<RollBackModelDeploymentRequest, RollBackModelDeploymentResponse> handler);
+    
+    /**
+     * (Preview) Rolls an active model deployment forward to a higher model version of the same registered model.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<RollForwardModelDeploymentResponse> rollForwardModelDeployment(RollForwardModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<RollForwardModelDeploymentRequest, RollForwardModelDeploymentResponse> handler);
+    
+    /**
+     * (Preview) Returns a list of model deployments matching the given criteria.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<SearchModelDeploymentsResponse> searchModelDeployments(SearchModelDeploymentsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchModelDeploymentsRequest, SearchModelDeploymentsResponse> handler);
+    
+    /**
      * (Preview) Sets a tag on an experiment run.
      * 
      * @param request The request object containing the details to send
@@ -560,6 +704,30 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<UpdateExperimentTagsResponse> updateExperimentTags(UpdateExperimentTagsRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateExperimentTagsRequest, UpdateExperimentTagsResponse> handler);
+    
+    /**
+     * (Preview) Updates a model deployment.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UpdateModelDeploymentResponse> updateModelDeployment(UpdateModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateModelDeploymentRequest, UpdateModelDeploymentResponse> handler);
+    
+    /**
+     * (Preview) Updates tags on a model deployment.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<UpdateModelDeploymentTagsResponse> updateModelDeploymentTags(UpdateModelDeploymentTagsRequest request, com.oracle.bmc.responses.AsyncHandler<UpdateModelDeploymentTagsRequest, UpdateModelDeploymentTagsResponse> handler);
     
     /**
      * (Preview) Updates a model version
