@@ -4,6 +4,7 @@
 
 from __future__ import absolute_import
 
+from .activate_model_deployment_details import ActivateModelDeploymentDetails
 from .active_cluster_resources import ActiveClusterResources
 from .add_member_to_role_details import AddMemberToRoleDetails
 from .admin_setting import AdminSetting
@@ -58,6 +59,8 @@ from .alh_schema_summary import AlhSchemaSummary
 from .alh_table import AlhTable
 from .alh_table_summary import AlhTableSummary
 from .allowed_tool_details import AllowedToolDetails
+from .anchor_aware_neighbor_column_links import AnchorAwareNeighborColumnLinks
+from .anchor_column_link import AnchorColumnLink
 from .artifact_file_info import ArtifactFileInfo
 from .artifact_list import ArtifactList
 from .assign_agent_permission_details import AssignAgentPermissionDetails
@@ -93,6 +96,9 @@ from .audit_log_search_result_collection import AuditLogSearchResultCollection
 from .audit_log_search_result_summary import AuditLogSearchResultSummary
 from .auth import Auth
 from .auto_scale import AutoScale
+from .auto_scale_configuration import AutoScaleConfiguration
+from .auto_scale_metric_configuration import AutoScaleMetricConfiguration
+from .base_llm_config import BaseLlmConfig
 from .bearer_token_auth import BearerTokenAuth
 from .bucket_collection import BucketCollection
 from .bucket_summary import BucketSummary
@@ -189,6 +195,7 @@ from .create_knowledge_base_details import CreateKnowledgeBaseDetails
 from .create_knowledge_base_job_details import CreateKnowledgeBaseJobDetails
 from .create_knowledge_base_job_run_details import CreateKnowledgeBaseJobRunDetails
 from .create_master_catalog_details import CreateMasterCatalogDetails
+from .create_model_deployment_details import CreateModelDeploymentDetails
 from .create_model_version_details import CreateModelVersionDetails
 from .create_model_version_response_details import CreateModelVersionResponseDetails
 from .create_nl_to_sql_tool_details import CreateNlToSqlToolDetails
@@ -243,6 +250,7 @@ from .db2_schema_summary import Db2SchemaSummary
 from .db2_table import Db2Table
 from .db2_table_summary import Db2TableSummary
 from .de_provision_user_schemas_details import DeProvisionUserSchemasDetails
+from .deactivate_model_deployment_details import DeactivateModelDeploymentDetails
 from .default_cluster import DefaultCluster
 from .delete_experiment_details import DeleteExperimentDetails
 from .delete_experiment_response_details import DeleteExperimentResponseDetails
@@ -252,6 +260,7 @@ from .delete_experiment_run_tag_details import DeleteExperimentRunTagDetails
 from .delete_experiment_run_tag_response_details import DeleteExperimentRunTagResponseDetails
 from .delete_experiment_tag_details import DeleteExperimentTagDetails
 from .delete_experiment_tag_response_details import DeleteExperimentTagResponseDetails
+from .delete_model_deployment_details import DeleteModelDeploymentDetails
 from .delete_model_version_details import DeleteModelVersionDetails
 from .delete_model_version_response_details import DeleteModelVersionResponseDetails
 from .delete_model_version_tag_details import DeleteModelVersionTagDetails
@@ -266,11 +275,19 @@ from .dependency import Dependency
 from .depends_on import DependsOn
 from .deploy_agent_details import DeployAgentDetails
 from .deploy_bundle_details import DeployBundleDetails
+from .deployment_activity import DeploymentActivity
+from .deployment_activity_summary import DeploymentActivitySummary
+from .deployment_details import DeploymentDetails
+from .deployment_details_summary import DeploymentDetailsSummary
+from .deployment_o_auth_details import DeploymentOAuthDetails
+from .deployment_summary import DeploymentSummary
+from .deployment_target import DeploymentTarget
 from .detach_workspace_object_from_cluster_details import DetachWorkspaceObjectFromClusterDetails
 from .dfl_compute_status_result import DflComputeStatusResult
 from .download_cluster_logs_details import DownloadClusterLogsDetails
 from .download_file_with_par_result import DownloadFileWithParResult
 from .driver_config import DriverConfig
+from .driver_failed_and_recovered_event import DriverFailedAndRecoveredEvent
 from .embedding_model_details import EmbeddingModelDetails
 from .entity_lineage import EntityLineage
 from .exadata_schema import ExadataSchema
@@ -309,6 +326,7 @@ from .feature import Feature
 from .feature_status_collection import FeatureStatusCollection
 from .feature_status_result import FeatureStatusResult
 from .feature_status_summary import FeatureStatusSummary
+from .fetch_anchor_aware_neighbor_column_links_details import FetchAnchorAwareNeighborColumnLinksDetails
 from .fetch_bundle_deployment_status_details import FetchBundleDeploymentStatusDetails
 from .fetch_bundle_publish_status_details import FetchBundlePublishStatusDetails
 from .fetch_entity_lineage_details import FetchEntityLineageDetails
@@ -328,6 +346,7 @@ from .find_ontology_graph_paths_details import FindOntologyGraphPathsDetails
 from .generate_temp_file_upload_target_response_details import GenerateTempFileUploadTargetResponseDetails
 from .get_bundle_overrides_details import GetBundleOverridesDetails
 from .get_experiment_run_response_details import GetExperimentRunResponseDetails
+from .get_model_deployment_contract_response import GetModelDeploymentContractResponse
 from .get_model_version_response_details import GetModelVersionResponseDetails
 from .get_registered_model_response_details import GetRegisteredModelResponseDetails
 from .git_account_user_setting import GitAccountUserSetting
@@ -417,8 +436,10 @@ from .list_experiment_runs_details import ListExperimentRunsDetails
 from .list_experiments_details import ListExperimentsDetails
 from .list_filter import ListFilter
 from .list_logged_models_details import ListLoggedModelsDetails
+from .list_model_deployment_activities_details import ListModelDeploymentActivitiesDetails
 from .list_permissions_with_resource_details import ListPermissionsWithResourceDetails
 from .llm_config import LlmConfig
+from .llm_connection_settings import LlmConnectionSettings
 from .log_experiment_run_batch_details import LogExperimentRunBatchDetails
 from .log_experiment_run_batch_response_details import LogExperimentRunBatchResponseDetails
 from .log_experiment_run_inputs_details import LogExperimentRunInputsDetails
@@ -480,6 +501,12 @@ from .memory_limit_configuration_details import MemoryLimitConfigurationDetails
 from .metrics_summary import MetricsSummary
 from .mkdir_details import MkdirDetails
 from .model import Model
+from .model_deployment import ModelDeployment
+from .model_deployment_activity_summary_collection import ModelDeploymentActivitySummaryCollection
+from .model_deployment_collection import ModelDeploymentCollection
+from .model_deployment_summary import ModelDeploymentSummary
+from .model_deployment_tag import ModelDeploymentTag
+from .model_deployment_tag_key import ModelDeploymentTagKey
 from .model_input import ModelInput
 from .model_metric import ModelMetric
 from .model_output import ModelOutput
@@ -516,14 +543,6 @@ from .notify_cluster_event_handler_details import NotifyClusterEventHandlerDetai
 from .o_auth import OAuth
 from .o_auth_admin_setting import OAuthAdminSetting
 from .o_auth_configuration import OAuthConfiguration
-from .oac_object_collection import OacObjectCollection
-from .oac_object_column import OacObjectColumn
-from .oac_object_column_sql_info import OacObjectColumnSqlInfo
-from .oac_object_hierarchy_level import OacObjectHierarchyLevel
-from .oac_object_summary import OacObjectSummary
-from .oac_object_table import OacObjectTable
-from .oac_object_table_summary import OacObjectTableSummary
-from .oac_object_table_summary_collection import OacObjectTableSummaryCollection
 from .oac_schema import OacSchema
 from .oac_schema_summary import OacSchemaSummary
 from .oac_table import OacTable
@@ -536,23 +555,73 @@ from .object_search_summary import ObjectSearchSummary
 from .object_suggest_summary import ObjectSuggestSummary
 from .oci_logging import OciLogging
 from .oci_resource_principal_auth import OciResourcePrincipalAuth
+from .ontology_entity import OntologyEntity
+from .ontology_entity_cardinality import OntologyEntityCardinality
+from .ontology_entity_error import OntologyEntityError
+from .ontology_entity_failed_operation import OntologyEntityFailedOperation
+from .ontology_entity_mutation_response import OntologyEntityMutationResponse
+from .ontology_entity_mutation_result import OntologyEntityMutationResult
+from .ontology_entity_operation_result import OntologyEntityOperationResult
+from .ontology_entity_patch_details import OntologyEntityPatchDetails
+from .ontology_entity_patch_operation import OntologyEntityPatchOperation
+from .ontology_entity_refactor_details import OntologyEntityRefactorDetails
+from .ontology_entity_response import OntologyEntityResponse
+from .ontology_entity_save_details import OntologyEntitySaveDetails
+from .ontology_entity_save_error import OntologyEntitySaveError
+from .ontology_entity_save_operation import OntologyEntitySaveOperation
+from .ontology_entity_save_response import OntologyEntitySaveResponse
+from .ontology_entity_save_result import OntologyEntitySaveResult
 from .ontology_graph import OntologyGraph
 from .ontology_graph_edge import OntologyGraphEdge
 from .ontology_graph_expansion import OntologyGraphExpansion
+from .ontology_graph_expansion_response import OntologyGraphExpansionResponse
 from .ontology_graph_node import OntologyGraphNode
+from .ontology_graph_node_response import OntologyGraphNodeResponse
 from .ontology_graph_path import OntologyGraphPath
 from .ontology_graph_path_collection import OntologyGraphPathCollection
+from .ontology_graph_path_collection_response import OntologyGraphPathCollectionResponse
+from .ontology_graph_preview import OntologyGraphPreview
+from .ontology_graph_preview_diagnostic import OntologyGraphPreviewDiagnostic
+from .ontology_graph_preview_edge import OntologyGraphPreviewEdge
+from .ontology_graph_preview_file import OntologyGraphPreviewFile
+from .ontology_graph_preview_limits import OntologyGraphPreviewLimits
+from .ontology_graph_preview_model import OntologyGraphPreviewModel
+from .ontology_graph_preview_node import OntologyGraphPreviewNode
+from .ontology_graph_preview_node_expansion import OntologyGraphPreviewNodeExpansion
+from .ontology_graph_preview_property import OntologyGraphPreviewProperty
+from .ontology_graph_preview_response import OntologyGraphPreviewResponse
+from .ontology_graph_response import OntologyGraphResponse
 from .ontology_graph_search_result import OntologyGraphSearchResult
 from .ontology_graph_search_result_collection import OntologyGraphSearchResultCollection
+from .ontology_graph_search_result_collection_response import OntologyGraphSearchResultCollectionResponse
+from .ontology_graph_tree_context_path_item import OntologyGraphTreeContextPathItem
+from .ontology_graph_tree_search_filter import OntologyGraphTreeSearchFilter
+from .ontology_graph_tree_search_node import OntologyGraphTreeSearchNode
+from .ontology_graph_tree_search_response import OntologyGraphTreeSearchResponse
+from .ontology_graph_tree_search_result import OntologyGraphTreeSearchResult
+from .ontology_graph_tree_search_result_set import OntologyGraphTreeSearchResultSet
 from .ontology_project import OntologyProject
 from .ontology_project_collection import OntologyProjectCollection
+from .ontology_project_collection_response import OntologyProjectCollectionResponse
 from .ontology_project_file_content import OntologyProjectFileContent
+from .ontology_project_file_content_response import OntologyProjectFileContentResponse
+from .ontology_project_import_status_details import OntologyProjectImportStatusDetails
 from .ontology_project_object import OntologyProjectObject
 from .ontology_project_object_collection import OntologyProjectObjectCollection
+from .ontology_project_object_collection_response import OntologyProjectObjectCollectionResponse
+from .ontology_project_object_response import OntologyProjectObjectResponse
+from .ontology_project_parse_response import OntologyProjectParseResponse
+from .ontology_project_parse_result import OntologyProjectParseResult
+from .ontology_project_response import OntologyProjectResponse
 from .ontology_project_status import OntologyProjectStatus
 from .ontology_project_status_collection import OntologyProjectStatusCollection
+from .ontology_project_status_collection_response import OntologyProjectStatusCollectionResponse
+from .ontology_project_status_response import OntologyProjectStatusResponse
 from .ontology_project_validation_result import OntologyProjectValidationResult
+from .ontology_project_validation_result_response import OntologyProjectValidationResultResponse
 from .ontology_publish_target_connection_reference import OntologyPublishTargetConnectionReference
+from .ontology_response_envelope_base import OntologyResponseEnvelopeBase
+from .ontology_validation_finding import OntologyValidationFinding
 from .oracle_schema import OracleSchema
 from .oracle_schema_summary import OracleSchemaSummary
 from .oracle_table import OracleTable
@@ -588,6 +657,9 @@ from .prompt_tool_configuration import PromptToolConfiguration
 from .provision_user_schema_details import ProvisionUserSchemaDetails
 from .publish_bundle_details import PublishBundleDetails
 from .publish_ontology_project_details import PublishOntologyProjectDetails
+from .published_ontology import PublishedOntology
+from .published_ontology_collection import PublishedOntologyCollection
+from .published_ontology_collection_response import PublishedOntologyCollectionResponse
 from .purge_bundle_details import PurgeBundleDetails
 from .pypi_cluster_library_summary import PypiClusterLibrarySummary
 from .python_task import PythonTask
@@ -613,6 +685,7 @@ from .recipient_summary import RecipientSummary
 from .registered_model import RegisteredModel
 from .registered_model_alias import RegisteredModelAlias
 from .registered_model_collection import RegisteredModelCollection
+from .registered_model_summary import RegisteredModelSummary
 from .registered_model_tag import RegisteredModelTag
 from .registered_model_tag_key import RegisteredModelTagKey
 from .remove_member_from_role_details import RemoveMemberFromRoleDetails
@@ -655,6 +728,8 @@ from .role_collection import RoleCollection
 from .role_permission_collection import RolePermissionCollection
 from .role_permission_summary import RolePermissionSummary
 from .role_summary import RoleSummary
+from .roll_back_model_deployment_details import RollBackModelDeploymentDetails
+from .roll_forward_model_deployment_details import RollForwardModelDeploymentDetails
 from .run_output_data import RunOutputData
 from .safety_policy import SafetyPolicy
 from .scan import Scan
@@ -667,6 +742,7 @@ from .schema_summary import SchemaSummary
 from .search_audit_logs_details import SearchAuditLogsDetails
 from .search_cluster_logs_details import SearchClusterLogsDetails
 from .search_criteria import SearchCriteria
+from .search_model_deployments_details import SearchModelDeploymentsDetails
 from .search_object_type import SearchObjectType
 from .search_result import SearchResult
 from .search_result_summary import SearchResultSummary
@@ -759,6 +835,7 @@ from .test_sql_tool_details import TestSqlToolDetails
 from .test_tool_details import TestToolDetails
 from .test_tool_param_values import TestToolParamValues
 from .test_tool_result import TestToolResult
+from .third_party_llm_config import ThirdPartyLlmConfig
 from .time_created import TimeCreated
 from .time_updated import TimeUpdated
 from .tool import Tool
@@ -814,6 +891,9 @@ from .update_knowledge_base_metadata_update_details import UpdateKnowledgeBaseMe
 from .update_knowledge_base_source_update_details import UpdateKnowledgeBaseSourceUpdateDetails
 from .update_knowledge_base_source_update_details_item import UpdateKnowledgeBaseSourceUpdateDetailsItem
 from .update_master_catalog_details import UpdateMasterCatalogDetails
+from .update_model_deployment_details import UpdateModelDeploymentDetails
+from .update_model_deployment_tags_details import UpdateModelDeploymentTagsDetails
+from .update_model_deployment_tags_response_details import UpdateModelDeploymentTagsResponseDetails
 from .update_model_version_details import UpdateModelVersionDetails
 from .update_model_version_response_details import UpdateModelVersionResponseDetails
 from .update_model_version_tags_details import UpdateModelVersionTagsDetails
@@ -895,6 +975,7 @@ from .zip_and_download_folder_result import ZipAndDownloadFolderResult
 
 # Maps type names to classes for aidataplatform_dp services.
 aidataplatform_dp_type_mapping = {
+    "ActivateModelDeploymentDetails": ActivateModelDeploymentDetails,
     "ActiveClusterResources": ActiveClusterResources,
     "AddMemberToRoleDetails": AddMemberToRoleDetails,
     "AdminSetting": AdminSetting,
@@ -949,6 +1030,8 @@ aidataplatform_dp_type_mapping = {
     "AlhTable": AlhTable,
     "AlhTableSummary": AlhTableSummary,
     "AllowedToolDetails": AllowedToolDetails,
+    "AnchorAwareNeighborColumnLinks": AnchorAwareNeighborColumnLinks,
+    "AnchorColumnLink": AnchorColumnLink,
     "ArtifactFileInfo": ArtifactFileInfo,
     "ArtifactList": ArtifactList,
     "AssignAgentPermissionDetails": AssignAgentPermissionDetails,
@@ -984,6 +1067,9 @@ aidataplatform_dp_type_mapping = {
     "AuditLogSearchResultSummary": AuditLogSearchResultSummary,
     "Auth": Auth,
     "AutoScale": AutoScale,
+    "AutoScaleConfiguration": AutoScaleConfiguration,
+    "AutoScaleMetricConfiguration": AutoScaleMetricConfiguration,
+    "BaseLlmConfig": BaseLlmConfig,
     "BearerTokenAuth": BearerTokenAuth,
     "BucketCollection": BucketCollection,
     "BucketSummary": BucketSummary,
@@ -1080,6 +1166,7 @@ aidataplatform_dp_type_mapping = {
     "CreateKnowledgeBaseJobDetails": CreateKnowledgeBaseJobDetails,
     "CreateKnowledgeBaseJobRunDetails": CreateKnowledgeBaseJobRunDetails,
     "CreateMasterCatalogDetails": CreateMasterCatalogDetails,
+    "CreateModelDeploymentDetails": CreateModelDeploymentDetails,
     "CreateModelVersionDetails": CreateModelVersionDetails,
     "CreateModelVersionResponseDetails": CreateModelVersionResponseDetails,
     "CreateNlToSqlToolDetails": CreateNlToSqlToolDetails,
@@ -1134,6 +1221,7 @@ aidataplatform_dp_type_mapping = {
     "Db2Table": Db2Table,
     "Db2TableSummary": Db2TableSummary,
     "DeProvisionUserSchemasDetails": DeProvisionUserSchemasDetails,
+    "DeactivateModelDeploymentDetails": DeactivateModelDeploymentDetails,
     "DefaultCluster": DefaultCluster,
     "DeleteExperimentDetails": DeleteExperimentDetails,
     "DeleteExperimentResponseDetails": DeleteExperimentResponseDetails,
@@ -1143,6 +1231,7 @@ aidataplatform_dp_type_mapping = {
     "DeleteExperimentRunTagResponseDetails": DeleteExperimentRunTagResponseDetails,
     "DeleteExperimentTagDetails": DeleteExperimentTagDetails,
     "DeleteExperimentTagResponseDetails": DeleteExperimentTagResponseDetails,
+    "DeleteModelDeploymentDetails": DeleteModelDeploymentDetails,
     "DeleteModelVersionDetails": DeleteModelVersionDetails,
     "DeleteModelVersionResponseDetails": DeleteModelVersionResponseDetails,
     "DeleteModelVersionTagDetails": DeleteModelVersionTagDetails,
@@ -1157,11 +1246,19 @@ aidataplatform_dp_type_mapping = {
     "DependsOn": DependsOn,
     "DeployAgentDetails": DeployAgentDetails,
     "DeployBundleDetails": DeployBundleDetails,
+    "DeploymentActivity": DeploymentActivity,
+    "DeploymentActivitySummary": DeploymentActivitySummary,
+    "DeploymentDetails": DeploymentDetails,
+    "DeploymentDetailsSummary": DeploymentDetailsSummary,
+    "DeploymentOAuthDetails": DeploymentOAuthDetails,
+    "DeploymentSummary": DeploymentSummary,
+    "DeploymentTarget": DeploymentTarget,
     "DetachWorkspaceObjectFromClusterDetails": DetachWorkspaceObjectFromClusterDetails,
     "DflComputeStatusResult": DflComputeStatusResult,
     "DownloadClusterLogsDetails": DownloadClusterLogsDetails,
     "DownloadFileWithParResult": DownloadFileWithParResult,
     "DriverConfig": DriverConfig,
+    "DriverFailedAndRecoveredEvent": DriverFailedAndRecoveredEvent,
     "EmbeddingModelDetails": EmbeddingModelDetails,
     "EntityLineage": EntityLineage,
     "ExadataSchema": ExadataSchema,
@@ -1200,6 +1297,7 @@ aidataplatform_dp_type_mapping = {
     "FeatureStatusCollection": FeatureStatusCollection,
     "FeatureStatusResult": FeatureStatusResult,
     "FeatureStatusSummary": FeatureStatusSummary,
+    "FetchAnchorAwareNeighborColumnLinksDetails": FetchAnchorAwareNeighborColumnLinksDetails,
     "FetchBundleDeploymentStatusDetails": FetchBundleDeploymentStatusDetails,
     "FetchBundlePublishStatusDetails": FetchBundlePublishStatusDetails,
     "FetchEntityLineageDetails": FetchEntityLineageDetails,
@@ -1219,6 +1317,7 @@ aidataplatform_dp_type_mapping = {
     "GenerateTempFileUploadTargetResponseDetails": GenerateTempFileUploadTargetResponseDetails,
     "GetBundleOverridesDetails": GetBundleOverridesDetails,
     "GetExperimentRunResponseDetails": GetExperimentRunResponseDetails,
+    "GetModelDeploymentContractResponse": GetModelDeploymentContractResponse,
     "GetModelVersionResponseDetails": GetModelVersionResponseDetails,
     "GetRegisteredModelResponseDetails": GetRegisteredModelResponseDetails,
     "GitAccountUserSetting": GitAccountUserSetting,
@@ -1308,8 +1407,10 @@ aidataplatform_dp_type_mapping = {
     "ListExperimentsDetails": ListExperimentsDetails,
     "ListFilter": ListFilter,
     "ListLoggedModelsDetails": ListLoggedModelsDetails,
+    "ListModelDeploymentActivitiesDetails": ListModelDeploymentActivitiesDetails,
     "ListPermissionsWithResourceDetails": ListPermissionsWithResourceDetails,
     "LlmConfig": LlmConfig,
+    "LlmConnectionSettings": LlmConnectionSettings,
     "LogExperimentRunBatchDetails": LogExperimentRunBatchDetails,
     "LogExperimentRunBatchResponseDetails": LogExperimentRunBatchResponseDetails,
     "LogExperimentRunInputsDetails": LogExperimentRunInputsDetails,
@@ -1371,6 +1472,12 @@ aidataplatform_dp_type_mapping = {
     "MetricsSummary": MetricsSummary,
     "MkdirDetails": MkdirDetails,
     "Model": Model,
+    "ModelDeployment": ModelDeployment,
+    "ModelDeploymentActivitySummaryCollection": ModelDeploymentActivitySummaryCollection,
+    "ModelDeploymentCollection": ModelDeploymentCollection,
+    "ModelDeploymentSummary": ModelDeploymentSummary,
+    "ModelDeploymentTag": ModelDeploymentTag,
+    "ModelDeploymentTagKey": ModelDeploymentTagKey,
     "ModelInput": ModelInput,
     "ModelMetric": ModelMetric,
     "ModelOutput": ModelOutput,
@@ -1407,14 +1514,6 @@ aidataplatform_dp_type_mapping = {
     "OAuth": OAuth,
     "OAuthAdminSetting": OAuthAdminSetting,
     "OAuthConfiguration": OAuthConfiguration,
-    "OacObjectCollection": OacObjectCollection,
-    "OacObjectColumn": OacObjectColumn,
-    "OacObjectColumnSqlInfo": OacObjectColumnSqlInfo,
-    "OacObjectHierarchyLevel": OacObjectHierarchyLevel,
-    "OacObjectSummary": OacObjectSummary,
-    "OacObjectTable": OacObjectTable,
-    "OacObjectTableSummary": OacObjectTableSummary,
-    "OacObjectTableSummaryCollection": OacObjectTableSummaryCollection,
     "OacSchema": OacSchema,
     "OacSchemaSummary": OacSchemaSummary,
     "OacTable": OacTable,
@@ -1427,23 +1526,73 @@ aidataplatform_dp_type_mapping = {
     "ObjectSuggestSummary": ObjectSuggestSummary,
     "OciLogging": OciLogging,
     "OciResourcePrincipalAuth": OciResourcePrincipalAuth,
+    "OntologyEntity": OntologyEntity,
+    "OntologyEntityCardinality": OntologyEntityCardinality,
+    "OntologyEntityError": OntologyEntityError,
+    "OntologyEntityFailedOperation": OntologyEntityFailedOperation,
+    "OntologyEntityMutationResponse": OntologyEntityMutationResponse,
+    "OntologyEntityMutationResult": OntologyEntityMutationResult,
+    "OntologyEntityOperationResult": OntologyEntityOperationResult,
+    "OntologyEntityPatchDetails": OntologyEntityPatchDetails,
+    "OntologyEntityPatchOperation": OntologyEntityPatchOperation,
+    "OntologyEntityRefactorDetails": OntologyEntityRefactorDetails,
+    "OntologyEntityResponse": OntologyEntityResponse,
+    "OntologyEntitySaveDetails": OntologyEntitySaveDetails,
+    "OntologyEntitySaveError": OntologyEntitySaveError,
+    "OntologyEntitySaveOperation": OntologyEntitySaveOperation,
+    "OntologyEntitySaveResponse": OntologyEntitySaveResponse,
+    "OntologyEntitySaveResult": OntologyEntitySaveResult,
     "OntologyGraph": OntologyGraph,
     "OntologyGraphEdge": OntologyGraphEdge,
     "OntologyGraphExpansion": OntologyGraphExpansion,
+    "OntologyGraphExpansionResponse": OntologyGraphExpansionResponse,
     "OntologyGraphNode": OntologyGraphNode,
+    "OntologyGraphNodeResponse": OntologyGraphNodeResponse,
     "OntologyGraphPath": OntologyGraphPath,
     "OntologyGraphPathCollection": OntologyGraphPathCollection,
+    "OntologyGraphPathCollectionResponse": OntologyGraphPathCollectionResponse,
+    "OntologyGraphPreview": OntologyGraphPreview,
+    "OntologyGraphPreviewDiagnostic": OntologyGraphPreviewDiagnostic,
+    "OntologyGraphPreviewEdge": OntologyGraphPreviewEdge,
+    "OntologyGraphPreviewFile": OntologyGraphPreviewFile,
+    "OntologyGraphPreviewLimits": OntologyGraphPreviewLimits,
+    "OntologyGraphPreviewModel": OntologyGraphPreviewModel,
+    "OntologyGraphPreviewNode": OntologyGraphPreviewNode,
+    "OntologyGraphPreviewNodeExpansion": OntologyGraphPreviewNodeExpansion,
+    "OntologyGraphPreviewProperty": OntologyGraphPreviewProperty,
+    "OntologyGraphPreviewResponse": OntologyGraphPreviewResponse,
+    "OntologyGraphResponse": OntologyGraphResponse,
     "OntologyGraphSearchResult": OntologyGraphSearchResult,
     "OntologyGraphSearchResultCollection": OntologyGraphSearchResultCollection,
+    "OntologyGraphSearchResultCollectionResponse": OntologyGraphSearchResultCollectionResponse,
+    "OntologyGraphTreeContextPathItem": OntologyGraphTreeContextPathItem,
+    "OntologyGraphTreeSearchFilter": OntologyGraphTreeSearchFilter,
+    "OntologyGraphTreeSearchNode": OntologyGraphTreeSearchNode,
+    "OntologyGraphTreeSearchResponse": OntologyGraphTreeSearchResponse,
+    "OntologyGraphTreeSearchResult": OntologyGraphTreeSearchResult,
+    "OntologyGraphTreeSearchResultSet": OntologyGraphTreeSearchResultSet,
     "OntologyProject": OntologyProject,
     "OntologyProjectCollection": OntologyProjectCollection,
+    "OntologyProjectCollectionResponse": OntologyProjectCollectionResponse,
     "OntologyProjectFileContent": OntologyProjectFileContent,
+    "OntologyProjectFileContentResponse": OntologyProjectFileContentResponse,
+    "OntologyProjectImportStatusDetails": OntologyProjectImportStatusDetails,
     "OntologyProjectObject": OntologyProjectObject,
     "OntologyProjectObjectCollection": OntologyProjectObjectCollection,
+    "OntologyProjectObjectCollectionResponse": OntologyProjectObjectCollectionResponse,
+    "OntologyProjectObjectResponse": OntologyProjectObjectResponse,
+    "OntologyProjectParseResponse": OntologyProjectParseResponse,
+    "OntologyProjectParseResult": OntologyProjectParseResult,
+    "OntologyProjectResponse": OntologyProjectResponse,
     "OntologyProjectStatus": OntologyProjectStatus,
     "OntologyProjectStatusCollection": OntologyProjectStatusCollection,
+    "OntologyProjectStatusCollectionResponse": OntologyProjectStatusCollectionResponse,
+    "OntologyProjectStatusResponse": OntologyProjectStatusResponse,
     "OntologyProjectValidationResult": OntologyProjectValidationResult,
+    "OntologyProjectValidationResultResponse": OntologyProjectValidationResultResponse,
     "OntologyPublishTargetConnectionReference": OntologyPublishTargetConnectionReference,
+    "OntologyResponseEnvelopeBase": OntologyResponseEnvelopeBase,
+    "OntologyValidationFinding": OntologyValidationFinding,
     "OracleSchema": OracleSchema,
     "OracleSchemaSummary": OracleSchemaSummary,
     "OracleTable": OracleTable,
@@ -1479,6 +1628,9 @@ aidataplatform_dp_type_mapping = {
     "ProvisionUserSchemaDetails": ProvisionUserSchemaDetails,
     "PublishBundleDetails": PublishBundleDetails,
     "PublishOntologyProjectDetails": PublishOntologyProjectDetails,
+    "PublishedOntology": PublishedOntology,
+    "PublishedOntologyCollection": PublishedOntologyCollection,
+    "PublishedOntologyCollectionResponse": PublishedOntologyCollectionResponse,
     "PurgeBundleDetails": PurgeBundleDetails,
     "PypiClusterLibrarySummary": PypiClusterLibrarySummary,
     "PythonTask": PythonTask,
@@ -1504,6 +1656,7 @@ aidataplatform_dp_type_mapping = {
     "RegisteredModel": RegisteredModel,
     "RegisteredModelAlias": RegisteredModelAlias,
     "RegisteredModelCollection": RegisteredModelCollection,
+    "RegisteredModelSummary": RegisteredModelSummary,
     "RegisteredModelTag": RegisteredModelTag,
     "RegisteredModelTagKey": RegisteredModelTagKey,
     "RemoveMemberFromRoleDetails": RemoveMemberFromRoleDetails,
@@ -1546,6 +1699,8 @@ aidataplatform_dp_type_mapping = {
     "RolePermissionCollection": RolePermissionCollection,
     "RolePermissionSummary": RolePermissionSummary,
     "RoleSummary": RoleSummary,
+    "RollBackModelDeploymentDetails": RollBackModelDeploymentDetails,
+    "RollForwardModelDeploymentDetails": RollForwardModelDeploymentDetails,
     "RunOutputData": RunOutputData,
     "SafetyPolicy": SafetyPolicy,
     "Scan": Scan,
@@ -1558,6 +1713,7 @@ aidataplatform_dp_type_mapping = {
     "SearchAuditLogsDetails": SearchAuditLogsDetails,
     "SearchClusterLogsDetails": SearchClusterLogsDetails,
     "SearchCriteria": SearchCriteria,
+    "SearchModelDeploymentsDetails": SearchModelDeploymentsDetails,
     "SearchObjectType": SearchObjectType,
     "SearchResult": SearchResult,
     "SearchResultSummary": SearchResultSummary,
@@ -1650,6 +1806,7 @@ aidataplatform_dp_type_mapping = {
     "TestToolDetails": TestToolDetails,
     "TestToolParamValues": TestToolParamValues,
     "TestToolResult": TestToolResult,
+    "ThirdPartyLlmConfig": ThirdPartyLlmConfig,
     "TimeCreated": TimeCreated,
     "TimeUpdated": TimeUpdated,
     "Tool": Tool,
@@ -1705,6 +1862,9 @@ aidataplatform_dp_type_mapping = {
     "UpdateKnowledgeBaseSourceUpdateDetails": UpdateKnowledgeBaseSourceUpdateDetails,
     "UpdateKnowledgeBaseSourceUpdateDetailsItem": UpdateKnowledgeBaseSourceUpdateDetailsItem,
     "UpdateMasterCatalogDetails": UpdateMasterCatalogDetails,
+    "UpdateModelDeploymentDetails": UpdateModelDeploymentDetails,
+    "UpdateModelDeploymentTagsDetails": UpdateModelDeploymentTagsDetails,
+    "UpdateModelDeploymentTagsResponseDetails": UpdateModelDeploymentTagsResponseDetails,
     "UpdateModelVersionDetails": UpdateModelVersionDetails,
     "UpdateModelVersionResponseDetails": UpdateModelVersionResponseDetails,
     "UpdateModelVersionTagsDetails": UpdateModelVersionTagsDetails,

@@ -38,7 +38,7 @@ export interface SparkCluster extends model.Cluster {
     'logId'?: string;
     /**
     * The unique OCID that identifies a specific log group within OCI Logging.
-* This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance.
+* This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance.
 * 
     */
     'logGroupId'?: string;

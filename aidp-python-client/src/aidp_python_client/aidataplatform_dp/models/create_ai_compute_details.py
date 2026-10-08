@@ -44,6 +44,10 @@ class CreateAiComputeDetails(CreateClusterDetails):
             The value to assign to the replica_config property of this CreateAiComputeDetails.
         :type replica_config: oci.aidataplatform_dp.models.ReplicaConfig
 
+        :param auto_scale_configuration:
+            The value to assign to the auto_scale_configuration property of this CreateAiComputeDetails.
+        :type auto_scale_configuration: oci.aidataplatform_dp.models.AutoScaleConfiguration
+
         """
         self.swagger_types = {
             'type': 'str',
@@ -51,7 +55,8 @@ class CreateAiComputeDetails(CreateClusterDetails):
             'description': 'str',
             'driver_config': 'DriverConfig',
             'node_type': 'str',
-            'replica_config': 'ReplicaConfig'
+            'replica_config': 'ReplicaConfig',
+            'auto_scale_configuration': 'AutoScaleConfiguration'
         }
 
         self.attribute_map = {
@@ -60,7 +65,8 @@ class CreateAiComputeDetails(CreateClusterDetails):
             'description': 'description',
             'driver_config': 'driverConfig',
             'node_type': 'nodeType',
-            'replica_config': 'replicaConfig'
+            'replica_config': 'replicaConfig',
+            'auto_scale_configuration': 'autoScaleConfiguration'
         }
 
         self._type = None
@@ -69,6 +75,7 @@ class CreateAiComputeDetails(CreateClusterDetails):
         self._driver_config = None
         self._node_type = None
         self._replica_config = None
+        self._auto_scale_configuration = None
         self._type = 'AI_COMPUTE'
 
     @property
@@ -90,6 +97,26 @@ class CreateAiComputeDetails(CreateClusterDetails):
         :type: oci.aidataplatform_dp.models.ReplicaConfig
         """
         self._replica_config = replica_config
+
+    @property
+    def auto_scale_configuration(self):
+        """
+        Gets the auto_scale_configuration of this CreateAiComputeDetails.
+
+        :return: The auto_scale_configuration of this CreateAiComputeDetails.
+        :rtype: oci.aidataplatform_dp.models.AutoScaleConfiguration
+        """
+        return self._auto_scale_configuration
+
+    @auto_scale_configuration.setter
+    def auto_scale_configuration(self, auto_scale_configuration):
+        """
+        Sets the auto_scale_configuration of this CreateAiComputeDetails.
+
+        :param auto_scale_configuration: The auto_scale_configuration of this CreateAiComputeDetails.
+        :type: oci.aidataplatform_dp.models.AutoScaleConfiguration
+        """
+        self._auto_scale_configuration = auto_scale_configuration
 
     def __repr__(self):
         return formatted_flat_dict(self)

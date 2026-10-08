@@ -96,7 +96,7 @@ class CatalogClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CatalogTestConnectionDetails catalog_test_connection_details: (required)
-            Details for the AI Data Platform Workbench catalog to be tested for connection.
+            Details for the AI Data Platform catalog to be tested for connection.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or
@@ -192,7 +192,7 @@ class CatalogClient(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateCatalogDetails create_catalog_details: (required)
-            Details for the new AI Data Platform Workbench catalog.
+            Details for the new AI Data Platform catalog.
 
         :param str opc_retry_token: (optional)
             A token that uniquely identifies a request so it can be retried in case of a timeout or

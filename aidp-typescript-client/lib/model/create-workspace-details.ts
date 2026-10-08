@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface CreateWorkspaceDetails {
     /**
-    * A user-friendly name that has to be unique in a AI Data Platform Workbench instance.
+    * A user-friendly name that has to be unique in a AI Data Platform instance.
     */
     'displayName': string;
     /**

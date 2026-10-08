@@ -10,6 +10,7 @@ package com.oracle.aidataplatform.dp.model;
 public enum TableType implements com.oracle.bmc.http.internal.BmcEnum {
     Managed("MANAGED"),
     External("EXTERNAL"),
+    Synonym("SYNONYM"),
     
 
     /**

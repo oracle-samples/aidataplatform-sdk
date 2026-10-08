@@ -12,15 +12,20 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OntologyProjectStatus  {
     @Deprecated
-    @java.beans.ConstructorProperties({"statusId", "projectId", "projectVersion", "publishVersion", "status", "comment", "validationReport", "compiledArtifactRef", "errorMessage", "idempotencyKey", "timeCreated", "timeUpdated"})
-    public OntologyProjectStatus(String statusId, String projectId, Integer projectVersion, Integer publishVersion, Status status, String comment, String validationReport, String compiledArtifactRef, String errorMessage, String idempotencyKey, java.util.Date timeCreated, java.util.Date timeUpdated) {
+    @java.beans.ConstructorProperties({"statusId", "projectId", "projectVersion", "publishVersion", "publishedOntologyName", "deploymentTarget", "deploymentConnection", "isDeploymentShared", "status", "comment", "importDetails", "validationReport", "compiledArtifactRef", "errorMessage", "idempotencyKey", "timeCreated", "timeUpdated"})
+    public OntologyProjectStatus(String statusId, String projectId, Integer projectVersion, Integer publishVersion, String publishedOntologyName, String deploymentTarget, String deploymentConnection, Boolean isDeploymentShared, Status status, String comment, OntologyProjectImportStatusDetails importDetails, String validationReport, String compiledArtifactRef, String errorMessage, String idempotencyKey, java.util.Date timeCreated, java.util.Date timeUpdated) {
         super();
         this.statusId = statusId;
         this.projectId = projectId;
         this.projectVersion = projectVersion;
         this.publishVersion = publishVersion;
+        this.publishedOntologyName = publishedOntologyName;
+        this.deploymentTarget = deploymentTarget;
+        this.deploymentConnection = deploymentConnection;
+        this.isDeploymentShared = isDeploymentShared;
         this.status = status;
         this.comment = comment;
+        this.importDetails = importDetails;
         this.validationReport = validationReport;
         this.compiledArtifactRef = compiledArtifactRef;
         this.errorMessage = errorMessage;
@@ -87,6 +92,78 @@ public Builder publishVersion(Integer publishVersion) {
     this.publishVersion = publishVersion;
     return this;
 }
+            /**
+     * Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("publishedOntologyName")
+private String publishedOntologyName;
+
+        /**
+         * Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+         * @param publishedOntologyName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder publishedOntologyName(String publishedOntologyName) {
+    this.publishedOntologyName = publishedOntologyName;
+    return this;
+}
+            /**
+     * Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("deploymentTarget")
+private String deploymentTarget;
+
+        /**
+         * Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+         * @param deploymentTarget the value to set
+         * @return this builder
+         **/
+        
+
+public Builder deploymentTarget(String deploymentTarget) {
+    this.deploymentTarget = deploymentTarget;
+    return this;
+}
+            /**
+     * Target deployment connection or catalog reference used for this publish attempt when applicable.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("deploymentConnection")
+private String deploymentConnection;
+
+        /**
+         * Target deployment connection or catalog reference used for this publish attempt when applicable.
+         * @param deploymentConnection the value to set
+         * @return this builder
+         **/
+        
+
+public Builder deploymentConnection(String deploymentConnection) {
+    this.deploymentConnection = deploymentConnection;
+    return this;
+}
+            /**
+     * Whether the deployed ontology used DFL's shared storage layout.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("isDeploymentShared")
+private Boolean isDeploymentShared;
+
+        /**
+         * Whether the deployed ontology used DFL's shared storage layout.
+         * @param isDeploymentShared the value to set
+         * @return this builder
+         **/
+        
+
+public Builder isDeploymentShared(Boolean isDeploymentShared) {
+    this.isDeploymentShared = isDeploymentShared;
+    return this;
+}
         
 @com.fasterxml.jackson.annotation.JsonProperty("status")
 private Status status;
@@ -105,6 +182,16 @@ private String comment;
 
 public Builder comment(String comment) {
     this.comment = comment;
+    return this;
+}
+        
+@com.fasterxml.jackson.annotation.JsonProperty("importDetails")
+private OntologyProjectImportStatusDetails importDetails;
+
+
+
+public Builder importDetails(OntologyProjectImportStatusDetails importDetails) {
+    this.importDetails = importDetails;
     return this;
 }
             /**
@@ -182,8 +269,13 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
                 , this.projectId
                 , this.projectVersion
                 , this.publishVersion
+                , this.publishedOntologyName
+                , this.deploymentTarget
+                , this.deploymentConnection
+                , this.isDeploymentShared
                 , this.status
                 , this.comment
+                , this.importDetails
                 , this.validationReport
                 , this.compiledArtifactRef
                 , this.errorMessage
@@ -198,8 +290,13 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
     this.projectId(model.getProjectId());
     this.projectVersion(model.getProjectVersion());
     this.publishVersion(model.getPublishVersion());
+    this.publishedOntologyName(model.getPublishedOntologyName());
+    this.deploymentTarget(model.getDeploymentTarget());
+    this.deploymentConnection(model.getDeploymentConnection());
+    this.isDeploymentShared(model.getIsDeploymentShared());
     this.status(model.getStatus());
     this.comment(model.getComment());
+    this.importDetails(model.getImportDetails());
     this.validationReport(model.getValidationReport());
     this.compiledArtifactRef(model.getCompiledArtifactRef());
     this.errorMessage(model.getErrorMessage());
@@ -278,6 +375,74 @@ return this;
         return publishVersion;
     }
 
+
+        /**
+     * Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("publishedOntologyName")
+    private final String publishedOntologyName;
+
+        /**
+     * Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+     * @return the value
+     **/
+    
+    public String getPublishedOntologyName() {
+        return publishedOntologyName;
+    }
+
+
+        /**
+     * Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("deploymentTarget")
+    private final String deploymentTarget;
+
+        /**
+     * Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+     * @return the value
+     **/
+    
+    public String getDeploymentTarget() {
+        return deploymentTarget;
+    }
+
+
+        /**
+     * Target deployment connection or catalog reference used for this publish attempt when applicable.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("deploymentConnection")
+    private final String deploymentConnection;
+
+        /**
+     * Target deployment connection or catalog reference used for this publish attempt when applicable.
+     * @return the value
+     **/
+    
+    public String getDeploymentConnection() {
+        return deploymentConnection;
+    }
+
+
+        /**
+     * Whether the deployed ontology used DFL's shared storage layout.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("isDeploymentShared")
+    private final Boolean isDeploymentShared;
+
+        /**
+     * Whether the deployed ontology used DFL's shared storage layout.
+     * @return the value
+     **/
+    
+    public Boolean getIsDeploymentShared() {
+        return isDeploymentShared;
+    }
+
     /**
      **/
     public enum Status implements com.oracle.bmc.http.internal.BmcEnum {
@@ -291,6 +456,9 @@ return this;
         Unpublishing("UNPUBLISHING"),
         Unpublished("UNPUBLISHED"),
         UnpublishFailed("UNPUBLISH_FAILED"),
+        Importing("IMPORTING"),
+        Imported("IMPORTED"),
+        ImportFailed("IMPORT_FAILED"),
         Archived("ARCHIVED"),
         ;
 
@@ -341,6 +509,16 @@ return this;
     
     public String getComment() {
         return comment;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("importDetails")
+    private final OntologyProjectImportStatusDetails importDetails;
+
+    
+    public OntologyProjectImportStatusDetails getImportDetails() {
+        return importDetails;
     }
 
 
@@ -427,8 +605,13 @@ return this;
         sb.append(", projectId=").append(String.valueOf(this.projectId));
         sb.append(", projectVersion=").append(String.valueOf(this.projectVersion));
         sb.append(", publishVersion=").append(String.valueOf(this.publishVersion));
+        sb.append(", publishedOntologyName=").append(String.valueOf(this.publishedOntologyName));
+        sb.append(", deploymentTarget=").append(String.valueOf(this.deploymentTarget));
+        sb.append(", deploymentConnection=").append(String.valueOf(this.deploymentConnection));
+        sb.append(", isDeploymentShared=").append(String.valueOf(this.isDeploymentShared));
         sb.append(", status=").append(String.valueOf(this.status));
         sb.append(", comment=").append(String.valueOf(this.comment));
+        sb.append(", importDetails=").append(String.valueOf(this.importDetails));
         sb.append(", validationReport=").append(String.valueOf(this.validationReport));
         sb.append(", compiledArtifactRef=").append(String.valueOf(this.compiledArtifactRef));
         sb.append(", errorMessage=").append(String.valueOf(this.errorMessage));
@@ -453,8 +636,13 @@ return this;
             java.util.Objects.equals(this.projectId, other.projectId) &&
             java.util.Objects.equals(this.projectVersion, other.projectVersion) &&
             java.util.Objects.equals(this.publishVersion, other.publishVersion) &&
+            java.util.Objects.equals(this.publishedOntologyName, other.publishedOntologyName) &&
+            java.util.Objects.equals(this.deploymentTarget, other.deploymentTarget) &&
+            java.util.Objects.equals(this.deploymentConnection, other.deploymentConnection) &&
+            java.util.Objects.equals(this.isDeploymentShared, other.isDeploymentShared) &&
             java.util.Objects.equals(this.status, other.status) &&
             java.util.Objects.equals(this.comment, other.comment) &&
+            java.util.Objects.equals(this.importDetails, other.importDetails) &&
             java.util.Objects.equals(this.validationReport, other.validationReport) &&
             java.util.Objects.equals(this.compiledArtifactRef, other.compiledArtifactRef) &&
             java.util.Objects.equals(this.errorMessage, other.errorMessage) &&
@@ -471,8 +659,13 @@ return this;
         result = (result * PRIME) + (this.projectId == null ? 43 : this.projectId.hashCode());
         result = (result * PRIME) + (this.projectVersion == null ? 43 : this.projectVersion.hashCode());
         result = (result * PRIME) + (this.publishVersion == null ? 43 : this.publishVersion.hashCode());
+        result = (result * PRIME) + (this.publishedOntologyName == null ? 43 : this.publishedOntologyName.hashCode());
+        result = (result * PRIME) + (this.deploymentTarget == null ? 43 : this.deploymentTarget.hashCode());
+        result = (result * PRIME) + (this.deploymentConnection == null ? 43 : this.deploymentConnection.hashCode());
+        result = (result * PRIME) + (this.isDeploymentShared == null ? 43 : this.isDeploymentShared.hashCode());
         result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
         result = (result * PRIME) + (this.comment == null ? 43 : this.comment.hashCode());
+        result = (result * PRIME) + (this.importDetails == null ? 43 : this.importDetails.hashCode());
         result = (result * PRIME) + (this.validationReport == null ? 43 : this.validationReport.hashCode());
         result = (result * PRIME) + (this.compiledArtifactRef == null ? 43 : this.compiledArtifactRef.hashCode());
         result = (result * PRIME) + (this.errorMessage == null ? 43 : this.errorMessage.hashCode());

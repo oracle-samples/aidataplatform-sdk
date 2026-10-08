@@ -12,10 +12,11 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class UnpublishOntologyProjectDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"comment", "deleteArtifacts"})
-    public UnpublishOntologyProjectDetails(String comment, Boolean deleteArtifacts) {
+    @java.beans.ConstructorProperties({"comment", "ontologyName", "deleteArtifacts"})
+    public UnpublishOntologyProjectDetails(String comment, String ontologyName, Boolean deleteArtifacts) {
         super();
         this.comment = comment;
+        this.ontologyName = ontologyName;
         this.deleteArtifacts = deleteArtifacts;
     }
 
@@ -29,6 +30,24 @@ private String comment;
 
 public Builder comment(String comment) {
     this.comment = comment;
+    return this;
+}
+            /**
+     * Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("ontologyName")
+private String ontologyName;
+
+        /**
+         * Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+         * @param ontologyName the value to set
+         * @return this builder
+         **/
+        
+
+public Builder ontologyName(String ontologyName) {
+    this.ontologyName = ontologyName;
     return this;
 }
             /**
@@ -53,12 +72,14 @@ public Builder deleteArtifacts(Boolean deleteArtifacts) {
 
         public UnpublishOntologyProjectDetails build() {
             UnpublishOntologyProjectDetails model = new UnpublishOntologyProjectDetails(this.comment
+                , this.ontologyName
                 , this.deleteArtifacts);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(UnpublishOntologyProjectDetails model) {
                 this.comment(model.getComment());
+    this.ontologyName(model.getOntologyName());
     this.deleteArtifacts(model.getDeleteArtifacts());
 return this;
         }
@@ -86,6 +107,23 @@ return this;
     
     public String getComment() {
         return comment;
+    }
+
+
+        /**
+     * Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("ontologyName")
+    private final String ontologyName;
+
+        /**
+     * Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+     * @return the value
+     **/
+    
+    public String getOntologyName() {
+        return ontologyName;
     }
 
 
@@ -119,6 +157,7 @@ return this;
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("UnpublishOntologyProjectDetails(");
         sb.append("comment=").append(String.valueOf(this.comment));
+        sb.append(", ontologyName=").append(String.valueOf(this.ontologyName));
         sb.append(", deleteArtifacts=").append(String.valueOf(this.deleteArtifacts));
         sb.append(")");
         return sb.toString();
@@ -135,6 +174,7 @@ return this;
 
         UnpublishOntologyProjectDetails other = (UnpublishOntologyProjectDetails) o;
         return java.util.Objects.equals(this.comment, other.comment) &&
+            java.util.Objects.equals(this.ontologyName, other.ontologyName) &&
             java.util.Objects.equals(this.deleteArtifacts, other.deleteArtifacts);
     }
 
@@ -143,6 +183,7 @@ return this;
         final int PRIME = 59;
         int result = 1;
         result = (result * PRIME) + (this.comment == null ? 43 : this.comment.hashCode());
+        result = (result * PRIME) + (this.ontologyName == null ? 43 : this.ontologyName.hashCode());
         result = (result * PRIME) + (this.deleteArtifacts == null ? 43 : this.deleteArtifacts.hashCode());
         return result;
     }

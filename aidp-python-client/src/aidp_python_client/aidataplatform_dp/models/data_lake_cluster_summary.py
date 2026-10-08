@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DataLakeClusterSummary(object):
     """
-    Information about the list of AI Data Platform Workbench clusters contained within a workspace.
+    Information about the list of AI Data Platform clusters contained within a workspace.
     """
 
     def __init__(self, **kwargs):
@@ -51,7 +51,7 @@ class DataLakeClusterSummary(object):
     def workspace_key(self):
         """
         **[Required]** Gets the workspace_key of this DataLakeClusterSummary.
-        Key of the AI Data Platform Workbench workspace.
+        Key of the AI Data Platform workspace.
 
 
         :return: The workspace_key of this DataLakeClusterSummary.
@@ -63,7 +63,7 @@ class DataLakeClusterSummary(object):
     def workspace_key(self, workspace_key):
         """
         Sets the workspace_key of this DataLakeClusterSummary.
-        Key of the AI Data Platform Workbench workspace.
+        Key of the AI Data Platform workspace.
 
 
         :param workspace_key: The workspace_key of this DataLakeClusterSummary.
@@ -75,7 +75,7 @@ class DataLakeClusterSummary(object):
     def workspace_display_name(self):
         """
         **[Required]** Gets the workspace_display_name of this DataLakeClusterSummary.
-        Name of the AI Data Platform Workbench workspace.
+        Name of the AI Data Platform workspace.
 
 
         :return: The workspace_display_name of this DataLakeClusterSummary.
@@ -87,7 +87,7 @@ class DataLakeClusterSummary(object):
     def workspace_display_name(self, workspace_display_name):
         """
         Sets the workspace_display_name of this DataLakeClusterSummary.
-        Name of the AI Data Platform Workbench workspace.
+        Name of the AI Data Platform workspace.
 
 
         :param workspace_display_name: The workspace_display_name of this DataLakeClusterSummary.

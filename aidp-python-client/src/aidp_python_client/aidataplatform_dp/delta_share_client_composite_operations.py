@@ -34,7 +34,7 @@ class DeltaShareClientCompositeOperations(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateRecipientDetails create_recipient_details: (required)
-            Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+            Details for the new recipient for Delta Share protocol in AI Data Platform.
 
         :param list[str] wait_for_states:
             An array of states to wait on. These should be valid values for :py:attr:`~oci.aidataplatform_dp.models.Recipient.lifecycle_state`
@@ -77,7 +77,7 @@ class DeltaShareClientCompositeOperations(object):
             __ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 
         :param oci.aidataplatform_dp.models.CreateShareDetails create_share_details: (required)
-            Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+            Details for the new share for Delta Share protocol in AI Data Platform.
 
         :param list[str] wait_for_states:
             An array of states to wait on. These should be valid values for :py:attr:`~oci.aidataplatform_dp.models.Share.lifecycle_state`

@@ -10,11 +10,11 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class Cluster(object):
     """
-    A Cluster is a compute subresource within AI Data Platform Workbench. Compute/Runtime Clusters are Spark execution environments.
+    A Cluster is a compute subresource within AI Data Platform. Compute/Runtime Clusters are Spark execution environments.
     Spark clusters are used for Notebook execution and for Spark SQL query execution over JDBC/ODBC.
-    These clusters seamlessly process the data in the AI Data Platform Workbench.  Users can also use JDBC/ODBC endpoints for highly
+    These clusters seamlessly process the data in the AI Data Platform.  Users can also use JDBC/ODBC endpoints for highly
     performant SQL execution for integration with analytics tools such as Oracle Analytic Cloud and Excel.
-    A DEFAULT cluster is a subresource within AI Data Platform Workbench associated with master catalog and it can not be
+    A DEFAULT cluster is a subresource within AI Data Platform associated with master catalog and it can not be
     attached to a notebook. A USER cluster is a subresource within workspace and can be attached to a notebook.
     """
 

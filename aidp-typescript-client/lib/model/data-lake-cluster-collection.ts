@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Results of a cluster list within the AI Data Platform Workbench.
+* Results of a cluster list within the AI Data Platform.
 */
 export interface DataLakeClusterCollection {
     /**
-    * List of clusters within the AI Data Platform Workbench.
+    * List of clusters within the AI Data Platform.
     */
     'items': Array<model.DataLakeClusterSummary>;
 

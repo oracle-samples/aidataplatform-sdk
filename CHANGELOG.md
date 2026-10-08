@@ -3,6 +3,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [5.0.0] - 2026-09-25
+
+### Added
+
+- Support for `ActivateModelDeployment` in the ML Ops service. (Preview) Activate a model deployment.
+- Support for `CancelAsyncOperation` in the Async Operations service. Cancel an asynchronous operation.
+- Support for `CreateModelDeployment` in the ML Ops service. (Preview) Create a model deployment.
+- Support for `DeactivateModelDeployment` in the ML Ops service. (Preview) Deactivate a model deployment.
+- Support for `DeleteModelDeployment` in the ML Ops service. (Preview) Delete a model deployment.
+- Support for `GetModelDeploymentActivity` in the ML Ops service. (Preview) Get model deployment activity details.
+- Support for `GetModelDeploymentContract` in the ML Ops service. (Preview) Get a model deployment contract.
+- Support for `GetModelDeployment` in the ML Ops service. (Preview) Get a model deployment.
+- Support for `GetRegisteredModelSummary` in the ML Ops service. (Preview) Get a registered-model summary.
+- Support for `ListModelDeploymentActivities` in the ML Ops service. (Preview) List model deployment activities.
+- Support for `RollBackModelDeployment` in the ML Ops service. (Preview) Roll a model deployment back.
+- Support for `RollForwardModelDeployment` in the ML Ops service. (Preview) Roll a model deployment forward.
+- Support for `SearchModelDeployments` in the ML Ops service. (Preview) Search model deployments.
+- Support for `UpdateModelDeploymentTags` in the ML Ops service. (Preview) Update model deployment tags.
+- Support for `UpdateModelDeployment` in the ML Ops service. (Preview) Update a model deployment.
+
 ## [4.2.1] - 2026-09-07
 
 ### Added
@@ -118,4 +138,3 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - Initial Release
 - Added AI Dataplatform SDK and CLI
-

@@ -32,10 +32,15 @@ export interface CopyWorkspaceObjectDetails {
     * Flag to indicate whether to include cell outputs when copying a notebook file. If false, all cell outputs will be cleared. Defaults to true if not specified. Only applies to notebook files.
     */
     'isIncludeOutputs'?: boolean;
+    /**
+    * Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+    */
+    'metadataKeys'?: string;
 
 }
 
 export namespace CopyWorkspaceObjectDetails {
+
 
 
 
@@ -52,6 +57,7 @@ export namespace CopyWorkspaceObjectDetails {
 
 
 
+
         }};
 
         
@@ -62,6 +68,7 @@ export namespace CopyWorkspaceObjectDetails {
     export function getDeserializedJsonObj(obj: CopyWorkspaceObjectDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

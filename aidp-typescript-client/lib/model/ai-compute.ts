@@ -9,11 +9,13 @@ import common = require("oci-common");
 */
 export interface AiCompute extends model.Cluster {
     'replicaConfig'?: model.ReplicaConfig;
+    'autoScaleConfiguration'?: model.AutoScaleConfiguration;
 
    "sourceApi": string;
 }
 
 export namespace AiCompute {
+
 
 
     export function getJsonObj(obj: AiCompute, isParentJsonObj?: boolean): object {
@@ -23,6 +25,10 @@ export namespace AiCompute {
                 
                 
                 model.ReplicaConfig.getJsonObj(obj.replicaConfig) : undefined,
+                'autoScaleConfiguration': obj.autoScaleConfiguration ?
+                
+                
+                model.AutoScaleConfiguration.getJsonObj(obj.autoScaleConfiguration) : undefined,
         }};
 
         
@@ -37,6 +43,10 @@ export namespace AiCompute {
                 
                 
                 model.ReplicaConfig.getDeserializedJsonObj(obj.replicaConfig) : undefined,
+                    'autoScaleConfiguration': obj.autoScaleConfiguration ?
+                
+                
+                model.AutoScaleConfiguration.getDeserializedJsonObj(obj.autoScaleConfiguration) : undefined,
          }};
 
         

@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* The details for creating a Delta Share in AI Data Platform Workbench.
+* The details for creating a Delta Share in AI Data Platform.
 */
 export interface CreateShareDetails {
     /**
-    * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+    * A user-friendly name. Has to be unique within the AI Data Platform instance.
     */
     'displayName': string;
     /**

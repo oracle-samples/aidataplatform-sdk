@@ -68,6 +68,7 @@ export namespace ListTaskRunsRequest {
 
   export enum Status {
     Pending = ("PENDING"),
+    Queued = ("QUEUED"),
     Running = ("RUNNING"),
     Skipped = ("SKIPPED"),
     InternalError = ("INTERNAL_ERROR"),

@@ -26,6 +26,10 @@ class PublishOntologyProjectDetails(object):
             The value to assign to the project_name property of this PublishOntologyProjectDetails.
         :type project_name: str
 
+        :param ontology_name:
+            The value to assign to the ontology_name property of this PublishOntologyProjectDetails.
+        :type ontology_name: str
+
         :param comment:
             The value to assign to the comment property of this PublishOntologyProjectDetails.
         :type comment: str
@@ -38,6 +42,7 @@ class PublishOntologyProjectDetails(object):
         self.swagger_types = {
             'workspace_id': 'str',
             'project_name': 'str',
+            'ontology_name': 'str',
             'comment': 'str',
             'target_connection': 'OntologyPublishTargetConnectionReference'
         }
@@ -45,12 +50,14 @@ class PublishOntologyProjectDetails(object):
         self.attribute_map = {
             'workspace_id': 'workspaceId',
             'project_name': 'projectName',
+            'ontology_name': 'ontologyName',
             'comment': 'comment',
             'target_connection': 'targetConnection'
         }
 
         self._workspace_id = None
         self._project_name = None
+        self._ontology_name = None
         self._comment = None
         self._target_connection = None
 
@@ -101,6 +108,30 @@ class PublishOntologyProjectDetails(object):
         :type: str
         """
         self._project_name = project_name
+
+    @property
+    def ontology_name(self):
+        """
+        Gets the ontology_name of this PublishOntologyProjectDetails.
+        Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+
+
+        :return: The ontology_name of this PublishOntologyProjectDetails.
+        :rtype: str
+        """
+        return self._ontology_name
+
+    @ontology_name.setter
+    def ontology_name(self, ontology_name):
+        """
+        Sets the ontology_name of this PublishOntologyProjectDetails.
+        Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+
+
+        :param ontology_name: The ontology_name of this PublishOntologyProjectDetails.
+        :type: str
+        """
+        self._ontology_name = ontology_name
 
     @property
     def comment(self):

@@ -1323,7 +1323,7 @@ class WorkflowClient(object):
         :param list[str] status: (optional)
             The field to filter based on state.
 
-            Allowed values are: "PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
+            Allowed values are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
 
         :param datetime time_created_greater_than_or_equal_to: (optional)
             Fetch objects from repository that were created after or at the exact timestamp provided in parameter
@@ -1402,7 +1402,7 @@ class WorkflowClient(object):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
         if 'status' in kwargs:
-            status_allowed_values = ["PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
+            status_allowed_values = ["PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
             for status_item in kwargs['status']:
                 if status_item not in status_allowed_values:
                     raise ValueError(
@@ -1784,7 +1784,7 @@ class WorkflowClient(object):
         :param list[str] status: (optional)
             The field to filter based on state.
 
-            Allowed values are: "PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
+            Allowed values are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
 
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
@@ -1859,7 +1859,7 @@ class WorkflowClient(object):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
         if 'status' in kwargs:
-            status_allowed_values = ["PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
+            status_allowed_values = ["PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
             for status_item in kwargs['status']:
                 if status_item not in status_allowed_values:
                     raise ValueError(
@@ -1941,7 +1941,7 @@ class WorkflowClient(object):
         :param list[str] status: (optional)
             The field to filter based on state.
 
-            Allowed values are: "PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
+            Allowed values are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"
 
         :param str parent_job_run_key: (optional)
             The field to filter based on parent job run key.
@@ -2019,7 +2019,7 @@ class WorkflowClient(object):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
         if 'status' in kwargs:
-            status_allowed_values = ["PENDING", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
+            status_allowed_values = ["PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED"]
             for status_item in kwargs['status']:
                 if status_item not in status_allowed_values:
                     raise ValueError(

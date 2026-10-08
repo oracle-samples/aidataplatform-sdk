@@ -87,9 +87,17 @@ class OntologyProject(object):
             The value to assign to the git_folder_path property of this OntologyProject.
         :type git_folder_path: str
 
+        :param target_connection:
+            The value to assign to the target_connection property of this OntologyProject.
+        :type target_connection: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+
         :param lifecycle_state:
             The value to assign to the lifecycle_state property of this OntologyProject.
         :type lifecycle_state: str
+
+        :param status:
+            The value to assign to the status property of this OntologyProject.
+        :type status: str
 
         :param time_created:
             The value to assign to the time_created property of this OntologyProject.
@@ -98,6 +106,18 @@ class OntologyProject(object):
         :param time_updated:
             The value to assign to the time_updated property of this OntologyProject.
         :type time_updated: datetime
+
+        :param updated_by:
+            The value to assign to the updated_by property of this OntologyProject.
+        :type updated_by: str
+
+        :param time_published:
+            The value to assign to the time_published property of this OntologyProject.
+        :type time_published: datetime
+
+        :param published_by:
+            The value to assign to the published_by property of this OntologyProject.
+        :type published_by: str
 
         :param version:
             The value to assign to the version property of this OntologyProject.
@@ -132,9 +152,14 @@ class OntologyProject(object):
             'git_repository_key': 'str',
             'git_branch_name': 'str',
             'git_folder_path': 'str',
+            'target_connection': 'OntologyPublishTargetConnectionReference',
             'lifecycle_state': 'str',
+            'status': 'str',
             'time_created': 'datetime',
             'time_updated': 'datetime',
+            'updated_by': 'str',
+            'time_published': 'datetime',
+            'published_by': 'str',
             'version': 'int',
             'freeform_tags': 'dict(str, str)',
             'defined_tags': 'dict(str, dict(str, object))',
@@ -157,9 +182,14 @@ class OntologyProject(object):
             'git_repository_key': 'gitRepositoryKey',
             'git_branch_name': 'gitBranchName',
             'git_folder_path': 'gitFolderPath',
+            'target_connection': 'targetConnection',
             'lifecycle_state': 'lifecycleState',
+            'status': 'status',
             'time_created': 'timeCreated',
             'time_updated': 'timeUpdated',
+            'updated_by': 'updatedBy',
+            'time_published': 'timePublished',
+            'published_by': 'publishedBy',
             'version': 'version',
             'freeform_tags': 'freeformTags',
             'defined_tags': 'definedTags',
@@ -181,9 +211,14 @@ class OntologyProject(object):
         self._git_repository_key = None
         self._git_branch_name = None
         self._git_folder_path = None
+        self._target_connection = None
         self._lifecycle_state = None
+        self._status = None
         self._time_created = None
         self._time_updated = None
+        self._updated_by = None
+        self._time_published = None
+        self._published_by = None
         self._version = None
         self._freeform_tags = None
         self._defined_tags = None
@@ -313,7 +348,7 @@ class OntologyProject(object):
     def creator(self):
         """
         Gets the creator of this OntologyProject.
-        Creator name written into the generated project.yaml metadata file.
+        Creator metadata for the ontology project.
 
 
         :return: The creator of this OntologyProject.
@@ -325,7 +360,7 @@ class OntologyProject(object):
     def creator(self, creator):
         """
         Sets the creator of this OntologyProject.
-        Creator name written into the generated project.yaml metadata file.
+        Creator metadata for the ontology project.
 
 
         :param creator: The creator of this OntologyProject.
@@ -337,7 +372,7 @@ class OntologyProject(object):
     def ontology_version(self):
         """
         Gets the ontology_version of this OntologyProject.
-        Semantic ontology version written into project.yaml.
+        Semantic ontology version metadata for the ontology project.
 
 
         :return: The ontology_version of this OntologyProject.
@@ -349,7 +384,7 @@ class OntologyProject(object):
     def ontology_version(self, ontology_version):
         """
         Sets the ontology_version of this OntologyProject.
-        Semantic ontology version written into project.yaml.
+        Semantic ontology version metadata for the ontology project.
 
 
         :param ontology_version: The ontology_version of this OntologyProject.
@@ -361,7 +396,7 @@ class OntologyProject(object):
     def base_uri(self):
         """
         Gets the base_uri of this OntologyProject.
-        Base URI written as baseURI in project.yaml.
+        Base URI metadata for ontology files.
 
 
         :return: The base_uri of this OntologyProject.
@@ -373,7 +408,7 @@ class OntologyProject(object):
     def base_uri(self, base_uri):
         """
         Sets the base_uri of this OntologyProject.
-        Base URI written as baseURI in project.yaml.
+        Base URI metadata for ontology files.
 
 
         :param base_uri: The base_uri of this OntologyProject.
@@ -385,7 +420,7 @@ class OntologyProject(object):
     def default_language(self):
         """
         Gets the default_language of this OntologyProject.
-        Default language tag written into project.yaml.
+        Default language tag metadata for ontology files.
 
 
         :return: The default_language of this OntologyProject.
@@ -397,7 +432,7 @@ class OntologyProject(object):
     def default_language(self, default_language):
         """
         Sets the default_language of this OntologyProject.
-        Default language tag written into project.yaml.
+        Default language tag metadata for ontology files.
 
 
         :param default_language: The default_language of this OntologyProject.
@@ -534,6 +569,26 @@ class OntologyProject(object):
         self._git_folder_path = git_folder_path
 
     @property
+    def target_connection(self):
+        """
+        Gets the target_connection of this OntologyProject.
+
+        :return: The target_connection of this OntologyProject.
+        :rtype: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+        """
+        return self._target_connection
+
+    @target_connection.setter
+    def target_connection(self, target_connection):
+        """
+        Sets the target_connection of this OntologyProject.
+
+        :param target_connection: The target_connection of this OntologyProject.
+        :type: oci.aidataplatform_dp.models.OntologyPublishTargetConnectionReference
+        """
+        self._target_connection = target_connection
+
+    @property
     def lifecycle_state(self):
         """
         **[Required]** Gets the lifecycle_state of this OntologyProject.
@@ -556,6 +611,30 @@ class OntologyProject(object):
         :type: str
         """
         self._lifecycle_state = lifecycle_state
+
+    @property
+    def status(self):
+        """
+        Gets the status of this OntologyProject.
+        Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+
+
+        :return: The status of this OntologyProject.
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """
+        Sets the status of this OntologyProject.
+        Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+
+
+        :param status: The status of this OntologyProject.
+        :type: str
+        """
+        self._status = status
 
     @property
     def time_created(self):
@@ -596,6 +675,78 @@ class OntologyProject(object):
         :type: datetime
         """
         self._time_updated = time_updated
+
+    @property
+    def updated_by(self):
+        """
+        Gets the updated_by of this OntologyProject.
+        Actor identifier for the most recent project metadata update.
+
+
+        :return: The updated_by of this OntologyProject.
+        :rtype: str
+        """
+        return self._updated_by
+
+    @updated_by.setter
+    def updated_by(self, updated_by):
+        """
+        Sets the updated_by of this OntologyProject.
+        Actor identifier for the most recent project metadata update.
+
+
+        :param updated_by: The updated_by of this OntologyProject.
+        :type: str
+        """
+        self._updated_by = updated_by
+
+    @property
+    def time_published(self):
+        """
+        Gets the time_published of this OntologyProject.
+        Time when the most recent publish request was created for the project.
+
+
+        :return: The time_published of this OntologyProject.
+        :rtype: datetime
+        """
+        return self._time_published
+
+    @time_published.setter
+    def time_published(self, time_published):
+        """
+        Sets the time_published of this OntologyProject.
+        Time when the most recent publish request was created for the project.
+
+
+        :param time_published: The time_published of this OntologyProject.
+        :type: datetime
+        """
+        self._time_published = time_published
+
+    @property
+    def published_by(self):
+        """
+        Gets the published_by of this OntologyProject.
+        Actor identifier for the most recent publish request on the project.
+
+
+        :return: The published_by of this OntologyProject.
+        :rtype: str
+        """
+        return self._published_by
+
+    @published_by.setter
+    def published_by(self, published_by):
+        """
+        Sets the published_by of this OntologyProject.
+        Actor identifier for the most recent publish request on the project.
+
+
+        :param published_by: The published_by of this OntologyProject.
+        :type: str
+        """
+        self._published_by = published_by
 
     @property
     def version(self):

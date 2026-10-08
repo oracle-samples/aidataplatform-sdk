@@ -23,6 +23,8 @@ export namespace ClusterEvent {
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
+                case "DRIVER_FAILED_AND_RECOVERED_EVENT":
+                    return model.DriverFailedAndRecoveredEvent.getJsonObj(<model.DriverFailedAndRecoveredEvent>(<object>jsonObj), true);
                 case "CLUSTER_STATE_EVENT":
                     return model.ClusterStateEvent.getJsonObj(<model.ClusterStateEvent>(<object>jsonObj), true);
                 case "CLUSTER_PATCH_EVENT":
@@ -46,6 +48,8 @@ export namespace ClusterEvent {
         
         if (obj && "type" in obj && obj.type) {
             switch (obj.type) {
+                case "DRIVER_FAILED_AND_RECOVERED_EVENT":
+                    return model.DriverFailedAndRecoveredEvent.getDeserializedJsonObj(<model.DriverFailedAndRecoveredEvent>(<object>jsonObj), true);
                 case "CLUSTER_STATE_EVENT":
                     return model.ClusterStateEvent.getDeserializedJsonObj(<model.ClusterStateEvent>(<object>jsonObj), true);
                 case "CLUSTER_PATCH_EVENT":

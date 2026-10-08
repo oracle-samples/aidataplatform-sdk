@@ -15,19 +15,19 @@ export interface OntologyProject {
     'description'?: string;
     'namespace'?: string;
     /**
-    * Creator name written into the generated project.yaml metadata file.
+    * Creator metadata for the ontology project.
     */
     'creator'?: string;
     /**
-    * Semantic ontology version written into project.yaml.
+    * Semantic ontology version metadata for the ontology project.
     */
     'ontologyVersion'?: string;
     /**
-    * Base URI written as baseURI in project.yaml.
+    * Base URI metadata for ontology files.
     */
     'baseUri'?: string;
     /**
-    * Default language tag written into project.yaml.
+    * Default language tag metadata for ontology files.
     */
     'defaultLanguage'?: string;
     /**
@@ -50,12 +50,29 @@ export interface OntologyProject {
     * Workspace-relative Git folder path for git-backed ontology project content.
     */
     'gitFolderPath'?: string;
+    'targetConnection'?: model.OntologyPublishTargetConnectionReference;
     /**
     * Project lifecycle state. Volume-backed creates initially return CREATING and transition to ACTIVE or FAILED after asynchronous scaffold creation.
     */
     'lifecycleState': string;
+    /**
+    * Latest publish or operational status for the project; falls back to lifecycleState when no publish status exists.
+    */
+    'status'?: string;
     'timeCreated'?: Date;
     'timeUpdated'?: Date;
+    /**
+    * Actor identifier for the most recent project metadata update.
+    */
+    'updatedBy'?: string;
+    /**
+    * Time when the most recent publish request was created for the project.
+    */
+    'timePublished'?: Date;
+    /**
+    * Actor identifier for the most recent publish request on the project.
+    */
+    'publishedBy'?: string;
     'version'?: number;
     'freeformTags'?: { [key: string]: string; };
     'definedTags'?: { [key: string]: { [key: string]: any; }; };
@@ -64,6 +81,11 @@ export interface OntologyProject {
 }
 
 export namespace OntologyProject {
+
+
+
+
+
 
 
 
@@ -105,6 +127,14 @@ export namespace OntologyProject {
 
 
 
+                'targetConnection': obj.targetConnection ?
+                
+                
+                model.OntologyPublishTargetConnectionReference.getJsonObj(obj.targetConnection) : undefined,
+
+
+
+
 
 
 
@@ -133,6 +163,14 @@ export namespace OntologyProject {
 
 
 
+
+
+
+
+                    'targetConnection': obj.targetConnection ?
+                
+                
+                model.OntologyPublishTargetConnectionReference.getDeserializedJsonObj(obj.targetConnection) : undefined,
 
 
 

@@ -76,14 +76,14 @@ public class DeleteWorkspaceRequest extends com.oracle.bmc.requests.BmcRequest<j
         return opcRequestId;
     }
         /**
-     * Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
+     * Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
      */
     private java.util.Date timeDataLakeDeletion;
 
     
 
         /**
-     * Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
+     * Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
      */
     public java.util.Date getTimeDataLakeDeletion() {
         return timeDataLakeDeletion;
@@ -171,12 +171,12 @@ public class DeleteWorkspaceRequest extends com.oracle.bmc.requests.BmcRequest<j
         }
 
             /**
-     * Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
+     * Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
      */
         private java.util.Date timeDataLakeDeletion = null;
 
         /**
-         * Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion.
+         * Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
          * @param timeDataLakeDeletion the value to set
          * @return this builder instance
          */

@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Returns a list of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+ * Returns a list of users with particular AI Data Platform RBAC permissions across workspaces.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=PrincipalsWithWorkspaceAccessCollection.Builder.class)
@@ -21,14 +21,14 @@ public final class PrincipalsWithWorkspaceAccessCollection  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+     * List of users with particular AI Data Platform RBAC permissions across workspaces.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("items")
 private java.util.List<PrincipalsWithWorkspaceAccessSummary> items;
 
         /**
-         * List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+         * List of users with particular AI Data Platform RBAC permissions across workspaces.
          * @param items the value to set
          * @return this builder
          **/
@@ -67,14 +67,14 @@ return this;
 
 
         /**
-     * List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+     * List of users with particular AI Data Platform RBAC permissions across workspaces.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("items")
     private final java.util.List<PrincipalsWithWorkspaceAccessSummary> items;
 
         /**
-     * List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+     * List of users with particular AI Data Platform RBAC permissions across workspaces.
      * @return the value
      **/
     

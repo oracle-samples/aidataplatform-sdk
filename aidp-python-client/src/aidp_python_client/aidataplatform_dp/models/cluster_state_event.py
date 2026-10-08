@@ -105,7 +105,7 @@ class ClusterStateEvent(ClusterEvent):
 
         :param type:
             The value to assign to the type property of this ClusterStateEvent.
-            Allowed values for this property are: "CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT"
+            Allowed values for this property are: "CLUSTER_PATCH_EVENT", "CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT", "CLUSTER_STATE_EVENT", "DRIVER_FAILED_AND_RECOVERED_EVENT"
         :type type: str
 
         :param state:

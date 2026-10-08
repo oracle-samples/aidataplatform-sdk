@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class Content(object):
     """
-    Content model provides a programmatic interface to interact with notebooks, files and directories within the AI Data Platform Workbench Notebook environment.
+    Content model provides a programmatic interface to interact with notebooks, files and directories within the AI Data Platform Notebook environment.
     Type field is used to describe content types like file, directory or notebook.
     Other notable fields are content and format. The content and format keys may be null if content is not contained.
     """

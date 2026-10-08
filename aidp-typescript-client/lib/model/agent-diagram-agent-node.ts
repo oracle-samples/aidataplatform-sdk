@@ -12,7 +12,7 @@ export interface AgentDiagramAgentNode extends model.AgentDiagramNode {
     * System prompt written by the Agent developer defining the agent goals and what tools the agent has access to.
     */
     'instructions'?: string;
-    'llm'?: model.LlmConfig;
+    'llm'?: model.LlmConfig| model.ThirdPartyLlmConfig;
     /**
     * Model specific inference parameters such as temperature, top-k, max length, response format, etc.
     */
@@ -45,7 +45,7 @@ export namespace AgentDiagramAgentNode {
                 'llm': obj.llm ?
                 
                 
-                model.LlmConfig.getJsonObj(obj.llm) : undefined,
+                model.BaseLlmConfig.getJsonObj(obj.llm) : undefined,
 
                 'memory': obj.memory ?
                 
@@ -71,7 +71,7 @@ export namespace AgentDiagramAgentNode {
                     'llm': obj.llm ?
                 
                 
-                model.LlmConfig.getDeserializedJsonObj(obj.llm) : undefined,
+                model.BaseLlmConfig.getDeserializedJsonObj(obj.llm) : undefined,
 
                     'memory': obj.memory ?
                 

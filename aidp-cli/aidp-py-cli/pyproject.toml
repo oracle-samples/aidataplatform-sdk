@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 name = "aidp-cli"
 dynamic = ["version"]
 requires-python = ">=3.9"
-description = "Command line interface for Oracle AI Data Platform Workbench."
+description = "Command line interface for Oracle AI Data Platform."
 readme = "README.md"
 license = "UPL-1.0"
 license-files = ["LICENSE.txt", "NOTICE.txt"]

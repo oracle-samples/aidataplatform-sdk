@@ -12,7 +12,7 @@ export interface CreateRecipientRequest extends common.BaseRequest {
  */
  'aiDataPlatformId': string;
 /**
- * Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+ * Details for the new recipient for Delta Share protocol in AI Data Platform.
  */
  'createRecipientDetails':  model.CreateRecipientDetails;
 /**

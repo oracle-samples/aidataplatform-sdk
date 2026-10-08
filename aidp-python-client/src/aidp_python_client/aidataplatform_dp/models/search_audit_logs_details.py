@@ -174,6 +174,10 @@ class SearchAuditLogsDetails(object):
     OPERATION_QUERY = "QUERY"
 
     #: A constant which can be used with the operation property of a SearchAuditLogsDetails.
+    #: This constant has a value of "SQL_STATEMENT"
+    OPERATION_SQL_STATEMENT = "SQL_STATEMENT"
+
+    #: A constant which can be used with the operation property of a SearchAuditLogsDetails.
     #: This constant has a value of "MANAGE"
     OPERATION_MANAGE = "MANAGE"
 
@@ -269,7 +273,7 @@ class SearchAuditLogsDetails(object):
 
         :param operation:
             The value to assign to the operation property of this SearchAuditLogsDetails.
-            Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"
+            Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"
         :type operation: str
 
         :param status:
@@ -443,7 +447,7 @@ class SearchAuditLogsDetails(object):
         Gets the operation of this SearchAuditLogsDetails.
         Type of operation.
 
-        Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"
+        Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"
 
 
         :return: The operation of this SearchAuditLogsDetails.
@@ -461,7 +465,7 @@ class SearchAuditLogsDetails(object):
         :param operation: The operation of this SearchAuditLogsDetails.
         :type: str
         """
-        allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"]
+        allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"]
         if not value_allowed_none_or_none_sentinel(operation, allowed_values):
             raise ValueError(
                 "Invalid value for `operation`, must be None or one of {0}"

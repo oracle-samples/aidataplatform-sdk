@@ -25,7 +25,7 @@ export interface CreateTableDetails {
     */
     'description'?: string;
     /**
-    * Type of table. Managed, external or mount table.
+    * Type of table. Managed, external, mount or synonym table.
     */
     'tableType': model.TableType;
     'managedTableDefinition'?: model.ManagedTableDefinition;

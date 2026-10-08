@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface RecipientSummary {
     /**
-    * Unique identifier for this recipient in AI Data Platform Workbench instance.
+    * Unique identifier for this recipient in AI Data Platform instance.
     */
     'key': string;
     /**
-    * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+    * A user-friendly name. Has to be unique within the AI Data Platform instance.
     */
     'displayName': string;
     /**

@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface UpdateRecipientDetails {
     /**
-    * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+    * A user-friendly name. Has to be unique within the AI Data Platform instance.
     */
     'displayName'?: string;
     /**

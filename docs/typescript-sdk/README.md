@@ -102,7 +102,9 @@ least-privilege policies where available.
 | `dependenciesFilePath` | `string` | The path to dependencies file. |
 | `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
 | `deploymentMode` | `string` | Agent deployment mode. |
+| `deploymentState` | `{ [key: string]: model.DeploymentLifecycleState` | The latest lifecycle states for the PROD and TEST deployment types. |
 | `uri` | `string` | Agent URI. |
+| `a2aEndpointUrl` | `string` | The A2A endpoint URL for the PROD deployment. |
 | `uriState` | `string` | Agent URI state. |
 | `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
@@ -159,7 +161,9 @@ least-privilege policies where available.
 | `dependenciesFilePath` | `string` | The path to dependencies file. |
 | `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
 | `deploymentMode` | `string` | Agent deployment mode. |
+| `deploymentState` | `{ [key: string]: model.DeploymentLifecycleState` | The latest lifecycle states for the PROD and TEST deployment types. |
 | `uri` | `string` | Agent URI. |
+| `a2aEndpointUrl` | `string` | The A2A endpoint URL for the PROD deployment. |
 | `uriState` | `string` | Agent URI state. |
 | `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
@@ -352,7 +356,9 @@ least-privilege policies where available.
 | `dependenciesFilePath` | `string` | The path to dependencies file. |
 | `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
 | `deploymentMode` | `string` | Agent deployment mode. |
+| `deploymentState` | `{ [key: string]: model.DeploymentLifecycleState` | The latest lifecycle states for the PROD and TEST deployment types. |
 | `uri` | `string` | Agent URI. |
+| `a2aEndpointUrl` | `string` | The A2A endpoint URL for the PROD deployment. |
 | `uriState` | `string` | Agent URI state. |
 | `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
@@ -865,7 +871,9 @@ least-privilege policies where available.
 | `dependenciesFilePath` | `string` | The path to dependencies file. |
 | `deploymentComputeKey` | `string` | The key of the compute where agent is deployed. |
 | `deploymentMode` | `string` | Agent deployment mode. |
+| `deploymentState` | `{ [key: string]: model.DeploymentLifecycleState` | The latest lifecycle states for the PROD and TEST deployment types. |
 | `uri` | `string` | Agent URI. |
+| `a2aEndpointUrl` | `string` | The A2A endpoint URL for the PROD deployment. |
 | `uriState` | `string` | Agent URI state. |
 | `lifecycleState` | `Agent.LifecycleState` | The current state of the agent. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the agent in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
@@ -967,8 +975,55 @@ least-privilege policies where available.
 
 ## <a id="client-asyncoperationsclient"></a>AsyncOperationsClient
 **Operations:**
+- [`cancelAsyncOperation`](#operation-asyncoperationsclient-cancelasyncoperation)
 - [`getAsyncOperation`](#operation-asyncoperationsclient-getasyncoperation)
 - [`listAsyncOperations`](#operation-asyncoperationsclient-listasyncoperations)
+
+### <a id="operation-asyncoperationsclient-cancelasyncoperation"></a>`cancelAsyncOperation`
+**Description:** Cancels a supported asynchronous operation created by the caller. Support depends on the operation type and its current state.
+
+**Request Interface:** `requests.CancelAsyncOperationRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `asyncOperationKey` | `string` | The unique identifier of an async operation |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.CancelAsyncOperationResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `asyncOperation` | `model.AsyncOperation` | The returned model.AsyncOperation instance. |
+
+**Payload `AsyncOperation` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | The unique key that identifies an async operation |
+| `resourceType` | `model.AsyncOperationResourceType` | The resource type of the async operation. |
+| `actionType` | `model.AsyncOperationActionType` | The action type of the async operation. |
+| `resourceName` | `string` | The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key> |
+| `resourceDisplayName` | `string` | The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName But for workspace/cluster it is workspace and cluster displayName field. |
+| `createdBy` | `string` | The principal Id who started the async operation |
+| `createdByName` | `string` | The principal name who started the async operation |
+| `timeStarted` | `Date` | The date and time the Async operation was started, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339). Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeFinished` | `Date` | The date and time the Async operation finished, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339). Example: {@code 2016-08-25T21:10:29.600Z} |
+| `status` | `model.AsyncOperationStatus` | The state of the Table. |
+| `statusDetails` | `string` | status details |
+| `errorCode` | `string` | Represents the error code of a failure |
+| `errorMessage` | `string` | Representss extra error information of a failure |
+**Return:** [Back to Async Operations (AsyncOperationsClient)](#client-asyncoperationsclient) • [Top](#top)
+
 
 ### <a id="operation-asyncoperationsclient-getasyncoperation"></a>`getAsyncOperation`
 **Description:** Get detailed information for a particular async operation
@@ -1533,7 +1588,7 @@ least-privilege policies where available.
 | Field | Type | Description |
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
-| `catalogTestConnectionDetails` | `model.CatalogTestConnectionDetails` | Details for the AI Data Platform Workbench catalog to be tested for connection. |
+| `catalogTestConnectionDetails` | `model.CatalogTestConnectionDetails` | Details for the AI Data Platform catalog to be tested for connection. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -1562,7 +1617,7 @@ least-privilege policies where available.
 | Field | Type | Description |
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
-| `createCatalogDetails` | `model.CreateCatalogDetails` | Details for the new AI Data Platform Workbench catalog. |
+| `createCatalogDetails` | `model.CreateCatalogDetails` | Details for the new AI Data Platform catalog. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -1576,7 +1631,7 @@ least-privilege policies where available.
 **Response Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `location` | `string` | URL for the created catalog. The AI Data Platform Workbench catalog key is generated after this request is sent. |
+| `location` | `string` | URL for the created catalog. The AI Data Platform catalog key is generated after this request is sent. |
 | `contentLocation` | `string` | Same as location. |
 | `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
@@ -1645,7 +1700,7 @@ least-privilege policies where available.
 **Payload `Catalog` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | The AI Data Platform Workbench catalog key. |
+| `key` | `string` | The AI Data Platform catalog key. |
 | `displayName` | `string` | Catalog display name. |
 | `description` | `string` | Short description of the catalog. |
 | `catalogGuid` | `string` | Unique identifier for catalog. |
@@ -1653,8 +1708,8 @@ least-privilege policies where available.
 | `sourceType` | `model.ExternalCatalogSourceType` | External catalog source type. |
 | `lifecycleState` | `model.CatalogLifecycleState` | The current status of the catalog. |
 | `lifecycleStateDetails` | `string` | A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state. |
-| `timeCreated` | `Date` | The date and time the AI Data Platform Workbench catalog was created. |
-| `timeUpdated` | `Date` | The date and time the AI Data Platform Workbench catalog was updated. |
+| `timeCreated` | `Date` | The date and time the AI Data Platform catalog was created. |
+| `timeUpdated` | `Date` | The date and time the AI Data Platform catalog was updated. |
 | `createdBy` | `string` | The ID of the user that created the catalog. |
 | `updatedBy` | `string` | The ID of the last user to update the catalog. |
 | `properties` | `{ [key: string]: string` | Key-value pair used to provide catalog properties like the subCompartment OCID where the buckets need to reside. |
@@ -2139,11 +2194,11 @@ least-privilege policies where available.
 **Payload `DefaultCluster` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `workspaceKey` | `string` | The key of the AI Data Platform Workbench workspace where the default cluster is. |
+| `workspaceKey` | `string` | The key of the AI Data Platform workspace where the default cluster is. |
 | `autoTerminationMinutes` | `number` | Optional timeout value in minutes used to automatically stop idle compute clusters. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `jdbcEndpointUrl` | `string` | Spark JDBC URL. |
 | `logId` | `string` | The OCID of the log where cluster logs are published and retrieved. This logId is always created within the logGroupId returned in the response payload. |
-| `logGroupId` | `string` | The unique OCID that identifies a specific log group within OCI Logging. This log group is exclusively associated with the AI Data Platform Workbench instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform Workbench instance. |
+| `logGroupId` | `string` | The unique OCID that identifies a specific log group within OCI Logging. This log group is exclusively associated with the AI Data Platform instance and is created in the same compartment within the customer\u2019s tenancy as the AI Data Platform instance. |
 **Return:** [Back to Cluster (ClusterClient)](#client-clusterclient) • [Top](#top)
 
 
@@ -3003,7 +3058,7 @@ least-privilege policies where available.
 | Field | Type | Description |
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
-| `createRecipientDetails` | `model.CreateRecipientDetails` | Details for the new recipient for Delta Share protocol in AI Data Platform Workbench. |
+| `createRecipientDetails` | `model.CreateRecipientDetails` | Details for the new recipient for Delta Share protocol in AI Data Platform. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -3024,8 +3079,8 @@ least-privilege policies where available.
 **Payload `Recipient` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | Unique identifier for this recipient in AI Data Platform Workbench instance. |
-| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform Workbench instance. |
+| `key` | `string` | Unique identifier for this recipient in AI Data Platform instance. |
+| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform instance. |
 | `description` | `string` | Short description of the Recipient |
 | `timeCreated` | `Date` | The date and time the Delta Share recipient was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `timeUpdated` | `Date` | The date and time the Delta Share recipient was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
@@ -3048,7 +3103,7 @@ least-privilege policies where available.
 | Field | Type | Description |
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
-| `createShareDetails` | `model.CreateShareDetails` | Details for the new share for Delta Share protocol in AI Data Platform Workbench. |
+| `createShareDetails` | `model.CreateShareDetails` | Details for the new share for Delta Share protocol in AI Data Platform. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -3069,8 +3124,8 @@ least-privilege policies where available.
 **Payload `Share` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | Unique identifier for this share in AI Data Platform Workbench instance. |
-| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform Workbench instance. |
+| `key` | `string` | Unique identifier for this share in AI Data Platform instance. |
+| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform instance. |
 | `description` | `string` | A description associated with this share. |
 | `timeCreated` | `Date` | The date and time the Delta Share was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `timeUpdated` | `Date` | The date and time the Delta Share was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
@@ -3169,8 +3224,8 @@ least-privilege policies where available.
 **Payload `Recipient` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | Unique identifier for this recipient in AI Data Platform Workbench instance. |
-| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform Workbench instance. |
+| `key` | `string` | Unique identifier for this recipient in AI Data Platform instance. |
+| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform instance. |
 | `description` | `string` | Short description of the Recipient |
 | `timeCreated` | `Date` | The date and time the Delta Share recipient was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `timeUpdated` | `Date` | The date and time the Delta Share recipient was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
@@ -3213,8 +3268,8 @@ least-privilege policies where available.
 **Payload `Share` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | Unique identifier for this share in AI Data Platform Workbench instance. |
-| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform Workbench instance. |
+| `key` | `string` | Unique identifier for this share in AI Data Platform instance. |
+| `displayName` | `string` | A user-friendly name. Has to be unique within the AI Data Platform instance. |
 | `description` | `string` | A description associated with this share. |
 | `timeCreated` | `Date` | The date and time the Delta Share was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
 | `timeUpdated` | `Date` | The date and time the Delta Share was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
@@ -4252,15 +4307,19 @@ least-privilege policies where available.
 
 ## <a id="client-mlopsclient"></a>MLOpsClient
 **Operations:**
+- [`activateModelDeployment`](#operation-mlopsclient-activatemodeldeployment)
 - [`createExperiment`](#operation-mlopsclient-createexperiment)
 - [`createExperimentRun`](#operation-mlopsclient-createexperimentrun)
+- [`createModelDeployment`](#operation-mlopsclient-createmodeldeployment)
 - [`createModelVersion`](#operation-mlopsclient-createmodelversion)
 - [`createRegisteredModel`](#operation-mlopsclient-createregisteredmodel)
 - [`createWorkspaceModelVersion`](#operation-mlopsclient-createworkspacemodelversion)
+- [`deactivateModelDeployment`](#operation-mlopsclient-deactivatemodeldeployment)
 - [`deleteExperiment`](#operation-mlopsclient-deleteexperiment)
 - [`deleteExperimentRun`](#operation-mlopsclient-deleteexperimentrun)
 - [`deleteExperimentRunTag`](#operation-mlopsclient-deleteexperimentruntag)
 - [`deleteExperimentTag`](#operation-mlopsclient-deleteexperimenttag)
+- [`deleteModelDeployment`](#operation-mlopsclient-deletemodeldeployment)
 - [`deleteModelVersion`](#operation-mlopsclient-deletemodelversion)
 - [`deleteModelVersionTag`](#operation-mlopsclient-deletemodelversiontag)
 - [`deleteRegisteredModel`](#operation-mlopsclient-deleteregisteredmodel)
@@ -4269,12 +4328,17 @@ least-privilege policies where available.
 - [`getExperimentByName`](#operation-mlopsclient-getexperimentbyname)
 - [`getExperimentRunById`](#operation-mlopsclient-getexperimentrunbyid)
 - [`getExperimentRunMetricHistory`](#operation-mlopsclient-getexperimentrunmetrichistory)
+- [`getModelDeployment`](#operation-mlopsclient-getmodeldeployment)
+- [`getModelDeploymentActivity`](#operation-mlopsclient-getmodeldeploymentactivity)
+- [`getModelDeploymentContract`](#operation-mlopsclient-getmodeldeploymentcontract)
 - [`getModelVersion`](#operation-mlopsclient-getmodelversion)
 - [`getRegisteredModel`](#operation-mlopsclient-getregisteredmodel)
+- [`getRegisteredModelSummary`](#operation-mlopsclient-getregisteredmodelsummary)
 - [`listArtifacts`](#operation-mlopsclient-listartifacts)
 - [`listExperimentRuns`](#operation-mlopsclient-listexperimentruns)
 - [`listExperiments`](#operation-mlopsclient-listexperiments)
 - [`listLoggedModels`](#operation-mlopsclient-listloggedmodels)
+- [`listModelDeploymentActivities`](#operation-mlopsclient-listmodeldeploymentactivities)
 - [`listModelVersions`](#operation-mlopsclient-listmodelversions)
 - [`listRegisteredModels`](#operation-mlopsclient-listregisteredmodels)
 - [`logExperimentRunBatch`](#operation-mlopsclient-logexperimentrunbatch)
@@ -4285,6 +4349,9 @@ least-privilege policies where available.
 - [`renameRegisteredModel`](#operation-mlopsclient-renameregisteredmodel)
 - [`restoreExperiment`](#operation-mlopsclient-restoreexperiment)
 - [`restoreExperimentRun`](#operation-mlopsclient-restoreexperimentrun)
+- [`rollBackModelDeployment`](#operation-mlopsclient-rollbackmodeldeployment)
+- [`rollForwardModelDeployment`](#operation-mlopsclient-rollforwardmodeldeployment)
+- [`searchModelDeployments`](#operation-mlopsclient-searchmodeldeployments)
 - [`setExperimentRunTag`](#operation-mlopsclient-setexperimentruntag)
 - [`setExperimentTag`](#operation-mlopsclient-setexperimenttag)
 - [`setModelVersionTag`](#operation-mlopsclient-setmodelversiontag)
@@ -4294,10 +4361,39 @@ least-privilege policies where available.
 - [`updateExperimentRun`](#operation-mlopsclient-updateexperimentrun)
 - [`updateExperimentRunTags`](#operation-mlopsclient-updateexperimentruntags)
 - [`updateExperimentTags`](#operation-mlopsclient-updateexperimenttags)
+- [`updateModelDeployment`](#operation-mlopsclient-updatemodeldeployment)
+- [`updateModelDeploymentTags`](#operation-mlopsclient-updatemodeldeploymenttags)
 - [`updateModelVersion`](#operation-mlopsclient-updatemodelversion)
 - [`updateModelVersionTags`](#operation-mlopsclient-updatemodelversiontags)
 - [`updateRegisteredModel`](#operation-mlopsclient-updateregisteredmodel)
 - [`updateRegisteredModelTags`](#operation-mlopsclient-updateregisteredmodeltags)
+
+### <a id="operation-mlopsclient-activatemodeldeployment"></a>`activateModelDeployment`
+**Description:** (Preview) Activates a model deployment so the model becomes available for inference.
+
+**Request Interface:** `requests.ActivateModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `activateModelDeploymentDetails` | `model.ActivateModelDeploymentDetails` | Details for the model deployment activation. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ActivateModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
 
 ### <a id="operation-mlopsclient-createexperiment"></a>`createExperiment`
 **Description:** (Preview) Creates an experiment in a workspace.
@@ -4363,6 +4459,56 @@ least-privilege policies where available.
 | `createExperimentRunResponseDetails` | `model.CreateExperimentRunResponseDetails` | The returned model.CreateExperimentRunResponseDetails instance. |
 
 **Payload `CreateExperimentRunResponseDetails` Summary:** Details of created run.
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-createmodeldeployment"></a>`createModelDeployment`
+**Description:** (Preview) Creates a model deployment for a registered model.
+
+**Request Interface:** `requests.CreateModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `createModelDeploymentDetails` | `model.CreateModelDeploymentDetails` | Details for the new model deployment. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.CreateModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `modelDeployment` | `model.ModelDeployment` | The returned model.ModelDeployment instance. |
+
+**Payload `ModelDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `deploymentId` | `string` | ID of the deployment. |
+| `name` | `string` | Name of the deployment. |
+| `description` | `string` | Description of the deployment. |
+| `modelName` | `string` | Name of the registered model. |
+| `deploymentTargets` | `Array<model.DeploymentTarget>` | Deployment targets of the deployment. |
+| `workspaceKey` | `string` | Workspace key of the deployment. |
+| `computeKey` | `string` | Compute key of the deployment. |
+| `status` | `model.DeploymentStatus` | Status of the deployment. |
+| `activatedTime` | `number` | Unix timestamp in milliseconds of when the deployment was activated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `activatedBy` | `string` | User that activated the model deployment. |
+| `servingUri` | `string` | Serving URI of the deployment. |
+| `createdTime` | `string` | Unix timestamp in milliseconds of when the deployment was created. |
+| `updatedTime` | `string` | Unix timestamp in milliseconds of when the deployment was updated. |
+| `createdBy` | `string` | User that created the model deployment. |
+| `updatedBy` | `string` | User that last updated the model deployment. |
+| `tags` | `Array<model.ModelDeploymentTag>` | List of tags set on the model deployment. |
+| `authType` | `model.DeploymentAuthType` | Authentication mechanism selected for the deployment's query endpoint. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -4457,6 +4603,33 @@ least-privilege policies where available.
 | `createModelVersionResponseDetails` | `model.CreateModelVersionResponseDetails` | The returned model.CreateModelVersionResponseDetails instance. |
 
 **Payload `CreateModelVersionResponseDetails` Summary:** Created model version details.
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-deactivatemodeldeployment"></a>`deactivateModelDeployment`
+**Description:** (Preview) Deactivates a model deployment to safely take the model offline.
+
+**Request Interface:** `requests.DeactivateModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deactivateModelDeploymentDetails` | `model.DeactivateModelDeploymentDetails` | Details for the model deployment deactivation. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.DeactivateModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -4585,6 +4758,32 @@ least-privilege policies where available.
 | `deleteExperimentTagResponseDetails` | `model.DeleteExperimentTagResponseDetails` | The returned model.DeleteExperimentTagResponseDetails instance. |
 
 **Payload `DeleteExperimentTagResponseDetails` Summary:** Response object for deleting tag on an experiment.
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-deletemodeldeployment"></a>`deleteModelDeployment`
+**Description:** (Preview) Deletes a model deployment that is not active.
+
+**Request Interface:** `requests.DeleteModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deleteModelDeploymentDetails` | `model.DeleteModelDeploymentDetails` | Details for the model deployment to delete. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.DeleteModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -4843,6 +5042,131 @@ least-privilege policies where available.
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
+### <a id="operation-mlopsclient-getmodeldeployment"></a>`getModelDeployment`
+**Description:** (Preview) Returns details for a specified model deployment.
+
+**Request Interface:** `requests.GetModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `modelDeployment` | `model.ModelDeployment` | The returned model.ModelDeployment instance. |
+
+**Payload `ModelDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `deploymentId` | `string` | ID of the deployment. |
+| `name` | `string` | Name of the deployment. |
+| `description` | `string` | Description of the deployment. |
+| `modelName` | `string` | Name of the registered model. |
+| `deploymentTargets` | `Array<model.DeploymentTarget>` | Deployment targets of the deployment. |
+| `workspaceKey` | `string` | Workspace key of the deployment. |
+| `computeKey` | `string` | Compute key of the deployment. |
+| `status` | `model.DeploymentStatus` | Status of the deployment. |
+| `activatedTime` | `number` | Unix timestamp in milliseconds of when the deployment was activated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `activatedBy` | `string` | User that activated the model deployment. |
+| `servingUri` | `string` | Serving URI of the deployment. |
+| `createdTime` | `string` | Unix timestamp in milliseconds of when the deployment was created. |
+| `updatedTime` | `string` | Unix timestamp in milliseconds of when the deployment was updated. |
+| `createdBy` | `string` | User that created the model deployment. |
+| `updatedBy` | `string` | User that last updated the model deployment. |
+| `tags` | `Array<model.ModelDeploymentTag>` | List of tags set on the model deployment. |
+| `authType` | `model.DeploymentAuthType` | Authentication mechanism selected for the deployment's query endpoint. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-getmodeldeploymentactivity"></a>`getModelDeploymentActivity`
+**Description:** (Preview) Returns the full detail for a single deployment activity, including the configuration snapshot and the comment.
+
+**Request Interface:** `requests.GetModelDeploymentActivityRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `activityId` | `string` | The unique 32-character hexadecimal ID of the deployment activity to retrieve. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetModelDeploymentActivityResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `deploymentActivity` | `model.DeploymentActivity` | The returned model.DeploymentActivity instance. |
+
+**Payload `DeploymentActivity` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `activityId` | `string` | ID of the deployment activity. |
+| `operationType` | `model.DeploymentOperationType` | Operation type of the activity. |
+| `status` | `model.DeploymentActivityStatus` | Status of the activity. |
+| `startTime` | `string` | Unix timestamp in milliseconds of when the activity started. |
+| `endTime` | `string` | Unix timestamp in milliseconds of when the activity ended. |
+| `user` | `string` | User that created the activity. |
+| `message` | `string` | Comment recorded with the activity. |
+| `statusMessage` | `string` | Details on the status, if it is not SUCCESS. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-getmodeldeploymentcontract"></a>`getModelDeploymentContract`
+**Description:** (Preview) Returns the model contract (input/output signatures and a sample request) for the query-endpoint playground.
+
+**Request Interface:** `requests.GetModelDeploymentContractRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `modelVersion` | `number` | The model version whose contract to return; when omitted the latest (highest) version on the deployment is used. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetModelDeploymentContractResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `getModelDeploymentContractResponse` | `model.GetModelDeploymentContractResponse` | The returned model.GetModelDeploymentContractResponse instance. |
+
+**Payload `GetModelDeploymentContractResponse` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `inputContract` | `string` | Model input signature (contract), captured at activation; null if the model has no signature. |
+| `outputContract` | `string` | Model output signature (contract), captured at activation; null if the model has no signature. |
+| `inputExample` | `string` | Sample request payload (input example), captured at activation; null if the model has no example. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
 ### <a id="operation-mlopsclient-getmodelversion"></a>`getModelVersion`
 **Description:** (Preview) Returns detailed information for a model version.
 
@@ -4901,6 +5225,42 @@ least-privilege policies where available.
 | `getRegisteredModelResponseDetails` | `model.GetRegisteredModelResponseDetails` | The returned model.GetRegisteredModelResponseDetails instance. |
 
 **Payload `GetRegisteredModelResponseDetails` Summary:** Response object for getting a RegisteredModel
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-getregisteredmodelsummary"></a>`getRegisteredModelSummary`
+**Description:** (Preview) Returns aggregate counts of the registered-model footprint within a catalog and schema.
+
+**Request Interface:** `requests.GetRegisteredModelSummaryRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `catalog` | `string` | Catalog whose registered-model footprint should be summarized. |
+| `schema` | `string` | Schema (within the catalog) whose registered-model footprint should be summarized. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetRegisteredModelSummaryResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `registeredModelSummary` | `model.RegisteredModelSummary` | The returned model.RegisteredModelSummary instance. |
+
+**Payload `RegisteredModelSummary` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `registeredModelsCount` | `number` | Number of registered models in the catalog and schema. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `modelVersionsCount` | `number` | Number of model versions across those registered models. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `modelDeploymentsCount` | `number` | Number of model deployments across those registered models. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `activeDeploymentCount` | `number` | Number of model deployments that are currently active. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -5047,6 +5407,40 @@ least-privilege policies where available.
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
+### <a id="operation-mlopsclient-listmodeldeploymentactivities"></a>`listModelDeploymentActivities`
+**Description:** (Preview) Returns the activity history for a model deployment.
+
+**Request Interface:** `requests.ListModelDeploymentActivitiesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `listModelDeploymentActivitiesDetails` | `model.ListModelDeploymentActivitiesDetails` | Filters and pagination for the activity search. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListModelDeploymentActivitiesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `modelDeploymentActivitySummaryCollection` | `model.ModelDeploymentActivitySummaryCollection` | The returned model.ModelDeploymentActivitySummaryCollection instance. |
+
+**Payload `ModelDeploymentActivitySummaryCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `activities` | `Array<model.DeploymentActivitySummary>` | Activity summaries that match the search criteria. |
+| `nextPageToken` | `string` | Token that can be used to retrieve the next page of activities. An empty token means that no more activities are available for retrieval. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
 ### <a id="operation-mlopsclient-listmodelversions"></a>`listModelVersions`
 **Description:** (Preview) Returns a list of model versions.
 
@@ -5102,6 +5496,7 @@ least-privilege policies where available.
 | `maxResults` | `number` | Maximum number of models desired. Default is 100. Max threshold is 1000. |
 | `pageToken` | `string` | Pagination token to go to the next page based on a previous search query. |
 | `orderBy` | `string` | List of columns for ordering search results, which can include model name and last updated timestamp with an optional \"DESC\" or \"ASC\" annotation, where \"ASC\" is the default. Tiebreaks are done by model name ASC. |
+| `isDeploymentSummaryEnabled` | `boolean` | Whether to include the per-model deployment_summary (total_deployment and active_deployment) in each returned registered model. The summary is omitted from a model when it cannot be resolved, so an absent summary means \"not requested or unavailable\" rather than zero. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 
 **Response Interface:** `responses.ListRegisteredModelsResponse`
@@ -5372,6 +5767,94 @@ least-privilege policies where available.
 | `restoreExperimentRunResponseDetails` | `model.RestoreExperimentRunResponseDetails` | The returned model.RestoreExperimentRunResponseDetails instance. |
 
 **Payload `RestoreExperimentRunResponseDetails` Summary:** Response object for restoring experiment run.
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-rollbackmodeldeployment"></a>`rollBackModelDeployment`
+**Description:** (Preview) Rolls an active model deployment back to a lower model version of the same registered model.
+
+**Request Interface:** `requests.RollBackModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `rollBackModelDeploymentDetails` | `model.RollBackModelDeploymentDetails` | Details for the model deployment roll back. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.RollBackModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-rollforwardmodeldeployment"></a>`rollForwardModelDeployment`
+**Description:** (Preview) Rolls an active model deployment forward to a higher model version of the same registered model.
+
+**Request Interface:** `requests.RollForwardModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `rollForwardModelDeploymentDetails` | `model.RollForwardModelDeploymentDetails` | Details for the model deployment roll forward. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.RollForwardModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-searchmodeldeployments"></a>`searchModelDeployments`
+**Description:** (Preview) Returns a list of model deployments matching the given criteria.
+
+**Request Interface:** `requests.SearchModelDeploymentsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `searchModelDeploymentsDetails` | `model.SearchModelDeploymentsDetails` | Filters and pagination for the search. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.SearchModelDeploymentsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `modelDeploymentCollection` | `model.ModelDeploymentCollection` | The returned model.ModelDeploymentCollection instance. |
+
+**Payload `ModelDeploymentCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `deployments` | `Array<model.ModelDeploymentSummary>` | Deployments that match the search criteria. |
+| `nextPageToken` | `string` | Token that can be used to retrieve the next page of deployments. An empty token means that no more deployments are available for retrieval. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -5657,6 +6140,86 @@ least-privilege policies where available.
 | `updateExperimentTagsResponseDetails` | `model.UpdateExperimentTagsResponseDetails` | The returned model.UpdateExperimentTagsResponseDetails instance. |
 
 **Payload `UpdateExperimentTagsResponseDetails` Summary:** Response object for updating tags of an experiment.
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-updatemodeldeployment"></a>`updateModelDeployment`
+**Description:** (Preview) Updates a model deployment.
+
+**Request Interface:** `requests.UpdateModelDeploymentRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `updateModelDeploymentDetails` | `model.UpdateModelDeploymentDetails` | Details for the model deployment update. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.UpdateModelDeploymentResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `modelDeployment` | `model.ModelDeployment` | The returned model.ModelDeployment instance. |
+
+**Payload `ModelDeployment` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `deploymentId` | `string` | ID of the deployment. |
+| `name` | `string` | Name of the deployment. |
+| `description` | `string` | Description of the deployment. |
+| `modelName` | `string` | Name of the registered model. |
+| `deploymentTargets` | `Array<model.DeploymentTarget>` | Deployment targets of the deployment. |
+| `workspaceKey` | `string` | Workspace key of the deployment. |
+| `computeKey` | `string` | Compute key of the deployment. |
+| `status` | `model.DeploymentStatus` | Status of the deployment. |
+| `activatedTime` | `number` | Unix timestamp in milliseconds of when the deployment was activated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `activatedBy` | `string` | User that activated the model deployment. |
+| `servingUri` | `string` | Serving URI of the deployment. |
+| `createdTime` | `string` | Unix timestamp in milliseconds of when the deployment was created. |
+| `updatedTime` | `string` | Unix timestamp in milliseconds of when the deployment was updated. |
+| `createdBy` | `string` | User that created the model deployment. |
+| `updatedBy` | `string` | User that last updated the model deployment. |
+| `tags` | `Array<model.ModelDeploymentTag>` | List of tags set on the model deployment. |
+| `authType` | `model.DeploymentAuthType` | Authentication mechanism selected for the deployment's query endpoint. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-updatemodeldeploymenttags"></a>`updateModelDeploymentTags`
+**Description:** (Preview) Updates tags on a model deployment.
+
+**Request Interface:** `requests.UpdateModelDeploymentTagsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `updateModelDeploymentTagsDetails` | `model.UpdateModelDeploymentTagsDetails` | Details for the model deployment tags update. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.UpdateModelDeploymentTagsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `updateModelDeploymentTagsResponseDetails` | `model.UpdateModelDeploymentTagsResponseDetails` | The returned model.UpdateModelDeploymentTagsResponseDetails instance. |
+
+**Payload `UpdateModelDeploymentTagsResponseDetails` Summary:** Response object for updating tags of a model deployment.
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -6952,7 +7515,7 @@ least-privilege policies where available.
 | `schemaKey` | `string` | The name of the schema to which this table belongs. |
 | `location` | `string` | Location of the table data. |
 | `description` | `string` | Table description. |
-| `tableType` | `model.TableType` | Type of table. Managed, external or mount table. |
+| `tableType` | `model.TableType` | Type of table. Managed, external, mount or synonym table. |
 | `tableFields` | `Array<model.TableFieldDetails>` | Columns for table. |
 | `partitionKeys` | `Array<model.TableFieldDetails>` | Columns to be used in partition for table. |
 | `tableProperties` | `Array<model.TableProperty>` | Table properties. |
@@ -7145,6 +7708,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `shouldSkipOcidTranslation` | `boolean` | When true, skip user OCID translation and return raw OCIDs. |
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
+| `tableType` | `model.TableType` | Filters the response by table type. When omitted, existing ListTables behavior is preserved. |
 | `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
@@ -9565,13 +10129,13 @@ least-privilege policies where available.
 **Payload `Workspace` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | The key of the AI Data Platform Workbench workspace. |
-| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform Workbench instance. |
+| `key` | `string` | The key of the AI Data Platform workspace. |
+| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform instance. |
 | `description` | `string` | Description of the workspace. |
-| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user. |
-| `timeCreated` | `Date` | The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform Workbench workspace. |
+| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user. |
+| `timeCreated` | `Date` | The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform workspace. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the workspace in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
 | `createdBy` | `string` | OCID of the user who created this record. |
@@ -9602,7 +10166,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `timeDataLakeDeletion` | `Date` | Deletion time in the case that a workspace is deleted during AI Data Platform Workbench deletion. |
+| `timeDataLakeDeletion` | `Date` | Deletion time in the case that a workspace is deleted during AI Data Platform deletion. |
 
 **Response Interface:** `responses.DeleteWorkspaceResponse`
 
@@ -9643,13 +10207,13 @@ least-privilege policies where available.
 **Payload `Workspace` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | The key of the AI Data Platform Workbench workspace. |
-| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform Workbench instance. |
+| `key` | `string` | The key of the AI Data Platform workspace. |
+| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform instance. |
 | `description` | `string` | Description of the workspace. |
-| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user. |
-| `timeCreated` | `Date` | The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform Workbench workspace. |
+| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user. |
+| `timeCreated` | `Date` | The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform workspace. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the workspace in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
 | `createdBy` | `string` | OCID of the user who created this record. |
@@ -9866,13 +10430,13 @@ least-privilege policies where available.
 **Payload `Workspace` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | The key of the AI Data Platform Workbench workspace. |
-| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform Workbench instance. |
+| `key` | `string` | The key of the AI Data Platform workspace. |
+| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform instance. |
 | `description` | `string` | Description of the workspace. |
-| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user. |
-| `timeCreated` | `Date` | The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform Workbench workspace. |
+| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user. |
+| `timeCreated` | `Date` | The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform workspace. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the workspace in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
 | `createdBy` | `string` | OCID of the user who created this record. |
@@ -9919,13 +10483,13 @@ least-privilege policies where available.
 **Payload `Workspace` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` | The key of the AI Data Platform Workbench workspace. |
-| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform Workbench instance. |
+| `key` | `string` | The key of the AI Data Platform workspace. |
+| `displayName` | `string` | A user-friendly name that has to be unique in a AI Data Platform instance. |
 | `description` | `string` | Description of the workspace. |
-| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform Workbench creation, type is USER for workspace created by AI Data Platform Workbench user. |
-| `timeCreated` | `Date` | The date and time the AI Data Platform Workbench workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `timeUpdated` | `Date` | The date and time the AI Data Platform Workbench workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform Workbench workspace. |
+| `type` | `Workspace.Type` | Workspace type. Type is DEFAULT for workspace created at AI Data Platform creation, type is USER for workspace created by AI Data Platform user. |
+| `timeCreated` | `Date` | The date and time the AI Data Platform workspace was created, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `timeUpdated` | `Date` | The date and time the AI Data Platform workspace was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
+| `lifecycleState` | `Workspace.LifecycleState` | The current state of the AI Data Platform workspace. |
 | `lifecycleDetails` | `string` | A message that describes the current state of the workspace in more detail. For example, can be used to provide actionable information for a resource in the Failed state. |
 | `systemTags` | `{ [key: string]: { [key: string]: any` | System tags for this resource. Each key is predefined and scoped to a namespace. <p> Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}} |
 | `createdBy` | `string` | OCID of the user who created this record. |

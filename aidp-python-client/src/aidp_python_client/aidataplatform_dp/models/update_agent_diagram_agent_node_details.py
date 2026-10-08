@@ -66,7 +66,7 @@ class UpdateAgentDiagramAgentNodeDetails(UpdateAgentDiagramNodeDetails):
 
         :param llm:
             The value to assign to the llm property of this UpdateAgentDiagramAgentNodeDetails.
-        :type llm: oci.aidataplatform_dp.models.LlmConfig
+        :type llm: oci.aidataplatform_dp.models.BaseLlmConfig
 
         :param model_settings:
             The value to assign to the model_settings property of this UpdateAgentDiagramAgentNodeDetails.
@@ -93,7 +93,7 @@ class UpdateAgentDiagramAgentNodeDetails(UpdateAgentDiagramNodeDetails):
             'configuration': 'dict(str, object)',
             'node_type_id': 'str',
             'instructions': 'str',
-            'llm': 'LlmConfig',
+            'llm': 'BaseLlmConfig',
             'model_settings': 'dict(str, object)',
             'memory': 'MemoryConfiguration',
             'tools': 'list[Tool]'
@@ -164,7 +164,7 @@ class UpdateAgentDiagramAgentNodeDetails(UpdateAgentDiagramNodeDetails):
         Gets the llm of this UpdateAgentDiagramAgentNodeDetails.
 
         :return: The llm of this UpdateAgentDiagramAgentNodeDetails.
-        :rtype: oci.aidataplatform_dp.models.LlmConfig
+        :rtype: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         return self._llm
 
@@ -174,7 +174,7 @@ class UpdateAgentDiagramAgentNodeDetails(UpdateAgentDiagramNodeDetails):
         Sets the llm of this UpdateAgentDiagramAgentNodeDetails.
 
         :param llm: The llm of this UpdateAgentDiagramAgentNodeDetails.
-        :type: oci.aidataplatform_dp.models.LlmConfig
+        :type: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         self._llm = llm
 

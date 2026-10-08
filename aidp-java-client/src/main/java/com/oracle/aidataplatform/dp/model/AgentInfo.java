@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class AgentInfo  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "description", "workspaceKey", "pathInfo", "type", "deploymentComputeKey", "deploymentMode", "uri", "uriState", "entryFilePath", "dependenciesFilePath", "lifecycleState", "lifecycleDetails", "computeKey", "timeCreated", "timeUpdated", "createdBy", "updatedBy"})
-    public AgentInfo(String key, String displayName, String description, String workspaceKey, String pathInfo, Type type, String deploymentComputeKey, String deploymentMode, String uri, String uriState, String entryFilePath, String dependenciesFilePath, Agent.LifecycleState lifecycleState, String lifecycleDetails, String computeKey, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy) {
+    @java.beans.ConstructorProperties({"key", "displayName", "description", "workspaceKey", "pathInfo", "type", "deploymentComputeKey", "deploymentMode", "deploymentState", "uri", "a2aEndpointUrl", "uriState", "entryFilePath", "dependenciesFilePath", "lifecycleState", "lifecycleDetails", "computeKey", "timeCreated", "timeUpdated", "createdBy", "updatedBy"})
+    public AgentInfo(String key, String displayName, String description, String workspaceKey, String pathInfo, Type type, String deploymentComputeKey, String deploymentMode, java.util.Map<String, DeploymentLifecycleState> deploymentState, String uri, String a2aEndpointUrl, String uriState, String entryFilePath, String dependenciesFilePath, Agent.LifecycleState lifecycleState, String lifecycleDetails, String computeKey, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy) {
         super();
         this.key = key;
         this.displayName = displayName;
@@ -23,7 +23,9 @@ public final class AgentInfo  {
         this.type = type;
         this.deploymentComputeKey = deploymentComputeKey;
         this.deploymentMode = deploymentMode;
+        this.deploymentState = deploymentState;
         this.uri = uri;
+        this.a2aEndpointUrl = a2aEndpointUrl;
         this.uriState = uriState;
         this.entryFilePath = entryFilePath;
         this.dependenciesFilePath = dependenciesFilePath;
@@ -183,6 +185,24 @@ public Builder deploymentMode(String deploymentMode) {
     return this;
 }
             /**
+     * The latest lifecycle states for the PROD and TEST deployment types.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("deploymentState")
+private java.util.Map<String, DeploymentLifecycleState> deploymentState;
+
+        /**
+         * The latest lifecycle states for the PROD and TEST deployment types.
+         * @param deploymentState the value to set
+         * @return this builder
+         **/
+        
+
+public Builder deploymentState(java.util.Map<String, DeploymentLifecycleState> deploymentState) {
+    this.deploymentState = deploymentState;
+    return this;
+}
+            /**
      * Agent URI.
      **/
     
@@ -198,6 +218,24 @@ private String uri;
 
 public Builder uri(String uri) {
     this.uri = uri;
+    return this;
+}
+            /**
+     * The A2A endpoint URL for the PROD deployment.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("a2aEndpointUrl")
+private String a2aEndpointUrl;
+
+        /**
+         * The A2A endpoint URL for the PROD deployment.
+         * @param a2aEndpointUrl the value to set
+         * @return this builder
+         **/
+        
+
+public Builder a2aEndpointUrl(String a2aEndpointUrl) {
+    this.a2aEndpointUrl = a2aEndpointUrl;
     return this;
 }
             /**
@@ -395,7 +433,9 @@ public Builder updatedBy(String updatedBy) {
                 , this.type
                 , this.deploymentComputeKey
                 , this.deploymentMode
+                , this.deploymentState
                 , this.uri
+                , this.a2aEndpointUrl
                 , this.uriState
                 , this.entryFilePath
                 , this.dependenciesFilePath
@@ -418,7 +458,9 @@ public Builder updatedBy(String updatedBy) {
     this.type(model.getType());
     this.deploymentComputeKey(model.getDeploymentComputeKey());
     this.deploymentMode(model.getDeploymentMode());
+    this.deploymentState(model.getDeploymentState());
     this.uri(model.getUri());
+    this.a2aEndpointUrl(model.getA2aEndpointUrl());
     this.uriState(model.getUriState());
     this.entryFilePath(model.getEntryFilePath());
     this.dependenciesFilePath(model.getDependenciesFilePath());
@@ -630,6 +672,23 @@ return this;
 
 
         /**
+     * The latest lifecycle states for the PROD and TEST deployment types.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("deploymentState")
+    private final java.util.Map<String, DeploymentLifecycleState> deploymentState;
+
+        /**
+     * The latest lifecycle states for the PROD and TEST deployment types.
+     * @return the value
+     **/
+    
+    public java.util.Map<String, DeploymentLifecycleState> getDeploymentState() {
+        return deploymentState;
+    }
+
+
+        /**
      * Agent URI.
      **/
     
@@ -643,6 +702,23 @@ return this;
     
     public String getUri() {
         return uri;
+    }
+
+
+        /**
+     * The A2A endpoint URL for the PROD deployment.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("a2aEndpointUrl")
+    private final String a2aEndpointUrl;
+
+        /**
+     * The A2A endpoint URL for the PROD deployment.
+     * @return the value
+     **/
+    
+    public String getA2aEndpointUrl() {
+        return a2aEndpointUrl;
     }
 
 
@@ -840,7 +916,9 @@ return this;
         sb.append(", type=").append(String.valueOf(this.type));
         sb.append(", deploymentComputeKey=").append(String.valueOf(this.deploymentComputeKey));
         sb.append(", deploymentMode=").append(String.valueOf(this.deploymentMode));
+        sb.append(", deploymentState=").append(String.valueOf(this.deploymentState));
         sb.append(", uri=").append(String.valueOf(this.uri));
+        sb.append(", a2aEndpointUrl=").append(String.valueOf(this.a2aEndpointUrl));
         sb.append(", uriState=").append(String.valueOf(this.uriState));
         sb.append(", entryFilePath=").append(String.valueOf(this.entryFilePath));
         sb.append(", dependenciesFilePath=").append(String.valueOf(this.dependenciesFilePath));
@@ -873,7 +951,9 @@ return this;
             java.util.Objects.equals(this.type, other.type) &&
             java.util.Objects.equals(this.deploymentComputeKey, other.deploymentComputeKey) &&
             java.util.Objects.equals(this.deploymentMode, other.deploymentMode) &&
+            java.util.Objects.equals(this.deploymentState, other.deploymentState) &&
             java.util.Objects.equals(this.uri, other.uri) &&
+            java.util.Objects.equals(this.a2aEndpointUrl, other.a2aEndpointUrl) &&
             java.util.Objects.equals(this.uriState, other.uriState) &&
             java.util.Objects.equals(this.entryFilePath, other.entryFilePath) &&
             java.util.Objects.equals(this.dependenciesFilePath, other.dependenciesFilePath) &&
@@ -898,7 +978,9 @@ return this;
         result = (result * PRIME) + (this.type == null ? 43 : this.type.hashCode());
         result = (result * PRIME) + (this.deploymentComputeKey == null ? 43 : this.deploymentComputeKey.hashCode());
         result = (result * PRIME) + (this.deploymentMode == null ? 43 : this.deploymentMode.hashCode());
+        result = (result * PRIME) + (this.deploymentState == null ? 43 : this.deploymentState.hashCode());
         result = (result * PRIME) + (this.uri == null ? 43 : this.uri.hashCode());
+        result = (result * PRIME) + (this.a2aEndpointUrl == null ? 43 : this.a2aEndpointUrl.hashCode());
         result = (result * PRIME) + (this.uriState == null ? 43 : this.uriState.hashCode());
         result = (result * PRIME) + (this.entryFilePath == null ? 43 : this.entryFilePath.hashCode());
         result = (result * PRIME) + (this.dependenciesFilePath == null ? 43 : this.dependenciesFilePath.hashCode());

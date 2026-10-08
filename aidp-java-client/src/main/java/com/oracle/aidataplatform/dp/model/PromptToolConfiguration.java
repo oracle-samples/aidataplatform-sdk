@@ -13,7 +13,7 @@ package com.oracle.aidataplatform.dp.model;
 public final class PromptToolConfiguration  {
     @Deprecated
     @java.beans.ConstructorProperties({"llm", "promptText", "modelSettings"})
-    public PromptToolConfiguration(LlmConfig llm, String promptText, java.util.Map<String, Object> modelSettings) {
+    public PromptToolConfiguration(BaseLlmConfig llm, String promptText, java.util.Map<String, Object> modelSettings) {
         super();
         this.llm = llm;
         this.promptText = promptText;
@@ -24,11 +24,11 @@ public final class PromptToolConfiguration  {
     public static class Builder {
             
 @com.fasterxml.jackson.annotation.JsonProperty("llm")
-private LlmConfig llm;
+private BaseLlmConfig llm;
 
 
 
-public Builder llm(LlmConfig llm) {
+public Builder llm(BaseLlmConfig llm) {
     this.llm = llm;
     return this;
 }
@@ -102,10 +102,10 @@ return this;
 
     
     @com.fasterxml.jackson.annotation.JsonProperty("llm")
-    private final LlmConfig llm;
+    private final BaseLlmConfig llm;
 
     
-    public LlmConfig getLlm() {
+    public BaseLlmConfig getLlm() {
         return llm;
     }
 

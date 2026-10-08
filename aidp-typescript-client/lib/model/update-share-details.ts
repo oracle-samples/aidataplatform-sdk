@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* The details for updating a Delta Share metadata in AI Data Platform Workbench.
+* The details for updating a Delta Share metadata in AI Data Platform.
 */
 export interface UpdateShareDetails {
     /**
-    * A user-friendly name. Has to be unique within the AI Data Platform Workbench instance.
+    * A user-friendly name. Has to be unique within the AI Data Platform instance.
     */
     'displayName'?: string;
     /**

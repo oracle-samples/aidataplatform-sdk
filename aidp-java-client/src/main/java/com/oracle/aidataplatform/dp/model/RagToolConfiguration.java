@@ -13,7 +13,7 @@ package com.oracle.aidataplatform.dp.model;
 public final class RagToolConfiguration  {
     @Deprecated
     @java.beans.ConstructorProperties({"catalogKey", "schemaKey", "knowledgeBase", "llm", "modelSettings", "topK"})
-    public RagToolConfiguration(String catalogKey, String schemaKey, String knowledgeBase, LlmConfig llm, java.util.Map<String, Object> modelSettings, Integer topK) {
+    public RagToolConfiguration(String catalogKey, String schemaKey, String knowledgeBase, BaseLlmConfig llm, java.util.Map<String, Object> modelSettings, Integer topK) {
         super();
         this.catalogKey = catalogKey;
         this.schemaKey = schemaKey;
@@ -81,11 +81,11 @@ public Builder knowledgeBase(String knowledgeBase) {
 }
         
 @com.fasterxml.jackson.annotation.JsonProperty("llm")
-private LlmConfig llm;
+private BaseLlmConfig llm;
 
 
 
-public Builder llm(LlmConfig llm) {
+public Builder llm(BaseLlmConfig llm) {
     this.llm = llm;
     return this;
 }
@@ -216,10 +216,10 @@ return this;
 
     
     @com.fasterxml.jackson.annotation.JsonProperty("llm")
-    private final LlmConfig llm;
+    private final BaseLlmConfig llm;
 
     
-    public LlmConfig getLlm() {
+    public BaseLlmConfig getLlm() {
         return llm;
     }
 

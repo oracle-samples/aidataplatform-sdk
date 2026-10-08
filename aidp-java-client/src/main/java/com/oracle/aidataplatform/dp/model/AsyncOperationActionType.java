@@ -53,6 +53,7 @@ public enum AsyncOperationActionType implements com.oracle.bmc.http.internal.Bmc
     UpdateGitRepository("UPDATE_GIT_REPOSITORY"),
     CreateBundle("CREATE_BUNDLE"),
     BundleDeploy("BUNDLE_DEPLOY"),
+    BundlePublish("BUNDLE_PUBLISH"),
     BundlePurge("BUNDLE_PURGE"),
     BundleSync("BUNDLE_SYNC"),
     MarkAsBundle("MARK_AS_BUNDLE"),
@@ -64,6 +65,10 @@ public enum AsyncOperationActionType implements com.oracle.bmc.http.internal.Bmc
     GitOperationRebase("GIT_OPERATION_REBASE"),
     GitOperationReset("GIT_OPERATION_RESET"),
     GitOperationResetState("GIT_OPERATION_RESET_STATE"),
+    ActivateModelDeployment("ACTIVATE_MODEL_DEPLOYMENT"),
+    DeactivateModelDeployment("DEACTIVATE_MODEL_DEPLOYMENT"),
+    RollForwardModelDeployment("ROLL_FORWARD_MODEL_DEPLOYMENT"),
+    RollBackModelDeployment("ROLL_BACK_MODEL_DEPLOYMENT"),
     
 
     /**

@@ -23,14 +23,14 @@ public final class CatalogTestConnectionDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private String key;
 
         /**
-         * The AI Data Platform Workbench catalog key.
+         * The AI Data Platform catalog key.
          * @param key the value to set
          * @return this builder
          **/
@@ -101,14 +101,14 @@ return this;
 
 
         /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final String key;
 
         /**
-     * The AI Data Platform Workbench catalog key.
+     * The AI Data Platform catalog key.
      * @return the value
      **/
     

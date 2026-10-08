@@ -8,7 +8,7 @@ import common = require("oci-common");
 * Tool configurations are set by the agent developer when they create the tool. | The agent does not see those configurations and can not modify their values
 */
 export interface PromptToolConfiguration {
-    'llm'?: model.LlmConfig;
+    'llm'?: model.LlmConfig| model.ThirdPartyLlmConfig;
     /**
     * The generative AI prompt
     */
@@ -31,7 +31,7 @@ export namespace PromptToolConfiguration {
                 'llm': obj.llm ?
                 
                 
-                model.LlmConfig.getJsonObj(obj.llm) : undefined,
+                model.BaseLlmConfig.getJsonObj(obj.llm) : undefined,
 
 
         }};
@@ -47,7 +47,7 @@ export namespace PromptToolConfiguration {
                     'llm': obj.llm ?
                 
                 
-                model.LlmConfig.getDeserializedJsonObj(obj.llm) : undefined,
+                model.BaseLlmConfig.getDeserializedJsonObj(obj.llm) : undefined,
 
 
          }};

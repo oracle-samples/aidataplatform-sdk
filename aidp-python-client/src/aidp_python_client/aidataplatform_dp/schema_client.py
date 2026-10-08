@@ -1581,6 +1581,11 @@ class SchemaClient(object):
         :param str display_name: (optional)
             A filter to return only resources that match the given display name exactly.
 
+        :param str table_type: (optional)
+            Filters the response by table type. When omitted, existing ListTables behavior is preserved.
+
+            Allowed values are: "MANAGED", "EXTERNAL", "SYNONYM"
+
         :param int limit: (optional)
             For list pagination. The maximum number of results per page, or items to return in a
             paginated \"List\" call. For important details about how pagination works, see
@@ -1630,6 +1635,7 @@ class SchemaClient(object):
             "retry_strategy",
             "should_skip_ocid_translation",
             "display_name",
+            "table_type",
             "limit",
             "page",
             "sort_order",
@@ -1651,6 +1657,13 @@ class SchemaClient(object):
             if v is None or (isinstance(v, six.string_types) and len(v.strip()) == 0):
                 raise ValueError('Parameter {} cannot be None, whitespace or empty string'.format(k))
 
+        if 'table_type' in kwargs:
+            table_type_allowed_values = ["MANAGED", "EXTERNAL", "SYNONYM"]
+            if kwargs['table_type'] not in table_type_allowed_values:
+                raise ValueError(
+                    "Invalid value for `table_type`, must be one of {0}".format(table_type_allowed_values)
+                )
+
         if 'sort_order' in kwargs:
             sort_order_allowed_values = ["ASC", "DESC"]
             if kwargs['sort_order'] not in sort_order_allowed_values:
@@ -1670,6 +1683,7 @@ class SchemaClient(object):
             "shouldSkipOcidTranslation": kwargs.get("should_skip_ocid_translation", missing),
             "schemaKey": schema_key,
             "displayName": kwargs.get("display_name", missing),
+            "tableType": kwargs.get("table_type", missing),
             "limit": kwargs.get("limit", missing),
             "page": kwargs.get("page", missing),
             "sortOrder": kwargs.get("sort_order", missing),

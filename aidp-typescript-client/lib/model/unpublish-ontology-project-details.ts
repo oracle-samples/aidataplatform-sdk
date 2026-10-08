@@ -10,6 +10,10 @@ import common = require("oci-common");
 export interface UnpublishOntologyProjectDetails {
     'comment'?: string;
     /**
+    * Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+    */
+    'ontologyName'?: string;
+    /**
     * Whether to delete stored publish artifacts such as compile reports. Defaults to true.
     */
     'deleteArtifacts'?: boolean;
@@ -20,9 +24,11 @@ export namespace UnpublishOntologyProjectDetails {
 
 
 
+
     export function getJsonObj(obj: UnpublishOntologyProjectDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
         }};
@@ -35,6 +41,7 @@ export namespace UnpublishOntologyProjectDetails {
     export function getDeserializedJsonObj(obj: UnpublishOntologyProjectDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
          }};

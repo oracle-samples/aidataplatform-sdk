@@ -21,14 +21,14 @@ public class CreateRecipientRequest extends com.oracle.bmc.requests.BmcRequest<c
         return aiDataPlatformId;
     }
         /**
-     * Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+     * Details for the new recipient for Delta Share protocol in AI Data Platform.
      */
     private com.oracle.aidataplatform.dp.model.CreateRecipientDetails createRecipientDetails;
 
     
 
         /**
-     * Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+     * Details for the new recipient for Delta Share protocol in AI Data Platform.
      */
     public com.oracle.aidataplatform.dp.model.CreateRecipientDetails getCreateRecipientDetails() {
         return createRecipientDetails;
@@ -122,12 +122,12 @@ public class CreateRecipientRequest extends com.oracle.bmc.requests.BmcRequest<c
         }
 
             /**
-     * Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+     * Details for the new recipient for Delta Share protocol in AI Data Platform.
      */
         private com.oracle.aidataplatform.dp.model.CreateRecipientDetails createRecipientDetails = null;
 
         /**
-         * Details for the new recipient for Delta Share protocol in AI Data Platform Workbench.
+         * Details for the new recipient for Delta Share protocol in AI Data Platform.
          * @param createRecipientDetails the value to set
          * @return this builder instance
          */

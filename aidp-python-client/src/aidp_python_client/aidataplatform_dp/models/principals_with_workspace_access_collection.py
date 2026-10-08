@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class PrincipalsWithWorkspaceAccessCollection(object):
     """
-    Returns a list of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+    Returns a list of users with particular AI Data Platform RBAC permissions across workspaces.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class PrincipalsWithWorkspaceAccessCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this PrincipalsWithWorkspaceAccessCollection.
-        List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+        List of users with particular AI Data Platform RBAC permissions across workspaces.
 
 
         :return: The items of this PrincipalsWithWorkspaceAccessCollection.
@@ -49,7 +49,7 @@ class PrincipalsWithWorkspaceAccessCollection(object):
     def items(self, items):
         """
         Sets the items of this PrincipalsWithWorkspaceAccessCollection.
-        List of users with particular AI Data Platform Workbench RBAC permissions across workspaces.
+        List of users with particular AI Data Platform RBAC permissions across workspaces.
 
 
         :param items: The items of this PrincipalsWithWorkspaceAccessCollection.

@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class CreateOntologyProjectDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"workspaceId", "key", "displayName", "description", "namespace", "creator", "ontologyVersion", "baseUri", "defaultLanguage", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath"})
-    public CreateOntologyProjectDetails(String workspaceId, String key, String displayName, String description, String namespace, String creator, String ontologyVersion, String baseUri, String defaultLanguage, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath) {
+    @java.beans.ConstructorProperties({"workspaceId", "key", "displayName", "description", "namespace", "creator", "ontologyVersion", "baseUri", "defaultLanguage", "workspaceBasePath", "sourceType", "gitRepositoryKey", "gitBranchName", "gitFolderPath", "targetConnection"})
+    public CreateOntologyProjectDetails(String workspaceId, String key, String displayName, String description, String namespace, String creator, String ontologyVersion, String baseUri, String defaultLanguage, String workspaceBasePath, OntologyProjectSourceType sourceType, String gitRepositoryKey, String gitBranchName, String gitFolderPath, OntologyPublishTargetConnectionReference targetConnection) {
         super();
         this.workspaceId = workspaceId;
         this.key = key;
@@ -29,6 +29,7 @@ public final class CreateOntologyProjectDetails  {
         this.gitRepositoryKey = gitRepositoryKey;
         this.gitBranchName = gitBranchName;
         this.gitFolderPath = gitFolderPath;
+        this.targetConnection = targetConnection;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -84,14 +85,14 @@ public Builder namespace(String namespace) {
     return this;
 }
             /**
-     * Creator name written into the generated project.yaml metadata file.
+     * Creator metadata for the ontology project.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("creator")
 private String creator;
 
         /**
-         * Creator name written into the generated project.yaml metadata file.
+         * Creator metadata for the ontology project.
          * @param creator the value to set
          * @return this builder
          **/
@@ -102,14 +103,14 @@ public Builder creator(String creator) {
     return this;
 }
             /**
-     * Initial semantic ontology version written into project.yaml.
+     * Initial semantic ontology version metadata for the ontology project.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("ontologyVersion")
 private String ontologyVersion;
 
         /**
-         * Initial semantic ontology version written into project.yaml.
+         * Initial semantic ontology version metadata for the ontology project.
          * @param ontologyVersion the value to set
          * @return this builder
          **/
@@ -120,14 +121,14 @@ public Builder ontologyVersion(String ontologyVersion) {
     return this;
 }
             /**
-     * Base URI written as baseURI in project.yaml.
+     * Base URI metadata for ontology files.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("baseUri")
 private String baseUri;
 
         /**
-         * Base URI written as baseURI in project.yaml.
+         * Base URI metadata for ontology files.
          * @param baseUri the value to set
          * @return this builder
          **/
@@ -138,14 +139,14 @@ public Builder baseUri(String baseUri) {
     return this;
 }
             /**
-     * Default language tag written into project.yaml.
+     * Default language tag metadata for ontology files.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("defaultLanguage")
 private String defaultLanguage;
 
         /**
-         * Default language tag written into project.yaml.
+         * Default language tag metadata for ontology files.
          * @param defaultLanguage the value to set
          * @return this builder
          **/
@@ -245,6 +246,16 @@ public Builder gitFolderPath(String gitFolderPath) {
     this.gitFolderPath = gitFolderPath;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("targetConnection")
+private OntologyPublishTargetConnectionReference targetConnection;
+
+
+
+public Builder targetConnection(OntologyPublishTargetConnectionReference targetConnection) {
+    this.targetConnection = targetConnection;
+    return this;
+}
 
 
         public CreateOntologyProjectDetails build() {
@@ -261,7 +272,8 @@ public Builder gitFolderPath(String gitFolderPath) {
                 , this.sourceType
                 , this.gitRepositoryKey
                 , this.gitBranchName
-                , this.gitFolderPath);            return model;
+                , this.gitFolderPath
+                , this.targetConnection);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -280,6 +292,7 @@ public Builder gitFolderPath(String gitFolderPath) {
     this.gitRepositoryKey(model.getGitRepositoryKey());
     this.gitBranchName(model.getGitBranchName());
     this.gitFolderPath(model.getGitFolderPath());
+    this.targetConnection(model.getTargetConnection());
 return this;
         }
     }
@@ -350,14 +363,14 @@ return this;
 
 
         /**
-     * Creator name written into the generated project.yaml metadata file.
+     * Creator metadata for the ontology project.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("creator")
     private final String creator;
 
         /**
-     * Creator name written into the generated project.yaml metadata file.
+     * Creator metadata for the ontology project.
      * @return the value
      **/
     
@@ -367,14 +380,14 @@ return this;
 
 
         /**
-     * Initial semantic ontology version written into project.yaml.
+     * Initial semantic ontology version metadata for the ontology project.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("ontologyVersion")
     private final String ontologyVersion;
 
         /**
-     * Initial semantic ontology version written into project.yaml.
+     * Initial semantic ontology version metadata for the ontology project.
      * @return the value
      **/
     
@@ -384,14 +397,14 @@ return this;
 
 
         /**
-     * Base URI written as baseURI in project.yaml.
+     * Base URI metadata for ontology files.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("baseUri")
     private final String baseUri;
 
         /**
-     * Base URI written as baseURI in project.yaml.
+     * Base URI metadata for ontology files.
      * @return the value
      **/
     
@@ -401,14 +414,14 @@ return this;
 
 
         /**
-     * Default language tag written into project.yaml.
+     * Default language tag metadata for ontology files.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("defaultLanguage")
     private final String defaultLanguage;
 
         /**
-     * Default language tag written into project.yaml.
+     * Default language tag metadata for ontology files.
      * @return the value
      **/
     
@@ -501,6 +514,16 @@ return this;
         return gitFolderPath;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("targetConnection")
+    private final OntologyPublishTargetConnectionReference targetConnection;
+
+    
+    public OntologyPublishTargetConnectionReference getTargetConnection() {
+        return targetConnection;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -528,6 +551,7 @@ return this;
         sb.append(", gitRepositoryKey=").append(String.valueOf(this.gitRepositoryKey));
         sb.append(", gitBranchName=").append(String.valueOf(this.gitBranchName));
         sb.append(", gitFolderPath=").append(String.valueOf(this.gitFolderPath));
+        sb.append(", targetConnection=").append(String.valueOf(this.targetConnection));
         sb.append(")");
         return sb.toString();
     }
@@ -555,7 +579,8 @@ return this;
             java.util.Objects.equals(this.sourceType, other.sourceType) &&
             java.util.Objects.equals(this.gitRepositoryKey, other.gitRepositoryKey) &&
             java.util.Objects.equals(this.gitBranchName, other.gitBranchName) &&
-            java.util.Objects.equals(this.gitFolderPath, other.gitFolderPath);
+            java.util.Objects.equals(this.gitFolderPath, other.gitFolderPath) &&
+            java.util.Objects.equals(this.targetConnection, other.targetConnection);
     }
 
     @Override
@@ -576,6 +601,7 @@ return this;
         result = (result * PRIME) + (this.gitRepositoryKey == null ? 43 : this.gitRepositoryKey.hashCode());
         result = (result * PRIME) + (this.gitBranchName == null ? 43 : this.gitBranchName.hashCode());
         result = (result * PRIME) + (this.gitFolderPath == null ? 43 : this.gitFolderPath.hashCode());
+        result = (result * PRIME) + (this.targetConnection == null ? 43 : this.targetConnection.hashCode());
         return result;
     }
 

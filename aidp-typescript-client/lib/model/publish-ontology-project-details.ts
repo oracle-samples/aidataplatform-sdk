@@ -16,6 +16,10 @@ export interface PublishOntologyProjectDetails {
     * Ontology project key/name to publish.
     */
     'projectName'?: string;
+    /**
+    * Published ontology name to use as the deployed DFL ontology identity. Defaults to the current project key when omitted.
+    */
+    'ontologyName'?: string;
     'comment'?: string;
     'targetConnection'?: model.OntologyPublishTargetConnectionReference;
 
@@ -27,9 +31,11 @@ export namespace PublishOntologyProjectDetails {
 
 
 
+
     export function getJsonObj(obj: PublishOntologyProjectDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 
@@ -47,6 +53,7 @@ export namespace PublishOntologyProjectDetails {
     export function getDeserializedJsonObj(obj: PublishOntologyProjectDetails): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

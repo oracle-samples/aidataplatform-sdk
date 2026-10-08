@@ -26,13 +26,9 @@ class OntologyProjectValidationResult(object):
             The value to assign to the valid property of this OntologyProjectValidationResult.
         :type valid: bool
 
-        :param operation:
-            The value to assign to the operation property of this OntologyProjectValidationResult.
-        :type operation: str
-
-        :param validation_report:
-            The value to assign to the validation_report property of this OntologyProjectValidationResult.
-        :type validation_report: str
+        :param findings:
+            The value to assign to the findings property of this OntologyProjectValidationResult.
+        :type findings: list[oci.aidataplatform_dp.models.OntologyValidationFinding]
 
         :param error_code:
             The value to assign to the error_code property of this OntologyProjectValidationResult.
@@ -46,8 +42,7 @@ class OntologyProjectValidationResult(object):
         self.swagger_types = {
             'project_id': 'str',
             'valid': 'bool',
-            'operation': 'str',
-            'validation_report': 'str',
+            'findings': 'list[OntologyValidationFinding]',
             'error_code': 'str',
             'error_message': 'str'
         }
@@ -55,16 +50,14 @@ class OntologyProjectValidationResult(object):
         self.attribute_map = {
             'project_id': 'projectId',
             'valid': 'valid',
-            'operation': 'operation',
-            'validation_report': 'validationReport',
+            'findings': 'findings',
             'error_code': 'errorCode',
             'error_message': 'errorMessage'
         }
 
         self._project_id = None
         self._valid = None
-        self._operation = None
-        self._validation_report = None
+        self._findings = None
         self._error_code = None
         self._error_message = None
 
@@ -117,52 +110,24 @@ class OntologyProjectValidationResult(object):
         self._valid = valid
 
     @property
-    def operation(self):
+    def findings(self):
         """
-        Gets the operation of this OntologyProjectValidationResult.
-        OT SDK operation name.
+        Gets the findings of this OntologyProjectValidationResult.
 
-
-        :return: The operation of this OntologyProjectValidationResult.
-        :rtype: str
+        :return: The findings of this OntologyProjectValidationResult.
+        :rtype: list[oci.aidataplatform_dp.models.OntologyValidationFinding]
         """
-        return self._operation
+        return self._findings
 
-    @operation.setter
-    def operation(self, operation):
+    @findings.setter
+    def findings(self, findings):
         """
-        Sets the operation of this OntologyProjectValidationResult.
-        OT SDK operation name.
+        Sets the findings of this OntologyProjectValidationResult.
 
-
-        :param operation: The operation of this OntologyProjectValidationResult.
-        :type: str
+        :param findings: The findings of this OntologyProjectValidationResult.
+        :type: list[oci.aidataplatform_dp.models.OntologyValidationFinding]
         """
-        self._operation = operation
-
-    @property
-    def validation_report(self):
-        """
-        Gets the validation_report of this OntologyProjectValidationResult.
-        JSON validation result or error details returned by OT SDK.
-
-
-        :return: The validation_report of this OntologyProjectValidationResult.
-        :rtype: str
-        """
-        return self._validation_report
-
-    @validation_report.setter
-    def validation_report(self, validation_report):
-        """
-        Sets the validation_report of this OntologyProjectValidationResult.
-        JSON validation result or error details returned by OT SDK.
-
-
-        :param validation_report: The validation_report of this OntologyProjectValidationResult.
-        :type: str
-        """
-        self._validation_report = validation_report
+        self._findings = findings
 
     @property
     def error_code(self):

@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface CatalogSummary {
     /**
-    * The AI Data Platform Workbench catalog key.
+    * The AI Data Platform catalog key.
     */
     'key': string;
     /**
@@ -41,11 +41,11 @@ export interface CatalogSummary {
     */
     'lifecycleStateDetails'?: string;
     /**
-    * The date and time the AI Data Platform Workbench catalog was created.
+    * The date and time the AI Data Platform catalog was created.
     */
     'timeCreated': Date;
     /**
-    * The date and time the AI Data Platform Workbench catalog was updated.
+    * The date and time the AI Data Platform catalog was updated.
     */
     'timeUpdated'?: Date;
     /**

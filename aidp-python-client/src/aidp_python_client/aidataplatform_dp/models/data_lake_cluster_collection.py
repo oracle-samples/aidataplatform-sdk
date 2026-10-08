@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DataLakeClusterCollection(object):
     """
-    Results of a cluster list within the AI Data Platform Workbench.
+    Results of a cluster list within the AI Data Platform.
     """
 
     def __init__(self, **kwargs):
@@ -37,7 +37,7 @@ class DataLakeClusterCollection(object):
     def items(self):
         """
         **[Required]** Gets the items of this DataLakeClusterCollection.
-        List of clusters within the AI Data Platform Workbench.
+        List of clusters within the AI Data Platform.
 
 
         :return: The items of this DataLakeClusterCollection.
@@ -49,7 +49,7 @@ class DataLakeClusterCollection(object):
     def items(self, items):
         """
         Sets the items of this DataLakeClusterCollection.
-        List of clusters within the AI Data Platform Workbench.
+        List of clusters within the AI Data Platform.
 
 
         :param items: The items of this DataLakeClusterCollection.

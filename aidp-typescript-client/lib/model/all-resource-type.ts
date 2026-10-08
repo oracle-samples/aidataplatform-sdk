@@ -4,7 +4,7 @@ import * as model from '../model';
 import common = require("oci-common");
 
 /**
- * List of sub-resources that are RBAC managed by AI Data Platform Workbench.
+ * List of sub-resources that are RBAC managed by AI Data Platform.
 **/
 export enum AllResourceType {
     Workspace = "WORKSPACE",

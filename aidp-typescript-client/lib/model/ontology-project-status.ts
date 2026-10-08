@@ -18,8 +18,25 @@ export interface OntologyProjectStatus {
     * Monotonic publish version for the project. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'publishVersion'?: number;
+    /**
+    * Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+    */
+    'publishedOntologyName'?: string;
+    /**
+    * Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+    */
+    'deploymentTarget'?: string;
+    /**
+    * Target deployment connection or catalog reference used for this publish attempt when applicable.
+    */
+    'deploymentConnection'?: string;
+    /**
+    * Whether the deployed ontology used DFL's shared storage layout.
+    */
+    'isDeploymentShared'?: boolean;
     'status': OntologyProjectStatus.Status;
     'comment'?: string;
+    'importDetails'?: model.OntologyProjectImportStatusDetails;
     /**
     * JSON validation report produced by a compiler worker.
     */
@@ -38,6 +55,10 @@ export namespace OntologyProjectStatus {
 
 
 
+
+
+
+
     export enum Status {
     
     Created = "CREATED",
@@ -50,9 +71,13 @@ export namespace OntologyProjectStatus {
     Unpublishing = "UNPUBLISHING",
     Unpublished = "UNPUBLISHED",
     UnpublishFailed = "UNPUBLISH_FAILED",
+    Importing = "IMPORTING",
+    Imported = "IMPORTED",
+    ImportFailed = "IMPORT_FAILED",
     Archived = "ARCHIVED"
 
 }
+
 
 
 
@@ -75,6 +100,14 @@ export namespace OntologyProjectStatus {
 
 
 
+                'importDetails': obj.importDetails ?
+                
+                
+                model.OntologyProjectImportStatusDetails.getJsonObj(obj.importDetails) : undefined,
+
+
+
+
 
 
         }};
@@ -93,6 +126,14 @@ export namespace OntologyProjectStatus {
 
 
 
+
+
+
+
+                    'importDetails': obj.importDetails ?
+                
+                
+                model.OntologyProjectImportStatusDetails.getDeserializedJsonObj(obj.importDetails) : undefined,
 
 
 

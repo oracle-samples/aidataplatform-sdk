@@ -1,13 +1,18 @@
 # Oracle AI Data Platform
-Oracle AI Data Platform Workbench simplifies cataloging, ingesting, and analyzing data for data professionals in an organization.
-The Oracle AI Data Platform Workbench service provides the platform and the framework to create data analytics pipelines.
+Oracle AI Data Platform simplifies cataloging, ingesting, and analyzing data for data professionals in an organization.
+The Oracle AI Data Platform service provides the platform and the framework to create data analytics pipelines.
 
 ## Documentation
-[Oracle AI Data Platform Workbench documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/)
+[Oracle AI Data Platform documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/)
 
 ## Using CLI
 ### Configure Auth
 AIDP clients use OCI authentication. Configure an OCI profile before invoking the CLI or SDK.
+
+Do not commit OCI configuration or private-key files. Store credentials in an
+approved secret-management solution. For CI/CD, prefer short-lived or federated
+authentication when available and grant only the permissions required for the
+operation.
 ~~~
 oci setup config
 ~~~

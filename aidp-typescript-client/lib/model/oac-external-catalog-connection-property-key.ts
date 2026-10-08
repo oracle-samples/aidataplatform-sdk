@@ -12,7 +12,8 @@ export enum OacExternalCatalogConnectionPropertyKey {
     OacIdcsClientId = "OAC_IDCS_CLIENT_ID",
     OacIdcsClientScope = "OAC_IDCS_CLIENT_SCOPE",
     OacIdcsCertificate = "OAC_IDCS_CERTIFICATE",
-    OacIdcsPrivateKey = "OAC_IDCS_PRIVATE_KEY"
+    OacIdcsPrivateKey = "OAC_IDCS_PRIVATE_KEY",
+    OacDiscoveryUser = "OAC_DISCOVERY_USER"
     
 }
 

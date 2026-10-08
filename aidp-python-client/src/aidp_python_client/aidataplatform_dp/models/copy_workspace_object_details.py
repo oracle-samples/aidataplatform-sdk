@@ -42,6 +42,10 @@ class CopyWorkspaceObjectDetails(object):
             The value to assign to the is_include_outputs property of this CopyWorkspaceObjectDetails.
         :type is_include_outputs: bool
 
+        :param metadata_keys:
+            The value to assign to the metadata_keys property of this CopyWorkspaceObjectDetails.
+        :type metadata_keys: str
+
         """
         self.swagger_types = {
             'from_path': 'str',
@@ -49,7 +53,8 @@ class CopyWorkspaceObjectDetails(object):
             'is_delete_source': 'bool',
             'is_over_write': 'bool',
             'buffer_size': 'int',
-            'is_include_outputs': 'bool'
+            'is_include_outputs': 'bool',
+            'metadata_keys': 'str'
         }
 
         self.attribute_map = {
@@ -58,7 +63,8 @@ class CopyWorkspaceObjectDetails(object):
             'is_delete_source': 'isDeleteSource',
             'is_over_write': 'isOverWrite',
             'buffer_size': 'bufferSize',
-            'is_include_outputs': 'isIncludeOutputs'
+            'is_include_outputs': 'isIncludeOutputs',
+            'metadata_keys': 'metadataKeys'
         }
 
         self._from_path = None
@@ -67,6 +73,7 @@ class CopyWorkspaceObjectDetails(object):
         self._is_over_write = None
         self._buffer_size = None
         self._is_include_outputs = None
+        self._metadata_keys = None
 
     @property
     def from_path(self):
@@ -211,6 +218,30 @@ class CopyWorkspaceObjectDetails(object):
         :type: bool
         """
         self._is_include_outputs = is_include_outputs
+
+    @property
+    def metadata_keys(self):
+        """
+        Gets the metadata_keys of this CopyWorkspaceObjectDetails.
+        Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+
+
+        :return: The metadata_keys of this CopyWorkspaceObjectDetails.
+        :rtype: str
+        """
+        return self._metadata_keys
+
+    @metadata_keys.setter
+    def metadata_keys(self, metadata_keys):
+        """
+        Sets the metadata_keys of this CopyWorkspaceObjectDetails.
+        Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+
+
+        :param metadata_keys: The metadata_keys of this CopyWorkspaceObjectDetails.
+        :type: str
+        """
+        self._metadata_keys = metadata_keys
 
     def __repr__(self):
         return formatted_flat_dict(self)

@@ -59,6 +59,16 @@ public interface MLOps extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
+     * (Preview) Activates a model deployment so the model becomes available for inference.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ActivateModelDeploymentResponse activateModelDeployment(ActivateModelDeploymentRequest request);
+    
+    /**
      * (Preview) Creates an experiment in a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -77,6 +87,16 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     CreateExperimentRunResponse createExperimentRun(CreateExperimentRunRequest request);
+    
+    /**
+     * (Preview) Creates a model deployment for a registered model.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    CreateModelDeploymentResponse createModelDeployment(CreateModelDeploymentRequest request);
     
     /**
      * (Preview) Creates a model version.
@@ -107,6 +127,16 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     CreateWorkspaceModelVersionResponse createWorkspaceModelVersion(CreateWorkspaceModelVersionRequest request);
+    
+    /**
+     * (Preview) Deactivates a model deployment to safely take the model offline.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    DeactivateModelDeploymentResponse deactivateModelDeployment(DeactivateModelDeploymentRequest request);
     
     /**
      * (Preview) Deletes an experiment.
@@ -147,6 +177,16 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     DeleteExperimentTagResponse deleteExperimentTag(DeleteExperimentTagRequest request);
+    
+    /**
+     * (Preview) Deletes a model deployment that is not active.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    DeleteModelDeploymentResponse deleteModelDeployment(DeleteModelDeploymentRequest request);
     
     /**
      * (Preview) Deletes a model version.
@@ -229,6 +269,36 @@ public interface MLOps extends AutoCloseable {
     GetExperimentRunMetricHistoryResponse getExperimentRunMetricHistory(GetExperimentRunMetricHistoryRequest request);
     
     /**
+     * (Preview) Returns details for a specified model deployment.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetModelDeploymentResponse getModelDeployment(GetModelDeploymentRequest request);
+    
+    /**
+     * (Preview) Returns the full detail for a single deployment activity, including the configuration snapshot and the comment.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetModelDeploymentActivityResponse getModelDeploymentActivity(GetModelDeploymentActivityRequest request);
+    
+    /**
+     * (Preview) Returns the model contract (input/output signatures and a sample request) for the query-endpoint playground.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetModelDeploymentContractResponse getModelDeploymentContract(GetModelDeploymentContractRequest request);
+    
+    /**
      * (Preview)  Returns detailed information for a model version.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -247,6 +317,16 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     GetRegisteredModelResponse getRegisteredModel(GetRegisteredModelRequest request);
+    
+    /**
+     * (Preview) Returns aggregate counts of the registered-model footprint within a catalog and schema.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetRegisteredModelSummaryResponse getRegisteredModelSummary(GetRegisteredModelSummaryRequest request);
     
     /**
      * (Preview) Returns a list of artifacts.
@@ -287,6 +367,16 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     ListLoggedModelsResponse listLoggedModels(ListLoggedModelsRequest request);
+    
+    /**
+     * (Preview) Returns the activity history for a model deployment.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ListModelDeploymentActivitiesResponse listModelDeploymentActivities(ListModelDeploymentActivitiesRequest request);
     
     /**
      * (Preview) Returns a list of model versions.
@@ -389,6 +479,36 @@ public interface MLOps extends AutoCloseable {
     RestoreExperimentRunResponse restoreExperimentRun(RestoreExperimentRunRequest request);
     
     /**
+     * (Preview) Rolls an active model deployment back to a lower model version of the same registered model.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    RollBackModelDeploymentResponse rollBackModelDeployment(RollBackModelDeploymentRequest request);
+    
+    /**
+     * (Preview) Rolls an active model deployment forward to a higher model version of the same registered model.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    RollForwardModelDeploymentResponse rollForwardModelDeployment(RollForwardModelDeploymentRequest request);
+    
+    /**
+     * (Preview) Returns a list of model deployments matching the given criteria.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    SearchModelDeploymentsResponse searchModelDeployments(SearchModelDeploymentsRequest request);
+    
+    /**
      * (Preview) Sets a tag on an experiment run.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -477,6 +597,26 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     UpdateExperimentTagsResponse updateExperimentTags(UpdateExperimentTagsRequest request);
+    
+    /**
+     * (Preview) Updates a model deployment.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    UpdateModelDeploymentResponse updateModelDeployment(UpdateModelDeploymentRequest request);
+    
+    /**
+     * (Preview) Updates tags on a model deployment.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    UpdateModelDeploymentTagsResponse updateModelDeploymentTags(UpdateModelDeploymentTagsRequest request);
     
     /**
      * (Preview) Updates a model version

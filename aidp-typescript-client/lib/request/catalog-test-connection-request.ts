@@ -12,7 +12,7 @@ export interface CatalogTestConnectionRequest extends common.BaseRequest {
  */
  'aiDataPlatformId': string;
 /**
- * Details for the AI Data Platform Workbench catalog to be tested for connection.
+ * Details for the AI Data Platform catalog to be tested for connection.
  */
  'catalogTestConnectionDetails':  model.CatalogTestConnectionDetails;
 /**

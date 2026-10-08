@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class CopyWorkspaceObjectDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"fromPath", "toPath", "isDeleteSource", "isOverWrite", "bufferSize", "isIncludeOutputs"})
-    public CopyWorkspaceObjectDetails(String fromPath, String toPath, Boolean isDeleteSource, Boolean isOverWrite, Integer bufferSize, Boolean isIncludeOutputs) {
+    @java.beans.ConstructorProperties({"fromPath", "toPath", "isDeleteSource", "isOverWrite", "bufferSize", "isIncludeOutputs", "metadataKeys"})
+    public CopyWorkspaceObjectDetails(String fromPath, String toPath, Boolean isDeleteSource, Boolean isOverWrite, Integer bufferSize, Boolean isIncludeOutputs, String metadataKeys) {
         super();
         this.fromPath = fromPath;
         this.toPath = toPath;
@@ -21,6 +21,7 @@ public final class CopyWorkspaceObjectDetails  {
         this.isOverWrite = isOverWrite;
         this.bufferSize = bufferSize;
         this.isIncludeOutputs = isIncludeOutputs;
+        this.metadataKeys = metadataKeys;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -133,6 +134,24 @@ public Builder isIncludeOutputs(Boolean isIncludeOutputs) {
     this.isIncludeOutputs = isIncludeOutputs;
     return this;
 }
+            /**
+     * Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("metadataKeys")
+private String metadataKeys;
+
+        /**
+         * Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+         * @param metadataKeys the value to set
+         * @return this builder
+         **/
+        
+
+public Builder metadataKeys(String metadataKeys) {
+    this.metadataKeys = metadataKeys;
+    return this;
+}
 
 
         public CopyWorkspaceObjectDetails build() {
@@ -141,7 +160,8 @@ public Builder isIncludeOutputs(Boolean isIncludeOutputs) {
                 , this.isDeleteSource
                 , this.isOverWrite
                 , this.bufferSize
-                , this.isIncludeOutputs);            return model;
+                , this.isIncludeOutputs
+                , this.metadataKeys);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -152,6 +172,7 @@ public Builder isIncludeOutputs(Boolean isIncludeOutputs) {
     this.isOverWrite(model.getIsOverWrite());
     this.bufferSize(model.getBufferSize());
     this.isIncludeOutputs(model.getIsIncludeOutputs());
+    this.metadataKeys(model.getMetadataKeys());
 return this;
         }
     }
@@ -272,6 +293,23 @@ return this;
         return isIncludeOutputs;
     }
 
+
+        /**
+     * Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("metadataKeys")
+    private final String metadataKeys;
+
+        /**
+     * Comma separated metadata keys, namespace wildcards, or * to copy from the source object to the destination object.
+     * @return the value
+     **/
+    
+    public String getMetadataKeys() {
+        return metadataKeys;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -291,6 +329,7 @@ return this;
         sb.append(", isOverWrite=").append(String.valueOf(this.isOverWrite));
         sb.append(", bufferSize=").append(String.valueOf(this.bufferSize));
         sb.append(", isIncludeOutputs=").append(String.valueOf(this.isIncludeOutputs));
+        sb.append(", metadataKeys=").append(String.valueOf(this.metadataKeys));
         sb.append(")");
         return sb.toString();
     }
@@ -310,7 +349,8 @@ return this;
             java.util.Objects.equals(this.isDeleteSource, other.isDeleteSource) &&
             java.util.Objects.equals(this.isOverWrite, other.isOverWrite) &&
             java.util.Objects.equals(this.bufferSize, other.bufferSize) &&
-            java.util.Objects.equals(this.isIncludeOutputs, other.isIncludeOutputs);
+            java.util.Objects.equals(this.isIncludeOutputs, other.isIncludeOutputs) &&
+            java.util.Objects.equals(this.metadataKeys, other.metadataKeys);
     }
 
     @Override
@@ -323,6 +363,7 @@ return this;
         result = (result * PRIME) + (this.isOverWrite == null ? 43 : this.isOverWrite.hashCode());
         result = (result * PRIME) + (this.bufferSize == null ? 43 : this.bufferSize.hashCode());
         result = (result * PRIME) + (this.isIncludeOutputs == null ? 43 : this.isIncludeOutputs.hashCode());
+        result = (result * PRIME) + (this.metadataKeys == null ? 43 : this.metadataKeys.hashCode());
         return result;
     }
 

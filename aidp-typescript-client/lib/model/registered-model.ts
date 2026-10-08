@@ -44,10 +44,12 @@ export interface RegisteredModel {
     * Tags for the registered model.
     */
     'tags'?: Array<model.RegisteredModelTag>;
+    'deploymentSummary'?: model.DeploymentSummary;
 
 }
 
 export namespace RegisteredModel {
+
 
 
 
@@ -86,9 +88,13 @@ export namespace RegisteredModel {
                 obj.tags.map((item)=>{return model.RegisteredModelTag.getJsonObj(item)})
                 
                  : undefined,
+                'deployment_summary': obj.deploymentSummary ?
+                
+                
+                model.DeploymentSummary.getJsonObj(obj.deploymentSummary) : undefined,
         }};
 
-        delete (jsonObj as Partial<RegisteredModel>).creationTimestamp;delete (jsonObj as Partial<RegisteredModel>).lastUpdatedTimestamp;delete (jsonObj as Partial<RegisteredModel>).latestVersions;delete (jsonObj as Partial<RegisteredModel>).deploymentJobId;delete (jsonObj as Partial<RegisteredModel>).deploymentJobState;
+        delete (jsonObj as Partial<RegisteredModel>).creationTimestamp;delete (jsonObj as Partial<RegisteredModel>).lastUpdatedTimestamp;delete (jsonObj as Partial<RegisteredModel>).latestVersions;delete (jsonObj as Partial<RegisteredModel>).deploymentJobId;delete (jsonObj as Partial<RegisteredModel>).deploymentJobState;delete (jsonObj as Partial<RegisteredModel>).deploymentSummary;
         
         return jsonObj;
     }
@@ -121,9 +127,13 @@ export namespace RegisteredModel {
                 obj.tags.map((item)=>{return model.RegisteredModelTag.getDeserializedJsonObj(item)})
                 
                  : undefined,
+                    'deploymentSummary': (obj as any)["deployment_summary"] ?
+                
+                
+                model.DeploymentSummary.getDeserializedJsonObj((obj as any)["deployment_summary"]) : undefined,
          }};
 
-        delete (jsonObj as any)["creation_timestamp"];delete (jsonObj as any)["last_updated_timestamp"];delete (jsonObj as any)["latest_versions"];delete (jsonObj as any)["deployment_job_id"];delete (jsonObj as any)["deployment_job_state"];
+        delete (jsonObj as any)["creation_timestamp"];delete (jsonObj as any)["last_updated_timestamp"];delete (jsonObj as any)["latest_versions"];delete (jsonObj as any)["deployment_job_id"];delete (jsonObj as any)["deployment_job_state"];delete (jsonObj as any)["deployment_summary"];
         
         return jsonObj;
     }

@@ -22,6 +22,10 @@ class UnpublishOntologyProjectDetails(object):
             The value to assign to the comment property of this UnpublishOntologyProjectDetails.
         :type comment: str
 
+        :param ontology_name:
+            The value to assign to the ontology_name property of this UnpublishOntologyProjectDetails.
+        :type ontology_name: str
+
         :param delete_artifacts:
             The value to assign to the delete_artifacts property of this UnpublishOntologyProjectDetails.
         :type delete_artifacts: bool
@@ -29,15 +33,18 @@ class UnpublishOntologyProjectDetails(object):
         """
         self.swagger_types = {
             'comment': 'str',
+            'ontology_name': 'str',
             'delete_artifacts': 'bool'
         }
 
         self.attribute_map = {
             'comment': 'comment',
+            'ontology_name': 'ontologyName',
             'delete_artifacts': 'deleteArtifacts'
         }
 
         self._comment = None
+        self._ontology_name = None
         self._delete_artifacts = None
 
     @property
@@ -59,6 +66,30 @@ class UnpublishOntologyProjectDetails(object):
         :type: str
         """
         self._comment = comment
+
+    @property
+    def ontology_name(self):
+        """
+        Gets the ontology_name of this UnpublishOntologyProjectDetails.
+        Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+
+
+        :return: The ontology_name of this UnpublishOntologyProjectDetails.
+        :rtype: str
+        """
+        return self._ontology_name
+
+    @ontology_name.setter
+    def ontology_name(self, ontology_name):
+        """
+        Sets the ontology_name of this UnpublishOntologyProjectDetails.
+        Published ontology name to unpublish when the project has multiple published identities. When omitted, OMS unpublishes the latest published deployment recorded for the project.
+
+
+        :param ontology_name: The ontology_name of this UnpublishOntologyProjectDetails.
+        :type: str
+        """
+        self._ontology_name = ontology_name
 
     @property
     def delete_artifacts(self):

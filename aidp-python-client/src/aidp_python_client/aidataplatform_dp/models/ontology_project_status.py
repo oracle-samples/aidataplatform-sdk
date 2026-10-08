@@ -54,6 +54,18 @@ class OntologyProjectStatus(object):
     STATUS_UNPUBLISH_FAILED = "UNPUBLISH_FAILED"
 
     #: A constant which can be used with the status property of a OntologyProjectStatus.
+    #: This constant has a value of "IMPORTING"
+    STATUS_IMPORTING = "IMPORTING"
+
+    #: A constant which can be used with the status property of a OntologyProjectStatus.
+    #: This constant has a value of "IMPORTED"
+    STATUS_IMPORTED = "IMPORTED"
+
+    #: A constant which can be used with the status property of a OntologyProjectStatus.
+    #: This constant has a value of "IMPORT_FAILED"
+    STATUS_IMPORT_FAILED = "IMPORT_FAILED"
+
+    #: A constant which can be used with the status property of a OntologyProjectStatus.
     #: This constant has a value of "ARCHIVED"
     STATUS_ARCHIVED = "ARCHIVED"
 
@@ -78,14 +90,34 @@ class OntologyProjectStatus(object):
             The value to assign to the publish_version property of this OntologyProjectStatus.
         :type publish_version: int
 
+        :param published_ontology_name:
+            The value to assign to the published_ontology_name property of this OntologyProjectStatus.
+        :type published_ontology_name: str
+
+        :param deployment_target:
+            The value to assign to the deployment_target property of this OntologyProjectStatus.
+        :type deployment_target: str
+
+        :param deployment_connection:
+            The value to assign to the deployment_connection property of this OntologyProjectStatus.
+        :type deployment_connection: str
+
+        :param is_deployment_shared:
+            The value to assign to the is_deployment_shared property of this OntologyProjectStatus.
+        :type is_deployment_shared: bool
+
         :param status:
             The value to assign to the status property of this OntologyProjectStatus.
-            Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "ARCHIVED"
+            Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "ARCHIVED"
         :type status: str
 
         :param comment:
             The value to assign to the comment property of this OntologyProjectStatus.
         :type comment: str
+
+        :param import_details:
+            The value to assign to the import_details property of this OntologyProjectStatus.
+        :type import_details: oci.aidataplatform_dp.models.OntologyProjectImportStatusDetails
 
         :param validation_report:
             The value to assign to the validation_report property of this OntologyProjectStatus.
@@ -117,8 +149,13 @@ class OntologyProjectStatus(object):
             'project_id': 'str',
             'project_version': 'int',
             'publish_version': 'int',
+            'published_ontology_name': 'str',
+            'deployment_target': 'str',
+            'deployment_connection': 'str',
+            'is_deployment_shared': 'bool',
             'status': 'str',
             'comment': 'str',
+            'import_details': 'OntologyProjectImportStatusDetails',
             'validation_report': 'str',
             'compiled_artifact_ref': 'str',
             'error_message': 'str',
@@ -132,8 +169,13 @@ class OntologyProjectStatus(object):
             'project_id': 'projectId',
             'project_version': 'projectVersion',
             'publish_version': 'publishVersion',
+            'published_ontology_name': 'publishedOntologyName',
+            'deployment_target': 'deploymentTarget',
+            'deployment_connection': 'deploymentConnection',
+            'is_deployment_shared': 'isDeploymentShared',
             'status': 'status',
             'comment': 'comment',
+            'import_details': 'importDetails',
             'validation_report': 'validationReport',
             'compiled_artifact_ref': 'compiledArtifactRef',
             'error_message': 'errorMessage',
@@ -146,8 +188,13 @@ class OntologyProjectStatus(object):
         self._project_id = None
         self._project_version = None
         self._publish_version = None
+        self._published_ontology_name = None
+        self._deployment_target = None
+        self._deployment_connection = None
+        self._is_deployment_shared = None
         self._status = None
         self._comment = None
+        self._import_details = None
         self._validation_report = None
         self._compiled_artifact_ref = None
         self._error_message = None
@@ -244,10 +291,106 @@ class OntologyProjectStatus(object):
         self._publish_version = publish_version
 
     @property
+    def published_ontology_name(self):
+        """
+        Gets the published_ontology_name of this OntologyProjectStatus.
+        Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+
+
+        :return: The published_ontology_name of this OntologyProjectStatus.
+        :rtype: str
+        """
+        return self._published_ontology_name
+
+    @published_ontology_name.setter
+    def published_ontology_name(self, published_ontology_name):
+        """
+        Sets the published_ontology_name of this OntologyProjectStatus.
+        Published ontology identity used by the deploy target. Defaults to the project key for older requests.
+
+
+        :param published_ontology_name: The published_ontology_name of this OntologyProjectStatus.
+        :type: str
+        """
+        self._published_ontology_name = published_ontology_name
+
+    @property
+    def deployment_target(self):
+        """
+        Gets the deployment_target of this OntologyProjectStatus.
+        Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+
+
+        :return: The deployment_target of this OntologyProjectStatus.
+        :rtype: str
+        """
+        return self._deployment_target
+
+    @deployment_target.setter
+    def deployment_target(self, deployment_target):
+        """
+        Sets the deployment_target of this OntologyProjectStatus.
+        Deployment target used for this publish attempt, for example duckdb, oracle, or ATP.
+
+
+        :param deployment_target: The deployment_target of this OntologyProjectStatus.
+        :type: str
+        """
+        self._deployment_target = deployment_target
+
+    @property
+    def deployment_connection(self):
+        """
+        Gets the deployment_connection of this OntologyProjectStatus.
+        Target deployment connection or catalog reference used for this publish attempt when applicable.
+
+
+        :return: The deployment_connection of this OntologyProjectStatus.
+        :rtype: str
+        """
+        return self._deployment_connection
+
+    @deployment_connection.setter
+    def deployment_connection(self, deployment_connection):
+        """
+        Sets the deployment_connection of this OntologyProjectStatus.
+        Target deployment connection or catalog reference used for this publish attempt when applicable.
+
+
+        :param deployment_connection: The deployment_connection of this OntologyProjectStatus.
+        :type: str
+        """
+        self._deployment_connection = deployment_connection
+
+    @property
+    def is_deployment_shared(self):
+        """
+        Gets the is_deployment_shared of this OntologyProjectStatus.
+        Whether the deployed ontology used DFL's shared storage layout.
+
+
+        :return: The is_deployment_shared of this OntologyProjectStatus.
+        :rtype: bool
+        """
+        return self._is_deployment_shared
+
+    @is_deployment_shared.setter
+    def is_deployment_shared(self, is_deployment_shared):
+        """
+        Sets the is_deployment_shared of this OntologyProjectStatus.
+        Whether the deployed ontology used DFL's shared storage layout.
+
+
+        :param is_deployment_shared: The is_deployment_shared of this OntologyProjectStatus.
+        :type: bool
+        """
+        self._is_deployment_shared = is_deployment_shared
+
+    @property
     def status(self):
         """
         **[Required]** Gets the status of this OntologyProjectStatus.
-        Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "ARCHIVED"
+        Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "ARCHIVED"
 
 
         :return: The status of this OntologyProjectStatus.
@@ -263,7 +406,7 @@ class OntologyProjectStatus(object):
         :param status: The status of this OntologyProjectStatus.
         :type: str
         """
-        allowed_values = ["CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "ARCHIVED"]
+        allowed_values = ["CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "ARCHIVED"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
                 "Invalid value for `status`, must be None or one of {0}"
@@ -290,6 +433,26 @@ class OntologyProjectStatus(object):
         :type: str
         """
         self._comment = comment
+
+    @property
+    def import_details(self):
+        """
+        Gets the import_details of this OntologyProjectStatus.
+
+        :return: The import_details of this OntologyProjectStatus.
+        :rtype: oci.aidataplatform_dp.models.OntologyProjectImportStatusDetails
+        """
+        return self._import_details
+
+    @import_details.setter
+    def import_details(self, import_details):
+        """
+        Sets the import_details of this OntologyProjectStatus.
+
+        :param import_details: The import_details of this OntologyProjectStatus.
+        :type: oci.aidataplatform_dp.models.OntologyProjectImportStatusDetails
+        """
+        self._import_details = import_details
 
     @property
     def validation_report(self):

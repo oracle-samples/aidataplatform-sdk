@@ -4,7 +4,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * List of sub-resources that are RBAC managed by AI Data Platform Workbench.
+ * List of sub-resources that are RBAC managed by AI Data Platform.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 public enum AllResourceType implements com.oracle.bmc.http.internal.BmcEnum {

@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Information about the list of AI Data Platform Workbench clusters contained within a workspace.
+ * Information about the list of AI Data Platform clusters contained within a workspace.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=DataLakeClusterSummary.Builder.class)
@@ -23,14 +23,14 @@ public final class DataLakeClusterSummary  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Key of the AI Data Platform Workbench workspace.
+     * Key of the AI Data Platform workspace.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("workspaceKey")
 private String workspaceKey;
 
         /**
-         * Key of the AI Data Platform Workbench workspace.
+         * Key of the AI Data Platform workspace.
          * @param workspaceKey the value to set
          * @return this builder
          **/
@@ -41,14 +41,14 @@ public Builder workspaceKey(String workspaceKey) {
     return this;
 }
             /**
-     * Name of the AI Data Platform Workbench workspace.
+     * Name of the AI Data Platform workspace.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("workspaceDisplayName")
 private String workspaceDisplayName;
 
         /**
-         * Name of the AI Data Platform Workbench workspace.
+         * Name of the AI Data Platform workspace.
          * @param workspaceDisplayName the value to set
          * @return this builder
          **/
@@ -109,14 +109,14 @@ return this;
 
 
         /**
-     * Key of the AI Data Platform Workbench workspace.
+     * Key of the AI Data Platform workspace.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("workspaceKey")
     private final String workspaceKey;
 
         /**
-     * Key of the AI Data Platform Workbench workspace.
+     * Key of the AI Data Platform workspace.
      * @return the value
      **/
     
@@ -126,14 +126,14 @@ return this;
 
 
         /**
-     * Name of the AI Data Platform Workbench workspace.
+     * Name of the AI Data Platform workspace.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("workspaceDisplayName")
     private final String workspaceDisplayName;
 
         /**
-     * Name of the AI Data Platform Workbench workspace.
+     * Name of the AI Data Platform workspace.
      * @return the value
      **/
     

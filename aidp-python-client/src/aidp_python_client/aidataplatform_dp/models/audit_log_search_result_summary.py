@@ -174,6 +174,10 @@ class AuditLogSearchResultSummary(object):
     OPERATION_QUERY = "QUERY"
 
     #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
+    #: This constant has a value of "SQL_STATEMENT"
+    OPERATION_SQL_STATEMENT = "SQL_STATEMENT"
+
+    #: A constant which can be used with the operation property of a AuditLogSearchResultSummary.
     #: This constant has a value of "MANAGE"
     OPERATION_MANAGE = "MANAGE"
 
@@ -238,7 +242,7 @@ class AuditLogSearchResultSummary(object):
 
         :param operation:
             The value to assign to the operation property of this AuditLogSearchResultSummary.
-            Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type operation: str
 
@@ -410,7 +414,7 @@ class AuditLogSearchResultSummary(object):
         Gets the operation of this AuditLogSearchResultSummary.
         Type of operation.
 
-        Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -429,7 +433,7 @@ class AuditLogSearchResultSummary(object):
         :param operation: The operation of this AuditLogSearchResultSummary.
         :type: str
         """
-        allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"]
+        allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"]
         if not value_allowed_none_or_none_sentinel(operation, allowed_values):
             operation = 'UNKNOWN_ENUM_VALUE'
         self._operation = operation

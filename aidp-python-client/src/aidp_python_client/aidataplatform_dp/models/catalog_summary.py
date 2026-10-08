@@ -216,7 +216,7 @@ class CatalogSummary(object):
     def key(self):
         """
         **[Required]** Gets the key of this CatalogSummary.
-        The AI Data Platform Workbench catalog key.
+        The AI Data Platform catalog key.
 
 
         :return: The key of this CatalogSummary.
@@ -228,7 +228,7 @@ class CatalogSummary(object):
     def key(self, key):
         """
         Sets the key of this CatalogSummary.
-        The AI Data Platform Workbench catalog key.
+        The AI Data Platform catalog key.
 
 
         :param key: The key of this CatalogSummary.
@@ -426,7 +426,7 @@ class CatalogSummary(object):
     def time_created(self):
         """
         **[Required]** Gets the time_created of this CatalogSummary.
-        The date and time the AI Data Platform Workbench catalog was created.
+        The date and time the AI Data Platform catalog was created.
 
 
         :return: The time_created of this CatalogSummary.
@@ -438,7 +438,7 @@ class CatalogSummary(object):
     def time_created(self, time_created):
         """
         Sets the time_created of this CatalogSummary.
-        The date and time the AI Data Platform Workbench catalog was created.
+        The date and time the AI Data Platform catalog was created.
 
 
         :param time_created: The time_created of this CatalogSummary.
@@ -450,7 +450,7 @@ class CatalogSummary(object):
     def time_updated(self):
         """
         Gets the time_updated of this CatalogSummary.
-        The date and time the AI Data Platform Workbench catalog was updated.
+        The date and time the AI Data Platform catalog was updated.
 
 
         :return: The time_updated of this CatalogSummary.
@@ -462,7 +462,7 @@ class CatalogSummary(object):
     def time_updated(self, time_updated):
         """
         Sets the time_updated of this CatalogSummary.
-        The date and time the AI Data Platform Workbench catalog was updated.
+        The date and time the AI Data Platform catalog was updated.
 
 
         :param time_updated: The time_updated of this CatalogSummary.

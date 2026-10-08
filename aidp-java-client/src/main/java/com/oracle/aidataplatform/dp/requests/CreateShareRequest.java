@@ -21,14 +21,14 @@ public class CreateShareRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         return aiDataPlatformId;
     }
         /**
-     * Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+     * Details for the new share for Delta Share protocol in AI Data Platform.
      */
     private com.oracle.aidataplatform.dp.model.CreateShareDetails createShareDetails;
 
     
 
         /**
-     * Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+     * Details for the new share for Delta Share protocol in AI Data Platform.
      */
     public com.oracle.aidataplatform.dp.model.CreateShareDetails getCreateShareDetails() {
         return createShareDetails;
@@ -122,12 +122,12 @@ public class CreateShareRequest extends com.oracle.bmc.requests.BmcRequest<com.o
         }
 
             /**
-     * Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+     * Details for the new share for Delta Share protocol in AI Data Platform.
      */
         private com.oracle.aidataplatform.dp.model.CreateShareDetails createShareDetails = null;
 
         /**
-         * Details for the new share for Delta Share protocol in AI Data Platform Workbench.
+         * Details for the new share for Delta Share protocol in AI Data Platform.
          * @param createShareDetails the value to set
          * @return this builder instance
          */

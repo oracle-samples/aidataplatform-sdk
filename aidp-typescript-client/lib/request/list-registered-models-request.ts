@@ -34,6 +34,13 @@ export interface ListRegisteredModelsRequest extends common.BaseRequest {
  */
  'orderBy'?: string;
 /**
+ * Whether to include the per-model deployment_summary (total_deployment and active_deployment)
+* in each returned registered model. The summary is omitted from a model when it cannot be
+* resolved, so an absent summary means \"not requested or unavailable\" rather than zero.
+* 
+ */
+ 'isDeploymentSummaryEnabled'?: boolean;
+/**
  * Unique Oracle-assigned identifier for the request. If you need to contact
 * Oracle about a particular request, please provide the request ID.
 * The only valid characters for request IDs are letters, numbers,

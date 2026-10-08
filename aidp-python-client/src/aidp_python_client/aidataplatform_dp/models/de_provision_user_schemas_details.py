@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class DeProvisionUserSchemasDetails(ExecuteDatabaseUserWorkflowsDetails):
     """
-    Deprovision user schemas created by AI Data Platform Workbench.
+    Deprovision user schemas created by AI Data Platform.
     """
 
     def __init__(self, **kwargs):

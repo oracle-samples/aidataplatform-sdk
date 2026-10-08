@@ -90,7 +90,7 @@ class AgentDiagramSupervisorAgentNode(AgentDiagramNode):
 
         :param llm:
             The value to assign to the llm property of this AgentDiagramSupervisorAgentNode.
-        :type llm: oci.aidataplatform_dp.models.LlmConfig
+        :type llm: oci.aidataplatform_dp.models.BaseLlmConfig
 
         :param model_settings:
             The value to assign to the model_settings property of this AgentDiagramSupervisorAgentNode.
@@ -131,7 +131,7 @@ class AgentDiagramSupervisorAgentNode(AgentDiagramNode):
             'outputs': 'list[NodeOutput]',
             'validation_errors': 'list[ValidationError]',
             'instructions': 'str',
-            'llm': 'LlmConfig',
+            'llm': 'BaseLlmConfig',
             'model_settings': 'dict(str, object)',
             'memory': 'MemoryConfiguration',
             'tools': 'list[Tool]',
@@ -220,7 +220,7 @@ class AgentDiagramSupervisorAgentNode(AgentDiagramNode):
         Gets the llm of this AgentDiagramSupervisorAgentNode.
 
         :return: The llm of this AgentDiagramSupervisorAgentNode.
-        :rtype: oci.aidataplatform_dp.models.LlmConfig
+        :rtype: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         return self._llm
 
@@ -230,7 +230,7 @@ class AgentDiagramSupervisorAgentNode(AgentDiagramNode):
         Sets the llm of this AgentDiagramSupervisorAgentNode.
 
         :param llm: The llm of this AgentDiagramSupervisorAgentNode.
-        :type: oci.aidataplatform_dp.models.LlmConfig
+        :type: oci.aidataplatform_dp.models.BaseLlmConfig
         """
         self._llm = llm
 

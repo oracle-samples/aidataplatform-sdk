@@ -139,11 +139,11 @@ public Builder instructions(String instructions) {
 }
         
 @com.fasterxml.jackson.annotation.JsonProperty("llm")
-private LlmConfig llm;
+private BaseLlmConfig llm;
 
 
 
-public Builder llm(LlmConfig llm) {
+public Builder llm(BaseLlmConfig llm) {
     this.llm = llm;
     return this;
 }
@@ -278,7 +278,7 @@ return this;
 
     
     @Deprecated
-    public AgentDiagramAgentNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String instructions, LlmConfig llm, java.util.Map<String, Object> modelSettings, MemoryConfiguration memory, java.util.List<Tool> tools, java.util.List<String> toolReferences) {
+    public AgentDiagramAgentNode(String nodeType, String name, String description, Float positionX, Float positionY, Boolean isExpanded, String parentNodeId, java.util.Map<String, Object> configuration, String nodeTypeId, String key, java.util.Date timeCreated, java.util.Date timeUpdated, java.util.List<NodeInput> inputs, java.util.List<NodeOutput> outputs, java.util.List<ValidationError> validationErrors, String instructions, BaseLlmConfig llm, java.util.Map<String, Object> modelSettings, MemoryConfiguration memory, java.util.List<Tool> tools, java.util.List<String> toolReferences) {
     super(nodeType, name, description, positionX, positionY, isExpanded, parentNodeId, configuration, nodeTypeId, key, timeCreated, timeUpdated, inputs, outputs, validationErrors);
         this.instructions = instructions;
         this.llm = llm;
@@ -308,10 +308,10 @@ return this;
 
     
     @com.fasterxml.jackson.annotation.JsonProperty("llm")
-    private final LlmConfig llm;
+    private final BaseLlmConfig llm;
 
     
-    public LlmConfig getLlm() {
+    public BaseLlmConfig getLlm() {
         return llm;
     }
 
