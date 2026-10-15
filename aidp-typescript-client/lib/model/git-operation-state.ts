@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Current git operation state for a repository folder context.
+* Snapshot of a Git worktree's operational state and readiness for an operation.
 */
 export interface GitOperationState {
     /**
@@ -13,7 +13,10 @@ export interface GitOperationState {
     */
     'gitFolderPath': string;
     /**
-    * Current Git operation state detected.
+    * Detected operational state. CLEAN means no in-progress merge, rebase, or
+* detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+* CLEAN does not imply an unchanged worktree or index.
+* 
     */
     'state': GitOperationState.State;
     /**
@@ -21,7 +24,11 @@ export interface GitOperationState {
     */
     'isBlocking': boolean;
     /**
-    * Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+    * Whether the supplied operationName is allowed by the detected state and
+* expected branch. With no operationName, indicates general operational
+* readiness. This is a state check, not an authorization decision or execution
+* guarantee.
+* 
     */
     'isAllowed': boolean;
     /**

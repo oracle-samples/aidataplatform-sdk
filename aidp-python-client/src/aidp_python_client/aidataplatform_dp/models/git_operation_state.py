@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitOperationState(object):
     """
-    Current git operation state for a repository folder context.
+    Snapshot of a Git worktree's operational state and readiness for an operation.
     """
 
     #: A constant which can be used with the state property of a GitOperationState.
@@ -97,7 +97,6 @@ class GitOperationState(object):
             'have_conflicts': 'bool',
             'time_checked': 'datetime'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'state': 'state',
@@ -110,7 +109,6 @@ class GitOperationState(object):
             'have_conflicts': 'haveConflicts',
             'time_checked': 'timeChecked'
         }
-
         self._git_folder_path = None
         self._state = None
         self._is_blocking = None
@@ -150,7 +148,9 @@ class GitOperationState(object):
     def state(self):
         """
         **[Required]** Gets the state of this GitOperationState.
-        Current Git operation state detected.
+        Detected operational state. CLEAN means no in-progress merge, rebase, or
+        detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+        CLEAN does not imply an unchanged worktree or index.
 
         Allowed values for this property are: "CLEAN", "MERGE_IN_PROGRESS", "REBASE_IN_PROGRESS", "PULL_IN_PROGRESS", "DETACHED_HEAD", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -165,7 +165,9 @@ class GitOperationState(object):
     def state(self, state):
         """
         Sets the state of this GitOperationState.
-        Current Git operation state detected.
+        Detected operational state. CLEAN means no in-progress merge, rebase, or
+        detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+        CLEAN does not imply an unchanged worktree or index.
 
 
         :param state: The state of this GitOperationState.
@@ -204,7 +206,10 @@ class GitOperationState(object):
     def is_allowed(self):
         """
         **[Required]** Gets the is_allowed of this GitOperationState.
-        Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+        Whether the supplied operationName is allowed by the detected state and
+        expected branch. With no operationName, indicates general operational
+        readiness. This is a state check, not an authorization decision or execution
+        guarantee.
 
 
         :return: The is_allowed of this GitOperationState.
@@ -216,7 +221,10 @@ class GitOperationState(object):
     def is_allowed(self, is_allowed):
         """
         Sets the is_allowed of this GitOperationState.
-        Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+        Whether the supplied operationName is allowed by the detected state and
+        expected branch. With no operationName, indicates general operational
+        readiness. This is a state check, not an authorization decision or execution
+        guarantee.
 
 
         :param is_allowed: The is_allowed of this GitOperationState.

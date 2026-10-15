@@ -25,6 +25,8 @@ export enum AsyncOperationResourceType {
     GitOperation = "GIT_OPERATION",
     BundleOperation = "BUNDLE_OPERATION",
     ModelDeployment = "MODEL_DEPLOYMENT",
+    PrivateNetworkProfile = "PRIVATE_NETWORK_PROFILE",
+    LineageImport = "LINEAGE_IMPORT",
     
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

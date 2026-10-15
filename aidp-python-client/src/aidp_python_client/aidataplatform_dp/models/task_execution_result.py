@@ -42,6 +42,10 @@ class TaskExecutionResult(object):
             The value to assign to the properties property of this TaskExecutionResult.
         :type properties: dict(str, object)
 
+        :param output:
+            The value to assign to the output property of this TaskExecutionResult.
+        :type output: oci.aidataplatform_dp.models.TaskRunOutput
+
         """
         self.swagger_types = {
             'state': 'State',
@@ -49,24 +53,25 @@ class TaskExecutionResult(object):
             'end_time_millis': 'int',
             'external_id': 'str',
             'metrics': 'dict(str, str)',
-            'properties': 'dict(str, object)'
+            'properties': 'dict(str, object)',
+            'output': 'TaskRunOutput'
         }
-
         self.attribute_map = {
             'state': 'state',
             'start_time_millis': 'startTimeMillis',
             'end_time_millis': 'endTimeMillis',
             'external_id': 'externalId',
             'metrics': 'metrics',
-            'properties': 'properties'
+            'properties': 'properties',
+            'output': 'output'
         }
-
         self._state = None
         self._start_time_millis = None
         self._end_time_millis = None
         self._external_id = None
         self._metrics = None
         self._properties = None
+        self._output = None
 
     @property
     def state(self):
@@ -207,6 +212,26 @@ class TaskExecutionResult(object):
         :type: dict(str, object)
         """
         self._properties = properties
+
+    @property
+    def output(self):
+        """
+        Gets the output of this TaskExecutionResult.
+
+        :return: The output of this TaskExecutionResult.
+        :rtype: oci.aidataplatform_dp.models.TaskRunOutput
+        """
+        return self._output
+
+    @output.setter
+    def output(self, output):
+        """
+        Sets the output of this TaskExecutionResult.
+
+        :param output: The output of this TaskExecutionResult.
+        :type: oci.aidataplatform_dp.models.TaskRunOutput
+        """
+        self._output = output
 
     def __repr__(self):
         return formatted_flat_dict(self)

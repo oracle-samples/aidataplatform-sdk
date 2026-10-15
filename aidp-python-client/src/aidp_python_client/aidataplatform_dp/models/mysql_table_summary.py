@@ -21,7 +21,7 @@ class MysqlTableSummary(TableSummary):
 
         :param entity_type:
             The value to assign to the entity_type property of this MysqlTableSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:
@@ -70,7 +70,6 @@ class MysqlTableSummary(TableSummary):
             'updated_by': 'str',
             'lifecycle_state': 'str'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'key': 'key',
@@ -82,7 +81,6 @@ class MysqlTableSummary(TableSummary):
             'updated_by': 'updatedBy',
             'lifecycle_state': 'lifecycleState'
         }
-
         self._entity_type = None
         self._key = None
         self._display_name = None

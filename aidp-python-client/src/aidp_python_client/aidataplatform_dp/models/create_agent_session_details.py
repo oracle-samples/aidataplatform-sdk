@@ -36,13 +36,11 @@ class CreateAgentSessionDetails(object):
             'agent_key': 'str',
             'context': 'AgentSessionContext'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'agent_key': 'agentKey',
             'context': 'context'
         }
-
         self._display_name = None
         self._agent_key = None
         self._context = None

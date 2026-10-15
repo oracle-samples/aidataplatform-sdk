@@ -168,7 +168,6 @@ class DeploymentDetails(object):
             'issuer_claim': 'str',
             'jwks_uri': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
@@ -196,7 +195,6 @@ class DeploymentDetails(object):
             'issuer_claim': 'issuer_claim',
             'jwks_uri': 'jwks_uri'
         }
-
         self._name = None
         self._description = None
         self._model_name = None

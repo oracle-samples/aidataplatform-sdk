@@ -34,27 +34,33 @@ public class CreateGitBranchRequest extends com.oracle.bmc.requests.BmcRequest<c
         return workspaceKey;
     }
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Details for the new Workspace Object.
+     * Name of the branch to create in the stored Git folder.
      */
     private com.oracle.aidataplatform.dp.model.CreateGitBranchDetails createGitBranchDetails;
 
     
 
         /**
-     * Details for the new Workspace Object.
+     * Name of the branch to create in the stored Git folder.
      */
     public com.oracle.aidataplatform.dp.model.CreateGitBranchDetails getCreateGitBranchDetails() {
         return createGitBranchDetails;
@@ -163,12 +169,18 @@ public class CreateGitBranchRequest extends com.oracle.bmc.requests.BmcRequest<c
         }
 
             /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The Git repository key.
+         * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -178,12 +190,12 @@ public class CreateGitBranchRequest extends com.oracle.bmc.requests.BmcRequest<c
         }
 
             /**
-     * Details for the new Workspace Object.
+     * Name of the branch to create in the stored Git folder.
      */
         private com.oracle.aidataplatform.dp.model.CreateGitBranchDetails createGitBranchDetails = null;
 
         /**
-         * Details for the new Workspace Object.
+         * Name of the branch to create in the stored Git folder.
          * @param createGitBranchDetails the value to set
          * @return this builder instance
          */

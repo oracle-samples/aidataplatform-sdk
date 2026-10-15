@@ -39,13 +39,11 @@ class FileConfiguration(object):
             'read': 'FileReadConfiguration',
             'write': 'FileWriteConfiguration'
         }
-
         self.attribute_map = {
             'is_enabled': 'isEnabled',
             'read': 'read',
             'write': 'write'
         }
-
         self._is_enabled = None
         self._read = None
         self._write = None

@@ -31,12 +31,10 @@ class DeploymentTarget(object):
             'model_version': 'str',
             'traffic_percentage': 'int'
         }
-
         self.attribute_map = {
             'model_version': 'model_version',
             'traffic_percentage': 'traffic_percentage'
         }
-
         self._model_version = None
         self._traffic_percentage = None
 

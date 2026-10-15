@@ -26,11 +26,9 @@ class ZipAndDownloadFolderDetails(object):
         self.swagger_types = {
             'source_folder_path': 'str'
         }
-
         self.attribute_map = {
             'source_folder_path': 'sourceFolderPath'
         }
-
         self._source_folder_path = None
 
     @property

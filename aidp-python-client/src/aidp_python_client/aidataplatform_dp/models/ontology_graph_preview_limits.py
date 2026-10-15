@@ -41,14 +41,12 @@ class OntologyGraphPreviewLimits(object):
             'reached_node_limit': 'bool',
             'reached_edge_limit': 'bool'
         }
-
         self.attribute_map = {
             'max_nodes': 'maxNodes',
             'max_edges': 'maxEdges',
             'reached_node_limit': 'reachedNodeLimit',
             'reached_edge_limit': 'reachedEdgeLimit'
         }
-
         self._max_nodes = None
         self._max_edges = None
         self._reached_node_limit = None

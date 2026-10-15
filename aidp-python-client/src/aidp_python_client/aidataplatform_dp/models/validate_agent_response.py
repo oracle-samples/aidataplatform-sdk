@@ -31,12 +31,10 @@ class ValidateAgentResponse(object):
             'is_valid_agent': 'bool',
             'validation_error': 'list[ValidationError]'
         }
-
         self.attribute_map = {
             'is_valid_agent': 'isValidAgent',
             'validation_error': 'validationError'
         }
-
         self._is_valid_agent = None
         self._validation_error = None
 

@@ -31,12 +31,10 @@ class ManageToolPermissionDetails(object):
             'assign_tool_permission_details': 'AssignToolPermissionDetails',
             'revoke_tool_permission_details': 'RevokeToolPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_tool_permission_details': 'assignToolPermissionDetails',
             'revoke_tool_permission_details': 'revokeToolPermissionDetails'
         }
-
         self._assign_tool_permission_details = None
         self._revoke_tool_permission_details = None
 

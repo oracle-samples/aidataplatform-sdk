@@ -31,12 +31,10 @@ class ManageKnowledgeBasePermissionDetails(object):
             'assign_knowledge_base_permission_details': 'AssignKnowledgeBasePermissionDetails',
             'revoke_knowledge_base_permission_details': 'RevokeKnowledgeBasePermissionDetails'
         }
-
         self.attribute_map = {
             'assign_knowledge_base_permission_details': 'assignKnowledgeBasePermissionDetails',
             'revoke_knowledge_base_permission_details': 'revokeKnowledgeBasePermissionDetails'
         }
-
         self._assign_knowledge_base_permission_details = None
         self._revoke_knowledge_base_permission_details = None
 

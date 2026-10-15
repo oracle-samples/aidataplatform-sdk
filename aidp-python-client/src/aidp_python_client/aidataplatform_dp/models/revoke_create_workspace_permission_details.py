@@ -26,11 +26,9 @@ class RevokeCreateWorkspacePermissionDetails(object):
         self.swagger_types = {
             'assignees': 'PermissionAssignees'
         }
-
         self.attribute_map = {
             'assignees': 'assignees'
         }
-
         self._assignees = None
 
     @property

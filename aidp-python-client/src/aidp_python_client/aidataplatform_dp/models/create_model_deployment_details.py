@@ -75,7 +75,6 @@ class CreateModelDeploymentDetails(object):
             'auth_type': 'str',
             'auth_details': 'DeploymentOAuthDetails'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
@@ -87,7 +86,6 @@ class CreateModelDeploymentDetails(object):
             'auth_type': 'authType',
             'auth_details': 'authDetails'
         }
-
         self._name = None
         self._description = None
         self._model_name = None
@@ -293,8 +291,7 @@ class CreateModelDeploymentDetails(object):
         allowed_values = ["AIDP", "OAUTH"]
         if not value_allowed_none_or_none_sentinel(auth_type, allowed_values):
             raise ValueError(
-                "Invalid value for `auth_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `auth_type`, must be None or one of {allowed_values}"
             )
         self._auth_type = auth_type
 

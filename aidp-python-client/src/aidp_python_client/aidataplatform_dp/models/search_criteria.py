@@ -51,7 +51,6 @@ class SearchCriteria(object):
             'filter': 'FilterTypes',
             'sort': 'list[SortDetails]'
         }
-
         self.attribute_map = {
             'query': 'query',
             'limit': 'limit',
@@ -60,7 +59,6 @@ class SearchCriteria(object):
             'filter': 'filter',
             'sort': 'sort'
         }
-
         self._query = None
         self._limit = None
         self._offset = None

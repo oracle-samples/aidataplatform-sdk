@@ -31,12 +31,10 @@ class ModelDeploymentCollection(object):
             'deployments': 'list[ModelDeploymentSummary]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'deployments': 'deployments',
             'next_page_token': 'next_page_token'
         }
-
         self._deployments = None
         self._next_page_token = None
 

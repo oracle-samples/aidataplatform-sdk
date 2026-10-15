@@ -37,6 +37,10 @@ class Task(object):
     #: This constant has a value of "JAR_TASK"
     TYPE_JAR_TASK = "JAR_TASK"
 
+    #: A constant which can be used with the type property of a Task.
+    #: This constant has a value of "AGENT_TASK"
+    TYPE_AGENT_TASK = "AGENT_TASK"
+
     #: A constant which can be used with the run_if property of a Task.
     #: This constant has a value of "ALL_SUCCESS"
     RUN_IF_ALL_SUCCESS = "ALL_SUCCESS"
@@ -69,6 +73,7 @@ class Task(object):
         * :class:`~oci.aidataplatform_dp.models.IfElseTask`
         * :class:`~oci.aidataplatform_dp.models.JobTask`
         * :class:`~oci.aidataplatform_dp.models.JarTask`
+        * :class:`~oci.aidataplatform_dp.models.AgentTask`
         * :class:`~oci.aidataplatform_dp.models.PythonTask`
         * :class:`~oci.aidataplatform_dp.models.NotebookTask`
 
@@ -76,7 +81,7 @@ class Task(object):
 
         :param type:
             The value to assign to the type property of this Task.
-            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 
@@ -116,7 +121,6 @@ class Task(object):
             'min_retry_interval_millis': 'int',
             'is_retry_on_timeout': 'bool'
         }
-
         self.attribute_map = {
             'type': 'type',
             'task_key': 'taskKey',
@@ -126,7 +130,6 @@ class Task(object):
             'min_retry_interval_millis': 'minRetryIntervalMillis',
             'is_retry_on_timeout': 'isRetryOnTimeout'
         }
-
         self._type = None
         self._task_key = None
         self._depends_on = None
@@ -152,6 +155,9 @@ class Task(object):
         if type == 'JAR_TASK':
             return 'JarTask'
 
+        if type == 'AGENT_TASK':
+            return 'AgentTask'
+
         if type == 'PYTHON_TASK':
             return 'PythonTask'
 
@@ -166,7 +172,7 @@ class Task(object):
         **[Required]** Gets the type of this Task.
         The type of the task.
 
-        Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -185,7 +191,7 @@ class Task(object):
         :param type: The type of this Task.
         :type: str
         """
-        allowed_values = ["NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK"]
+        allowed_values = ["NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             type = 'UNKNOWN_ENUM_VALUE'
         self._type = type

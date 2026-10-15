@@ -92,7 +92,6 @@ class FileReadConfiguration(object):
             'is_persistence_enabled': 'bool',
             'retention_days': 'int'
         }
-
         self.attribute_map = {
             'is_enabled': 'isEnabled',
             'allowed_file_types': 'allowedFileTypes',
@@ -102,7 +101,6 @@ class FileReadConfiguration(object):
             'is_persistence_enabled': 'isPersistenceEnabled',
             'retention_days': 'retentionDays'
         }
-
         self._is_enabled = None
         self._allowed_file_types = None
         self._max_file_size_mb = None

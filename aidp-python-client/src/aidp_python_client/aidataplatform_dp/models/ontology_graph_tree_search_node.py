@@ -56,7 +56,6 @@ class OntologyGraphTreeSearchNode(object):
             'has_children': 'bool',
             'context_path': 'list[OntologyGraphTreeContextPathItem]'
         }
-
         self.attribute_map = {
             'uid': 'uid',
             'parent_uid': 'parentUid',
@@ -66,7 +65,6 @@ class OntologyGraphTreeSearchNode(object):
             'has_children': 'hasChildren',
             'context_path': 'contextPath'
         }
-
         self._uid = None
         self._parent_uid = None
         self._type = None

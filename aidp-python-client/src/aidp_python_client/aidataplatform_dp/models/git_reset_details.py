@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitResetDetails(object):
     """
-    Details needed to reset the current branch for a folder context.
+    Request details for resetting a workspace Git repository.
     """
 
     #: A constant which can be used with the reset_mode property of a GitResetDetails.
@@ -54,14 +54,12 @@ class GitResetDetails(object):
             'commit_id': 'str',
             'reset_mode': 'str'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'branch_name': 'branchName',
             'commit_id': 'commitId',
             'reset_mode': 'resetMode'
         }
-
         self._git_folder_path = None
         self._branch_name = None
         self._commit_id = None
@@ -71,7 +69,8 @@ class GitResetDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitResetDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The git_folder_path of this GitResetDetails.
@@ -83,7 +82,8 @@ class GitResetDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitResetDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param git_folder_path: The git_folder_path of this GitResetDetails.
@@ -95,7 +95,9 @@ class GitResetDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitResetDetails.
-        The name of the Git branch.
+        Remote branch whose origin reference is the reset target. Current execution
+        requires a target branch; the stored repository branch is the branch being
+        reset and force-pushed.
 
 
         :return: The branch_name of this GitResetDetails.
@@ -107,7 +109,9 @@ class GitResetDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitResetDetails.
-        The name of the Git branch.
+        Remote branch whose origin reference is the reset target. Current execution
+        requires a target branch; the stored repository branch is the branch being
+        reset and force-pushed.
 
 
         :param branch_name: The branch_name of this GitResetDetails.
@@ -119,7 +123,8 @@ class GitResetDetails(object):
     def commit_id(self):
         """
         Gets the commit_id of this GitResetDetails.
-        Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+        Requested target commit identifier. The reset target is origin/{branchName};
+        the supplied value does not override it.
 
 
         :return: The commit_id of this GitResetDetails.
@@ -131,7 +136,8 @@ class GitResetDetails(object):
     def commit_id(self, commit_id):
         """
         Sets the commit_id of this GitResetDetails.
-        Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+        Requested target commit identifier. The reset target is origin/{branchName};
+        the supplied value does not override it.
 
 
         :param commit_id: The commit_id of this GitResetDetails.
@@ -143,7 +149,8 @@ class GitResetDetails(object):
     def reset_mode(self):
         """
         Gets the reset_mode of this GitResetDetails.
-        Reset mode requested.
+        Requested reset mode. The effective mode is HARD regardless of the supplied
+        value, including SOFT or MIXED.
 
         Allowed values for this property are: "SOFT", "MIXED", "HARD"
 
@@ -157,7 +164,8 @@ class GitResetDetails(object):
     def reset_mode(self, reset_mode):
         """
         Sets the reset_mode of this GitResetDetails.
-        Reset mode requested.
+        Requested reset mode. The effective mode is HARD regardless of the supplied
+        value, including SOFT or MIXED.
 
 
         :param reset_mode: The reset_mode of this GitResetDetails.
@@ -166,8 +174,7 @@ class GitResetDetails(object):
         allowed_values = ["SOFT", "MIXED", "HARD"]
         if not value_allowed_none_or_none_sentinel(reset_mode, allowed_values):
             raise ValueError(
-                "Invalid value for `reset_mode`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `reset_mode`, must be None or one of {allowed_values}"
             )
         self._reset_mode = reset_mode
 

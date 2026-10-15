@@ -26,11 +26,9 @@ class ShareCollection(object):
         self.swagger_types = {
             'items': 'list[ShareSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

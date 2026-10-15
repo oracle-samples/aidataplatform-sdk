@@ -31,12 +31,10 @@ class OntologyGraphTreeSearchResult(object):
             'success': 'bool',
             'response': 'OntologyGraphTreeSearchResultSet'
         }
-
         self.attribute_map = {
             'success': 'success',
             'response': 'response'
         }
-
         self._success = None
         self._response = None
 

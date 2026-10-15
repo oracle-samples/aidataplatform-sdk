@@ -37,6 +37,10 @@ class TaskRunOutput(object):
     #: This constant has a value of "JAR_TASK"
     TASK_TYPE_JAR_TASK = "JAR_TASK"
 
+    #: A constant which can be used with the task_type property of a TaskRunOutput.
+    #: This constant has a value of "AGENT_TASK"
+    TASK_TYPE_AGENT_TASK = "AGENT_TASK"
+
     def __init__(self, **kwargs):
         """
         Initializes a new TaskRunOutput object with values from keyword arguments.
@@ -48,7 +52,7 @@ class TaskRunOutput(object):
 
         :param task_type:
             The value to assign to the task_type property of this TaskRunOutput.
-            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type task_type: str
 
@@ -82,7 +86,6 @@ class TaskRunOutput(object):
             'output_parameters': 'list[OutputParameter]',
             'version': 'int'
         }
-
         self.attribute_map = {
             'key': 'key',
             'task_type': 'taskType',
@@ -92,7 +95,6 @@ class TaskRunOutput(object):
             'output_parameters': 'outputParameters',
             'version': 'version'
         }
-
         self._key = None
         self._task_type = None
         self._is_truncated = None
@@ -131,7 +133,7 @@ class TaskRunOutput(object):
         Gets the task_type of this TaskRunOutput.
         The type of the task.
 
-        Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -150,7 +152,7 @@ class TaskRunOutput(object):
         :param task_type: The task_type of this TaskRunOutput.
         :type: str
         """
-        allowed_values = ["NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK"]
+        allowed_values = ["NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK"]
         if not value_allowed_none_or_none_sentinel(task_type, allowed_values):
             task_type = 'UNKNOWN_ENUM_VALUE'
         self._task_type = task_type

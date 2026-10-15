@@ -33,12 +33,10 @@ class ClearToolUsesContextManagementRule(ContextManagementRule):
             'type': 'str',
             'config': 'ClearToolUsesContextManagementDetails'
         }
-
         self.attribute_map = {
             'type': 'type',
             'config': 'config'
         }
-
         self._type = None
         self._config = None
         self._type = 'CLEAR_TOOL_USES'

@@ -58,14 +58,12 @@ class UpdateWorkspaceAsyncOperationStatusDetails(object):
             'external_id': 'str',
             'properties': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'state_message': 'stateMessage',
             'state': 'state',
             'external_id': 'externalId',
             'properties': 'properties'
         }
-
         self._state_message = None
         self._state = None
         self._external_id = None
@@ -130,8 +128,7 @@ class UpdateWorkspaceAsyncOperationStatusDetails(object):
         allowed_values = ["NETWORK_CONFIGURATION_CREATED", "NETWORK_CONFIGURATION_UPDATED", "NETWORK_CONFIGURATION_DELETED", "NETWORK_CONFIGURATION_FAILED"]
         if not value_allowed_none_or_none_sentinel(state, allowed_values):
             raise ValueError(
-                "Invalid value for `state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `state`, must be None or one of {allowed_values}"
             )
         self._state = state
 

@@ -31,12 +31,10 @@ class ManageRecipientPermissionDetails(object):
             'assign_recipient_permission_details': 'AssignRecipientPermissionDetails',
             'revoke_recipient_permission_details': 'RevokeRecipientPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_recipient_permission_details': 'assignRecipientPermissionDetails',
             'revoke_recipient_permission_details': 'revokeRecipientPermissionDetails'
         }
-
         self._assign_recipient_permission_details = None
         self._revoke_recipient_permission_details = None
 

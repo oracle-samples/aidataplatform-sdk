@@ -50,13 +50,11 @@ class RoleAssignee(object):
             'target': 'str',
             'target_name': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'target': 'target',
             'target_name': 'targetName'
         }
-
         self._type = None
         self._target = None
         self._target_name = None

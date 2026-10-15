@@ -31,12 +31,10 @@ class RecentlyAccessedResource(object):
             'last_accessed_workspace_key': 'str',
             'last_accessed_workspace_display_name': 'str'
         }
-
         self.attribute_map = {
             'last_accessed_workspace_key': 'lastAccessedWorkspaceKey',
             'last_accessed_workspace_display_name': 'lastAccessedWorkspaceDisplayName'
         }
-
         self._last_accessed_workspace_key = None
         self._last_accessed_workspace_display_name = None
 

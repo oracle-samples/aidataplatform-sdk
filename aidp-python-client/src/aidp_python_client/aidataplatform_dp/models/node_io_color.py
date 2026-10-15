@@ -46,13 +46,11 @@ class NodeIoColor(object):
             'background_color': 'str',
             'handle_color': 'str'
         }
-
         self.attribute_map = {
             'text_color': 'textColor',
             'background_color': 'backgroundColor',
             'handle_color': 'handleColor'
         }
-
         self._text_color = None
         self._background_color = None
         self._handle_color = None

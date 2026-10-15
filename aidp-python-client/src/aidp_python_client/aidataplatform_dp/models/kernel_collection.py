@@ -26,11 +26,9 @@ class KernelCollection(object):
         self.swagger_types = {
             'items': 'list[KernelSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

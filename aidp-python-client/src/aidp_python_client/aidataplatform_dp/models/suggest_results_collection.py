@@ -36,13 +36,11 @@ class SuggestResultsCollection(object):
             'query': 'str',
             'items': 'list[ObjectSuggestSummary]'
         }
-
         self.attribute_map = {
             'count': 'count',
             'query': 'query',
             'items': 'items'
         }
-
         self._count = None
         self._query = None
         self._items = None

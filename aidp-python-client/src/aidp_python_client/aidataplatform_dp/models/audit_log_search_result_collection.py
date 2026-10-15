@@ -26,11 +26,9 @@ class AuditLogSearchResultCollection(object):
         self.swagger_types = {
             'items': 'list[AuditLogSearchResultSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

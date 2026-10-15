@@ -10,8 +10,6 @@ package com.oracle.aidataplatform.dp.model;
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use=com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include=com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property="entityType", defaultImpl=SchemaSummary.class)
 @com.fasterxml.jackson.annotation.JsonSubTypes({
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhSchemaSummary.class, name = "ALH"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchemaSummary.class, name = "EXADATA"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = OracleSchemaSummary.class, name = "ORACLE"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = MysqlSchemaSummary.class, name = "MYSQL"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = Db2SchemaSummary.class, name = "DB2"),
@@ -19,9 +17,12 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AtpSchemaSummary.class, name = "ATP"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = KafkaTopicSchemaSummary.class, name = "KAFKA_TOPIC"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AdwSchemaSummary.class, name = "ADW"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureSchemaSummary.class, name = "AZURE_SQLSERVER"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SnowflakeSchemaSummary.class, name = "SNOWFLAKE"),
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardSchemaSummary.class, name = "STANDARD")
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StandardSchemaSummary.class, name = "STANDARD"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AlhSchemaSummary.class, name = "ALH"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ExadataSchemaSummary.class, name = "EXADATA"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = GoogleBigquerySchemaSummary.class, name = "GOOGLE_BIGQUERY"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = SqlServerOnAzureSchemaSummary.class, name = "AZURE_SQLSERVER")
 })
 
 public class SchemaSummary  {

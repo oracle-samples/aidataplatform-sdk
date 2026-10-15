@@ -41,14 +41,12 @@ class OntologyResponseEnvelopeBase(object):
             'timestamp': 'datetime',
             'message': 'str'
         }
-
         self.attribute_map = {
             'status': 'status',
             'opc_request_id': 'opcRequestId',
             'timestamp': 'timestamp',
             'message': 'message'
         }
-
         self._status = None
         self._opc_request_id = None
         self._timestamp = None

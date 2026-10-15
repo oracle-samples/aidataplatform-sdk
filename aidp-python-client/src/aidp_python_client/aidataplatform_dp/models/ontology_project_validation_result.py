@@ -46,7 +46,6 @@ class OntologyProjectValidationResult(object):
             'error_code': 'str',
             'error_message': 'str'
         }
-
         self.attribute_map = {
             'project_id': 'projectId',
             'valid': 'valid',
@@ -54,7 +53,6 @@ class OntologyProjectValidationResult(object):
             'error_code': 'errorCode',
             'error_message': 'errorMessage'
         }
-
         self._project_id = None
         self._valid = None
         self._findings = None

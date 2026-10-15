@@ -31,12 +31,10 @@ class FilterTypes(object):
             'list_filters': 'list[ListFilter]',
             'range_filters': 'list[RangeFilter]'
         }
-
         self.attribute_map = {
             'list_filters': 'listFilters',
             'range_filters': 'rangeFilters'
         }
-
         self._list_filters = None
         self._range_filters = None
 

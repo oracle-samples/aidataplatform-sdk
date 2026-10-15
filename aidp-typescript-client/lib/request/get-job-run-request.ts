@@ -32,6 +32,10 @@ export interface GetJobRunRequest extends common.BaseRequest {
  */
  'shouldIncludeTaskRunSummaries'?: boolean;
 /**
+ * The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete.
+ */
+ 'repairKey'?: number;
+/**
  * A flag to identify if the recent list should be updated.
  */
  'shouldUpdateRecent'?: boolean;

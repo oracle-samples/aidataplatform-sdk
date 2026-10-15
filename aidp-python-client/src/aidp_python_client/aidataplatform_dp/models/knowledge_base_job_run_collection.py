@@ -26,11 +26,9 @@ class KnowledgeBaseJobRunCollection(object):
         self.swagger_types = {
             'items': 'list[KnowledgeBaseJobRunSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

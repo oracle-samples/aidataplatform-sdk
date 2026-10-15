@@ -138,7 +138,6 @@ class AgentDiagramSupervisorAgentNode(AgentDiagramNode):
             'tool_references': 'list[str]',
             'supervisor_config': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -164,7 +163,6 @@ class AgentDiagramSupervisorAgentNode(AgentDiagramNode):
             'tool_references': 'toolReferences',
             'supervisor_config': 'supervisorConfig'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

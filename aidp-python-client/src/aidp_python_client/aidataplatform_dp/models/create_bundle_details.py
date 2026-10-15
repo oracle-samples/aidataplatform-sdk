@@ -41,14 +41,12 @@ class CreateBundleDetails(object):
             'path': 'str',
             'bundled_resources': 'list[BundledResource]'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
             'path': 'path',
             'bundled_resources': 'bundledResources'
         }
-
         self._name = None
         self._description = None
         self._path = None

@@ -5,23 +5,32 @@ import common = require("oci-common");
 
 
 /**
-* Details needed to reset the current branch for a folder context.
+* Request details for resetting a workspace Git repository.
 */
 export interface GitResetDetails {
     /**
-    * Folder path used to locate the Git worktree.
+    * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'gitFolderPath'?: string;
     /**
-    * Git branch name that is cloned.
+    * Remote branch whose origin reference is the reset target. Current execution
+* requires a target branch; the stored repository branch is the branch being
+* reset and force-pushed.
+* 
     */
     'branchName'?: string;
     /**
-    * Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+    * Requested target commit identifier. The reset target is origin/{branchName};
+* the supplied value does not override it.
+* 
     */
     'commitId'?: string;
     /**
-    * Reset mode requested.
+    * Requested reset mode. The effective mode is HARD regardless of the supplied
+* value, including SOFT or MIXED.
+* 
     */
     'resetMode'?: GitResetDetails.ResetMode;
 

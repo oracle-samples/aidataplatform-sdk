@@ -110,7 +110,6 @@ class GitDiffSummary(object):
             'is_conflict': 'bool',
             'conflict_type': 'str'
         }
-
         self.attribute_map = {
             'git_file_path': 'gitFilePath',
             'change_type': 'changeType',
@@ -118,7 +117,6 @@ class GitDiffSummary(object):
             'is_conflict': 'isConflict',
             'conflict_type': 'conflictType'
         }
-
         self._git_file_path = None
         self._change_type = None
         self._old_git_file_path = None

@@ -14,7 +14,7 @@ license = "UPL-1.0"
 license-files = ["LICENSE.txt", "NOTICE.txt"]
 dependencies = [
     "aidp-python-client>=0.1.0",
-    "oci>=2.165.0,<3.0.0"
+    "oci>=2.183.0,<3.0.0"
 ]
 
 [project.urls]

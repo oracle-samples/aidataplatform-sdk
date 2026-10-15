@@ -31,12 +31,10 @@ class CatalogConnectionDetails(object):
             'display_name': 'str',
             'connection_properties': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'connection_properties': 'connectionProperties'
         }
-
         self._display_name = None
         self._connection_properties = None
 

@@ -31,12 +31,10 @@ class RecentlyAccessed(object):
             'global_level_resources': 'list[RecentResourceItem]',
             'workspace_level_resources': 'list[RecentResourceItem]'
         }
-
         self.attribute_map = {
             'global_level_resources': 'globalLevelResources',
             'workspace_level_resources': 'workspaceLevelResources'
         }
-
         self._global_level_resources = None
         self._workspace_level_resources = None
 

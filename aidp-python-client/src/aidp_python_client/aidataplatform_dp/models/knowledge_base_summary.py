@@ -110,7 +110,6 @@ class KnowledgeBaseSummary(object):
             'lifecycle_state': 'str',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -125,7 +124,6 @@ class KnowledgeBaseSummary(object):
             'lifecycle_state': 'lifecycleState',
             'system_tags': 'systemTags'
         }
-
         self._key = None
         self._display_name = None
         self._catalog_key = None
@@ -406,8 +404,7 @@ class KnowledgeBaseSummary(object):
         allowed_values = ["CREATING", "ACTIVE", "UPDATING", "DELETING", "NEEDS_ATTENTION", "DELETED", "FAILED"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

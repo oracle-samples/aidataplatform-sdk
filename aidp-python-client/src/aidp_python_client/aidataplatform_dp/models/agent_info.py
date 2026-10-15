@@ -136,7 +136,6 @@ class AgentInfo(object):
             'created_by': 'str',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -160,7 +159,6 @@ class AgentInfo(object):
             'created_by': 'createdBy',
             'updated_by': 'updatedBy'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

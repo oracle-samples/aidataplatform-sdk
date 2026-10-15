@@ -67,7 +67,6 @@ class ViewSummary(object):
             'updated_by': 'str',
             'lifecycle_state': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -78,7 +77,6 @@ class ViewSummary(object):
             'updated_by': 'updatedBy',
             'lifecycle_state': 'lifecycleState'
         }
-
         self._key = None
         self._display_name = None
         self._is_temporary = None

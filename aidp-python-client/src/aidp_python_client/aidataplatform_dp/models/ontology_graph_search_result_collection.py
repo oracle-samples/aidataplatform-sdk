@@ -31,12 +31,10 @@ class OntologyGraphSearchResultCollection(object):
             'items': 'list[OntologyGraphSearchResult]',
             'next_page': 'str'
         }
-
         self.attribute_map = {
             'items': 'items',
             'next_page': 'nextPage'
         }
-
         self._items = None
         self._next_page = None
 

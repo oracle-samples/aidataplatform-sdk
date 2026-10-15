@@ -56,7 +56,6 @@ class CreateGitBranch(object):
             'git_exit_code': 'int',
             'git_folder_path': 'str'
         }
-
         self.attribute_map = {
             'git_branch_name': 'gitBranchName',
             'git_url': 'gitUrl',
@@ -66,7 +65,6 @@ class CreateGitBranch(object):
             'git_exit_code': 'gitExitCode',
             'git_folder_path': 'gitFolderPath'
         }
-
         self._git_branch_name = None
         self._git_url = None
         self._error_message = None

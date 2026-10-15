@@ -46,7 +46,6 @@ class OntologyGraphEdge(object):
             'source_id': 'str',
             'target_id': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'type': 'type',
@@ -54,7 +53,6 @@ class OntologyGraphEdge(object):
             'source_id': 'sourceId',
             'target_id': 'targetId'
         }
-
         self._id = None
         self._type = None
         self._label = None

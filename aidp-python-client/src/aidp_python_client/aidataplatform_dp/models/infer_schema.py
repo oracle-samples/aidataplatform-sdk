@@ -26,11 +26,9 @@ class InferSchema(object):
         self.swagger_types = {
             'infer_schema_column': 'list[InferSchemaColumn]'
         }
-
         self.attribute_map = {
             'infer_schema_column': 'inferSchemaColumn'
         }
-
         self._infer_schema_column = None
 
     @property

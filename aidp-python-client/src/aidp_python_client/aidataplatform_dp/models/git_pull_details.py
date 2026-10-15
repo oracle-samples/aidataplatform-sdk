@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitPullDetails(object):
     """
-    Pull remote changes for the given branch context (supports continue/abort during merge).
+    Request details for pulling changes into a workspace Git repository.
     """
 
     #: A constant which can be used with the pull_action property of a GitPullDetails.
@@ -59,7 +59,6 @@ class GitPullDetails(object):
             'pull_action': 'str',
             'commit_message': 'str'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'branch_name': 'branchName',
@@ -67,7 +66,6 @@ class GitPullDetails(object):
             'pull_action': 'pullAction',
             'commit_message': 'commitMessage'
         }
-
         self._git_folder_path = None
         self._branch_name = None
         self._remote_branch_name = None
@@ -78,7 +76,8 @@ class GitPullDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitPullDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The git_folder_path of this GitPullDetails.
@@ -90,7 +89,8 @@ class GitPullDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitPullDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param git_folder_path: The git_folder_path of this GitPullDetails.
@@ -102,7 +102,8 @@ class GitPullDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitPullDetails.
-        The name of the Git branch.
+        Repository branch name. The effective branch is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The branch_name of this GitPullDetails.
@@ -114,7 +115,8 @@ class GitPullDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitPullDetails.
-        The name of the Git branch.
+        Repository branch name. The effective branch is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param branch_name: The branch_name of this GitPullDetails.
@@ -126,7 +128,8 @@ class GitPullDetails(object):
     def remote_branch_name(self):
         """
         Gets the remote_branch_name of this GitPullDetails.
-        Remote branch to pull from. Defaults to branchName if not provided.
+        Requested remote branch name. The pull source is origin for the stored
+        repository branch; the supplied value does not override it.
 
 
         :return: The remote_branch_name of this GitPullDetails.
@@ -138,7 +141,8 @@ class GitPullDetails(object):
     def remote_branch_name(self, remote_branch_name):
         """
         Sets the remote_branch_name of this GitPullDetails.
-        Remote branch to pull from. Defaults to branchName if not provided.
+        Requested remote branch name. The pull source is origin for the stored
+        repository branch; the supplied value does not override it.
 
 
         :param remote_branch_name: The remote_branch_name of this GitPullDetails.
@@ -150,7 +154,8 @@ class GitPullDetails(object):
     def pull_action(self):
         """
         Gets the pull_action of this GitPullDetails.
-        Pull behavior requested by the caller.
+        Requested pull action. The effective action is PULL regardless of the supplied
+        value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
 
         Allowed values for this property are: "PULL", "MERGE_CONTINUE", "MERGE_ABORT"
 
@@ -164,7 +169,8 @@ class GitPullDetails(object):
     def pull_action(self, pull_action):
         """
         Sets the pull_action of this GitPullDetails.
-        Pull behavior requested by the caller.
+        Requested pull action. The effective action is PULL regardless of the supplied
+        value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
 
 
         :param pull_action: The pull_action of this GitPullDetails.
@@ -173,8 +179,7 @@ class GitPullDetails(object):
         allowed_values = ["PULL", "MERGE_CONTINUE", "MERGE_ABORT"]
         if not value_allowed_none_or_none_sentinel(pull_action, allowed_values):
             raise ValueError(
-                "Invalid value for `pull_action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `pull_action`, must be None or one of {allowed_values}"
             )
         self._pull_action = pull_action
 
@@ -182,7 +187,8 @@ class GitPullDetails(object):
     def commit_message(self):
         """
         Gets the commit_message of this GitPullDetails.
-        Commit message used only when pullAction is MERGE_CONTINUE.
+        Requested merge-continuation commit message. The supplied value has no effect,
+        including when pullAction is MERGE_CONTINUE.
 
 
         :return: The commit_message of this GitPullDetails.
@@ -194,7 +200,8 @@ class GitPullDetails(object):
     def commit_message(self, commit_message):
         """
         Sets the commit_message of this GitPullDetails.
-        Commit message used only when pullAction is MERGE_CONTINUE.
+        Requested merge-continuation commit message. The supplied value has no effect,
+        including when pullAction is MERGE_CONTINUE.
 
 
         :param commit_message: The commit_message of this GitPullDetails.

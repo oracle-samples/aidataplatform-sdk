@@ -36,13 +36,11 @@ class OntologyGraphExpansion(object):
             'edges': 'list[OntologyGraphEdge]',
             'truncated': 'bool'
         }
-
         self.attribute_map = {
             'nodes': 'nodes',
             'edges': 'edges',
             'truncated': 'truncated'
         }
-
         self._nodes = None
         self._edges = None
         self._truncated = None

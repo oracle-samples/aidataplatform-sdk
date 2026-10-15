@@ -31,12 +31,10 @@ class OntologyGraphPreviewModel(object):
             'nodes': 'list[OntologyGraphPreviewNode]',
             'edges': 'list[OntologyGraphPreviewEdge]'
         }
-
         self.attribute_map = {
             'nodes': 'nodes',
             'edges': 'edges'
         }
-
         self._nodes = None
         self._edges = None
 

@@ -56,7 +56,6 @@ class WorkspaceSearchCriteria(object):
             'filter': 'FilterTypes',
             'sort': 'list[SortDetails]'
         }
-
         self.attribute_map = {
             'path': 'path',
             'query': 'query',
@@ -66,7 +65,6 @@ class WorkspaceSearchCriteria(object):
             'filter': 'filter',
             'sort': 'sort'
         }
-
         self._path = None
         self._query = None
         self._limit = None

@@ -22,7 +22,9 @@ export interface AsyncOperation {
     'actionType': model.AsyncOperationActionType;
     /**
     * The fully qualified name of the Data Lake resource. Example: For table, it is 
-* <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
+* <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>.
+* For Git folder creation, this is the operation resource name; the Git
+* repository key is stored separately as system:repoKey in folder metadata.
 * 
     */
     'resourceName': string;

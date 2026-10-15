@@ -21,7 +21,7 @@ class AlhSchemaSummary(SchemaSummary):
 
         :param entity_type:
             The value to assign to the entity_type property of this AlhSchemaSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:
@@ -85,7 +85,6 @@ class AlhSchemaSummary(SchemaSummary):
             'last_refresh_status': 'str',
             'time_last_refresh': 'datetime'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'key': 'key',
@@ -100,7 +99,6 @@ class AlhSchemaSummary(SchemaSummary):
             'last_refresh_status': 'lastRefreshStatus',
             'time_last_refresh': 'timeLastRefresh'
         }
-
         self._entity_type = None
         self._key = None
         self._display_name = None

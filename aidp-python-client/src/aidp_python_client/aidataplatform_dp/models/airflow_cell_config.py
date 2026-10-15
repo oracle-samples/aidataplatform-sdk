@@ -31,12 +31,10 @@ class AirflowCellConfig(object):
             'cell_id': 'str',
             'cell_url': 'str'
         }
-
         self.attribute_map = {
             'cell_id': 'cellId',
             'cell_url': 'cellUrl'
         }
-
         self._cell_id = None
         self._cell_url = None
 

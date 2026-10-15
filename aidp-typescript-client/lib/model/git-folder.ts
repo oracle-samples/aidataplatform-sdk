@@ -5,11 +5,11 @@ import common = require("oci-common");
 
 
 /**
-* Represents a Git folder object.
+* A workspace Git folder and its repository, branch, and connectivity settings.
 */
 export interface GitFolder {
     /**
-    * The absolute path of the Git folder user wants to create.
+    * Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}.
     */
     'folderPath': string;
     /**
@@ -29,13 +29,36 @@ export interface GitFolder {
     */
     'branchName'?: string;
     /**
+    * Whether this Git folder uses private network connectivity.
+    */
+    'isPrivateConnectivityEnabled'?: boolean;
+    /**
+    * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+    */
+    'gitConnectivityProfileKey'?: string;
+    /**
+    * Key of the credential containing the Git server's TLS CA certificate,
+* returned by credential listings filtered by displayName. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+    */
+    'credentialStoreKey'?: string;
+    /**
     * The metadata about the folder, like branchName.
     */
     'folderMetadata'?: { [key: string]: any; };
+    'sparseCheckout'?: model.SparseCheckoutDetails;
 
 }
 
 export namespace GitFolder {
+
+
+
+
 
 
 
@@ -52,6 +75,13 @@ export namespace GitFolder {
 
 
 
+
+
+
+                'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getJsonObj(obj.sparseCheckout) : undefined,
         }};
 
         
@@ -68,6 +98,13 @@ export namespace GitFolder {
 
 
 
+
+
+
+                    'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getDeserializedJsonObj(obj.sparseCheckout) : undefined,
          }};
 
         

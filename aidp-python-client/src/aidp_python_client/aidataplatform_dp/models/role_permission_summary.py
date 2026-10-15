@@ -36,13 +36,11 @@ class RolePermissionSummary(object):
             'role_key': 'str',
             'role_description': 'str'
         }
-
         self.attribute_map = {
             'permissions_with_resource_details': 'permissionsWithResourceDetails',
             'role_key': 'roleKey',
             'role_description': 'roleDescription'
         }
-
         self._permissions_with_resource_details = None
         self._role_key = None
         self._role_description = None

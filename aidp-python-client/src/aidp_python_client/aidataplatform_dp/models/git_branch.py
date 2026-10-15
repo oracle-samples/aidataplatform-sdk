@@ -51,7 +51,6 @@ class GitBranch(object):
             'std_err': 'str',
             'git_exit_code': 'int'
         }
-
         self.attribute_map = {
             'branch_name': 'branchName',
             'git_url': 'gitUrl',
@@ -60,7 +59,6 @@ class GitBranch(object):
             'std_err': 'stdErr',
             'git_exit_code': 'gitExitCode'
         }
-
         self._branch_name = None
         self._git_url = None
         self._error_message = None

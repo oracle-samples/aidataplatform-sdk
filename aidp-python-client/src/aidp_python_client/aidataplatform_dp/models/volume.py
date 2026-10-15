@@ -131,7 +131,6 @@ class Volume(object):
             'lifecycle_state_details': 'str',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -149,7 +148,6 @@ class Volume(object):
             'lifecycle_state_details': 'lifecycleStateDetails',
             'system_tags': 'systemTags'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

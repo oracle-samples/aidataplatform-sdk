@@ -5,23 +5,30 @@ import common = require("oci-common");
 
 
 /**
-* Details needed to perform a Git rebase for a folder context.
+* Remote branch and optional context for a Git rebase request.
 */
 export interface GitRebaseDetails {
     /**
-    * Folder path used to locate the Git worktree.
+    * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'gitFolderPath'?: string;
     /**
-    * Git branch name that is cloned.
+    * Requested branch name. The branch being rebased is the stored repository
+* branch; the supplied value does not override it.
+* 
     */
     'branchName'?: string;
     /**
-    * Remote branch name to rebase onto (optional).
+    * Required remote branch whose origin reference is the rebase target.
+* 
     */
     'remoteBranchName': string;
     /**
-    * Commit ID to rebase onto (optional).
+    * Requested target commit identifier. The rebase target is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
     */
     'commitId'?: string;
 

@@ -45,12 +45,10 @@ class AutoScaleMetricConfiguration(object):
             'name': 'str',
             'target_average_value': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'target_average_value': 'targetAverageValue'
         }
-
         self._name = None
         self._target_average_value = None
 

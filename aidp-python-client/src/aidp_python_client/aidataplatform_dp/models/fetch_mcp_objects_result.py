@@ -41,14 +41,12 @@ class FetchMcpObjectsResult(object):
             'previous_page': 'str',
             'total_items': 'int'
         }
-
         self.attribute_map = {
             'objects': 'objects',
             'next_page': 'nextPage',
             'previous_page': 'previousPage',
             'total_items': 'totalItems'
         }
-
         self._objects = None
         self._next_page = None
         self._previous_page = None

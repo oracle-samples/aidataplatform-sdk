@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitDiffDetail(object):
     """
-    Unified diff details for a Git file.
+    Unified diff content and status information for a repository-relative file.
     """
 
     #: A constant which can be used with the truncated_reason property of a GitDiffDetail.
@@ -69,7 +69,6 @@ class GitDiffDetail(object):
             'is_truncated': 'bool',
             'truncated_reason': 'str'
         }
-
         self.attribute_map = {
             'git_file_path': 'gitFilePath',
             'is_conflict': 'isConflict',
@@ -78,7 +77,6 @@ class GitDiffDetail(object):
             'is_truncated': 'isTruncated',
             'truncated_reason': 'truncatedReason'
         }
-
         self._git_file_path = None
         self._is_conflict = None
         self._is_binary = None
@@ -162,7 +160,7 @@ class GitDiffDetail(object):
     def patch(self):
         """
         Gets the patch of this GitDiffDetail.
-        Unified diff patch text.
+        Local unified diff patch text. Binary files may have no textual patch.
 
 
         :return: The patch of this GitDiffDetail.
@@ -174,7 +172,7 @@ class GitDiffDetail(object):
     def patch(self, patch):
         """
         Sets the patch of this GitDiffDetail.
-        Unified diff patch text.
+        Local unified diff patch text. Binary files may have no textual patch.
 
 
         :param patch: The patch of this GitDiffDetail.
@@ -186,7 +184,8 @@ class GitDiffDetail(object):
     def is_truncated(self):
         """
         Gets the is_truncated of this GitDiffDetail.
-        Indicates whether the diff output was truncated.
+        Whether returned diff output is marked truncated; this does not guarantee
+        enforcement of the requested maxPatchBytes.
 
 
         :return: The is_truncated of this GitDiffDetail.
@@ -198,7 +197,8 @@ class GitDiffDetail(object):
     def is_truncated(self, is_truncated):
         """
         Sets the is_truncated of this GitDiffDetail.
-        Indicates whether the diff output was truncated.
+        Whether returned diff output is marked truncated; this does not guarantee
+        enforcement of the requested maxPatchBytes.
 
 
         :param is_truncated: The is_truncated of this GitDiffDetail.

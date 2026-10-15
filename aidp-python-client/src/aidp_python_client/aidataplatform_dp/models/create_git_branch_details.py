@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CreateGitBranchDetails(object):
     """
-    Information required to create a new Git branch.
+    Request details for creating a Git branch in a workspace.
     """
 
     def __init__(self, **kwargs):
@@ -31,12 +31,10 @@ class CreateGitBranchDetails(object):
             'git_branch_name': 'str',
             'git_folder_path': 'str'
         }
-
         self.attribute_map = {
             'git_branch_name': 'gitBranchName',
             'git_folder_path': 'gitFolderPath'
         }
-
         self._git_branch_name = None
         self._git_folder_path = None
 
@@ -44,7 +42,8 @@ class CreateGitBranchDetails(object):
     def git_branch_name(self):
         """
         **[Required]** Gets the git_branch_name of this CreateGitBranchDetails.
-        The name of the Git branch.
+        Name of the new branch. The branch must not already exist locally or on
+        origin.
 
 
         :return: The git_branch_name of this CreateGitBranchDetails.
@@ -56,7 +55,8 @@ class CreateGitBranchDetails(object):
     def git_branch_name(self, git_branch_name):
         """
         Sets the git_branch_name of this CreateGitBranchDetails.
-        The name of the Git branch.
+        Name of the new branch. The branch must not already exist locally or on
+        origin.
 
 
         :param git_branch_name: The git_branch_name of this CreateGitBranchDetails.
@@ -68,7 +68,8 @@ class CreateGitBranchDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this CreateGitBranchDetails.
-        The path of the current Git folder which has to be created for the new branch.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The git_folder_path of this CreateGitBranchDetails.
@@ -80,7 +81,8 @@ class CreateGitBranchDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this CreateGitBranchDetails.
-        The path of the current Git folder which has to be created for the new branch.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param git_folder_path: The git_folder_path of this CreateGitBranchDetails.

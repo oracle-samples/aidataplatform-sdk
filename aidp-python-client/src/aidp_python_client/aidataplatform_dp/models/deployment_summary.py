@@ -31,12 +31,10 @@ class DeploymentSummary(object):
             'total_deployment': 'int',
             'active_deployment': 'int'
         }
-
         self.attribute_map = {
             'total_deployment': 'total_deployment',
             'active_deployment': 'active_deployment'
         }
-
         self._total_deployment = None
         self._active_deployment = None
 

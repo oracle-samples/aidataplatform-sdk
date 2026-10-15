@@ -26,6 +26,8 @@ public enum AsyncOperationResourceType implements com.oracle.bmc.http.internal.B
     GitOperation("GIT_OPERATION"),
     BundleOperation("BUNDLE_OPERATION"),
     ModelDeployment("MODEL_DEPLOYMENT"),
+    PrivateNetworkProfile("PRIVATE_NETWORK_PROFILE"),
+    LineageImport("LINEAGE_IMPORT"),
     
 
     /**

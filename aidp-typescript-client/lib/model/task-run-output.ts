@@ -50,6 +50,7 @@ export namespace TaskRunOutput {
     IfElseTask = "IF_ELSE_TASK",
     JobTask = "JOB_TASK",
     JarTask = "JAR_TASK",
+    AgentTask = "AGENT_TASK",
     /**
     * This value is used if a service returns a value for this enum that is not recognized by this
     * version of the SDK.

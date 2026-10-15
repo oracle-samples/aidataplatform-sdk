@@ -26,11 +26,9 @@ class TestToolParamValues(object):
         self.swagger_types = {
             'values': 'object'
         }
-
         self.attribute_map = {
             'values': 'values'
         }
-
         self._values = None
 
     @property

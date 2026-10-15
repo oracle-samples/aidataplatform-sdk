@@ -31,12 +31,10 @@ class ManageAgentPermissionDetails(object):
             'assign_agent_permission_details': 'AssignAgentPermissionDetails',
             'revoke_agent_permission_details': 'RevokeAgentPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_agent_permission_details': 'assignAgentPermissionDetails',
             'revoke_agent_permission_details': 'revokeAgentPermissionDetails'
         }
-
         self._assign_agent_permission_details = None
         self._revoke_agent_permission_details = None
 

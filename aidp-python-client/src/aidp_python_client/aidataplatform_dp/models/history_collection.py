@@ -31,12 +31,10 @@ class HistoryCollection(object):
             'items': 'list[HistorySummary]',
             'git_url': 'str'
         }
-
         self.attribute_map = {
             'items': 'items',
             'git_url': 'gitUrl'
         }
-
         self._items = None
         self._git_url = None
 

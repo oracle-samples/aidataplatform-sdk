@@ -34,27 +34,33 @@ public class ResetGitFolderStateRequest extends com.oracle.bmc.requests.BmcReque
         return workspaceKey;
     }
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Merge conflict resolution details.
+     * Abort action or local file changes to discard.
      */
     private com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails resetGitFolderStateDetails;
 
     
 
         /**
-     * Merge conflict resolution details.
+     * Abort action or local file changes to discard.
      */
     public com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails getResetGitFolderStateDetails() {
         return resetGitFolderStateDetails;
@@ -171,12 +177,18 @@ public class ResetGitFolderStateRequest extends com.oracle.bmc.requests.BmcReque
         }
 
             /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The Git repository key.
+         * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -186,12 +198,12 @@ public class ResetGitFolderStateRequest extends com.oracle.bmc.requests.BmcReque
         }
 
             /**
-     * Merge conflict resolution details.
+     * Abort action or local file changes to discard.
      */
         private com.oracle.aidataplatform.dp.model.ResetGitFolderStateDetails resetGitFolderStateDetails = null;
 
         /**
-         * Merge conflict resolution details.
+         * Abort action or local file changes to discard.
          * @param resetGitFolderStateDetails the value to set
          * @return this builder instance
          */

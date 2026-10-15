@@ -103,14 +103,12 @@ class State(object):
             'error_trace': 'str',
             'is_user_canceled_or_timed_out': 'bool'
         }
-
         self.attribute_map = {
             'status': 'status',
             'state_message': 'stateMessage',
             'error_trace': 'errorTrace',
             'is_user_canceled_or_timed_out': 'isUserCanceledOrTimedOut'
         }
-
         self._status = None
         self._state_message = None
         self._error_trace = None

@@ -45,13 +45,11 @@ class KnowledgeBaseVectorIndexDetails(object):
             'hnsw_details': 'KbVHnswIndexDetails',
             'ivf_details': 'KbVIvfIndexDetails'
         }
-
         self.attribute_map = {
             'type': 'type',
             'hnsw_details': 'hnswDetails',
             'ivf_details': 'ivfDetails'
         }
-
         self._type = None
         self._hnsw_details = None
         self._ivf_details = None
@@ -83,8 +81,7 @@ class KnowledgeBaseVectorIndexDetails(object):
         allowed_values = ["HNSW", "IVF"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

@@ -41,14 +41,12 @@ class MemoryConfiguration(object):
             'context_management': 'ContextManagementConfiguration',
             'memory_properties': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'is_enabled': 'isEnabled',
             'limit': 'limit',
             'context_management': 'contextManagement',
             'memory_properties': 'memoryProperties'
         }
-
         self._is_enabled = None
         self._limit = None
         self._context_management = None

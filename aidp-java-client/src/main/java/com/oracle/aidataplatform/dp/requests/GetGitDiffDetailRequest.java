@@ -34,27 +34,33 @@ public class GetGitDiffDetailRequest extends com.oracle.bmc.requests.BmcRequest<
         return workspaceKey;
     }
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * The Git folder path.
+     * Workspace path of the Git folder, distinct from repository-relative file paths.
      */
     private String gitFolderPath;
 
     
 
         /**
-     * The Git folder path.
+     * Workspace path of the Git folder, distinct from repository-relative file paths.
      */
     public String getGitFolderPath() {
         return gitFolderPath;
@@ -86,27 +92,33 @@ public class GetGitDiffDetailRequest extends com.oracle.bmc.requests.BmcRequest<
         return gitFilePath;
     }
         /**
-     * Number of context lines to include in the diff.
+     * Requested diff context lines. Current execution does not apply this value.
+* 
      */
     private Integer contextLines;
 
     
 
         /**
-     * Number of context lines to include in the diff.
+     * Requested diff context lines. Current execution does not apply this value.
+* 
      */
     public Integer getContextLines() {
         return contextLines;
     }
         /**
-     * Maximum number of bytes of diff output to return.
+     * Requested maximum patch bytes. Current execution does not enforce this
+* value.
+* 
      */
     private Integer maxPatchBytes;
 
     
 
         /**
-     * Maximum number of bytes of diff output to return.
+     * Requested maximum patch bytes. Current execution does not enforce this
+* value.
+* 
      */
     public Integer getMaxPatchBytes() {
         return maxPatchBytes;
@@ -169,12 +181,18 @@ public class GetGitDiffDetailRequest extends com.oracle.bmc.requests.BmcRequest<
         }
 
             /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The Git repository key.
+         * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -184,12 +202,12 @@ public class GetGitDiffDetailRequest extends com.oracle.bmc.requests.BmcRequest<
         }
 
             /**
-     * The Git folder path.
+     * Workspace path of the Git folder, distinct from repository-relative file paths.
      */
         private String gitFolderPath = null;
 
         /**
-         * The Git folder path.
+         * Workspace path of the Git folder, distinct from repository-relative file paths.
          * @param gitFolderPath the value to set
          * @return this builder instance
          */
@@ -229,12 +247,14 @@ public class GetGitDiffDetailRequest extends com.oracle.bmc.requests.BmcRequest<
         }
 
             /**
-     * Number of context lines to include in the diff.
+     * Requested diff context lines. Current execution does not apply this value.
+* 
      */
         private Integer contextLines = null;
 
         /**
-         * Number of context lines to include in the diff.
+         * Requested diff context lines. Current execution does not apply this value.
+* 
          * @param contextLines the value to set
          * @return this builder instance
          */
@@ -244,12 +264,16 @@ public class GetGitDiffDetailRequest extends com.oracle.bmc.requests.BmcRequest<
         }
 
             /**
-     * Maximum number of bytes of diff output to return.
+     * Requested maximum patch bytes. Current execution does not enforce this
+* value.
+* 
      */
         private Integer maxPatchBytes = null;
 
         /**
-         * Maximum number of bytes of diff output to return.
+         * Requested maximum patch bytes. Current execution does not enforce this
+* value.
+* 
          * @param maxPatchBytes the value to set
          * @return this builder instance
          */

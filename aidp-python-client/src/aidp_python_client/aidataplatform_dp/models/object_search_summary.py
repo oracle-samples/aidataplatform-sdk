@@ -96,7 +96,6 @@ class ObjectSearchSummary(object):
             'schema_key': 'str',
             'hit_highlights': 'list[str]'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -114,7 +113,6 @@ class ObjectSearchSummary(object):
             'schema_key': 'schemaKey',
             'hit_highlights': 'hitHighlights'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

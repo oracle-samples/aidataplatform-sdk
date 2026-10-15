@@ -71,7 +71,6 @@ class LoggedModelInfo(object):
             'source_run_id': 'str',
             'tags': 'list[LoggedModelTag]'
         }
-
         self.attribute_map = {
             'model_id': 'model_id',
             'experiment_id': 'experiment_id',
@@ -84,7 +83,6 @@ class LoggedModelInfo(object):
             'source_run_id': 'source_run_id',
             'tags': 'tags'
         }
-
         self._model_id = None
         self._experiment_id = None
         self._name = None

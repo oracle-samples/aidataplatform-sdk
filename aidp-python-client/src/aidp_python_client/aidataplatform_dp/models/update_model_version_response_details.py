@@ -26,11 +26,9 @@ class UpdateModelVersionResponseDetails(object):
         self.swagger_types = {
             'model_version': 'ModelVersion'
         }
-
         self.attribute_map = {
             'model_version': 'model_version'
         }
-
         self._model_version = None
 
     @property

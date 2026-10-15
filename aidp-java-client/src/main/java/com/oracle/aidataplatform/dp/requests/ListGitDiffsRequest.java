@@ -34,27 +34,33 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         return workspaceKey;
     }
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * The Git folder path.
+     * Workspace path of the Git folder, distinct from repository-relative file paths.
      */
     private String gitFolderPath;
 
     
 
         /**
-     * The Git folder path.
+     * Workspace path of the Git folder, distinct from repository-relative file paths.
      */
     public String getGitFolderPath() {
         return gitFolderPath;
@@ -73,12 +79,16 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         return branchName;
     }
         /**
-     * Determines which reference is used for computing diffs.
+     * Requested comparison reference. Results describe local file changes regardless
+* of the supplied value.
+* 
      */
     private CompareTo compareTo;
 
         /**
-     * Determines which reference is used for computing diffs.
+     * Requested comparison reference. Results describe local file changes regardless
+* of the supplied value.
+* 
      **/
     public enum CompareTo implements com.oracle.bmc.http.internal.BmcEnum {
         Head("HEAD"),
@@ -120,18 +130,24 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
     };
 
         /**
-     * Determines which reference is used for computing diffs.
+     * Requested comparison reference. Results describe local file changes regardless
+* of the supplied value.
+* 
      */
     public CompareTo getCompareTo() {
         return compareTo;
     }
         /**
-     * Filter which files are returned.
+     * Requested file-change filter. Results include all detected local file changes
+* regardless of the supplied value.
+* 
      */
     private Filter filter;
 
         /**
-     * Filter which files are returned.
+     * Requested file-change filter. Results include all detected local file changes
+* regardless of the supplied value.
+* 
      **/
     public enum Filter implements com.oracle.bmc.http.internal.BmcEnum {
         All("ALL"),
@@ -171,7 +187,9 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
     };
 
         /**
-     * Filter which files are returned.
+     * Requested file-change filter. Results include all detected local file changes
+* regardless of the supplied value.
+* 
      */
     public Filter getFilter() {
         return filter;
@@ -249,15 +267,15 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         return sortOrder;
     }
         /**
-     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated}
-* is descending. Default order for {@code displayName} is ascending.
+     * The field to sort by. You can provide only one sort order. The default order for
+* {@code timeCreated} is descending.
 * 
      */
     private SortBy sortBy;
 
         /**
-     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated}
-* is descending. Default order for {@code displayName} is ascending.
+     * The field to sort by. You can provide only one sort order. The default order for
+* {@code timeCreated} is descending.
 * 
      **/
     public enum SortBy implements com.oracle.bmc.http.internal.BmcEnum {
@@ -296,8 +314,8 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
     };
 
         /**
-     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated}
-* is descending. Default order for {@code displayName} is ascending.
+     * The field to sort by. You can provide only one sort order. The default order for
+* {@code timeCreated} is descending.
 * 
      */
     public SortBy getSortBy() {
@@ -353,12 +371,18 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The Git repository key.
+         * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -368,12 +392,12 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
-     * The Git folder path.
+     * Workspace path of the Git folder, distinct from repository-relative file paths.
      */
         private String gitFolderPath = null;
 
         /**
-         * The Git folder path.
+         * Workspace path of the Git folder, distinct from repository-relative file paths.
          * @param gitFolderPath the value to set
          * @return this builder instance
          */
@@ -398,12 +422,16 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
-     * Determines which reference is used for computing diffs.
+     * Requested comparison reference. Results describe local file changes regardless
+* of the supplied value.
+* 
      */
         private CompareTo compareTo = null;
 
         /**
-         * Determines which reference is used for computing diffs.
+         * Requested comparison reference. Results describe local file changes regardless
+* of the supplied value.
+* 
          * @param compareTo the value to set
          * @return this builder instance
          */
@@ -413,12 +441,16 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
-     * Filter which files are returned.
+     * Requested file-change filter. Results include all detected local file changes
+* regardless of the supplied value.
+* 
      */
         private Filter filter = null;
 
         /**
-         * Filter which files are returned.
+         * Requested file-change filter. Results include all detected local file changes
+* regardless of the supplied value.
+* 
          * @param filter the value to set
          * @return this builder instance
          */
@@ -508,15 +540,15 @@ public class ListGitDiffsRequest extends com.oracle.bmc.requests.BmcRequest<java
         }
 
             /**
-     * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated}
-* is descending. Default order for {@code displayName} is ascending.
+     * The field to sort by. You can provide only one sort order. The default order for
+* {@code timeCreated} is descending.
 * 
      */
         private SortBy sortBy = null;
 
         /**
-         * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated}
-* is descending. Default order for {@code displayName} is ascending.
+         * The field to sort by. You can provide only one sort order. The default order for
+* {@code timeCreated} is descending.
 * 
          * @param sortBy the value to set
          * @return this builder instance

@@ -31,12 +31,10 @@ class KnowledgeBaseCollection(object):
             'items': 'list[KnowledgeBaseSummary]',
             'next_start_page': 'str'
         }
-
         self.attribute_map = {
             'items': 'items',
             'next_start_page': 'nextStartPage'
         }
-
         self._items = None
         self._next_start_page = None
 

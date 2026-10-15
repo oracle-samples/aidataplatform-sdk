@@ -34,14 +34,20 @@ public class MergeGitRepositoryRequest extends com.oracle.bmc.requests.BmcReques
         return workspaceKey;
     }
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
@@ -184,12 +190,18 @@ public class MergeGitRepositoryRequest extends com.oracle.bmc.requests.BmcReques
         }
 
             /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The Git repository key.
+         * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */

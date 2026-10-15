@@ -31,12 +31,10 @@ class OntologyEntityError(object):
             'code': 'str',
             'error_message': 'str'
         }
-
         self.attribute_map = {
             'code': 'code',
             'error_message': 'errorMessage'
         }
-
         self._code = None
         self._error_message = None
 

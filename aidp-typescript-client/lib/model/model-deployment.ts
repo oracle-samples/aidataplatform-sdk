@@ -37,6 +37,10 @@ export interface ModelDeployment {
     */
     'computeKey': string;
     /**
+    * Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+    */
+    'computeDeploymentId'?: string;
+    /**
     * Status of the deployment.
     */
     'status': model.DeploymentStatus;
@@ -100,6 +104,7 @@ export namespace ModelDeployment {
 
 
 
+
     export function getJsonObj(obj: ModelDeployment): object {
         const jsonObj = {...obj, ...{
             
@@ -115,6 +120,8 @@ export namespace ModelDeployment {
                 
                  : undefined,
 
+
+                'compute_deployment_id': obj.computeDeploymentId,
 
 
                 'activated_time': obj.activatedTime,
@@ -143,7 +150,7 @@ export namespace ModelDeployment {
                 model.DeploymentOAuthDetails.getJsonObj(obj.authDetails) : undefined,
         }};
 
-        delete (jsonObj as Partial<ModelDeployment>).deploymentId;delete (jsonObj as Partial<ModelDeployment>).modelName;delete (jsonObj as Partial<ModelDeployment>).deploymentTargets;delete (jsonObj as Partial<ModelDeployment>).activatedTime;delete (jsonObj as Partial<ModelDeployment>).activatedBy;delete (jsonObj as Partial<ModelDeployment>).servingUri;delete (jsonObj as Partial<ModelDeployment>).createdTime;delete (jsonObj as Partial<ModelDeployment>).updatedTime;delete (jsonObj as Partial<ModelDeployment>).createdBy;delete (jsonObj as Partial<ModelDeployment>).updatedBy;
+        delete (jsonObj as Partial<ModelDeployment>).deploymentId;delete (jsonObj as Partial<ModelDeployment>).modelName;delete (jsonObj as Partial<ModelDeployment>).deploymentTargets;delete (jsonObj as Partial<ModelDeployment>).computeDeploymentId;delete (jsonObj as Partial<ModelDeployment>).activatedTime;delete (jsonObj as Partial<ModelDeployment>).activatedBy;delete (jsonObj as Partial<ModelDeployment>).servingUri;delete (jsonObj as Partial<ModelDeployment>).createdTime;delete (jsonObj as Partial<ModelDeployment>).updatedTime;delete (jsonObj as Partial<ModelDeployment>).createdBy;delete (jsonObj as Partial<ModelDeployment>).updatedBy;
         
         return jsonObj;
     }
@@ -163,6 +170,8 @@ export namespace ModelDeployment {
                 
                  : undefined,
 
+
+                'computeDeploymentId': (obj as any)["compute_deployment_id"],
 
 
                 'activatedTime': (obj as any)["activated_time"],
@@ -191,7 +200,7 @@ export namespace ModelDeployment {
                 model.DeploymentOAuthDetails.getDeserializedJsonObj(obj.authDetails) : undefined,
          }};
 
-        delete (jsonObj as any)["deployment_id"];delete (jsonObj as any)["model_name"];delete (jsonObj as any)["deployment_targets"];delete (jsonObj as any)["activated_time"];delete (jsonObj as any)["activated_by"];delete (jsonObj as any)["serving_uri"];delete (jsonObj as any)["created_time"];delete (jsonObj as any)["updated_time"];delete (jsonObj as any)["created_by"];delete (jsonObj as any)["updated_by"];
+        delete (jsonObj as any)["deployment_id"];delete (jsonObj as any)["model_name"];delete (jsonObj as any)["deployment_targets"];delete (jsonObj as any)["compute_deployment_id"];delete (jsonObj as any)["activated_time"];delete (jsonObj as any)["activated_by"];delete (jsonObj as any)["serving_uri"];delete (jsonObj as any)["created_time"];delete (jsonObj as any)["updated_time"];delete (jsonObj as any)["created_by"];delete (jsonObj as any)["updated_by"];
         
         return jsonObj;
     }

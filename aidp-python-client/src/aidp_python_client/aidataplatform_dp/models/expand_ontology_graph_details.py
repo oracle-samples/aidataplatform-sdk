@@ -51,7 +51,6 @@ class ExpandOntologyGraphDetails(object):
             'relationship_types': 'list[str]',
             'limit': 'int'
         }
-
         self.attribute_map = {
             'project_id': 'projectId',
             'start_node_id': 'startNodeId',
@@ -60,7 +59,6 @@ class ExpandOntologyGraphDetails(object):
             'relationship_types': 'relationshipTypes',
             'limit': 'limit'
         }
-
         self._project_id = None
         self._start_node_id = None
         self._direction = None

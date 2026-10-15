@@ -35,11 +35,9 @@ class ExportContentsDetails(object):
         self.swagger_types = {
             'format': 'str'
         }
-
         self.attribute_map = {
             'format': 'format'
         }
-
         self._format = None
 
     @property
@@ -69,8 +67,7 @@ class ExportContentsDetails(object):
         allowed_values = ["ipynb", "html"]
         if not value_allowed_none_or_none_sentinel(format, allowed_values):
             raise ValueError(
-                "Invalid value for `format`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `format`, must be None or one of {allowed_values}"
             )
         self._format = format
 

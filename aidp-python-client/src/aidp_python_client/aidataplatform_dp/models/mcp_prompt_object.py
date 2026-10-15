@@ -43,14 +43,12 @@ class McpPromptObject(McpObject):
             'description': 'str',
             'prompt': 'str'
         }
-
         self.attribute_map = {
             'object_type': 'objectType',
             'name': 'name',
             'description': 'description',
             'prompt': 'prompt'
         }
-
         self._object_type = None
         self._name = None
         self._description = None

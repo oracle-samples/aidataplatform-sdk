@@ -36,13 +36,11 @@ class OntologyGraphTreeContextPathItem(object):
             'type': 'str',
             'display_name': 'str'
         }
-
         self.attribute_map = {
             'uid': 'uid',
             'type': 'type',
             'display_name': 'displayName'
         }
-
         self._uid = None
         self._type = None
         self._display_name = None

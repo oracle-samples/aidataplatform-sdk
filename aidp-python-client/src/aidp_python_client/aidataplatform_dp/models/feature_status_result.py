@@ -26,11 +26,9 @@ class FeatureStatusResult(object):
         self.swagger_types = {
             'feature': 'Feature'
         }
-
         self.attribute_map = {
             'feature': 'feature'
         }
-
         self._feature = None
 
     @property

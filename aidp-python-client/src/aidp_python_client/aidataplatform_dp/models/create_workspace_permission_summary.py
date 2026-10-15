@@ -50,13 +50,11 @@ class CreateWorkspacePermissionSummary(object):
             'grantee_name': 'str',
             'grantee_type': 'str'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
             'grantee_type': 'granteeType'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None

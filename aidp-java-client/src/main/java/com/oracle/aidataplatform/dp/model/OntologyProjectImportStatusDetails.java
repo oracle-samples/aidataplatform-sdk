@@ -12,13 +12,14 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OntologyProjectImportStatusDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"totalFileCount", "parsedFileCount", "processedFileCount", "errorMessage"})
-    public OntologyProjectImportStatusDetails(Integer totalFileCount, Integer parsedFileCount, Integer processedFileCount, String errorMessage) {
+    @java.beans.ConstructorProperties({"totalFileCount", "parsedFileCount", "processedFileCount", "errorMessage", "discoveryJob"})
+    public OntologyProjectImportStatusDetails(Integer totalFileCount, Integer parsedFileCount, Integer processedFileCount, String errorMessage, OntologyDiscoveryJob discoveryJob) {
         super();
         this.totalFileCount = totalFileCount;
         this.parsedFileCount = parsedFileCount;
         this.processedFileCount = processedFileCount;
         this.errorMessage = errorMessage;
+        this.discoveryJob = discoveryJob;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -95,13 +96,24 @@ public Builder errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("discoveryJob")
+private OntologyDiscoveryJob discoveryJob;
+
+
+
+public Builder discoveryJob(OntologyDiscoveryJob discoveryJob) {
+    this.discoveryJob = discoveryJob;
+    return this;
+}
 
 
         public OntologyProjectImportStatusDetails build() {
             OntologyProjectImportStatusDetails model = new OntologyProjectImportStatusDetails(this.totalFileCount
                 , this.parsedFileCount
                 , this.processedFileCount
-                , this.errorMessage);            return model;
+                , this.errorMessage
+                , this.discoveryJob);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -110,6 +122,7 @@ public Builder errorMessage(String errorMessage) {
     this.parsedFileCount(model.getParsedFileCount());
     this.processedFileCount(model.getProcessedFileCount());
     this.errorMessage(model.getErrorMessage());
+    this.discoveryJob(model.getDiscoveryJob());
 return this;
         }
     }
@@ -196,6 +209,16 @@ return this;
         return errorMessage;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("discoveryJob")
+    private final OntologyDiscoveryJob discoveryJob;
+
+    
+    public OntologyDiscoveryJob getDiscoveryJob() {
+        return discoveryJob;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -213,6 +236,7 @@ return this;
         sb.append(", parsedFileCount=").append(String.valueOf(this.parsedFileCount));
         sb.append(", processedFileCount=").append(String.valueOf(this.processedFileCount));
         sb.append(", errorMessage=").append(String.valueOf(this.errorMessage));
+        sb.append(", discoveryJob=").append(String.valueOf(this.discoveryJob));
         sb.append(")");
         return sb.toString();
     }
@@ -230,7 +254,8 @@ return this;
         return java.util.Objects.equals(this.totalFileCount, other.totalFileCount) &&
             java.util.Objects.equals(this.parsedFileCount, other.parsedFileCount) &&
             java.util.Objects.equals(this.processedFileCount, other.processedFileCount) &&
-            java.util.Objects.equals(this.errorMessage, other.errorMessage);
+            java.util.Objects.equals(this.errorMessage, other.errorMessage) &&
+            java.util.Objects.equals(this.discoveryJob, other.discoveryJob);
     }
 
     @Override
@@ -241,6 +266,7 @@ return this;
         result = (result * PRIME) + (this.parsedFileCount == null ? 43 : this.parsedFileCount.hashCode());
         result = (result * PRIME) + (this.processedFileCount == null ? 43 : this.processedFileCount.hashCode());
         result = (result * PRIME) + (this.errorMessage == null ? 43 : this.errorMessage.hashCode());
+        result = (result * PRIME) + (this.discoveryJob == null ? 43 : this.discoveryJob.hashCode());
         return result;
     }
 

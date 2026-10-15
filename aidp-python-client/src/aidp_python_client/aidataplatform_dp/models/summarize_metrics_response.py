@@ -26,11 +26,9 @@ class SummarizeMetricsResponse(object):
         self.swagger_types = {
             'results': 'list[MetricsSummary]'
         }
-
         self.attribute_map = {
             'results': 'results'
         }
-
         self._results = None
 
     @property

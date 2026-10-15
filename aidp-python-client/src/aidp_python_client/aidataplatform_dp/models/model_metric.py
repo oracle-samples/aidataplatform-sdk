@@ -41,14 +41,12 @@ class ModelMetric(object):
             'timestamp': 'int',
             'step': 'int'
         }
-
         self.attribute_map = {
             'key': 'key',
             'value': 'value',
             'timestamp': 'timestamp',
             'step': 'step'
         }
-
         self._key = None
         self._value = None
         self._timestamp = None

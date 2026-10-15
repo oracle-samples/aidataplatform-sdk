@@ -36,13 +36,11 @@ class LogGroup(object):
             'group_name': 'str',
             'log_name': 'str'
         }
-
         self.attribute_map = {
             'compartment_id': 'compartmentId',
             'group_name': 'groupName',
             'log_name': 'logName'
         }
-
         self._compartment_id = None
         self._group_name = None
         self._log_name = None

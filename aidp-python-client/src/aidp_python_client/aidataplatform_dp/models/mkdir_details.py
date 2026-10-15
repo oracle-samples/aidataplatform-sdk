@@ -31,12 +31,10 @@ class MkdirDetails(object):
             'path': 'str',
             'description': 'str'
         }
-
         self.attribute_map = {
             'path': 'path',
             'description': 'description'
         }
-
         self._path = None
         self._description = None
 

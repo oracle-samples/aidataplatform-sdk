@@ -46,7 +46,6 @@ class PublishOntologyProjectDetails(object):
             'comment': 'str',
             'target_connection': 'OntologyPublishTargetConnectionReference'
         }
-
         self.attribute_map = {
             'workspace_id': 'workspaceId',
             'project_name': 'projectName',
@@ -54,7 +53,6 @@ class PublishOntologyProjectDetails(object):
             'comment': 'comment',
             'target_connection': 'targetConnection'
         }
-
         self._workspace_id = None
         self._project_name = None
         self._ontology_name = None

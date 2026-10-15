@@ -26,11 +26,9 @@ class Queue(object):
         self.swagger_types = {
             'is_enabled': 'bool'
         }
-
         self.attribute_map = {
             'is_enabled': 'isEnabled'
         }
-
         self._is_enabled = None
 
     @property

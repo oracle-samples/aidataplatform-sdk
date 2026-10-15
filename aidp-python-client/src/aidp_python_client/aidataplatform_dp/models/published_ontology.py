@@ -86,7 +86,6 @@ class PublishedOntology(object):
             'time_published': 'datetime',
             'published_by': 'str'
         }
-
         self.attribute_map = {
             'project_id': 'projectId',
             'workspace_id': 'workspaceId',
@@ -102,7 +101,6 @@ class PublishedOntology(object):
             'time_published': 'timePublished',
             'published_by': 'publishedBy'
         }
-
         self._project_id = None
         self._workspace_id = None
         self._project_key = None

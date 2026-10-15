@@ -26,11 +26,9 @@ class FetchOutputDetails(object):
         self.swagger_types = {
             'output_key': 'str'
         }
-
         self.attribute_map = {
             'output_key': 'outputKey'
         }
-
         self._output_key = None
 
     @property

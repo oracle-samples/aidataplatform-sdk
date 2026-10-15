@@ -155,14 +155,14 @@ public Builder message(String message) {
     return this;
 }
             /**
-     * Details on the status, if it is not SUCCESS.
+     * Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("status_message")
 private String statusMessage;
 
         /**
-         * Details on the status, if it is not SUCCESS.
+         * Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
          * @param statusMessage the value to set
          * @return this builder
          **/
@@ -346,14 +346,14 @@ return this;
 
 
         /**
-     * Details on the status, if it is not SUCCESS.
+     * Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("status_message")
     private final String statusMessage;
 
         /**
-     * Details on the status, if it is not SUCCESS.
+     * Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
      * @return the value
      **/
     

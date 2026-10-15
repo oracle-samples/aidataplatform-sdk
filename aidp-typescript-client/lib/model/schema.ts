@@ -100,20 +100,12 @@ export namespace Schema {
         
         if (obj && "entityType" in obj && obj.entityType) {
             switch (obj.entityType) {
-                case "ORACLE":
-                    return model.OracleSchema.getJsonObj(<model.OracleSchema>(<object>jsonObj), true);
-                case "ALH":
-                    return model.AlhSchema.getJsonObj(<model.AlhSchema>(<object>jsonObj), true);
-                case "ADW":
-                    return model.AdwSchema.getJsonObj(<model.AdwSchema>(<object>jsonObj), true);
                 case "KAFKA_TOPIC":
                     return model.KafkaTopicSchema.getJsonObj(<model.KafkaTopicSchema>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureSchema.getJsonObj(<model.SqlServerOnAzureSchema>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeSchema.getJsonObj(<model.SnowflakeSchema>(<object>jsonObj), true);
-                case "ATP":
-                    return model.AtpSchema.getJsonObj(<model.AtpSchema>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlSchema.getJsonObj(<model.MysqlSchema>(<object>jsonObj), true);
                 case "STANDARD":
@@ -122,8 +114,18 @@ export namespace Schema {
                     return model.Db2Schema.getJsonObj(<model.Db2Schema>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchema.getJsonObj(<model.OacSchema>(<object>jsonObj), true);
+                case "ORACLE":
+                    return model.OracleSchema.getJsonObj(<model.OracleSchema>(<object>jsonObj), true);
+                case "ALH":
+                    return model.AlhSchema.getJsonObj(<model.AlhSchema>(<object>jsonObj), true);
+                case "ADW":
+                    return model.AdwSchema.getJsonObj(<model.AdwSchema>(<object>jsonObj), true);
+                case "ATP":
+                    return model.AtpSchema.getJsonObj(<model.AtpSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchema.getJsonObj(<model.GoogleBigquerySchema>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -153,20 +155,12 @@ export namespace Schema {
         
         if (obj && "entityType" in obj && obj.entityType) {
             switch (obj.entityType) {
-                case "ORACLE":
-                    return model.OracleSchema.getDeserializedJsonObj(<model.OracleSchema>(<object>jsonObj), true);
-                case "ALH":
-                    return model.AlhSchema.getDeserializedJsonObj(<model.AlhSchema>(<object>jsonObj), true);
-                case "ADW":
-                    return model.AdwSchema.getDeserializedJsonObj(<model.AdwSchema>(<object>jsonObj), true);
                 case "KAFKA_TOPIC":
                     return model.KafkaTopicSchema.getDeserializedJsonObj(<model.KafkaTopicSchema>(<object>jsonObj), true);
                 case "AZURE_SQLSERVER":
                     return model.SqlServerOnAzureSchema.getDeserializedJsonObj(<model.SqlServerOnAzureSchema>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeSchema.getDeserializedJsonObj(<model.SnowflakeSchema>(<object>jsonObj), true);
-                case "ATP":
-                    return model.AtpSchema.getDeserializedJsonObj(<model.AtpSchema>(<object>jsonObj), true);
                 case "MYSQL":
                     return model.MysqlSchema.getDeserializedJsonObj(<model.MysqlSchema>(<object>jsonObj), true);
                 case "STANDARD":
@@ -175,8 +169,18 @@ export namespace Schema {
                     return model.Db2Schema.getDeserializedJsonObj(<model.Db2Schema>(<object>jsonObj), true);
                 case "ORACLE_ANALYTICS":
                     return model.OacSchema.getDeserializedJsonObj(<model.OacSchema>(<object>jsonObj), true);
+                case "ORACLE":
+                    return model.OracleSchema.getDeserializedJsonObj(<model.OracleSchema>(<object>jsonObj), true);
+                case "ALH":
+                    return model.AlhSchema.getDeserializedJsonObj(<model.AlhSchema>(<object>jsonObj), true);
+                case "ADW":
+                    return model.AdwSchema.getDeserializedJsonObj(<model.AdwSchema>(<object>jsonObj), true);
+                case "ATP":
+                    return model.AtpSchema.getDeserializedJsonObj(<model.AtpSchema>(<object>jsonObj), true);
                 case "EXADATA":
                     return model.ExadataSchema.getDeserializedJsonObj(<model.ExadataSchema>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchema.getDeserializedJsonObj(<model.GoogleBigquerySchema>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

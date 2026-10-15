@@ -61,7 +61,6 @@ class CustomToolConfiguration(object):
             'tool_provider': 'str',
             'tools': 'list[CustomToolEntry]'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -72,7 +71,6 @@ class CustomToolConfiguration(object):
             'tool_provider': 'toolProvider',
             'tools': 'tools'
         }
-
         self._display_name = None
         self._description = None
         self._version = None

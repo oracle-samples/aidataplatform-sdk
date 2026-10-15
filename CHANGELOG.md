@@ -3,6 +3,33 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [5.1.0] - 2026-10-15
+
+### Added
+
+- Support for `AccessGrantedFor` in the Lake Authorization service. Evaluate subject access through Lakeproxy.
+- Support for `CreatePrivateNetworkProfile` in the Private Network Profile service. Create a private network profile.
+- Support for `DeletePrivateNetworkProfile` in the Private Network Profile service. Delete a private network profile.
+- Support for `ExportModelDeploymentInferences` in the ML Ops service. (Preview) Export model deployment inferences to a Volume.
+- Support for `GetDeploymentLog` in the ML Ops service. (Preview) Get one deployment log event.
+- Support for `GetModelDeploymentInferenceDetails` in the ML Ops service. (Preview) Get model deployment inference details.
+- Support for `GetModelDeploymentInferenceSummary` in the ML Ops service. (Preview) Get model deployment inference summary.
+- Support for `GetPrivateNetworkProfile` in the Private Network Profile service. Get a private network profile.
+- Support for `ListPrivateNetworkProfiles` in the Private Network Profile service.
+- Support for `ListRegisteredModelPermissions` in the ML Ops service. (Preview) List registered model permissions.
+- Support for `ManageRegisteredModelPermission` in the ML Ops service. (Preview) Manage registered model permission.
+- Support for `SearchDeploymentLogs` in the ML Ops service. (Preview) Search deployment lifecycle logs.
+- Support for `SearchModelDeploymentInferences` in the ML Ops service. (Preview) Search model deployment inferences.
+- Support for `UpdatePrivateNetworkProfile` in the Private Network Profile service. Update a private network profile.
+
+### Changed
+
+- The method `UpdateGitRepository` in the Git service changed: (Preview) Update Git repository metadata.
+  - Added: response code: `202`
+  - **Breaking:** Removed: response code: `204`
+- The method `ValidateAgent` in the Agent service changed: Validate agent diagram.
+  - Added: response code: `403`
+
 ## [5.0.0] - 2026-09-25
 
 ### Added

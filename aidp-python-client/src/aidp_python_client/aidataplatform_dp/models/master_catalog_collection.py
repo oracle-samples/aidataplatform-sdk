@@ -26,11 +26,9 @@ class MasterCatalogCollection(object):
         self.swagger_types = {
             'items': 'list[MasterCatalogSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

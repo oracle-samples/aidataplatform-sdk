@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details needed to reset the current branch for a folder context.
+ * Request details for resetting a workspace Git repository.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitResetDetails.Builder.class)
@@ -24,14 +24,18 @@ public final class GitResetDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * Folder path used to locate the Git worktree.
+         * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -42,14 +46,20 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * The name of the Git branch.
+     * Remote branch whose origin reference is the reset target. Current execution
+* requires a target branch; the stored repository branch is the branch being
+* reset and force-pushed.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the Git branch.
+         * Remote branch whose origin reference is the reset target. Current execution
+* requires a target branch; the stored repository branch is the branch being
+* reset and force-pushed.
+* 
          * @param branchName the value to set
          * @return this builder
          **/
@@ -60,14 +70,18 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+     * Requested target commit identifier. The reset target is origin/{branchName};
+* the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("commitId")
 private String commitId;
 
         /**
-         * Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+         * Requested target commit identifier. The reset target is origin/{branchName};
+* the supplied value does not override it.
+* 
          * @param commitId the value to set
          * @return this builder
          **/
@@ -78,14 +92,18 @@ public Builder commitId(String commitId) {
     return this;
 }
             /**
-     * Reset mode requested.
+     * Requested reset mode. The effective mode is HARD regardless of the supplied
+* value, including SOFT or MIXED.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("resetMode")
 private ResetMode resetMode;
 
         /**
-         * Reset mode requested.
+         * Requested reset mode. The effective mode is HARD regardless of the supplied
+* value, including SOFT or MIXED.
+* 
          * @param resetMode the value to set
          * @return this builder
          **/
@@ -130,14 +148,18 @@ return this;
 
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -147,14 +169,20 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Remote branch whose origin reference is the reset target. Current execution
+* requires a target branch; the stored repository branch is the branch being
+* reset and force-pushed.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the Git branch.
+     * Remote branch whose origin reference is the reset target. Current execution
+* requires a target branch; the stored repository branch is the branch being
+* reset and force-pushed.
+* 
      * @return the value
      **/
     
@@ -164,14 +192,18 @@ return this;
 
 
         /**
-     * Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+     * Requested target commit identifier. The reset target is origin/{branchName};
+* the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("commitId")
     private final String commitId;
 
         /**
-     * Commit ID/ref to reset to. If omitted, server may default to HEAD~1 for soft reset flows.
+     * Requested target commit identifier. The reset target is origin/{branchName};
+* the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -180,7 +212,9 @@ return this;
     }
 
     /**
-     * Reset mode requested.
+     * Requested reset mode. The effective mode is HARD regardless of the supplied
+* value, including SOFT or MIXED.
+* 
      **/
     public enum ResetMode implements com.oracle.bmc.http.internal.BmcEnum {
         Soft("SOFT"),
@@ -219,14 +253,18 @@ return this;
         }
     };
         /**
-     * Reset mode requested.
+     * Requested reset mode. The effective mode is HARD regardless of the supplied
+* value, including SOFT or MIXED.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("resetMode")
     private final ResetMode resetMode;
 
         /**
-     * Reset mode requested.
+     * Requested reset mode. The effective mode is HARD regardless of the supplied
+* value, including SOFT or MIXED.
+* 
      * @return the value
      **/
     

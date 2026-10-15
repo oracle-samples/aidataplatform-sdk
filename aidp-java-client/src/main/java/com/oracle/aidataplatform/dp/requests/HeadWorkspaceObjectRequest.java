@@ -47,14 +47,18 @@ public class HeadWorkspaceObjectRequest extends com.oracle.bmc.requests.BmcReque
         return objectPath;
     }
         /**
-     * Path to list all metadata for a file or folder.
+     * Whether to include custom file or folder metadata. For HEAD requests,
+* metadata is returned as JSON in the file-metadata response header.
+* 
      */
     private Boolean shouldIncludeMetadata;
 
     
 
         /**
-     * Path to list all metadata for a file or folder.
+     * Whether to include custom file or folder metadata. For HEAD requests,
+* metadata is returned as JSON in the file-metadata response header.
+* 
      */
     public Boolean getShouldIncludeMetadata() {
         return shouldIncludeMetadata;
@@ -145,12 +149,16 @@ public class HeadWorkspaceObjectRequest extends com.oracle.bmc.requests.BmcReque
         }
 
             /**
-     * Path to list all metadata for a file or folder.
+     * Whether to include custom file or folder metadata. For HEAD requests,
+* metadata is returned as JSON in the file-metadata response header.
+* 
      */
         private Boolean shouldIncludeMetadata = null;
 
         /**
-         * Path to list all metadata for a file or folder.
+         * Whether to include custom file or folder metadata. For HEAD requests,
+* metadata is returned as JSON in the file-metadata response header.
+* 
          * @param shouldIncludeMetadata the value to set
          * @return this builder instance
          */

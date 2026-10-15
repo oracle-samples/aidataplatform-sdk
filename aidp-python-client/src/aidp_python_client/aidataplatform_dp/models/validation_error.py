@@ -41,14 +41,12 @@ class ValidationError(object):
             'name': 'str',
             'key': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'message': 'message',
             'name': 'name',
             'key': 'key'
         }
-
         self._type = None
         self._message = None
         self._name = None

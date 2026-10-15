@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aidp-python-client"
 dynamic = ["version"]
-dependencies = ["oci>=2.165.0,<3.0.0"]
+dependencies = ["oci>=2.183.0,<3.0.0"]
 requires-python = ">=3.9"
 description = "Python SDK to use Oracle AI Data Platform."
 readme = "README.md"

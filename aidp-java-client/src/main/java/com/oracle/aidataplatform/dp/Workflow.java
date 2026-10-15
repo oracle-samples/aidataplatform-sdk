@@ -239,7 +239,7 @@ public interface Workflow extends AutoCloseable {
     ManageJobPermissionResponse manageJobPermission(ManageJobPermissionRequest request);
     
     /**
-     * Repairs and reruns a job run.
+     * Repairs and reruns a root job run. Nested job runs can be repaired only through their root job run repair plan.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
      * @throws BmcException when an error occurs.

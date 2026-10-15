@@ -66,6 +66,10 @@ class OntologyProjectStatus(object):
     STATUS_IMPORT_FAILED = "IMPORT_FAILED"
 
     #: A constant which can be used with the status property of a OntologyProjectStatus.
+    #: This constant has a value of "DISCOVERING"
+    STATUS_DISCOVERING = "DISCOVERING"
+
+    #: A constant which can be used with the status property of a OntologyProjectStatus.
     #: This constant has a value of "ARCHIVED"
     STATUS_ARCHIVED = "ARCHIVED"
 
@@ -108,7 +112,7 @@ class OntologyProjectStatus(object):
 
         :param status:
             The value to assign to the status property of this OntologyProjectStatus.
-            Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "ARCHIVED"
+            Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "DISCOVERING", "ARCHIVED"
         :type status: str
 
         :param comment:
@@ -143,6 +147,10 @@ class OntologyProjectStatus(object):
             The value to assign to the time_updated property of this OntologyProjectStatus.
         :type time_updated: datetime
 
+        :param published_by:
+            The value to assign to the published_by property of this OntologyProjectStatus.
+        :type published_by: str
+
         """
         self.swagger_types = {
             'status_id': 'str',
@@ -161,9 +169,9 @@ class OntologyProjectStatus(object):
             'error_message': 'str',
             'idempotency_key': 'str',
             'time_created': 'datetime',
-            'time_updated': 'datetime'
+            'time_updated': 'datetime',
+            'published_by': 'str'
         }
-
         self.attribute_map = {
             'status_id': 'statusId',
             'project_id': 'projectId',
@@ -181,9 +189,9 @@ class OntologyProjectStatus(object):
             'error_message': 'errorMessage',
             'idempotency_key': 'idempotencyKey',
             'time_created': 'timeCreated',
-            'time_updated': 'timeUpdated'
+            'time_updated': 'timeUpdated',
+            'published_by': 'publishedBy'
         }
-
         self._status_id = None
         self._project_id = None
         self._project_version = None
@@ -201,6 +209,7 @@ class OntologyProjectStatus(object):
         self._idempotency_key = None
         self._time_created = None
         self._time_updated = None
+        self._published_by = None
 
     @property
     def status_id(self):
@@ -390,7 +399,7 @@ class OntologyProjectStatus(object):
     def status(self):
         """
         **[Required]** Gets the status of this OntologyProjectStatus.
-        Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "ARCHIVED"
+        Allowed values for this property are: "CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "DISCOVERING", "ARCHIVED"
 
 
         :return: The status of this OntologyProjectStatus.
@@ -406,11 +415,10 @@ class OntologyProjectStatus(object):
         :param status: The status of this OntologyProjectStatus.
         :type: str
         """
-        allowed_values = ["CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "ARCHIVED"]
+        allowed_values = ["CREATED", "UPDATED", "VALIDATING", "VALIDATION_FAILED", "PUBLISHING", "PUBLISHED", "PUBLISH_FAILED", "UNPUBLISHING", "UNPUBLISHED", "UNPUBLISH_FAILED", "IMPORTING", "IMPORTED", "IMPORT_FAILED", "DISCOVERING", "ARCHIVED"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `status`, must be None or one of {allowed_values}"
             )
         self._status = status
 
@@ -577,6 +585,30 @@ class OntologyProjectStatus(object):
         :type: datetime
         """
         self._time_updated = time_updated
+
+    @property
+    def published_by(self):
+        """
+        Gets the published_by of this OntologyProjectStatus.
+        Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+
+
+        :return: The published_by of this OntologyProjectStatus.
+        :rtype: str
+        """
+        return self._published_by
+
+    @published_by.setter
+    def published_by(self, published_by):
+        """
+        Sets the published_by of this OntologyProjectStatus.
+        Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+
+
+        :param published_by: The published_by of this OntologyProjectStatus.
+        :type: str
+        """
+        self._published_by = published_by
 
     def __repr__(self):
         return formatted_flat_dict(self)

@@ -41,14 +41,12 @@ class OntologyGraphPreviewEdge(object):
             'source_id': 'str',
             'target_id': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'label': 'label',
             'source_id': 'sourceId',
             'target_id': 'targetId'
         }
-
         self._id = None
         self._label = None
         self._source_id = None

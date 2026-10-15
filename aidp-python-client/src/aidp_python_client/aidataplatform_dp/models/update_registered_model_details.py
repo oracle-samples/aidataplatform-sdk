@@ -36,13 +36,11 @@ class UpdateRegisteredModelDetails(object):
             'description': 'str',
             'deployment_job_id': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
             'deployment_job_id': 'deployment_job_id'
         }
-
         self._name = None
         self._description = None
         self._deployment_job_id = None

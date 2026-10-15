@@ -31,12 +31,10 @@ class EntityLineage(object):
             'nodes': 'list[LineageObject]',
             'links': 'list[LineageRelationship]'
         }
-
         self.attribute_map = {
             'nodes': 'nodes',
             'links': 'links'
         }
-
         self._nodes = None
         self._links = None
 

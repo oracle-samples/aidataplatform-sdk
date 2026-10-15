@@ -103,7 +103,6 @@ class ModelDeploymentSummary(object):
             'updated_time': 'str',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'deployment_id': 'deployment_id',
             'name': 'name',
@@ -118,7 +117,6 @@ class ModelDeploymentSummary(object):
             'updated_time': 'updated_time',
             'updated_by': 'updated_by'
         }
-
         self._deployment_id = None
         self._name = None
         self._description = None

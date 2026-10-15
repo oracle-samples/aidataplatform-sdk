@@ -95,7 +95,6 @@ class ToolSummary(object):
             'created_by': 'str',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -107,7 +106,6 @@ class ToolSummary(object):
             'created_by': 'createdBy',
             'updated_by': 'updatedBy'
         }
-
         self._key = None
         self._display_name = None
         self._tool_type = None
@@ -193,8 +191,7 @@ class ToolSummary(object):
         allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
-                "Invalid value for `tool_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `tool_type`, must be None or one of {allowed_values}"
             )
         self._tool_type = tool_type
 

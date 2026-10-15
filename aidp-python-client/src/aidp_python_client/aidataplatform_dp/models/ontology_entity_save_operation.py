@@ -56,7 +56,6 @@ class OntologyEntitySaveOperation(object):
             'value': 'object',
             'patches': 'list[OntologyEntityPatchOperation]'
         }
-
         self.attribute_map = {
             'op_id': 'opId',
             'op': 'op',
@@ -66,7 +65,6 @@ class OntologyEntitySaveOperation(object):
             'value': 'value',
             'patches': 'patches'
         }
-
         self._op_id = None
         self._op = None
         self._entity_type = None

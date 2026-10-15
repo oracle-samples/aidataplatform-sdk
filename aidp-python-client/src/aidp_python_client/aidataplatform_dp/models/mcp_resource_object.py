@@ -43,14 +43,12 @@ class McpResourceObject(McpObject):
             'description': 'str',
             'resource_schema': 'str'
         }
-
         self.attribute_map = {
             'object_type': 'objectType',
             'name': 'name',
             'description': 'description',
             'resource_schema': 'resourceSchema'
         }
-
         self._object_type = None
         self._name = None
         self._description = None

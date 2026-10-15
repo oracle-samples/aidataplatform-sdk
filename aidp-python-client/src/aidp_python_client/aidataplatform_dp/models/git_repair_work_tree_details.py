@@ -31,12 +31,10 @@ class GitRepairWorkTreeDetails(object):
             'git_folder_path': 'str',
             'branch_name': 'str'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'branch_name': 'branchName'
         }
-
         self._git_folder_path = None
         self._branch_name = None
 

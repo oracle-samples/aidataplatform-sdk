@@ -33,12 +33,10 @@ class SqlTestToolResult(TestToolResult):
             'tool_type': 'str',
             'result': 'SqlResult'
         }
-
         self.attribute_map = {
             'tool_type': 'toolType',
             'result': 'result'
         }
-
         self._tool_type = None
         self._result = None
         self._tool_type = 'SQL'

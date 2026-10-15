@@ -92,7 +92,6 @@ class DeploymentActivitySummary(object):
             'user': 'str',
             'deployment_details': 'DeploymentDetailsSummary'
         }
-
         self.attribute_map = {
             'activity_id': 'activity_id',
             'operation_type': 'operation_type',
@@ -102,7 +101,6 @@ class DeploymentActivitySummary(object):
             'user': 'user',
             'deployment_details': 'deployment_details'
         }
-
         self._activity_id = None
         self._operation_type = None
         self._status = None

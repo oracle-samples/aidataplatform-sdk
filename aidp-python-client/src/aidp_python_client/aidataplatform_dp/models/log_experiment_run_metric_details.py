@@ -46,7 +46,6 @@ class LogExperimentRunMetricDetails(object):
             'timestamp': 'int',
             'step': 'int'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'key': 'key',
@@ -54,7 +53,6 @@ class LogExperimentRunMetricDetails(object):
             'timestamp': 'timestamp',
             'step': 'step'
         }
-
         self._run_id = None
         self._key = None
         self._value = None

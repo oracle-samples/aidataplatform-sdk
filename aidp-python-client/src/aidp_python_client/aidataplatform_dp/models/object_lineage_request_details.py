@@ -78,7 +78,6 @@ class ObjectLineageRequestDetails(object):
             'path_filters': 'PathFilterObject',
             'should_include_edges': 'bool'
         }
-
         self.attribute_map = {
             'anchor_node': 'anchorNode',
             'max_depth': 'maxDepth',
@@ -88,7 +87,6 @@ class ObjectLineageRequestDetails(object):
             'path_filters': 'pathFilters',
             'should_include_edges': 'shouldIncludeEdges'
         }
-
         self._anchor_node = None
         self._max_depth = None
         self._level = None
@@ -172,8 +170,7 @@ class ObjectLineageRequestDetails(object):
         allowed_values = ["ENTITY", "COLUMN"]
         if not value_allowed_none_or_none_sentinel(level, allowed_values):
             raise ValueError(
-                "Invalid value for `level`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `level`, must be None or one of {allowed_values}"
             )
         self._level = level
 
@@ -204,8 +201,7 @@ class ObjectLineageRequestDetails(object):
         allowed_values = ["UPSTREAM", "BOTH", "DOWNSTREAM"]
         if not value_allowed_none_or_none_sentinel(direction, allowed_values):
             raise ValueError(
-                "Invalid value for `direction`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `direction`, must be None or one of {allowed_values}"
             )
         self._direction = direction
 

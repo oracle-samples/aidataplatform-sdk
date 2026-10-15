@@ -18,6 +18,7 @@ public enum TableCatalogType implements com.oracle.bmc.http.internal.BmcEnum {
     Db2("DB2"),
     AzureSqlserver("AZURE_SQLSERVER"),
     Snowflake("SNOWFLAKE"),
+    GoogleBigquery("GOOGLE_BIGQUERY"),
     OracleAnalytics("ORACLE_ANALYTICS"),
     
 

@@ -41,14 +41,12 @@ class UpdateAgentSessionDetails(object):
             'time_ended': 'datetime',
             'context': 'AgentSessionContext'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'time_started': 'timeStarted',
             'time_ended': 'timeEnded',
             'context': 'context'
         }
-
         self._display_name = None
         self._time_started = None
         self._time_ended = None

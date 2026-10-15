@@ -26,6 +26,14 @@ class SessionConfiguration(object):
             The value to assign to the session_retention_config property of this SessionConfiguration.
         :type session_retention_config: oci.aidataplatform_dp.models.SessionRetentionConfiguration
 
+        :param automatic_summarization_config:
+            The value to assign to the automatic_summarization_config property of this SessionConfiguration.
+        :type automatic_summarization_config: oci.aidataplatform_dp.models.AutomaticSummarizationConfiguration
+
+        :param long_term_memory_config:
+            The value to assign to the long_term_memory_config property of this SessionConfiguration.
+        :type long_term_memory_config: oci.aidataplatform_dp.models.LongTermMemoryConfiguration
+
         :param file_config:
             The value to assign to the file_config property of this SessionConfiguration.
         :type file_config: oci.aidataplatform_dp.models.FileConfiguration
@@ -34,17 +42,21 @@ class SessionConfiguration(object):
         self.swagger_types = {
             'variables': 'dict(str, SessionVariableDetails)',
             'session_retention_config': 'SessionRetentionConfiguration',
+            'automatic_summarization_config': 'AutomaticSummarizationConfiguration',
+            'long_term_memory_config': 'LongTermMemoryConfiguration',
             'file_config': 'FileConfiguration'
         }
-
         self.attribute_map = {
             'variables': 'variables',
             'session_retention_config': 'sessionRetentionConfig',
+            'automatic_summarization_config': 'automaticSummarizationConfig',
+            'long_term_memory_config': 'longTermMemoryConfig',
             'file_config': 'fileConfig'
         }
-
         self._variables = None
         self._session_retention_config = None
+        self._automatic_summarization_config = None
+        self._long_term_memory_config = None
         self._file_config = None
 
     @property
@@ -90,6 +102,46 @@ class SessionConfiguration(object):
         :type: oci.aidataplatform_dp.models.SessionRetentionConfiguration
         """
         self._session_retention_config = session_retention_config
+
+    @property
+    def automatic_summarization_config(self):
+        """
+        Gets the automatic_summarization_config of this SessionConfiguration.
+
+        :return: The automatic_summarization_config of this SessionConfiguration.
+        :rtype: oci.aidataplatform_dp.models.AutomaticSummarizationConfiguration
+        """
+        return self._automatic_summarization_config
+
+    @automatic_summarization_config.setter
+    def automatic_summarization_config(self, automatic_summarization_config):
+        """
+        Sets the automatic_summarization_config of this SessionConfiguration.
+
+        :param automatic_summarization_config: The automatic_summarization_config of this SessionConfiguration.
+        :type: oci.aidataplatform_dp.models.AutomaticSummarizationConfiguration
+        """
+        self._automatic_summarization_config = automatic_summarization_config
+
+    @property
+    def long_term_memory_config(self):
+        """
+        Gets the long_term_memory_config of this SessionConfiguration.
+
+        :return: The long_term_memory_config of this SessionConfiguration.
+        :rtype: oci.aidataplatform_dp.models.LongTermMemoryConfiguration
+        """
+        return self._long_term_memory_config
+
+    @long_term_memory_config.setter
+    def long_term_memory_config(self, long_term_memory_config):
+        """
+        Sets the long_term_memory_config of this SessionConfiguration.
+
+        :param long_term_memory_config: The long_term_memory_config of this SessionConfiguration.
+        :type: oci.aidataplatform_dp.models.LongTermMemoryConfiguration
+        """
+        self._long_term_memory_config = long_term_memory_config
 
     @property
     def file_config(self):

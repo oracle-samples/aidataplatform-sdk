@@ -163,7 +163,6 @@ class DefaultCluster(Cluster):
             'log_group_id': 'str',
             'subscription': 'SubscriptionDetails'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -193,7 +192,6 @@ class DefaultCluster(Cluster):
             'log_group_id': 'logGroupId',
             'subscription': 'subscription'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

@@ -78,7 +78,6 @@ class WorkspaceObjectPermissionSummary(object):
             'grantee_permissions': 'list[str]',
             'is_permissions_inheritable': 'bool'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
@@ -86,7 +85,6 @@ class WorkspaceObjectPermissionSummary(object):
             'grantee_permissions': 'granteePermissions',
             'is_permissions_inheritable': 'isPermissionsInheritable'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None

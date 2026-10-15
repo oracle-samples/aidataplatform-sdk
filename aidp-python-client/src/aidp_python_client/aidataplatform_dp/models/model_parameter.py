@@ -31,12 +31,10 @@ class ModelParameter(object):
             'model_name': 'str',
             'model_parameters': 'ModelParameterResponse'
         }
-
         self.attribute_map = {
             'model_name': 'modelName',
             'model_parameters': 'modelParameters'
         }
-
         self._model_name = None
         self._model_parameters = None
 

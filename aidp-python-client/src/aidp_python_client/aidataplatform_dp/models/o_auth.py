@@ -3,7 +3,7 @@
 
 
 from .auth import Auth
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -48,7 +48,6 @@ class OAuth(Auth):
             'issuer_idp_endpoint': 'str',
             'scopes': 'list[str]'
         }
-
         self.attribute_map = {
             'auth_type': 'authType',
             'client_id': 'clientId',
@@ -56,7 +55,9 @@ class OAuth(Auth):
             'issuer_idp_endpoint': 'issuerIdpEndpoint',
             'scopes': 'scopes'
         }
-
+        self._redacted_field_paths = [
+            ['client_secret'],
+        ]
         self._auth_type = None
         self._client_id = None
         self._client_secret = None
@@ -161,7 +162,9 @@ class OAuth(Auth):
         self._scopes = scopes
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['client_secret'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

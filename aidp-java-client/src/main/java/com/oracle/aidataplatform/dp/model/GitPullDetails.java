@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Pull remote changes for the given branch context (supports continue/abort during merge).
+ * Request details for pulling changes into a workspace Git repository.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitPullDetails.Builder.class)
@@ -25,14 +25,18 @@ public final class GitPullDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * Folder path used to locate the Git worktree.
+         * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -43,14 +47,18 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * The name of the Git branch.
+     * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the Git branch.
+         * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param branchName the value to set
          * @return this builder
          **/
@@ -61,14 +69,18 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * Remote branch to pull from. Defaults to branchName if not provided.
+     * Requested remote branch name. The pull source is origin for the stored
+* repository branch; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("remoteBranchName")
 private String remoteBranchName;
 
         /**
-         * Remote branch to pull from. Defaults to branchName if not provided.
+         * Requested remote branch name. The pull source is origin for the stored
+* repository branch; the supplied value does not override it.
+* 
          * @param remoteBranchName the value to set
          * @return this builder
          **/
@@ -79,14 +91,18 @@ public Builder remoteBranchName(String remoteBranchName) {
     return this;
 }
             /**
-     * Pull behavior requested by the caller.
+     * Requested pull action. The effective action is PULL regardless of the supplied
+* value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("pullAction")
 private PullAction pullAction;
 
         /**
-         * Pull behavior requested by the caller.
+         * Requested pull action. The effective action is PULL regardless of the supplied
+* value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
+* 
          * @param pullAction the value to set
          * @return this builder
          **/
@@ -97,14 +113,18 @@ public Builder pullAction(PullAction pullAction) {
     return this;
 }
             /**
-     * Commit message used only when pullAction is MERGE_CONTINUE.
+     * Requested merge-continuation commit message. The supplied value has no effect,
+* including when pullAction is MERGE_CONTINUE.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("commitMessage")
 private String commitMessage;
 
         /**
-         * Commit message used only when pullAction is MERGE_CONTINUE.
+         * Requested merge-continuation commit message. The supplied value has no effect,
+* including when pullAction is MERGE_CONTINUE.
+* 
          * @param commitMessage the value to set
          * @return this builder
          **/
@@ -151,14 +171,18 @@ return this;
 
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -168,14 +192,18 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the Git branch.
+     * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -185,14 +213,18 @@ return this;
 
 
         /**
-     * Remote branch to pull from. Defaults to branchName if not provided.
+     * Requested remote branch name. The pull source is origin for the stored
+* repository branch; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("remoteBranchName")
     private final String remoteBranchName;
 
         /**
-     * Remote branch to pull from. Defaults to branchName if not provided.
+     * Requested remote branch name. The pull source is origin for the stored
+* repository branch; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -201,7 +233,9 @@ return this;
     }
 
     /**
-     * Pull behavior requested by the caller.
+     * Requested pull action. The effective action is PULL regardless of the supplied
+* value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
+* 
      **/
     public enum PullAction implements com.oracle.bmc.http.internal.BmcEnum {
         Pull("PULL"),
@@ -240,14 +274,18 @@ return this;
         }
     };
         /**
-     * Pull behavior requested by the caller.
+     * Requested pull action. The effective action is PULL regardless of the supplied
+* value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("pullAction")
     private final PullAction pullAction;
 
         /**
-     * Pull behavior requested by the caller.
+     * Requested pull action. The effective action is PULL regardless of the supplied
+* value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
+* 
      * @return the value
      **/
     
@@ -257,14 +295,18 @@ return this;
 
 
         /**
-     * Commit message used only when pullAction is MERGE_CONTINUE.
+     * Requested merge-continuation commit message. The supplied value has no effect,
+* including when pullAction is MERGE_CONTINUE.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("commitMessage")
     private final String commitMessage;
 
         /**
-     * Commit message used only when pullAction is MERGE_CONTINUE.
+     * Requested merge-continuation commit message. The supplied value has no effect,
+* including when pullAction is MERGE_CONTINUE.
+* 
      * @return the value
      **/
     

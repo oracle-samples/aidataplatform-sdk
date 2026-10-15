@@ -31,12 +31,10 @@ class DeploymentDetailsSummary(object):
             'model_name': 'str',
             'deployment_targets': 'list[DeploymentTarget]'
         }
-
         self.attribute_map = {
             'model_name': 'model_name',
             'deployment_targets': 'deployment_targets'
         }
-
         self._model_name = None
         self._deployment_targets = None
 

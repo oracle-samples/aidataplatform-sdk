@@ -31,12 +31,10 @@ class AnchorColumnLink(object):
             'scoped_column_id': 'str',
             'anchor_column_id': 'str'
         }
-
         self.attribute_map = {
             'scoped_column_id': 'scopedColumnId',
             'anchor_column_id': 'anchorColumnId'
         }
-
         self._scoped_column_id = None
         self._anchor_column_id = None
 

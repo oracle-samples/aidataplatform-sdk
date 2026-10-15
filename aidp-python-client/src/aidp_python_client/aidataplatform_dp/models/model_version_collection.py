@@ -31,12 +31,10 @@ class ModelVersionCollection(object):
             'model_versions': 'list[ModelVersion]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'model_versions': 'model_versions',
             'next_page_token': 'next_page_token'
         }
-
         self._model_versions = None
         self._next_page_token = None
 

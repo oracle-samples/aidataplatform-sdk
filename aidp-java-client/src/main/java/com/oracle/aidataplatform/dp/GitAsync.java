@@ -58,7 +58,10 @@ public interface GitAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * (Preview) Checks out a remote branch into the specified workspace folder, ensuring the worktree tracks the requested branch HEAD.
+     * (Preview) Asynchronously checks out the requested branch in the workspace Git
+* folder. Checkout normally resets the local branch to origin/{branchName}, with a
+* local-branch fallback. The aidp-async-operation-key response header identifies
+* the job; its SUCCEEDED status confirms completion.
 * 
      * 
      * @param request The request object containing the details to send
@@ -71,7 +74,11 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<CheckoutBranchResponse> checkoutBranch(CheckoutBranchRequest request, com.oracle.bmc.responses.AsyncHandler<CheckoutBranchRequest, CheckoutBranchResponse> handler);
     
     /**
-     * (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
+     * (Preview) Asynchronously commits and pushes the stored repository branch. For
+* normal commits, omitting files stages all local changes. After conflicts are
+* resolved, completes a merge or continues a rebase; rebase continuation
+* force-pushes. The aidp-async-operation-key response header identifies the job;
+* its SUCCEEDED status confirms completion.
 * 
      * 
      * @param request The request object containing the details to send
@@ -84,7 +91,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<CommitPushGitRepositoryResponse> commitPushGitRepository(CommitPushGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<CommitPushGitRepositoryRequest, CommitPushGitRepositoryResponse> handler);
     
     /**
-     * (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
+     * (Preview) Asynchronously creates a branch from the current HEAD, checks it out
+* in the stored Git folder, and pushes it to origin. The aidp-async-operation-key
+* response header identifies the job; its SUCCEEDED status confirms completion.
 * 
      * 
      * @param request The request object containing the details to send
@@ -97,7 +106,8 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<CreateGitBranchResponse> createGitBranch(CreateGitBranchRequest request, com.oracle.bmc.responses.AsyncHandler<CreateGitBranchRequest, CreateGitBranchResponse> handler);
     
     /**
-     * (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
+     * (Preview) Returns a local unified diff for a repository-relative file.
+* contextLines and maxPatchBytes are not currently applied by execution.
 * 
      * 
      * @param request The request object containing the details to send
@@ -110,7 +120,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<GetGitDiffDetailResponse> getGitDiffDetail(GetGitDiffDetailRequest request, com.oracle.bmc.responses.AsyncHandler<GetGitDiffDetailRequest, GetGitDiffDetailResponse> handler);
     
     /**
-     * (Preview) Returns the current Git worktree status\u2014including in-progress operations or detached HEAD indicators\u2014for the workspace folder.
+     * (Preview) Returns a snapshot of Git worktree operation state and readiness for
+* an optional operationName. CLEAN does not imply no local changes. This endpoint
+* does not report asynchronous job progress.
 * 
      * 
      * @param request The request object containing the details to send
@@ -123,7 +135,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<GetGitOperationStateResponse> getGitOperationState(GetGitOperationStateRequest request, com.oracle.bmc.responses.AsyncHandler<GetGitOperationStateRequest, GetGitOperationStateResponse> handler);
     
     /**
-     * (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
+     * (Preview) Returns stored repository URL, folder, branch, and connectivity
+* references. The authentication setting key is included only when
+* shouldIncludeCredentialKey=true.
 * 
      * 
      * @param request The request object containing the details to send
@@ -136,7 +150,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<GetGitRepositoryResponse> getGitRepository(GetGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<GetGitRepositoryRequest, GetGitRepositoryResponse> handler);
     
     /**
-     * (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
+     * (Preview) Lists branches on origin with pagination. Name filters and sort
+* controls are not currently applied. Page tokens become invalid if the branch
+* listing changes.
 * 
      * 
      * @param request The request object containing the details to send
@@ -149,7 +165,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<ListGitBranchesResponse> listGitBranches(ListGitBranchesRequest request, com.oracle.bmc.responses.AsyncHandler<ListGitBranchesRequest, ListGitBranchesResponse> handler);
     
     /**
-     * (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
+     * (Preview) Lists local file changes with snapshot pagination. compareTo, filter,
+* displayName, and sort controls are not currently applied; this is not an
+* upstream comparison.
 * 
      * 
      * @param request The request object containing the details to send
@@ -162,7 +180,10 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<ListGitDiffsResponse> listGitDiffs(ListGitDiffsRequest request, com.oracle.bmc.responses.AsyncHandler<ListGitDiffsRequest, ListGitDiffsResponse> handler);
     
     /**
-     * (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
+     * (Preview) Asynchronously merges origin/{remoteBranchName} into the stored
+* repository branch and pushes it to origin on a conflict-free merge. commitId is
+* not applied. The aidp-async-operation-key response header identifies the job;
+* its SUCCEEDED status confirms completion.
 * 
      * 
      * @param request The request object containing the details to send
@@ -175,7 +196,10 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<MergeGitRepositoryResponse> mergeGitRepository(MergeGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<MergeGitRepositoryRequest, MergeGitRepositoryResponse> handler);
     
     /**
-     * (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
+     * (Preview) Asynchronously pulls origin changes into the stored repository branch
+* using autostash. Supplied branch, pullAction, and commitMessage overrides are
+* not applied. The aidp-async-operation-key response header identifies the job;
+* its SUCCEEDED status confirms completion.
 * 
      * 
      * @param request The request object containing the details to send
@@ -188,7 +212,11 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<PullGitRepositoryResponse> pullGitRepository(PullGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<PullGitRepositoryRequest, PullGitRepositoryResponse> handler);
     
     /**
-     * (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
+     * (Preview) Asynchronously rebases the stored repository branch onto
+* origin/{remoteBranchName} and force-pushes it on success. commitId is not
+* applied. The aidp-async-operation-key response header identifies the job; its
+* SUCCEEDED status confirms completion. The stored branch must pass its remote
+* synchronization check before rebasing.
 * 
      * 
      * @param request The request object containing the details to send
@@ -201,7 +229,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<RebaseGitRepositoryResponse> rebaseGitRepository(RebaseGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<RebaseGitRepositoryRequest, RebaseGitRepositoryResponse> handler);
     
     /**
-     * (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
+     * (Preview) Aborts an in-progress Git operation or discards selected local changes
+* according to action. Single-path DISCARD runs synchronously; other requests
+* submit a job. When present, datalake-async-operation-key identifies that job.
 * 
      * 
      * @param request The request object containing the details to send
@@ -214,7 +244,10 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<ResetGitFolderStateResponse> resetGitFolderState(ResetGitFolderStateRequest request, com.oracle.bmc.responses.AsyncHandler<ResetGitFolderStateRequest, ResetGitFolderStateResponse> handler);
     
     /**
-     * (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
+     * (Preview) Asynchronously hard-resets the stored repository branch to
+* origin/{branchName}, discards tracked local changes, and force-pushes the stored
+* branch. resetMode and commitId are not applied. The aidp-async-operation-key
+* response header identifies the job; its SUCCEEDED status confirms completion.
 * 
      * 
      * @param request The request object containing the details to send
@@ -227,7 +260,9 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<ResetGitRepositoryResponse> resetGitRepository(ResetGitRepositoryRequest request, com.oracle.bmc.responses.AsyncHandler<ResetGitRepositoryRequest, ResetGitRepositoryResponse> handler);
     
     /**
-     * (Preview) Accepts conflict resolution instructions\u2014choose source or target versions\u2014and records the resolution back to the repo.
+     * (Preview) Synchronously selects LOCAL or REMOTE file versions, or stages
+* manually resolved content with MARK_RESOLVED. Does not complete or push an
+* in-progress merge or rebase.
 * 
      * 
      * @param request The request object containing the details to send
@@ -240,7 +275,11 @@ public interface GitAsync extends AutoCloseable {
     java.util.concurrent.Future<ResolveGitConflictsResponse> resolveGitConflicts(ResolveGitConflictsRequest request, com.oracle.bmc.responses.AsyncHandler<ResolveGitConflictsRequest, ResolveGitConflictsResponse> handler);
     
     /**
-     * (Preview) Updates stored repository details\u2014such as credentials or default branches\u2014so automation stays aligned with your source control.
+     * (Preview) Updates repository settings. URL changes and changed sparse checkout
+* patterns submit asynchronous operations; credential and private connectivity
+* reference changes may complete without an operation key. This operation does
+* not change the default branch or relocate the folder. Omitted fields retain
+* their stored values.
 * 
      * 
      * @param request The request object containing the details to send

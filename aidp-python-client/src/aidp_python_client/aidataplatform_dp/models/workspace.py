@@ -153,7 +153,6 @@ class Workspace(object):
             'log_group_id': 'str',
             'aic_user_schema_name': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -174,7 +173,6 @@ class Workspace(object):
             'log_group_id': 'logGroupId',
             'aic_user_schema_name': 'aicUserSchemaName'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

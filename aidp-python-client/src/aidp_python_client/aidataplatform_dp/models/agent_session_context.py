@@ -26,11 +26,9 @@ class AgentSessionContext(object):
         self.swagger_types = {
             'retention_config': 'SessionRetentionConfiguration'
         }
-
         self.attribute_map = {
             'retention_config': 'retentionConfig'
         }
-
         self._retention_config = None
 
     @property

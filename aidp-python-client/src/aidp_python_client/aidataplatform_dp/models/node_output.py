@@ -64,7 +64,6 @@ class NodeOutput(object):
             'description': 'str',
             'is_required': 'bool'
         }
-
         self.attribute_map = {
             'name': 'name',
             'type': 'type',
@@ -72,7 +71,6 @@ class NodeOutput(object):
             'description': 'description',
             'is_required': 'isRequired'
         }
-
         self._name = None
         self._type = None
         self._port_position = None

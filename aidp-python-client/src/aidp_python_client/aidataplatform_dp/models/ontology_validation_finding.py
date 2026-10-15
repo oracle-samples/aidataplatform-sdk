@@ -41,14 +41,12 @@ class OntologyValidationFinding(object):
             'severity': 'str',
             'message': 'str'
         }
-
         self.attribute_map = {
             'rule_id': 'ruleId',
             'status': 'status',
             'severity': 'severity',
             'message': 'message'
         }
-
         self._rule_id = None
         self._status = None
         self._severity = None

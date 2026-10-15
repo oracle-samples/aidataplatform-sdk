@@ -26,11 +26,9 @@ class CreateWorkspacePermissionCollection(object):
         self.swagger_types = {
             'items': 'list[CreateWorkspacePermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

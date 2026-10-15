@@ -37,7 +37,7 @@ export interface DeploymentActivity {
     */
     'message'?: string;
     /**
-    * Details on the status, if it is not SUCCESS.
+    * Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
     */
     'statusMessage'?: string;
     'deploymentDetails': model.DeploymentDetails;

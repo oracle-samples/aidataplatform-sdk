@@ -26,11 +26,9 @@ class ContextManagementConfiguration(object):
         self.swagger_types = {
             'rules': 'list[ContextManagementRule]'
         }
-
         self.attribute_map = {
             'rules': 'rules'
         }
-
         self._rules = None
 
     @property

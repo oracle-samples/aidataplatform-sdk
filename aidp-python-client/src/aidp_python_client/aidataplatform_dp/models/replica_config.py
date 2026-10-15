@@ -31,12 +31,10 @@ class ReplicaConfig(object):
             'min_replica': 'int',
             'max_replica': 'int'
         }
-
         self.attribute_map = {
             'min_replica': 'minReplica',
             'max_replica': 'maxReplica'
         }
-
         self._min_replica = None
         self._max_replica = None
 

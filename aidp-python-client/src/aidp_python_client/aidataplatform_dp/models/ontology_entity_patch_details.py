@@ -31,12 +31,10 @@ class OntologyEntityPatchDetails(object):
             'entity_type': 'str',
             'payload': 'list[OntologyEntityPatchOperation]'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'payload': 'payload'
         }
-
         self._entity_type = None
         self._payload = None
 

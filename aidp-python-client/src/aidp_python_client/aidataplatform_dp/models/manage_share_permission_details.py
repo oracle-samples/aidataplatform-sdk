@@ -31,12 +31,10 @@ class ManageSharePermissionDetails(object):
             'assign_share_permission_details': 'AssignSharePermissionDetails',
             'revoke_share_permission_details': 'RevokeSharePermissionDetails'
         }
-
         self.attribute_map = {
             'assign_share_permission_details': 'assignSharePermissionDetails',
             'revoke_share_permission_details': 'revokeSharePermissionDetails'
         }
-
         self._assign_share_permission_details = None
         self._revoke_share_permission_details = None
 

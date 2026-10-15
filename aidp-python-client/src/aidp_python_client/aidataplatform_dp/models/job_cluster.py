@@ -36,13 +36,11 @@ class JobCluster(object):
             'cluster_name': 'str',
             'new_cluster': 'NewClusterConfiguration'
         }
-
         self.attribute_map = {
             'cluster_key': 'clusterKey',
             'cluster_name': 'clusterName',
             'new_cluster': 'newCluster'
         }
-
         self._cluster_key = None
         self._cluster_name = None
         self._new_cluster = None

@@ -36,13 +36,11 @@ class ArtifactList(object):
             'files': 'list[ArtifactFileInfo]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'root_uri': 'root_uri',
             'files': 'files',
             'next_page_token': 'next_page_token'
         }
-
         self._root_uri = None
         self._files = None
         self._next_page_token = None

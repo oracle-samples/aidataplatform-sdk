@@ -61,7 +61,6 @@ class UpdateTableDetails(object):
             'drop_table_properties': 'list[TableProperty]',
             'update_table_fields': 'list[UpdateTableFieldDetails]'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -72,7 +71,6 @@ class UpdateTableDetails(object):
             'drop_table_properties': 'dropTableProperties',
             'update_table_fields': 'updateTableFields'
         }
-
         self._display_name = None
         self._description = None
         self._add_table_fields = None

@@ -37,13 +37,11 @@ class ExecuteSqlCommandDetails(ExecuteDatabaseUserWorkflowsDetails):
             'user_schema_name': 'str',
             'sql_command': 'str'
         }
-
         self.attribute_map = {
             'action_type': 'actionType',
             'user_schema_name': 'userSchemaName',
             'sql_command': 'sqlCommand'
         }
-
         self._action_type = None
         self._user_schema_name = None
         self._sql_command = None

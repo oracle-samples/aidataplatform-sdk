@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Unified diff details for a Git file.
+* Unified diff content and status information for a repository-relative file.
 */
 export interface GitDiffDetail {
     /**
@@ -21,11 +21,14 @@ export interface GitDiffDetail {
     */
     'isBinary'?: boolean;
     /**
-    * Unified diff patch text.
+    * Local unified diff patch text. Binary files may have no textual patch.
+* 
     */
     'patch'?: string;
     /**
-    * Indicates whether the diff output was truncated.
+    * Whether returned diff output is marked truncated; this does not guarantee
+* enforcement of the requested maxPatchBytes.
+* 
     */
     'isTruncated'?: boolean;
     /**

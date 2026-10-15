@@ -16,11 +16,14 @@ export interface ResetGitFolderStateRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The Git repository key.
+ * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
  */
  'gitRepositoryKey': string;
 /**
- * Merge conflict resolution details.
+ * Abort action or local file changes to discard.
  */
  'resetGitFolderStateDetails':  model.ResetGitFolderStateDetails;
 /**

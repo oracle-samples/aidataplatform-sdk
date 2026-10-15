@@ -41,14 +41,12 @@ class CreateRegisteredModelDetails(object):
             'description': 'str',
             'deployment_job_id': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'tags': 'tags',
             'description': 'description',
             'deployment_job_id': 'deployment_job_id'
         }
-
         self._name = None
         self._tags = None
         self._description = None

@@ -3,7 +3,7 @@
 
 
 from .credential_details import CredentialDetails
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -59,7 +59,6 @@ class ServiceAccountCredentialDetails(CredentialDetails):
             'is_read_only': 'bool',
             'private_key': 'str'
         }
-
         self.attribute_map = {
             'credential_type': 'credentialType',
             'user_id': 'userId',
@@ -69,7 +68,10 @@ class ServiceAccountCredentialDetails(CredentialDetails):
             'is_read_only': 'isReadOnly',
             'private_key': 'privateKey'
         }
-
+        self._redacted_field_paths = [
+            ['fingerprint'],
+            ['private_key'],
+        ]
         self._credential_type = None
         self._user_id = None
         self._fingerprint = None
@@ -224,7 +226,10 @@ class ServiceAccountCredentialDetails(CredentialDetails):
         self._private_key = private_key
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['fingerprint'])
+        redact_password_field(as_dict, ['private_key'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

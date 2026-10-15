@@ -58,7 +58,11 @@ public interface WorkspaceAsync extends AutoCloseable {
     void useRealmSpecificEndpointTemplate(boolean realmSpecificEndpointTemplateEnabled);
 
     /**
-     * Creates a git folder in the workspace
+     * Asynchronously creates a Git folder and clones the repository. The
+* aidp-async-operation-key header identifies the operation. Once SUCCEEDED,
+* the folder's HEAD response with shouldIncludeMetadata=true exposes
+* system:repoKey in the JSON file-metadata header for subsequent Git APIs.
+* 
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

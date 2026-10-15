@@ -31,12 +31,10 @@ class SearchObjectType(object):
             'name': 'str',
             'count': 'int'
         }
-
         self.attribute_map = {
             'name': 'name',
             'count': 'count'
         }
-
         self._name = None
         self._count = None
 

@@ -86,7 +86,6 @@ class CreateJobDetails(object):
             'parameters': 'list[Parameter]',
             'timeout_seconds': 'int'
         }
-
         self.attribute_map = {
             'run_as': 'runAs',
             'name': 'name',
@@ -102,7 +101,6 @@ class CreateJobDetails(object):
             'parameters': 'parameters',
             'timeout_seconds': 'timeoutSeconds'
         }
-
         self._run_as = None
         self._name = None
         self._description = None

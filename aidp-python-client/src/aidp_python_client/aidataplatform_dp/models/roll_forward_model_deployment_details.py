@@ -36,13 +36,11 @@ class RollForwardModelDeploymentDetails(object):
             'message': 'str',
             'deployment_targets': 'list[DeploymentTarget]'
         }
-
         self.attribute_map = {
             'deployment_id': 'deployment_id',
             'message': 'message',
             'deployment_targets': 'deployment_targets'
         }
-
         self._deployment_id = None
         self._message = None
         self._deployment_targets = None

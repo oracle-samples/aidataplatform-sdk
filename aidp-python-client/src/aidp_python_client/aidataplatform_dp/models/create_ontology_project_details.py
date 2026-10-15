@@ -105,7 +105,6 @@ class CreateOntologyProjectDetails(object):
             'git_folder_path': 'str',
             'target_connection': 'OntologyPublishTargetConnectionReference'
         }
-
         self.attribute_map = {
             'workspace_id': 'workspaceId',
             'key': 'key',
@@ -123,7 +122,6 @@ class CreateOntologyProjectDetails(object):
             'git_folder_path': 'gitFolderPath',
             'target_connection': 'targetConnection'
         }
-
         self._workspace_id = None
         self._key = None
         self._display_name = None
@@ -387,8 +385,7 @@ class CreateOntologyProjectDetails(object):
         allowed_values = ["VOLUME", "GIT"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             raise ValueError(
-                "Invalid value for `source_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `source_type`, must be None or one of {allowed_values}"
             )
         self._source_type = source_type
 

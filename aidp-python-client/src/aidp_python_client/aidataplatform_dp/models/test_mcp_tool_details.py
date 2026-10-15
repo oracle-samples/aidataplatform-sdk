@@ -53,7 +53,6 @@ class TestMcpToolDetails(TestToolDetails):
             'param_values': 'TestToolParamValues',
             'server_name': 'str'
         }
-
         self.attribute_map = {
             'agent_flow_id': 'agentFlowId',
             'tool_type': 'toolType',
@@ -62,7 +61,6 @@ class TestMcpToolDetails(TestToolDetails):
             'param_values': 'paramValues',
             'server_name': 'serverName'
         }
-
         self._agent_flow_id = None
         self._tool_type = None
         self._config = None

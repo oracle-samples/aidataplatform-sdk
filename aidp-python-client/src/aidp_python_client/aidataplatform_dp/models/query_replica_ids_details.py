@@ -36,13 +36,11 @@ class QueryReplicaIdsDetails(object):
             'time_begin': 'datetime',
             'time_end': 'datetime'
         }
-
         self.attribute_map = {
             'metric_name': 'metricName',
             'time_begin': 'timeBegin',
             'time_end': 'timeEnd'
         }
-
         self._metric_name = None
         self._time_begin = None
         self._time_end = None

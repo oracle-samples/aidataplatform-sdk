@@ -26,11 +26,9 @@ class SessionCollection(object):
         self.swagger_types = {
             'items': 'list[SessionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

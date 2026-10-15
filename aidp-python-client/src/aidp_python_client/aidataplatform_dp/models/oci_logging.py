@@ -33,12 +33,10 @@ class OciLogging(LoggingConfig):
             'type': 'str',
             'log_groups': 'list[LogGroup]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'log_groups': 'logGroups'
         }
-
         self._type = None
         self._log_groups = None
         self._type = 'OCI_LOGGING'

@@ -26,11 +26,9 @@ class SqlResult(object):
         self.swagger_types = {
             'rows': 'list[dict(str, str)]'
         }
-
         self.attribute_map = {
             'rows': 'rows'
         }
-
         self._rows = None
 
     @property

@@ -26,11 +26,9 @@ class KnowledgeBasePermissionCollection(object):
         self.swagger_types = {
             'items': 'list[KnowledgeBasePermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

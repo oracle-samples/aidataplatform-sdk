@@ -22,8 +22,10 @@ least-privilege policies where available.
 - [Data Lineage (DataLineageClient)](#data-lineage-datalineageclient)
 - [Delta Share (DeltaShareClient)](#delta-share-deltashareclient)
 - [Git (GitClient)](#git-gitclient)
+- [Lake Authorization (LakeAuthorizationClient)](#lake-authorization-lakeauthorizationclient)
 - [ML Ops (MLOpsClient)](#ml-ops-mlopsclient)
 - [Notebook (NotebookClient)](#notebook-notebookclient)
+- [Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient)
 - [Role (RoleClient)](#role-roleclient)
 - [Schema (SchemaClient)](#schema-schemaclient)
 - [User Setting (UserSettingClient)](#user-setting-usersettingclient)
@@ -70,7 +72,9 @@ Copies an agent.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Agent
 
@@ -118,7 +122,9 @@ Creates an agent.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Agent
 
@@ -166,7 +172,9 @@ Delete an agent from the schema.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -184,7 +192,9 @@ Deletes an agent deployment.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -202,7 +212,9 @@ Deletes an agent Session.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -220,7 +232,9 @@ Deploys a specified agent.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentDeployment
 
@@ -257,7 +271,9 @@ Returns detailed information about an agent.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Agent
 
@@ -304,7 +320,9 @@ Returns detailed information about an agent deployment.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentDeployment
 
@@ -341,7 +359,9 @@ Returns detailed information about an agent session.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentSession
 
@@ -376,7 +396,9 @@ Returns trace details for a given message key.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TraceDetails
 
@@ -412,7 +434,9 @@ Returns a list of all deployments of an agent.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `compute_key` (list[str]) — Compute key.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentDeploymentCollection
 
@@ -436,7 +460,9 @@ Returns a list of permissions for a given agent.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentPermissionCollection
 
@@ -458,7 +484,9 @@ Returns list of agent session chat messages.
 - `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SessionChatHistoryCollection
 
@@ -484,7 +512,9 @@ Returns a list of testing sessions of an agent.
 - `time_created_less_than_or_equal_to` (datetime) — Fetch objects from repository that were created before or at the exact timestamp provided in parameter.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentSessionCollection
 
@@ -509,7 +539,9 @@ Returns a list of agents in a schema.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentCollection
 
@@ -531,7 +563,9 @@ Update the permissions for a given agent.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -550,7 +584,9 @@ Returns the agent card based on the given agent card configuration.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentCardPreviewResponse
 
@@ -572,7 +608,9 @@ Redeploys an agent.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentDeployment
 
@@ -611,7 +649,9 @@ Updates an agent with provided details.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Agent
 
@@ -661,7 +701,9 @@ Updates the deployment metadata for an agent.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AgentDeployment
 
@@ -698,7 +740,9 @@ Validates the agent JSON diagram generated by UI.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ValidateAgentResponse
 
@@ -726,15 +770,17 @@ Cancels a supported asynchronous operation created by the caller. Support depend
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AsyncOperation
 
 **Response Fields:**
 - `key` (string) — Gets the key of this AsyncOperation. The unique key that identifies an async operation
-- `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
+- `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", "PRIVATE_NETWORK_PROFILE", "LINEAGE_IMPORT", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "TEST_AGENT_MEMORY_CONNECTION", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "IMPORT_LINEAGE", "DELETE_LINEAGE_IMPORT", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", "EXPORT_MODEL_DEPLOYMENT_INFERENCES", "CREATE_PRIVATE_NETWORK_PROFILE", "DELETE_PRIVATE_NETWORK_PROFILE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>. For Git folder creation, this is the operation resource name; the Git repository key is stored separately as system:repoKey in folder metadata.
 - `timeStarted` (datetime) — Gets the time_started of this AsyncOperation. The date and time the Async operation was started, in the format defined by `RFC 3339`. Example: `2016-08-25T21:10:29.600Z`  https://tools.ietf.org/html/rfc3339
 - `status` (string) — Gets the status of this AsyncOperation. The state of the Table. Allowed values for this property are: "IN_PROGRESS", "SUCCEEDED", "FAILED", "CANCELED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
@@ -758,15 +804,17 @@ Get detailed information for a particular async operation
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AsyncOperation
 
 **Response Fields:**
 - `key` (string) — Gets the key of this AsyncOperation. The unique key that identifies an async operation
-- `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
+- `resourceType` (string) — Gets the resource_type of this AsyncOperation. The resource type of the async operation. Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", "PRIVATE_NETWORK_PROFILE", "LINEAGE_IMPORT", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `actionType` (string) — Gets the action_type of this AsyncOperation. The action type of the async operation. Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "TEST_AGENT_MEMORY_CONNECTION", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "IMPORT_LINEAGE", "DELETE_LINEAGE_IMPORT", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", "EXPORT_MODEL_DEPLOYMENT_INFERENCES", "CREATE_PRIVATE_NETWORK_PROFILE", "DELETE_PRIVATE_NETWORK_PROFILE", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `resourceName` (string) — Gets the resource_name of this AsyncOperation. The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>. For Git folder creation, this is the operation resource name; the Git repository key is stored separately as system:repoKey in folder metadata.
 - `timeStarted` (datetime) — Gets the time_started of this AsyncOperation. The date and time the Async operation was started, in the format defined by `RFC 3339`. Example: `2016-08-25T21:10:29.600Z`  https://tools.ietf.org/html/rfc3339
 - `status` (string) — Gets the status of this AsyncOperation. The state of the Table. Allowed values for this property are: "IN_PROGRESS", "SUCCEEDED", "FAILED", "CANCELED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
@@ -798,7 +846,9 @@ List all async operations for a resource type. Filters can be used to narrow the
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeStarted` is descending. Allowed values are: "timeStarted"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AsyncOperationCollection
 
@@ -822,7 +872,9 @@ Manages audit logs.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -840,7 +892,9 @@ Searches audit logs.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AuditLogSearchResultCollection
 
@@ -875,7 +929,9 @@ Searches audit logs.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -892,7 +948,9 @@ Searches audit logs.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -909,7 +967,9 @@ Searches audit logs.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -926,7 +986,9 @@ Deprecated compatibility API. Use `publish` for new callers.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -942,7 +1004,9 @@ Deprecated compatibility API. Use `publish` for new callers.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.BundleDeploymentStatus
 
@@ -968,7 +1032,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.BundleDeploymentStatus
 
@@ -994,7 +1060,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.BundlePublishStatus
 
@@ -1021,7 +1089,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1038,7 +1108,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1055,7 +1127,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1072,7 +1146,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1089,7 +1165,9 @@ Deprecated compatibility API. Use `getBundlePublishStatus` for new callers.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1118,7 +1196,9 @@ Tests the connection to an external catalog.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1135,7 +1215,9 @@ Creates a catalog with the given ID.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1153,7 +1235,9 @@ Deletes the specified catalog.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1171,7 +1255,9 @@ Gets detailed information about a catalog with a given catalog key.
 - `should_skip_ocid_translation` (boolean) — When true, skip user OCID translation and return raw OCIDs.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Catalog
 
@@ -1184,7 +1270,7 @@ Gets detailed information about a catalog with a given catalog key.
 - `description` (string) — Gets the description of this Catalog. Short description of the catalog.
 - `catalogGuid` (string) — Gets the catalog_guid of this Catalog. Unique identifier for catalog.
 - `catalogType` (string) — Gets the catalog_type of this Catalog. Type of catalog. Allowed values for this property are: "EXTERNAL", "INTERNAL", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
-- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `sourceType` (string) — Gets the source_type of this Catalog. External catalog source type. Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `connectionDetails` (oci.aidataplatform_dp.models.CatalogConnectionDetails) — Gets the connection_details of this Catalog.
 - `lifecycleState` (string) — Gets the lifecycle_state of this Catalog. The current status of the catalog. Allowed values for this property are: "ACTIVE", "CREATING", "DELETING", "UPDATING", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStateDetails` (string) — Gets the lifecycle_state_details of this Catalog. A message describing the current state in more detail. For example, it can be used to provide actionable information for a resource in Failed state.
@@ -1209,7 +1295,9 @@ Gets a list of all permissions in the specified catalog.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CatalogPermissionCollection
 
@@ -1234,7 +1322,9 @@ Gets a list of catalogs with a given ID.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CatalogCollection
 
@@ -1255,7 +1345,9 @@ Updates permission details for a catalog.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1273,7 +1365,9 @@ Refreshes a catalog through a crawler.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1291,7 +1385,9 @@ Updates the details of a catalog with the given information.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1333,7 +1429,9 @@ Creates one Spark Compute by copying all source Compute settings and configurati
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1351,7 +1449,9 @@ Creates a new cluster with the provided details.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Cluster
 
@@ -1390,7 +1490,9 @@ Deletes a cluster from a workspace.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1408,7 +1510,9 @@ Downloads logs within the specified cluster and time range. The logs can be filt
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1426,7 +1530,9 @@ Writes selected Compute configuration values supplied by the caller to a workspa
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type stream
 
@@ -1443,7 +1549,9 @@ Returns detailed information about a cluster.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Cluster
 
@@ -1481,7 +1589,9 @@ Gets cluster-scoped Python and JAR libraries and environment variables from Spar
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ComputeConfiguration
 
@@ -1500,7 +1610,9 @@ Gets information about the master catalog default cluster.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DefaultCluster
 
@@ -1529,7 +1641,9 @@ Imports one or more unique workspace YAML files into an active Spark Compute.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1550,7 +1664,9 @@ Gets a list of libraries installed on a cluster.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ClusterLibraryCollection
 
@@ -1574,7 +1690,9 @@ Return a list of permissions for a given cluster.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ClusterPermissionCollection
 
@@ -1600,7 +1718,9 @@ Returns a list of all clusters in a given workspace.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ClusterCollection
 
@@ -1622,7 +1742,9 @@ Updates the permissions for a given cluster.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1640,7 +1762,9 @@ Updates libraries of a cluster with the provided patches.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ClusterLibraryCollection
 
@@ -1660,7 +1784,9 @@ Queries compute replica identifiers for a compute cluster in the given workspace
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.QueryReplicaIdsResult
 
@@ -1682,7 +1808,9 @@ Restarts a running cluster.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Cluster
 
@@ -1725,7 +1853,9 @@ Searches logs within the specified cluster and time range. Supports pagination a
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ClusterLogCollection
 
@@ -1747,7 +1877,9 @@ Searches Maven packages available for cluster library installation.
 - `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.MavenSearchSummaryCollection
 
@@ -1769,7 +1901,9 @@ Starts a cluster that has halted operation.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Cluster
 
@@ -1810,7 +1944,9 @@ Stops an active cluster.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Cluster
 
@@ -1851,7 +1987,9 @@ Provides summarized compute metrics for a compute cluster in the given workspace
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SummarizeMetricsResponse
 
@@ -1873,7 +2011,9 @@ Update the details of a given cluster.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Cluster
 
@@ -1920,7 +2060,9 @@ Creates a new credential object with the provided details. The operation complet
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1937,7 +2079,9 @@ Deletes a credential object. The operation completes synchronously without a res
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -1953,7 +2097,9 @@ Gets detailed information about credential with a given credential key.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Credential
 
@@ -1991,7 +2137,9 @@ Returns a list of credentials.
 - `credential_type` (string) — The type of the Credential Allowed values are: "SECRET_TOKEN", "VAULT_REFERENCE", "SERVICE_ACCOUNT"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CredentialCollection
 
@@ -2012,7 +2160,9 @@ Updates a credential object. The operation completes synchronously; callers can 
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2034,7 +2184,9 @@ Updates a credential object. The operation completes synchronously; callers can 
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type stream
 
@@ -2053,7 +2205,9 @@ Updates a credential object. The operation completes synchronously; callers can 
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.EntityLineage
 
@@ -2096,7 +2250,9 @@ Creates a recipient for a Delta Share protocol.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Recipient
 
@@ -2128,7 +2284,9 @@ Creates a Delta Share protocol.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Share
 
@@ -2160,7 +2318,9 @@ Deletes a Delta Share recipient.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2177,7 +2337,9 @@ Deletes a Delta Share.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2193,7 +2355,9 @@ Gets detailed information about a Delta Share recipient.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Recipient
 
@@ -2224,7 +2388,9 @@ Gets detailed information about a Delta Share.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Share
 
@@ -2259,7 +2425,9 @@ Gets a detailed list of Delta Share recipient permissions.
 - `sort_by` (string) — The field to sort by. Default order for `grantee` is ascending. Allowed values are: "grantee"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RecipientPermissionCollection
 
@@ -2283,7 +2451,9 @@ Returns a list of Delta Shares that the specified recipient has been granted acc
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ShareCollection
 
@@ -2305,7 +2475,9 @@ Gets a list of Delta Share recipients.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RecipientCollection
 
@@ -2329,7 +2501,9 @@ Gets a list of Delta Share assets.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ShareDataAssetCollection
 
@@ -2352,7 +2526,9 @@ Returns a list of Delta Shares that the specified recipient has been granted acc
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `grantee` is ascending. Default order for `granteeType` is ascending. Allowed values are: "grantee", "granteeType"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SharePermissionCollection
 
@@ -2376,7 +2552,9 @@ Gets a list of recipients that have been given access on the specified Delta Sha
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RecipientCollection
 
@@ -2398,7 +2576,9 @@ Gets a list of Delta Shares.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ShareCollection
 
@@ -2419,7 +2599,9 @@ Updates the permissions of a Delta Share recipient.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2438,7 +2620,9 @@ Updates consumer-side access on a share for a recipient. A provider user can gra
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2456,7 +2640,9 @@ Updates data assets on a Delta Share with the provided information.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2474,7 +2660,9 @@ Updates permissions on a Delta Share.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2492,7 +2680,9 @@ Updates the metadata of a Delta Share recipient.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2510,7 +2700,9 @@ Update a Delta Share with the provided metadata.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2535,12 +2727,12 @@ Update a Delta Share with the provided metadata.
 - [`update_git_repository`](#update-git-repository)
 
 ### <a id="checkout-branch"></a>`checkout_branch`
-(Preview) Checks out a remote branch into the specified workspace folder, ensuring the worktree tracks the requested branch HEAD.
+(Preview) Asynchronously checks out the requested branch in the workspace Git folder. Checkout normally resets the local branch to origin/{branchName}, with a local-branch fallback. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `checkout_branch_details` (oci.aidataplatform_dp.models.CheckoutBranchDetails) — Details for the new branch.
 
 **Optional Parameters:**
@@ -2548,7 +2740,9 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitBranch
 
@@ -2565,12 +2759,12 @@ Update a Delta Share with the provided metadata.
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="commit-push-git-repository"></a>`commit_push_git_repository`
-(Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
+(Preview) Asynchronously commits and pushes the stored repository branch. For normal commits, omitting files stages all local changes. After conflicts are resolved, completes a merge or continues a rebase; rebase continuation force-pushes. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `commit_push_details` (oci.aidataplatform_dp.models.CommitPushDetails) — Commit details.
 
 **Optional Parameters:**
@@ -2578,26 +2772,30 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="create-git-branch"></a>`create_git_branch`
-(Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
+(Preview) Asynchronously creates a branch from the current HEAD, checks it out in the stored Git folder, and pushes it to origin. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
-- `create_git_branch_details` (oci.aidataplatform_dp.models.CreateGitBranchDetails) — Details for the new Workspace Object.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+- `create_git_branch_details` (oci.aidataplatform_dp.models.CreateGitBranchDetails) — Name of the branch to create in the stored Git folder.
 
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateGitBranch
 
@@ -2615,21 +2813,23 @@ Update a Delta Share with the provided metadata.
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="get-git-diff-detail"></a>`get_git_diff_detail`
-(Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
+(Preview) Returns a local unified diff for a repository-relative file. contextLines and maxPatchBytes are not currently applied by execution.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
-- `git_folder_path` (string) — The Git folder path.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+- `git_folder_path` (string) — Workspace path of the Git folder, distinct from repository-relative file paths.
 - `branch_name` (string) — Expected branch name for the folder context.
 - `git_file_path` (string) — File path relative to repository root.
 
 **Optional Parameters:**
-- `context_lines` (number) — Number of context lines to include in the diff.
-- `max_patch_bytes` (number) — Maximum number of bytes of diff output to return.
+- `context_lines` (number) — Requested diff context lines. Current execution does not apply this value.
+- `max_patch_bytes` (number) — Requested maximum patch bytes. Current execution does not enforce this value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitDiffDetail
 
@@ -2639,33 +2839,35 @@ Update a Delta Share with the provided metadata.
 **Optional Response Fields:**
 - `isConflict` (boolean) — Gets the is_conflict of this GitDiffDetail. Indicates whether the file is currently in a conflicted state.
 - `isBinary` (boolean) — Gets the is_binary of this GitDiffDetail. Indicates whether the file is binary.
-- `patch` (string) — Gets the patch of this GitDiffDetail. Unified diff patch text.
-- `isTruncated` (boolean) — Gets the is_truncated of this GitDiffDetail. Indicates whether the diff output was truncated.
+- `patch` (string) — Gets the patch of this GitDiffDetail. Local unified diff patch text. Binary files may have no textual patch.
+- `isTruncated` (boolean) — Gets the is_truncated of this GitDiffDetail. Whether returned diff output is marked truncated; this does not guarantee enforcement of the requested maxPatchBytes.
 - `truncatedReason` (string) — Gets the truncated_reason of this GitDiffDetail. Indicates the reason for the truncated diff to be returned. Allowed values for this property are: "MAX_PATCH_BYTES", "BINARY", "TOO_LARGE", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="get-git-operation-state"></a>`get_git_operation_state`
-(Preview) Returns the current Git worktree status—including in-progress operations or detached HEAD indicators—for the workspace folder.
+(Preview) Returns a snapshot of Git worktree operation state and readiness for an optional operationName. CLEAN does not imply no local changes. This endpoint does not report asynchronous job progress.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 
 **Optional Parameters:**
-- `operation_name` (string) — Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+- `operation_name` (string) — Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute isAllowed. Does not execute the operation.
 - `branch_name` (string) — Expected branch name for the folder context.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitOperationState
 
 **Response Fields:**
 - `gitFolderPath` (string) — Gets the git_folder_path of this GitOperationState. Folder path used to locate the Git worktree.
-- `state` (string) — Gets the state of this GitOperationState. Current Git operation state detected. Allowed values for this property are: "CLEAN", "MERGE_IN_PROGRESS", "REBASE_IN_PROGRESS", "PULL_IN_PROGRESS", "DETACHED_HEAD", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `state` (string) — Gets the state of this GitOperationState. Detected operational state. CLEAN means no in-progress merge, rebase, or detached HEAD was detected. Conflicts are reported separately by haveConflicts; CLEAN does not imply an unchanged worktree or index. Allowed values for this property are: "CLEAN", "MERGE_IN_PROGRESS", "REBASE_IN_PROGRESS", "PULL_IN_PROGRESS", "DETACHED_HEAD", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `isBlocking` (boolean) — Gets the is_blocking of this GitOperationState. Whether the detected state blocks typical write operations.
-- `isAllowed` (boolean) — Gets the is_allowed of this GitOperationState. Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+- `isAllowed` (boolean) — Gets the is_allowed of this GitOperationState. Whether the supplied operationName is allowed by the detected state and expected branch. With no operationName, indicates general operational readiness. This is a state check, not an authorization decision or execution guarantee.
 
 **Optional Response Fields:**
 - `message` (string) — Gets the message of this GitOperationState. Human-readable hint for UI display.
@@ -2678,17 +2880,19 @@ Update a Delta Share with the provided metadata.
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="get-git-repository"></a>`get_git_repository`
-(Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
+(Preview) Returns stored repository URL, folder, branch, and connectivity references. The authentication setting key is included only when shouldIncludeCredentialKey=true.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 
 **Optional Parameters:**
 - `should_include_credential_key` (boolean) — A flag to include credential key in response. If 'true', credential key will be returned in response. Default 'false'.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitRepository
 
@@ -2700,17 +2904,23 @@ Update a Delta Share with the provided metadata.
 - `gitFolderPath` (string) — Gets the git_folder_path of this GitRepository. The path of the current Git folder which has to be created for the new branch.
 
 **Optional Response Fields:**
-- `credentialKey` (string) — Gets the credential_key of this GitRepository. The credential setting key
+- `credentialKey` (string) — Gets the credential_key of this GitRepository. Key of the current user's GIT_ACCOUNT user setting containing Git authentication credentials. Identified by settingType=GIT_ACCOUNT and displayName in user setting listings. Distinct from credentialStoreKey, which references a TLS CA certificate.
+- `sparseCheckout` (oci.aidataplatform_dp.models.SparseCheckoutDetails) — Gets the sparse_checkout of this GitRepository.
+- `isPrivateConnectivityEnabled` (boolean) — Gets the is_private_connectivity_enabled of this GitRepository. Whether this repository uses private network connectivity.
+- `gitConnectivityProfileKey` (string) — Gets the git_connectivity_profile_key of this GitRepository. Key of the private network profile used for Git connectivity, returned by private network profile listings filtered by name. Required when isPrivateConnectivityEnabled is true.
+- `gitConnectivityProfileName` (string) — Gets the git_connectivity_profile_name of this GitRepository. User-friendly name of the private Git connectivity profile.
+- `credentialStoreKey` (string) — Gets the credential_store_key of this GitRepository. Key of the credential-store entry containing the Git server's TLS CA certificate, identified by displayName in credential listings. Provides server certificate trust, separate from the Git authentication user setting referenced by credentialKey. Required when isPrivateConnectivityEnabled is true.
+- `credentialStoreName` (string) — Gets the credential_store_name of this GitRepository. User-friendly display name of the repository TLS CA certificate credential.
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="list-git-branches"></a>`list_git_branches`
-(Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
+(Preview) Lists branches on origin with pagination. Name filters and sort controls are not currently applied. Page tokens become invalid if the branch listing changes.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 
 **Optional Parameters:**
 - `display_name` (string) — A filter to return only resources that match the given display name exactly.
@@ -2720,7 +2930,9 @@ Update a Delta Share with the provided metadata.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitBranchCollection
 
@@ -2730,25 +2942,27 @@ Update a Delta Share with the provided metadata.
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="list-git-diffs"></a>`list_git_diffs`
-(Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
+(Preview) Lists local file changes with snapshot pagination. compareTo, filter, displayName, and sort controls are not currently applied; this is not an upstream comparison.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
-- `git_folder_path` (string) — The Git folder path.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+- `git_folder_path` (string) — Workspace path of the Git folder, distinct from repository-relative file paths.
 - `branch_name` (string) — Expected branch name for the folder context.
 
 **Optional Parameters:**
-- `compare_to` (string) — Determines which reference is used for computing diffs. Allowed values are: "HEAD", "UPSTREAM", "INDEX", "WORKTREE", "MERGE_BASE"
-- `filter` (string) — Filter which files are returned. Allowed values are: "ALL", "DIFF_ONLY", "CONFLICTS_ONLY"
+- `compare_to` (string) — Requested comparison reference. Results describe local file changes regardless of the supplied value. Allowed values are: "HEAD", "UPSTREAM", "INDEX", "WORKTREE", "MERGE_BASE"
+- `filter` (string) — Requested file-change filter. Results include all detected local file changes regardless of the supplied value. Allowed values are: "ALL", "DIFF_ONLY", "CONFLICTS_ONLY"
 - `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
-- `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated"
+- `sort_by` (string) — The field to sort by. You can provide only one sort order. The default order for `timeCreated` is descending. Allowed values are: "timeCreated"
 - `display_name` (string) — A filter to return only resources that match the given display name exactly.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitDiffSummaryCollection
 
@@ -2758,12 +2972,12 @@ Update a Delta Share with the provided metadata.
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="merge-git-repository"></a>`merge_git_repository`
-(Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
+(Preview) Asynchronously merges origin/{remoteBranchName} into the stored repository branch and pushes it to origin on a conflict-free merge. commitId is not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `git_merge_details` (oci.aidataplatform_dp.models.GitMergeDetails) — Folder/branch details to merge.
 
 **Optional Parameters:**
@@ -2771,19 +2985,21 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="pull-git-repository"></a>`pull_git_repository`
-(Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
+(Preview) Asynchronously pulls origin changes into the stored repository branch using autostash. Supplied branch, pullAction, and commitMessage overrides are not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `git_pull_details` (oci.aidataplatform_dp.models.GitPullDetails) — Folder/branch details to pull.
 
 **Optional Parameters:**
@@ -2791,19 +3007,21 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="rebase-git-repository"></a>`rebase_git_repository`
-(Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
+(Preview) Asynchronously rebases the stored repository branch onto origin/{remoteBranchName} and force-pushes it on success. commitId is not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion. The stored branch must pass its remote synchronization check before rebasing.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `git_rebase_details` (oci.aidataplatform_dp.models.GitRebaseDetails) — Details needed to perform rebase operation.
 
 **Optional Parameters:**
@@ -2811,38 +3029,42 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="reset-git-folder-state"></a>`reset_git_folder_state`
-(Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
+(Preview) Aborts an in-progress Git operation or discards selected local changes according to action. Single-path DISCARD runs synchronously; other requests submit a job. When present, datalake-async-operation-key identifies that job.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
-- `reset_git_folder_state_details` (oci.aidataplatform_dp.models.ResetGitFolderStateDetails) — Merge conflict resolution details.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+- `reset_git_folder_state_details` (oci.aidataplatform_dp.models.ResetGitFolderStateDetails) — Abort action or local file changes to discard.
 
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="reset-git-repository"></a>`reset_git_repository`
-(Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
+(Preview) Asynchronously hard-resets the stored repository branch to origin/{branchName}, discards tracked local changes, and force-pushes the stored branch. resetMode and commitId are not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `git_reset_details` (oci.aidataplatform_dp.models.GitResetDetails) — Details needed to perform Git reset operation.
 
 **Optional Parameters:**
@@ -2850,26 +3072,30 @@ Update a Delta Share with the provided metadata.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="resolve-git-conflicts"></a>`resolve_git_conflicts`
-(Preview) Accepts conflict resolution instructions—choose source or target versions—and records the resolution back to the repo.
+(Preview) Synchronously selects LOCAL or REMOTE file versions, or stages manually resolved content with MARK_RESOLVED. Does not complete or push an in-progress merge or rebase.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 - `conflict_resolve_details` (oci.aidataplatform_dp.models.ConflictResolveDetails) — Conflict resolution details.
 
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitBranch
 
@@ -2886,22 +3112,49 @@ Update a Delta Share with the provided metadata.
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
 
 ### <a id="update-git-repository"></a>`update_git_repository`
-(Preview) Updates stored repository details—such as credentials or default branches—so automation stays aligned with your source control.
+(Preview) Updates repository settings. URL changes and changed sparse checkout patterns submit asynchronous operations; credential and private connectivity reference changes may complete without an operation key. This operation does not change the default branch or relocate the folder. Omitted fields retain their stored values.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
 - `workspace_key` (string) — The key of the Workspace
 - `update_git_repository_details` (oci.aidataplatform_dp.models.UpdateGitRepositoryDetails) — The information to be updated.
-- `git_repository_key` (string) — The Git repository key.
+- `git_repository_key` (string) — The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName.
 
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
+
+## <a id="lake-authorization-lakeauthorizationclient"></a>Lake Authorization (LakeAuthorizationClient)
+**Operations:**
+- [`access_granted_for`](#access-granted-for)
+
+### <a id="access-granted-for"></a>`access_granted_for`
+Internal OAC integration API available to any authenticated caller with manage permission on the target AI Data Platform. The caller permission is checked by SPLAT independently of the subjects in the body. Delegated context only selects evaluation subjects. Resource checks are forwarded in one batch, with flattened results. HTTP 200 may contain DENIED results. OBO takes precedence over OAC user context. A supplied dh-user-principal must agree with either resolved delegated context. Without those contexts it supplies the fallback subject; otherwise the authenticated caller is the fallback. Explicit UNSIGNED subjects remain distinct. Malformed or conflicting principal inputs are rejected before evaluation.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `multiple_principal_access_granted_details` (oci.aidataplatform_dp.models.MultiplePrincipalAccessGrantedDetails) — Ordered subject and resource checks.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `dh_user_principal` (string) — Optional Base64-encoded serialized evaluation principal; not caller authentication.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AccessGrantedForResponseDetails
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.AccessGrantedForResult]) — Gets the items of this AccessGrantedForResponseDetails. One result per requested resource, up to 100 subjects times 100 checks. This is not a paginated list.
+
+**Return:** [Back to Lake Authorization (LakeAuthorizationClient)](#lake-authorization-lakeauthorizationclient) • [Top](#top)
 
 ## <a id="ml-ops-mlopsclient"></a>ML Ops (MLOpsClient)
 **Operations:**
@@ -2922,6 +3175,8 @@ Update a Delta Share with the provided metadata.
 - [`delete_model_version_tag`](#delete-model-version-tag)
 - [`delete_registered_model`](#delete-registered-model)
 - [`delete_registered_model_tag`](#delete-registered-model-tag)
+- [`export_model_deployment_inferences`](#export-model-deployment-inferences)
+- [`get_deployment_log`](#get-deployment-log)
 - [`get_experiment_by_id`](#get-experiment-by-id)
 - [`get_experiment_by_name`](#get-experiment-by-name)
 - [`get_experiment_run_by_id`](#get-experiment-run-by-id)
@@ -2929,6 +3184,8 @@ Update a Delta Share with the provided metadata.
 - [`get_model_deployment`](#get-model-deployment)
 - [`get_model_deployment_activity`](#get-model-deployment-activity)
 - [`get_model_deployment_contract`](#get-model-deployment-contract)
+- [`get_model_deployment_inference_details`](#get-model-deployment-inference-details)
+- [`get_model_deployment_inference_summary`](#get-model-deployment-inference-summary)
 - [`get_model_version`](#get-model-version)
 - [`get_registered_model`](#get-registered-model)
 - [`get_registered_model_summary`](#get-registered-model-summary)
@@ -2938,17 +3195,21 @@ Update a Delta Share with the provided metadata.
 - [`list_logged_models`](#list-logged-models)
 - [`list_model_deployment_activities`](#list-model-deployment-activities)
 - [`list_model_versions`](#list-model-versions)
+- [`list_registered_model_permissions`](#list-registered-model-permissions)
 - [`list_registered_models`](#list-registered-models)
 - [`log_experiment_run_batch`](#log-experiment-run-batch)
 - [`log_experiment_run_inputs`](#log-experiment-run-inputs)
 - [`log_experiment_run_metric`](#log-experiment-run-metric)
 - [`log_experiment_run_model`](#log-experiment-run-model)
 - [`log_experiment_run_param`](#log-experiment-run-param)
+- [`manage_registered_model_permission`](#manage-registered-model-permission)
 - [`rename_registered_model`](#rename-registered-model)
 - [`restore_experiment`](#restore-experiment)
 - [`restore_experiment_run`](#restore-experiment-run)
 - [`roll_back_model_deployment`](#roll-back-model-deployment)
 - [`roll_forward_model_deployment`](#roll-forward-model-deployment)
+- [`search_deployment_logs`](#search-deployment-logs)
+- [`search_model_deployment_inferences`](#search-model-deployment-inferences)
 - [`search_model_deployments`](#search-model-deployments)
 - [`set_experiment_run_tag`](#set-experiment-run-tag)
 - [`set_experiment_tag`](#set-experiment-tag)
@@ -2975,7 +3236,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -2992,7 +3255,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateExperimentResponseDetails
 
@@ -3012,7 +3277,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateExperimentRunResponseDetails
 
@@ -3031,7 +3298,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelDeployment
 
@@ -3050,6 +3319,7 @@ Update a Delta Share with the provided metadata.
 
 **Optional Response Fields:**
 - `description` (string) — Gets the description of this ModelDeployment. Description of the deployment.
+- `compute_deployment_id` (string) — Gets the compute_deployment_id of this ModelDeployment. Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
 - `activated_time` (number) — Gets the activated_time of this ModelDeployment. Unix timestamp in milliseconds of when the deployment was activated.
 - `activated_by` (string) — Gets the activated_by of this ModelDeployment. User that activated the model deployment.
 - `serving_uri` (string) — Gets the serving_uri of this ModelDeployment. Serving URI of the deployment.
@@ -3069,7 +3339,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateModelVersionResponseDetails
 
@@ -3088,7 +3360,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateRegisteredModelResponseDetails
 
@@ -3108,7 +3382,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateModelVersionResponseDetails
 
@@ -3126,7 +3402,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -3143,7 +3421,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentResponseDetails
 
@@ -3160,7 +3440,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentRunResponseDetails
 
@@ -3177,7 +3459,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentRunTagResponseDetails
 
@@ -3194,7 +3478,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteExperimentTagResponseDetails
 
@@ -3209,7 +3495,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -3225,7 +3513,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteModelVersionResponseDetails
 
@@ -3241,7 +3531,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteModelVersionTagResponseDetails
 
@@ -3257,7 +3549,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteRegisteredModelResponseDetails
 
@@ -3273,9 +3567,57 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeleteRegisteredModelTagResponseDetails
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="export-model-deployment-inferences"></a>`export_model_deployment_inferences`
+(Preview) Starts an asynchronous export of the correlated inference invocation records in the requested publish-time window to a JSON file in a Volume. The window defaults to the last 30 days and must not exceed 30 days; export a longer history as consecutive windows. The export runs as a tracked asynchronous operation; a second export to the same destination while one is in progress is rejected with 409.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `deployment_id` (string) — The unique 32-character hexadecimal ID of the model deployment.
+- `export_inference_invocations_details` (oci.aidataplatform_dp.models.ExportInferenceInvocationsDetails) — Destination, window, and filters for the export.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="get-deployment-log"></a>`get_deployment_log`
+(Preview) Returns one deployment log event with its full, redacted message, located by the opaque expiring locator returned from a log search.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `deployment_id` (string) — The unique 32-character hexadecimal ID of the model deployment.
+- `log_id` (string) — The opaque, expiring log locator returned by a deployment log search. It binds the platform, deployment, and source event identity, and grants no permission by itself.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeploymentLogDetail
+
+**Response Fields:**
+- `deploymentId` (string) — Gets the deployment_id of this DeploymentLogDetail. The model deployment the log event belongs to.
+- `recordId` (string) — Gets the record_id of this DeploymentLogDetail. Stable identity of the ingested log record.
+- `logId` (string) — Gets the log_id of this DeploymentLogDetail. The opaque, expiring locator this event was resolved from.
+- `timestamp` (datetime) — Gets the timestamp of this DeploymentLogDetail. Displayed event time (RFC 3339 UTC). Producer event time when available; otherwise the publish time, per timestampSource.
+- `timestampSource` (string) — Gets the timestamp_source of this DeploymentLogDetail. EVENT_TIME when the producer timestamp was valid; PUBLISH_TIME when the displayed value fell back to the provider publish time. Allowed values for this property are: "EVENT_TIME", "PUBLISH_TIME", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `level` (string) — Gets the level of this DeploymentLogDetail. Normalized severity. Unrecognized producer values are returned as UNKNOWN. Allowed values for this property are: "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `message` (oci.aidataplatform_dp.models.DeploymentLogMessage) — Gets the message of this DeploymentLogDetail.
+- `metadata` (oci.aidataplatform_dp.models.DeploymentLogMetadata) — Gets the metadata of this DeploymentLogDetail.
 
 **Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
 
@@ -3289,7 +3631,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentResponse
 
@@ -3308,7 +3652,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentResponse
 
@@ -3327,7 +3673,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetExperimentRunResponseDetails
 
@@ -3349,7 +3697,9 @@ Update a Delta Share with the provided metadata.
 - `page_token` (string) — Pagination token to go to the next page of metric history.
 - `max_results` (number) — Maximum number of logged instances of a metric for a run to return per call. Backend servers may restrict the value of max_results depending on performance requirements. Requests that do not specify this value will behave as non-paginated queries where all metric history values for a given metric within a run are returned in a single response.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentRunMetricHistoryCollection
 
@@ -3368,7 +3718,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelDeployment
 
@@ -3387,6 +3739,7 @@ Update a Delta Share with the provided metadata.
 
 **Optional Response Fields:**
 - `description` (string) — Gets the description of this ModelDeployment. Description of the deployment.
+- `compute_deployment_id` (string) — Gets the compute_deployment_id of this ModelDeployment. Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
 - `activated_time` (number) — Gets the activated_time of this ModelDeployment. Unix timestamp in milliseconds of when the deployment was activated.
 - `activated_by` (string) — Gets the activated_by of this ModelDeployment. User that activated the model deployment.
 - `serving_uri` (string) — Gets the serving_uri of this ModelDeployment. Serving URI of the deployment.
@@ -3405,7 +3758,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeploymentActivity
 
@@ -3420,7 +3775,7 @@ Update a Delta Share with the provided metadata.
 
 **Optional Response Fields:**
 - `message` (string) — Gets the message of this DeploymentActivity. Comment recorded with the activity.
-- `status_message` (string) — Gets the status_message of this DeploymentActivity. Details on the status, if it is not SUCCESS.
+- `status_message` (string) — Gets the status_message of this DeploymentActivity. Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
 
 **Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
 
@@ -3434,7 +3789,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `model_version` (number) — The model version whose contract to return; when omitted the latest (highest) version on the deployment is used.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetModelDeploymentContractResponse
 
@@ -3442,6 +3799,61 @@ Update a Delta Share with the provided metadata.
 - `input_contract` (string) — Gets the input_contract of this GetModelDeploymentContractResponse. Model input signature (contract), captured at activation; null if the model has no signature.
 - `output_contract` (string) — Gets the output_contract of this GetModelDeploymentContractResponse. Model output signature (contract), captured at activation; null if the model has no signature.
 - `input_example` (string) — Gets the input_example of this GetModelDeploymentContractResponse. Sample request payload (input example), captured at activation; null if the model has no example.
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="get-model-deployment-inference-details"></a>`get_model_deployment_inference_details`
+(Preview) Returns request and response payloads for one correlated inference invocation identified by its request ID. The identifier contains forward slashes, so each slash must be percent-encoded as %2F in the path. Example `requestId`: `abc123%2Fdef456%2F789abc`.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `deployment_id` (string) — The unique 32-character hexadecimal ID of the model deployment.
+- `request_id` (string) — Request ID that identifies the inference invocation record, as returned in the requestId field of the search results. This value contains forward slashes, so each slash must be percent-encoded as %2F when the value is placed in the path. Example encoded value: abc123%2Fdef456%2F789abc.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.InferenceInvocationDetails
+
+**Response Fields:**
+- `requestTimestamp` (datetime) — Gets the request_timestamp of this InferenceInvocationDetails. Timestamp recorded for the inference request event.
+- `requestUri` (string) — Gets the request_uri of this InferenceInvocationDetails. Inference endpoint URI.
+- `status` (string) — Gets the status of this InferenceInvocationDetails. Status derived from the correlated inference response event. Allowed values for this property are: "SUCCESS", "MALFORMED", "FAILED", "UNKNOWN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `requestId` (string) — Gets the request_id of this InferenceInvocationDetails. Request ID of the inference invocation, used to correlate the request and response events.
+- `metadata` (oci.aidataplatform_dp.models.InferenceInvocationMetadata) — Gets the metadata of this InferenceInvocationDetails.
+
+**Optional Response Fields:**
+- `latencyMs` (number) — Gets the latency_ms of this InferenceInvocationDetails. Response latency in milliseconds.
+- `modelVersion` (string) — Gets the model_version of this InferenceInvocationDetails. Model version associated with the invocation.
+- `requestPayload` (object) — Gets the request_payload of this InferenceInvocationDetails. Request payload captured in the inference request event.
+- `responsePayload` (object) — Gets the response_payload of this InferenceInvocationDetails. Response payload captured in the inference response event.
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="get-model-deployment-inference-summary"></a>`get_model_deployment_inference_summary`
+(Preview) Returns aggregate metrics for correlated request and response inference events within the requested timestamp range. Query parameters `timeStart` and `timeEnd` are optional; when omitted, the API uses the previous 24 hours. Any requested range must be within the most recent 14 days.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `deployment_id` (string) — The unique 32-character hexadecimal ID of the model deployment.
+
+**Optional Parameters:**
+- `time_start` (datetime) — Inclusive start of the request timestamp range. The range must be within the most recent 14 days. Example: 2026-09-01T00:00:00Z.
+- `time_end` (datetime) — Inclusive end of the request timestamp range. The range must be within the most recent 14 days. Example: 2026-09-15T00:00:00Z.
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.InferenceInvocationSummaryResponse
+
+**Response Fields:**
+- `timeStart` (datetime) — Gets the time_start of this InferenceInvocationSummaryResponse. Inclusive start time resolved for this summary query.
+- `timeEnd` (datetime) — Gets the time_end of this InferenceInvocationSummaryResponse. Inclusive end time resolved for this summary query.
+- `summary` (oci.aidataplatform_dp.models.InferenceInvocationSummaryMetrics) — Gets the summary of this InferenceInvocationSummaryResponse.
 
 **Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
 
@@ -3455,7 +3867,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetModelVersionResponseDetails
 
@@ -3473,7 +3887,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GetRegisteredModelResponseDetails
 
@@ -3492,7 +3908,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RegisteredModelSummary
 
@@ -3516,7 +3934,9 @@ Update a Delta Share with the provided metadata.
 - `path` (string) — Filter artifacts matching this path (a relative path from the root artifact directory).
 - `page_token` (string) — Token indicating the page of artifact results to fetch.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ArtifactList
 
@@ -3537,7 +3957,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentRunCollection
 
@@ -3559,7 +3981,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExperimentCollection
 
@@ -3581,7 +4005,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LoggedModelCollection
 
@@ -3600,7 +4026,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelDeploymentActivitySummaryCollection
 
@@ -3624,7 +4052,9 @@ Update a Delta Share with the provided metadata.
 - `page_token` (string) — Pagination token to go to the next page based on a previous search query.
 - `order_by` (string) — List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by latest stage transition timestamp, followed by name ASC, followed by version DESC.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelVersionCollection
 
@@ -3633,6 +4063,30 @@ Update a Delta Share with the provided metadata.
 
 **Optional Response Fields:**
 - `next_page_token` (string) — Gets the next_page_token of this ModelVersionCollection. Token that can be used to retrieve the next page of model versions.
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="list-registered-model-permissions"></a>`list_registered_model_permissions`
+(Preview) Returns the users, groups, and roles granted READ, MANAGE, or ADMIN on a registered model. Any caller who can view the model can read the list.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `registered_model_key` (string) — The fully-qualified registered model name in the format <catalog>.<schema>.<model>.
+
+**Optional Parameters:**
+- `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RegisteredModelPermissionCollection
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.RegisteredModelPermissionSummary]) — Gets the items of this RegisteredModelPermissionCollection. List of registered model permissions.
 
 **Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
 
@@ -3649,7 +4103,9 @@ Update a Delta Share with the provided metadata.
 - `order_by` (string) — List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default. Tiebreaks are done by model name ASC.
 - `is_deployment_summary_enabled` (boolean) — Whether to include the per-model deployment_summary (total_deployment and active_deployment) in each returned registered model. The summary is omitted from a model when it cannot be resolved, so an absent summary means "not requested or unavailable" rather than zero.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RegisteredModelCollection
 
@@ -3672,7 +4128,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunBatchResponseDetails
 
@@ -3689,7 +4147,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunInputsResponseDetails
 
@@ -3706,7 +4166,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunMetricResponseDetails
 
@@ -3723,7 +4185,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunModelResponseDetails
 
@@ -3740,9 +4204,29 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.LogExperimentRunParamResponseDetails
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="manage-registered-model-permission"></a>`manage_registered_model_permission`
+(Preview) Grants or revokes READ, MANAGE, or ADMIN on a registered model's dedicated volume. The model-to-volume link is resolved on the server; no volume name is accepted from the client.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `registered_model_key` (string) — The fully-qualified registered model name in the format <catalog>.<schema>.<model>.
+- `manage_registered_model_permission_details` (oci.aidataplatform_dp.models.ManageRegisteredModelPermissionDetails) — The grant or revoke details for the registered model.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
 
@@ -3756,7 +4240,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RenameRegisteredModelResponseDetails
 
@@ -3776,7 +4262,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RestoreExperimentResponseDetails
 
@@ -3793,7 +4281,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RestoreExperimentRunResponseDetails
 
@@ -3808,7 +4298,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -3823,9 +4315,64 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="search-deployment-logs"></a>`search_deployment_logs`
+(Preview) Returns one page of deployment lifecycle log events for the model deployment, newest first, read live from OCI Logging. No log content is persisted by the platform.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `deployment_id` (string) — The unique 32-character hexadecimal ID of the model deployment.
+- `search_deployment_logs_details` (oci.aidataplatform_dp.models.SearchDeploymentLogsDetails) — Window, filters, and pagination for the log search.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DeploymentLogCollection
+
+**Response Fields:**
+- `deploymentId` (string) — Gets the deployment_id of this DeploymentLogCollection. The model deployment the logs belong to.
+- `logs` (oci.aidataplatform_dp.models.DeploymentLogPage) — Gets the logs of this DeploymentLogCollection.
+- `query` (oci.aidataplatform_dp.models.DeploymentLogQueryEcho) — Gets the query of this DeploymentLogCollection.
+- `coverage` (oci.aidataplatform_dp.models.DeploymentLogCoverage) — Gets the coverage of this DeploymentLogCollection.
+
+**Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
+
+### <a id="search-model-deployment-inferences"></a>`search_model_deployment_inferences`
+(Preview) Returns paginated request and response-correlated inference invocation records for a model deployment. Each response contains at most 20 rows, OCI Logging pagination is used internally, and only the first 10,000 matching rows can be retrieved within a maximum 14-day range. When no time range is provided, the previous 24 hours is used.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `deployment_id` (string) — The unique 32-character hexadecimal ID of the model deployment.
+- `inference_invocation_search_details` (oci.aidataplatform_dp.models.InferenceInvocationSearchDetails) — Timestamp range, optional post-correlation filters, and pagination settings.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.InferenceInvocationSearchResult
+
+**Response Fields:**
+- `timeStart` (datetime) — Gets the time_start of this InferenceInvocationSearchResult. Inclusive start time resolved for this search query.
+- `timeEnd` (datetime) — Gets the time_end of this InferenceInvocationSearchResult. Inclusive end time resolved for this search query.
+- `items` (list[oci.aidataplatform_dp.models.InferenceInvocationSummary]) — Gets the items of this InferenceInvocationSearchResult. Correlated inference invocation rows for the requested page.
+- `statuses` (list[oci.aidataplatform_dp.models.InferenceInvocationStatus]) — Gets the statuses of this InferenceInvocationSearchResult. Available filter values: the distinct invocation statuses found across the whole requested time range. This is not narrowed by the filters in the request, so it stays stable while a caller changes filters.
+- `requestUris` (list[str]) — Gets the request_uris of this InferenceInvocationSearchResult. Available filter values: the distinct inference endpoint URIs found across the whole requested time range. This is not narrowed by the filters in the request, so it stays stable while a caller changes filters.
+- `modelVersions` (list[str]) — Gets the model_versions of this InferenceInvocationSearchResult. Model versions configured on the requested deployment.
+
+**Optional Response Fields:**
+- `nextPageToken` (string) — Gets the next_page_token of this InferenceInvocationSearchResult. Opaque token for retrieving the next page. Omitted when no additional page is available.
 
 **Return:** [Back to ML Ops (MLOpsClient)](#ml-ops-mlopsclient) • [Top](#top)
 
@@ -3838,7 +4385,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelDeploymentCollection
 
@@ -3861,7 +4410,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetExperimentRunTagResponseDetails
 
@@ -3878,7 +4429,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetExperimentTagResponseDetails
 
@@ -3894,7 +4447,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetModelVersionTagResponseDetails
 
@@ -3910,7 +4465,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SetRegisteredModelTagResponseDetails
 
@@ -3926,7 +4483,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TransitionModelVersionStageResponseDetails
 
@@ -3946,7 +4505,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentResponseDetails
 
@@ -3963,7 +4524,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentRunResponseDetails
 
@@ -3983,7 +4546,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentRunTagsResponseDetails
 
@@ -4000,7 +4565,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateExperimentTagsResponseDetails
 
@@ -4015,7 +4582,9 @@ Update a Delta Share with the provided metadata.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ModelDeployment
 
@@ -4034,6 +4603,7 @@ Update a Delta Share with the provided metadata.
 
 **Optional Response Fields:**
 - `description` (string) — Gets the description of this ModelDeployment. Description of the deployment.
+- `compute_deployment_id` (string) — Gets the compute_deployment_id of this ModelDeployment. Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
 - `activated_time` (number) — Gets the activated_time of this ModelDeployment. Unix timestamp in milliseconds of when the deployment was activated.
 - `activated_by` (string) — Gets the activated_by of this ModelDeployment. User that activated the model deployment.
 - `serving_uri` (string) — Gets the serving_uri of this ModelDeployment. Serving URI of the deployment.
@@ -4053,7 +4623,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateModelDeploymentTagsResponseDetails
 
@@ -4069,7 +4641,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateModelVersionResponseDetails
 
@@ -4088,7 +4662,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateModelVersionTagsResponseDetails
 
@@ -4104,7 +4680,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateRegisteredModelResponseDetails
 
@@ -4123,7 +4701,9 @@ Update a Delta Share with the provided metadata.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UpdateRegisteredModelTagsResponseDetails
 
@@ -4157,7 +4737,9 @@ Creates a new, untitled, empty file or directory, or copies an existing notebook
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `datalake_tenant_id` (string) — The tenant ID header.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Content
 
@@ -4177,6 +4759,11 @@ Creates a new, untitled, empty file or directory, or copies an existing notebook
 - `hash` (string) — Gets the hash of this Content. [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined.
 - `hash_algorithm` (string) — Gets the hash_algorithm of this Content. [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href="https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available" target="_blank" rel="noopener noreferrer">Available algorithms</a>.
 - `description` (string) — Gets the description of this Content. A user-provided description of the file.
+- `upload_id` (string) — Gets the upload_id of this Content. Upload session UUID for a chunked create or update acknowledgement.
+- `upload_chunk_index` (number) — Gets the upload_chunk_index of this Content. Accepted upload chunk index. A value of -1 marks completion.
+- `total_chunks` (number) — Gets the total_chunks of this Content. Total upload requests, including the final upload chunk.
+- `total_size_bytes` (number) — Gets the total_size_bytes of this Content. Total decoded notebook bytes for a chunked upload.
+- `sha256` (string) — Gets the sha256 of this Content. SHA-256 digest of the complete decoded notebook content for a chunked upload.
 
 **Return:** [Back to Notebook (NotebookClient)](#notebook-notebookclient) • [Top](#top)
 
@@ -4192,7 +4779,9 @@ Creates a new session or returns an existing session if a session for the given 
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `datalake_tenant_id` (string) — The tenant ID header.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Session
 
@@ -4221,7 +4810,9 @@ Deletes a notebook file or directory.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4238,7 +4829,9 @@ Delete a session with given session ID.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4255,7 +4848,9 @@ Exports the notebook file contents. You can optionally specify HTML or ipynb for
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExportedContents
 
@@ -4282,7 +4877,9 @@ Returns content for a given file or metadata for a directory. Directory content 
 - `content` (number) — Returns content based on param value. When set to 0, content is NOT returned. When set to 1, content is returned.
 - `hash` (number) — Returns hash hexdigest string of content and the hash algorithm. 0 for no hash, 1 for return hash. 0 is default. It may be ignored by the content manager.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Content
 
@@ -4302,6 +4899,11 @@ Returns content for a given file or metadata for a directory. Directory content 
 - `hash` (string) — Gets the hash of this Content. [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined.
 - `hash_algorithm` (string) — Gets the hash_algorithm of this Content. [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href="https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available" target="_blank" rel="noopener noreferrer">Available algorithms</a>.
 - `description` (string) — Gets the description of this Content. A user-provided description of the file.
+- `upload_id` (string) — Gets the upload_id of this Content. Upload session UUID for a chunked create or update acknowledgement.
+- `upload_chunk_index` (number) — Gets the upload_chunk_index of this Content. Accepted upload chunk index. A value of -1 marks completion.
+- `total_chunks` (number) — Gets the total_chunks of this Content. Total upload requests, including the final upload chunk.
+- `total_size_bytes` (number) — Gets the total_size_bytes of this Content. Total decoded notebook bytes for a chunked upload.
+- `sha256` (string) — Gets the sha256 of this Content. SHA-256 digest of the complete decoded notebook content for a chunked upload.
 
 **Return:** [Back to Notebook (NotebookClient)](#notebook-notebookclient) • [Top](#top)
 
@@ -4315,7 +4917,9 @@ Returns session details for a given session ID.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Session
 
@@ -4349,7 +4953,9 @@ Returns a list of all available sessions.
 - `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Allowed values are: "timeCreated"
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SessionCollection
 
@@ -4371,7 +4977,9 @@ Renames a file or directory without re-uploading content.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Content
 
@@ -4391,6 +4999,11 @@ Renames a file or directory without re-uploading content.
 - `hash` (string) — Gets the hash of this Content. [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined.
 - `hash_algorithm` (string) — Gets the hash_algorithm of this Content. [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href="https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available" target="_blank" rel="noopener noreferrer">Available algorithms</a>.
 - `description` (string) — Gets the description of this Content. A user-provided description of the file.
+- `upload_id` (string) — Gets the upload_id of this Content. Upload session UUID for a chunked create or update acknowledgement.
+- `upload_chunk_index` (number) — Gets the upload_chunk_index of this Content. Accepted upload chunk index. A value of -1 marks completion.
+- `total_chunks` (number) — Gets the total_chunks of this Content. Total upload requests, including the final upload chunk.
+- `total_size_bytes` (number) — Gets the total_size_bytes of this Content. Total decoded notebook bytes for a chunked upload.
+- `sha256` (string) — Gets the sha256 of this Content. SHA-256 digest of the complete decoded notebook content for a chunked upload.
 
 **Return:** [Back to Notebook (NotebookClient)](#notebook-notebookclient) • [Top](#top)
 
@@ -4406,7 +5019,9 @@ Patches a session with a given ID with the provided details. You can use this to
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Session
 
@@ -4437,7 +5052,9 @@ Updates the contents of an existing notebook with the provided details or saves 
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Content
 
@@ -4457,8 +5074,176 @@ Updates the contents of an existing notebook with the provided details or saves 
 - `hash` (string) — Gets the hash of this Content. [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined.
 - `hash_algorithm` (string) — Gets the hash_algorithm of this Content. [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href="https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available" target="_blank" rel="noopener noreferrer">Available algorithms</a>.
 - `description` (string) — Gets the description of this Content. A user-provided description of the file.
+- `upload_id` (string) — Gets the upload_id of this Content. Upload session UUID for a chunked create or update acknowledgement.
+- `upload_chunk_index` (number) — Gets the upload_chunk_index of this Content. Accepted upload chunk index. A value of -1 marks completion.
+- `total_chunks` (number) — Gets the total_chunks of this Content. Total upload requests, including the final upload chunk.
+- `total_size_bytes` (number) — Gets the total_size_bytes of this Content. Total decoded notebook bytes for a chunked upload.
+- `sha256` (string) — Gets the sha256 of this Content. SHA-256 digest of the complete decoded notebook content for a chunked upload.
 
 **Return:** [Back to Notebook (NotebookClient)](#notebook-notebookclient) • [Top](#top)
+
+## <a id="private-network-profile-privatenetworkprofileclient"></a>Private Network Profile (PrivateNetworkProfileClient)
+**Operations:**
+- [`create_private_network_profile`](#create-private-network-profile)
+- [`delete_private_network_profile`](#delete-private-network-profile)
+- [`get_private_network_profile`](#get-private-network-profile)
+- [`list_private_network_profiles`](#list-private-network-profiles)
+- [`update_private_network_profile`](#update-private-network-profile)
+
+### <a id="create-private-network-profile"></a>`create_private_network_profile`
+Creates a reusable private network profile for Git repositories in an AI data platform.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `create_private_network_profile_details` (oci.aidataplatform_dp.models.CreatePrivateNetworkProfileDetails) — Details for the private network profile.
+
+**Optional Parameters:**
+- `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.PrivateNetworkProfile
+
+**Response Fields:**
+- `key` (string) — Gets the key of this PrivateNetworkProfile. Unique key for the Git connectivity profile.
+- `name` (string) — Gets the name of this PrivateNetworkProfile. Display name of the Git connectivity profile.
+- `customerCompartmentId` (string) — Gets the customer_compartment_id of this PrivateNetworkProfile. Customer compartment identifier containing the private network resources.
+- `customerVcnId` (string) — Gets the customer_vcn_id of this PrivateNetworkProfile. Customer VCN identifier used for Git connectivity.
+- `customerSubnetId` (string) — Gets the customer_subnet_id of this PrivateNetworkProfile. Customer subnet identifier used for Git connectivity.
+- `lifecycleState` (string) — Gets the lifecycle_state of this PrivateNetworkProfile. Current lifecycle state of the profile. Allowed values for this property are: "CREATING", "ACTIVE", "DELETING", "FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `validationState` (string) — Gets the validation_state of this PrivateNetworkProfile. Latest validation state of the profile. Allowed values for this property are: "UNKNOWN", "VALID", "INVALID", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `timeCreated` (datetime) — Gets the time_created of this PrivateNetworkProfile. Time at which the profile was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this PrivateNetworkProfile. Time at which the profile was last updated.
+
+**Optional Response Fields:**
+- `description` (string) — Gets the description of this PrivateNetworkProfile. Optional description of the Git connectivity profile.
+- `timeLastValidated` (datetime) — Gets the time_last_validated of this PrivateNetworkProfile. Time at which the profile was last validated.
+- `lastValidationErrorCode` (string) — Gets the last_validation_error_code of this PrivateNetworkProfile. Non-sensitive code for the latest validation failure.
+- `lastValidationErrorMessage` (string) — Gets the last_validation_error_message of this PrivateNetworkProfile. Non-sensitive message for the latest validation failure.
+- `createdBy` (string) — Gets the created_by of this PrivateNetworkProfile. Identifier of the user who created the profile.
+- `createdByName` (string) — Gets the created_by_name of this PrivateNetworkProfile. Display name of the user who created the profile.
+
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient) • [Top](#top)
+
+### <a id="delete-private-network-profile"></a>`delete_private_network_profile`
+Deletes an unused private network profile from an AI data platform.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `private_network_profile_key` (string) — The private network profile key.
+
+**Optional Parameters:**
+- `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
+
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient) • [Top](#top)
+
+### <a id="get-private-network-profile"></a>`get_private_network_profile`
+Returns a private network profile for the requested AI data platform.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `private_network_profile_key` (string) — The private network profile key.
+
+**Optional Parameters:**
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.PrivateNetworkProfile
+
+**Response Fields:**
+- `key` (string) — Gets the key of this PrivateNetworkProfile. Unique key for the Git connectivity profile.
+- `name` (string) — Gets the name of this PrivateNetworkProfile. Display name of the Git connectivity profile.
+- `customerCompartmentId` (string) — Gets the customer_compartment_id of this PrivateNetworkProfile. Customer compartment identifier containing the private network resources.
+- `customerVcnId` (string) — Gets the customer_vcn_id of this PrivateNetworkProfile. Customer VCN identifier used for Git connectivity.
+- `customerSubnetId` (string) — Gets the customer_subnet_id of this PrivateNetworkProfile. Customer subnet identifier used for Git connectivity.
+- `lifecycleState` (string) — Gets the lifecycle_state of this PrivateNetworkProfile. Current lifecycle state of the profile. Allowed values for this property are: "CREATING", "ACTIVE", "DELETING", "FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `validationState` (string) — Gets the validation_state of this PrivateNetworkProfile. Latest validation state of the profile. Allowed values for this property are: "UNKNOWN", "VALID", "INVALID", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `timeCreated` (datetime) — Gets the time_created of this PrivateNetworkProfile. Time at which the profile was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this PrivateNetworkProfile. Time at which the profile was last updated.
+
+**Optional Response Fields:**
+- `description` (string) — Gets the description of this PrivateNetworkProfile. Optional description of the Git connectivity profile.
+- `timeLastValidated` (datetime) — Gets the time_last_validated of this PrivateNetworkProfile. Time at which the profile was last validated.
+- `lastValidationErrorCode` (string) — Gets the last_validation_error_code of this PrivateNetworkProfile. Non-sensitive code for the latest validation failure.
+- `lastValidationErrorMessage` (string) — Gets the last_validation_error_message of this PrivateNetworkProfile. Non-sensitive message for the latest validation failure.
+- `createdBy` (string) — Gets the created_by of this PrivateNetworkProfile. Identifier of the user who created the profile.
+- `createdByName` (string) — Gets the created_by_name of this PrivateNetworkProfile. Display name of the user who created the profile.
+
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient) • [Top](#top)
+
+### <a id="list-private-network-profiles"></a>`list_private_network_profiles`
+Returns private network profile summaries for the requested AI data platform.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+
+**Optional Parameters:**
+- `name` (string) — An exact-name filter for private network profiles.
+- `lifecycle_state` (string) — A filter to return only private network profiles with the given lifecycle state. Allowed values are: "CREATING", "ACTIVE", "DELETING", "FAILED"
+- `display_name_contains` (string) — A filter to return only resources that have a display name containing the text provided.
+- `limit` (number) — For list pagination. The maximum number of results per page, or items to return in a paginated "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `page` (string) — For list pagination. The value of the opc-next-page response header from the previous "List" call. For important details about how pagination works, see `List Pagination`.  https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine
+- `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
+- `sort_by` (string) — The field to sort by. You can provide only one sort order. The default order for `timeCreated` is descending. Allowed values are: "timeCreated"
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.PrivateNetworkProfileCollection
+
+**Response Fields:**
+- `items` (list[oci.aidataplatform_dp.models.PrivateNetworkProfileSummary]) — Gets the items of this PrivateNetworkProfileCollection. Git connectivity profile summaries.
+
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient) • [Top](#top)
+
+### <a id="update-private-network-profile"></a>`update_private_network_profile`
+Updates selected fields of a reusable private network profile in an AI data platform.
+
+**Required Parameters:**
+- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
+- `private_network_profile_key` (string) — The private network profile key.
+- `update_private_network_profile_details` (oci.aidataplatform_dp.models.UpdatePrivateNetworkProfileDetails) — Fields to update on the private network profile.
+
+**Optional Parameters:**
+- `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
+- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+
+**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.PrivateNetworkProfile
+
+**Response Fields:**
+- `key` (string) — Gets the key of this PrivateNetworkProfile. Unique key for the Git connectivity profile.
+- `name` (string) — Gets the name of this PrivateNetworkProfile. Display name of the Git connectivity profile.
+- `customerCompartmentId` (string) — Gets the customer_compartment_id of this PrivateNetworkProfile. Customer compartment identifier containing the private network resources.
+- `customerVcnId` (string) — Gets the customer_vcn_id of this PrivateNetworkProfile. Customer VCN identifier used for Git connectivity.
+- `customerSubnetId` (string) — Gets the customer_subnet_id of this PrivateNetworkProfile. Customer subnet identifier used for Git connectivity.
+- `lifecycleState` (string) — Gets the lifecycle_state of this PrivateNetworkProfile. Current lifecycle state of the profile. Allowed values for this property are: "CREATING", "ACTIVE", "DELETING", "FAILED", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `validationState` (string) — Gets the validation_state of this PrivateNetworkProfile. Latest validation state of the profile. Allowed values for this property are: "UNKNOWN", "VALID", "INVALID", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `timeCreated` (datetime) — Gets the time_created of this PrivateNetworkProfile. Time at which the profile was created.
+- `timeUpdated` (datetime) — Gets the time_updated of this PrivateNetworkProfile. Time at which the profile was last updated.
+
+**Optional Response Fields:**
+- `description` (string) — Gets the description of this PrivateNetworkProfile. Optional description of the Git connectivity profile.
+- `timeLastValidated` (datetime) — Gets the time_last_validated of this PrivateNetworkProfile. Time at which the profile was last validated.
+- `lastValidationErrorCode` (string) — Gets the last_validation_error_code of this PrivateNetworkProfile. Non-sensitive code for the latest validation failure.
+- `lastValidationErrorMessage` (string) — Gets the last_validation_error_message of this PrivateNetworkProfile. Non-sensitive message for the latest validation failure.
+- `createdBy` (string) — Gets the created_by of this PrivateNetworkProfile. Identifier of the user who created the profile.
+- `createdByName` (string) — Gets the created_by_name of this PrivateNetworkProfile. Display name of the user who created the profile.
+
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient) • [Top](#top)
 
 ## <a id="role-roleclient"></a>Role (RoleClient)
 **Operations:**
@@ -4483,7 +5268,9 @@ Assigns a given user/group/principal to a role.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4499,7 +5286,9 @@ Creates a role.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Role
 
@@ -4531,7 +5320,9 @@ Deletes a role.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4547,7 +5338,9 @@ Returns detailed information about a role.
 **Optional Parameters:**
 - `role_scope` (string) — The scope of roles to be returned. Defaults to USER. Allowed values are: "USER", "ADMIN", "MEMBER_OF"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Role
 
@@ -4583,7 +5376,9 @@ Returns a list of permissions for a given role.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RolePermissionCollection
 
@@ -4606,7 +5401,9 @@ Returns a list of roles.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.RoleCollection
 
@@ -4627,7 +5424,9 @@ Revoke a role from a given user or group.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4644,7 +5443,9 @@ Updates a role with the provided information.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Role
 
@@ -4708,7 +5509,9 @@ Creates a managed table with data loaded from a sample file.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4725,7 +5528,9 @@ Creates a schema.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4742,7 +5547,9 @@ Creates a table.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4759,7 +5566,9 @@ Creates a view.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.View
 
@@ -4795,7 +5604,9 @@ Deletes a schema.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4813,7 +5624,9 @@ Deletes a table.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4831,7 +5644,9 @@ Deletes a view.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -4847,7 +5662,9 @@ Generates a URI for uploading a sample file to a temporary folder in a schema.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GenerateTempFileUploadTargetResponseDetails
 
@@ -4869,12 +5686,14 @@ Returns detailed information about a specified schema.
 - `should_skip_ocid_translation` (boolean) — When true, skip user OCID translation and return raw OCIDs.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Schema
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 
@@ -4903,12 +5722,14 @@ Returns detailed information about a table.
 - `should_skip_ocid_translation` (boolean) — When true, skip user OCID translation and return raw OCIDs.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Table
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Table. An enum to decide the type of the derived model Allowed values for this property are: "ADW", "ALH", "STANDARD", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `displayName` (string) — Gets the display_name of this Table. Table name.
 
 **Optional Response Fields:**
@@ -4942,7 +5763,9 @@ Returns information about a view.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.View
 
@@ -4980,7 +5803,9 @@ Returns a list of permissions for a given schema.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SchemaPermissionCollection
 
@@ -5004,7 +5829,9 @@ Returns a list of schemas.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.SchemaCollection
 
@@ -5027,7 +5854,9 @@ Returns a list of permissions for a given table.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TablePermissionCollection
 
@@ -5053,7 +5882,9 @@ Returns a list of tables in a schema.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TableCollection
 
@@ -5076,7 +5907,9 @@ Returns a list of view permissions.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ViewPermissionCollection
 
@@ -5100,7 +5933,9 @@ Returns a list of views in a schema.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ViewCollection
 
@@ -5121,7 +5956,9 @@ Updates the permissions for a given schema.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5139,7 +5976,9 @@ Updates the permissions for a given table.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5157,7 +5996,9 @@ Updates permissions on a view.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5174,7 +6015,9 @@ Returns details of a table schema from the specified location.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.InferSchema
 
@@ -5194,7 +6037,9 @@ Returns table schema and data from the specified location.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.InferSchemaWithPreview
 
@@ -5216,7 +6061,9 @@ Refreshes schema through the crawler.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5234,7 +6081,9 @@ Refreshes a table through the crawler.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5251,7 +6100,9 @@ Retrieves PAR for the entities created.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ParDetails
 
@@ -5275,12 +6126,14 @@ Updates a schema.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Schema
 
 **Response Fields:**
-- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `entityType` (string) — Gets the entity_type of this Schema. An enum to decide the type of the derived model. Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `key` (string) — Gets the key of this Schema. The fully qualified name of the schema in the format <catalog_name>.<schema_name>.
 - `displayName` (string) — Gets the display_name of this Schema. Schema name.
 
@@ -5310,7 +6163,9 @@ Updates a table with provided details.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5328,7 +6183,9 @@ Updates a view with given information.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.View
 
@@ -5370,7 +6227,9 @@ Updates a view with given information.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UserSetting
 
@@ -5394,7 +6253,9 @@ Updates a view with given information.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5409,7 +6270,9 @@ Updates a view with given information.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UserSetting
 
@@ -5438,7 +6301,9 @@ Updates a view with given information.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `display_name` (string) — A filter to return only resources that match the given display name exactly.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UserSettingCollection
 
@@ -5458,7 +6323,9 @@ Updates a view with given information.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UserSetting
 
@@ -5504,7 +6371,9 @@ Creates a volume.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Volume
 
@@ -5540,7 +6409,9 @@ Deletes a directory in a volume.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5556,7 +6427,9 @@ Deletes a file or folder in a volume.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5572,7 +6445,9 @@ Deletes a volume.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5589,7 +6464,9 @@ Downloads a file from a volume.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type stream
 
@@ -5607,7 +6484,9 @@ provide the par info for downloading the file for given path.
 - `should_generate_new_par` (boolean) — Flag to toggle to generate short living par
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DownloadFileWithParResult
 
@@ -5637,7 +6516,9 @@ Returns detailed information about a volume.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Volume
 
@@ -5680,7 +6561,9 @@ Returns a list of files in a volume.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.VolumeFileCollection
 
@@ -5702,7 +6585,9 @@ Returns a list of volume permissions.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.VolumePermissionCollection
 
@@ -5726,7 +6611,9 @@ Returns a list of volumes.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.VolumeCollection
 
@@ -5748,7 +6635,9 @@ Creates a directory in a volume.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5765,7 +6654,9 @@ Updates the permissions on a volume.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5785,7 +6676,9 @@ Updates a directory in volume with the provided information.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5803,7 +6696,9 @@ Updates a volume with the provided information.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Volume
 
@@ -5839,7 +6734,9 @@ Creates or updates an asynchronous volume ZIP upload and extraction operation. C
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UploadAndExtractZipResult
 
@@ -5867,7 +6764,10 @@ Uploads a file to volume. If the file already exists, it is updated.
 - `is_upload_file_base64_encoded` (boolean) — A flag to identify if the upload file is base64 encoded
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+- `buffer_limit` (number) — A buffer limit for the stream to be buffered. buffer_limit is used to set the buffer size capacity. Streams will be read until the size of the buffer reaches the buffer_limit. If the stream size is greater than the buffer_limit, a BufferError exception will be thrown. The buffer_limit parameter is used when the stream object does not have a `seek`, `tell`, or `fileno` property for the Python Request library to calculate out the content length. If buffer_limit is not passed, then the buffer_limit will be defaulted to 100MB. Large streams can cause the process to freeze, consider passing in content-length for large streams instead.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -5889,7 +6789,9 @@ Uploads a volume file by generating PAR. If file exists, then it will be updated
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UploadFileWithParResult
 
@@ -5920,7 +6822,9 @@ Starts asynchronous creation of a ZIP archive for a volume folder. The response 
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ZipAndDownloadFolderResult
 
@@ -5967,7 +6871,9 @@ Cancels a job run.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobRun
 
@@ -5995,6 +6901,7 @@ Cancels a job run.
 - `parameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the parameters of this JobRun. An optional list of parameters.
 - `unifiedJobAndJobRunParameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the unified_job_and_job_run_parameters of this JobRun. Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence.
 - `repairHistory` (list[oci.aidataplatform_dp.models.RepairHistory]) — Gets the repair_history of this JobRun. Array of repaired runs.
+- `repairKey` (number) — Gets the repair_key of this JobRun. The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
 - `systemParameters` (dict(str, str)) — Gets the system_parameters of this JobRun. Map of system parameters with their values for this job run.
 - `startTime` (number) — Gets the start_time of this JobRun. The time at which the job execution started in epoch milliseconds.
 - `endTime` (number) — Gets the end_time of this JobRun. The time at which the job execution started in epoch milliseconds.
@@ -6010,7 +6917,7 @@ Cancels a job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
-- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 - `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
@@ -6028,7 +6935,9 @@ Cancels all job runs for a given job.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -6046,7 +6955,9 @@ Creates a job.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Job
 
@@ -6088,7 +6999,9 @@ Creates a job run.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobRun
 
@@ -6116,6 +7029,7 @@ Creates a job run.
 - `parameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the parameters of this JobRun. An optional list of parameters.
 - `unifiedJobAndJobRunParameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the unified_job_and_job_run_parameters of this JobRun. Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence.
 - `repairHistory` (list[oci.aidataplatform_dp.models.RepairHistory]) — Gets the repair_history of this JobRun. Array of repaired runs.
+- `repairKey` (number) — Gets the repair_key of this JobRun. The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
 - `systemParameters` (dict(str, str)) — Gets the system_parameters of this JobRun. Map of system parameters with their values for this job run.
 - `startTime` (number) — Gets the start_time of this JobRun. The time at which the job execution started in epoch milliseconds.
 - `endTime` (number) — Gets the end_time of this JobRun. The time at which the job execution started in epoch milliseconds.
@@ -6131,7 +7045,7 @@ Creates a job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
-- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 - `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
@@ -6148,7 +7062,9 @@ Deletes a job.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -6165,7 +7081,9 @@ Deletes a job run.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -6183,7 +7101,9 @@ Exports task run output in HTML or ipynb format.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ExportedTaskRunOutputContents
 
@@ -6207,7 +7127,9 @@ Fetches the task run output from the runtime engine.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TaskRunOutput
 
@@ -6216,7 +7138,7 @@ Fetches the task run output from the runtime engine.
 
 **Optional Response Fields:**
 - `key` (string) — Gets the key of this TaskRunOutput. A unique identifier for the output.
-- `taskType` (string) — Gets the task_type of this TaskRunOutput. The type of the task. Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `taskType` (string) — Gets the task_type of this TaskRunOutput. The type of the task. Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `isTruncated` (boolean) — Gets the is_truncated of this TaskRunOutput. True if logs are truncated.
 - `errorTrace` (string) — Gets the error_trace of this TaskRunOutput. If there was an error executing the run, this field contains any available stack traces.
 - `outputParameters` (list[oci.aidataplatform_dp.models.OutputParameter]) — Gets the output_parameters of this TaskRunOutput. List of output parameters with name and values.
@@ -6235,7 +7157,9 @@ Returns detailed information about a given job.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Job
 
@@ -6276,8 +7200,11 @@ Returns detailed information about a given job run.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_include_task_run_summaries` (boolean) — A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior.
+- `repair_key` (number) — The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobRun
 
@@ -6305,6 +7232,7 @@ Returns detailed information about a given job run.
 - `parameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the parameters of this JobRun. An optional list of parameters.
 - `unifiedJobAndJobRunParameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the unified_job_and_job_run_parameters of this JobRun. Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence.
 - `repairHistory` (list[oci.aidataplatform_dp.models.RepairHistory]) — Gets the repair_history of this JobRun. Array of repaired runs.
+- `repairKey` (number) — Gets the repair_key of this JobRun. The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
 - `systemParameters` (dict(str, str)) — Gets the system_parameters of this JobRun. Map of system parameters with their values for this job run.
 - `startTime` (number) — Gets the start_time of this JobRun. The time at which the job execution started in epoch milliseconds.
 - `endTime` (number) — Gets the end_time of this JobRun. The time at which the job execution started in epoch milliseconds.
@@ -6320,7 +7248,7 @@ Returns detailed information about a given job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
-- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 - `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
@@ -6337,7 +7265,9 @@ Returns detailed information about a task run with a given task run key.
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_include_task_run_retries` (boolean) — Indicates whether a get task run response should include task run retries.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TaskRun
 
@@ -6385,7 +7315,9 @@ Returns a list of job permissions.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobPermissionCollection
 
@@ -6412,7 +7344,9 @@ Returns a detailed list of job runs.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobRunCollection
 
@@ -6440,7 +7374,9 @@ Returns a list of jobs.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobCollection
 
@@ -6464,7 +7400,9 @@ Returns a list of the latest job runs for a given job key.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobRunCollection
 
@@ -6489,7 +7427,9 @@ Returns detailed information about retries of a task run with a given task run k
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TaskRunRetryCollection
 
@@ -6516,7 +7456,9 @@ Returns a list of task runs.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName", "status"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.TaskRunCollection
 
@@ -6537,14 +7479,16 @@ Update job permissions with the provided details.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Workflow (WorkflowClient)](#workflow-workflowclient) • [Top](#top)
 
 ### <a id="repair-job-run"></a>`repair_job_run`
-Repairs and reruns a job run.
+Repairs and reruns a root job run. Nested job runs can be repaired only through their root job run repair plan.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -6557,7 +7501,9 @@ Repairs and reruns a job run.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.JobRun
 
@@ -6585,6 +7531,7 @@ Repairs and reruns a job run.
 - `parameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the parameters of this JobRun. An optional list of parameters.
 - `unifiedJobAndJobRunParameters` (list[oci.aidataplatform_dp.models.Parameter]) — Gets the unified_job_and_job_run_parameters of this JobRun. Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence.
 - `repairHistory` (list[oci.aidataplatform_dp.models.RepairHistory]) — Gets the repair_history of this JobRun. Array of repaired runs.
+- `repairKey` (number) — Gets the repair_key of this JobRun. The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
 - `systemParameters` (dict(str, str)) — Gets the system_parameters of this JobRun. Map of system parameters with their values for this job run.
 - `startTime` (number) — Gets the start_time of this JobRun. The time at which the job execution started in epoch milliseconds.
 - `endTime` (number) — Gets the end_time of this JobRun. The time at which the job execution started in epoch milliseconds.
@@ -6600,7 +7547,7 @@ Repairs and reruns a job run.
 - `taskRunSummaryMap` (dict(str, object)) — Gets the task_run_summary_map of this JobRun. TaskRun to TaskRunSummary map for given job run.
 - `timeoutSeconds` (number) — Gets the timeout_seconds of this JobRun. An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value.
 - `repairedTasks` (list[str]) — Gets the repaired_tasks of this JobRun. A list of repaired tasks.
-- `repairMode` (string) — Gets the repair_mode of this JobRun. Repair mode to be used for this repair scope. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+- `repairMode` (string) — Gets the repair_mode of this JobRun. repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'. Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 - `lifecycleStates` (list[oci.aidataplatform_dp.models.LifecycleState]) — Gets the lifecycle_states of this JobRun. The collection of lifecycle states.
 - `runAs` (string) — Gets the run_as of this JobRun. This points to the user or service account executing the job.
 
@@ -6619,7 +7566,9 @@ Updates details for a job.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Job
 
@@ -6664,7 +7613,7 @@ Updates details for a job.
 - [`update_workspace_async_operation_status`](#update-workspace-async-operation-status)
 
 ### <a id="create-git-folder"></a>`create_git_folder`
-Creates a git folder in the workspace
+Asynchronously creates a Git folder and clones the repository. The aidp-async-operation-key header identifies the operation. Once SUCCEEDED, the folder's HEAD response with shouldIncludeMetadata=true exposes system:repoKey in the JSON file-metadata header for subsequent Git APIs.
 
 **Required Parameters:**
 - `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
@@ -6675,19 +7624,25 @@ Creates a git folder in the workspace
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.GitFolder
 
 **Response Fields:**
-- `folderPath` (string) — Gets the folder_path of this GitFolder. The absolute path of the Git folder user wants to create.
+- `folderPath` (string) — Gets the folder_path of this GitFolder. Workspace-relative path of the Git folder, without a leading slash (for example, `sample-repo`). The folder is located at `/Workspace/<folderPath>`.
 
 **Optional Response Fields:**
 - `gitProviderKey` (string) — Gets the git_provider_key of this GitFolder. key corresponding to Git service provider in git provider table.
 - `gitRepositoryUrl` (string) — Gets the git_repository_url of this GitFolder. Git repository url used to clone.
 - `description` (string) — Gets the description of this GitFolder. Short description about the git repository.
 - `branchName` (string) — Gets the branch_name of this GitFolder. Git branch name that is cloned.
+- `isPrivateConnectivityEnabled` (boolean) — Gets the is_private_connectivity_enabled of this GitFolder. Whether this Git folder uses private network connectivity.
+- `gitConnectivityProfileKey` (string) — Gets the git_connectivity_profile_key of this GitFolder. Key of the private network profile used for Git connectivity, returned by private network profile listings filtered by name. Required when isPrivateConnectivityEnabled is true.
+- `credentialStoreKey` (string) — Gets the credential_store_key of this GitFolder. Key of the credential containing the Git server's TLS CA certificate, returned by credential listings filtered by displayName. Required when isPrivateConnectivityEnabled is true.
 - `folderMetadata` (dict(str, object)) — Gets the folder_metadata of this GitFolder. The metadata about the folder, like branchName.
+- `sparseCheckout` (oci.aidataplatform_dp.models.SparseCheckoutDetails) — Gets the sparse_checkout of this GitFolder.
 
 **Return:** [Back to Workspace (WorkspaceClient)](#workspace-workspaceclient) • [Top](#top)
 
@@ -6701,7 +7656,9 @@ Creates a workspace.
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Workspace
 
@@ -6740,7 +7697,9 @@ Deletes a workspace.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `time_data_lake_deletion` (datetime) — Deletion time in the case that a workspace is deleted during AI Data Platform deletion.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -6755,7 +7714,9 @@ Gets detailed information about a workspace.
 
 **Optional Parameters:**
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Workspace
 
@@ -6795,7 +7756,9 @@ Gets a list of create workspace permission summary objects.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `granteeName` is ascending. Allowed values are: "granteeName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.CreateWorkspacePermissionCollection
 
@@ -6817,7 +7780,9 @@ Gets a list of workspace permissions.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `granteeName` is ascending. Allowed values are: "granteeName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspacePermissionCollection
 
@@ -6843,7 +7808,9 @@ Gets a list of workspaces.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `is_private_network_enabled` (boolean) — A flag to filter the workspaces which are private network enabled or disabled
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspaceCollection
 
@@ -6863,7 +7830,9 @@ Updates create workspace permissions on a workspace.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -6881,7 +7850,9 @@ Updates permissions on a workspace.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -6898,7 +7869,9 @@ Updates the details of a workspace.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Workspace
 
@@ -6938,7 +7911,9 @@ Updates the status of a workspace.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.Workspace
 
@@ -6996,7 +7971,9 @@ Copy a workspace object to different location.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspaceObjectDetails
 
@@ -7031,7 +8008,10 @@ Creates a workspace object. You can create a file or folder in the workspace.
 - `is_upload_file_base64_encoded` (boolean) — A flag to identify if the upload file is base64 encoded
 - `is_overwrite` (boolean) — A boolean which decides if overwrite is allowed
 - `object_description` (string) — The description of the workspace object
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+- `buffer_limit` (number) — A buffer limit for the stream to be buffered. buffer_limit is used to set the buffer size capacity. Streams will be read until the size of the buffer reaches the buffer_limit. If the stream size is greater than the buffer_limit, a BufferError exception will be thrown. The buffer_limit parameter is used when the stream object does not have a `seek`, `tell`, or `fileno` property for the Python Request library to calculate out the content length. If buffer_limit is not passed, then the buffer_limit will be defaulted to 100MB. Large streams can cause the process to freeze, consider passing in content-length for large streams instead.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type stream
 
@@ -7048,7 +8028,9 @@ Deletes a workspace object.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -7068,7 +8050,9 @@ Downloads a workspace file by providing the PAR info for downloading the file fo
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `type` (string) — The type of workspace object.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.DownloadFileWithParResult
 
@@ -7097,10 +8081,12 @@ Returns detailed information about a workspace object.
 - `object_path` (string) — The fully qualified path of the workspace object.
 
 **Optional Parameters:**
-- `should_include_metadata` (boolean) — Path to list all metadata for a file or folder.
+- `should_include_metadata` (boolean) — Whether to include custom file or folder metadata. For HEAD requests, metadata is returned as JSON in the file-metadata response header.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type stream
 
@@ -7115,10 +8101,12 @@ Returns metadata about a workspace object. The contents of the file are not retr
 - `object_path` (string) — The fully qualified path of the workspace object.
 
 **Optional Parameters:**
-- `should_include_metadata` (boolean) — Path to list all metadata for a file or folder.
+- `should_include_metadata` (boolean) — Whether to include custom file or folder metadata. For HEAD requests, metadata is returned as JSON in the file-metadata response header.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -7138,7 +8126,9 @@ Returns a list of workspace object permissions.
 - `sort_order` (string) — The sort order to use, either ascending (`ASC`) or descending (`DESC`). Allowed values are: "ASC", "DESC"
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspaceObjectPermissionCollection
 
@@ -7165,7 +8155,9 @@ Returns a list of objects in the workspace.
 - `sort_by` (string) — The field to sort by. You can provide only one sort order. Default order for `timeCreated` is descending. Default order for `displayName` is ascending. Allowed values are: "timeCreated", "displayName"
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspaceObjectCollection
 
@@ -7186,7 +8178,9 @@ Updates permissions on a workspace object.
 **Optional Parameters:**
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
@@ -7204,7 +8198,9 @@ Moves a workspace object to different location.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspaceObjectDetails
 
@@ -7234,7 +8230,9 @@ Renames a workspace object.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.WorkspaceObjectDetails
 
@@ -7266,7 +8264,10 @@ Updates a workspace object with the provided information.
 - `if_match` (string) — For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `should_update_recent` (boolean) — A flag to identify if the recent list should be updated.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
+- `buffer_limit` (number) — A buffer limit for the stream to be buffered. buffer_limit is used to set the buffer size capacity. Streams will be read until the size of the buffer reaches the buffer_limit. If the stream size is greater than the buffer_limit, a BufferError exception will be thrown. The buffer_limit parameter is used when the stream object does not have a `seek`, `tell`, or `fileno` property for the Python Request library to calculate out the content length. If buffer_limit is not passed, then the buffer_limit will be defaulted to 100MB. Large streams can cause the process to freeze, consider passing in content-length for large streams instead.
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type stream
 
@@ -7283,7 +8284,9 @@ Creates or updates an asynchronous workspace ZIP upload and extraction operation
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UploadAndExtractZipResult
 
@@ -7314,7 +8317,9 @@ Creates a workspace file by generating PAR or updates the metadata by close file
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
 - `type` (string) — The type of workspace object.
 - `object_description` (string) — The description of the workspace object
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.UploadFileWithParResult
 
@@ -7345,7 +8350,9 @@ Starts asynchronous creation of a ZIP archive for a workspace folder. The respon
 **Optional Parameters:**
 - `opc_retry_token` (string) — A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected.
 - `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. A convenience oci.retry.DEFAULT_RETRY_STRATEGY is also available. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
+- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
+- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
 
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.ZipAndDownloadFolderResult
 

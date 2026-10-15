@@ -46,13 +46,11 @@ class Schedule(object):
             'timezone_id': 'str',
             'pause_status': 'str'
         }
-
         self.attribute_map = {
             'quartz_cron_expression': 'quartzCronExpression',
             'timezone_id': 'timezoneId',
             'pause_status': 'pauseStatus'
         }
-
         self._quartz_cron_expression = None
         self._timezone_id = None
         self._pause_status = None

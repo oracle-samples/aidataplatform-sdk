@@ -41,12 +41,10 @@ class ClusterRuntimeConfig(object):
             'type': 'str',
             'init_scripts': 'list[InitScriptPath]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'init_scripts': 'initScripts'
         }
-
         self._type = None
         self._init_scripts = None
 

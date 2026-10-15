@@ -36,13 +36,11 @@ class ArtifactFileInfo(object):
             'is_dir': 'bool',
             'file_size': 'int'
         }
-
         self.attribute_map = {
             'path': 'path',
             'is_dir': 'is_dir',
             'file_size': 'file_size'
         }
-
         self._path = None
         self._is_dir = None
         self._file_size = None

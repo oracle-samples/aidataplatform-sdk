@@ -98,7 +98,6 @@ class WorkspaceObjectDetails(object):
             'description': 'str',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'path': 'path',
             'key': 'key',
@@ -109,7 +108,6 @@ class WorkspaceObjectDetails(object):
             'description': 'description',
             'system_tags': 'systemTags'
         }
-
         self._path = None
         self._key = None
         self._display_name = None

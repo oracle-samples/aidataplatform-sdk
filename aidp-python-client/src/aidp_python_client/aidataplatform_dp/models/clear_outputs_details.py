@@ -26,11 +26,9 @@ class ClearOutputsDetails(object):
         self.swagger_types = {
             'should_clear_exec_metadata': 'bool'
         }
-
         self.attribute_map = {
             'should_clear_exec_metadata': 'shouldClearExecMetadata'
         }
-
         self._should_clear_exec_metadata = None
 
     @property

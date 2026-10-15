@@ -12,12 +12,13 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class RepairTaskDetails  {
     @Deprecated
-    @java.beans.ConstructorProperties({"taskKey", "shouldIncludeDownstream", "shouldIncludeUpstream"})
-    public RepairTaskDetails(String taskKey, Boolean shouldIncludeDownstream, Boolean shouldIncludeUpstream) {
+    @java.beans.ConstructorProperties({"taskKey", "shouldIncludeDownstream", "shouldIncludeUpstream", "nestedRepairJobRunDetails"})
+    public RepairTaskDetails(String taskKey, Boolean shouldIncludeDownstream, Boolean shouldIncludeUpstream, RepairJobRunDetails nestedRepairJobRunDetails) {
         super();
         this.taskKey = taskKey;
         this.shouldIncludeDownstream = shouldIncludeDownstream;
         this.shouldIncludeUpstream = shouldIncludeUpstream;
+        this.nestedRepairJobRunDetails = nestedRepairJobRunDetails;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -76,12 +77,23 @@ public Builder shouldIncludeUpstream(Boolean shouldIncludeUpstream) {
     this.shouldIncludeUpstream = shouldIncludeUpstream;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("nestedRepairJobRunDetails")
+private RepairJobRunDetails nestedRepairJobRunDetails;
+
+
+
+public Builder nestedRepairJobRunDetails(RepairJobRunDetails nestedRepairJobRunDetails) {
+    this.nestedRepairJobRunDetails = nestedRepairJobRunDetails;
+    return this;
+}
 
 
         public RepairTaskDetails build() {
             RepairTaskDetails model = new RepairTaskDetails(this.taskKey
                 , this.shouldIncludeDownstream
-                , this.shouldIncludeUpstream);            return model;
+                , this.shouldIncludeUpstream
+                , this.nestedRepairJobRunDetails);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -89,6 +101,7 @@ public Builder shouldIncludeUpstream(Boolean shouldIncludeUpstream) {
                 this.taskKey(model.getTaskKey());
     this.shouldIncludeDownstream(model.getShouldIncludeDownstream());
     this.shouldIncludeUpstream(model.getShouldIncludeUpstream());
+    this.nestedRepairJobRunDetails(model.getNestedRepairJobRunDetails());
 return this;
         }
     }
@@ -158,6 +171,16 @@ return this;
         return shouldIncludeUpstream;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("nestedRepairJobRunDetails")
+    private final RepairJobRunDetails nestedRepairJobRunDetails;
+
+    
+    public RepairJobRunDetails getNestedRepairJobRunDetails() {
+        return nestedRepairJobRunDetails;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -174,6 +197,7 @@ return this;
         sb.append("taskKey=").append(String.valueOf(this.taskKey));
         sb.append(", shouldIncludeDownstream=").append(String.valueOf(this.shouldIncludeDownstream));
         sb.append(", shouldIncludeUpstream=").append(String.valueOf(this.shouldIncludeUpstream));
+        sb.append(", nestedRepairJobRunDetails=").append(String.valueOf(this.nestedRepairJobRunDetails));
         sb.append(")");
         return sb.toString();
     }
@@ -190,7 +214,8 @@ return this;
         RepairTaskDetails other = (RepairTaskDetails) o;
         return java.util.Objects.equals(this.taskKey, other.taskKey) &&
             java.util.Objects.equals(this.shouldIncludeDownstream, other.shouldIncludeDownstream) &&
-            java.util.Objects.equals(this.shouldIncludeUpstream, other.shouldIncludeUpstream);
+            java.util.Objects.equals(this.shouldIncludeUpstream, other.shouldIncludeUpstream) &&
+            java.util.Objects.equals(this.nestedRepairJobRunDetails, other.nestedRepairJobRunDetails);
     }
 
     @Override
@@ -200,6 +225,7 @@ return this;
         result = (result * PRIME) + (this.taskKey == null ? 43 : this.taskKey.hashCode());
         result = (result * PRIME) + (this.shouldIncludeDownstream == null ? 43 : this.shouldIncludeDownstream.hashCode());
         result = (result * PRIME) + (this.shouldIncludeUpstream == null ? 43 : this.shouldIncludeUpstream.hashCode());
+        result = (result * PRIME) + (this.nestedRepairJobRunDetails == null ? 43 : this.nestedRepairJobRunDetails.hashCode());
         return result;
     }
 

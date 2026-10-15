@@ -53,13 +53,11 @@ class RevokeWorkspaceObjectPermissionDetails(object):
             'permissions': 'list[str]',
             'is_permissions_inheritable': 'bool'
         }
-
         self.attribute_map = {
             'assignees': 'assignees',
             'permissions': 'permissions',
             'is_permissions_inheritable': 'isPermissionsInheritable'
         }
-
         self._assignees = None
         self._permissions = None
         self._is_permissions_inheritable = None
@@ -114,8 +112,7 @@ class RevokeWorkspaceObjectPermissionDetails(object):
             for value in permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `permissions`, must be None or one of {allowed_values}"
                     )
         self._permissions = permissions
 

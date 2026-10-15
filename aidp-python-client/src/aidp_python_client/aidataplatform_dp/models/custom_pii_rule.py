@@ -56,7 +56,6 @@ class CustomPiiRule(object):
             'max_distance': 'int',
             'priority': 'int'
         }
-
         self.attribute_map = {
             'name': 'name',
             'pattern': 'pattern',
@@ -66,7 +65,6 @@ class CustomPiiRule(object):
             'max_distance': 'maxDistance',
             'priority': 'priority'
         }
-
         self._name = None
         self._pattern = None
         self._prefix = None

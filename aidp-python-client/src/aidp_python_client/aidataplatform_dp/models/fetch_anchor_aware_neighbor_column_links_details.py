@@ -60,7 +60,6 @@ class FetchAnchorAwareNeighborColumnLinksDetails(object):
             'node_columns': 'list[str]',
             'entity_path_node_ids': 'list[str]'
         }
-
         self.attribute_map = {
             'anchor_node_id': 'anchorNodeId',
             'node_id': 'nodeId',
@@ -69,7 +68,6 @@ class FetchAnchorAwareNeighborColumnLinksDetails(object):
             'node_columns': 'nodeColumns',
             'entity_path_node_ids': 'entityPathNodeIds'
         }
-
         self._anchor_node_id = None
         self._node_id = None
         self._node_depth = None
@@ -176,8 +174,7 @@ class FetchAnchorAwareNeighborColumnLinksDetails(object):
         allowed_values = ["UPSTREAM", "DOWNSTREAM"]
         if not value_allowed_none_or_none_sentinel(direction, allowed_values):
             raise ValueError(
-                "Invalid value for `direction`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `direction`, must be None or one of {allowed_values}"
             )
         self._direction = direction
 

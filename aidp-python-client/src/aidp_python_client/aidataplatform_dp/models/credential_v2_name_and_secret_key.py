@@ -32,12 +32,10 @@ class CredentialV2NameAndSecretKey(object):
             'display_name': 'str',
             'secret_key': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'secret_key': 'secretKey'
         }
-
         self._display_name = None
         self._secret_key = None
 

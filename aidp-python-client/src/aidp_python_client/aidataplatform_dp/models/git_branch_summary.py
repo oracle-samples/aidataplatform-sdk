@@ -31,12 +31,10 @@ class GitBranchSummary(object):
             'branch_name': 'str',
             'branch_path': 'str'
         }
-
         self.attribute_map = {
             'branch_name': 'branchName',
             'branch_path': 'branchPath'
         }
-
         self._branch_name = None
         self._branch_path = None
 

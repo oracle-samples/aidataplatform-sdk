@@ -3,7 +3,7 @@
 
 
 from .auth import Auth
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -33,12 +33,13 @@ class BearerTokenAuth(Auth):
             'auth_type': 'str',
             'token': 'str'
         }
-
         self.attribute_map = {
             'auth_type': 'authType',
             'token': 'token'
         }
-
+        self._redacted_field_paths = [
+            ['token'],
+        ]
         self._auth_type = None
         self._token = None
         self._auth_type = 'BEARER_TOKEN'
@@ -68,7 +69,9 @@ class BearerTokenAuth(Auth):
         self._token = token
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['token'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

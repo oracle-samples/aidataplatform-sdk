@@ -31,12 +31,10 @@ class PassThroughNodeFilterPredicate(object):
             'id': 'str',
             'depth': 'int'
         }
-
         self.attribute_map = {
             'id': 'id',
             'depth': 'depth'
         }
-
         self._id = None
         self._depth = None
 

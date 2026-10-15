@@ -133,7 +133,6 @@ class AgentDiagramAgentNode(AgentDiagramNode):
             'tools': 'list[Tool]',
             'tool_references': 'list[str]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -158,7 +157,6 @@ class AgentDiagramAgentNode(AgentDiagramNode):
             'tools': 'tools',
             'tool_references': 'toolReferences'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

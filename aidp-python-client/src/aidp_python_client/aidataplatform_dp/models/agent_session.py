@@ -108,7 +108,6 @@ class AgentSession(object):
             'time_ended': 'datetime',
             'context': 'AgentSessionContext'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'key': 'key',
@@ -124,7 +123,6 @@ class AgentSession(object):
             'time_ended': 'timeEnded',
             'context': 'context'
         }
-
         self._display_name = None
         self._key = None
         self._agent_key = None

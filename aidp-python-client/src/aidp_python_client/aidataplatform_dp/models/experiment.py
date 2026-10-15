@@ -56,7 +56,6 @@ class Experiment(object):
             'last_update_time': 'int',
             'tags': 'list[ExperimentTag]'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id',
             'name': 'name',
@@ -66,7 +65,6 @@ class Experiment(object):
             'last_update_time': 'last_update_time',
             'tags': 'tags'
         }
-
         self._experiment_id = None
         self._name = None
         self._artifact_location = None

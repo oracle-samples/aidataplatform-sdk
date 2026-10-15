@@ -41,14 +41,12 @@ class LogExperimentRunBatchDetails(object):
             'params': 'list[ExperimentRunParam]',
             'tags': 'list[ExperimentRunTag]'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'metrics': 'metrics',
             'params': 'params',
             'tags': 'tags'
         }
-
         self._run_id = None
         self._metrics = None
         self._params = None

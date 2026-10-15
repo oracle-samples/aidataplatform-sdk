@@ -26,11 +26,9 @@ class ClearToolUsesContextManagementDetails(object):
         self.swagger_types = {
             'keep_tool_messages': 'int'
         }
-
         self.attribute_map = {
             'keep_tool_messages': 'keepToolMessages'
         }
-
         self._keep_tool_messages = None
 
     @property

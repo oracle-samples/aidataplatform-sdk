@@ -31,12 +31,10 @@ class DeleteExperimentRunDetails(object):
             'run_id': 'str',
             'is_permanent': 'bool'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'is_permanent': 'is_permanent'
         }
-
         self._run_id = None
         self._is_permanent = None
 

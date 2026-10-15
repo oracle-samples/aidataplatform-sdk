@@ -31,12 +31,10 @@ class MemoryLimitConfigurationDetails(object):
             'message_limit': 'int',
             'token_limit': 'int'
         }
-
         self.attribute_map = {
             'message_limit': 'messageLimit',
             'token_limit': 'tokenLimit'
         }
-
         self._message_limit = None
         self._token_limit = None
 

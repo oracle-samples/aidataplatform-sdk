@@ -13,11 +13,15 @@ export interface SessionConfiguration {
     */
     'variables'?: { [key: string]: model.SessionVariableDetails; };
     'sessionRetentionConfig'?: model.SessionRetentionConfiguration;
+    'automaticSummarizationConfig'?: model.AutomaticSummarizationConfiguration;
+    'longTermMemoryConfig'?: model.LongTermMemoryConfiguration;
     'fileConfig'?: model.FileConfiguration;
 
 }
 
 export namespace SessionConfiguration {
+
+
 
 
 
@@ -34,6 +38,14 @@ export namespace SessionConfiguration {
                 
                 
                 model.SessionRetentionConfiguration.getJsonObj(obj.sessionRetentionConfig) : undefined,
+                'automaticSummarizationConfig': obj.automaticSummarizationConfig ?
+                
+                
+                model.AutomaticSummarizationConfiguration.getJsonObj(obj.automaticSummarizationConfig) : undefined,
+                'longTermMemoryConfig': obj.longTermMemoryConfig ?
+                
+                
+                model.LongTermMemoryConfiguration.getJsonObj(obj.longTermMemoryConfig) : undefined,
                 'fileConfig': obj.fileConfig ?
                 
                 
@@ -57,6 +69,14 @@ export namespace SessionConfiguration {
                 
                 
                 model.SessionRetentionConfiguration.getDeserializedJsonObj(obj.sessionRetentionConfig) : undefined,
+                    'automaticSummarizationConfig': obj.automaticSummarizationConfig ?
+                
+                
+                model.AutomaticSummarizationConfiguration.getDeserializedJsonObj(obj.automaticSummarizationConfig) : undefined,
+                    'longTermMemoryConfig': obj.longTermMemoryConfig ?
+                
+                
+                model.LongTermMemoryConfiguration.getDeserializedJsonObj(obj.longTermMemoryConfig) : undefined,
                     'fileConfig': obj.fileConfig ?
                 
                 

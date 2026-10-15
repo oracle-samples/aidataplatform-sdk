@@ -26,11 +26,9 @@ class ClusterLogCollection(object):
         self.swagger_types = {
             'items': 'list[ClusterLogsSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

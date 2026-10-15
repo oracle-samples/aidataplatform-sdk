@@ -56,7 +56,6 @@ class HistorySummary(object):
             'is_merge_commit': 'bool',
             'parents': 'list[str]'
         }
-
         self.attribute_map = {
             'commit_id': 'commitId',
             'message': 'message',
@@ -66,7 +65,6 @@ class HistorySummary(object):
             'is_merge_commit': 'isMergeCommit',
             'parents': 'parents'
         }
-
         self._commit_id = None
         self._message = None
         self._author_name = None

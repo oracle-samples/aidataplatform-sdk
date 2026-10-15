@@ -56,7 +56,6 @@ class OntologyGraph(object):
             'shape_count': 'int',
             'relationship_count': 'int'
         }
-
         self.attribute_map = {
             'project_id': 'projectId',
             'graph_name': 'graphName',
@@ -66,7 +65,6 @@ class OntologyGraph(object):
             'shape_count': 'shapeCount',
             'relationship_count': 'relationshipCount'
         }
-
         self._project_id = None
         self._graph_name = None
         self._namespace = None

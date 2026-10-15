@@ -13,7 +13,7 @@ package com.oracle.aidataplatform.dp.model;
 public final class HttpResult  {
     @Deprecated
     @java.beans.ConstructorProperties({"statusCode", "errorCode", "message", "isNetworkError", "elapsedSeconds", "headers", "body"})
-    public HttpResult(Integer statusCode, String errorCode, String message, Boolean isNetworkError, Float elapsedSeconds, java.util.Map<String, String> headers, java.util.Map<String, Object> body) {
+    public HttpResult(Integer statusCode, String errorCode, String message, Boolean isNetworkError, Float elapsedSeconds, java.util.Map<String, String> headers, Object body) {
         super();
         this.statusCode = statusCode;
         this.errorCode = errorCode;
@@ -135,20 +135,20 @@ public Builder headers(java.util.Map<String, String> headers) {
     return this;
 }
             /**
-     * Response body
+     * Response body, which may be a JSON object, array, string, number, boolean, or null.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("body")
-private java.util.Map<String, Object> body;
+private Object body;
 
         /**
-         * Response body
+         * Response body, which may be a JSON object, array, string, number, boolean, or null.
          * @param body the value to set
          * @return this builder
          **/
         
 
-public Builder body(java.util.Map<String, Object> body) {
+public Builder body(Object body) {
     this.body = body;
     return this;
 }
@@ -295,18 +295,18 @@ return this;
 
 
         /**
-     * Response body
+     * Response body, which may be a JSON object, array, string, number, boolean, or null.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("body")
-    private final java.util.Map<String, Object> body;
+    private final Object body;
 
         /**
-     * Response body
+     * Response body, which may be a JSON object, array, string, number, boolean, or null.
      * @return the value
      **/
     
-    public java.util.Map<String, Object> getBody() {
+    public Object getBody() {
         return body;
     }
 

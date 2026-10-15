@@ -93,7 +93,6 @@ class RegisteredModel(object):
             'tags': 'list[RegisteredModelTag]',
             'deployment_summary': 'DeploymentSummary'
         }
-
         self.attribute_map = {
             'name': 'name',
             'creation_timestamp': 'creation_timestamp',
@@ -106,7 +105,6 @@ class RegisteredModel(object):
             'tags': 'tags',
             'deployment_summary': 'deployment_summary'
         }
-
         self._name = None
         self._creation_timestamp = None
         self._last_updated_timestamp = None

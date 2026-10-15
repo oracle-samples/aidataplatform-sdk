@@ -86,7 +86,6 @@ class RepairHistory(object):
             'execution_duration': 'int',
             'parent_task_run_key': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'key': 'key',
@@ -100,7 +99,6 @@ class RepairHistory(object):
             'execution_duration': 'executionDuration',
             'parent_task_run_key': 'parentTaskRunKey'
         }
-
         self._type = None
         self._key = None
         self._state = None
@@ -147,7 +145,7 @@ class RepairHistory(object):
     def key(self):
         """
         Gets the key of this RepairHistory.
-        The unique ID of the Repair run.
+        The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
 
 
         :return: The key of this RepairHistory.
@@ -159,7 +157,7 @@ class RepairHistory(object):
     def key(self, key):
         """
         Sets the key of this RepairHistory.
-        The unique ID of the Repair run.
+        The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
 
 
         :param key: The key of this RepairHistory.

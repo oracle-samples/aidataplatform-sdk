@@ -82,13 +82,11 @@ class ListFilter(object):
             'data_type': 'str',
             'values': 'list[str]'
         }
-
         self.attribute_map = {
             'field': 'field',
             'data_type': 'dataType',
             'values': 'values'
         }
-
         self._field = None
         self._data_type = None
         self._values = None
@@ -120,8 +118,7 @@ class ListFilter(object):
         allowed_values = ["TYPE", "OWNER", "CREATED_BY", "CATALOG", "SCHEMA", "WORKSPACE", "JOB", "CLUSTER"]
         if not value_allowed_none_or_none_sentinel(field, allowed_values):
             raise ValueError(
-                "Invalid value for `field`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `field`, must be None or one of {allowed_values}"
             )
         self._field = field
 
@@ -152,8 +149,7 @@ class ListFilter(object):
         allowed_values = ["STRING", "DATE", "INTEGER"]
         if not value_allowed_none_or_none_sentinel(data_type, allowed_values):
             raise ValueError(
-                "Invalid value for `data_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `data_type`, must be None or one of {allowed_values}"
             )
         self._data_type = data_type
 

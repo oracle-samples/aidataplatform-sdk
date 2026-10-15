@@ -70,7 +70,6 @@ class UserSettingSummary(object):
             'time_updated': 'datetime',
             'properties': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -80,7 +79,6 @@ class UserSettingSummary(object):
             'time_updated': 'timeUpdated',
             'properties': 'properties'
         }
-
         self._key = None
         self._name = None
         self._type = None

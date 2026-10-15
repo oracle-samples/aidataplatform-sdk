@@ -31,12 +31,10 @@ class DeleteExperimentTagDetails(object):
             'experiment_id': 'str',
             'key': 'str'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id',
             'key': 'key'
         }
-
         self._experiment_id = None
         self._key = None
 

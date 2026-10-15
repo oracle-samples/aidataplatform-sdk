@@ -26,11 +26,9 @@ class LineageGraphNodeNeighborsFilter(object):
         self.swagger_types = {
             'process_run_stage_id': 'str'
         }
-
         self.attribute_map = {
             'process_run_stage_id': 'processRunStageId'
         }
-
         self._process_run_stage_id = None
 
     @property

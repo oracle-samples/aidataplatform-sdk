@@ -62,12 +62,10 @@ class ClusterLibraryDetails(object):
             'operation': 'str',
             'type': 'str'
         }
-
         self.attribute_map = {
             'operation': 'operation',
             'type': 'type'
         }
-
         self._operation = None
         self._type = None
 
@@ -114,8 +112,7 @@ class ClusterLibraryDetails(object):
         allowed_values = ["INSTALL", "UNINSTALL"]
         if not value_allowed_none_or_none_sentinel(operation, allowed_values):
             raise ValueError(
-                "Invalid value for `operation`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `operation`, must be None or one of {allowed_values}"
             )
         self._operation = operation
 
@@ -146,8 +143,7 @@ class ClusterLibraryDetails(object):
         allowed_values = ["WORKSPACE_FILE", "VOLUME_FILE", "PYPI", "MAVEN"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

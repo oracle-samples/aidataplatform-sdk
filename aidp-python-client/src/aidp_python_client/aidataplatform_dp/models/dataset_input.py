@@ -31,12 +31,10 @@ class DatasetInput(object):
             'dataset': 'Dataset',
             'tags': 'list[InputTag]'
         }
-
         self.attribute_map = {
             'dataset': 'dataset',
             'tags': 'tags'
         }
-
         self._dataset = None
         self._tags = None
 

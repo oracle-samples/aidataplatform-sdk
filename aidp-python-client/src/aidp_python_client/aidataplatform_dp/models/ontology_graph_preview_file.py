@@ -41,14 +41,12 @@ class OntologyGraphPreviewFile(object):
             'etag': 'str',
             'revision': 'str'
         }
-
         self.attribute_map = {
             'path': 'path',
             'size_bytes': 'sizeBytes',
             'etag': 'etag',
             'revision': 'revision'
         }
-
         self._path = None
         self._size_bytes = None
         self._etag = None

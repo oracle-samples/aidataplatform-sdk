@@ -5,19 +5,26 @@ import common = require("oci-common");
 
 
 /**
-* Action to either abort an in-progress merge/rebase or discard all local changes.
+* Abort or discard action and optional file selection for resetting Git folder state.
 */
 export interface ResetGitFolderStateDetails {
     /**
-    * The action to perform.
+    * ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+* operation. DISCARD restores selected tracked paths and removes selected new
+* files.
+* 
     */
     'action': ResetGitFolderStateDetails.Action;
     /**
-    * List of file paths whose changes are to be discarded and reset to original.
+    * Repository-relative paths whose local changes are to be discarded. Required
+* and nonempty when action is DISCARD.
+* 
     */
     'discardPaths'?: Array<string>;
     /**
-    * If true with DISCARD, also remove ignored files (-x).
+    * Requested inclusion of ignored files in a DISCARD request. The supplied value
+* does not enable ignored-file removal.
+* 
     */
     'canIncludeIgnored'?: boolean;
 

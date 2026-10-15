@@ -93,7 +93,6 @@ class CreateAgentDiagramMcpToolNodeDetails(CreateAgentDiagramNodeDetails):
             'input_schema': 'dict(str, object)',
             'tool_config': 'McpToolConfiguration'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -110,7 +109,6 @@ class CreateAgentDiagramMcpToolNodeDetails(CreateAgentDiagramNodeDetails):
             'input_schema': 'inputSchema',
             'tool_config': 'toolConfig'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

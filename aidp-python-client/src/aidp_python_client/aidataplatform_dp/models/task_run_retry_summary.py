@@ -86,7 +86,6 @@ class TaskRunRetrySummary(object):
             'external_id': 'str',
             'retry_number': 'int'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -102,7 +101,6 @@ class TaskRunRetrySummary(object):
             'external_id': 'externalId',
             'retry_number': 'retryNumber'
         }
-
         self._key = None
         self._name = None
         self._task_run_id = None

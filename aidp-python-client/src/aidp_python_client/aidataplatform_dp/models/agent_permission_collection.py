@@ -26,11 +26,9 @@ class AgentPermissionCollection(object):
         self.swagger_types = {
             'items': 'list[AgentPermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

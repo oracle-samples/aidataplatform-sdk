@@ -106,7 +106,6 @@ class CredentialV2(object):
             'created_by': 'str',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -120,7 +119,6 @@ class CredentialV2(object):
             'created_by': 'createdBy',
             'updated_by': 'updatedBy'
         }
-
         self._key = None
         self._display_name = None
         self._type = None
@@ -208,8 +206,7 @@ class CredentialV2(object):
         allowed_values = ["SECRET_TOKEN", "VAULT_REFERENCE", "SERVICE_ACCOUNT"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 
@@ -284,8 +281,7 @@ class CredentialV2(object):
         allowed_values = ["ACTIVE", "CREATING", "UPDATING", "DELETING"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

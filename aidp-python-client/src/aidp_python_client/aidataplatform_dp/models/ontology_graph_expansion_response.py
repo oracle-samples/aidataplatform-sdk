@@ -46,7 +46,6 @@ class OntologyGraphExpansionResponse(object):
             'timestamp': 'datetime',
             'message': 'str'
         }
-
         self.attribute_map = {
             'data': 'data',
             'status': 'status',
@@ -54,7 +53,6 @@ class OntologyGraphExpansionResponse(object):
             'timestamp': 'timestamp',
             'message': 'message'
         }
-
         self._data = None
         self._status = None
         self._opc_request_id = None

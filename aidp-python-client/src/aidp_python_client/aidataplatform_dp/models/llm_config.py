@@ -21,7 +21,8 @@ class LlmConfig(BaseLlmConfig):
 
         :param type:
             The value to assign to the type property of this LlmConfig.
-            Allowed values for this property are: "OCI_GEN_AI", "THIRD_PARTY"
+            Allowed values for this property are: "OCI_GEN_AI", "THIRD_PARTY", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 
         :param model_id:
@@ -53,7 +54,6 @@ class LlmConfig(BaseLlmConfig):
             'provider': 'str',
             'region_id': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'model_id': 'modelId',
@@ -62,7 +62,6 @@ class LlmConfig(BaseLlmConfig):
             'provider': 'provider',
             'region_id': 'regionId'
         }
-
         self._type = None
         self._model_id = None
         self._compartment_id = None

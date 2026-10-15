@@ -26,11 +26,9 @@ class AttachMasterCatalogToClusterDetails(object):
         self.swagger_types = {
             'cluster_key': 'str'
         }
-
         self.attribute_map = {
             'cluster_key': 'clusterKey'
         }
-
         self._cluster_key = None
 
     @property

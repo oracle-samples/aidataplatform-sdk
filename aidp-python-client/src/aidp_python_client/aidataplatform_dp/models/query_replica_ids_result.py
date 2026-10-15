@@ -26,11 +26,9 @@ class QueryReplicaIdsResult(object):
         self.swagger_types = {
             'replica_ids': 'list[str]'
         }
-
         self.attribute_map = {
             'replica_ids': 'replicaIds'
         }
-
         self._replica_ids = None
 
     @property

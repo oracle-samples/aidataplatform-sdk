@@ -31,12 +31,10 @@ class DeactivateModelDeploymentDetails(object):
             'deployment_id': 'str',
             'message': 'str'
         }
-
         self.attribute_map = {
             'deployment_id': 'deployment_id',
             'message': 'message'
         }
-
         self._deployment_id = None
         self._message = None
 

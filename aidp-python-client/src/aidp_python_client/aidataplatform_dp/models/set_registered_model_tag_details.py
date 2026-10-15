@@ -36,13 +36,11 @@ class SetRegisteredModelTagDetails(object):
             'key': 'str',
             'value': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'key': 'key',
             'value': 'value'
         }
-
         self._name = None
         self._key = None
         self._value = None

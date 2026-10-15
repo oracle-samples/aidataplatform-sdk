@@ -31,12 +31,10 @@ class ManageVolumePermissionDetails(object):
             'assign_volume_permission_details': 'AssignVolumePermissionDetails',
             'revoke_volume_permission_details': 'RevokeVolumePermissionDetails'
         }
-
         self.attribute_map = {
             'assign_volume_permission_details': 'assignVolumePermissionDetails',
             'revoke_volume_permission_details': 'revokeVolumePermissionDetails'
         }
-
         self._assign_volume_permission_details = None
         self._revoke_volume_permission_details = None
 

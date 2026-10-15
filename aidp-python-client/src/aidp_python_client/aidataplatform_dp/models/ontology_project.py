@@ -165,7 +165,6 @@ class OntologyProject(object):
             'defined_tags': 'dict(str, dict(str, object))',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'id': 'id',
             'workspace_id': 'workspaceId',
@@ -195,7 +194,6 @@ class OntologyProject(object):
             'defined_tags': 'definedTags',
             'system_tags': 'systemTags'
         }
-
         self._id = None
         self._workspace_id = None
         self._key = None
@@ -491,8 +489,7 @@ class OntologyProject(object):
         allowed_values = ["VOLUME", "GIT"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             raise ValueError(
-                "Invalid value for `source_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `source_type`, must be None or one of {allowed_values}"
             )
         self._source_type = source_type
 

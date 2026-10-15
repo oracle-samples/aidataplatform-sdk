@@ -9,7 +9,7 @@ import common = require("oci-common");
 */
 export interface CreateGitFolderDetails {
     /**
-    * The absolute path of the Git folder user wants to create.
+    * Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}.
     */
     'folderPath': string;
     /**
@@ -25,17 +25,43 @@ export interface CreateGitFolderDetails {
     */
     'branchName': string;
     /**
-    * Credential key of the stored git credentials.
+    * Key of the current user's GIT_ACCOUNT user setting for repository authentication.
+* User setting listings identify it by settingType=GIT_ACCOUNT and displayName;
+* the matching entry's key is the credentialKey.
+* 
     */
     'credentialKey': string;
+    /**
+    * Whether this Git folder uses private network connectivity.
+    */
+    'isPrivateConnectivityEnabled'?: boolean;
+    /**
+    * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+    */
+    'gitConnectivityProfileKey'?: string;
+    /**
+    * Key of the credential containing the Git server's TLS CA certificate,
+* returned by credential listings filtered by displayName. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+    */
+    'credentialStoreKey'?: string;
     /**
     * Short description about the git repository.
     */
     'description'?: string;
+    'sparseCheckout'?: model.SparseCheckoutDetails;
 
 }
 
 export namespace CreateGitFolderDetails {
+
+
+
+
 
 
 
@@ -52,6 +78,13 @@ export namespace CreateGitFolderDetails {
 
 
 
+
+
+
+                'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getJsonObj(obj.sparseCheckout) : undefined,
         }};
 
         
@@ -68,6 +101,13 @@ export namespace CreateGitFolderDetails {
 
 
 
+
+
+
+                    'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getDeserializedJsonObj(obj.sparseCheckout) : undefined,
          }};
 
         

@@ -111,7 +111,6 @@ class WorkspaceSummary(object):
             'is_private_network_enabled': 'bool',
             'aic_user_schema_name': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -130,7 +129,6 @@ class WorkspaceSummary(object):
             'is_private_network_enabled': 'isPrivateNetworkEnabled',
             'aic_user_schema_name': 'aicUserSchemaName'
         }
-
         self._key = None
         self._display_name = None
         self._type = None

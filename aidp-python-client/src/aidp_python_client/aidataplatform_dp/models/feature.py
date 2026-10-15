@@ -31,12 +31,10 @@ class Feature(object):
             'feature_name': 'str',
             'value': 'str'
         }
-
         self.attribute_map = {
             'feature_name': 'featureName',
             'value': 'value'
         }
-
         self._feature_name = None
         self._value = None
 

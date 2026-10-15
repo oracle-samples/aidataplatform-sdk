@@ -31,12 +31,10 @@ class OntologyGraphPath(object):
             'nodes': 'list[OntologyGraphNode]',
             'edges': 'list[OntologyGraphEdge]'
         }
-
         self.attribute_map = {
             'nodes': 'nodes',
             'edges': 'edges'
         }
-
         self._nodes = None
         self._edges = None
 

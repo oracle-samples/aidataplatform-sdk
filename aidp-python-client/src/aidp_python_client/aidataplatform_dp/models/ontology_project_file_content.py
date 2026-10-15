@@ -36,13 +36,11 @@ class OntologyProjectFileContent(object):
             'content': 'str',
             'content_type': 'str'
         }
-
         self.attribute_map = {
             'path': 'path',
             'content': 'content',
             'content_type': 'contentType'
         }
-
         self._path = None
         self._content = None
         self._content_type = None

@@ -36,13 +36,11 @@ class ExperimentRunData(object):
             'params': 'list[ExperimentRunParam]',
             'tags': 'list[ExperimentRunTag]'
         }
-
         self.attribute_map = {
             'metrics': 'metrics',
             'params': 'params',
             'tags': 'tags'
         }
-
         self._metrics = None
         self._params = None
         self._tags = None

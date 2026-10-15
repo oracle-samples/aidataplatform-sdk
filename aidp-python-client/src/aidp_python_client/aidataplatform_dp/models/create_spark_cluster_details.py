@@ -83,7 +83,6 @@ class CreateSparkClusterDetails(CreateClusterDetails):
             'subscription': 'SubscriptionDetails',
             'yaml_paths': 'list[str]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'display_name': 'displayName',
@@ -98,7 +97,6 @@ class CreateSparkClusterDetails(CreateClusterDetails):
             'subscription': 'subscription',
             'yaml_paths': 'yamlPaths'
         }
-
         self._type = None
         self._display_name = None
         self._description = None

@@ -81,7 +81,6 @@ class ModelParameterResponse(object):
             'preamble_override': 'ModelParameterDetail',
             'safety_mode': 'ModelParameterDetail'
         }
-
         self.attribute_map = {
             'maximum_output_tokens': 'maximumOutputTokens',
             'temperature': 'temperature',
@@ -96,7 +95,6 @@ class ModelParameterResponse(object):
             'preamble_override': 'preambleOverride',
             'safety_mode': 'safetyMode'
         }
-
         self._maximum_output_tokens = None
         self._temperature = None
         self._top_p = None

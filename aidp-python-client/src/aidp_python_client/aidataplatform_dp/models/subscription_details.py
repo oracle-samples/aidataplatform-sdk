@@ -31,12 +31,10 @@ class SubscriptionDetails(object):
             'callback_url': 'str',
             'service_name': 'str'
         }
-
         self.attribute_map = {
             'callback_url': 'callbackUrl',
             'service_name': 'serviceName'
         }
-
         self._callback_url = None
         self._service_name = None
 

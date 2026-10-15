@@ -41,14 +41,12 @@ class OntologyGraphPreviewDiagnostic(object):
             'line': 'int',
             'column': 'int'
         }
-
         self.attribute_map = {
             'severity': 'severity',
             'message': 'message',
             'line': 'line',
             'column': 'column'
         }
-
         self._severity = None
         self._message = None
         self._line = None

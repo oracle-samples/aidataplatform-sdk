@@ -26,11 +26,9 @@ class OntologyGraphPathCollection(object):
         self.swagger_types = {
             'items': 'list[OntologyGraphPath]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

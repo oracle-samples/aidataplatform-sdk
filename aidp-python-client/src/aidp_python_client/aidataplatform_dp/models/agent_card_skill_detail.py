@@ -46,7 +46,6 @@ class AgentCardSkillDetail(object):
             'tags': 'list[str]',
             'examples': 'list[str]'
         }
-
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
@@ -54,7 +53,6 @@ class AgentCardSkillDetail(object):
             'tags': 'tags',
             'examples': 'examples'
         }
-
         self._id = None
         self._name = None
         self._description = None

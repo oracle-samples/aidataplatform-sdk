@@ -32,6 +32,7 @@ class BodyField:
     item_type: str = ""
     model_name: str = ""
     enum_values: tuple[Any, ...] = ()
+    description: str = ""
 
 
 @dataclass(frozen=True)
@@ -177,6 +178,7 @@ def body_field_from_dict(raw: dict[str, Any]) -> BodyField:
         item_type=str(raw.get("itemType", "")),
         model_name=str(raw.get("modelName", "")),
         enum_values=tuple(raw.get("enumValues", [])),
+        description=str(raw.get("description", "")),
     )
 
 

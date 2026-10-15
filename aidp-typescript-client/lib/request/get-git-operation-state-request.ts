@@ -16,11 +16,16 @@ export interface GetGitOperationStateRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The Git repository key.
+ * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
  */
  'gitRepositoryKey': string;
 /**
- * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+ * Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute
+* isAllowed. Does not execute the operation.
+* 
  */
  'operationName'?: string;
 /**

@@ -31,12 +31,10 @@ class ViewProperty(object):
             'property_name': 'str',
             'property_value': 'str'
         }
-
         self.attribute_map = {
             'property_name': 'propertyName',
             'property_value': 'propertyValue'
         }
-
         self._property_name = None
         self._property_value = None
 

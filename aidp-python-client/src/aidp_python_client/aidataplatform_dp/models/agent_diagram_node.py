@@ -156,7 +156,6 @@ class AgentDiagramNode(object):
             'outputs': 'list[NodeOutput]',
             'validation_errors': 'list[ValidationError]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -175,7 +174,6 @@ class AgentDiagramNode(object):
             'outputs': 'outputs',
             'validation_errors': 'validationErrors'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

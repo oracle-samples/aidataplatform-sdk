@@ -50,14 +50,12 @@ class RepairJobRunDetails(object):
             'repair_tasks': 'list[RepairTaskDetails]',
             'parameters': 'list[Parameter]'
         }
-
         self.attribute_map = {
             'task_keys': 'taskKeys',
             'repair_mode': 'repairMode',
             'repair_tasks': 'repairTasks',
             'parameters': 'parameters'
         }
-
         self._task_keys = None
         self._repair_mode = None
         self._repair_tasks = None
@@ -67,7 +65,7 @@ class RepairJobRunDetails(object):
     def task_keys(self):
         """
         Gets the task_keys of this RepairJobRunDetails.
-        The collection of selected task IDs to be repaired.
+        Deprecated. Use repairTasks to select tasks to be repaired.
 
 
         :return: The task_keys of this RepairJobRunDetails.
@@ -79,7 +77,7 @@ class RepairJobRunDetails(object):
     def task_keys(self, task_keys):
         """
         Sets the task_keys of this RepairJobRunDetails.
-        The collection of selected task IDs to be repaired.
+        Deprecated. Use repairTasks to select tasks to be repaired.
 
 
         :param task_keys: The task_keys of this RepairJobRunDetails.
@@ -91,7 +89,7 @@ class RepairJobRunDetails(object):
     def repair_mode(self):
         """
         Gets the repair_mode of this RepairJobRunDetails.
-        Repair mode to be used for this repair scope.
+        repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
 
         Allowed values for this property are: "RESUME", "RERUN"
 
@@ -105,7 +103,7 @@ class RepairJobRunDetails(object):
     def repair_mode(self, repair_mode):
         """
         Sets the repair_mode of this RepairJobRunDetails.
-        Repair mode to be used for this repair scope.
+        repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
 
 
         :param repair_mode: The repair_mode of this RepairJobRunDetails.
@@ -114,8 +112,7 @@ class RepairJobRunDetails(object):
         allowed_values = ["RESUME", "RERUN"]
         if not value_allowed_none_or_none_sentinel(repair_mode, allowed_values):
             raise ValueError(
-                "Invalid value for `repair_mode`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `repair_mode`, must be None or one of {allowed_values}"
             )
         self._repair_mode = repair_mode
 

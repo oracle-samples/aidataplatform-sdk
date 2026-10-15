@@ -5,15 +5,19 @@ import common = require("oci-common");
 
 
 /**
-* List of files to checkout side or mark as resolved.
+* File paths and resolution action for a Git conflict resolution request.
 */
 export interface ConflictResolveDetails {
     /**
-    * List of file paths to checkout side or mark as resolved.
+    * Repository-relative paths of the conflicted files to resolve or stage.
+* 
     */
     'files': Array<string>;
     /**
-    * Action for resolving conflict.
+    * LOCAL selects the local version and REMOTE selects the incoming version, with
+* Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+* resolved workspace content.
+* 
     */
     'action': ConflictResolveDetails.Action;
 

@@ -43,14 +43,12 @@ class TestRagToolDetails(TestToolDetails):
             'config': 'RagToolConfiguration',
             'query': 'str'
         }
-
         self.attribute_map = {
             'agent_flow_id': 'agentFlowId',
             'tool_type': 'toolType',
             'config': 'config',
             'query': 'query'
         }
-
         self._agent_flow_id = None
         self._tool_type = None
         self._config = None

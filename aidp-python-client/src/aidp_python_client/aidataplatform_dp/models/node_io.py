@@ -85,12 +85,10 @@ class NodeIo(object):
             'data_type': 'str',
             'color': 'NodeIoColor'
         }
-
         self.attribute_map = {
             'data_type': 'dataType',
             'color': 'color'
         }
-
         self._data_type = None
         self._color = None
 

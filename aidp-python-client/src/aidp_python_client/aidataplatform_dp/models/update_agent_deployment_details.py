@@ -46,7 +46,6 @@ class UpdateAgentDeploymentDetails(object):
             'agent_key': 'str',
             'o_auth_config': 'OAuthConfiguration'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -54,7 +53,6 @@ class UpdateAgentDeploymentDetails(object):
             'agent_key': 'agentKey',
             'o_auth_config': 'oAuthConfig'
         }
-
         self._display_name = None
         self._description = None
         self._agent_compute_key = None

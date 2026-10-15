@@ -26,11 +26,9 @@ class IsPrincipalAidpAdmin(object):
         self.swagger_types = {
             'is_aidp_admin': 'bool'
         }
-
         self.attribute_map = {
             'is_aidp_admin': 'isAidpAdmin'
         }
-
         self._is_aidp_admin = None
 
     @property

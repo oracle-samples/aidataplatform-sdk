@@ -48,7 +48,6 @@ class TestCustomToolDetails(TestToolDetails):
             'param_values': 'TestToolParamValues',
             'package_content': 'str'
         }
-
         self.attribute_map = {
             'agent_flow_id': 'agentFlowId',
             'tool_type': 'toolType',
@@ -56,7 +55,6 @@ class TestCustomToolDetails(TestToolDetails):
             'param_values': 'paramValues',
             'package_content': 'packageContent'
         }
-
         self._agent_flow_id = None
         self._tool_type = None
         self._tool_config = None

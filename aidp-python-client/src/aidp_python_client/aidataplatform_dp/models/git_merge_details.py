@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitMergeDetails(object):
     """
-    Details needed to merge into the current branch for a folder context.
+    Remote branch and optional context for a Git merge request.
     """
 
     def __init__(self, **kwargs):
@@ -41,14 +41,12 @@ class GitMergeDetails(object):
             'remote_branch_name': 'str',
             'commit_id': 'str'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'branch_name': 'branchName',
             'remote_branch_name': 'remoteBranchName',
             'commit_id': 'commitId'
         }
-
         self._git_folder_path = None
         self._branch_name = None
         self._remote_branch_name = None
@@ -58,7 +56,8 @@ class GitMergeDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitMergeDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The git_folder_path of this GitMergeDetails.
@@ -70,7 +69,8 @@ class GitMergeDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitMergeDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param git_folder_path: The git_folder_path of this GitMergeDetails.
@@ -82,7 +82,8 @@ class GitMergeDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitMergeDetails.
-        The name of the Git branch.
+        Requested destination branch name. The merge destination is the stored
+        repository branch; the supplied value does not override it.
 
 
         :return: The branch_name of this GitMergeDetails.
@@ -94,7 +95,8 @@ class GitMergeDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitMergeDetails.
-        The name of the Git branch.
+        Requested destination branch name. The merge destination is the stored
+        repository branch; the supplied value does not override it.
 
 
         :param branch_name: The branch_name of this GitMergeDetails.
@@ -106,7 +108,8 @@ class GitMergeDetails(object):
     def remote_branch_name(self):
         """
         **[Required]** Gets the remote_branch_name of this GitMergeDetails.
-        Remote branch name, if you want to merge a different branch.
+        Remote branch whose origin reference is merged into the stored repository
+        branch.
 
 
         :return: The remote_branch_name of this GitMergeDetails.
@@ -118,7 +121,8 @@ class GitMergeDetails(object):
     def remote_branch_name(self, remote_branch_name):
         """
         Sets the remote_branch_name of this GitMergeDetails.
-        Remote branch name, if you want to merge a different branch.
+        Remote branch whose origin reference is merged into the stored repository
+        branch.
 
 
         :param remote_branch_name: The remote_branch_name of this GitMergeDetails.
@@ -130,7 +134,8 @@ class GitMergeDetails(object):
     def commit_id(self):
         """
         Gets the commit_id of this GitMergeDetails.
-        Commit ID to merge (optional).
+        Requested source commit identifier. The merge source is
+        origin/{remoteBranchName}; the supplied value does not override it.
 
 
         :return: The commit_id of this GitMergeDetails.
@@ -142,7 +147,8 @@ class GitMergeDetails(object):
     def commit_id(self, commit_id):
         """
         Sets the commit_id of this GitMergeDetails.
-        Commit ID to merge (optional).
+        Requested source commit identifier. The merge source is
+        origin/{remoteBranchName}; the supplied value does not override it.
 
 
         :param commit_id: The commit_id of this GitMergeDetails.

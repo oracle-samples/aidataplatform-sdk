@@ -41,14 +41,12 @@ class CreateSchemaDetails(object):
             'properties': 'dict(str, str)',
             'catalog_name': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
             'properties': 'properties',
             'catalog_name': 'catalogName'
         }
-
         self._display_name = None
         self._description = None
         self._properties = None

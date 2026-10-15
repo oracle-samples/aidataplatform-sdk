@@ -103,7 +103,6 @@ class CreateAgentDiagramAgentNodeDetails(CreateAgentDiagramNodeDetails):
             'memory': 'MemoryConfiguration',
             'tools': 'list[Tool]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -122,7 +121,6 @@ class CreateAgentDiagramAgentNodeDetails(CreateAgentDiagramNodeDetails):
             'memory': 'memory',
             'tools': 'tools'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

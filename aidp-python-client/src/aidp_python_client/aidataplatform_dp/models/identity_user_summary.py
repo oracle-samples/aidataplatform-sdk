@@ -36,13 +36,11 @@ class IdentityUserSummary(object):
             'user_name': 'str',
             'user_email': 'str'
         }
-
         self.attribute_map = {
             'user_id': 'userId',
             'user_name': 'userName',
             'user_email': 'userEmail'
         }
-
         self._user_id = None
         self._user_name = None
         self._user_email = None

@@ -101,7 +101,6 @@ class JobRunSummary(object):
             'created_by_name': 'str',
             'run_as': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -118,7 +117,6 @@ class JobRunSummary(object):
             'created_by_name': 'createdByName',
             'run_as': 'runAs'
         }
-
         self._key = None
         self._name = None
         self._state = None

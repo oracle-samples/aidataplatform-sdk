@@ -51,7 +51,6 @@ class Dataset(object):
             'schema': 'str',
             'profile': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'digest': 'digest',
@@ -60,7 +59,6 @@ class Dataset(object):
             'schema': 'schema',
             'profile': 'profile'
         }
-
         self._name = None
         self._digest = None
         self._source_type = None

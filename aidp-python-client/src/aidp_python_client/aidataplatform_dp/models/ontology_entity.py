@@ -216,7 +216,6 @@ class OntologyEntity(object):
             'relationships': 'list[object]',
             'join_backed_mapping': 'list[object]'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'compact_iri': 'compactIri',
@@ -258,7 +257,6 @@ class OntologyEntity(object):
             'relationships': 'relationships',
             'join_backed_mapping': 'joinBackedMapping'
         }
-
         self._entity_type = None
         self._compact_iri = None
         self._iri = None

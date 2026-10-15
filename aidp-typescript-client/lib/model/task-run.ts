@@ -62,7 +62,7 @@ export interface TaskRun {
     */
     'cleanupDuration'?: number;
     'clusterSpec'?: model.ClusterSpec;
-    'task'?: model.IfElseTask| model.JobTask| model.JarTask| model.PythonTask| model.NotebookTask;
+    'task'?: model.IfElseTask| model.JobTask| model.JarTask| model.AgentTask| model.PythonTask| model.NotebookTask;
     /**
     * Current version of job run object in repository. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */

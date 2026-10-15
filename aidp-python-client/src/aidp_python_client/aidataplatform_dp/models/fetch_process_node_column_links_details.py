@@ -59,7 +59,6 @@ class FetchProcessNodeColumnLinksDetails(object):
             'direction': 'str',
             'filter': 'ProcessNodeColumnLinksFilter'
         }
-
         self.attribute_map = {
             'anchor_node_id': 'anchorNodeId',
             'process_node_id': 'processNodeId',
@@ -67,7 +66,6 @@ class FetchProcessNodeColumnLinksDetails(object):
             'direction': 'direction',
             'filter': 'filter'
         }
-
         self._anchor_node_id = None
         self._process_node_id = None
         self._process_depth = None
@@ -173,8 +171,7 @@ class FetchProcessNodeColumnLinksDetails(object):
         allowed_values = ["UPSTREAM", "BOTH", "DOWNSTREAM"]
         if not value_allowed_none_or_none_sentinel(direction, allowed_values):
             raise ValueError(
-                "Invalid value for `direction`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `direction`, must be None or one of {allowed_values}"
             )
         self._direction = direction
 

@@ -41,14 +41,12 @@ class CreateExperimentRunDetails(object):
             'start_time': 'int',
             'tags': 'list[ExperimentRunTag]'
         }
-
         self.attribute_map = {
             'run_name': 'run_name',
             'experiment_id': 'experiment_id',
             'start_time': 'start_time',
             'tags': 'tags'
         }
-
         self._run_name = None
         self._experiment_id = None
         self._start_time = None

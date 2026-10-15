@@ -26,11 +26,9 @@ class InitScriptPath(object):
         self.swagger_types = {
             'destination': 'str'
         }
-
         self.attribute_map = {
             'destination': 'destination'
         }
-
         self._destination = None
 
     @property

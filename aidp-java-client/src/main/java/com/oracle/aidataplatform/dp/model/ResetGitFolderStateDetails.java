@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Action to either abort an in-progress merge/rebase or discard all local changes.
+ * Abort or discard action and optional file selection for resetting Git folder state.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ResetGitFolderStateDetails.Builder.class)
@@ -23,14 +23,20 @@ public final class ResetGitFolderStateDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The action to perform.
+     * ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+* operation. DISCARD restores selected tracked paths and removes selected new
+* files.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("action")
 private Action action;
 
         /**
-         * The action to perform.
+         * ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+* operation. DISCARD restores selected tracked paths and removes selected new
+* files.
+* 
          * @param action the value to set
          * @return this builder
          **/
@@ -41,14 +47,18 @@ public Builder action(Action action) {
     return this;
 }
             /**
-     * List of file paths whose changes are to be discarded and reset to original.
+     * Repository-relative paths whose local changes are to be discarded. Required
+* and nonempty when action is DISCARD.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("discardPaths")
 private java.util.List<String> discardPaths;
 
         /**
-         * List of file paths whose changes are to be discarded and reset to original.
+         * Repository-relative paths whose local changes are to be discarded. Required
+* and nonempty when action is DISCARD.
+* 
          * @param discardPaths the value to set
          * @return this builder
          **/
@@ -59,14 +69,18 @@ public Builder discardPaths(java.util.List<String> discardPaths) {
     return this;
 }
             /**
-     * If true with DISCARD, also remove ignored files (-x).
+     * Requested inclusion of ignored files in a DISCARD request. The supplied value
+* does not enable ignored-file removal.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("canIncludeIgnored")
 private Boolean canIncludeIgnored;
 
         /**
-         * If true with DISCARD, also remove ignored files (-x).
+         * Requested inclusion of ignored files in a DISCARD request. The supplied value
+* does not enable ignored-file removal.
+* 
          * @param canIncludeIgnored the value to set
          * @return this builder
          **/
@@ -108,7 +122,10 @@ return this;
     
 
     /**
-     * The action to perform.
+     * ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+* operation. DISCARD restores selected tracked paths and removes selected new
+* files.
+* 
      **/
     public enum Action implements com.oracle.bmc.http.internal.BmcEnum {
         AbortMerge("ABORT_MERGE"),
@@ -148,14 +165,20 @@ return this;
         }
     };
         /**
-     * The action to perform.
+     * ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+* operation. DISCARD restores selected tracked paths and removes selected new
+* files.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final Action action;
 
         /**
-     * The action to perform.
+     * ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+* operation. DISCARD restores selected tracked paths and removes selected new
+* files.
+* 
      * @return the value
      **/
     
@@ -165,14 +188,18 @@ return this;
 
 
         /**
-     * List of file paths whose changes are to be discarded and reset to original.
+     * Repository-relative paths whose local changes are to be discarded. Required
+* and nonempty when action is DISCARD.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("discardPaths")
     private final java.util.List<String> discardPaths;
 
         /**
-     * List of file paths whose changes are to be discarded and reset to original.
+     * Repository-relative paths whose local changes are to be discarded. Required
+* and nonempty when action is DISCARD.
+* 
      * @return the value
      **/
     
@@ -182,14 +209,18 @@ return this;
 
 
         /**
-     * If true with DISCARD, also remove ignored files (-x).
+     * Requested inclusion of ignored files in a DISCARD request. The supplied value
+* does not enable ignored-file removal.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("canIncludeIgnored")
     private final Boolean canIncludeIgnored;
 
         /**
-     * If true with DISCARD, also remove ignored files (-x).
+     * Requested inclusion of ignored files in a DISCARD request. The supplied value
+* does not enable ignored-file removal.
+* 
      * @return the value
      **/
     

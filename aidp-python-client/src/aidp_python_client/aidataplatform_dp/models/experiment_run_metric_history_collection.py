@@ -31,12 +31,10 @@ class ExperimentRunMetricHistoryCollection(object):
             'metrics': 'list[ExperimentRunMetric]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'metrics': 'metrics',
             'next_page_token': 'next_page_token'
         }
-
         self._metrics = None
         self._next_page_token = None
 

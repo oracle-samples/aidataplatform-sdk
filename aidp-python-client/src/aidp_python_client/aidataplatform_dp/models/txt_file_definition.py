@@ -31,12 +31,10 @@ class TxtFileDefinition(object):
             'delimiter': 'str',
             'quote': 'str'
         }
-
         self.attribute_map = {
             'delimiter': 'delimiter',
             'quote': 'quote'
         }
-
         self._delimiter = None
         self._quote = None
 

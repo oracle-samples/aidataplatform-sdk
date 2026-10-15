@@ -48,12 +48,10 @@ class UpdateFileMetadataDetails(object):
             'metadata': 'dict(str, str)',
             'action': 'str'
         }
-
         self.attribute_map = {
             'metadata': 'metadata',
             'action': 'action'
         }
-
         self._metadata = None
         self._action = None
 
@@ -108,8 +106,7 @@ class UpdateFileMetadataDetails(object):
         allowed_values = ["UPDATE", "APPEND", "REPLACE", "RESET"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 

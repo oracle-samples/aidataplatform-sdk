@@ -125,7 +125,6 @@ class AiCompute(Cluster):
             'replica_config': 'ReplicaConfig',
             'auto_scale_configuration': 'AutoScaleConfiguration'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -148,7 +147,6 @@ class AiCompute(Cluster):
             'replica_config': 'replicaConfig',
             'auto_scale_configuration': 'autoScaleConfiguration'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

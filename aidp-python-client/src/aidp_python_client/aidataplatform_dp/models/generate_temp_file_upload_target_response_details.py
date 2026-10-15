@@ -36,13 +36,11 @@ class GenerateTempFileUploadTargetResponseDetails(object):
             'upload_key': 'str',
             'oci_file_path': 'str'
         }
-
         self.attribute_map = {
             'temp_file_upload_target': 'tempFileUploadTarget',
             'upload_key': 'uploadKey',
             'oci_file_path': 'ociFilePath'
         }
-
         self._temp_file_upload_target = None
         self._upload_key = None
         self._oci_file_path = None

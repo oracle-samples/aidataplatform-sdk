@@ -56,7 +56,6 @@ class OntologyProjectParseResult(object):
             'source_paths': 'list[str]',
             'diagnostics': 'list[OntologyGraphPreviewDiagnostic]'
         }
-
         self.attribute_map = {
             'is_successful': 'isSuccessful',
             'status': 'status',
@@ -66,7 +65,6 @@ class OntologyProjectParseResult(object):
             'source_paths': 'sourcePaths',
             'diagnostics': 'diagnostics'
         }
-
         self._is_successful = None
         self._status = None
         self._revision = None

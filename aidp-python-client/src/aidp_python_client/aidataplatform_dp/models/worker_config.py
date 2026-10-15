@@ -41,14 +41,12 @@ class WorkerConfig(object):
             'min_worker_count': 'int',
             'max_worker_count': 'int'
         }
-
         self.attribute_map = {
             'worker_shape': 'workerShape',
             'worker_shape_config': 'workerShapeConfig',
             'min_worker_count': 'minWorkerCount',
             'max_worker_count': 'maxWorkerCount'
         }
-
         self._worker_shape = None
         self._worker_shape_config = None
         self._min_worker_count = None

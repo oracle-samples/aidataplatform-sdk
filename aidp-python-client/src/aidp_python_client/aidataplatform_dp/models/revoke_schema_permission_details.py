@@ -64,12 +64,10 @@ class RevokeSchemaPermissionDetails(object):
             'assignees': 'PermissionAssignees',
             'permissions': 'list[str]'
         }
-
         self.attribute_map = {
             'assignees': 'assignees',
             'permissions': 'permissions'
         }
-
         self._assignees = None
         self._permissions = None
 
@@ -123,8 +121,7 @@ class RevokeSchemaPermissionDetails(object):
             for value in permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `permissions`, must be None or one of {allowed_values}"
                     )
         self._permissions = permissions
 

@@ -41,14 +41,12 @@ class OntologyGraphTreeSearchResultSet(object):
             'page_index': 'int',
             'results': 'list[OntologyGraphTreeSearchNode]'
         }
-
         self.attribute_map = {
             'max_results': 'maxResults',
             'hits_per_page': 'hitsPerPage',
             'page_index': 'pageIndex',
             'results': 'results'
         }
-
         self._max_results = None
         self._hits_per_page = None
         self._page_index = None

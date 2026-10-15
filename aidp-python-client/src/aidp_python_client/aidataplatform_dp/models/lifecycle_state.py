@@ -88,7 +88,8 @@ class LifecycleState(object):
 
         :param status:
             The value to assign to the status property of this LifecycleState.
-            Allowed values for this property are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELING", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED", "TIMED_OUT", "PAUSED_MAINTENANCE"
+            Allowed values for this property are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELING", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED", "TIMED_OUT", "PAUSED_MAINTENANCE", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type status: str
 
         :param state_message:
@@ -112,7 +113,6 @@ class LifecycleState(object):
             'error_trace': 'str',
             'is_user_canceled_or_timed_out': 'bool'
         }
-
         self.attribute_map = {
             'start_time': 'startTime',
             'end_time': 'endTime',
@@ -121,7 +121,6 @@ class LifecycleState(object):
             'error_trace': 'errorTrace',
             'is_user_canceled_or_timed_out': 'isUserCanceledOrTimedOut'
         }
-
         self._start_time = None
         self._end_time = None
         self._status = None
@@ -183,7 +182,8 @@ class LifecycleState(object):
         Gets the status of this LifecycleState.
         Current state of execution.
 
-        Allowed values for this property are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELING", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED", "TIMED_OUT", "PAUSED_MAINTENANCE"
+        Allowed values for this property are: "PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELING", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED", "TIMED_OUT", "PAUSED_MAINTENANCE", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The status of this LifecycleState.
@@ -203,10 +203,7 @@ class LifecycleState(object):
         """
         allowed_values = ["PENDING", "QUEUED", "RUNNING", "SKIPPED", "INTERNAL_ERROR", "BLOCKED", "SUCCESS", "FAILED", "CANCELING", "CANCELED", "UPSTREAM_CANCELED", "UPSTREAM_FAILED", "EXCLUDED", "TIMED_OUT", "PAUSED_MAINTENANCE"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
-            raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            status = 'UNKNOWN_ENUM_VALUE'
         self._status = status
 
     @property

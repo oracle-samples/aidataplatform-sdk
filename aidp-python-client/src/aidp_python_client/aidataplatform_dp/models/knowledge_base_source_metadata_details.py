@@ -90,7 +90,6 @@ class KnowledgeBaseSourceMetadataDetails(object):
             'time_created': 'datetime',
             'created_by': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -105,7 +104,6 @@ class KnowledgeBaseSourceMetadataDetails(object):
             'time_created': 'timeCreated',
             'created_by': 'createdBy'
         }
-
         self._key = None
         self._name = None
         self._description = None
@@ -218,8 +216,7 @@ class KnowledgeBaseSourceMetadataDetails(object):
         allowed_values = ["VOLUME", "TABLE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

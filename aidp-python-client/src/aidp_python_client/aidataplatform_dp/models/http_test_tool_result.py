@@ -33,12 +33,10 @@ class HttpTestToolResult(TestToolResult):
             'tool_type': 'str',
             'result': 'HttpResult'
         }
-
         self.attribute_map = {
             'tool_type': 'toolType',
             'result': 'result'
         }
-
         self._tool_type = None
         self._result = None
         self._tool_type = 'HTTP'

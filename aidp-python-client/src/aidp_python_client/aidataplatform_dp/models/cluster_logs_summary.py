@@ -36,13 +36,11 @@ class ClusterLogsSummary(object):
             'results': 'list[SearchResult]',
             'summary': 'SearchResultSummary'
         }
-
         self.attribute_map = {
             'fields': 'fields',
             'results': 'results',
             'summary': 'summary'
         }
-
         self._fields = None
         self._results = None
         self._summary = None

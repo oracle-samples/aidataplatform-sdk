@@ -125,7 +125,6 @@ class TablePermissionSummary(object):
             'row_filter_type': 'str',
             'row_filter': 'str'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
@@ -138,7 +137,6 @@ class TablePermissionSummary(object):
             'row_filter_type': 'rowFilterType',
             'row_filter': 'rowFilter'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None

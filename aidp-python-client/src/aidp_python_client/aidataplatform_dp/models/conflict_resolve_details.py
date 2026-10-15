@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ConflictResolveDetails(object):
     """
-    List of files to checkout side or mark as resolved.
+    File paths and resolution action for a Git conflict resolution request.
     """
 
     #: A constant which can be used with the action property of a ConflictResolveDetails.
@@ -44,12 +44,10 @@ class ConflictResolveDetails(object):
             'files': 'list[str]',
             'action': 'str'
         }
-
         self.attribute_map = {
             'files': 'files',
             'action': 'action'
         }
-
         self._files = None
         self._action = None
 
@@ -57,7 +55,7 @@ class ConflictResolveDetails(object):
     def files(self):
         """
         **[Required]** Gets the files of this ConflictResolveDetails.
-        List of file paths to checkout side or mark as resolved.
+        Repository-relative paths of the conflicted files to resolve or stage.
 
 
         :return: The files of this ConflictResolveDetails.
@@ -69,7 +67,7 @@ class ConflictResolveDetails(object):
     def files(self, files):
         """
         Sets the files of this ConflictResolveDetails.
-        List of file paths to checkout side or mark as resolved.
+        Repository-relative paths of the conflicted files to resolve or stage.
 
 
         :param files: The files of this ConflictResolveDetails.
@@ -81,7 +79,9 @@ class ConflictResolveDetails(object):
     def action(self):
         """
         **[Required]** Gets the action of this ConflictResolveDetails.
-        Action for resolving conflict.
+        LOCAL selects the local version and REMOTE selects the incoming version, with
+        Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+        resolved workspace content.
 
         Allowed values for this property are: "LOCAL", "REMOTE", "MARK_RESOLVED"
 
@@ -95,7 +95,9 @@ class ConflictResolveDetails(object):
     def action(self, action):
         """
         Sets the action of this ConflictResolveDetails.
-        Action for resolving conflict.
+        LOCAL selects the local version and REMOTE selects the incoming version, with
+        Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+        resolved workspace content.
 
 
         :param action: The action of this ConflictResolveDetails.
@@ -104,8 +106,7 @@ class ConflictResolveDetails(object):
         allowed_values = ["LOCAL", "REMOTE", "MARK_RESOLVED"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 

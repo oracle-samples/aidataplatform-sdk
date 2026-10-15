@@ -86,7 +86,6 @@ class RoleSummary(object):
             'lifecycle_details': 'str',
             'description': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -100,7 +99,6 @@ class RoleSummary(object):
             'lifecycle_details': 'lifecycleDetails',
             'description': 'description'
         }
-
         self._key = None
         self._display_name = None
         self._role_type = None

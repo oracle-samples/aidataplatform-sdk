@@ -65,7 +65,6 @@ class LineageNodeDetails(object):
             'parent_id': 'str',
             'properties': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'id': 'id',
             'qualified_name': 'qualifiedName',
@@ -75,7 +74,6 @@ class LineageNodeDetails(object):
             'parent_id': 'parentId',
             'properties': 'properties'
         }
-
         self._id = None
         self._qualified_name = None
         self._reference_type = None
@@ -159,8 +157,7 @@ class LineageNodeDetails(object):
         allowed_values = ["CHILD", "PARENT"]
         if not value_allowed_none_or_none_sentinel(reference_type, allowed_values):
             raise ValueError(
-                "Invalid value for `reference_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `reference_type`, must be None or one of {allowed_values}"
             )
         self._reference_type = reference_type
 

@@ -676,6 +676,75 @@ return clientCall(request, DeleteRegisteredModelTagResponse::builder)
 
     @Override
     
+    public ExportModelDeploymentInferencesResponse exportModelDeploymentInferences(ExportModelDeploymentInferencesRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getDeploymentId(), "deploymentId must not be blank");
+        Objects.requireNonNull(request.getExportInferenceInvocationsDetails(), "exportInferenceInvocationsDetails is required");
+        
+
+
+return clientCall(request, ExportModelDeploymentInferencesResponse::builder)
+        .logger(LOG, "exportModelDeploymentInferences")
+        .serviceDetails("MLOps", "ExportModelDeploymentInferences", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ExportModelDeploymentInferencesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam(request.getDeploymentId()).appendPathParam("monitoring").appendPathParam("inferences").appendPathParam("actions").appendPathParam("export")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+                .handleResponseHeaderString("aidp-async-operation-key", 
+            ExportModelDeploymentInferencesResponse.Builder::aidpAsyncOperationKey)
+                .handleResponseHeaderString("opc-request-id", 
+            ExportModelDeploymentInferencesResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("aidp-export-destination", 
+            ExportModelDeploymentInferencesResponse.Builder::aidpExportDestination)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetDeploymentLogResponse getDeploymentLog(GetDeploymentLogRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getDeploymentId(), "deploymentId must not be blank");
+        
+        Validate.notBlank(request.getLogId(), "logId must not be blank");
+
+
+return clientCall(request, GetDeploymentLogResponse::builder)
+        .logger(LOG, "getDeploymentLog")
+        .serviceDetails("MLOps", "GetDeploymentLog", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetDeploymentLogRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam(request.getDeploymentId()).appendPathParam("monitoring").appendPathParam("logs").appendPathParam(request.getLogId())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.DeploymentLogDetail.class, GetDeploymentLogResponse.Builder::deploymentLogDetail)
+                .handleResponseHeaderString("opc-request-id", 
+            GetDeploymentLogResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public GetExperimentByIdResponse getExperimentById(GetExperimentByIdRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -955,6 +1024,78 @@ return clientCall(request, GetModelDeploymentContractResponse::builder)
             GetModelDeploymentContractResponse.Builder::etag)
                 .handleResponseHeaderString("opc-request-id", 
             GetModelDeploymentContractResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetModelDeploymentInferenceDetailsResponse getModelDeploymentInferenceDetails(GetModelDeploymentInferenceDetailsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getDeploymentId(), "deploymentId must not be blank");
+        
+        Validate.notBlank(request.getRequestId(), "requestId must not be blank");
+
+
+return clientCall(request, GetModelDeploymentInferenceDetailsResponse::builder)
+        .logger(LOG, "getModelDeploymentInferenceDetails")
+        .serviceDetails("MLOps", "GetModelDeploymentInferenceDetails", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetModelDeploymentInferenceDetailsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam(request.getDeploymentId()).appendPathParam("monitoring").appendPathParam("inferences").appendPathParam(request.getRequestId())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.InferenceInvocationDetails.class, GetModelDeploymentInferenceDetailsResponse.Builder::inferenceInvocationDetails)
+                .handleResponseHeaderString("opc-request-id", 
+            GetModelDeploymentInferenceDetailsResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public GetModelDeploymentInferenceSummaryResponse getModelDeploymentInferenceSummary(GetModelDeploymentInferenceSummaryRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getDeploymentId(), "deploymentId must not be blank");
+
+
+return clientCall(request, GetModelDeploymentInferenceSummaryResponse::builder)
+        .logger(LOG, "getModelDeploymentInferenceSummary")
+        .serviceDetails("MLOps", "GetModelDeploymentInferenceSummary", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(GetModelDeploymentInferenceSummaryRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam(request.getDeploymentId()).appendPathParam("monitoring").appendPathParam("inferences").appendPathParam("summary")
+            
+                
+                    
+                    .appendQueryParam("timeStart", request.getTimeStart())
+            
+                
+                    
+                    .appendQueryParam("timeEnd", request.getTimeEnd())
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.InferenceInvocationSummaryResponse.class, GetModelDeploymentInferenceSummaryResponse.Builder::inferenceInvocationSummaryResponse)
+                .handleResponseHeaderString("opc-request-id", 
+            GetModelDeploymentInferenceSummaryResponse.Builder::opcRequestId)
 
                 .callSync();
     }
@@ -1314,6 +1455,55 @@ return clientCall(request, ListModelVersionsResponse::builder)
 
     @Override
     
+    public ListRegisteredModelPermissionsResponse listRegisteredModelPermissions(ListRegisteredModelPermissionsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getRegisteredModelKey(), "registeredModelKey must not be blank");
+
+
+return clientCall(request, ListRegisteredModelPermissionsResponse::builder)
+        .logger(LOG, "listRegisteredModelPermissions")
+        .serviceDetails("MLOps", "ListRegisteredModelPermissions", "")
+        .method(com.oracle.bmc.http.client.Method.GET)
+        .requestBuilder(ListRegisteredModelPermissionsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("mlflow").appendPathParam("registered-models").appendPathParam(request.getRegisteredModelKey()).appendPathParam("permissions")
+            
+                
+                    
+                    .appendQueryParam("limit", request.getLimit())
+            
+                
+                    
+                    .appendQueryParam("page", request.getPage())
+            
+                
+                    .appendEnumQueryParam("sortOrder", request.getSortOrder())
+                    
+            
+                
+                    .appendEnumQueryParam("sortBy", request.getSortBy())
+                    
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        
+            .handleBody(com.oracle.aidataplatform.dp.model.RegisteredModelPermissionCollection.class, ListRegisteredModelPermissionsResponse.Builder::registeredModelPermissionCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            ListRegisteredModelPermissionsResponse.Builder::opcRequestId)
+                .handleResponseHeaderString("opc-next-page", 
+            ListRegisteredModelPermissionsResponse.Builder::opcNextPage)
+
+                .callSync();
+    }
+
+    @Override
+    
     public ListRegisteredModelsResponse listRegisteredModels(ListRegisteredModelsRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -1550,6 +1740,38 @@ return clientCall(request, LogExperimentRunParamResponse::builder)
 
     @Override
     
+    public ManageRegisteredModelPermissionResponse manageRegisteredModelPermission(ManageRegisteredModelPermissionRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getRegisteredModelKey(), "registeredModelKey must not be blank");
+        Objects.requireNonNull(request.getManageRegisteredModelPermissionDetails(), "manageRegisteredModelPermissionDetails is required");
+        
+
+
+return clientCall(request, ManageRegisteredModelPermissionResponse::builder)
+        .logger(LOG, "manageRegisteredModelPermission")
+        .serviceDetails("MLOps", "ManageRegisteredModelPermission", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(ManageRegisteredModelPermissionRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("mlflow").appendPathParam("registered-models").appendPathParam(request.getRegisteredModelKey()).appendPathParam("actions").appendPathParam("managePermission")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+                .handleResponseHeaderString("opc-request-id", 
+            ManageRegisteredModelPermissionResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
     public RenameRegisteredModelResponse renameRegisteredModel(RenameRegisteredModelRequest request) {
                 
         Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
@@ -1715,6 +1937,72 @@ return clientCall(request, RollForwardModelDeploymentResponse::builder)
             RollForwardModelDeploymentResponse.Builder::aidpAsyncOperationKey)
                 .handleResponseHeaderString("opc-request-id", 
             RollForwardModelDeploymentResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public SearchDeploymentLogsResponse searchDeploymentLogs(SearchDeploymentLogsRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getDeploymentId(), "deploymentId must not be blank");
+        Objects.requireNonNull(request.getSearchDeploymentLogsDetails(), "searchDeploymentLogsDetails is required");
+        
+
+
+return clientCall(request, SearchDeploymentLogsResponse::builder)
+        .logger(LOG, "searchDeploymentLogs")
+        .serviceDetails("MLOps", "SearchDeploymentLogs", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SearchDeploymentLogsRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam(request.getDeploymentId()).appendPathParam("monitoring").appendPathParam("logs").appendPathParam("search")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.DeploymentLogCollection.class, SearchDeploymentLogsResponse.Builder::deploymentLogCollection)
+                .handleResponseHeaderString("opc-request-id", 
+            SearchDeploymentLogsResponse.Builder::opcRequestId)
+
+                .callSync();
+    }
+
+    @Override
+    
+    public SearchModelDeploymentInferencesResponse searchModelDeploymentInferences(SearchModelDeploymentInferencesRequest request) {
+                
+        Validate.notBlank(request.getAiDataPlatformId(), "aiDataPlatformId must not be blank");
+        
+        Validate.notBlank(request.getDeploymentId(), "deploymentId must not be blank");
+        Objects.requireNonNull(request.getInferenceInvocationSearchDetails(), "inferenceInvocationSearchDetails is required");
+        
+
+
+return clientCall(request, SearchModelDeploymentInferencesResponse::builder)
+        .logger(LOG, "searchModelDeploymentInferences")
+        .serviceDetails("MLOps", "SearchModelDeploymentInferences", "")
+        .method(com.oracle.bmc.http.client.Method.POST)
+        .requestBuilder(SearchModelDeploymentInferencesRequest::builder)
+        
+        
+        .basePath("/20260430")
+        .appendPathParam("aiDataPlatforms").appendPathParam(request.getAiDataPlatformId()).appendPathParam("mlops").appendPathParam("api").appendPathParam("2.0").appendPathParam("model-deployments").appendPathParam(request.getDeploymentId()).appendPathParam("monitoring").appendPathParam("inferences").appendPathParam("search")
+        .accept("application/json")
+                
+                .appendHeader("opc-request-id", request.getOpcRequestId())
+        .operationUsesDefaultRetries()
+        
+        .hasBody()
+            .handleBody(com.oracle.aidataplatform.dp.model.InferenceInvocationSearchResult.class, SearchModelDeploymentInferencesResponse.Builder::inferenceInvocationSearchResult)
+                .handleResponseHeaderString("opc-request-id", 
+            SearchModelDeploymentInferencesResponse.Builder::opcRequestId)
 
                 .callSync();
     }

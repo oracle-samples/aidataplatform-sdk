@@ -26,11 +26,9 @@ class UpdateKnowledgeBaseSourceUpdateDetails(object):
         self.swagger_types = {
             'sources': 'list[UpdateKnowledgeBaseSourceUpdateDetailsItem]'
         }
-
         self.attribute_map = {
             'sources': 'sources'
         }
-
         self._sources = None
 
     @property

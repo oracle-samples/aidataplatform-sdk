@@ -20,14 +20,9 @@ class DeleteRegisteredModelTagResponseDetails(object):
 
         """
         self.swagger_types = {
-            
         }
-
         self.attribute_map = {
-            
         }
-
-        
 
     def __repr__(self):
         return formatted_flat_dict(self)

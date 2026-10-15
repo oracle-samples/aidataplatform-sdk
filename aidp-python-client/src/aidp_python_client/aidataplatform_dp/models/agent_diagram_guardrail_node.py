@@ -113,7 +113,6 @@ class AgentDiagramGuardrailNode(AgentDiagramNode):
             'guardrails_config_key': 'str',
             'extra_guardrails_config': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -134,7 +133,6 @@ class AgentDiagramGuardrailNode(AgentDiagramNode):
             'guardrails_config_key': 'guardrailsConfigKey',
             'extra_guardrails_config': 'extraGuardrailsConfig'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

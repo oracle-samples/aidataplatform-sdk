@@ -62,7 +62,6 @@ class OntologyPublishTargetConnectionReference(object):
             'namespace': 'str',
             'schema': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'key': 'key',
@@ -71,7 +70,6 @@ class OntologyPublishTargetConnectionReference(object):
             'namespace': 'namespace',
             'schema': 'schema'
         }
-
         self._type = None
         self._key = None
         self._credential_key = None
@@ -106,8 +104,7 @@ class OntologyPublishTargetConnectionReference(object):
         allowed_values = ["CREDENTIAL_STORE", "EXTERNAL_CATALOG"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

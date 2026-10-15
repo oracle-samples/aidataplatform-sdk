@@ -73,7 +73,6 @@ class MavenClusterLibrarySummary(ClusterLibrarySummary):
             'repository': 'str',
             'exclusions': 'list[str]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'time_created': 'timeCreated',
@@ -86,7 +85,6 @@ class MavenClusterLibrarySummary(ClusterLibrarySummary):
             'repository': 'repository',
             'exclusions': 'exclusions'
         }
-
         self._type = None
         self._time_created = None
         self._time_updated = None

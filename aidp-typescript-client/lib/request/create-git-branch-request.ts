@@ -16,11 +16,14 @@ export interface CreateGitBranchRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The Git repository key.
+ * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
  */
  'gitRepositoryKey': string;
 /**
- * Details for the new Workspace Object.
+ * Name of the branch to create in the stored Git folder.
  */
  'createGitBranchDetails':  model.CreateGitBranchDetails;
 /**

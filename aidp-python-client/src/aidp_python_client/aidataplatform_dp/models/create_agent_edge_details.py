@@ -62,7 +62,6 @@ class CreateAgentEdgeDetails(object):
             'edge_handles': 'list[Point]',
             'edge_type': 'str'
         }
-
         self.attribute_map = {
             'src_node_id': 'srcNodeId',
             'dest_node_id': 'destNodeId',
@@ -72,7 +71,6 @@ class CreateAgentEdgeDetails(object):
             'edge_handles': 'edgeHandles',
             'edge_type': 'edgeType'
         }
-
         self._src_node_id = None
         self._dest_node_id = None
         self._src_node_output = None

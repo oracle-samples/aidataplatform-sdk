@@ -31,12 +31,10 @@ class BundleOverridesWithPath(object):
             'path': 'str',
             'overrides': 'BundleOverrides'
         }
-
         self.attribute_map = {
             'path': 'path',
             'overrides': 'overrides'
         }
-
         self._path = None
         self._overrides = None
 

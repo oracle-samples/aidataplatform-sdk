@@ -65,7 +65,6 @@ class PiiDetectionPolicy(SafetyPolicy):
             'pii_categories': 'list[PiiCategory]',
             'custom_pii_rules': 'list[CustomPiiRule]'
         }
-
         self.attribute_map = {
             'policy_type': 'policyType',
             'policy_name': 'policyName',
@@ -76,7 +75,6 @@ class PiiDetectionPolicy(SafetyPolicy):
             'pii_categories': 'piiCategories',
             'custom_pii_rules': 'customPiiRules'
         }
-
         self._policy_type = None
         self._policy_name = None
         self._policy_description = None

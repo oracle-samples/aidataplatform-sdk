@@ -61,7 +61,6 @@ class MetricsSummary(object):
             'resource_group': 'str',
             'aggregated_data_points': 'list[AggregatedDataPoint]'
         }
-
         self.attribute_map = {
             'namespace': 'namespace',
             'compartment_id': 'compartmentId',
@@ -72,7 +71,6 @@ class MetricsSummary(object):
             'resource_group': 'resourceGroup',
             'aggregated_data_points': 'aggregatedDataPoints'
         }
-
         self._namespace = None
         self._compartment_id = None
         self._name = None

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitDiffSummaryCollection(object):
     """
-    Collection of Git diff summaries for files under a folder context.
+    Paginated collection of local Git file-change summaries.
     """
 
     def __init__(self, **kwargs):
@@ -26,11 +26,9 @@ class GitDiffSummaryCollection(object):
         self.swagger_types = {
             'items': 'list[GitDiffSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

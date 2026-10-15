@@ -8728,7 +8728,10 @@ export class GitClient {
     }
     
     /**
-     * (Preview) Checks out a remote branch into the specified workspace folder, ensuring the worktree tracks the requested branch HEAD.
+     * (Preview) Asynchronously checks out the requested branch in the workspace Git
+* folder. Checkout normally resets the local branch to origin/{branchName}, with a
+* local-branch fallback. The aidp-async-operation-key response header identifies
+* the job; its SUCCEEDED status confirms completion.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CheckoutBranchRequest
@@ -8809,7 +8812,11 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
+     * (Preview) Asynchronously commits and pushes the stored repository branch. For
+* normal commits, omitting files stages all local changes. After conflicts are
+* resolved, completes a merge or continues a rebase; rebase continuation
+* force-pushes. The aidp-async-operation-key response header identifies the job;
+* its SUCCEEDED status confirms completion.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CommitPushGitRepositoryRequest
@@ -8881,7 +8888,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
+     * (Preview) Asynchronously creates a branch from the current HEAD, checks it out
+* in the stored Git folder, and pushes it to origin. The aidp-async-operation-key
+* response header identifies the job; its SUCCEEDED status confirms completion.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateGitBranchRequest
@@ -8962,7 +8971,8 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
+     * (Preview) Returns a local unified diff for a repository-relative file.
+* contextLines and maxPatchBytes are not currently applied by execution.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetGitDiffDetailRequest
@@ -9035,7 +9045,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Returns the current Git worktree status\u2014including in-progress operations or detached HEAD indicators\u2014for the workspace folder.
+     * (Preview) Returns a snapshot of Git worktree operation state and readiness for
+* an optional operationName. CLEAN does not imply no local changes. This endpoint
+* does not report asynchronous job progress.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetGitOperationStateRequest
@@ -9105,7 +9117,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
+     * (Preview) Returns stored repository URL, folder, branch, and connectivity
+* references. The authentication setting key is included only when
+* shouldIncludeCredentialKey=true.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetGitRepositoryRequest
@@ -9179,7 +9193,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
+     * (Preview) Lists branches on origin with pagination. Name filters and sort
+* controls are not currently applied. Page tokens become invalid if the branch
+* listing changes.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListGitBranchesRequest
@@ -9263,7 +9279,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
+     * (Preview) Lists local file changes with snapshot pagination. compareTo, filter,
+* displayName, and sort controls are not currently applied; this is not an
+* upstream comparison.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListGitDiffsRequest
@@ -9350,7 +9368,10 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
+     * (Preview) Asynchronously merges origin/{remoteBranchName} into the stored
+* repository branch and pushes it to origin on a conflict-free merge. commitId is
+* not applied. The aidp-async-operation-key response header identifies the job;
+* its SUCCEEDED status confirms completion.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param MergeGitRepositoryRequest
@@ -9422,7 +9443,10 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
+     * (Preview) Asynchronously pulls origin changes into the stored repository branch
+* using autostash. Supplied branch, pullAction, and commitMessage overrides are
+* not applied. The aidp-async-operation-key response header identifies the job;
+* its SUCCEEDED status confirms completion.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param PullGitRepositoryRequest
@@ -9494,7 +9518,11 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
+     * (Preview) Asynchronously rebases the stored repository branch onto
+* origin/{remoteBranchName} and force-pushes it on success. commitId is not
+* applied. The aidp-async-operation-key response header identifies the job; its
+* SUCCEEDED status confirms completion. The stored branch must pass its remote
+* synchronization check before rebasing.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param RebaseGitRepositoryRequest
@@ -9566,7 +9594,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
+     * (Preview) Aborts an in-progress Git operation or discards selected local changes
+* according to action. Single-path DISCARD runs synchronously; other requests
+* submit a job. When present, datalake-async-operation-key identifies that job.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ResetGitFolderStateRequest
@@ -9638,7 +9668,10 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
+     * (Preview) Asynchronously hard-resets the stored repository branch to
+* origin/{branchName}, discards tracked local changes, and force-pushes the stored
+* branch. resetMode and commitId are not applied. The aidp-async-operation-key
+* response header identifies the job; its SUCCEEDED status confirms completion.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ResetGitRepositoryRequest
@@ -9710,7 +9743,9 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Accepts conflict resolution instructions\u2014choose source or target versions\u2014and records the resolution back to the repo.
+     * (Preview) Synchronously selects LOCAL or REMOTE file versions, or stages
+* manually resolved content with MARK_RESOLVED. Does not complete or push an
+* in-progress merge or rebase.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ResolveGitConflictsRequest
@@ -9786,7 +9821,11 @@ export class GitClient {
     }
 
     /**
-     * (Preview) Updates stored repository details\u2014such as credentials or default branches\u2014so automation stays aligned with your source control.
+     * (Preview) Updates repository settings. URL changes and changed sparse checkout
+* patterns submit asynchronous operations; credential and private connectivity
+* reference changes may complete without an operation key. This operation does
+* not change the default branch or relocate the folder. Omitted fields retain
+* their stored values.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateGitRepositoryRequest
@@ -9842,6 +9881,252 @@ export class GitClient {
                         key: "aidpAsyncOperationKey",
                         dataType: "string"
                     },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+}
+export enum LakeAuthorizationApiKeys {
+}
+/**
+* This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+*/
+export class LakeAuthorizationClient {
+    protected static serviceEndpointTemplate = 'https://datalake.{region}.oci.{secondLevelDomain}';
+    protected static endpointServiceName = '';
+    protected "_realmSpecificEndpointTemplateEnabled" : boolean | undefined = undefined;
+    protected "_endpoint" : string = '';
+    protected "_defaultHeaders" : any = {};
+    protected "_clientConfiguration": common.ClientConfiguration;
+    protected _circuitBreaker: typeof Breaker | null = null;
+    protected _httpOptions: any = undefined;
+    protected _bodyDuplexMode: any = undefined;
+    public targetService = "LakeAuthorization";
+    protected _regionId : string = '';
+    protected "_region" : common.Region;
+    protected _lastSetRegionOrRegionId : string = "";
+
+    protected _httpClient: common.HttpClient;
+    protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+    constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+      const requestSigner = params.authenticationDetailsProvider
+        ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+        : null;
+      this._authProvider = params.authenticationDetailsProvider;
+      if (clientConfiguration) {
+        this._clientConfiguration = clientConfiguration;
+        this._circuitBreaker = clientConfiguration.circuitBreaker ? clientConfiguration.circuitBreaker!.circuit : null;
+        this._httpOptions = clientConfiguration.httpOptions ? clientConfiguration.httpOptions : undefined;
+        this._bodyDuplexMode = clientConfiguration.bodyDuplexMode ? clientConfiguration.bodyDuplexMode : undefined;
+      }
+
+      if (!developerToolConfiguration.isServiceEnabled("aidp"))
+        {
+            let errmsg = "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+            throw errmsg.concat("aidp");
+        }
+
+      // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+      const specCircuitBreakerEnabled = true;
+      if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) && (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)) {
+        this._circuitBreaker = new common.CircuitBreaker().circuit;
+      }
+      this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions, this._bodyDuplexMode);
+
+      if (params.authenticationDetailsProvider &&
+            common.isRegionProvider(params.authenticationDetailsProvider)) {
+        const provider: common.RegionProvider = params.authenticationDetailsProvider;
+        if (provider.getRegion()) {
+          this.region = provider.getRegion();
+        }
+      }
+    }
+
+    /**
+      * Get the endpoint that is being used to call (ex, https://www.example.com).
+      */
+    public get endpoint() {
+        return this._endpoint;
+    }
+
+    /**
+      * Sets the endpoint to call (ex, https://www.example.com).
+      * @param endpoint The endpoint of the service.
+      */
+    public set endpoint(endpoint: string) {
+        this._endpoint = endpoint;
+        this._endpoint = this._endpoint + '/20260430';
+        if (this.logger)
+            this.logger.info(`LakeAuthorizationClient endpoint set to ${this._endpoint}`);
+    }
+
+    public get logger() {
+        return common.LOG.logger;
+    }
+
+    /**
+      * Determines whether realm specific endpoint should be used or not.
+      * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+      * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+      */
+    public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled : boolean) {
+        this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+        if (this.logger)
+            this.logger.info(`realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`);
+        if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+            this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+                LakeAuthorizationClient.serviceEndpointTemplate,
+                this._region,
+                LakeAuthorizationClient.endpointServiceName,
+                
+            );
+        } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+            this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+                LakeAuthorizationClient.serviceEndpointTemplate,
+                this._regionId,
+                LakeAuthorizationClient.endpointServiceName,
+                
+            );
+        }
+    }
+
+    /**
+      * Sets the region to call (ex, Region.US_PHOENIX_1).
+      * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+      * @param region The region of the service.
+      */
+    public set region(region: common.Region) {
+        this._region = region;
+        this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+            LakeAuthorizationClient.serviceEndpointTemplate,
+            region,
+            LakeAuthorizationClient.endpointServiceName,
+            
+        );
+        this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+      }
+
+    /**
+      * Sets the regionId to call (ex, 'us-phoenix-1').
+      *
+      * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+      * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+      * and then call {@link #endpoint(String) endpoint}.
+      * @param regionId The public region ID.
+      */
+    public set regionId(regionId: string) {
+        this._regionId = regionId;
+        this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+            LakeAuthorizationClient.serviceEndpointTemplate,
+            regionId,
+            LakeAuthorizationClient.endpointServiceName,
+            
+        );
+        this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+    }
+
+    
+
+    /**
+     * Shutdown the circuit breaker used by the client when it is no longer needed
+     */
+    public shutdownCircuitBreaker() {
+        if (this._circuitBreaker) {
+            this._circuitBreaker.shutdown();
+        }
+    }
+
+    /**
+    * Close the provider if possible which in turn shuts down any associated circuit breaker
+    */
+    public closeProvider() {
+        if (this._authProvider) {
+            if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+                (<common.AbstractRequestingAuthenticationDetailsProvider>this._authProvider).closeProvider();
+        }
+    }
+
+    /**
+     * Close the client once it is no longer needed
+     */
+    public close() {
+        this.shutdownCircuitBreaker();
+        this.closeProvider();
+    }
+    
+    /**
+     * Internal OAC integration API available to any authenticated caller with manage permission on
+* the target AI Data Platform. The caller permission is checked by SPLAT independently of the
+* subjects in the body. Delegated context only selects evaluation subjects. Resource checks are
+* forwarded in one batch, with flattened results. HTTP 200 may contain DENIED results.
+* OBO takes precedence over OAC user context. A supplied dh-user-principal must agree with
+* either resolved delegated context. Without those contexts it supplies the fallback subject;
+* otherwise the authenticated caller is the fallback. Explicit UNSIGNED subjects remain distinct.
+* Malformed or conflicting principal inputs are rejected before evaluation.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param AccessGrantedForRequest
+     * @return AccessGrantedForResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/AccessGrantedFor.ts.html |here} to see how to use AccessGrantedFor API.
+     */
+    public async accessGrantedFor (accessGrantedForRequest: requests.AccessGrantedForRequest) : Promise<responses.AccessGrantedForResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation LakeAuthorizationClient#accessGrantedFor.");
+        const operationName = "accessGrantedFor";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": accessGrantedForRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': accessGrantedForRequest.opcRequestId,'dh-user-principal': accessGrantedForRequest.dhUserPrincipal,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            accessGrantedForRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/actions/accessGrantedFor',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(accessGrantedForRequest.multiplePrincipalAccessGrantedDetails, "MultiplePrincipalAccessGrantedDetails"
+                            , model.MultiplePrincipalAccessGrantedDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.AccessGrantedForResponse>{},
+                body: await response.json(),
+                bodyKey: "accessGrantedForResponseDetails",
+                bodyModel:  model.AccessGrantedForResponseDetails,
+                type: "model.AccessGrantedForResponseDetails",
+                responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
                         key: "opcRequestId",
@@ -11259,6 +11544,148 @@ export class MLOpsClient {
     }
 
     /**
+     * (Preview) Starts an asynchronous export of the correlated inference invocation records in the requested publish-time window to a JSON file in a Volume. The window defaults to the last 30 days and must not exceed 30 days; export a longer history as consecutive windows. The export runs as a tracked asynchronous operation; a second export to the same destination while one is in progress is rejected with 409.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ExportModelDeploymentInferencesRequest
+     * @return ExportModelDeploymentInferencesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ExportModelDeploymentInferences.ts.html |here} to see how to use ExportModelDeploymentInferences API.
+     */
+    public async exportModelDeploymentInferences (exportModelDeploymentInferencesRequest: requests.ExportModelDeploymentInferencesRequest) : Promise<responses.ExportModelDeploymentInferencesResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#exportModelDeploymentInferences.");
+        const operationName = "exportModelDeploymentInferences";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": exportModelDeploymentInferencesRequest.aiDataPlatformId,
+            "{deploymentId}": exportModelDeploymentInferencesRequest.deploymentId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': exportModelDeploymentInferencesRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            exportModelDeploymentInferencesRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/{deploymentId}/monitoring/inferences/actions/export',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(exportModelDeploymentInferencesRequest.exportInferenceInvocationsDetails, "ExportInferenceInvocationsDetails"
+                            , model.ExportInferenceInvocationsDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ExportModelDeploymentInferencesResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("aidp-export-destination"),
+                        key: "aidpExportDestination",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns one deployment log event with its full, redacted message, located by the opaque expiring locator returned from a log search.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetDeploymentLogRequest
+     * @return GetDeploymentLogResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetDeploymentLog.ts.html |here} to see how to use GetDeploymentLog API.
+     */
+    public async getDeploymentLog (getDeploymentLogRequest: requests.GetDeploymentLogRequest) : Promise<responses.GetDeploymentLogResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getDeploymentLog.");
+        const operationName = "getDeploymentLog";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getDeploymentLogRequest.aiDataPlatformId,
+            "{deploymentId}": getDeploymentLogRequest.deploymentId,
+            "{logId}": getDeploymentLogRequest.logId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getDeploymentLogRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getDeploymentLogRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/{deploymentId}/monitoring/logs/{logId}',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetDeploymentLogResponse>{},
+                body: await response.json(),
+                bodyKey: "deploymentLogDetail",
+                bodyModel:  model.DeploymentLogDetail,
+                type: "model.DeploymentLogDetail",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetExperimentByIdRequest
@@ -11748,6 +12175,141 @@ export class MLOpsClient {
                         key: "etag",
                         dataType: "string"
                     },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns request and response payloads for one correlated inference invocation identified by its request ID. The identifier contains forward slashes, so each slash must be percent-encoded as %2F in the path. Example `requestId`: `abc123%2Fdef456%2F789abc`.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetModelDeploymentInferenceDetailsRequest
+     * @return GetModelDeploymentInferenceDetailsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetModelDeploymentInferenceDetails.ts.html |here} to see how to use GetModelDeploymentInferenceDetails API.
+     */
+    public async getModelDeploymentInferenceDetails (getModelDeploymentInferenceDetailsRequest: requests.GetModelDeploymentInferenceDetailsRequest) : Promise<responses.GetModelDeploymentInferenceDetailsResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getModelDeploymentInferenceDetails.");
+        const operationName = "getModelDeploymentInferenceDetails";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getModelDeploymentInferenceDetailsRequest.aiDataPlatformId,
+            "{deploymentId}": getModelDeploymentInferenceDetailsRequest.deploymentId,
+            "{requestId}": getModelDeploymentInferenceDetailsRequest.requestId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getModelDeploymentInferenceDetailsRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getModelDeploymentInferenceDetailsRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/{deploymentId}/monitoring/inferences/{requestId}',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetModelDeploymentInferenceDetailsResponse>{},
+                body: await response.json(),
+                bodyKey: "inferenceInvocationDetails",
+                bodyModel:  model.InferenceInvocationDetails,
+                type: "model.InferenceInvocationDetails",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns aggregate metrics for correlated request and response inference events within the requested timestamp range. Query parameters `timeStart` and `timeEnd` are optional; when omitted, the API uses the previous 24 hours. Any requested range must be within the most recent 14 days.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetModelDeploymentInferenceSummaryRequest
+     * @return GetModelDeploymentInferenceSummaryResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetModelDeploymentInferenceSummary.ts.html |here} to see how to use GetModelDeploymentInferenceSummary API.
+     */
+    public async getModelDeploymentInferenceSummary (getModelDeploymentInferenceSummaryRequest: requests.GetModelDeploymentInferenceSummaryRequest) : Promise<responses.GetModelDeploymentInferenceSummaryResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#getModelDeploymentInferenceSummary.");
+        const operationName = "getModelDeploymentInferenceSummary";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getModelDeploymentInferenceSummaryRequest.aiDataPlatformId,
+            "{deploymentId}": getModelDeploymentInferenceSummaryRequest.deploymentId,
+        };
+
+        const queryParams = { 
+            'timeStart': getModelDeploymentInferenceSummaryRequest.timeStart,
+            'timeEnd': getModelDeploymentInferenceSummaryRequest.timeEnd,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getModelDeploymentInferenceSummaryRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getModelDeploymentInferenceSummaryRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/{deploymentId}/monitoring/inferences/summary',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetModelDeploymentInferenceSummaryResponse>{},
+                body: await response.json(),
+                bodyKey: "inferenceInvocationSummaryResponse",
+                bodyModel:  model.InferenceInvocationSummaryResponse,
+                type: "model.InferenceInvocationSummaryResponse",
+                responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
                         key: "opcRequestId",
@@ -12417,6 +12979,81 @@ export class MLOpsClient {
     }
 
     /**
+     * (Preview) Returns the users, groups, and roles granted READ, MANAGE, or ADMIN on a registered model. Any caller who can view the model can read the list.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListRegisteredModelPermissionsRequest
+     * @return ListRegisteredModelPermissionsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListRegisteredModelPermissions.ts.html |here} to see how to use ListRegisteredModelPermissions API.
+     */
+    public async listRegisteredModelPermissions (listRegisteredModelPermissionsRequest: requests.ListRegisteredModelPermissionsRequest) : Promise<responses.ListRegisteredModelPermissionsResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#listRegisteredModelPermissions.");
+        const operationName = "listRegisteredModelPermissions";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": listRegisteredModelPermissionsRequest.aiDataPlatformId,
+            "{registeredModelKey}": listRegisteredModelPermissionsRequest.registeredModelKey,
+        };
+
+        const queryParams = { 
+            'limit': listRegisteredModelPermissionsRequest.limit,
+            'page': listRegisteredModelPermissionsRequest.page,
+            'sortOrder': listRegisteredModelPermissionsRequest.sortOrder,
+            'sortBy': listRegisteredModelPermissionsRequest.sortBy,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': listRegisteredModelPermissionsRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            listRegisteredModelPermissionsRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/{registeredModelKey}/permissions',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ListRegisteredModelPermissionsResponse>{},
+                body: await response.json(),
+                bodyKey: "registeredModelPermissionCollection",
+                bodyModel:  model.RegisteredModelPermissionCollection,
+                type: "model.RegisteredModelPermissionCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * (Preview) Returns a list of registered models in a workspace.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListRegisteredModelsRequest
@@ -12862,6 +13499,71 @@ export class MLOpsClient {
     }
 
     /**
+     * (Preview) Grants or revokes READ, MANAGE, or ADMIN on a registered model's dedicated volume. The model-to-volume link is resolved on the server; no volume name is accepted from the client.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ManageRegisteredModelPermissionRequest
+     * @return ManageRegisteredModelPermissionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ManageRegisteredModelPermission.ts.html |here} to see how to use ManageRegisteredModelPermission API.
+     */
+    public async manageRegisteredModelPermission (manageRegisteredModelPermissionRequest: requests.ManageRegisteredModelPermissionRequest) : Promise<responses.ManageRegisteredModelPermissionResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#manageRegisteredModelPermission.");
+        const operationName = "manageRegisteredModelPermission";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": manageRegisteredModelPermissionRequest.aiDataPlatformId,
+            "{registeredModelKey}": manageRegisteredModelPermissionRequest.registeredModelKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': manageRegisteredModelPermissionRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            manageRegisteredModelPermissionRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/mlflow/registered-models/{registeredModelKey}/actions/managePermission',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(manageRegisteredModelPermissionRequest.manageRegisteredModelPermissionDetails, "ManageRegisteredModelPermissionDetails"
+                            , model.ManageRegisteredModelPermissionDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ManageRegisteredModelPermissionResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
      * (Preview) Renames a registered model.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param RenameRegisteredModelRequest
@@ -13200,6 +13902,144 @@ export class MLOpsClient {
                         key: "aidpAsyncOperationKey",
                         dataType: "string"
                     },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns one page of deployment lifecycle log events for the model deployment, newest first, read live from OCI Logging. No log content is persisted by the platform.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param SearchDeploymentLogsRequest
+     * @return SearchDeploymentLogsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchDeploymentLogs.ts.html |here} to see how to use SearchDeploymentLogs API.
+     */
+    public async searchDeploymentLogs (searchDeploymentLogsRequest: requests.SearchDeploymentLogsRequest) : Promise<responses.SearchDeploymentLogsResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#searchDeploymentLogs.");
+        const operationName = "searchDeploymentLogs";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": searchDeploymentLogsRequest.aiDataPlatformId,
+            "{deploymentId}": searchDeploymentLogsRequest.deploymentId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': searchDeploymentLogsRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            searchDeploymentLogsRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/{deploymentId}/monitoring/logs/search',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(searchDeploymentLogsRequest.searchDeploymentLogsDetails, "SearchDeploymentLogsDetails"
+                            , model.SearchDeploymentLogsDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.SearchDeploymentLogsResponse>{},
+                body: await response.json(),
+                bodyKey: "deploymentLogCollection",
+                bodyModel:  model.DeploymentLogCollection,
+                type: "model.DeploymentLogCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * (Preview) Returns paginated request and response-correlated inference invocation records for a model deployment. Each response contains at most 20 rows, OCI Logging pagination is used internally, and only the first 10,000 matching rows can be retrieved within a maximum 14-day range. When no time range is provided, the previous 24 hours is used.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param SearchModelDeploymentInferencesRequest
+     * @return SearchModelDeploymentInferencesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/SearchModelDeploymentInferences.ts.html |here} to see how to use SearchModelDeploymentInferences API.
+     */
+    public async searchModelDeploymentInferences (searchModelDeploymentInferencesRequest: requests.SearchModelDeploymentInferencesRequest) : Promise<responses.SearchModelDeploymentInferencesResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation MLOpsClient#searchModelDeploymentInferences.");
+        const operationName = "searchModelDeploymentInferences";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": searchModelDeploymentInferencesRequest.aiDataPlatformId,
+            "{deploymentId}": searchModelDeploymentInferencesRequest.deploymentId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': searchModelDeploymentInferencesRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            searchModelDeploymentInferencesRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/mlops/api/2.0/model-deployments/{deploymentId}/monitoring/inferences/search',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(searchModelDeploymentInferencesRequest.inferenceInvocationSearchDetails, "InferenceInvocationSearchDetails"
+                            , model.InferenceInvocationSearchDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.SearchModelDeploymentInferencesResponse>{},
+                body: await response.json(),
+                bodyKey: "inferenceInvocationSearchResult",
+                bodyModel:  model.InferenceInvocationSearchResult,
+                type: "model.InferenceInvocationSearchResult",
+                responseHeaders: [
                     {
                         value: response.headers.get("opc-request-id"),
                         key: "opcRequestId",
@@ -15403,6 +16243,548 @@ export class NotebookClient {
                     {
                         value: response.headers.get("opc-work-request-id"),
                         key: "opcWorkRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+}
+export enum PrivateNetworkProfileApiKeys {
+}
+/**
+* This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+*/
+export class PrivateNetworkProfileClient {
+    protected static serviceEndpointTemplate = 'https://datalake.{region}.oci.{secondLevelDomain}';
+    protected static endpointServiceName = '';
+    protected "_realmSpecificEndpointTemplateEnabled" : boolean | undefined = undefined;
+    protected "_endpoint" : string = '';
+    protected "_defaultHeaders" : any = {};
+    protected "_clientConfiguration": common.ClientConfiguration;
+    protected _circuitBreaker: typeof Breaker | null = null;
+    protected _httpOptions: any = undefined;
+    protected _bodyDuplexMode: any = undefined;
+    public targetService = "PrivateNetworkProfile";
+    protected _regionId : string = '';
+    protected "_region" : common.Region;
+    protected _lastSetRegionOrRegionId : string = "";
+
+    protected _httpClient: common.HttpClient;
+    protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+    constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+      const requestSigner = params.authenticationDetailsProvider
+        ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+        : null;
+      this._authProvider = params.authenticationDetailsProvider;
+      if (clientConfiguration) {
+        this._clientConfiguration = clientConfiguration;
+        this._circuitBreaker = clientConfiguration.circuitBreaker ? clientConfiguration.circuitBreaker!.circuit : null;
+        this._httpOptions = clientConfiguration.httpOptions ? clientConfiguration.httpOptions : undefined;
+        this._bodyDuplexMode = clientConfiguration.bodyDuplexMode ? clientConfiguration.bodyDuplexMode : undefined;
+      }
+
+      if (!developerToolConfiguration.isServiceEnabled("aidp"))
+        {
+            let errmsg = "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+            throw errmsg.concat("aidp");
+        }
+
+      // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+      const specCircuitBreakerEnabled = true;
+      if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) && (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)) {
+        this._circuitBreaker = new common.CircuitBreaker().circuit;
+      }
+      this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions, this._bodyDuplexMode);
+
+      if (params.authenticationDetailsProvider &&
+            common.isRegionProvider(params.authenticationDetailsProvider)) {
+        const provider: common.RegionProvider = params.authenticationDetailsProvider;
+        if (provider.getRegion()) {
+          this.region = provider.getRegion();
+        }
+      }
+    }
+
+    /**
+      * Get the endpoint that is being used to call (ex, https://www.example.com).
+      */
+    public get endpoint() {
+        return this._endpoint;
+    }
+
+    /**
+      * Sets the endpoint to call (ex, https://www.example.com).
+      * @param endpoint The endpoint of the service.
+      */
+    public set endpoint(endpoint: string) {
+        this._endpoint = endpoint;
+        this._endpoint = this._endpoint + '/20260430';
+        if (this.logger)
+            this.logger.info(`PrivateNetworkProfileClient endpoint set to ${this._endpoint}`);
+    }
+
+    public get logger() {
+        return common.LOG.logger;
+    }
+
+    /**
+      * Determines whether realm specific endpoint should be used or not.
+      * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+      * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+      */
+    public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled : boolean) {
+        this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+        if (this.logger)
+            this.logger.info(`realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`);
+        if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+            this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+                PrivateNetworkProfileClient.serviceEndpointTemplate,
+                this._region,
+                PrivateNetworkProfileClient.endpointServiceName,
+                
+            );
+        } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+            this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+                PrivateNetworkProfileClient.serviceEndpointTemplate,
+                this._regionId,
+                PrivateNetworkProfileClient.endpointServiceName,
+                
+            );
+        }
+    }
+
+    /**
+      * Sets the region to call (ex, Region.US_PHOENIX_1).
+      * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+      * @param region The region of the service.
+      */
+    public set region(region: common.Region) {
+        this._region = region;
+        this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+            PrivateNetworkProfileClient.serviceEndpointTemplate,
+            region,
+            PrivateNetworkProfileClient.endpointServiceName,
+            
+        );
+        this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+      }
+
+    /**
+      * Sets the regionId to call (ex, 'us-phoenix-1').
+      *
+      * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+      * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+      * and then call {@link #endpoint(String) endpoint}.
+      * @param regionId The public region ID.
+      */
+    public set regionId(regionId: string) {
+        this._regionId = regionId;
+        this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+            PrivateNetworkProfileClient.serviceEndpointTemplate,
+            regionId,
+            PrivateNetworkProfileClient.endpointServiceName,
+            
+        );
+        this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+    }
+
+    
+
+    /**
+     * Shutdown the circuit breaker used by the client when it is no longer needed
+     */
+    public shutdownCircuitBreaker() {
+        if (this._circuitBreaker) {
+            this._circuitBreaker.shutdown();
+        }
+    }
+
+    /**
+    * Close the provider if possible which in turn shuts down any associated circuit breaker
+    */
+    public closeProvider() {
+        if (this._authProvider) {
+            if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+                (<common.AbstractRequestingAuthenticationDetailsProvider>this._authProvider).closeProvider();
+        }
+    }
+
+    /**
+     * Close the client once it is no longer needed
+     */
+    public close() {
+        this.shutdownCircuitBreaker();
+        this.closeProvider();
+    }
+    
+    /**
+     * Creates a reusable private network profile for Git repositories in an AI data platform.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreatePrivateNetworkProfileRequest
+     * @return CreatePrivateNetworkProfileResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/CreatePrivateNetworkProfile.ts.html |here} to see how to use CreatePrivateNetworkProfile API.
+     */
+    public async createPrivateNetworkProfile (createPrivateNetworkProfileRequest: requests.CreatePrivateNetworkProfileRequest) : Promise<responses.CreatePrivateNetworkProfileResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation PrivateNetworkProfileClient#createPrivateNetworkProfile.");
+        const operationName = "createPrivateNetworkProfile";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": createPrivateNetworkProfileRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-retry-token': createPrivateNetworkProfileRequest.opcRetryToken,'opc-request-id': createPrivateNetworkProfileRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            createPrivateNetworkProfileRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/privateNetworkProfiles',
+            method: 'POST',
+            bodyContent: common.ObjectSerializer.serialize(createPrivateNetworkProfileRequest.createPrivateNetworkProfileDetails, "CreatePrivateNetworkProfileDetails"
+                            , model.CreatePrivateNetworkProfileDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.CreatePrivateNetworkProfileResponse>{},
+                body: await response.json(),
+                bodyKey: "privateNetworkProfile",
+                bodyModel:  model.PrivateNetworkProfile,
+                type: "model.PrivateNetworkProfile",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Deletes an unused private network profile from an AI data platform.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeletePrivateNetworkProfileRequest
+     * @return DeletePrivateNetworkProfileResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/DeletePrivateNetworkProfile.ts.html |here} to see how to use DeletePrivateNetworkProfile API.
+     */
+    public async deletePrivateNetworkProfile (deletePrivateNetworkProfileRequest: requests.DeletePrivateNetworkProfileRequest) : Promise<responses.DeletePrivateNetworkProfileResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation PrivateNetworkProfileClient#deletePrivateNetworkProfile.");
+        const operationName = "deletePrivateNetworkProfile";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": deletePrivateNetworkProfileRequest.aiDataPlatformId,
+            "{privateNetworkProfileKey}": deletePrivateNetworkProfileRequest.privateNetworkProfileKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'if-match': deletePrivateNetworkProfileRequest.ifMatch,'opc-request-id': deletePrivateNetworkProfileRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            deletePrivateNetworkProfileRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/privateNetworkProfiles/{privateNetworkProfileKey}',
+            method: 'DELETE',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.DeletePrivateNetworkProfileResponse>{},
+                responseHeaders: [
+                    {
+                        value: response.headers.get("aidp-async-operation-key"),
+                        key: "aidpAsyncOperationKey",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Returns a private network profile for the requested AI data platform.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetPrivateNetworkProfileRequest
+     * @return GetPrivateNetworkProfileResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/GetPrivateNetworkProfile.ts.html |here} to see how to use GetPrivateNetworkProfile API.
+     */
+    public async getPrivateNetworkProfile (getPrivateNetworkProfileRequest: requests.GetPrivateNetworkProfileRequest) : Promise<responses.GetPrivateNetworkProfileResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation PrivateNetworkProfileClient#getPrivateNetworkProfile.");
+        const operationName = "getPrivateNetworkProfile";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": getPrivateNetworkProfileRequest.aiDataPlatformId,
+            "{privateNetworkProfileKey}": getPrivateNetworkProfileRequest.privateNetworkProfileKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': getPrivateNetworkProfileRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            getPrivateNetworkProfileRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/privateNetworkProfiles/{privateNetworkProfileKey}',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.GetPrivateNetworkProfileResponse>{},
+                body: await response.json(),
+                bodyKey: "privateNetworkProfile",
+                bodyModel:  model.PrivateNetworkProfile,
+                type: "model.PrivateNetworkProfile",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Returns private network profile summaries for the requested AI data platform.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListPrivateNetworkProfilesRequest
+     * @return ListPrivateNetworkProfilesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/ListPrivateNetworkProfiles.ts.html |here} to see how to use ListPrivateNetworkProfiles API.
+     */
+    public async listPrivateNetworkProfiles (listPrivateNetworkProfilesRequest: requests.ListPrivateNetworkProfilesRequest) : Promise<responses.ListPrivateNetworkProfilesResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation PrivateNetworkProfileClient#listPrivateNetworkProfiles.");
+        const operationName = "listPrivateNetworkProfiles";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": listPrivateNetworkProfilesRequest.aiDataPlatformId,
+        };
+
+        const queryParams = { 
+            'name': listPrivateNetworkProfilesRequest.name,
+            'lifecycleState': listPrivateNetworkProfilesRequest.lifecycleState,
+            'displayNameContains': listPrivateNetworkProfilesRequest.displayNameContains,
+            'limit': listPrivateNetworkProfilesRequest.limit,
+            'page': listPrivateNetworkProfilesRequest.page,
+            'sortOrder': listPrivateNetworkProfilesRequest.sortOrder,
+            'sortBy': listPrivateNetworkProfilesRequest.sortBy,
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'opc-request-id': listPrivateNetworkProfilesRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            listPrivateNetworkProfilesRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/privateNetworkProfiles',
+            method: 'GET',
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.ListPrivateNetworkProfilesResponse>{},
+                body: await response.json(),
+                bodyKey: "privateNetworkProfileCollection",
+                bodyModel:  model.PrivateNetworkProfileCollection,
+                type: "model.PrivateNetworkProfileCollection",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("opc-request-id"),
+                        key: "opcRequestId",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-next-page"),
+                        key: "opcNextPage",
+                        dataType: "string"
+                    },
+                    {
+                        value: response.headers.get("opc-total-items"),
+                        key: "opcTotalItems",
+                        dataType: "number"
+                    },
+                    ]
+            });
+
+            return sdkResponse;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Updates selected fields of a reusable private network profile in an AI data platform.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdatePrivateNetworkProfileRequest
+     * @return UpdatePrivateNetworkProfileResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidp/UpdatePrivateNetworkProfile.ts.html |here} to see how to use UpdatePrivateNetworkProfile API.
+     */
+    public async updatePrivateNetworkProfile (updatePrivateNetworkProfileRequest: requests.UpdatePrivateNetworkProfileRequest) : Promise<responses.UpdatePrivateNetworkProfileResponse> {
+        if (this.logger)
+              this.logger.debug("Calling operation PrivateNetworkProfileClient#updatePrivateNetworkProfile.");
+        const operationName = "updatePrivateNetworkProfile";
+        const apiReferenceLink = "";
+        const pathParams = { 
+            "{aiDataPlatformId}": updatePrivateNetworkProfileRequest.aiDataPlatformId,
+            "{privateNetworkProfileKey}": updatePrivateNetworkProfileRequest.privateNetworkProfileKey,
+        };
+
+        const queryParams = { 
+        };
+
+        let headerParams = {
+        "Content-Type": common.Constants.APPLICATION_JSON,
+        'if-match': updatePrivateNetworkProfileRequest.ifMatch,'opc-request-id': updatePrivateNetworkProfileRequest.opcRequestId,
+        };
+
+        const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+        const retrier = GenericRetrier.createPreferredRetrier(
+        this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+            updatePrivateNetworkProfileRequest.retryConfiguration,
+            specRetryConfiguration
+        );
+        if (this.logger) retrier.logger = this.logger;
+        const request = await composeRequest({
+            baseEndpoint: this._endpoint,
+            defaultHeaders: this._defaultHeaders,
+            path: '/aiDataPlatforms/{aiDataPlatformId}/privateNetworkProfiles/{privateNetworkProfileKey}',
+            method: 'PUT',
+            bodyContent: common.ObjectSerializer.serialize(updatePrivateNetworkProfileRequest.updatePrivateNetworkProfileDetails, "UpdatePrivateNetworkProfileDetails"
+                            , model.UpdatePrivateNetworkProfileDetails.getJsonObj)
+                         ,
+            pathParams: pathParams,
+            headerParams: headerParams,
+            queryParams: queryParams
+        });
+        try {
+            const response = await retrier.makeServiceCall(this._httpClient, request, this.targetService, operationName, apiReferenceLink);
+            const sdkResponse = composeResponse({
+            responseObject: <responses.UpdatePrivateNetworkProfileResponse>{},
+                body: await response.json(),
+                bodyKey: "privateNetworkProfile",
+                bodyModel:  model.PrivateNetworkProfile,
+                type: "model.PrivateNetworkProfile",
+                responseHeaders: [
+                    {
+                        value: response.headers.get("etag"),
+                        key: "etag",
                         dataType: "string"
                     },
                     {
@@ -21289,6 +22671,7 @@ export class WorkflowClient {
 
         const queryParams = { 
             'shouldIncludeTaskRunSummaries': getJobRunRequest.shouldIncludeTaskRunSummaries,
+            'repairKey': getJobRunRequest.repairKey,
         };
 
         let headerParams = {
@@ -21978,7 +23361,7 @@ export class WorkflowClient {
     }
 
     /**
-     * Repairs and reruns a job run.
+     * Repairs and reruns a root job run. Nested job runs can be repaired only through their root job run repair plan.
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param RepairJobRunRequest
      * @return RepairJobRunResponse
@@ -22313,7 +23696,11 @@ export class WorkspaceClient {
     }
     
     /**
-     * Creates a git folder in the workspace
+     * Asynchronously creates a Git folder and clones the repository. The
+* aidp-async-operation-key header identifies the operation. Once SUCCEEDED,
+* the folder's HEAD response with shouldIncludeMetadata=true exposes
+* system:repoKey in the JSON file-metadata header for subsequent Git APIs.
+* 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateGitFolderRequest
      * @return CreateGitFolderResponse

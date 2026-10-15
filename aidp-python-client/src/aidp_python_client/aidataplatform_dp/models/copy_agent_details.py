@@ -41,14 +41,12 @@ class CopyAgentDetails(object):
             'target_path_info': 'str',
             'target_workspace_key': 'str'
         }
-
         self.attribute_map = {
             'target_display_name': 'targetDisplayName',
             'target_description': 'targetDescription',
             'target_path_info': 'targetPathInfo',
             'target_workspace_key': 'targetWorkspaceKey'
         }
-
         self._target_display_name = None
         self._target_description = None
         self._target_path_info = None

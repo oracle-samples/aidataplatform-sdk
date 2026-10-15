@@ -13,10 +13,24 @@ class SessionRetentionConfiguration(object):
     Session data retention configuration for an Agent.
     """
 
+    #: A constant which can be used with the breach_action property of a SessionRetentionConfiguration.
+    #: This constant has a value of "DELETE_FIFO"
+    BREACH_ACTION_DELETE_FIFO = "DELETE_FIFO"
+
     def __init__(self, **kwargs):
         """
         Initializes a new SessionRetentionConfiguration object with values from keyword arguments.
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
+
+        :param is_retention_policy_enabled:
+            The value to assign to the is_retention_policy_enabled property of this SessionRetentionConfiguration.
+        :type is_retention_policy_enabled: bool
+
+        :param breach_action:
+            The value to assign to the breach_action property of this SessionRetentionConfiguration.
+            Allowed values for this property are: "DELETE_FIFO", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+        :type breach_action: str
 
         :param retention_period_in_days:
             The value to assign to the retention_period_in_days property of this SessionRetentionConfiguration.
@@ -32,20 +46,78 @@ class SessionRetentionConfiguration(object):
 
         """
         self.swagger_types = {
+            'is_retention_policy_enabled': 'bool',
+            'breach_action': 'str',
             'retention_period_in_days': 'int',
             'session_size_limit': 'int',
             'thread_count_limit': 'int'
         }
-
         self.attribute_map = {
+            'is_retention_policy_enabled': 'isRetentionPolicyEnabled',
+            'breach_action': 'breachAction',
             'retention_period_in_days': 'retentionPeriodInDays',
             'session_size_limit': 'sessionSizeLimit',
             'thread_count_limit': 'threadCountLimit'
         }
-
+        self._is_retention_policy_enabled = None
+        self._breach_action = None
         self._retention_period_in_days = None
         self._session_size_limit = None
         self._thread_count_limit = None
+
+    @property
+    def is_retention_policy_enabled(self):
+        """
+        Gets the is_retention_policy_enabled of this SessionRetentionConfiguration.
+        Whether session-message retention is enabled.
+
+
+        :return: The is_retention_policy_enabled of this SessionRetentionConfiguration.
+        :rtype: bool
+        """
+        return self._is_retention_policy_enabled
+
+    @is_retention_policy_enabled.setter
+    def is_retention_policy_enabled(self, is_retention_policy_enabled):
+        """
+        Sets the is_retention_policy_enabled of this SessionRetentionConfiguration.
+        Whether session-message retention is enabled.
+
+
+        :param is_retention_policy_enabled: The is_retention_policy_enabled of this SessionRetentionConfiguration.
+        :type: bool
+        """
+        self._is_retention_policy_enabled = is_retention_policy_enabled
+
+    @property
+    def breach_action(self):
+        """
+        Gets the breach_action of this SessionRetentionConfiguration.
+        Action taken when the enabled retention condition is breached.
+
+        Allowed values for this property are: "DELETE_FIFO", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
+
+
+        :return: The breach_action of this SessionRetentionConfiguration.
+        :rtype: str
+        """
+        return self._breach_action
+
+    @breach_action.setter
+    def breach_action(self, breach_action):
+        """
+        Sets the breach_action of this SessionRetentionConfiguration.
+        Action taken when the enabled retention condition is breached.
+
+
+        :param breach_action: The breach_action of this SessionRetentionConfiguration.
+        :type: str
+        """
+        allowed_values = ["DELETE_FIFO"]
+        if not value_allowed_none_or_none_sentinel(breach_action, allowed_values):
+            breach_action = 'UNKNOWN_ENUM_VALUE'
+        self._breach_action = breach_action
 
     @property
     def retention_period_in_days(self):

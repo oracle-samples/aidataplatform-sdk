@@ -26,11 +26,9 @@ class VolumeCollection(object):
         self.swagger_types = {
             'items': 'list[VolumeSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

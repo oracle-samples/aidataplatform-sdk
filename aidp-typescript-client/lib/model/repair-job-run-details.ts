@@ -9,11 +9,11 @@ import common = require("oci-common");
 */
 export interface RepairJobRunDetails {
     /**
-    * The collection of selected task IDs to be repaired.
+    * Deprecated. Use repairTasks to select tasks to be repaired.
     */
     'taskKeys'?: Array<string>;
     /**
-    * Repair mode to be used for this repair scope.
+    * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
     */
     'repairMode'?: RepairJobRunDetails.RepairMode;
     /**

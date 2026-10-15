@@ -87,7 +87,6 @@ class ToolPermissionSummary(object):
             'is_inherited': 'bool',
             'resource_name': 'str'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
@@ -98,7 +97,6 @@ class ToolPermissionSummary(object):
             'is_inherited': 'isInherited',
             'resource_name': 'resourceName'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None
@@ -183,8 +181,7 @@ class ToolPermissionSummary(object):
         allowed_values = ["USER", "ROLE", "GROUP"]
         if not value_allowed_none_or_none_sentinel(grantee_type, allowed_values):
             raise ValueError(
-                "Invalid value for `grantee_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `grantee_type`, must be None or one of {allowed_values}"
             )
         self._grantee_type = grantee_type
 
@@ -218,8 +215,7 @@ class ToolPermissionSummary(object):
             for value in grantee_permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `grantee_permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `grantee_permissions`, must be None or one of {allowed_values}"
                     )
         self._grantee_permissions = grantee_permissions
 

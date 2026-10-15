@@ -26,11 +26,9 @@ class AgentCardPreviewResponse(object):
         self.swagger_types = {
             'agent_card_json': 'str'
         }
-
         self.attribute_map = {
             'agent_card_json': 'agentCardJson'
         }
-
         self._agent_card_json = None
 
     @property

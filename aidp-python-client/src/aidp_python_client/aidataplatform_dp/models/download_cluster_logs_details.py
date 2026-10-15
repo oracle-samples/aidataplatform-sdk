@@ -76,7 +76,6 @@ class DownloadClusterLogsDetails(object):
             'log_stream_type_contains': 'str',
             'event_type': 'str'
         }
-
         self.attribute_map = {
             'time_begin': 'timeBegin',
             'time_end': 'timeEnd',
@@ -90,7 +89,6 @@ class DownloadClusterLogsDetails(object):
             'log_stream_type_contains': 'logStreamTypeContains',
             'event_type': 'eventType'
         }
-
         self._time_begin = None
         self._time_end = None
         self._log_content_type_contains = None

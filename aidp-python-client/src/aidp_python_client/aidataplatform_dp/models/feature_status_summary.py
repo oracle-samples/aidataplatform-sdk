@@ -36,13 +36,11 @@ class FeatureStatusSummary(object):
             'value': 'str',
             'error': 'str'
         }
-
         self.attribute_map = {
             'feature_name': 'featureName',
             'value': 'value',
             'error': 'error'
         }
-
         self._feature_name = None
         self._value = None
         self._error = None

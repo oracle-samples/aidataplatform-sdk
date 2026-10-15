@@ -31,12 +31,10 @@ class LogExperimentRunInputsDetails(object):
             'run_id': 'str',
             'dataset_inputs': 'list[DatasetInput]'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'dataset_inputs': 'dataset_inputs'
         }
-
         self._run_id = None
         self._dataset_inputs = None
 

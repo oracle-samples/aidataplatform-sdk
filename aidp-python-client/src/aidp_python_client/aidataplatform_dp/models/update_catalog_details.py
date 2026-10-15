@@ -41,14 +41,12 @@ class UpdateCatalogDetails(object):
             'connection_details': 'UpdateConnectionDetails',
             'properties': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
             'connection_details': 'connectionDetails',
             'properties': 'properties'
         }
-
         self._display_name = None
         self._description = None
         self._connection_details = None

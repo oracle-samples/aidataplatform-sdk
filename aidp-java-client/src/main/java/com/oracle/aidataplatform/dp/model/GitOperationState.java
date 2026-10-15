@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Current git operation state for a repository folder context.
+ * Snapshot of a Git worktree's operational state and readiness for an operation.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitOperationState.Builder.class)
@@ -48,14 +48,20 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * Current Git operation state detected.
+     * Detected operational state. CLEAN means no in-progress merge, rebase, or
+* detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+* CLEAN does not imply an unchanged worktree or index.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("state")
 private State state;
 
         /**
-         * Current Git operation state detected.
+         * Detected operational state. CLEAN means no in-progress merge, rebase, or
+* detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+* CLEAN does not imply an unchanged worktree or index.
+* 
          * @param state the value to set
          * @return this builder
          **/
@@ -84,14 +90,22 @@ public Builder isBlocking(Boolean isBlocking) {
     return this;
 }
             /**
-     * Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+     * Whether the supplied operationName is allowed by the detected state and
+* expected branch. With no operationName, indicates general operational
+* readiness. This is a state check, not an authorization decision or execution
+* guarantee.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("isAllowed")
 private Boolean isAllowed;
 
         /**
-         * Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+         * Whether the supplied operationName is allowed by the detected state and
+* expected branch. With no operationName, indicates general operational
+* readiness. This is a state check, not an authorization decision or execution
+* guarantee.
+* 
          * @param isAllowed the value to set
          * @return this builder
          **/
@@ -272,7 +286,10 @@ return this;
     }
 
     /**
-     * Current Git operation state detected.
+     * Detected operational state. CLEAN means no in-progress merge, rebase, or
+* detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+* CLEAN does not imply an unchanged worktree or index.
+* 
      **/
     public enum State implements com.oracle.bmc.http.internal.BmcEnum {
         Clean("CLEAN"),
@@ -322,14 +339,20 @@ return this;
         }
     };
         /**
-     * Current Git operation state detected.
+     * Detected operational state. CLEAN means no in-progress merge, rebase, or
+* detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+* CLEAN does not imply an unchanged worktree or index.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("state")
     private final State state;
 
         /**
-     * Current Git operation state detected.
+     * Detected operational state. CLEAN means no in-progress merge, rebase, or
+* detached HEAD was detected. Conflicts are reported separately by haveConflicts;
+* CLEAN does not imply an unchanged worktree or index.
+* 
      * @return the value
      **/
     
@@ -356,14 +379,22 @@ return this;
 
 
         /**
-     * Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+     * Whether the supplied operationName is allowed by the detected state and
+* expected branch. With no operationName, indicates general operational
+* readiness. This is a state check, not an authorization decision or execution
+* guarantee.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isAllowed")
     private final Boolean isAllowed;
 
         /**
-     * Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state.
+     * Whether the supplied operationName is allowed by the detected state and
+* expected branch. With no operationName, indicates general operational
+* readiness. This is a state check, not an authorization decision or execution
+* guarantee.
+* 
      * @return the value
      **/
     

@@ -58,7 +58,6 @@ class CreateAiComputeDetails(CreateClusterDetails):
             'replica_config': 'ReplicaConfig',
             'auto_scale_configuration': 'AutoScaleConfiguration'
         }
-
         self.attribute_map = {
             'type': 'type',
             'display_name': 'displayName',
@@ -68,7 +67,6 @@ class CreateAiComputeDetails(CreateClusterDetails):
             'replica_config': 'replicaConfig',
             'auto_scale_configuration': 'autoScaleConfiguration'
         }
-
         self._type = None
         self._display_name = None
         self._description = None

@@ -43,14 +43,12 @@ class TestHttpToolDetails(TestToolDetails):
             'config': 'HttpToolConfiguration',
             'param_values': 'TestToolParamValues'
         }
-
         self.attribute_map = {
             'agent_flow_id': 'agentFlowId',
             'tool_type': 'toolType',
             'config': 'config',
             'param_values': 'paramValues'
         }
-
         self._agent_flow_id = None
         self._tool_type = None
         self._config = None

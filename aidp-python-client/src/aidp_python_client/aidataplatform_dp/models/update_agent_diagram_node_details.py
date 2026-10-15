@@ -122,7 +122,6 @@ class UpdateAgentDiagramNodeDetails(object):
             'configuration': 'dict(str, object)',
             'node_type_id': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -135,7 +134,6 @@ class UpdateAgentDiagramNodeDetails(object):
             'configuration': 'configuration',
             'node_type_id': 'nodeTypeId'
         }
-
         self._type = None
         self._node_type = None
         self._name = None
@@ -205,8 +203,7 @@ class UpdateAgentDiagramNodeDetails(object):
         allowed_values = ["START_NODE", "GUARDRAILS", "AGENT", "SUPERVISOR_AGENT", "SQL_TOOL", "PROMPT_TOOL", "RAG_TOOL", "MCP_TOOL", "HTTP_TOOL", "CUSTOM_TOOL"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

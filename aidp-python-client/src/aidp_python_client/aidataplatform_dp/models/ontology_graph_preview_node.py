@@ -56,7 +56,6 @@ class OntologyGraphPreviewNode(object):
             'kind': 'str',
             'expansion': 'OntologyGraphPreviewNodeExpansion'
         }
-
         self.attribute_map = {
             'id': 'id',
             'iri': 'iri',
@@ -66,7 +65,6 @@ class OntologyGraphPreviewNode(object):
             'kind': 'kind',
             'expansion': 'expansion'
         }
-
         self._id = None
         self._iri = None
         self._compact_iri = None

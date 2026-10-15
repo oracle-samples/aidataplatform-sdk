@@ -31,12 +31,10 @@ class DependsOn(object):
             'task_key': 'str',
             'outcome': 'str'
         }
-
         self.attribute_map = {
             'task_key': 'taskKey',
             'outcome': 'outcome'
         }
-
         self._task_key = None
         self._outcome = None
 

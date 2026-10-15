@@ -13,6 +13,7 @@ public enum AsyncOperationActionType implements com.oracle.bmc.http.internal.Bmc
     UpdateCatalog("UPDATE_CATALOG"),
     DeleteCatalog("DELETE_CATALOG"),
     TestConnectionCatalog("TEST_CONNECTION_CATALOG"),
+    TestAgentMemoryConnection("TEST_AGENT_MEMORY_CONNECTION"),
     CreateUserSchemaInCatalog("CREATE_USER_SCHEMA_IN_CATALOG"),
     CreateSchema("CREATE_SCHEMA"),
     DeleteSchema("DELETE_SCHEMA"),
@@ -28,6 +29,8 @@ public enum AsyncOperationActionType implements com.oracle.bmc.http.internal.Bmc
     DeleteVolumeFile("DELETE_VOLUME_FILE"),
     DeleteVolumeFolder("DELETE_VOLUME_FOLDER"),
     LoadModelsInCatalog("LOAD_MODELS_IN_CATALOG"),
+    ImportLineage("IMPORT_LINEAGE"),
+    DeleteLineageImport("DELETE_LINEAGE_IMPORT"),
     CreateWorkspace("CREATE_WORKSPACE"),
     UpdateWorkspace("UPDATE_WORKSPACE"),
     DeleteWorkspace("DELETE_WORKSPACE"),
@@ -69,6 +72,9 @@ public enum AsyncOperationActionType implements com.oracle.bmc.http.internal.Bmc
     DeactivateModelDeployment("DEACTIVATE_MODEL_DEPLOYMENT"),
     RollForwardModelDeployment("ROLL_FORWARD_MODEL_DEPLOYMENT"),
     RollBackModelDeployment("ROLL_BACK_MODEL_DEPLOYMENT"),
+    ExportModelDeploymentInferences("EXPORT_MODEL_DEPLOYMENT_INFERENCES"),
+    CreatePrivateNetworkProfile("CREATE_PRIVATE_NETWORK_PROFILE"),
+    DeletePrivateNetworkProfile("DELETE_PRIVATE_NETWORK_PROFILE"),
     
 
     /**

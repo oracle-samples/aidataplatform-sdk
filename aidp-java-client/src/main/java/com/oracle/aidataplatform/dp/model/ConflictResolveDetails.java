@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * List of files to checkout side or mark as resolved.
+ * File paths and resolution action for a Git conflict resolution request.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=ConflictResolveDetails.Builder.class)
@@ -22,14 +22,16 @@ public final class ConflictResolveDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * List of file paths to checkout side or mark as resolved.
+     * Repository-relative paths of the conflicted files to resolve or stage.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("files")
 private java.util.List<String> files;
 
         /**
-         * List of file paths to checkout side or mark as resolved.
+         * Repository-relative paths of the conflicted files to resolve or stage.
+* 
          * @param files the value to set
          * @return this builder
          **/
@@ -40,14 +42,20 @@ public Builder files(java.util.List<String> files) {
     return this;
 }
             /**
-     * Action for resolving conflict.
+     * LOCAL selects the local version and REMOTE selects the incoming version, with
+* Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+* resolved workspace content.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("action")
 private Action action;
 
         /**
-         * Action for resolving conflict.
+         * LOCAL selects the local version and REMOTE selects the incoming version, with
+* Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+* resolved workspace content.
+* 
          * @param action the value to set
          * @return this builder
          **/
@@ -88,14 +96,16 @@ return this;
 
 
         /**
-     * List of file paths to checkout side or mark as resolved.
+     * Repository-relative paths of the conflicted files to resolve or stage.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("files")
     private final java.util.List<String> files;
 
         /**
-     * List of file paths to checkout side or mark as resolved.
+     * Repository-relative paths of the conflicted files to resolve or stage.
+* 
      * @return the value
      **/
     
@@ -104,7 +114,10 @@ return this;
     }
 
     /**
-     * Action for resolving conflict.
+     * LOCAL selects the local version and REMOTE selects the incoming version, with
+* Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+* resolved workspace content.
+* 
      **/
     public enum Action implements com.oracle.bmc.http.internal.BmcEnum {
         Local("LOCAL"),
@@ -143,14 +156,20 @@ return this;
         }
     };
         /**
-     * Action for resolving conflict.
+     * LOCAL selects the local version and REMOTE selects the incoming version, with
+* Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+* resolved workspace content.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("action")
     private final Action action;
 
         /**
-     * Action for resolving conflict.
+     * LOCAL selects the local version and REMOTE selects the incoming version, with
+* Git side mapping adjusted during rebase. MARK_RESOLVED stages manually
+* resolved workspace content.
+* 
      * @return the value
      **/
     

@@ -103,7 +103,6 @@ class AgentSessionSummary(object):
             'duration': 'float',
             'tokens': 'int'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'key': 'key',
@@ -118,7 +117,6 @@ class AgentSessionSummary(object):
             'duration': 'duration',
             'tokens': 'tokens'
         }
-
         self._display_name = None
         self._key = None
         self._agent_key = None

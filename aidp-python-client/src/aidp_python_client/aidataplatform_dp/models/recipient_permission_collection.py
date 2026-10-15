@@ -26,11 +26,9 @@ class RecipientPermissionCollection(object):
         self.swagger_types = {
             'items': 'list[RecipientPermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

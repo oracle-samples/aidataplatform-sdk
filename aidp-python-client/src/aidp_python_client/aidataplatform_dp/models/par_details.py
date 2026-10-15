@@ -3,7 +3,7 @@
 
 
 
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -67,14 +67,15 @@ class ParDetails(object):
             'time_expires': 'datetime',
             'par_access_type': 'str'
         }
-
         self.attribute_map = {
             'par_url': 'parUrl',
             'table_key': 'tableKey',
             'time_expires': 'timeExpires',
             'par_access_type': 'parAccessType'
         }
-
+        self._redacted_field_paths = [
+            ['par_url'],
+        ]
         self._par_url = None
         self._table_key = None
         self._time_expires = None
@@ -183,7 +184,9 @@ class ParDetails(object):
         self._par_access_type = par_access_type
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['par_url'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

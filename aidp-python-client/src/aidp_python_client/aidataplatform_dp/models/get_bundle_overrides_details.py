@@ -26,11 +26,9 @@ class GetBundleOverridesDetails(object):
         self.swagger_types = {
             'path': 'str'
         }
-
         self.attribute_map = {
             'path': 'path'
         }
-
         self._path = None
 
     @property

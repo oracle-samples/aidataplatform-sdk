@@ -29,7 +29,7 @@ class JarTask(Task):
 
         :param type:
             The value to assign to the type property of this JarTask.
-            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type type: str
 
@@ -116,7 +116,6 @@ class JarTask(Task):
             'timeout_seconds': 'int',
             'is_streaming': 'bool'
         }
-
         self.attribute_map = {
             'type': 'type',
             'task_key': 'taskKey',
@@ -135,7 +134,6 @@ class JarTask(Task):
             'timeout_seconds': 'timeoutSeconds',
             'is_streaming': 'isStreaming'
         }
-
         self._type = None
         self._task_key = None
         self._depends_on = None

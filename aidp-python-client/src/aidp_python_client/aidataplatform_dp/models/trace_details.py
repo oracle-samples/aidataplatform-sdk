@@ -51,7 +51,6 @@ class TraceDetails(object):
             'end_time': 'int',
             'resources': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'trace_id': 'traceId',
             'parent_session_id': 'parentSessionId',
@@ -60,7 +59,6 @@ class TraceDetails(object):
             'end_time': 'endTime',
             'resources': 'resources'
         }
-
         self._trace_id = None
         self._parent_session_id = None
         self._spans = None

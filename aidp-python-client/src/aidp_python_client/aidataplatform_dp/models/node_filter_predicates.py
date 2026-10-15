@@ -31,12 +31,10 @@ class NodeFilterPredicates(object):
             'display_name_contains': 'str',
             'type_equals': 'str'
         }
-
         self.attribute_map = {
             'display_name_contains': 'displayNameContains',
             'type_equals': 'typeEquals'
         }
-
         self._display_name_contains = None
         self._type_equals = None
 

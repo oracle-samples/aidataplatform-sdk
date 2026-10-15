@@ -56,7 +56,6 @@ class MavenSearchSummary(object):
             'defined_tags': 'dict(str, dict(str, object))',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'group_id': 'groupId',
             'artifact_id': 'artifactId',
@@ -66,7 +65,6 @@ class MavenSearchSummary(object):
             'defined_tags': 'definedTags',
             'system_tags': 'systemTags'
         }
-
         self._group_id = None
         self._artifact_id = None
         self._latest_version = None

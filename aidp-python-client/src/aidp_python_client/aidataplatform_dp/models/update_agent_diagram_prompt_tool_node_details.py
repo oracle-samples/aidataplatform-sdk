@@ -78,7 +78,6 @@ class UpdateAgentDiagramPromptToolNodeDetails(UpdateAgentDiagramNodeDetails):
             'node_type_id': 'str',
             'input_schema': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -92,7 +91,6 @@ class UpdateAgentDiagramPromptToolNodeDetails(UpdateAgentDiagramNodeDetails):
             'node_type_id': 'nodeTypeId',
             'input_schema': 'inputSchema'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

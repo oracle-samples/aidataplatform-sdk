@@ -34,27 +34,37 @@ public class GetGitOperationStateRequest extends com.oracle.bmc.requests.BmcRequ
         return workspaceKey;
     }
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     private String gitRepositoryKey;
 
     
 
         /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
     public String getGitRepositoryKey() {
         return gitRepositoryKey;
     }
         /**
-     * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+     * Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute
+* isAllowed. Does not execute the operation.
+* 
      */
     private String operationName;
 
     
 
         /**
-     * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+     * Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute
+* isAllowed. Does not execute the operation.
+* 
      */
     public String getOperationName() {
         return operationName;
@@ -130,12 +140,18 @@ public class GetGitOperationStateRequest extends com.oracle.bmc.requests.BmcRequ
         }
 
             /**
-     * The Git repository key.
+     * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
      */
         private String gitRepositoryKey = null;
 
         /**
-         * The Git repository key.
+         * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
          * @param gitRepositoryKey the value to set
          * @return this builder instance
          */
@@ -145,12 +161,16 @@ public class GetGitOperationStateRequest extends com.oracle.bmc.requests.BmcRequ
         }
 
             /**
-     * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+     * Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute
+* isAllowed. Does not execute the operation.
+* 
      */
         private String operationName = null;
 
         /**
-         * Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT).
+         * Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute
+* isAllowed. Does not execute the operation.
+* 
          * @param operationName the value to set
          * @return this builder instance
          */

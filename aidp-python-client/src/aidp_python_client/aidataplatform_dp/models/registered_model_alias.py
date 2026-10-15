@@ -31,12 +31,10 @@ class RegisteredModelAlias(object):
             'alias': 'str',
             'version': 'str'
         }
-
         self.attribute_map = {
             'alias': 'alias',
             'version': 'version'
         }
-
         self._alias = None
         self._version = None
 

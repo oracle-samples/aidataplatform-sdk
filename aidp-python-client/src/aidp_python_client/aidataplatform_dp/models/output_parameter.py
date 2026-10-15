@@ -31,12 +31,10 @@ class OutputParameter(object):
             'name': 'str',
             'value': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'value': 'value'
         }
-
         self._name = None
         self._value = None
 

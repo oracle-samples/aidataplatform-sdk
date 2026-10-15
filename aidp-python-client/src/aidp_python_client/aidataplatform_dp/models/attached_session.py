@@ -61,14 +61,12 @@ class AttachedSession(object):
             'state': 'str',
             'last_command_run': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'path': 'path',
             'state': 'state',
             'last_command_run': 'lastCommandRun'
         }
-
         self._type = None
         self._path = None
         self._state = None

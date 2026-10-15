@@ -57,12 +57,10 @@ class SortDetails(object):
             'sort_by': 'str',
             'sort_order': 'str'
         }
-
         self.attribute_map = {
             'sort_by': 'sortBy',
             'sort_order': 'sortOrder'
         }
-
         self._sort_by = None
         self._sort_order = None
 
@@ -93,8 +91,7 @@ class SortDetails(object):
         allowed_values = ["TIME_UPDATED", "TIME_CREATED", "RELEVANCY", "TYPE"]
         if not value_allowed_none_or_none_sentinel(sort_by, allowed_values):
             raise ValueError(
-                "Invalid value for `sort_by`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `sort_by`, must be None or one of {allowed_values}"
             )
         self._sort_by = sort_by
 
@@ -125,8 +122,7 @@ class SortDetails(object):
         allowed_values = ["ASC", "DESC"]
         if not value_allowed_none_or_none_sentinel(sort_order, allowed_values):
             raise ValueError(
-                "Invalid value for `sort_order`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `sort_order`, must be None or one of {allowed_values}"
             )
         self._sort_order = sort_order
 

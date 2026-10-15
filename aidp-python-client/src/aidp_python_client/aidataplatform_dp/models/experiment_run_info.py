@@ -97,7 +97,6 @@ class ExperimentRunInfo(object):
             'run_uuid': 'str',
             'user_id': 'str'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'run_name': 'run_name',
@@ -110,7 +109,6 @@ class ExperimentRunInfo(object):
             'run_uuid': 'run_uuid',
             'user_id': 'user_id'
         }
-
         self._run_id = None
         self._run_name = None
         self._experiment_id = None

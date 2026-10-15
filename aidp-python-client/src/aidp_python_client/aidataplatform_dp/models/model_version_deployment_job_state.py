@@ -98,7 +98,6 @@ class ModelVersionDeploymentJobState(object):
             'run_state': 'str',
             'current_task_name': 'str'
         }
-
         self.attribute_map = {
             'job_id': 'job_id',
             'run_id': 'run_id',
@@ -106,7 +105,6 @@ class ModelVersionDeploymentJobState(object):
             'run_state': 'run_state',
             'current_task_name': 'current_task_name'
         }
-
         self._job_id = None
         self._run_id = None
         self._job_state = None

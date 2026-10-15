@@ -171,7 +171,6 @@ class Agent(object):
             'agent_card_config': 'AgentCardConfigDetail',
             'version': 'int'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -200,7 +199,6 @@ class Agent(object):
             'agent_card_config': 'agentCardConfig',
             'version': 'version'
         }
-
         self._key = None
         self._display_name = None
         self._workspace_key = None

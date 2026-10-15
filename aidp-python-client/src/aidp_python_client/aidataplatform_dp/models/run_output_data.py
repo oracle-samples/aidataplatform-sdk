@@ -121,7 +121,6 @@ class RunOutputData(object):
             'compression': 'str',
             'value': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'length': 'length',
@@ -130,7 +129,6 @@ class RunOutputData(object):
             'compression': 'compression',
             'value': 'value'
         }
-
         self._type = None
         self._length = None
         self._charset = None

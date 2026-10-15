@@ -21,6 +21,14 @@ class KnowledgeBaseJobSummary(object):
     #: This constant has a value of "ON_DEMAND"
     TYPE_ON_DEMAND = "ON_DEMAND"
 
+    #: A constant which can be used with the goal property of a KnowledgeBaseJobSummary.
+    #: This constant has a value of "ADD_REFRESH_SOURCE"
+    GOAL_ADD_REFRESH_SOURCE = "ADD_REFRESH_SOURCE"
+
+    #: A constant which can be used with the goal property of a KnowledgeBaseJobSummary.
+    #: This constant has a value of "DELETE_SOURCE"
+    GOAL_DELETE_SOURCE = "DELETE_SOURCE"
+
     #: A constant which can be used with the lifecycle_state property of a KnowledgeBaseJobSummary.
     #: This constant has a value of "ACTIVE"
     LIFECYCLE_STATE_ACTIVE = "ACTIVE"
@@ -71,6 +79,11 @@ class KnowledgeBaseJobSummary(object):
             Allowed values for this property are: "SCHEDULED", "ON_DEMAND"
         :type type: str
 
+        :param goal:
+            The value to assign to the goal property of this KnowledgeBaseJobSummary.
+            Allowed values for this property are: "ADD_REFRESH_SOURCE", "DELETE_SOURCE"
+        :type goal: str
+
         :param sources:
             The value to assign to the sources property of this KnowledgeBaseJobSummary.
         :type sources: str
@@ -113,6 +126,7 @@ class KnowledgeBaseJobSummary(object):
             'schema_key': 'str',
             'knowledge_base_key': 'str',
             'type': 'str',
+            'goal': 'str',
             'sources': 'str',
             'source_key': 'str',
             'time_created': 'datetime',
@@ -122,7 +136,6 @@ class KnowledgeBaseJobSummary(object):
             'lifecycle_state': 'str',
             'lifecycle_state_details': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -131,6 +144,7 @@ class KnowledgeBaseJobSummary(object):
             'schema_key': 'schemaKey',
             'knowledge_base_key': 'knowledgeBaseKey',
             'type': 'type',
+            'goal': 'goal',
             'sources': 'sources',
             'source_key': 'sourceKey',
             'time_created': 'timeCreated',
@@ -140,7 +154,6 @@ class KnowledgeBaseJobSummary(object):
             'lifecycle_state': 'lifecycleState',
             'lifecycle_state_details': 'lifecycleStateDetails'
         }
-
         self._key = None
         self._display_name = None
         self._description = None
@@ -148,6 +161,7 @@ class KnowledgeBaseJobSummary(object):
         self._schema_key = None
         self._knowledge_base_key = None
         self._type = None
+        self._goal = None
         self._sources = None
         self._source_key = None
         self._time_created = None
@@ -328,10 +342,40 @@ class KnowledgeBaseJobSummary(object):
         allowed_values = ["SCHEDULED", "ON_DEMAND"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
+
+    @property
+    def goal(self):
+        """
+        Gets the goal of this KnowledgeBaseJobSummary.
+        Goal of the KnowledgeBase job, when available.
+
+        Allowed values for this property are: "ADD_REFRESH_SOURCE", "DELETE_SOURCE"
+
+
+        :return: The goal of this KnowledgeBaseJobSummary.
+        :rtype: str
+        """
+        return self._goal
+
+    @goal.setter
+    def goal(self, goal):
+        """
+        Sets the goal of this KnowledgeBaseJobSummary.
+        Goal of the KnowledgeBase job, when available.
+
+
+        :param goal: The goal of this KnowledgeBaseJobSummary.
+        :type: str
+        """
+        allowed_values = ["ADD_REFRESH_SOURCE", "DELETE_SOURCE"]
+        if not value_allowed_none_or_none_sentinel(goal, allowed_values):
+            raise ValueError(
+                f"Invalid value for `goal`, must be None or one of {allowed_values}"
+            )
+        self._goal = goal
 
     @property
     def sources(self):
@@ -504,8 +548,7 @@ class KnowledgeBaseJobSummary(object):
         allowed_values = ["ACTIVE", "INACTIVE", "CREATING", "DELETING"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

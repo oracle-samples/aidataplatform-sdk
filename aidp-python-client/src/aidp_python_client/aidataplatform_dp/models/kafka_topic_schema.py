@@ -21,7 +21,7 @@ class KafkaTopicSchema(Schema):
 
         :param entity_type:
             The value to assign to the entity_type property of this KafkaTopicSchema.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:
@@ -109,7 +109,6 @@ class KafkaTopicSchema(Schema):
             'bootstrap_servers': 'str',
             'partition_details': 'str'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'key': 'key',
@@ -129,7 +128,6 @@ class KafkaTopicSchema(Schema):
             'bootstrap_servers': 'bootstrapServers',
             'partition_details': 'partitionDetails'
         }
-
         self._entity_type = None
         self._key = None
         self._display_name = None

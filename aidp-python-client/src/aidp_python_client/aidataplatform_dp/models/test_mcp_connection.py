@@ -28,11 +28,9 @@ class TestMcpConnection(TestMcpOperation):
         self.swagger_types = {
             'test_type': 'str'
         }
-
         self.attribute_map = {
             'test_type': 'testType'
         }
-
         self._test_type = None
         self._test_type = 'CONNECTION'
 
