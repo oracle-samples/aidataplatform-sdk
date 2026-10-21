@@ -24,11 +24,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- The method `UpdateGitRepository` in the Git service changed: (Preview) Update Git repository metadata.
-  - Added: response code: `202`
-  - **Breaking:** Removed: response code: `204`
-- The method `ValidateAgent` in the Agent service changed: Validate agent diagram.
-  - Added: response code: `403`
+- Added response code `403` for `ValidateAgent` in the Agent service.
+
+### Fixed
+
+- Fixed the documented `UpdateGitRepository` response code from `204` to `202`. Service behavior is unchanged.
 
 ## [5.0.0] - 2026-09-25
 
