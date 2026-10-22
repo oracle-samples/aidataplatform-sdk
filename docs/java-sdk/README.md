@@ -22,7 +22,6 @@ least-privilege policies where available.
 - [Data Lineage (`DataLineageClient`)](#datalineageclient-client)
 - [Delta Share (`DeltaShareClient`)](#deltashareclient-client)
 - [Git (`GitClient`)](#gitclient-client)
-- [Lake Authorization (`LakeAuthorizationClient`)](#lakeauthorizationclient-client)
 - [ML Ops (`MLOpsClient`)](#mlopsclient-client)
 - [Notebook (`NotebookClient`)](#notebookclient-client)
 - [Private Network Profile (`PrivateNetworkProfileClient`)](#privatenetworkprofileclient-client)
@@ -3055,33 +3054,6 @@ Update a Delta Share with the provided metadata.
 - `opcRequestId` (`String`) — Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
 
 **Return:** [Back to Git (`GitClient`)](#gitclient-client) • [Top](#top)
-
-
-## <a id="lakeauthorizationclient-client"></a>Lake Authorization (`LakeAuthorizationClient`)
-**Operations:**
-- [`accessGrantedFor`](#lakeauthorizationclient-accessgrantedfor)
-
-### <a id="lakeauthorizationclient-accessgrantedfor"></a>`accessGrantedFor`
-Internal OAC integration API available to any authenticated caller with manage permission on the target AI Data Platform. The caller permission is checked by SPLAT independently of the subjects in the body. Delegated context only selects evaluation subjects. Resource checks are forwarded in one batch, with flattened results. HTTP 200 may contain DENIED results. OBO takes precedence over OAC user context. A supplied dh-user-principal must agree with either resolved delegated context. Without those contexts it supplies the fallback subject; otherwise the authenticated caller is the fallback. Explicit UNSIGNED subjects remain distinct. Malformed or conflicting principal inputs are rejected before evaluation.
-
-**Required Parameters:**
-- `aiDataPlatformId` (`String`) — The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance.
-- `multiplePrincipalAccessGrantedDetails` (`com.oracle.aidataplatform.dp.model.MultiplePrincipalAccessGrantedDetails`) — Ordered subject and resource checks.
-
-**Optional Parameters:**
-- `opcRequestId` (`String`) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dhUserPrincipal` (`String`) — Optional Base64-encoded serialized evaluation principal; not caller authentication.
-- `retryStrategy` (`obj`) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
-- `allowControlChars` (`boolean`) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
-- `enableStrictUrlEncoding` (`boolean`) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
-
-**Return Response:** `accessGrantedForResponse`
-
-**Response Fields:**
-- `opcRequestId` (`String`) — Unique Oracle-assigned ID for the request. If you need to contact Oracle about a particular request, please provide the request ID.
-- `accessGrantedForResponseDetails` (`com.oracle.aidataplatform.dp.model.AccessGrantedForResponseDetails`) — The returned {@code AccessGrantedForResponseDetails} instance.
-
-**Return:** [Back to Lake Authorization (`LakeAuthorizationClient`)](#lakeauthorizationclient-client) • [Top](#top)
 
 
 ## <a id="mlopsclient-client"></a>ML Ops (`MLOpsClient`)

@@ -12,7 +12,6 @@ SERVICE_ENDPOINTS = {
     "data_lineage": "https://datahub-dp.{domain}",
     "delta_share": "https://datahub-dp.{domain}",
     "git": "https://datahub-dp.{domain}",
-    "lake_authorization": "https://datahub-dp.{domain}",
     "ml_ops": "https://datahub-dp.{domain}",
     "notebook": "https://datahub-dp.{domain}",
     "private_network_profile": "https://datahub-dp.{domain}",

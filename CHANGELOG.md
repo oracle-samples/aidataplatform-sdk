@@ -3,11 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [5.1.0] - 2026-10-15
+## [5.1.1] - 2026-10-22
 
 ### Added
 
-- Support for `AccessGrantedFor` in the Lake Authorization service. Evaluate subject access through Lakeproxy.
 - Support for `CreatePrivateNetworkProfile` in the Private Network Profile service. Create a private network profile.
 - Support for `DeletePrivateNetworkProfile` in the Private Network Profile service. Delete a private network profile.
 - Support for `ExportModelDeploymentInferences` in the ML Ops service. (Preview) Export model deployment inferences to a Volume.

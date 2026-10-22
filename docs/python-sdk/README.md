@@ -22,7 +22,6 @@ least-privilege policies where available.
 - [Data Lineage (DataLineageClient)](#data-lineage-datalineageclient)
 - [Delta Share (DeltaShareClient)](#delta-share-deltashareclient)
 - [Git (GitClient)](#git-gitclient)
-- [Lake Authorization (LakeAuthorizationClient)](#lake-authorization-lakeauthorizationclient)
 - [ML Ops (MLOpsClient)](#ml-ops-mlopsclient)
 - [Notebook (NotebookClient)](#notebook-notebookclient)
 - [Private Network Profile (PrivateNetworkProfileClient)](#private-network-profile-privatenetworkprofileclient)
@@ -3130,31 +3129,6 @@ Update a Delta Share with the provided metadata.
 **Return Response:** `oci.response.Response` — A oci.response.Response object with data of type None
 
 **Return:** [Back to Git (GitClient)](#git-gitclient) • [Top](#top)
-
-## <a id="lake-authorization-lakeauthorizationclient"></a>Lake Authorization (LakeAuthorizationClient)
-**Operations:**
-- [`access_granted_for`](#access-granted-for)
-
-### <a id="access-granted-for"></a>`access_granted_for`
-Internal OAC integration API available to any authenticated caller with manage permission on the target AI Data Platform. The caller permission is checked by SPLAT independently of the subjects in the body. Delegated context only selects evaluation subjects. Resource checks are forwarded in one batch, with flattened results. HTTP 200 may contain DENIED results. OBO takes precedence over OAC user context. A supplied dh-user-principal must agree with either resolved delegated context. Without those contexts it supplies the fallback subject; otherwise the authenticated caller is the fallback. Explicit UNSIGNED subjects remain distinct. Malformed or conflicting principal inputs are rejected before evaluation.
-
-**Required Parameters:**
-- `ai_data_platform_id` (string) — The `OCID` of the AI Data Platform (Data Lake) instance.  https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm
-- `multiple_principal_access_granted_details` (oci.aidataplatform_dp.models.MultiplePrincipalAccessGrantedDetails) — Ordered subject and resource checks.
-
-**Optional Parameters:**
-- `opc_request_id` (string) — Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash.
-- `dh_user_principal` (string) — Optional Base64-encoded serialized evaluation principal; not caller authentication.
-- `retry_strategy` (obj) — A retry strategy to apply to this specific operation/call. This will override any retry strategy set at the client-level. This should be one of the strategies available in the oci.retry module. This operation uses oci.retry.DEFAULT_RETRY_STRATEGY as default if no retry strategy is provided. The specifics of the default retry strategy are described here. To have this operation explicitly not perform any retries, pass an instance of oci.retry.NoneRetryStrategy.
-- `allow_control_chars` (boolean) — allow_control_chars is a boolean to indicate whether or not this request should allow control characters in the response object. By default, the response will not allow control characters in strings
-- `enable_strict_url_encoding` (boolean) — enable_strict_url_encoding is a boolean to indicate whether or not this request should enable strict url encoding for path params. By default, strict url encoding for path params is disabled
-
-**Return Response:** `oci.response.Response` — A oci.response.Response object with data of type oci.aidataplatform_dp.models.AccessGrantedForResponseDetails
-
-**Response Fields:**
-- `items` (list[oci.aidataplatform_dp.models.AccessGrantedForResult]) — Gets the items of this AccessGrantedForResponseDetails. One result per requested resource, up to 100 subjects times 100 checks. This is not a paginated list.
-
-**Return:** [Back to Lake Authorization (LakeAuthorizationClient)](#lake-authorization-lakeauthorizationclient) • [Top](#top)
 
 ## <a id="ml-ops-mlopsclient"></a>ML Ops (MLOpsClient)
 **Operations:**

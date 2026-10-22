@@ -4,41 +4,6 @@
 
 from __future__ import absolute_import
 
-from .access_granted_for_catalog_details import AccessGrantedForCatalogDetails
-from .access_granted_for_catalog_resource import AccessGrantedForCatalogResource
-from .access_granted_for_compute_details import AccessGrantedForComputeDetails
-from .access_granted_for_compute_resource import AccessGrantedForComputeResource
-from .access_granted_for_credential_details import AccessGrantedForCredentialDetails
-from .access_granted_for_credential_resource import AccessGrantedForCredentialResource
-from .access_granted_for_database_details import AccessGrantedForDatabaseDetails
-from .access_granted_for_database_resource import AccessGrantedForDatabaseResource
-from .access_granted_for_datalake_details import AccessGrantedForDatalakeDetails
-from .access_granted_for_datalake_resource import AccessGrantedForDatalakeResource
-from .access_granted_for_delta_share_details import AccessGrantedForDeltaShareDetails
-from .access_granted_for_delta_share_resource import AccessGrantedForDeltaShareResource
-from .access_granted_for_external_catalog_details import AccessGrantedForExternalCatalogDetails
-from .access_granted_for_external_catalog_resource import AccessGrantedForExternalCatalogResource
-from .access_granted_for_file_details import AccessGrantedForFileDetails
-from .access_granted_for_file_resource import AccessGrantedForFileResource
-from .access_granted_for_folder_details import AccessGrantedForFolderDetails
-from .access_granted_for_folder_resource import AccessGrantedForFolderResource
-from .access_granted_for_knowledge_base_details import AccessGrantedForKnowledgeBaseDetails
-from .access_granted_for_knowledge_base_resource import AccessGrantedForKnowledgeBaseResource
-from .access_granted_for_mask_info import AccessGrantedForMaskInfo
-from .access_granted_for_master_catalog_resource import AccessGrantedForMasterCatalogResource
-from .access_granted_for_request_collection import AccessGrantedForRequestCollection
-from .access_granted_for_request_item import AccessGrantedForRequestItem
-from .access_granted_for_resource import AccessGrantedForResource
-from .access_granted_for_response_details import AccessGrantedForResponseDetails
-from .access_granted_for_result import AccessGrantedForResult
-from .access_granted_for_table_details import AccessGrantedForTableDetails
-from .access_granted_for_table_resource import AccessGrantedForTableResource
-from .access_granted_for_volume_details import AccessGrantedForVolumeDetails
-from .access_granted_for_volume_resource import AccessGrantedForVolumeResource
-from .access_granted_for_workflow_details import AccessGrantedForWorkflowDetails
-from .access_granted_for_workflow_resource import AccessGrantedForWorkflowResource
-from .access_granted_for_workspace_details import AccessGrantedForWorkspaceDetails
-from .access_granted_for_workspace_resource import AccessGrantedForWorkspaceResource
 from .activate_model_deployment_details import ActivateModelDeploymentDetails
 from .active_cluster_resources import ActiveClusterResources
 from .add_member_to_role_details import AddMemberToRoleDetails
@@ -605,7 +570,6 @@ from .model_version_tag_key import ModelVersionTagKey
 from .models_collection import ModelsCollection
 from .modify_content_details import ModifyContentDetails
 from .move_workspace_object_details import MoveWorkspaceObjectDetails
-from .multiple_principal_access_granted_details import MultiplePrincipalAccessGrantedDetails
 from .mysql_schema import MysqlSchema
 from .mysql_schema_summary import MysqlSchemaSummary
 from .mysql_table import MysqlTable
@@ -747,7 +711,6 @@ from .pii_category import PiiCategory
 from .pii_detection_policy import PiiDetectionPolicy
 from .point import Point
 from .preview_agent_card_details import PreviewAgentCardDetails
-from .principal_access_granted_details import PrincipalAccessGrantedDetails
 from .principals_with_workspace_access_collection import PrincipalsWithWorkspaceAccessCollection
 from .principals_with_workspace_access_summary import PrincipalsWithWorkspaceAccessSummary
 from .private_network_profile import PrivateNetworkProfile
@@ -1093,41 +1056,6 @@ from .zip_and_download_folder_result import ZipAndDownloadFolderResult
 
 # Maps type names to classes for aidataplatform_dp services.
 aidataplatform_dp_type_mapping = {
-    "AccessGrantedForCatalogDetails": AccessGrantedForCatalogDetails,
-    "AccessGrantedForCatalogResource": AccessGrantedForCatalogResource,
-    "AccessGrantedForComputeDetails": AccessGrantedForComputeDetails,
-    "AccessGrantedForComputeResource": AccessGrantedForComputeResource,
-    "AccessGrantedForCredentialDetails": AccessGrantedForCredentialDetails,
-    "AccessGrantedForCredentialResource": AccessGrantedForCredentialResource,
-    "AccessGrantedForDatabaseDetails": AccessGrantedForDatabaseDetails,
-    "AccessGrantedForDatabaseResource": AccessGrantedForDatabaseResource,
-    "AccessGrantedForDatalakeDetails": AccessGrantedForDatalakeDetails,
-    "AccessGrantedForDatalakeResource": AccessGrantedForDatalakeResource,
-    "AccessGrantedForDeltaShareDetails": AccessGrantedForDeltaShareDetails,
-    "AccessGrantedForDeltaShareResource": AccessGrantedForDeltaShareResource,
-    "AccessGrantedForExternalCatalogDetails": AccessGrantedForExternalCatalogDetails,
-    "AccessGrantedForExternalCatalogResource": AccessGrantedForExternalCatalogResource,
-    "AccessGrantedForFileDetails": AccessGrantedForFileDetails,
-    "AccessGrantedForFileResource": AccessGrantedForFileResource,
-    "AccessGrantedForFolderDetails": AccessGrantedForFolderDetails,
-    "AccessGrantedForFolderResource": AccessGrantedForFolderResource,
-    "AccessGrantedForKnowledgeBaseDetails": AccessGrantedForKnowledgeBaseDetails,
-    "AccessGrantedForKnowledgeBaseResource": AccessGrantedForKnowledgeBaseResource,
-    "AccessGrantedForMaskInfo": AccessGrantedForMaskInfo,
-    "AccessGrantedForMasterCatalogResource": AccessGrantedForMasterCatalogResource,
-    "AccessGrantedForRequestCollection": AccessGrantedForRequestCollection,
-    "AccessGrantedForRequestItem": AccessGrantedForRequestItem,
-    "AccessGrantedForResource": AccessGrantedForResource,
-    "AccessGrantedForResponseDetails": AccessGrantedForResponseDetails,
-    "AccessGrantedForResult": AccessGrantedForResult,
-    "AccessGrantedForTableDetails": AccessGrantedForTableDetails,
-    "AccessGrantedForTableResource": AccessGrantedForTableResource,
-    "AccessGrantedForVolumeDetails": AccessGrantedForVolumeDetails,
-    "AccessGrantedForVolumeResource": AccessGrantedForVolumeResource,
-    "AccessGrantedForWorkflowDetails": AccessGrantedForWorkflowDetails,
-    "AccessGrantedForWorkflowResource": AccessGrantedForWorkflowResource,
-    "AccessGrantedForWorkspaceDetails": AccessGrantedForWorkspaceDetails,
-    "AccessGrantedForWorkspaceResource": AccessGrantedForWorkspaceResource,
     "ActivateModelDeploymentDetails": ActivateModelDeploymentDetails,
     "ActiveClusterResources": ActiveClusterResources,
     "AddMemberToRoleDetails": AddMemberToRoleDetails,
@@ -1694,7 +1622,6 @@ aidataplatform_dp_type_mapping = {
     "ModelsCollection": ModelsCollection,
     "ModifyContentDetails": ModifyContentDetails,
     "MoveWorkspaceObjectDetails": MoveWorkspaceObjectDetails,
-    "MultiplePrincipalAccessGrantedDetails": MultiplePrincipalAccessGrantedDetails,
     "MysqlSchema": MysqlSchema,
     "MysqlSchemaSummary": MysqlSchemaSummary,
     "MysqlTable": MysqlTable,
@@ -1836,7 +1763,6 @@ aidataplatform_dp_type_mapping = {
     "PiiDetectionPolicy": PiiDetectionPolicy,
     "Point": Point,
     "PreviewAgentCardDetails": PreviewAgentCardDetails,
-    "PrincipalAccessGrantedDetails": PrincipalAccessGrantedDetails,
     "PrincipalsWithWorkspaceAccessCollection": PrincipalsWithWorkspaceAccessCollection,
     "PrincipalsWithWorkspaceAccessSummary": PrincipalsWithWorkspaceAccessSummary,
     "PrivateNetworkProfile": PrivateNetworkProfile,

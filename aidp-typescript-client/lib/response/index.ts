@@ -220,8 +220,6 @@ import * as ResolveGitConflictsResponse from './resolve-git-conflicts-response';
 export import ResolveGitConflictsResponse = ResolveGitConflictsResponse.ResolveGitConflictsResponse;
 import * as UpdateGitRepositoryResponse from './update-git-repository-response';
 export import UpdateGitRepositoryResponse = UpdateGitRepositoryResponse.UpdateGitRepositoryResponse;
-import * as AccessGrantedForResponse from './access-granted-for-response';
-export import AccessGrantedForResponse = AccessGrantedForResponse.AccessGrantedForResponse;
 import * as ActivateModelDeploymentResponse from './activate-model-deployment-response';
 export import ActivateModelDeploymentResponse = ActivateModelDeploymentResponse.ActivateModelDeploymentResponse;
 import * as CreateExperimentResponse from './create-experiment-response';

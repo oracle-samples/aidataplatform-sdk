@@ -22,7 +22,6 @@ least-privilege policies where available.
 - [Data Lineage (DataLineageClient)](#client-datalineageclient)
 - [Delta Share (DeltaShareClient)](#client-deltashareclient)
 - [Git (GitClient)](#client-gitclient)
-- [Lake Authorization (LakeAuthorizationClient)](#client-lakeauthorizationclient)
 - [ML Ops (MLOpsClient)](#client-mlopsclient)
 - [Notebook (NotebookClient)](#client-notebookclient)
 - [Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient)
@@ -4310,43 +4309,6 @@ least-privilege policies where available.
 | `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
 **Return:** [Back to Git (GitClient)](#client-gitclient) • [Top](#top)
-
-
-## <a id="client-lakeauthorizationclient"></a>LakeAuthorizationClient
-**Operations:**
-- [`accessGrantedFor`](#operation-lakeauthorizationclient-accessgrantedfor)
-
-### <a id="operation-lakeauthorizationclient-accessgrantedfor"></a>`accessGrantedFor`
-**Description:** Internal OAC integration API available to any authenticated caller with manage permission on the target AI Data Platform. The caller permission is checked by SPLAT independently of the subjects in the body. Delegated context only selects evaluation subjects. Resource checks are forwarded in one batch, with flattened results. HTTP 200 may contain DENIED results. OBO takes precedence over OAC user context. A supplied dh-user-principal must agree with either resolved delegated context. Without those contexts it supplies the fallback subject; otherwise the authenticated caller is the fallback. Explicit UNSIGNED subjects remain distinct. Malformed or conflicting principal inputs are rejected before evaluation.
-
-**Request Interface:** `requests.AccessGrantedForRequest`
-
-
-**Required Fields:**
-| Field | Type | Description |
-| --- | --- | --- |
-| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
-| `multiplePrincipalAccessGrantedDetails` | `model.MultiplePrincipalAccessGrantedDetails` | Ordered subject and resource checks. |
-
-**Optional Fields:**
-| Field | Type | Description |
-| --- | --- | --- |
-| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
-| `dhUserPrincipal` | `string` | Optional Base64-encoded serialized evaluation principal; not caller authentication. |
-
-**Response Interface:** `responses.AccessGrantedForResponse`
-
-**Response Fields:**
-| Field | Type | Description |
-| --- | --- | --- |
-| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
-| `accessGrantedForResponseDetails` | `model.AccessGrantedForResponseDetails` | The returned model.AccessGrantedForResponseDetails instance. |
-
-**Payload `AccessGrantedForResponseDetails` Summary:**
-| Field | Type | Description |
-| --- | --- | --- |
-| `items` | `Array<model.AccessGrantedForResult>` | One result per requested resource, up to 100 subjects times 100 checks. This is not a paginated list. |
-**Return:** [Back to Lake Authorization (LakeAuthorizationClient)](#client-lakeauthorizationclient) • [Top](#top)
 
 
 ## <a id="client-mlopsclient"></a>MLOpsClient

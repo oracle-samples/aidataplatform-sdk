@@ -31,6 +31,9 @@ assert.strictEqual(names.cliNameToLowerCamel("workspace-key"), "workspaceKey");
 
 assert.strictEqual(manifestJson.version, 4);
 assert.ok(Array.isArray(manifestJson.commandGroups));
+assert.ok(!manifestJson.commandGroups.some((group) => group.name === "lake-authorization"));
+assert.ok(!manifestJson.commandGroups.some((group) =>
+  group.commands.some((command) => command.sdkMethodName === "accessGrantedFor")));
 assert.ok(!("services" in manifestJson));
 
 const manifest = manifestModule.loadCommandManifest();

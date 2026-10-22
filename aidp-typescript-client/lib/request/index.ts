@@ -220,8 +220,6 @@ import * as ResolveGitConflictsRequest from './resolve-git-conflicts-request';
 export import ResolveGitConflictsRequest = ResolveGitConflictsRequest.ResolveGitConflictsRequest;
 import * as UpdateGitRepositoryRequest from './update-git-repository-request';
 export import UpdateGitRepositoryRequest = UpdateGitRepositoryRequest.UpdateGitRepositoryRequest;
-import * as AccessGrantedForRequest from './access-granted-for-request';
-export import AccessGrantedForRequest = AccessGrantedForRequest.AccessGrantedForRequest;
 import * as ActivateModelDeploymentRequest from './activate-model-deployment-request';
 export import ActivateModelDeploymentRequest = ActivateModelDeploymentRequest.ActivateModelDeploymentRequest;
 import * as CreateExperimentRequest from './create-experiment-request';
