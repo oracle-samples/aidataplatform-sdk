@@ -75,7 +75,6 @@ class LineageObject(object):
             'depth': 'int',
             'properties': 'dict(str, dict(str, str))'
         }
-
         self.attribute_map = {
             'id': 'id',
             'qualified_name': 'qualifiedName',
@@ -86,7 +85,6 @@ class LineageObject(object):
             'depth': 'depth',
             'properties': 'properties'
         }
-
         self._id = None
         self._qualified_name = None
         self._display_name = None

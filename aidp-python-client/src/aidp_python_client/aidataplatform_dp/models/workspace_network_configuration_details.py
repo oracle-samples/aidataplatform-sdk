@@ -41,14 +41,12 @@ class WorkspaceNetworkConfigurationDetails(object):
             'dns_zones': 'list[str]',
             'scan_details': 'list[Scan]'
         }
-
         self.attribute_map = {
             'subnet_id': 'subnetId',
             'nsg_ids': 'nsgIds',
             'dns_zones': 'dnsZones',
             'scan_details': 'scanDetails'
         }
-
         self._subnet_id = None
         self._nsg_ids = None
         self._dns_zones = None

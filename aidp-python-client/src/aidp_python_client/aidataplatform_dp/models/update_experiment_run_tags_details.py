@@ -36,13 +36,11 @@ class UpdateExperimentRunTagsDetails(object):
             'set_tags': 'list[ExperimentRunTag]',
             'delete_tags': 'list[ExperimentRunTagKey]'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'set_tags': 'set_tags',
             'delete_tags': 'delete_tags'
         }
-
         self._run_id = None
         self._set_tags = None
         self._delete_tags = None

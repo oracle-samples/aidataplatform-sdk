@@ -81,7 +81,6 @@ class UpdateAgentDetails(object):
             'session_config': 'SessionConfiguration',
             'agent_card_config': 'AgentCardConfigDetail'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -96,7 +95,6 @@ class UpdateAgentDetails(object):
             'session_config': 'sessionConfig',
             'agent_card_config': 'agentCardConfig'
         }
-
         self._display_name = None
         self._description = None
         self._compute_key = None

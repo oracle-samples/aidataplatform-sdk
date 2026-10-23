@@ -31,12 +31,10 @@ class AgentProvider(object):
             'organization': 'str',
             'url': 'str'
         }
-
         self.attribute_map = {
             'organization': 'organization',
             'url': 'url'
         }
-
         self._organization = None
         self._url = None
 

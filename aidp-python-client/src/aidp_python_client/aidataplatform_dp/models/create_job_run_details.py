@@ -56,7 +56,6 @@ class CreateJobRunDetails(object):
             'queue': 'Queue',
             'repair_history': 'list[RepairHistory]'
         }
-
         self.attribute_map = {
             'key': 'key',
             'job_key': 'jobKey',
@@ -66,7 +65,6 @@ class CreateJobRunDetails(object):
             'queue': 'queue',
             'repair_history': 'repairHistory'
         }
-
         self._key = None
         self._job_key = None
         self._original_attempt_run_id = None

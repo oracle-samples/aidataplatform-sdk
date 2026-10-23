@@ -5,23 +5,31 @@ import common = require("oci-common");
 
 
 /**
-* Details needed to merge into the current branch for a folder context.
+* Remote branch and optional context for a Git merge request.
 */
 export interface GitMergeDetails {
     /**
-    * Folder path used to locate the Git worktree.
+    * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'gitFolderPath'?: string;
     /**
-    * Git branch name that is cloned.
+    * Requested destination branch name. The merge destination is the stored
+* repository branch; the supplied value does not override it.
+* 
     */
     'branchName'?: string;
     /**
-    * Remote branch name, if you want to merge a different branch.
+    * Remote branch whose origin reference is merged into the stored repository
+* branch.
+* 
     */
     'remoteBranchName': string;
     /**
-    * Commit ID to merge (optional).
+    * Requested source commit identifier. The merge source is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
     */
     'commitId'?: string;
 

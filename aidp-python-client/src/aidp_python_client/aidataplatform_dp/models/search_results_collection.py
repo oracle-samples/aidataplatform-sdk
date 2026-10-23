@@ -41,14 +41,12 @@ class SearchResultsCollection(object):
             'items': 'list[ObjectSearchSummary]',
             'aggregations': 'dict(str, list[SearchObjectType])'
         }
-
         self.attribute_map = {
             'count': 'count',
             'query': 'query',
             'items': 'items',
             'aggregations': 'aggregations'
         }
-
         self._count = None
         self._query = None
         self._items = None

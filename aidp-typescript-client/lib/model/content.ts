@@ -75,6 +75,26 @@ export interface Content {
     * A user-provided description of the file.
     */
     'description'?: string;
+    /**
+    * Upload session UUID for a chunked create or update acknowledgement.
+    */
+    'uploadId'?: string;
+    /**
+    * Accepted upload chunk index. A value of -1 marks completion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'uploadChunkIndex'?: number;
+    /**
+    * Total upload requests, including the final upload chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'totalChunks'?: number;
+    /**
+    * Total decoded notebook bytes for a chunked upload. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'totalSizeBytes'?: number;
+    /**
+    * SHA-256 digest of the complete decoded notebook content for a chunked upload.
+    */
+    'sha256'?: string;
 
 }
 
@@ -118,6 +138,11 @@ export namespace Content {
 
 
 
+
+
+
+
+
     export function getJsonObj(obj: Content): object {
         const jsonObj = {...obj, ...{
             
@@ -136,9 +161,18 @@ export namespace Content {
                 'hash_algorithm': obj.hashAlgorithm,
 
 
+                'upload_id': obj.uploadId,
+
+                'upload_chunk_index': obj.uploadChunkIndex,
+
+                'total_chunks': obj.totalChunks,
+
+                'total_size_bytes': obj.totalSizeBytes,
+
+
         }};
 
-        delete (jsonObj as Partial<Content>).lastModified;delete (jsonObj as Partial<Content>).hashAlgorithm;
+        delete (jsonObj as Partial<Content>).lastModified;delete (jsonObj as Partial<Content>).hashAlgorithm;delete (jsonObj as Partial<Content>).uploadId;delete (jsonObj as Partial<Content>).uploadChunkIndex;delete (jsonObj as Partial<Content>).totalChunks;delete (jsonObj as Partial<Content>).totalSizeBytes;
         
         return jsonObj;
     }
@@ -161,9 +195,18 @@ export namespace Content {
                 'hashAlgorithm': (obj as any)["hash_algorithm"],
 
 
+                'uploadId': (obj as any)["upload_id"],
+
+                'uploadChunkIndex': (obj as any)["upload_chunk_index"],
+
+                'totalChunks': (obj as any)["total_chunks"],
+
+                'totalSizeBytes': (obj as any)["total_size_bytes"],
+
+
          }};
 
-        delete (jsonObj as any)["last_modified"];delete (jsonObj as any)["hash_algorithm"];
+        delete (jsonObj as any)["last_modified"];delete (jsonObj as any)["hash_algorithm"];delete (jsonObj as any)["upload_id"];delete (jsonObj as any)["upload_chunk_index"];delete (jsonObj as any)["total_chunks"];delete (jsonObj as any)["total_size_bytes"];
         
         return jsonObj;
     }

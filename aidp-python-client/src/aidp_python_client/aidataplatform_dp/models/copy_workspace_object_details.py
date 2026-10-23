@@ -56,7 +56,6 @@ class CopyWorkspaceObjectDetails(object):
             'is_include_outputs': 'bool',
             'metadata_keys': 'str'
         }
-
         self.attribute_map = {
             'from_path': 'fromPath',
             'to_path': 'toPath',
@@ -66,7 +65,6 @@ class CopyWorkspaceObjectDetails(object):
             'is_include_outputs': 'isIncludeOutputs',
             'metadata_keys': 'metadataKeys'
         }
-
         self._from_path = None
         self._to_path = None
         self._is_delete_source = None

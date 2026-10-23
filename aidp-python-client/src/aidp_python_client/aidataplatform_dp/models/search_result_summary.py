@@ -31,12 +31,10 @@ class SearchResultSummary(object):
             'result_count': 'int',
             'field_count': 'int'
         }
-
         self.attribute_map = {
             'result_count': 'resultCount',
             'field_count': 'fieldCount'
         }
-
         self._result_count = None
         self._field_count = None
 

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CheckoutBranchDetails(object):
     """
-    Information required to checkout a new Git branch.
+    Branch name and workspace Git folder path for a checkout request.
     """
 
     def __init__(self, **kwargs):
@@ -31,12 +31,10 @@ class CheckoutBranchDetails(object):
             'branch_name': 'str',
             'git_folder_path': 'str'
         }
-
         self.attribute_map = {
             'branch_name': 'branchName',
             'git_folder_path': 'gitFolderPath'
         }
-
         self._branch_name = None
         self._git_folder_path = None
 
@@ -44,7 +42,8 @@ class CheckoutBranchDetails(object):
     def branch_name(self):
         """
         **[Required]** Gets the branch_name of this CheckoutBranchDetails.
-        The name of the Git branch.
+        Branch to check out. This selects the target branch rather than asserting the
+        current branch.
 
 
         :return: The branch_name of this CheckoutBranchDetails.
@@ -56,7 +55,8 @@ class CheckoutBranchDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this CheckoutBranchDetails.
-        The name of the Git branch.
+        Branch to check out. This selects the target branch rather than asserting the
+        current branch.
 
 
         :param branch_name: The branch_name of this CheckoutBranchDetails.
@@ -68,7 +68,7 @@ class CheckoutBranchDetails(object):
     def git_folder_path(self):
         """
         **[Required]** Gets the git_folder_path of this CheckoutBranchDetails.
-        The path of the Git folder in the context.
+        Workspace path of the Git folder associated with gitRepositoryKey.
 
 
         :return: The git_folder_path of this CheckoutBranchDetails.
@@ -80,7 +80,7 @@ class CheckoutBranchDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this CheckoutBranchDetails.
-        The path of the Git folder in the context.
+        Workspace path of the Git folder associated with gitRepositoryKey.
 
 
         :param git_folder_path: The git_folder_path of this CheckoutBranchDetails.

@@ -31,12 +31,10 @@ class RenameRegisteredModelDetails(object):
             'name': 'str',
             'new_name': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'new_name': 'new_name'
         }
-
         self._name = None
         self._new_name = None
 

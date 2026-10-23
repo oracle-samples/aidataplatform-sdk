@@ -41,14 +41,12 @@ class IdentityUserMetadatum(object):
             'user_display_name': 'str',
             'user_email': 'str'
         }
-
         self.attribute_map = {
             'user_id': 'userId',
             'user_name': 'userName',
             'user_display_name': 'userDisplayName',
             'user_email': 'userEmail'
         }
-
         self._user_id = None
         self._user_name = None
         self._user_display_name = None

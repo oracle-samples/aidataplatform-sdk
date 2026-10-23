@@ -33,12 +33,10 @@ class ComputeDependency(Dependency):
             'type': 'str',
             'key': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'key': 'key'
         }
-
         self._type = None
         self._key = None
         self._type = 'COMPUTE'

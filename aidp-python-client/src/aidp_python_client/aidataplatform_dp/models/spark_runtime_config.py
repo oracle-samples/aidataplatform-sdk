@@ -48,7 +48,6 @@ class SparkRuntimeConfig(ClusterRuntimeConfig):
             'spark_advanced_configurations': 'dict(str, str)',
             'spark_env_variables': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'type': 'type',
             'init_scripts': 'initScripts',
@@ -56,7 +55,6 @@ class SparkRuntimeConfig(ClusterRuntimeConfig):
             'spark_advanced_configurations': 'sparkAdvancedConfigurations',
             'spark_env_variables': 'sparkEnvVariables'
         }
-
         self._type = None
         self._init_scripts = None
         self._spark_version = None

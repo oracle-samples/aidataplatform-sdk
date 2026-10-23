@@ -26,11 +26,9 @@ class ValidateViewSqlDetails(object):
         self.swagger_types = {
             'view_select_query': 'str'
         }
-
         self.attribute_map = {
             'view_select_query': 'viewSelectQuery'
         }
-
         self._view_select_query = None
 
     @property

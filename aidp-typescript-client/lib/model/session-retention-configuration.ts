@@ -9,6 +9,14 @@ import common = require("oci-common");
 */
 export interface SessionRetentionConfiguration {
     /**
+    * Whether session-message retention is enabled.
+    */
+    'isRetentionPolicyEnabled'?: boolean;
+    /**
+    * Action taken when the enabled retention condition is breached.
+    */
+    'breachAction'?: model.RetentionBreachAction;
+    /**
     * No. of days session data will be kept Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'retentionPeriodInDays'?: number;
@@ -28,9 +36,13 @@ export namespace SessionRetentionConfiguration {
 
 
 
+
+
     export function getJsonObj(obj: SessionRetentionConfiguration): object {
         const jsonObj = {...obj, ...{
             
+
+
 
 
 
@@ -44,6 +56,8 @@ export namespace SessionRetentionConfiguration {
     export function getDeserializedJsonObj(obj: SessionRetentionConfiguration): object {
         const jsonObj = {...obj, ...{
             
+
+
 
 
 

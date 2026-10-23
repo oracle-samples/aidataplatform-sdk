@@ -59,14 +59,12 @@ class GitConfig(object):
             'repository_url': 'str',
             'branch': 'str'
         }
-
         self.attribute_map = {
             'provider': 'provider',
             'credential': 'credential',
             'repository_url': 'repositoryUrl',
             'branch': 'branch'
         }
-
         self._provider = None
         self._credential = None
         self._repository_url = None

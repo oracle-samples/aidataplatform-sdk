@@ -36,13 +36,11 @@ class AgentDependency(object):
             'type': 'str',
             'dependencies': 'list[AgentDependencyItem]'
         }
-
         self.attribute_map = {
             'agent_key': 'agentKey',
             'type': 'type',
             'dependencies': 'dependencies'
         }
-
         self._agent_key = None
         self._type = None
         self._dependencies = None

@@ -31,6 +31,9 @@ assert.strictEqual(names.cliNameToLowerCamel("workspace-key"), "workspaceKey");
 
 assert.strictEqual(manifestJson.version, 4);
 assert.ok(Array.isArray(manifestJson.commandGroups));
+assert.ok(!manifestJson.commandGroups.some((group) => group.name === "lake-authorization"));
+assert.ok(!manifestJson.commandGroups.some((group) =>
+  group.commands.some((command) => command.sdkMethodName === "accessGrantedFor")));
 assert.ok(!("services" in manifestJson));
 
 const manifest = manifestModule.loadCommandManifest();
@@ -47,8 +50,23 @@ assert.ok(discovery.findCommandGroup(manifest, "bundle"));
 assert.ok(discovery.findCommandGroup(manifest, "cluster"));
 const notebook = discovery.findCommandGroup(manifest, "notebook");
 assert.ok(notebook);
-assert.ok(!discovery.findCommandGroup(manifest, "git"));
-assert.ok(!manifest.commandGroups.some((group) => group.name === "git"));
+const git = discovery.findCommandGroup(manifest, "git");
+assert.ok(git);
+assert.strictEqual(git.clientClassName, "GitClient");
+assert.strictEqual(git.commands.length, 15);
+const listGitDiffs = discovery.findCommand(git, "list-diffs");
+assert.ok(listGitDiffs);
+assert.strictEqual(listGitDiffs.sdkMethodName, "listGitDiffs");
+const gitInvocation = commandArgs.parseCommandOptions(git, listGitDiffs, [
+  "workspace-key", "repository-key", "--instance-id", "ocid1.test",
+  "--git-folder-path", "folder/path", "--branch-name", "main", "--compare-to", "HEAD"
+], args.parseGlobalOptions([]).globals);
+assert.strictEqual(gitInvocation.request.aiDataPlatformId, "ocid1.test");
+assert.strictEqual(gitInvocation.request.workspaceKey, "workspace-key");
+assert.strictEqual(gitInvocation.request.gitRepositoryKey, "repository-key");
+assert.strictEqual(gitInvocation.request.gitFolderPath, "folder/path");
+assert.strictEqual(gitInvocation.request.branchName, "main");
+assert.strictEqual(gitInvocation.request.compareTo, "HEAD");
 const workspaceObject = discovery.findCommandGroup(manifest, "workspace-object");
 assert.ok(workspaceObject);
 const createWorkspaceObject = discovery.findCommand(workspaceObject, "create");
@@ -209,7 +227,19 @@ try {
     newName: "demo-updated"
   });
 
-  const createSession = discovery.findCommand(notebook, "create-session");
+  const inferenceSummary = discovery.findCommand(mlops, "get-model-deployment-inference-summary");
+  assert.ok(inferenceSummary);
+  assert.strictEqual(inferenceSummary.fields.find((field) => field.name === "timeStart").type, "datetime");
+  const inferenceSummaryInvocation = commandArgs.parseCommandOptions(
+    mlops,
+    inferenceSummary,
+    ["dep1", "--time-start", "2026-09-01T00:00:00.000Z", "--time-end", "2026-09-01T01:00:00.000Z"],
+    parsedWithInstance.globals
+  );
+  assert.strictEqual(inferenceSummaryInvocation.request.timeStart, "2026-09-01T00:00:00.000Z");
+  assert.strictEqual(inferenceSummaryInvocation.request.timeEnd, "2026-09-01T01:00:00.000Z");
+
+  const createSession =discovery.findCommand(notebook, "create-session");
   assert.ok(createSession);
   const createSessionInvocation = commandArgs.parseCommandOptions(
     notebook,
@@ -516,8 +546,9 @@ assert.ok(createWorkspaceObjectHelp.stdout.includes("raw body string, @path/to/f
 assert.ok(createWorkspaceObjectHelp.stdout.includes("--body @body.txt"));
 
 const gitCommand = runCli(["git", "list-diffs", "-h"]);
-assert.notStrictEqual(gitCommand.status, 0);
-assert.ok(gitCommand.stderr.includes("Unknown command group"));
+assert.strictEqual(gitCommand.status, 0, gitCommand.stderr);
+assert.ok(gitCommand.stdout.includes("--git-folder-path"));
+assert.ok(gitCommand.stdout.includes("--branch-name"));
 
 const searchCompact = runCli(["search", "getworkspace"]);
 assert.strictEqual(searchCompact.status, 0, searchCompact.stderr);

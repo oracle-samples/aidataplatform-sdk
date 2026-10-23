@@ -26,11 +26,9 @@ class RemoveMemberFromRoleDetails(object):
         self.swagger_types = {
             'assignees': 'list[RoleAssignee]'
         }
-
         self.attribute_map = {
             'assignees': 'assignees'
         }
-
         self._assignees = None
 
     @property

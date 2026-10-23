@@ -111,7 +111,6 @@ class Model(object):
             'lifecycle_state': 'str',
             'lifecycle_details': 'str'
         }
-
         self.attribute_map = {
             'model_type': 'modelType',
             'id': 'id',
@@ -126,7 +125,6 @@ class Model(object):
             'lifecycle_state': 'lifecycleState',
             'lifecycle_details': 'lifecycleDetails'
         }
-
         self._model_type = None
         self._id = None
         self._model_name = None
@@ -180,8 +178,7 @@ class Model(object):
         allowed_values = ["GEN_AI"]
         if not value_allowed_none_or_none_sentinel(model_type, allowed_values):
             raise ValueError(
-                "Invalid value for `model_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `model_type`, must be None or one of {allowed_values}"
             )
         self._model_type = model_type
 
@@ -428,8 +425,7 @@ class Model(object):
         allowed_values = ["ACTIVE", "CREATING", "DELETING", "DELETED", "FAILED"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

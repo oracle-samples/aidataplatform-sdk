@@ -218,6 +218,7 @@ return this;
         IfElseTask("IF_ELSE_TASK"),
         JobTask("JOB_TASK"),
         JarTask("JAR_TASK"),
+        AgentTask("AGENT_TASK"),
         
 
         /**

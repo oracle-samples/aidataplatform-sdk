@@ -46,13 +46,11 @@ class BundlePublishedResource(object):
             'key': 'str',
             'name': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'key': 'key',
             'name': 'name'
         }
-
         self._type = None
         self._key = None
         self._name = None

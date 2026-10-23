@@ -101,7 +101,6 @@ class SummarizeMetricsDataDetails(object):
             'interval': 'str',
             'resolution': 'str'
         }
-
         self.attribute_map = {
             'aggregation_type': 'aggregationType',
             'metric_name': 'metricName',
@@ -111,7 +110,6 @@ class SummarizeMetricsDataDetails(object):
             'interval': 'interval',
             'resolution': 'resolution'
         }
-
         self._aggregation_type = None
         self._metric_name = None
         self._agent_node = None
@@ -151,8 +149,7 @@ class SummarizeMetricsDataDetails(object):
         allowed_values = ["MAX", "MEAN", "MIN", "SUM", "RATE", "P50", "P80", "P90", "P95", "P99", "P99_9"]
         if not value_allowed_none_or_none_sentinel(aggregation_type, allowed_values):
             raise ValueError(
-                "Invalid value for `aggregation_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `aggregation_type`, must be None or one of {allowed_values}"
             )
         self._aggregation_type = aggregation_type
 

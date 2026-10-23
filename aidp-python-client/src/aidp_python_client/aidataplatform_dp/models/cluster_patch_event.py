@@ -116,13 +116,11 @@ class ClusterPatchEvent(ClusterEvent):
             'phase': 'str',
             'state': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'phase': 'phase',
             'state': 'state'
         }
-
         self._type = None
         self._phase = None
         self._state = None
@@ -155,8 +153,7 @@ class ClusterPatchEvent(ClusterEvent):
         allowed_values = ["STARTED", "COMPLETED"]
         if not value_allowed_none_or_none_sentinel(phase, allowed_values):
             raise ValueError(
-                "Invalid value for `phase`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `phase`, must be None or one of {allowed_values}"
             )
         self._phase = phase
 
@@ -187,8 +184,7 @@ class ClusterPatchEvent(ClusterEvent):
         allowed_values = ["ACCEPTED", "CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED", "STOPPING", "STOPPED", "UPDATING", "RESTARTING", "STARTING", "NETWORK_CONFIGURATION_ATTACH_IN_PROGRESS", "NETWORK_CONFIGURATION_ATTACH_SUCCESSFUL", "NETWORK_CONFIGURATION_ATTACH_FAILED", "NETWORK_CONFIGURATION_DETACH_IN_PROGRESS", "NETWORK_CONFIGURATION_DETACH_SUCCESSFUL", "NETWORK_CONFIGURATION_DETACH_FAILED"]
         if not value_allowed_none_or_none_sentinel(state, allowed_values):
             raise ValueError(
-                "Invalid value for `state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `state`, must be None or one of {allowed_values}"
             )
         self._state = state
 

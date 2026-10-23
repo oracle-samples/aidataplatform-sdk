@@ -26,11 +26,9 @@ class RolePermissionCollection(object):
         self.swagger_types = {
             'items': 'list[RolePermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

@@ -40,12 +40,10 @@ class ManageAuditLogsDetails(object):
             'action': 'str',
             'retention_period': 'int'
         }
-
         self.attribute_map = {
             'action': 'action',
             'retention_period': 'retentionPeriod'
         }
-
         self._action = None
         self._retention_period = None
 
@@ -76,8 +74,7 @@ class ManageAuditLogsDetails(object):
         allowed_values = ["ENABLE", "DISABLE"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 

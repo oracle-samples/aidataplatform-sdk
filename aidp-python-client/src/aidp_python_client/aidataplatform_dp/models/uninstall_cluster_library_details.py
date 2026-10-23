@@ -64,7 +64,6 @@ class UninstallClusterLibraryDetails(ClusterLibraryDetails):
             'repository': 'str',
             'exclusions': 'list[str]'
         }
-
         self.attribute_map = {
             'operation': 'operation',
             'type': 'type',
@@ -75,7 +74,6 @@ class UninstallClusterLibraryDetails(ClusterLibraryDetails):
             'repository': 'repository',
             'exclusions': 'exclusions'
         }
-
         self._operation = None
         self._type = None
         self._name = None

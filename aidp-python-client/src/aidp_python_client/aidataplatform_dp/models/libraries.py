@@ -26,11 +26,9 @@ class Libraries(object):
         self.swagger_types = {
             'jar': 'str'
         }
-
         self.attribute_map = {
             'jar': 'jar'
         }
-
         self._jar = None
 
     @property

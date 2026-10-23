@@ -116,7 +116,6 @@ class KnowledgeBaseJobRunSummary(object):
             'lifecycle_state_details': 'str',
             'run_data': 'KnowledgeBaseJobRunData'
         }
-
         self.attribute_map = {
             'key': 'key',
             'knowledge_base_job_key': 'knowledgeBaseJobKey',
@@ -133,7 +132,6 @@ class KnowledgeBaseJobRunSummary(object):
             'lifecycle_state_details': 'lifecycleStateDetails',
             'run_data': 'runData'
         }
-
         self._key = None
         self._knowledge_base_job_key = None
         self._description = None
@@ -440,8 +438,7 @@ class KnowledgeBaseJobRunSummary(object):
         allowed_values = ["ACCEPTED", "CANCELING", "CANCELED", "FAILED", "SUCCEEDED", "IN_PROGRESS"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

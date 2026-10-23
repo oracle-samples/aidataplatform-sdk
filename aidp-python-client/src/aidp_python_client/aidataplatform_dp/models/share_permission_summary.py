@@ -69,14 +69,12 @@ class SharePermissionSummary(object):
             'grantee_type': 'str',
             'grantee_permissions': 'list[str]'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
             'grantee_type': 'granteeType',
             'grantee_permissions': 'granteePermissions'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None

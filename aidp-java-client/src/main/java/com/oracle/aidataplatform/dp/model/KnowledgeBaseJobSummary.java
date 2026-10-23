@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class KnowledgeBaseJobSummary  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "displayName", "description", "catalogKey", "schemaKey", "knowledgeBaseKey", "type", "sources", "sourceKey", "timeCreated", "timeUpdated", "createdBy", "updatedBy", "lifecycleState", "lifecycleStateDetails"})
-    public KnowledgeBaseJobSummary(String key, String displayName, String description, String catalogKey, String schemaKey, String knowledgeBaseKey, KnowledgeBaseJobType type, String sources, String sourceKey, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, KnowledgeBaseJobLifecycleState lifecycleState, String lifecycleStateDetails) {
+    @java.beans.ConstructorProperties({"key", "displayName", "description", "catalogKey", "schemaKey", "knowledgeBaseKey", "type", "goal", "sources", "sourceKey", "timeCreated", "timeUpdated", "createdBy", "updatedBy", "lifecycleState", "lifecycleStateDetails"})
+    public KnowledgeBaseJobSummary(String key, String displayName, String description, String catalogKey, String schemaKey, String knowledgeBaseKey, KnowledgeBaseJobType type, KnowledgeBaseJobGoalType goal, String sources, String sourceKey, java.util.Date timeCreated, java.util.Date timeUpdated, String createdBy, String updatedBy, KnowledgeBaseJobLifecycleState lifecycleState, String lifecycleStateDetails) {
         super();
         this.key = key;
         this.displayName = displayName;
@@ -22,6 +22,7 @@ public final class KnowledgeBaseJobSummary  {
         this.schemaKey = schemaKey;
         this.knowledgeBaseKey = knowledgeBaseKey;
         this.type = type;
+        this.goal = goal;
         this.sources = sources;
         this.sourceKey = sourceKey;
         this.timeCreated = timeCreated;
@@ -158,6 +159,24 @@ private KnowledgeBaseJobType type;
 
 public Builder type(KnowledgeBaseJobType type) {
     this.type = type;
+    return this;
+}
+            /**
+     * Goal of the KnowledgeBase job, when available.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("goal")
+private KnowledgeBaseJobGoalType goal;
+
+        /**
+         * Goal of the KnowledgeBase job, when available.
+         * @param goal the value to set
+         * @return this builder
+         **/
+        
+
+public Builder goal(KnowledgeBaseJobGoalType goal) {
+    this.goal = goal;
     return this;
 }
             /**
@@ -314,6 +333,7 @@ public Builder lifecycleStateDetails(String lifecycleStateDetails) {
                 , this.schemaKey
                 , this.knowledgeBaseKey
                 , this.type
+                , this.goal
                 , this.sources
                 , this.sourceKey
                 , this.timeCreated
@@ -333,6 +353,7 @@ public Builder lifecycleStateDetails(String lifecycleStateDetails) {
     this.schemaKey(model.getSchemaKey());
     this.knowledgeBaseKey(model.getKnowledgeBaseKey());
     this.type(model.getType());
+    this.goal(model.getGoal());
     this.sources(model.getSources());
     this.sourceKey(model.getSourceKey());
     this.timeCreated(model.getTimeCreated());
@@ -476,6 +497,23 @@ return this;
     
     public KnowledgeBaseJobType getType() {
         return type;
+    }
+
+    
+        /**
+     * Goal of the KnowledgeBase job, when available.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("goal")
+    private final KnowledgeBaseJobGoalType goal;
+
+        /**
+     * Goal of the KnowledgeBase job, when available.
+     * @return the value
+     **/
+    
+    public KnowledgeBaseJobGoalType getGoal() {
+        return goal;
     }
 
 
@@ -634,6 +672,7 @@ return this;
         sb.append(", schemaKey=").append(String.valueOf(this.schemaKey));
         sb.append(", knowledgeBaseKey=").append(String.valueOf(this.knowledgeBaseKey));
         sb.append(", type=").append(String.valueOf(this.type));
+        sb.append(", goal=").append(String.valueOf(this.goal));
         sb.append(", sources=").append(String.valueOf(this.sources));
         sb.append(", sourceKey=").append(String.valueOf(this.sourceKey));
         sb.append(", timeCreated=").append(String.valueOf(this.timeCreated));
@@ -663,6 +702,7 @@ return this;
             java.util.Objects.equals(this.schemaKey, other.schemaKey) &&
             java.util.Objects.equals(this.knowledgeBaseKey, other.knowledgeBaseKey) &&
             java.util.Objects.equals(this.type, other.type) &&
+            java.util.Objects.equals(this.goal, other.goal) &&
             java.util.Objects.equals(this.sources, other.sources) &&
             java.util.Objects.equals(this.sourceKey, other.sourceKey) &&
             java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
@@ -684,6 +724,7 @@ return this;
         result = (result * PRIME) + (this.schemaKey == null ? 43 : this.schemaKey.hashCode());
         result = (result * PRIME) + (this.knowledgeBaseKey == null ? 43 : this.knowledgeBaseKey.hashCode());
         result = (result * PRIME) + (this.type == null ? 43 : this.type.hashCode());
+        result = (result * PRIME) + (this.goal == null ? 43 : this.goal.hashCode());
         result = (result * PRIME) + (this.sources == null ? 43 : this.sources.hashCode());
         result = (result * PRIME) + (this.sourceKey == null ? 43 : this.sourceKey.hashCode());
         result = (result * PRIME) + (this.timeCreated == null ? 43 : this.timeCreated.hashCode());

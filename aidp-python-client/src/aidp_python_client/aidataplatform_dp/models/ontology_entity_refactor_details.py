@@ -46,7 +46,6 @@ class OntologyEntityRefactorDetails(object):
             'prefix': 'str',
             'new_prefix': 'str'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'iri': 'iri',
@@ -54,7 +53,6 @@ class OntologyEntityRefactorDetails(object):
             'prefix': 'prefix',
             'new_prefix': 'newPrefix'
         }
-
         self._entity_type = None
         self._iri = None
         self._new_iri = None

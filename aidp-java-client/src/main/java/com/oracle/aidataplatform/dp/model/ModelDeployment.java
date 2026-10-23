@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class ModelDeployment  {
     @Deprecated
-    @java.beans.ConstructorProperties({"deploymentId", "name", "description", "modelName", "deploymentTargets", "workspaceKey", "computeKey", "status", "activatedTime", "activatedBy", "servingUri", "createdTime", "updatedTime", "createdBy", "updatedBy", "tags", "authType", "authDetails"})
-    public ModelDeployment(String deploymentId, String name, String description, String modelName, java.util.List<DeploymentTarget> deploymentTargets, String workspaceKey, String computeKey, DeploymentStatus status, Long activatedTime, String activatedBy, String servingUri, String createdTime, String updatedTime, String createdBy, String updatedBy, java.util.List<ModelDeploymentTag> tags, DeploymentAuthType authType, DeploymentOAuthDetails authDetails) {
+    @java.beans.ConstructorProperties({"deploymentId", "name", "description", "modelName", "deploymentTargets", "workspaceKey", "computeKey", "computeDeploymentId", "status", "activatedTime", "activatedBy", "servingUri", "createdTime", "updatedTime", "createdBy", "updatedBy", "tags", "authType", "authDetails"})
+    public ModelDeployment(String deploymentId, String name, String description, String modelName, java.util.List<DeploymentTarget> deploymentTargets, String workspaceKey, String computeKey, String computeDeploymentId, DeploymentStatus status, Long activatedTime, String activatedBy, String servingUri, String createdTime, String updatedTime, String createdBy, String updatedBy, java.util.List<ModelDeploymentTag> tags, DeploymentAuthType authType, DeploymentOAuthDetails authDetails) {
         super();
         this.deploymentId = deploymentId;
         this.name = name;
@@ -22,6 +22,7 @@ public final class ModelDeployment  {
         this.deploymentTargets = deploymentTargets;
         this.workspaceKey = workspaceKey;
         this.computeKey = computeKey;
+        this.computeDeploymentId = computeDeploymentId;
         this.status = status;
         this.activatedTime = activatedTime;
         this.activatedBy = activatedBy;
@@ -161,6 +162,24 @@ private String computeKey;
 
 public Builder computeKey(String computeKey) {
     this.computeKey = computeKey;
+    return this;
+}
+            /**
+     * Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("compute_deployment_id")
+private String computeDeploymentId;
+
+        /**
+         * Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+         * @param computeDeploymentId the value to set
+         * @return this builder
+         **/
+        
+
+public Builder computeDeploymentId(String computeDeploymentId) {
+    this.computeDeploymentId = computeDeploymentId;
     return this;
 }
             /**
@@ -363,6 +382,7 @@ public Builder authDetails(DeploymentOAuthDetails authDetails) {
                 , this.deploymentTargets
                 , this.workspaceKey
                 , this.computeKey
+                , this.computeDeploymentId
                 , this.status
                 , this.activatedTime
                 , this.activatedBy
@@ -385,6 +405,7 @@ public Builder authDetails(DeploymentOAuthDetails authDetails) {
     this.deploymentTargets(model.getDeploymentTargets());
     this.workspaceKey(model.getWorkspaceKey());
     this.computeKey(model.getComputeKey());
+    this.computeDeploymentId(model.getComputeDeploymentId());
     this.status(model.getStatus());
     this.activatedTime(model.getActivatedTime());
     this.activatedBy(model.getActivatedBy());
@@ -531,6 +552,23 @@ return this;
     
     public String getComputeKey() {
         return computeKey;
+    }
+
+
+        /**
+     * Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("compute_deployment_id")
+    private final String computeDeploymentId;
+
+        /**
+     * Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+     * @return the value
+     **/
+    
+    public String getComputeDeploymentId() {
+        return computeDeploymentId;
     }
 
     
@@ -733,6 +771,7 @@ return this;
         sb.append(", deploymentTargets=").append(String.valueOf(this.deploymentTargets));
         sb.append(", workspaceKey=").append(String.valueOf(this.workspaceKey));
         sb.append(", computeKey=").append(String.valueOf(this.computeKey));
+        sb.append(", computeDeploymentId=").append(String.valueOf(this.computeDeploymentId));
         sb.append(", status=").append(String.valueOf(this.status));
         sb.append(", activatedTime=").append(String.valueOf(this.activatedTime));
         sb.append(", activatedBy=").append(String.valueOf(this.activatedBy));
@@ -765,6 +804,7 @@ return this;
             java.util.Objects.equals(this.deploymentTargets, other.deploymentTargets) &&
             java.util.Objects.equals(this.workspaceKey, other.workspaceKey) &&
             java.util.Objects.equals(this.computeKey, other.computeKey) &&
+            java.util.Objects.equals(this.computeDeploymentId, other.computeDeploymentId) &&
             java.util.Objects.equals(this.status, other.status) &&
             java.util.Objects.equals(this.activatedTime, other.activatedTime) &&
             java.util.Objects.equals(this.activatedBy, other.activatedBy) &&
@@ -789,6 +829,7 @@ return this;
         result = (result * PRIME) + (this.deploymentTargets == null ? 43 : this.deploymentTargets.hashCode());
         result = (result * PRIME) + (this.workspaceKey == null ? 43 : this.workspaceKey.hashCode());
         result = (result * PRIME) + (this.computeKey == null ? 43 : this.computeKey.hashCode());
+        result = (result * PRIME) + (this.computeDeploymentId == null ? 43 : this.computeDeploymentId.hashCode());
         result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
         result = (result * PRIME) + (this.activatedTime == null ? 43 : this.activatedTime.hashCode());
         result = (result * PRIME) + (this.activatedBy == null ? 43 : this.activatedBy.hashCode());

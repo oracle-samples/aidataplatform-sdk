@@ -3,7 +3,7 @@
 
 
 from .credential_details import CredentialDetails
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -34,12 +34,13 @@ class SecretTokenCredentialDetails(CredentialDetails):
             'credential_type': 'str',
             'secret_token_pair': 'list[SecretPair]'
         }
-
         self.attribute_map = {
             'credential_type': 'credentialType',
             'secret_token_pair': 'secretTokenPair'
         }
-
+        self._redacted_field_paths = [
+            ['secret_token_pair', '*', 'secret_value'],
+        ]
         self._credential_type = None
         self._secret_token_pair = None
         self._credential_type = 'SECRET_TOKEN'
@@ -69,7 +70,9 @@ class SecretTokenCredentialDetails(CredentialDetails):
         self._secret_token_pair = secret_token_pair
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['secret_token_pair', '*', 'secret_value'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

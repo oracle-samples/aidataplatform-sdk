@@ -85,14 +85,12 @@ class ExternalTableDefinition(object):
             'external_table_data_format': 'str',
             'txt_file_definition': 'TxtFileDefinition'
         }
-
         self.attribute_map = {
             'external_table_location_type': 'externalTableLocationType',
             'object_storage_location_path': 'objectStorageLocationPath',
             'external_table_data_format': 'externalTableDataFormat',
             'txt_file_definition': 'txtFileDefinition'
         }
-
         self._external_table_location_type = None
         self._object_storage_location_path = None
         self._external_table_data_format = None

@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class CommitPushDetails(object):
     """
-    Commit staged/local changes and push to remote for the given branch context.
+    Commit message and optional file selection for a Git commit and push request.
     """
 
     def __init__(self, **kwargs):
@@ -46,7 +46,6 @@ class CommitPushDetails(object):
             'commit_message': 'str',
             'commit_description': 'str'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'branch_name': 'branchName',
@@ -54,7 +53,6 @@ class CommitPushDetails(object):
             'commit_message': 'commitMessage',
             'commit_description': 'commitDescription'
         }
-
         self._git_folder_path = None
         self._branch_name = None
         self._files = None
@@ -65,7 +63,8 @@ class CommitPushDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this CommitPushDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The git_folder_path of this CommitPushDetails.
@@ -77,7 +76,8 @@ class CommitPushDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this CommitPushDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param git_folder_path: The git_folder_path of this CommitPushDetails.
@@ -89,7 +89,8 @@ class CommitPushDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this CommitPushDetails.
-        The name of the Git branch.
+        Repository branch name. The effective branch is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The branch_name of this CommitPushDetails.
@@ -101,7 +102,8 @@ class CommitPushDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this CommitPushDetails.
-        The name of the Git branch.
+        Repository branch name. The effective branch is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param branch_name: The branch_name of this CommitPushDetails.
@@ -113,7 +115,9 @@ class CommitPushDetails(object):
     def files(self):
         """
         Gets the files of this CommitPushDetails.
-        List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+        Repository-relative paths staged for a normal commit. When omitted, all local
+        changes are staged with git add -A. Not applied when continuing a resolved
+        rebase. Selected paths must be included by sparse checkout, if enabled.
 
 
         :return: The files of this CommitPushDetails.
@@ -125,7 +129,9 @@ class CommitPushDetails(object):
     def files(self, files):
         """
         Sets the files of this CommitPushDetails.
-        List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+        Repository-relative paths staged for a normal commit. When omitted, all local
+        changes are staged with git add -A. Not applied when continuing a resolved
+        rebase. Selected paths must be included by sparse checkout, if enabled.
 
 
         :param files: The files of this CommitPushDetails.

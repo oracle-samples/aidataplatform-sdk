@@ -49,13 +49,11 @@ class BundleValidationResult(object):
             'errors': 'list[str]',
             'warnings': 'list[str]'
         }
-
         self.attribute_map = {
             'status': 'status',
             'errors': 'errors',
             'warnings': 'warnings'
         }
-
         self._status = None
         self._errors = None
         self._warnings = None
@@ -87,8 +85,7 @@ class BundleValidationResult(object):
         allowed_values = ["VALID", "INVALID", "WARNINGS"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `status`, must be None or one of {allowed_values}"
             )
         self._status = status
 

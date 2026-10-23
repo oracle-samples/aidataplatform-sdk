@@ -25,7 +25,8 @@ export namespace RevokeMasterCatalogPermissionDetails {
     Admin = "ADMIN",
     CreateShare = "CREATE_SHARE",
     CreateRecipient = "CREATE_RECIPIENT",
-    CreateCredential = "CREATE_CREDENTIAL"
+    CreateCredential = "CREATE_CREDENTIAL",
+    ManageLineage = "MANAGE_LINEAGE"
 
 }
 

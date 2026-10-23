@@ -79,14 +79,12 @@ class UpdateToolDetails(object):
             'tool_type': 'str',
             'properties': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
             'tool_type': 'toolType',
             'properties': 'properties'
         }
-
         self._display_name = None
         self._description = None
         self._tool_type = None
@@ -195,8 +193,7 @@ class UpdateToolDetails(object):
         allowed_values = ["RAG", "SQL", "PROMPT", "NL2SQL", "MCP", "CUSTOM", "HTTP"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
-                "Invalid value for `tool_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `tool_type`, must be None or one of {allowed_values}"
             )
         self._tool_type = tool_type
 

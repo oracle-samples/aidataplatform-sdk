@@ -29,10 +29,12 @@ export interface TaskExecutionResult {
     * The properties of the task execution.
     */
     'properties'?: { [key: string]: any; };
+    'output'?: model.TaskRunOutput;
 
 }
 
 export namespace TaskExecutionResult {
+
 
 
 
@@ -52,6 +54,10 @@ export namespace TaskExecutionResult {
 
 
 
+                'output': obj.output ?
+                
+                
+                model.TaskRunOutput.getJsonObj(obj.output) : undefined,
         }};
 
         
@@ -71,6 +77,10 @@ export namespace TaskExecutionResult {
 
 
 
+                    'output': obj.output ?
+                
+                
+                model.TaskRunOutput.getDeserializedJsonObj(obj.output) : undefined,
          }};
 
         

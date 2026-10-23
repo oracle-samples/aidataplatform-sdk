@@ -12,12 +12,13 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OntologyGraphPreview  {
     @Deprecated
-    @java.beans.ConstructorProperties({"file", "status", "graph", "limits", "diagnostics", "unsupportedConstructs", "nextCursor", "nextParentCursor"})
-    public OntologyGraphPreview(OntologyGraphPreviewFile file, String status, OntologyGraphPreviewModel graph, OntologyGraphPreviewLimits limits, java.util.List<OntologyGraphPreviewDiagnostic> diagnostics, java.util.List<String> unsupportedConstructs, String nextCursor, String nextParentCursor) {
+    @java.beans.ConstructorProperties({"file", "status", "graph", "summary", "limits", "diagnostics", "unsupportedConstructs", "nextCursor", "nextParentCursor"})
+    public OntologyGraphPreview(OntologyGraphPreviewFile file, String status, OntologyGraphPreviewModel graph, OntologyGraphSummary summary, OntologyGraphPreviewLimits limits, java.util.List<OntologyGraphPreviewDiagnostic> diagnostics, java.util.List<String> unsupportedConstructs, String nextCursor, String nextParentCursor) {
         super();
         this.file = file;
         this.status = status;
         this.graph = graph;
+        this.summary = summary;
         this.limits = limits;
         this.diagnostics = diagnostics;
         this.unsupportedConstructs = unsupportedConstructs;
@@ -63,6 +64,16 @@ private OntologyGraphPreviewModel graph;
 
 public Builder graph(OntologyGraphPreviewModel graph) {
     this.graph = graph;
+    return this;
+}
+        
+@com.fasterxml.jackson.annotation.JsonProperty("summary")
+private OntologyGraphSummary summary;
+
+
+
+public Builder summary(OntologyGraphSummary summary) {
+    this.summary = summary;
     return this;
 }
         
@@ -153,6 +164,7 @@ public Builder nextParentCursor(String nextParentCursor) {
             OntologyGraphPreview model = new OntologyGraphPreview(this.file
                 , this.status
                 , this.graph
+                , this.summary
                 , this.limits
                 , this.diagnostics
                 , this.unsupportedConstructs
@@ -165,6 +177,7 @@ public Builder nextParentCursor(String nextParentCursor) {
                 this.file(model.getFile());
     this.status(model.getStatus());
     this.graph(model.getGraph());
+    this.summary(model.getSummary());
     this.limits(model.getLimits());
     this.diagnostics(model.getDiagnostics());
     this.unsupportedConstructs(model.getUnsupportedConstructs());
@@ -223,6 +236,16 @@ return this;
     
     public OntologyGraphPreviewModel getGraph() {
         return graph;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("summary")
+    private final OntologyGraphSummary summary;
+
+    
+    public OntologyGraphSummary getSummary() {
+        return summary;
     }
 
 
@@ -319,6 +342,7 @@ return this;
         sb.append("file=").append(String.valueOf(this.file));
         sb.append(", status=").append(String.valueOf(this.status));
         sb.append(", graph=").append(String.valueOf(this.graph));
+        sb.append(", summary=").append(String.valueOf(this.summary));
         sb.append(", limits=").append(String.valueOf(this.limits));
         sb.append(", diagnostics=").append(String.valueOf(this.diagnostics));
         sb.append(", unsupportedConstructs=").append(String.valueOf(this.unsupportedConstructs));
@@ -341,6 +365,7 @@ return this;
         return java.util.Objects.equals(this.file, other.file) &&
             java.util.Objects.equals(this.status, other.status) &&
             java.util.Objects.equals(this.graph, other.graph) &&
+            java.util.Objects.equals(this.summary, other.summary) &&
             java.util.Objects.equals(this.limits, other.limits) &&
             java.util.Objects.equals(this.diagnostics, other.diagnostics) &&
             java.util.Objects.equals(this.unsupportedConstructs, other.unsupportedConstructs) &&
@@ -355,6 +380,7 @@ return this;
         result = (result * PRIME) + (this.file == null ? 43 : this.file.hashCode());
         result = (result * PRIME) + (this.status == null ? 43 : this.status.hashCode());
         result = (result * PRIME) + (this.graph == null ? 43 : this.graph.hashCode());
+        result = (result * PRIME) + (this.summary == null ? 43 : this.summary.hashCode());
         result = (result * PRIME) + (this.limits == null ? 43 : this.limits.hashCode());
         result = (result * PRIME) + (this.diagnostics == null ? 43 : this.diagnostics.hashCode());
         result = (result * PRIME) + (this.unsupportedConstructs == null ? 43 : this.unsupportedConstructs.hashCode());

@@ -81,14 +81,12 @@ class ContentModerationCategoryConfig(object):
             'threshold': 'float',
             'action': 'str'
         }
-
         self.attribute_map = {
             'category': 'category',
             'is_enabled': 'isEnabled',
             'threshold': 'threshold',
             'action': 'action'
         }
-
         self._category = None
         self._is_enabled = None
         self._threshold = None

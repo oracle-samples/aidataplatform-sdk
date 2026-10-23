@@ -73,7 +73,6 @@ class ManageShareDataAssetDetails(object):
             'partition': 'str',
             'alias': 'str'
         }
-
         self.attribute_map = {
             'action': 'action',
             'type': 'type',
@@ -82,7 +81,6 @@ class ManageShareDataAssetDetails(object):
             'partition': 'partition',
             'alias': 'alias'
         }
-
         self._action = None
         self._type = None
         self._name = None
@@ -117,8 +115,7 @@ class ManageShareDataAssetDetails(object):
         allowed_values = ["ADD", "REMOVE"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 
@@ -149,8 +146,7 @@ class ManageShareDataAssetDetails(object):
         allowed_values = ["SCHEMA", "TABLE", "VIEW"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

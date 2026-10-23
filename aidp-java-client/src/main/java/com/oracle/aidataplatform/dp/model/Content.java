@@ -15,8 +15,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class Content  {
     @Deprecated
-    @java.beans.ConstructorProperties({"name", "path", "type", "writable", "created", "lastModified", "size", "mimetype", "content", "format", "hash", "hashAlgorithm", "description"})
-    public Content(String name, String path, Type type, Boolean writable, java.util.Date created, java.util.Date lastModified, Integer size, String mimetype, Object content, Format format, String hash, String hashAlgorithm, String description) {
+    @java.beans.ConstructorProperties({"name", "path", "type", "writable", "created", "lastModified", "size", "mimetype", "content", "format", "hash", "hashAlgorithm", "description", "uploadId", "uploadChunkIndex", "totalChunks", "totalSizeBytes", "sha256"})
+    public Content(String name, String path, Type type, Boolean writable, java.util.Date created, java.util.Date lastModified, Integer size, String mimetype, Object content, Format format, String hash, String hashAlgorithm, String description, String uploadId, Integer uploadChunkIndex, Integer totalChunks, Integer totalSizeBytes, String sha256) {
         super();
         this.name = name;
         this.path = path;
@@ -31,6 +31,11 @@ public final class Content  {
         this.hash = hash;
         this.hashAlgorithm = hashAlgorithm;
         this.description = description;
+        this.uploadId = uploadId;
+        this.uploadChunkIndex = uploadChunkIndex;
+        this.totalChunks = totalChunks;
+        this.totalSizeBytes = totalSizeBytes;
+        this.sha256 = sha256;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -293,6 +298,96 @@ public Builder description(String description) {
     this.description = description;
     return this;
 }
+            /**
+     * Upload session UUID for a chunked create or update acknowledgement.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("upload_id")
+private String uploadId;
+
+        /**
+         * Upload session UUID for a chunked create or update acknowledgement.
+         * @param uploadId the value to set
+         * @return this builder
+         **/
+        
+
+public Builder uploadId(String uploadId) {
+    this.uploadId = uploadId;
+    return this;
+}
+            /**
+     * Accepted upload chunk index. A value of -1 marks completion.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("upload_chunk_index")
+private Integer uploadChunkIndex;
+
+        /**
+         * Accepted upload chunk index. A value of -1 marks completion.
+         * @param uploadChunkIndex the value to set
+         * @return this builder
+         **/
+        
+
+public Builder uploadChunkIndex(Integer uploadChunkIndex) {
+    this.uploadChunkIndex = uploadChunkIndex;
+    return this;
+}
+            /**
+     * Total upload requests, including the final upload chunk.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("total_chunks")
+private Integer totalChunks;
+
+        /**
+         * Total upload requests, including the final upload chunk.
+         * @param totalChunks the value to set
+         * @return this builder
+         **/
+        
+
+public Builder totalChunks(Integer totalChunks) {
+    this.totalChunks = totalChunks;
+    return this;
+}
+            /**
+     * Total decoded notebook bytes for a chunked upload.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("total_size_bytes")
+private Integer totalSizeBytes;
+
+        /**
+         * Total decoded notebook bytes for a chunked upload.
+         * @param totalSizeBytes the value to set
+         * @return this builder
+         **/
+        
+
+public Builder totalSizeBytes(Integer totalSizeBytes) {
+    this.totalSizeBytes = totalSizeBytes;
+    return this;
+}
+            /**
+     * SHA-256 digest of the complete decoded notebook content for a chunked upload.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("sha256")
+private String sha256;
+
+        /**
+         * SHA-256 digest of the complete decoded notebook content for a chunked upload.
+         * @param sha256 the value to set
+         * @return this builder
+         **/
+        
+
+public Builder sha256(String sha256) {
+    this.sha256 = sha256;
+    return this;
+}
 
 
         public Content build() {
@@ -308,7 +403,12 @@ public Builder description(String description) {
                 , this.format
                 , this.hash
                 , this.hashAlgorithm
-                , this.description);            return model;
+                , this.description
+                , this.uploadId
+                , this.uploadChunkIndex
+                , this.totalChunks
+                , this.totalSizeBytes
+                , this.sha256);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -326,6 +426,11 @@ public Builder description(String description) {
     this.hash(model.getHash());
     this.hashAlgorithm(model.getHashAlgorithm());
     this.description(model.getDescription());
+    this.uploadId(model.getUploadId());
+    this.uploadChunkIndex(model.getUploadChunkIndex());
+    this.totalChunks(model.getTotalChunks());
+    this.totalSizeBytes(model.getTotalSizeBytes());
+    this.sha256(model.getSha256());
 return this;
         }
     }
@@ -684,6 +789,91 @@ return this;
         return description;
     }
 
+
+        /**
+     * Upload session UUID for a chunked create or update acknowledgement.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("upload_id")
+    private final String uploadId;
+
+        /**
+     * Upload session UUID for a chunked create or update acknowledgement.
+     * @return the value
+     **/
+    
+    public String getUploadId() {
+        return uploadId;
+    }
+
+
+        /**
+     * Accepted upload chunk index. A value of -1 marks completion.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("upload_chunk_index")
+    private final Integer uploadChunkIndex;
+
+        /**
+     * Accepted upload chunk index. A value of -1 marks completion.
+     * @return the value
+     **/
+    
+    public Integer getUploadChunkIndex() {
+        return uploadChunkIndex;
+    }
+
+
+        /**
+     * Total upload requests, including the final upload chunk.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("total_chunks")
+    private final Integer totalChunks;
+
+        /**
+     * Total upload requests, including the final upload chunk.
+     * @return the value
+     **/
+    
+    public Integer getTotalChunks() {
+        return totalChunks;
+    }
+
+
+        /**
+     * Total decoded notebook bytes for a chunked upload.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("total_size_bytes")
+    private final Integer totalSizeBytes;
+
+        /**
+     * Total decoded notebook bytes for a chunked upload.
+     * @return the value
+     **/
+    
+    public Integer getTotalSizeBytes() {
+        return totalSizeBytes;
+    }
+
+
+        /**
+     * SHA-256 digest of the complete decoded notebook content for a chunked upload.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("sha256")
+    private final String sha256;
+
+        /**
+     * SHA-256 digest of the complete decoded notebook content for a chunked upload.
+     * @return the value
+     **/
+    
+    public String getSha256() {
+        return sha256;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -710,6 +900,11 @@ return this;
         sb.append(", hash=").append(String.valueOf(this.hash));
         sb.append(", hashAlgorithm=").append(String.valueOf(this.hashAlgorithm));
         sb.append(", description=").append(String.valueOf(this.description));
+        sb.append(", uploadId=").append(String.valueOf(this.uploadId));
+        sb.append(", uploadChunkIndex=").append(String.valueOf(this.uploadChunkIndex));
+        sb.append(", totalChunks=").append(String.valueOf(this.totalChunks));
+        sb.append(", totalSizeBytes=").append(String.valueOf(this.totalSizeBytes));
+        sb.append(", sha256=").append(String.valueOf(this.sha256));
         sb.append(")");
         return sb.toString();
     }
@@ -736,7 +931,12 @@ return this;
             java.util.Objects.equals(this.format, other.format) &&
             java.util.Objects.equals(this.hash, other.hash) &&
             java.util.Objects.equals(this.hashAlgorithm, other.hashAlgorithm) &&
-            java.util.Objects.equals(this.description, other.description);
+            java.util.Objects.equals(this.description, other.description) &&
+            java.util.Objects.equals(this.uploadId, other.uploadId) &&
+            java.util.Objects.equals(this.uploadChunkIndex, other.uploadChunkIndex) &&
+            java.util.Objects.equals(this.totalChunks, other.totalChunks) &&
+            java.util.Objects.equals(this.totalSizeBytes, other.totalSizeBytes) &&
+            java.util.Objects.equals(this.sha256, other.sha256);
     }
 
     @Override
@@ -756,6 +956,11 @@ return this;
         result = (result * PRIME) + (this.hash == null ? 43 : this.hash.hashCode());
         result = (result * PRIME) + (this.hashAlgorithm == null ? 43 : this.hashAlgorithm.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
+        result = (result * PRIME) + (this.uploadId == null ? 43 : this.uploadId.hashCode());
+        result = (result * PRIME) + (this.uploadChunkIndex == null ? 43 : this.uploadChunkIndex.hashCode());
+        result = (result * PRIME) + (this.totalChunks == null ? 43 : this.totalChunks.hashCode());
+        result = (result * PRIME) + (this.totalSizeBytes == null ? 43 : this.totalSizeBytes.hashCode());
+        result = (result * PRIME) + (this.sha256 == null ? 43 : this.sha256.hashCode());
         return result;
     }
 

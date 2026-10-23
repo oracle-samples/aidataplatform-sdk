@@ -56,7 +56,6 @@ class CreateModelVersionDetails(object):
             'run_link': 'str',
             'model_id': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
@@ -66,7 +65,6 @@ class CreateModelVersionDetails(object):
             'run_link': 'run_link',
             'model_id': 'model_id'
         }
-
         self._name = None
         self._description = None
         self._source = None

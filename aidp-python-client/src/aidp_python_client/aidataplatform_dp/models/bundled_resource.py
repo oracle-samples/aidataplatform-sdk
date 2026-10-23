@@ -40,12 +40,10 @@ class BundledResource(object):
             'resource_type': 'str',
             'resource_key': 'str'
         }
-
         self.attribute_map = {
             'resource_type': 'resourceType',
             'resource_key': 'resourceKey'
         }
-
         self._resource_type = None
         self._resource_key = None
 
@@ -76,8 +74,7 @@ class BundledResource(object):
         allowed_values = ["JOB", "AGENTFLOW"]
         if not value_allowed_none_or_none_sentinel(resource_type, allowed_values):
             raise ValueError(
-                "Invalid value for `resource_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `resource_type`, must be None or one of {allowed_values}"
             )
         self._resource_type = resource_type
 

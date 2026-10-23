@@ -33,6 +33,10 @@ class RevokeMasterCatalogPermissionDetails(object):
     #: This constant has a value of "CREATE_CREDENTIAL"
     PERMISSIONS_CREATE_CREDENTIAL = "CREATE_CREDENTIAL"
 
+    #: A constant which can be used with the permissions property of a RevokeMasterCatalogPermissionDetails.
+    #: This constant has a value of "MANAGE_LINEAGE"
+    PERMISSIONS_MANAGE_LINEAGE = "MANAGE_LINEAGE"
+
     def __init__(self, **kwargs):
         """
         Initializes a new RevokeMasterCatalogPermissionDetails object with values from keyword arguments.
@@ -44,7 +48,7 @@ class RevokeMasterCatalogPermissionDetails(object):
 
         :param permissions:
             The value to assign to the permissions property of this RevokeMasterCatalogPermissionDetails.
-            Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL"
+            Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL", "MANAGE_LINEAGE"
         :type permissions: list[str]
 
         """
@@ -52,12 +56,10 @@ class RevokeMasterCatalogPermissionDetails(object):
             'assignees': 'PermissionAssignees',
             'permissions': 'list[str]'
         }
-
         self.attribute_map = {
             'assignees': 'assignees',
             'permissions': 'permissions'
         }
-
         self._assignees = None
         self._permissions = None
 
@@ -87,7 +89,7 @@ class RevokeMasterCatalogPermissionDetails(object):
         **[Required]** Gets the permissions of this RevokeMasterCatalogPermissionDetails.
         The permissions revoked from the assignees
 
-        Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL"
+        Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL", "MANAGE_LINEAGE"
 
 
         :return: The permissions of this RevokeMasterCatalogPermissionDetails.
@@ -105,14 +107,13 @@ class RevokeMasterCatalogPermissionDetails(object):
         :param permissions: The permissions of this RevokeMasterCatalogPermissionDetails.
         :type: list[str]
         """
-        allowed_values = ["CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL"]
+        allowed_values = ["CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL", "MANAGE_LINEAGE"]
         
         if permissions and permissions is not NONE_SENTINEL:
             for value in permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `permissions`, must be None or one of {allowed_values}"
                     )
         self._permissions = permissions
 

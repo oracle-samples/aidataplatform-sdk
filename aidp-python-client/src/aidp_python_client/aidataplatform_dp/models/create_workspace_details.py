@@ -41,14 +41,12 @@ class CreateWorkspaceDetails(object):
             'default_catalog_key': 'str',
             'network_configuration_details': 'WorkspaceNetworkConfigurationDetails'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
             'default_catalog_key': 'defaultCatalogKey',
             'network_configuration_details': 'networkConfigurationDetails'
         }
-
         self._display_name = None
         self._description = None
         self._default_catalog_key = None

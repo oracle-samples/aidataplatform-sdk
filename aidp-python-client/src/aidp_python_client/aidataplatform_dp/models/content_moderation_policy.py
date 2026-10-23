@@ -60,7 +60,6 @@ class ContentModerationPolicy(SafetyPolicy):
             'threshold': 'float',
             'categories': 'list[ContentModerationCategoryConfig]'
         }
-
         self.attribute_map = {
             'policy_type': 'policyType',
             'policy_name': 'policyName',
@@ -70,7 +69,6 @@ class ContentModerationPolicy(SafetyPolicy):
             'threshold': 'threshold',
             'categories': 'categories'
         }
-
         self._policy_type = None
         self._policy_name = None
         self._policy_description = None

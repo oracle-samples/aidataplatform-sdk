@@ -36,13 +36,11 @@ class AgentDependencyItem(object):
             'key': 'str',
             'location': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'key': 'key',
             'location': 'location'
         }
-
         self._type = None
         self._key = None
         self._location = None

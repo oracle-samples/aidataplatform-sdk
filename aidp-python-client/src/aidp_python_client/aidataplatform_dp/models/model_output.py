@@ -31,12 +31,10 @@ class ModelOutput(object):
             'model_id': 'str',
             'step': 'int'
         }
-
         self.attribute_map = {
             'model_id': 'model_id',
             'step': 'step'
         }
-
         self._model_id = None
         self._step = None
 

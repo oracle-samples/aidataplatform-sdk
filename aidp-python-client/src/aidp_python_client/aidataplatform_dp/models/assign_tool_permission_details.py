@@ -54,14 +54,12 @@ class AssignToolPermissionDetails(object):
             'include_columns': 'list[str]',
             'exclude_columns': 'list[str]'
         }
-
         self.attribute_map = {
             'assignees': 'assignees',
             'permissions': 'permissions',
             'include_columns': 'includeColumns',
             'exclude_columns': 'excludeColumns'
         }
-
         self._assignees = None
         self._permissions = None
         self._include_columns = None
@@ -117,8 +115,7 @@ class AssignToolPermissionDetails(object):
             for value in permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `permissions`, must be None or one of {allowed_values}"
                     )
         self._permissions = permissions
 

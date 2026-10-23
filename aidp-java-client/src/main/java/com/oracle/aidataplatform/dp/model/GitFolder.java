@@ -5,35 +5,39 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Represents a Git folder object.
+ * A workspace Git folder and its repository, branch, and connectivity settings.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitFolder.Builder.class)
 
 public final class GitFolder  {
     @Deprecated
-    @java.beans.ConstructorProperties({"folderPath", "gitProviderKey", "gitRepositoryUrl", "description", "branchName", "folderMetadata"})
-    public GitFolder(String folderPath, String gitProviderKey, String gitRepositoryUrl, String description, String branchName, java.util.Map<String, Object> folderMetadata) {
+    @java.beans.ConstructorProperties({"folderPath", "gitProviderKey", "gitRepositoryUrl", "description", "branchName", "isPrivateConnectivityEnabled", "gitConnectivityProfileKey", "credentialStoreKey", "folderMetadata", "sparseCheckout"})
+    public GitFolder(String folderPath, String gitProviderKey, String gitRepositoryUrl, String description, String branchName, Boolean isPrivateConnectivityEnabled, String gitConnectivityProfileKey, String credentialStoreKey, java.util.Map<String, Object> folderMetadata, SparseCheckoutDetails sparseCheckout) {
         super();
         this.folderPath = folderPath;
         this.gitProviderKey = gitProviderKey;
         this.gitRepositoryUrl = gitRepositoryUrl;
         this.description = description;
         this.branchName = branchName;
+        this.isPrivateConnectivityEnabled = isPrivateConnectivityEnabled;
+        this.gitConnectivityProfileKey = gitConnectivityProfileKey;
+        this.credentialStoreKey = credentialStoreKey;
         this.folderMetadata = folderMetadata;
+        this.sparseCheckout = sparseCheckout;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The absolute path of the Git folder user wants to create.
+     * Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("folderPath")
 private String folderPath;
 
         /**
-         * The absolute path of the Git folder user wants to create.
+         * Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}.
          * @param folderPath the value to set
          * @return this builder
          **/
@@ -116,6 +120,72 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
+     * Whether this Git folder uses private network connectivity.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("isPrivateConnectivityEnabled")
+private Boolean isPrivateConnectivityEnabled;
+
+        /**
+         * Whether this Git folder uses private network connectivity.
+         * @param isPrivateConnectivityEnabled the value to set
+         * @return this builder
+         **/
+        
+
+public Builder isPrivateConnectivityEnabled(Boolean isPrivateConnectivityEnabled) {
+    this.isPrivateConnectivityEnabled = isPrivateConnectivityEnabled;
+    return this;
+}
+            /**
+     * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("gitConnectivityProfileKey")
+private String gitConnectivityProfileKey;
+
+        /**
+         * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+         * @param gitConnectivityProfileKey the value to set
+         * @return this builder
+         **/
+        
+
+public Builder gitConnectivityProfileKey(String gitConnectivityProfileKey) {
+    this.gitConnectivityProfileKey = gitConnectivityProfileKey;
+    return this;
+}
+            /**
+     * Key of the credential containing the Git server's TLS CA certificate,
+* returned by credential listings filtered by displayName. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("credentialStoreKey")
+private String credentialStoreKey;
+
+        /**
+         * Key of the credential containing the Git server's TLS CA certificate,
+* returned by credential listings filtered by displayName. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+         * @param credentialStoreKey the value to set
+         * @return this builder
+         **/
+        
+
+public Builder credentialStoreKey(String credentialStoreKey) {
+    this.credentialStoreKey = credentialStoreKey;
+    return this;
+}
+            /**
      * The metadata about the folder, like branchName.
      **/
     
@@ -133,6 +203,16 @@ public Builder folderMetadata(java.util.Map<String, Object> folderMetadata) {
     this.folderMetadata = folderMetadata;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("sparseCheckout")
+private SparseCheckoutDetails sparseCheckout;
+
+
+
+public Builder sparseCheckout(SparseCheckoutDetails sparseCheckout) {
+    this.sparseCheckout = sparseCheckout;
+    return this;
+}
 
 
         public GitFolder build() {
@@ -141,7 +221,11 @@ public Builder folderMetadata(java.util.Map<String, Object> folderMetadata) {
                 , this.gitRepositoryUrl
                 , this.description
                 , this.branchName
-                , this.folderMetadata);            return model;
+                , this.isPrivateConnectivityEnabled
+                , this.gitConnectivityProfileKey
+                , this.credentialStoreKey
+                , this.folderMetadata
+                , this.sparseCheckout);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -151,7 +235,11 @@ public Builder folderMetadata(java.util.Map<String, Object> folderMetadata) {
     this.gitRepositoryUrl(model.getGitRepositoryUrl());
     this.description(model.getDescription());
     this.branchName(model.getBranchName());
+    this.isPrivateConnectivityEnabled(model.getIsPrivateConnectivityEnabled());
+    this.gitConnectivityProfileKey(model.getGitConnectivityProfileKey());
+    this.credentialStoreKey(model.getCredentialStoreKey());
     this.folderMetadata(model.getFolderMetadata());
+    this.sparseCheckout(model.getSparseCheckout());
 return this;
         }
     }
@@ -172,14 +260,14 @@ return this;
 
 
         /**
-     * The absolute path of the Git folder user wants to create.
+     * Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("folderPath")
     private final String folderPath;
 
         /**
-     * The absolute path of the Git folder user wants to create.
+     * Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}.
      * @return the value
      **/
     
@@ -257,6 +345,69 @@ return this;
 
 
         /**
+     * Whether this Git folder uses private network connectivity.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("isPrivateConnectivityEnabled")
+    private final Boolean isPrivateConnectivityEnabled;
+
+        /**
+     * Whether this Git folder uses private network connectivity.
+     * @return the value
+     **/
+    
+    public Boolean getIsPrivateConnectivityEnabled() {
+        return isPrivateConnectivityEnabled;
+    }
+
+
+        /**
+     * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("gitConnectivityProfileKey")
+    private final String gitConnectivityProfileKey;
+
+        /**
+     * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+     * @return the value
+     **/
+    
+    public String getGitConnectivityProfileKey() {
+        return gitConnectivityProfileKey;
+    }
+
+
+        /**
+     * Key of the credential containing the Git server's TLS CA certificate,
+* returned by credential listings filtered by displayName. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("credentialStoreKey")
+    private final String credentialStoreKey;
+
+        /**
+     * Key of the credential containing the Git server's TLS CA certificate,
+* returned by credential listings filtered by displayName. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+     * @return the value
+     **/
+    
+    public String getCredentialStoreKey() {
+        return credentialStoreKey;
+    }
+
+
+        /**
      * The metadata about the folder, like branchName.
      **/
     
@@ -270,6 +421,16 @@ return this;
     
     public java.util.Map<String, Object> getFolderMetadata() {
         return folderMetadata;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("sparseCheckout")
+    private final SparseCheckoutDetails sparseCheckout;
+
+    
+    public SparseCheckoutDetails getSparseCheckout() {
+        return sparseCheckout;
     }
 
     @Override
@@ -290,7 +451,11 @@ return this;
         sb.append(", gitRepositoryUrl=").append(String.valueOf(this.gitRepositoryUrl));
         sb.append(", description=").append(String.valueOf(this.description));
         sb.append(", branchName=").append(String.valueOf(this.branchName));
+        sb.append(", isPrivateConnectivityEnabled=").append(String.valueOf(this.isPrivateConnectivityEnabled));
+        sb.append(", gitConnectivityProfileKey=").append(String.valueOf(this.gitConnectivityProfileKey));
+        sb.append(", credentialStoreKey=").append(String.valueOf(this.credentialStoreKey));
         sb.append(", folderMetadata=").append(String.valueOf(this.folderMetadata));
+        sb.append(", sparseCheckout=").append(String.valueOf(this.sparseCheckout));
         sb.append(")");
         return sb.toString();
     }
@@ -310,7 +475,11 @@ return this;
             java.util.Objects.equals(this.gitRepositoryUrl, other.gitRepositoryUrl) &&
             java.util.Objects.equals(this.description, other.description) &&
             java.util.Objects.equals(this.branchName, other.branchName) &&
-            java.util.Objects.equals(this.folderMetadata, other.folderMetadata);
+            java.util.Objects.equals(this.isPrivateConnectivityEnabled, other.isPrivateConnectivityEnabled) &&
+            java.util.Objects.equals(this.gitConnectivityProfileKey, other.gitConnectivityProfileKey) &&
+            java.util.Objects.equals(this.credentialStoreKey, other.credentialStoreKey) &&
+            java.util.Objects.equals(this.folderMetadata, other.folderMetadata) &&
+            java.util.Objects.equals(this.sparseCheckout, other.sparseCheckout);
     }
 
     @Override
@@ -322,7 +491,11 @@ return this;
         result = (result * PRIME) + (this.gitRepositoryUrl == null ? 43 : this.gitRepositoryUrl.hashCode());
         result = (result * PRIME) + (this.description == null ? 43 : this.description.hashCode());
         result = (result * PRIME) + (this.branchName == null ? 43 : this.branchName.hashCode());
+        result = (result * PRIME) + (this.isPrivateConnectivityEnabled == null ? 43 : this.isPrivateConnectivityEnabled.hashCode());
+        result = (result * PRIME) + (this.gitConnectivityProfileKey == null ? 43 : this.gitConnectivityProfileKey.hashCode());
+        result = (result * PRIME) + (this.credentialStoreKey == null ? 43 : this.credentialStoreKey.hashCode());
         result = (result * PRIME) + (this.folderMetadata == null ? 43 : this.folderMetadata.hashCode());
+        result = (result * PRIME) + (this.sparseCheckout == null ? 43 : this.sparseCheckout.hashCode());
         return result;
     }
 

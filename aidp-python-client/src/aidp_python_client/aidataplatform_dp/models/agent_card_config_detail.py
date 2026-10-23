@@ -56,7 +56,6 @@ class AgentCardConfigDetail(object):
             'provider': 'AgentProvider',
             'documentation_url': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
@@ -66,7 +65,6 @@ class AgentCardConfigDetail(object):
             'provider': 'provider',
             'documentation_url': 'documentationUrl'
         }
-
         self._name = None
         self._description = None
         self._skills = None

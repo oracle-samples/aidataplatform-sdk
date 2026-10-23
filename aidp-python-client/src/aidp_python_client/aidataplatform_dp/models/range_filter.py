@@ -63,14 +63,12 @@ class RangeFilter(object):
             'start': 'str',
             'end': 'str'
         }
-
         self.attribute_map = {
             'field': 'field',
             'data_type': 'dataType',
             'start': 'start',
             'end': 'end'
         }
-
         self._field = None
         self._data_type = None
         self._start = None
@@ -103,8 +101,7 @@ class RangeFilter(object):
         allowed_values = ["TIME_UPDATED", "TIME_CREATED"]
         if not value_allowed_none_or_none_sentinel(field, allowed_values):
             raise ValueError(
-                "Invalid value for `field`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `field`, must be None or one of {allowed_values}"
             )
         self._field = field
 
@@ -135,8 +132,7 @@ class RangeFilter(object):
         allowed_values = ["STRING", "DATE", "INTEGER"]
         if not value_allowed_none_or_none_sentinel(data_type, allowed_values):
             raise ValueError(
-                "Invalid value for `data_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `data_type`, must be None or one of {allowed_values}"
             )
         self._data_type = data_type
 

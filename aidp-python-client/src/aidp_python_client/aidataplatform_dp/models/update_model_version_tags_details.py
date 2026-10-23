@@ -41,14 +41,12 @@ class UpdateModelVersionTagsDetails(object):
             'set_tags': 'list[ModelVersionTag]',
             'delete_tags': 'list[ModelVersionTagKey]'
         }
-
         self.attribute_map = {
             'name': 'name',
             'version': 'version',
             'set_tags': 'set_tags',
             'delete_tags': 'delete_tags'
         }
-
         self._name = None
         self._version = None
         self._set_tags = None

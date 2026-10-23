@@ -3,7 +3,7 @@
 
 
 
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -36,13 +36,14 @@ class UploadAndExtractZipResult(object):
             'upload_url': 'str',
             'destination_folder_path': 'str'
         }
-
         self.attribute_map = {
             'operation_key': 'operationKey',
             'upload_url': 'uploadUrl',
             'destination_folder_path': 'destinationFolderPath'
         }
-
+        self._redacted_field_paths = [
+            ['upload_url'],
+        ]
         self._operation_key = None
         self._upload_url = None
         self._destination_folder_path = None
@@ -120,7 +121,9 @@ class UploadAndExtractZipResult(object):
         self._destination_folder_path = destination_folder_path
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['upload_url'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

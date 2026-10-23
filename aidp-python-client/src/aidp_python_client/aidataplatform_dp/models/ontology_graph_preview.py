@@ -30,6 +30,10 @@ class OntologyGraphPreview(object):
             The value to assign to the graph property of this OntologyGraphPreview.
         :type graph: oci.aidataplatform_dp.models.OntologyGraphPreviewModel
 
+        :param summary:
+            The value to assign to the summary property of this OntologyGraphPreview.
+        :type summary: oci.aidataplatform_dp.models.OntologyGraphSummary
+
         :param limits:
             The value to assign to the limits property of this OntologyGraphPreview.
         :type limits: oci.aidataplatform_dp.models.OntologyGraphPreviewLimits
@@ -55,27 +59,28 @@ class OntologyGraphPreview(object):
             'file': 'OntologyGraphPreviewFile',
             'status': 'str',
             'graph': 'OntologyGraphPreviewModel',
+            'summary': 'OntologyGraphSummary',
             'limits': 'OntologyGraphPreviewLimits',
             'diagnostics': 'list[OntologyGraphPreviewDiagnostic]',
             'unsupported_constructs': 'list[str]',
             'next_cursor': 'str',
             'next_parent_cursor': 'str'
         }
-
         self.attribute_map = {
             'file': 'file',
             'status': 'status',
             'graph': 'graph',
+            'summary': 'summary',
             'limits': 'limits',
             'diagnostics': 'diagnostics',
             'unsupported_constructs': 'unsupportedConstructs',
             'next_cursor': 'nextCursor',
             'next_parent_cursor': 'nextParentCursor'
         }
-
         self._file = None
         self._status = None
         self._graph = None
+        self._summary = None
         self._limits = None
         self._diagnostics = None
         self._unsupported_constructs = None
@@ -145,6 +150,26 @@ class OntologyGraphPreview(object):
         :type: oci.aidataplatform_dp.models.OntologyGraphPreviewModel
         """
         self._graph = graph
+
+    @property
+    def summary(self):
+        """
+        Gets the summary of this OntologyGraphPreview.
+
+        :return: The summary of this OntologyGraphPreview.
+        :rtype: oci.aidataplatform_dp.models.OntologyGraphSummary
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """
+        Sets the summary of this OntologyGraphPreview.
+
+        :param summary: The summary of this OntologyGraphPreview.
+        :type: oci.aidataplatform_dp.models.OntologyGraphSummary
+        """
+        self._summary = summary
 
     @property
     def limits(self):

@@ -31,12 +31,10 @@ class DeleteModelVersionDetails(object):
             'name': 'str',
             'version': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'version': 'version'
         }
-
         self._name = None
         self._version = None
 

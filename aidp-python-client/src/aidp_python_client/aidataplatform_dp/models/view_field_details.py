@@ -46,7 +46,6 @@ class ViewFieldDetails(object):
             'field_scale': 'str',
             'field_description': 'str'
         }
-
         self.attribute_map = {
             'field_name': 'fieldName',
             'field_type': 'fieldType',
@@ -54,7 +53,6 @@ class ViewFieldDetails(object):
             'field_scale': 'fieldScale',
             'field_description': 'fieldDescription'
         }
-
         self._field_name = None
         self._field_type = None
         self._field_precision = None

@@ -36,13 +36,11 @@ class CreateExperimentDetails(object):
             'artifact_location': 'str',
             'tags': 'list[ExperimentTag]'
         }
-
         self.attribute_map = {
             'name': 'name',
             'artifact_location': 'artifact_location',
             'tags': 'tags'
         }
-
         self._name = None
         self._artifact_location = None
         self._tags = None

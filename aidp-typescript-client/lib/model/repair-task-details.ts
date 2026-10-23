@@ -20,10 +20,12 @@ export interface RepairTaskDetails {
     * Include transitive upstream tasks for this task selection.
     */
     'shouldIncludeUpstream'?: boolean;
+    'nestedRepairJobRunDetails'?: model.RepairJobRunDetails;
 
 }
 
 export namespace RepairTaskDetails {
+
 
 
 
@@ -34,6 +36,10 @@ export namespace RepairTaskDetails {
 
 
 
+                'nestedRepairJobRunDetails': obj.nestedRepairJobRunDetails ?
+                
+                
+                model.RepairJobRunDetails.getJsonObj(obj.nestedRepairJobRunDetails) : undefined,
         }};
 
         
@@ -47,6 +53,10 @@ export namespace RepairTaskDetails {
 
 
 
+                    'nestedRepairJobRunDetails': obj.nestedRepairJobRunDetails ?
+                
+                
+                model.RepairJobRunDetails.getDeserializedJsonObj(obj.nestedRepairJobRunDetails) : undefined,
          }};
 
         

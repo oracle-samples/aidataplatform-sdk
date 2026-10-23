@@ -5,19 +5,26 @@ import common = require("oci-common");
 
 
 /**
-* Commit staged/local changes and push to remote for the given branch context.
+* Commit message and optional file selection for a Git commit and push request.
 */
 export interface CommitPushDetails {
     /**
-    * Folder path used to locate the Git worktree.
+    * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'gitFolderPath'?: string;
     /**
-    * Git branch name that is cloned.
+    * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'branchName'?: string;
     /**
-    * List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+    * Repository-relative paths staged for a normal commit. When omitted, all local
+* changes are staged with git add -A. Not applied when continuing a resolved
+* rebase. Selected paths must be included by sparse checkout, if enabled.
+* 
     */
     'files'?: Array<string>;
     /**

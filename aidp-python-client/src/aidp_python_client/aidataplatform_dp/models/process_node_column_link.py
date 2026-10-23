@@ -36,13 +36,11 @@ class ProcessNodeColumnLink(object):
             'target_column': 'ProcessNodeColumnDetails',
             'transformation': 'str'
         }
-
         self.attribute_map = {
             'source_column': 'sourceColumn',
             'target_column': 'targetColumn',
             'transformation': 'transformation'
         }
-
         self._source_column = None
         self._target_column = None
         self._transformation = None

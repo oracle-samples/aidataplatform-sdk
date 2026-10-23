@@ -65,7 +65,6 @@ class WordFiltersPolicy(SafetyPolicy):
             'words': 'list[str]',
             'regex_patterns': 'list[str]'
         }
-
         self.attribute_map = {
             'policy_type': 'policyType',
             'policy_name': 'policyName',
@@ -76,7 +75,6 @@ class WordFiltersPolicy(SafetyPolicy):
             'words': 'words',
             'regex_patterns': 'regexPatterns'
         }
-
         self._policy_type = None
         self._policy_name = None
         self._policy_description = None

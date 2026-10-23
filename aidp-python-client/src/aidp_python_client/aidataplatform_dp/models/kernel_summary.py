@@ -46,7 +46,6 @@ class KernelSummary(object):
             'connections': 'int',
             'execution_state': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
@@ -54,7 +53,6 @@ class KernelSummary(object):
             'connections': 'connections',
             'execution_state': 'execution_state'
         }
-
         self._id = None
         self._name = None
         self._last_activity = None

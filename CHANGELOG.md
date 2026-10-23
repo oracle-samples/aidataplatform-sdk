@@ -3,6 +3,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [5.1.1] - 2026-10-22
+
+### Added
+
+- Support for `CreatePrivateNetworkProfile` in the Private Network Profile service. Create a private network profile.
+- Support for `DeletePrivateNetworkProfile` in the Private Network Profile service. Delete a private network profile.
+- Support for `ExportModelDeploymentInferences` in the ML Ops service. (Preview) Export model deployment inferences to a Volume.
+- Support for `GetDeploymentLog` in the ML Ops service. (Preview) Get one deployment log event.
+- Support for `GetModelDeploymentInferenceDetails` in the ML Ops service. (Preview) Get model deployment inference details.
+- Support for `GetModelDeploymentInferenceSummary` in the ML Ops service. (Preview) Get model deployment inference summary.
+- Support for `GetPrivateNetworkProfile` in the Private Network Profile service. Get a private network profile.
+- Support for `ListPrivateNetworkProfiles` in the Private Network Profile service.
+- Support for `ListRegisteredModelPermissions` in the ML Ops service. (Preview) List registered model permissions.
+- Support for `ManageRegisteredModelPermission` in the ML Ops service. (Preview) Manage registered model permission.
+- Support for `SearchDeploymentLogs` in the ML Ops service. (Preview) Search deployment lifecycle logs.
+- Support for `SearchModelDeploymentInferences` in the ML Ops service. (Preview) Search model deployment inferences.
+- Support for `UpdatePrivateNetworkProfile` in the Private Network Profile service. Update a private network profile.
+
+### Changed
+
+- Added response code `403` for `ValidateAgent` in the Agent service.
+
+### Fixed
+
+- Fixed the documented `UpdateGitRepository` response code from `204` to `202`. Service behavior is unchanged.
+
 ## [5.0.0] - 2026-09-25
 
 ### Added

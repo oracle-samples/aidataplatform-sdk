@@ -31,12 +31,10 @@ class RagResult(object):
             'answer': 'str',
             'retrieved_chunks': 'list[RetrievedChunk]'
         }
-
         self.attribute_map = {
             'answer': 'answer',
             'retrieved_chunks': 'retrievedChunks'
         }
-
         self._answer = None
         self._retrieved_chunks = None
 

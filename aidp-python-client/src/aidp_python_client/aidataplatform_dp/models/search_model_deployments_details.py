@@ -67,7 +67,6 @@ class SearchModelDeploymentsDetails(object):
             'order_by': 'list[str]',
             'page_token': 'str'
         }
-
         self.attribute_map = {
             'model_name': 'model_name',
             'status': 'status',
@@ -75,7 +74,6 @@ class SearchModelDeploymentsDetails(object):
             'order_by': 'order_by',
             'page_token': 'page_token'
         }
-
         self._model_name = None
         self._status = None
         self._max_results = None
@@ -133,8 +131,7 @@ class SearchModelDeploymentsDetails(object):
         allowed_values = ["INACTIVE", "ACTIVATING", "ACTIVE", "DEACTIVATING", "UPDATING"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `status`, must be None or one of {allowed_values}"
             )
         self._status = status
 

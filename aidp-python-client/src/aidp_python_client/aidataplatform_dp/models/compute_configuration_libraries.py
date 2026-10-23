@@ -31,12 +31,10 @@ class ComputeConfigurationLibraries(object):
             'python': 'list[str]',
             'jars': 'list[str]'
         }
-
         self.attribute_map = {
             'python': 'python',
             'jars': 'jars'
         }
-
         self._python = None
         self._jars = None
 

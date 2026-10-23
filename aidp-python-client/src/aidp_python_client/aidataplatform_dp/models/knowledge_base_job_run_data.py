@@ -55,7 +55,6 @@ class KnowledgeBaseJobRunData(object):
             'records_added_updated_size': 'int',
             'trigger_type': 'str'
         }
-
         self.attribute_map = {
             'records_added': 'recordsAdded',
             'records_deleted': 'recordsDeleted',
@@ -63,7 +62,6 @@ class KnowledgeBaseJobRunData(object):
             'records_added_updated_size': 'recordsAddedUpdatedSize',
             'trigger_type': 'triggerType'
         }
-
         self._records_added = None
         self._records_deleted = None
         self._records_updated = None
@@ -193,8 +191,7 @@ class KnowledgeBaseJobRunData(object):
         allowed_values = ["NOTEBOOK", "OTHER"]
         if not value_allowed_none_or_none_sentinel(trigger_type, allowed_values):
             raise ValueError(
-                "Invalid value for `trigger_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `trigger_type`, must be None or one of {allowed_values}"
             )
         self._trigger_type = trigger_type
 

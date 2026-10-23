@@ -21,7 +21,7 @@ class KafkaTopicSchemaSummary(SchemaSummary):
 
         :param entity_type:
             The value to assign to the entity_type property of this KafkaTopicSchemaSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"
         :type entity_type: str
 
         :param key:
@@ -95,7 +95,6 @@ class KafkaTopicSchemaSummary(SchemaSummary):
             'partitions': 'str',
             'replication_factor': 'str'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'key': 'key',
@@ -112,7 +111,6 @@ class KafkaTopicSchemaSummary(SchemaSummary):
             'partitions': 'partitions',
             'replication_factor': 'replicationFactor'
         }
-
         self._entity_type = None
         self._key = None
         self._display_name = None

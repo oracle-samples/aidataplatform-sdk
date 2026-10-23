@@ -5,27 +5,37 @@ import common = require("oci-common");
 
 
 /**
-* Pull remote changes for the given branch context (supports continue/abort during merge).
+* Request details for pulling changes into a workspace Git repository.
 */
 export interface GitPullDetails {
     /**
-    * Folder path used to locate the Git worktree.
+    * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'gitFolderPath'?: string;
     /**
-    * Git branch name that is cloned.
+    * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'branchName'?: string;
     /**
-    * Remote branch to pull from. Defaults to branchName if not provided.
+    * Requested remote branch name. The pull source is origin for the stored
+* repository branch; the supplied value does not override it.
+* 
     */
     'remoteBranchName'?: string;
     /**
-    * Pull behavior requested by the caller.
+    * Requested pull action. The effective action is PULL regardless of the supplied
+* value; MERGE_CONTINUE and MERGE_ABORT do not select separate actions.
+* 
     */
     'pullAction'?: GitPullDetails.PullAction;
     /**
-    * Commit message used only when pullAction is MERGE_CONTINUE.
+    * Requested merge-continuation commit message. The supplied value has no effect,
+* including when pullAction is MERGE_CONTINUE.
+* 
     */
     'commitMessage'?: string;
 

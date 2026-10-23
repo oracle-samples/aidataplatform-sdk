@@ -64,7 +64,6 @@ class InstallClusterLibraryDetails(ClusterLibraryDetails):
             'repository': 'str',
             'exclusions': 'list[str]'
         }
-
         self.attribute_map = {
             'operation': 'operation',
             'type': 'type',
@@ -75,7 +74,6 @@ class InstallClusterLibraryDetails(ClusterLibraryDetails):
             'repository': 'repository',
             'exclusions': 'exclusions'
         }
-
         self._operation = None
         self._type = None
         self._path = None

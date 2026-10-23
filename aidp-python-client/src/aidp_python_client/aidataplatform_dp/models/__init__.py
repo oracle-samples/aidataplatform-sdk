@@ -48,6 +48,7 @@ from .agent_session import AgentSession
 from .agent_session_collection import AgentSessionCollection
 from .agent_session_context import AgentSessionContext
 from .agent_session_summary import AgentSessionSummary
+from .agent_task import AgentTask
 from .aggregated_data_point import AggregatedDataPoint
 from .ai_compute import AiCompute
 from .ai_compute_override_item import AiComputeOverrideItem
@@ -72,6 +73,7 @@ from .assign_job_permission_details import AssignJobPermissionDetails
 from .assign_knowledge_base_permission_details import AssignKnowledgeBasePermissionDetails
 from .assign_master_catalog_permission_details import AssignMasterCatalogPermissionDetails
 from .assign_recipient_permission_details import AssignRecipientPermissionDetails
+from .assign_registered_model_permission_details import AssignRegisteredModelPermissionDetails
 from .assign_role_permission_details import AssignRolePermissionDetails
 from .assign_schema_permission_details import AssignSchemaPermissionDetails
 from .assign_share_permission_details import AssignSharePermissionDetails
@@ -98,6 +100,7 @@ from .auth import Auth
 from .auto_scale import AutoScale
 from .auto_scale_configuration import AutoScaleConfiguration
 from .auto_scale_metric_configuration import AutoScaleMetricConfiguration
+from .automatic_summarization_configuration import AutomaticSummarizationConfiguration
 from .base_llm_config import BaseLlmConfig
 from .bearer_token_auth import BearerTokenAuth
 from .bucket_collection import BucketCollection
@@ -199,9 +202,11 @@ from .create_model_deployment_details import CreateModelDeploymentDetails
 from .create_model_version_details import CreateModelVersionDetails
 from .create_model_version_response_details import CreateModelVersionResponseDetails
 from .create_nl_to_sql_tool_details import CreateNlToSqlToolDetails
+from .create_ontology_dfl_connection_details import CreateOntologyDflConnectionDetails
 from .create_ontology_folder_details import CreateOntologyFolderDetails
 from .create_ontology_project_details import CreateOntologyProjectDetails
 from .create_or_update_bundle_overrides_details import CreateOrUpdateBundleOverridesDetails
+from .create_private_network_profile_details import CreatePrivateNetworkProfileDetails
 from .create_prompt_tool_details import CreatePromptToolDetails
 from .create_rag_tool_details import CreateRagToolDetails
 from .create_recipient_details import CreateRecipientDetails
@@ -279,11 +284,25 @@ from .deployment_activity import DeploymentActivity
 from .deployment_activity_summary import DeploymentActivitySummary
 from .deployment_details import DeploymentDetails
 from .deployment_details_summary import DeploymentDetailsSummary
+from .deployment_log_collection import DeploymentLogCollection
+from .deployment_log_coverage import DeploymentLogCoverage
+from .deployment_log_detail import DeploymentLogDetail
+from .deployment_log_message import DeploymentLogMessage
+from .deployment_log_metadata import DeploymentLogMetadata
+from .deployment_log_page import DeploymentLogPage
+from .deployment_log_query_echo import DeploymentLogQueryEcho
+from .deployment_log_summary import DeploymentLogSummary
 from .deployment_o_auth_details import DeploymentOAuthDetails
 from .deployment_summary import DeploymentSummary
 from .deployment_target import DeploymentTarget
 from .detach_workspace_object_from_cluster_details import DetachWorkspaceObjectFromClusterDetails
 from .dfl_compute_status_result import DflComputeStatusResult
+from .discover_existing_ontology_project_details import DiscoverExistingOntologyProjectDetails
+from .discover_ontology_project_details import DiscoverOntologyProjectDetails
+from .discovery_location import DiscoveryLocation
+from .discovery_options import DiscoveryOptions
+from .discovery_selection import DiscoverySelection
+from .discovery_source import DiscoverySource
 from .download_cluster_logs_details import DownloadClusterLogsDetails
 from .download_file_with_par_result import DownloadFileWithParResult
 from .driver_config import DriverConfig
@@ -315,6 +334,8 @@ from .experiment_tag import ExperimentTag
 from .experiment_tag_key import ExperimentTagKey
 from .export_compute_configuration_details import ExportComputeConfigurationDetails
 from .export_contents_details import ExportContentsDetails
+from .export_inference_invocations_details import ExportInferenceInvocationsDetails
+from .export_inference_invocations_filters import ExportInferenceInvocationsFilters
 from .export_lineage_details import ExportLineageDetails
 from .export_task_run_output_details import ExportTaskRunOutputDetails
 from .exported_contents import ExportedContents
@@ -365,6 +386,10 @@ from .git_rebase_details import GitRebaseDetails
 from .git_repair_work_tree_details import GitRepairWorkTreeDetails
 from .git_repository import GitRepository
 from .git_reset_details import GitResetDetails
+from .google_bigquery_schema import GoogleBigquerySchema
+from .google_bigquery_schema_summary import GoogleBigquerySchemaSummary
+from .google_bigquery_table import GoogleBigqueryTable
+from .google_bigquery_table_summary import GoogleBigqueryTableSummary
 from .grouped_search_criteria import GroupedSearchCriteria
 from .guardrails_configuration import GuardrailsConfiguration
 from .history_collection import HistoryCollection
@@ -383,10 +408,18 @@ from .identity_user_metadatum import IdentityUserMetadatum
 from .identity_user_summary import IdentityUserSummary
 from .if_else_task import IfElseTask
 from .import_compute_configuration_details import ImportComputeConfigurationDetails
+from .import_lineage_details import ImportLineageDetails
 from .infer_schema import InferSchema
 from .infer_schema_column import InferSchemaColumn
 from .infer_schema_properties import InferSchemaProperties
 from .infer_schema_with_preview import InferSchemaWithPreview
+from .inference_invocation_details import InferenceInvocationDetails
+from .inference_invocation_metadata import InferenceInvocationMetadata
+from .inference_invocation_search_details import InferenceInvocationSearchDetails
+from .inference_invocation_search_result import InferenceInvocationSearchResult
+from .inference_invocation_summary import InferenceInvocationSummary
+from .inference_invocation_summary_metrics import InferenceInvocationSummaryMetrics
+from .inference_invocation_summary_response import InferenceInvocationSummaryResponse
 from .init_script_path import InitScriptPath
 from .input_tag import InputTag
 from .install_cluster_library_details import InstallClusterLibraryDetails
@@ -428,6 +461,16 @@ from .knowledge_base_vector_index_details import KnowledgeBaseVectorIndexDetails
 from .libraries import Libraries
 from .lifecycle_state import LifecycleState
 from .lineage_graph_node_neighbors_filter import LineageGraphNodeNeighborsFilter
+from .lineage_import import LineageImport
+from .lineage_import_collection import LineageImportCollection
+from .lineage_import_log import LineageImportLog
+from .lineage_import_log_collection import LineageImportLogCollection
+from .lineage_import_log_summary import LineageImportLogSummary
+from .lineage_import_run_event import LineageImportRunEvent
+from .lineage_import_run_event_collection import LineageImportRunEventCollection
+from .lineage_import_run_event_dataset import LineageImportRunEventDataset
+from .lineage_import_run_event_summary import LineageImportRunEventSummary
+from .lineage_import_summary import LineageImportSummary
 from .lineage_node_details import LineageNodeDetails
 from .lineage_node_details_collection import LineageNodeDetailsCollection
 from .lineage_object import LineageObject
@@ -457,6 +500,7 @@ from .logged_model_info import LoggedModelInfo
 from .logged_model_order import LoggedModelOrder
 from .logged_model_tag import LoggedModelTag
 from .logging_config import LoggingConfig
+from .long_term_memory_configuration import LongTermMemoryConfiguration
 from .manage_agent_permission_details import ManageAgentPermissionDetails
 from .manage_audit_logs_details import ManageAuditLogsDetails
 from .manage_catalog_permission_details import ManageCatalogPermissionDetails
@@ -466,7 +510,10 @@ from .manage_credential_permission_details import ManageCredentialPermissionDeta
 from .manage_job_permission_details import ManageJobPermissionDetails
 from .manage_knowledge_base_permission_details import ManageKnowledgeBasePermissionDetails
 from .manage_master_catalog_permission_details import ManageMasterCatalogPermissionDetails
+from .manage_ontology_manager_permissions_details import ManageOntologyManagerPermissionsDetails
+from .manage_ontology_project_permissions_details import ManageOntologyProjectPermissionsDetails
 from .manage_recipient_permission_details import ManageRecipientPermissionDetails
+from .manage_registered_model_permission_details import ManageRegisteredModelPermissionDetails
 from .manage_role_permission_details import ManageRolePermissionDetails
 from .manage_schema_permission_details import ManageSchemaPermissionDetails
 from .manage_share_access_details import ManageShareAccessDetails
@@ -555,6 +602,13 @@ from .object_search_summary import ObjectSearchSummary
 from .object_suggest_summary import ObjectSuggestSummary
 from .oci_logging import OciLogging
 from .oci_resource_principal_auth import OciResourcePrincipalAuth
+from .ontology_dfl_connection import OntologyDflConnection
+from .ontology_dfl_connection_collection import OntologyDflConnectionCollection
+from .ontology_dfl_connection_collection_response import OntologyDflConnectionCollectionResponse
+from .ontology_discovery_artifact_item import OntologyDiscoveryArtifactItem
+from .ontology_discovery_artifacts import OntologyDiscoveryArtifacts
+from .ontology_discovery_job import OntologyDiscoveryJob
+from .ontology_discovery_progress import OntologyDiscoveryProgress
 from .ontology_entity import OntologyEntity
 from .ontology_entity_cardinality import OntologyEntityCardinality
 from .ontology_entity_error import OntologyEntityError
@@ -594,13 +648,25 @@ from .ontology_graph_response import OntologyGraphResponse
 from .ontology_graph_search_result import OntologyGraphSearchResult
 from .ontology_graph_search_result_collection import OntologyGraphSearchResultCollection
 from .ontology_graph_search_result_collection_response import OntologyGraphSearchResultCollectionResponse
+from .ontology_graph_summary import OntologyGraphSummary
 from .ontology_graph_tree_context_path_item import OntologyGraphTreeContextPathItem
 from .ontology_graph_tree_search_filter import OntologyGraphTreeSearchFilter
 from .ontology_graph_tree_search_node import OntologyGraphTreeSearchNode
 from .ontology_graph_tree_search_response import OntologyGraphTreeSearchResponse
 from .ontology_graph_tree_search_result import OntologyGraphTreeSearchResult
 from .ontology_graph_tree_search_result_set import OntologyGraphTreeSearchResultSet
+from .ontology_manager_dfl_compute import OntologyManagerDflCompute
+from .ontology_manager_permission_collection import OntologyManagerPermissionCollection
+from .ontology_manager_permission_collection_response import OntologyManagerPermissionCollectionResponse
+from .ontology_manager_permission_grant import OntologyManagerPermissionGrant
+from .ontology_manager_permissions import OntologyManagerPermissions
+from .ontology_manager_read_permissions import OntologyManagerReadPermissions
 from .ontology_project import OntologyProject
+from .ontology_project_audit_log import OntologyProjectAuditLog
+from .ontology_project_audit_log_collection import OntologyProjectAuditLogCollection
+from .ontology_project_audit_log_collection_response import OntologyProjectAuditLogCollectionResponse
+from .ontology_project_bindings import OntologyProjectBindings
+from .ontology_project_bindings_response import OntologyProjectBindingsResponse
 from .ontology_project_collection import OntologyProjectCollection
 from .ontology_project_collection_response import OntologyProjectCollectionResponse
 from .ontology_project_file_content import OntologyProjectFileContent
@@ -612,6 +678,7 @@ from .ontology_project_object_collection_response import OntologyProjectObjectCo
 from .ontology_project_object_response import OntologyProjectObjectResponse
 from .ontology_project_parse_response import OntologyProjectParseResponse
 from .ontology_project_parse_result import OntologyProjectParseResult
+from .ontology_project_permission_collection_response import OntologyProjectPermissionCollectionResponse
 from .ontology_project_response import OntologyProjectResponse
 from .ontology_project_status import OntologyProjectStatus
 from .ontology_project_status_collection import OntologyProjectStatusCollection
@@ -631,6 +698,8 @@ from .par_details import ParDetails
 from .parameter import Parameter
 from .pass_through_node_filter_predicate import PassThroughNodeFilterPredicate
 from .patch_cluster_library_details import PatchClusterLibraryDetails
+from .patch_ontology_manager_permissions_details import PatchOntologyManagerPermissionsDetails
+from .patch_ontology_project_permissions_details import PatchOntologyProjectPermissionsDetails
 from .patch_session_details import PatchSessionDetails
 from .path_filter_object import PathFilterObject
 from .path_filter_predicates import PathFilterPredicates
@@ -644,6 +713,9 @@ from .point import Point
 from .preview_agent_card_details import PreviewAgentCardDetails
 from .principals_with_workspace_access_collection import PrincipalsWithWorkspaceAccessCollection
 from .principals_with_workspace_access_summary import PrincipalsWithWorkspaceAccessSummary
+from .private_network_profile import PrivateNetworkProfile
+from .private_network_profile_collection import PrivateNetworkProfileCollection
+from .private_network_profile_summary import PrivateNetworkProfileSummary
 from .process_node_column_details import ProcessNodeColumnDetails
 from .process_node_column_link import ProcessNodeColumnLink
 from .process_node_column_links_collection import ProcessNodeColumnLinksCollection
@@ -685,6 +757,8 @@ from .recipient_summary import RecipientSummary
 from .registered_model import RegisteredModel
 from .registered_model_alias import RegisteredModelAlias
 from .registered_model_collection import RegisteredModelCollection
+from .registered_model_permission_collection import RegisteredModelPermissionCollection
+from .registered_model_permission_summary import RegisteredModelPermissionSummary
 from .registered_model_summary import RegisteredModelSummary
 from .registered_model_tag import RegisteredModelTag
 from .registered_model_tag_key import RegisteredModelTagKey
@@ -712,7 +786,10 @@ from .revoke_credential_permission_details import RevokeCredentialPermissionDeta
 from .revoke_job_permission_details import RevokeJobPermissionDetails
 from .revoke_knowledge_base_permission_details import RevokeKnowledgeBasePermissionDetails
 from .revoke_master_catalog_permission_details import RevokeMasterCatalogPermissionDetails
+from .revoke_ontology_manager_permissions_details import RevokeOntologyManagerPermissionsDetails
+from .revoke_ontology_project_permissions_details import RevokeOntologyProjectPermissionsDetails
 from .revoke_recipient_permission_details import RevokeRecipientPermissionDetails
+from .revoke_registered_model_permission_details import RevokeRegisteredModelPermissionDetails
 from .revoke_role_permission_details import RevokeRolePermissionDetails
 from .revoke_schema_permission_details import RevokeSchemaPermissionDetails
 from .revoke_share_permission_details import RevokeSharePermissionDetails
@@ -742,6 +819,7 @@ from .schema_summary import SchemaSummary
 from .search_audit_logs_details import SearchAuditLogsDetails
 from .search_cluster_logs_details import SearchClusterLogsDetails
 from .search_criteria import SearchCriteria
+from .search_deployment_logs_details import SearchDeploymentLogsDetails
 from .search_model_deployments_details import SearchModelDeploymentsDetails
 from .search_object_type import SearchObjectType
 from .search_result import SearchResult
@@ -786,6 +864,7 @@ from .span_details import SpanDetails
 from .span_status import SpanStatus
 from .spark_cluster import SparkCluster
 from .spark_runtime_config import SparkRuntimeConfig
+from .sparse_checkout_details import SparseCheckoutDetails
 from .sql_result import SqlResult
 from .sql_server_on_azure_schema import SqlServerOnAzureSchema
 from .sql_server_on_azure_schema_summary import SqlServerOnAzureSchemaSummary
@@ -799,6 +878,7 @@ from .standard_schema_summary import StandardSchemaSummary
 from .standard_table import StandardTable
 from .standard_table_summary import StandardTableSummary
 from .start_cluster_details import StartClusterDetails
+from .start_discovery_details import StartDiscoveryDetails
 from .state import State
 from .stop_cluster_details import StopClusterDetails
 from .subscription_details import SubscriptionDetails
@@ -900,6 +980,7 @@ from .update_model_version_tags_details import UpdateModelVersionTagsDetails
 from .update_model_version_tags_response_details import UpdateModelVersionTagsResponseDetails
 from .update_nl_to_sql_tool_details import UpdateNlToSqlToolDetails
 from .update_ontology_project_details import UpdateOntologyProjectDetails
+from .update_private_network_profile_details import UpdatePrivateNetworkProfileDetails
 from .update_prompt_tool_details import UpdatePromptToolDetails
 from .update_rag_tool_details import UpdateRagToolDetails
 from .update_recipient_details import UpdateRecipientDetails
@@ -1019,6 +1100,7 @@ aidataplatform_dp_type_mapping = {
     "AgentSessionCollection": AgentSessionCollection,
     "AgentSessionContext": AgentSessionContext,
     "AgentSessionSummary": AgentSessionSummary,
+    "AgentTask": AgentTask,
     "AggregatedDataPoint": AggregatedDataPoint,
     "AiCompute": AiCompute,
     "AiComputeOverrideItem": AiComputeOverrideItem,
@@ -1043,6 +1125,7 @@ aidataplatform_dp_type_mapping = {
     "AssignKnowledgeBasePermissionDetails": AssignKnowledgeBasePermissionDetails,
     "AssignMasterCatalogPermissionDetails": AssignMasterCatalogPermissionDetails,
     "AssignRecipientPermissionDetails": AssignRecipientPermissionDetails,
+    "AssignRegisteredModelPermissionDetails": AssignRegisteredModelPermissionDetails,
     "AssignRolePermissionDetails": AssignRolePermissionDetails,
     "AssignSchemaPermissionDetails": AssignSchemaPermissionDetails,
     "AssignSharePermissionDetails": AssignSharePermissionDetails,
@@ -1069,6 +1152,7 @@ aidataplatform_dp_type_mapping = {
     "AutoScale": AutoScale,
     "AutoScaleConfiguration": AutoScaleConfiguration,
     "AutoScaleMetricConfiguration": AutoScaleMetricConfiguration,
+    "AutomaticSummarizationConfiguration": AutomaticSummarizationConfiguration,
     "BaseLlmConfig": BaseLlmConfig,
     "BearerTokenAuth": BearerTokenAuth,
     "BucketCollection": BucketCollection,
@@ -1170,9 +1254,11 @@ aidataplatform_dp_type_mapping = {
     "CreateModelVersionDetails": CreateModelVersionDetails,
     "CreateModelVersionResponseDetails": CreateModelVersionResponseDetails,
     "CreateNlToSqlToolDetails": CreateNlToSqlToolDetails,
+    "CreateOntologyDflConnectionDetails": CreateOntologyDflConnectionDetails,
     "CreateOntologyFolderDetails": CreateOntologyFolderDetails,
     "CreateOntologyProjectDetails": CreateOntologyProjectDetails,
     "CreateOrUpdateBundleOverridesDetails": CreateOrUpdateBundleOverridesDetails,
+    "CreatePrivateNetworkProfileDetails": CreatePrivateNetworkProfileDetails,
     "CreatePromptToolDetails": CreatePromptToolDetails,
     "CreateRagToolDetails": CreateRagToolDetails,
     "CreateRecipientDetails": CreateRecipientDetails,
@@ -1250,11 +1336,25 @@ aidataplatform_dp_type_mapping = {
     "DeploymentActivitySummary": DeploymentActivitySummary,
     "DeploymentDetails": DeploymentDetails,
     "DeploymentDetailsSummary": DeploymentDetailsSummary,
+    "DeploymentLogCollection": DeploymentLogCollection,
+    "DeploymentLogCoverage": DeploymentLogCoverage,
+    "DeploymentLogDetail": DeploymentLogDetail,
+    "DeploymentLogMessage": DeploymentLogMessage,
+    "DeploymentLogMetadata": DeploymentLogMetadata,
+    "DeploymentLogPage": DeploymentLogPage,
+    "DeploymentLogQueryEcho": DeploymentLogQueryEcho,
+    "DeploymentLogSummary": DeploymentLogSummary,
     "DeploymentOAuthDetails": DeploymentOAuthDetails,
     "DeploymentSummary": DeploymentSummary,
     "DeploymentTarget": DeploymentTarget,
     "DetachWorkspaceObjectFromClusterDetails": DetachWorkspaceObjectFromClusterDetails,
     "DflComputeStatusResult": DflComputeStatusResult,
+    "DiscoverExistingOntologyProjectDetails": DiscoverExistingOntologyProjectDetails,
+    "DiscoverOntologyProjectDetails": DiscoverOntologyProjectDetails,
+    "DiscoveryLocation": DiscoveryLocation,
+    "DiscoveryOptions": DiscoveryOptions,
+    "DiscoverySelection": DiscoverySelection,
+    "DiscoverySource": DiscoverySource,
     "DownloadClusterLogsDetails": DownloadClusterLogsDetails,
     "DownloadFileWithParResult": DownloadFileWithParResult,
     "DriverConfig": DriverConfig,
@@ -1286,6 +1386,8 @@ aidataplatform_dp_type_mapping = {
     "ExperimentTagKey": ExperimentTagKey,
     "ExportComputeConfigurationDetails": ExportComputeConfigurationDetails,
     "ExportContentsDetails": ExportContentsDetails,
+    "ExportInferenceInvocationsDetails": ExportInferenceInvocationsDetails,
+    "ExportInferenceInvocationsFilters": ExportInferenceInvocationsFilters,
     "ExportLineageDetails": ExportLineageDetails,
     "ExportTaskRunOutputDetails": ExportTaskRunOutputDetails,
     "ExportedContents": ExportedContents,
@@ -1336,6 +1438,10 @@ aidataplatform_dp_type_mapping = {
     "GitRepairWorkTreeDetails": GitRepairWorkTreeDetails,
     "GitRepository": GitRepository,
     "GitResetDetails": GitResetDetails,
+    "GoogleBigquerySchema": GoogleBigquerySchema,
+    "GoogleBigquerySchemaSummary": GoogleBigquerySchemaSummary,
+    "GoogleBigqueryTable": GoogleBigqueryTable,
+    "GoogleBigqueryTableSummary": GoogleBigqueryTableSummary,
     "GroupedSearchCriteria": GroupedSearchCriteria,
     "GuardrailsConfiguration": GuardrailsConfiguration,
     "HistoryCollection": HistoryCollection,
@@ -1354,10 +1460,18 @@ aidataplatform_dp_type_mapping = {
     "IdentityUserSummary": IdentityUserSummary,
     "IfElseTask": IfElseTask,
     "ImportComputeConfigurationDetails": ImportComputeConfigurationDetails,
+    "ImportLineageDetails": ImportLineageDetails,
     "InferSchema": InferSchema,
     "InferSchemaColumn": InferSchemaColumn,
     "InferSchemaProperties": InferSchemaProperties,
     "InferSchemaWithPreview": InferSchemaWithPreview,
+    "InferenceInvocationDetails": InferenceInvocationDetails,
+    "InferenceInvocationMetadata": InferenceInvocationMetadata,
+    "InferenceInvocationSearchDetails": InferenceInvocationSearchDetails,
+    "InferenceInvocationSearchResult": InferenceInvocationSearchResult,
+    "InferenceInvocationSummary": InferenceInvocationSummary,
+    "InferenceInvocationSummaryMetrics": InferenceInvocationSummaryMetrics,
+    "InferenceInvocationSummaryResponse": InferenceInvocationSummaryResponse,
     "InitScriptPath": InitScriptPath,
     "InputTag": InputTag,
     "InstallClusterLibraryDetails": InstallClusterLibraryDetails,
@@ -1399,6 +1513,16 @@ aidataplatform_dp_type_mapping = {
     "Libraries": Libraries,
     "LifecycleState": LifecycleState,
     "LineageGraphNodeNeighborsFilter": LineageGraphNodeNeighborsFilter,
+    "LineageImport": LineageImport,
+    "LineageImportCollection": LineageImportCollection,
+    "LineageImportLog": LineageImportLog,
+    "LineageImportLogCollection": LineageImportLogCollection,
+    "LineageImportLogSummary": LineageImportLogSummary,
+    "LineageImportRunEvent": LineageImportRunEvent,
+    "LineageImportRunEventCollection": LineageImportRunEventCollection,
+    "LineageImportRunEventDataset": LineageImportRunEventDataset,
+    "LineageImportRunEventSummary": LineageImportRunEventSummary,
+    "LineageImportSummary": LineageImportSummary,
     "LineageNodeDetails": LineageNodeDetails,
     "LineageNodeDetailsCollection": LineageNodeDetailsCollection,
     "LineageObject": LineageObject,
@@ -1428,6 +1552,7 @@ aidataplatform_dp_type_mapping = {
     "LoggedModelOrder": LoggedModelOrder,
     "LoggedModelTag": LoggedModelTag,
     "LoggingConfig": LoggingConfig,
+    "LongTermMemoryConfiguration": LongTermMemoryConfiguration,
     "ManageAgentPermissionDetails": ManageAgentPermissionDetails,
     "ManageAuditLogsDetails": ManageAuditLogsDetails,
     "ManageCatalogPermissionDetails": ManageCatalogPermissionDetails,
@@ -1437,7 +1562,10 @@ aidataplatform_dp_type_mapping = {
     "ManageJobPermissionDetails": ManageJobPermissionDetails,
     "ManageKnowledgeBasePermissionDetails": ManageKnowledgeBasePermissionDetails,
     "ManageMasterCatalogPermissionDetails": ManageMasterCatalogPermissionDetails,
+    "ManageOntologyManagerPermissionsDetails": ManageOntologyManagerPermissionsDetails,
+    "ManageOntologyProjectPermissionsDetails": ManageOntologyProjectPermissionsDetails,
     "ManageRecipientPermissionDetails": ManageRecipientPermissionDetails,
+    "ManageRegisteredModelPermissionDetails": ManageRegisteredModelPermissionDetails,
     "ManageRolePermissionDetails": ManageRolePermissionDetails,
     "ManageSchemaPermissionDetails": ManageSchemaPermissionDetails,
     "ManageShareAccessDetails": ManageShareAccessDetails,
@@ -1526,6 +1654,13 @@ aidataplatform_dp_type_mapping = {
     "ObjectSuggestSummary": ObjectSuggestSummary,
     "OciLogging": OciLogging,
     "OciResourcePrincipalAuth": OciResourcePrincipalAuth,
+    "OntologyDflConnection": OntologyDflConnection,
+    "OntologyDflConnectionCollection": OntologyDflConnectionCollection,
+    "OntologyDflConnectionCollectionResponse": OntologyDflConnectionCollectionResponse,
+    "OntologyDiscoveryArtifactItem": OntologyDiscoveryArtifactItem,
+    "OntologyDiscoveryArtifacts": OntologyDiscoveryArtifacts,
+    "OntologyDiscoveryJob": OntologyDiscoveryJob,
+    "OntologyDiscoveryProgress": OntologyDiscoveryProgress,
     "OntologyEntity": OntologyEntity,
     "OntologyEntityCardinality": OntologyEntityCardinality,
     "OntologyEntityError": OntologyEntityError,
@@ -1565,13 +1700,25 @@ aidataplatform_dp_type_mapping = {
     "OntologyGraphSearchResult": OntologyGraphSearchResult,
     "OntologyGraphSearchResultCollection": OntologyGraphSearchResultCollection,
     "OntologyGraphSearchResultCollectionResponse": OntologyGraphSearchResultCollectionResponse,
+    "OntologyGraphSummary": OntologyGraphSummary,
     "OntologyGraphTreeContextPathItem": OntologyGraphTreeContextPathItem,
     "OntologyGraphTreeSearchFilter": OntologyGraphTreeSearchFilter,
     "OntologyGraphTreeSearchNode": OntologyGraphTreeSearchNode,
     "OntologyGraphTreeSearchResponse": OntologyGraphTreeSearchResponse,
     "OntologyGraphTreeSearchResult": OntologyGraphTreeSearchResult,
     "OntologyGraphTreeSearchResultSet": OntologyGraphTreeSearchResultSet,
+    "OntologyManagerDflCompute": OntologyManagerDflCompute,
+    "OntologyManagerPermissionCollection": OntologyManagerPermissionCollection,
+    "OntologyManagerPermissionCollectionResponse": OntologyManagerPermissionCollectionResponse,
+    "OntologyManagerPermissionGrant": OntologyManagerPermissionGrant,
+    "OntologyManagerPermissions": OntologyManagerPermissions,
+    "OntologyManagerReadPermissions": OntologyManagerReadPermissions,
     "OntologyProject": OntologyProject,
+    "OntologyProjectAuditLog": OntologyProjectAuditLog,
+    "OntologyProjectAuditLogCollection": OntologyProjectAuditLogCollection,
+    "OntologyProjectAuditLogCollectionResponse": OntologyProjectAuditLogCollectionResponse,
+    "OntologyProjectBindings": OntologyProjectBindings,
+    "OntologyProjectBindingsResponse": OntologyProjectBindingsResponse,
     "OntologyProjectCollection": OntologyProjectCollection,
     "OntologyProjectCollectionResponse": OntologyProjectCollectionResponse,
     "OntologyProjectFileContent": OntologyProjectFileContent,
@@ -1583,6 +1730,7 @@ aidataplatform_dp_type_mapping = {
     "OntologyProjectObjectResponse": OntologyProjectObjectResponse,
     "OntologyProjectParseResponse": OntologyProjectParseResponse,
     "OntologyProjectParseResult": OntologyProjectParseResult,
+    "OntologyProjectPermissionCollectionResponse": OntologyProjectPermissionCollectionResponse,
     "OntologyProjectResponse": OntologyProjectResponse,
     "OntologyProjectStatus": OntologyProjectStatus,
     "OntologyProjectStatusCollection": OntologyProjectStatusCollection,
@@ -1602,6 +1750,8 @@ aidataplatform_dp_type_mapping = {
     "Parameter": Parameter,
     "PassThroughNodeFilterPredicate": PassThroughNodeFilterPredicate,
     "PatchClusterLibraryDetails": PatchClusterLibraryDetails,
+    "PatchOntologyManagerPermissionsDetails": PatchOntologyManagerPermissionsDetails,
+    "PatchOntologyProjectPermissionsDetails": PatchOntologyProjectPermissionsDetails,
     "PatchSessionDetails": PatchSessionDetails,
     "PathFilterObject": PathFilterObject,
     "PathFilterPredicates": PathFilterPredicates,
@@ -1615,6 +1765,9 @@ aidataplatform_dp_type_mapping = {
     "PreviewAgentCardDetails": PreviewAgentCardDetails,
     "PrincipalsWithWorkspaceAccessCollection": PrincipalsWithWorkspaceAccessCollection,
     "PrincipalsWithWorkspaceAccessSummary": PrincipalsWithWorkspaceAccessSummary,
+    "PrivateNetworkProfile": PrivateNetworkProfile,
+    "PrivateNetworkProfileCollection": PrivateNetworkProfileCollection,
+    "PrivateNetworkProfileSummary": PrivateNetworkProfileSummary,
     "ProcessNodeColumnDetails": ProcessNodeColumnDetails,
     "ProcessNodeColumnLink": ProcessNodeColumnLink,
     "ProcessNodeColumnLinksCollection": ProcessNodeColumnLinksCollection,
@@ -1656,6 +1809,8 @@ aidataplatform_dp_type_mapping = {
     "RegisteredModel": RegisteredModel,
     "RegisteredModelAlias": RegisteredModelAlias,
     "RegisteredModelCollection": RegisteredModelCollection,
+    "RegisteredModelPermissionCollection": RegisteredModelPermissionCollection,
+    "RegisteredModelPermissionSummary": RegisteredModelPermissionSummary,
     "RegisteredModelSummary": RegisteredModelSummary,
     "RegisteredModelTag": RegisteredModelTag,
     "RegisteredModelTagKey": RegisteredModelTagKey,
@@ -1683,7 +1838,10 @@ aidataplatform_dp_type_mapping = {
     "RevokeJobPermissionDetails": RevokeJobPermissionDetails,
     "RevokeKnowledgeBasePermissionDetails": RevokeKnowledgeBasePermissionDetails,
     "RevokeMasterCatalogPermissionDetails": RevokeMasterCatalogPermissionDetails,
+    "RevokeOntologyManagerPermissionsDetails": RevokeOntologyManagerPermissionsDetails,
+    "RevokeOntologyProjectPermissionsDetails": RevokeOntologyProjectPermissionsDetails,
     "RevokeRecipientPermissionDetails": RevokeRecipientPermissionDetails,
+    "RevokeRegisteredModelPermissionDetails": RevokeRegisteredModelPermissionDetails,
     "RevokeRolePermissionDetails": RevokeRolePermissionDetails,
     "RevokeSchemaPermissionDetails": RevokeSchemaPermissionDetails,
     "RevokeSharePermissionDetails": RevokeSharePermissionDetails,
@@ -1713,6 +1871,7 @@ aidataplatform_dp_type_mapping = {
     "SearchAuditLogsDetails": SearchAuditLogsDetails,
     "SearchClusterLogsDetails": SearchClusterLogsDetails,
     "SearchCriteria": SearchCriteria,
+    "SearchDeploymentLogsDetails": SearchDeploymentLogsDetails,
     "SearchModelDeploymentsDetails": SearchModelDeploymentsDetails,
     "SearchObjectType": SearchObjectType,
     "SearchResult": SearchResult,
@@ -1757,6 +1916,7 @@ aidataplatform_dp_type_mapping = {
     "SpanStatus": SpanStatus,
     "SparkCluster": SparkCluster,
     "SparkRuntimeConfig": SparkRuntimeConfig,
+    "SparseCheckoutDetails": SparseCheckoutDetails,
     "SqlResult": SqlResult,
     "SqlServerOnAzureSchema": SqlServerOnAzureSchema,
     "SqlServerOnAzureSchemaSummary": SqlServerOnAzureSchemaSummary,
@@ -1770,6 +1930,7 @@ aidataplatform_dp_type_mapping = {
     "StandardTable": StandardTable,
     "StandardTableSummary": StandardTableSummary,
     "StartClusterDetails": StartClusterDetails,
+    "StartDiscoveryDetails": StartDiscoveryDetails,
     "State": State,
     "StopClusterDetails": StopClusterDetails,
     "SubscriptionDetails": SubscriptionDetails,
@@ -1871,6 +2032,7 @@ aidataplatform_dp_type_mapping = {
     "UpdateModelVersionTagsResponseDetails": UpdateModelVersionTagsResponseDetails,
     "UpdateNlToSqlToolDetails": UpdateNlToSqlToolDetails,
     "UpdateOntologyProjectDetails": UpdateOntologyProjectDetails,
+    "UpdatePrivateNetworkProfileDetails": UpdatePrivateNetworkProfileDetails,
     "UpdatePromptToolDetails": UpdatePromptToolDetails,
     "UpdateRagToolDetails": UpdateRagToolDetails,
     "UpdateRecipientDetails": UpdateRecipientDetails,

@@ -5,11 +5,13 @@ import common = require("oci-common");
 
 
 /**
-* Update a Git repository with the provided details.
+* Repository URL, authentication, connectivity, and sparse checkout settings to update.
 */
 export interface UpdateGitRepositoryDetails {
     /**
-    * The path of the current Git folder which has to be created for the new branch.
+    * Workspace Git folder path. The stored repository path is retained; the supplied
+* value does not rename or relocate the folder.
+* 
     */
     'gitFolderPath'?: string;
     /**
@@ -17,9 +19,33 @@ export interface UpdateGitRepositoryDetails {
     */
     'gitUrl'?: string;
     /**
-    * Updated PAT credential key.
+    * Key of the current user's GIT_ACCOUNT user setting containing Git authentication
+* credentials. Identified by settingType=GIT_ACCOUNT and displayName in user
+* setting listings. Distinct from credentialStoreKey, which references a TLS
+* CA certificate.
+* 
     */
     'credentialKey'?: string;
+    'sparseCheckout'?: model.SparseCheckoutDetails;
+    /**
+    * Whether this repository uses private network connectivity.
+    */
+    'isPrivateConnectivityEnabled'?: boolean;
+    /**
+    * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+    */
+    'gitConnectivityProfileKey'?: string;
+    /**
+    * Key of the credential-store entry containing the Git server's TLS CA
+* certificate, identified by displayName in credential listings. Provides
+* server certificate trust, separate from the Git authentication user setting
+* referenced by credentialKey. Required when isPrivateConnectivityEnabled is true.
+* 
+    */
+    'credentialStoreKey'?: string;
 
 }
 
@@ -28,9 +54,20 @@ export namespace UpdateGitRepositoryDetails {
 
 
 
+
+
+
+
     export function getJsonObj(obj: UpdateGitRepositoryDetails): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+                'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getJsonObj(obj.sparseCheckout) : undefined,
 
 
 
@@ -44,6 +81,13 @@ export namespace UpdateGitRepositoryDetails {
     export function getDeserializedJsonObj(obj: UpdateGitRepositoryDetails): object {
         const jsonObj = {...obj, ...{
             
+
+
+
+                    'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getDeserializedJsonObj(obj.sparseCheckout) : undefined,
 
 
 

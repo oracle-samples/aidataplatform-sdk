@@ -86,7 +86,6 @@ class JobSummary(object):
             'clusters': 'list[str]',
             'job_clusters': 'list[JobCluster]'
         }
-
         self.attribute_map = {
             'key': 'key',
             'created_by': 'createdBy',
@@ -102,7 +101,6 @@ class JobSummary(object):
             'clusters': 'clusters',
             'job_clusters': 'jobClusters'
         }
-
         self._key = None
         self._created_by = None
         self._created_by_name = None

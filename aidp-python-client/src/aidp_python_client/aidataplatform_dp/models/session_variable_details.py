@@ -51,7 +51,6 @@ class SessionVariableDetails(object):
             'is_system': 'bool',
             'value': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'description': 'description',
@@ -60,7 +59,6 @@ class SessionVariableDetails(object):
             'is_system': 'isSystem',
             'value': 'value'
         }
-
         self._name = None
         self._description = None
         self._is_required = None

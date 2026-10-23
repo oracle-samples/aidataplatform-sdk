@@ -36,13 +36,11 @@ class TraceEvent(object):
             'timestamp': 'datetime',
             'attributes': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'name': 'name',
             'timestamp': 'timestamp',
             'attributes': 'attributes'
         }
-
         self._name = None
         self._timestamp = None
         self._attributes = None

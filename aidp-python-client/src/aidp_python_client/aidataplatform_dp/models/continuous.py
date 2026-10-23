@@ -36,11 +36,9 @@ class Continuous(object):
         self.swagger_types = {
             'pause_status': 'str'
         }
-
         self.attribute_map = {
             'pause_status': 'pauseStatus'
         }
-
         self._pause_status = None
 
     @property

@@ -51,7 +51,6 @@ class FindOntologyGraphPathsDetails(object):
             'relationship_types': 'list[str]',
             'limit': 'int'
         }
-
         self.attribute_map = {
             'project_id': 'projectId',
             'source_node_id': 'sourceNodeId',
@@ -60,7 +59,6 @@ class FindOntologyGraphPathsDetails(object):
             'relationship_types': 'relationshipTypes',
             'limit': 'limit'
         }
-
         self._project_id = None
         self._source_node_id = None
         self._target_node_id = None

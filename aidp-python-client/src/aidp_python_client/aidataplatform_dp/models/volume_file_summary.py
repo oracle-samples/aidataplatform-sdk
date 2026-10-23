@@ -91,7 +91,6 @@ class VolumeFileSummary(object):
             'created_by_name': 'str',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'path': 'path',
             'display_name': 'displayName',
@@ -106,7 +105,6 @@ class VolumeFileSummary(object):
             'created_by_name': 'createdByName',
             'updated_by': 'updatedBy'
         }
-
         self._path = None
         self._display_name = None
         self._time_created = None

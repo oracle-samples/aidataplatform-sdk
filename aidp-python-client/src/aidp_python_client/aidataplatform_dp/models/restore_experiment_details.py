@@ -26,11 +26,9 @@ class RestoreExperimentDetails(object):
         self.swagger_types = {
             'experiment_id': 'str'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id'
         }
-
         self._experiment_id = None
 
     @property

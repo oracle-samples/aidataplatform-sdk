@@ -31,12 +31,10 @@ class RecentSearchResultsCollection(object):
             'count': 'int',
             'items': 'list[ObjectRecentSearchSummary]'
         }
-
         self.attribute_map = {
             'count': 'count',
             'items': 'items'
         }
-
         self._count = None
         self._items = None
 

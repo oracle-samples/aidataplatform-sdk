@@ -70,14 +70,12 @@ class KbVIvfIndexDetails(object):
             'neighbor_partitions': 'int',
             'neighbor_partition_probes': 'int'
         }
-
         self.attribute_map = {
             'distance': 'distance',
             'target_accuracy': 'targetAccuracy',
             'neighbor_partitions': 'neighborPartitions',
             'neighbor_partition_probes': 'neighborPartitionProbes'
         }
-
         self._distance = None
         self._target_accuracy = None
         self._neighbor_partitions = None
@@ -110,8 +108,7 @@ class KbVIvfIndexDetails(object):
         allowed_values = ["COSINE", "EUCLIDEAN", "L2_SQUARED", "DOT", "MANHATTAN", "HAMMING", "JACCARD"]
         if not value_allowed_none_or_none_sentinel(distance, allowed_values):
             raise ValueError(
-                "Invalid value for `distance`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `distance`, must be None or one of {allowed_values}"
             )
         self._distance = distance
 

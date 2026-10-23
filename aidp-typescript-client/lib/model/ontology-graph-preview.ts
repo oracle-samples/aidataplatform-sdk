@@ -14,6 +14,7 @@ export interface OntologyGraphPreview {
     */
     'status': string;
     'graph': model.OntologyGraphPreviewModel;
+    'summary'?: model.OntologyGraphSummary;
     'limits': model.OntologyGraphPreviewLimits;
     /**
     * Parser or preview diagnostics.
@@ -44,6 +45,7 @@ export namespace OntologyGraphPreview {
 
 
 
+
     export function getJsonObj(obj: OntologyGraphPreview): object {
         const jsonObj = {...obj, ...{
             
@@ -56,6 +58,10 @@ export namespace OntologyGraphPreview {
                 
                 
                 model.OntologyGraphPreviewModel.getJsonObj(obj.graph) : undefined,
+                'summary': obj.summary ?
+                
+                
+                model.OntologyGraphSummary.getJsonObj(obj.summary) : undefined,
                 'limits': obj.limits ?
                 
                 
@@ -87,6 +93,10 @@ export namespace OntologyGraphPreview {
                 
                 
                 model.OntologyGraphPreviewModel.getDeserializedJsonObj(obj.graph) : undefined,
+                    'summary': obj.summary ?
+                
+                
+                model.OntologyGraphSummary.getDeserializedJsonObj(obj.summary) : undefined,
                     'limits': obj.limits ?
                 
                 

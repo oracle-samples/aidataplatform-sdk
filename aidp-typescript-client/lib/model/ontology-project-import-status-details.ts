@@ -24,10 +24,12 @@ export interface OntologyProjectImportStatusDetails {
     * Import failure message when the status is IMPORT_FAILED.
     */
     'errorMessage'?: string;
+    'discoveryJob'?: model.OntologyDiscoveryJob;
 
 }
 
 export namespace OntologyProjectImportStatusDetails {
+
 
 
 
@@ -40,6 +42,10 @@ export namespace OntologyProjectImportStatusDetails {
 
 
 
+                'discoveryJob': obj.discoveryJob ?
+                
+                
+                model.OntologyDiscoveryJob.getJsonObj(obj.discoveryJob) : undefined,
         }};
 
         
@@ -54,6 +60,10 @@ export namespace OntologyProjectImportStatusDetails {
 
 
 
+                    'discoveryJob': obj.discoveryJob ?
+                
+                
+                model.OntologyDiscoveryJob.getDeserializedJsonObj(obj.discoveryJob) : undefined,
          }};
 
         

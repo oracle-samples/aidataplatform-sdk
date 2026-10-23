@@ -458,6 +458,10 @@ return clientCall(request, GetJobRunResponse::builder)
                 
                     
                     .appendQueryParam("shouldIncludeTaskRunSummaries", request.getShouldIncludeTaskRunSummaries())
+            
+                
+                    
+                    .appendQueryParam("repairKey", request.getRepairKey())
         .accept("application/json")
                 
                 .appendHeader("opc-request-id", request.getOpcRequestId())

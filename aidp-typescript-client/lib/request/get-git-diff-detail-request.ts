@@ -16,11 +16,14 @@ export interface GetGitDiffDetailRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The Git repository key.
+ * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
  */
  'gitRepositoryKey': string;
 /**
- * The Git folder path.
+ * Workspace path of the Git folder, distinct from repository-relative file paths.
  */
  'gitFolderPath': string;
 /**
@@ -32,11 +35,14 @@ export interface GetGitDiffDetailRequest extends common.BaseRequest {
  */
  'gitFilePath': string;
 /**
- * Number of context lines to include in the diff.
+ * Requested diff context lines. Current execution does not apply this value.
+* 
  */
  'contextLines'?: number;
 /**
- * Maximum number of bytes of diff output to return.
+ * Requested maximum patch bytes. Current execution does not enforce this
+* value.
+* 
  */
  'maxPatchBytes'?: number;
 /**

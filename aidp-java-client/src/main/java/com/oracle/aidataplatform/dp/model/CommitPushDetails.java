@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Commit staged/local changes and push to remote for the given branch context.
+ * Commit message and optional file selection for a Git commit and push request.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CommitPushDetails.Builder.class)
@@ -25,14 +25,18 @@ public final class CommitPushDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * Folder path used to locate the Git worktree.
+         * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -43,14 +47,18 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * The name of the Git branch.
+     * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the Git branch.
+         * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param branchName the value to set
          * @return this builder
          **/
@@ -61,14 +69,20 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+     * Repository-relative paths staged for a normal commit. When omitted, all local
+* changes are staged with git add -A. Not applied when continuing a resolved
+* rebase. Selected paths must be included by sparse checkout, if enabled.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("files")
 private java.util.List<String> files;
 
         /**
-         * List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+         * Repository-relative paths staged for a normal commit. When omitted, all local
+* changes are staged with git add -A. Not applied when continuing a resolved
+* rebase. Selected paths must be included by sparse checkout, if enabled.
+* 
          * @param files the value to set
          * @return this builder
          **/
@@ -151,14 +165,18 @@ return this;
 
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -168,14 +186,18 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the Git branch.
+     * Repository branch name. The effective branch is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -185,14 +207,20 @@ return this;
 
 
         /**
-     * List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+     * Repository-relative paths staged for a normal commit. When omitted, all local
+* changes are staged with git add -A. Not applied when continuing a resolved
+* rebase. Selected paths must be included by sparse checkout, if enabled.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("files")
     private final java.util.List<String> files;
 
         /**
-     * List of file paths (repo-relative) to stage before commit. If omitted, server may commit already-staged changes only.
+     * Repository-relative paths staged for a normal commit. When omitted, all local
+* changes are staged with git add -A. Not applied when continuing a resolved
+* rebase. Selected paths must be included by sparse checkout, if enabled.
+* 
      * @return the value
      **/
     

@@ -5,7 +5,7 @@ import common = require("oci-common");
 
 
 /**
-* Collection of Git diff summaries for files under a folder context.
+* Paginated collection of local Git file-change summaries.
 */
 export interface GitDiffSummaryCollection {
     /**

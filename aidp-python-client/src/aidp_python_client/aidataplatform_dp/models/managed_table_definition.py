@@ -60,11 +60,9 @@ class ManagedTableDefinition(object):
         self.swagger_types = {
             'managed_table_data_format': 'str'
         }
-
         self.attribute_map = {
             'managed_table_data_format': 'managedTableDataFormat'
         }
-
         self._managed_table_data_format = None
 
     @property

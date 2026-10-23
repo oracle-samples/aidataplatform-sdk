@@ -59,7 +59,6 @@ class ListExperimentsDetails(object):
             'order_by': 'list[str]',
             'view_type': 'str'
         }
-
         self.attribute_map = {
             'max_results': 'max_results',
             'page_token': 'page_token',
@@ -67,7 +66,6 @@ class ListExperimentsDetails(object):
             'order_by': 'order_by',
             'view_type': 'view_type'
         }
-
         self._max_results = None
         self._page_token = None
         self._filter = None
@@ -213,8 +211,7 @@ class ListExperimentsDetails(object):
         allowed_values = ["ACTIVE_ONLY", "DELETED_ONLY", "ALL"]
         if not value_allowed_none_or_none_sentinel(view_type, allowed_values):
             raise ValueError(
-                "Invalid value for `view_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `view_type`, must be None or one of {allowed_values}"
             )
         self._view_type = view_type
 

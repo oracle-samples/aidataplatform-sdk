@@ -33,12 +33,10 @@ class FileDependency(Dependency):
             'type': 'str',
             'path': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'path': 'path'
         }
-
         self._type = None
         self._path = None
         self._type = 'FILE'

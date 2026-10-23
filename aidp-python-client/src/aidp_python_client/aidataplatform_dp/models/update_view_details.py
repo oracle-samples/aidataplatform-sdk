@@ -56,12 +56,10 @@ class UpdateViewDetails(object):
             'update_mode': 'str',
             'view_update_details': 'ViewUpdateDetails'
         }
-
         self.attribute_map = {
             'update_mode': 'updateMode',
             'view_update_details': 'viewUpdateDetails'
         }
-
         self._update_mode = None
         self._view_update_details = None
 
@@ -92,8 +90,7 @@ class UpdateViewDetails(object):
         allowed_values = ["RENAME_VIEW", "ADD_PROPERTIES", "DROP_PROPERTIES", "UPDATE_VIEW_DESCRIPTION", "UPDATE_VIEW_QUERY", "UPDATE_COLUMN_DESCRIPTION"]
         if not value_allowed_none_or_none_sentinel(update_mode, allowed_values):
             raise ValueError(
-                "Invalid value for `update_mode`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `update_mode`, must be None or one of {allowed_values}"
             )
         self._update_mode = update_mode
 

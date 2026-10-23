@@ -24,14 +24,14 @@ public final class RepairJobRunDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The collection of selected task IDs to be repaired.
+     * Deprecated. Use repairTasks to select tasks to be repaired.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("taskKeys")
 private java.util.List<String> taskKeys;
 
         /**
-         * The collection of selected task IDs to be repaired.
+         * Deprecated. Use repairTasks to select tasks to be repaired.
          * @param taskKeys the value to set
          * @return this builder
          **/
@@ -42,14 +42,14 @@ public Builder taskKeys(java.util.List<String> taskKeys) {
     return this;
 }
             /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("repairMode")
 private RepairMode repairMode;
 
         /**
-         * Repair mode to be used for this repair scope.
+         * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
          * @param repairMode the value to set
          * @return this builder
          **/
@@ -130,14 +130,14 @@ return this;
 
 
         /**
-     * The collection of selected task IDs to be repaired.
+     * Deprecated. Use repairTasks to select tasks to be repaired.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("taskKeys")
     private final java.util.List<String> taskKeys;
 
         /**
-     * The collection of selected task IDs to be repaired.
+     * Deprecated. Use repairTasks to select tasks to be repaired.
      * @return the value
      **/
     
@@ -146,7 +146,7 @@ return this;
     }
 
     /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      **/
     public enum RepairMode implements com.oracle.bmc.http.internal.BmcEnum {
         Resume("RESUME"),
@@ -184,14 +184,14 @@ return this;
         }
     };
         /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("repairMode")
     private final RepairMode repairMode;
 
         /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      * @return the value
      **/
     

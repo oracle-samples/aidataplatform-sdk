@@ -73,14 +73,12 @@ class PiiCategory(object):
             'action': 'str',
             'threshold': 'float'
         }
-
         self.attribute_map = {
             'category': 'category',
             'is_enabled': 'isEnabled',
             'action': 'action',
             'threshold': 'threshold'
         }
-
         self._category = None
         self._is_enabled = None
         self._action = None

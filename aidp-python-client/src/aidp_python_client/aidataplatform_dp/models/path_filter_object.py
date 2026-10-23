@@ -26,11 +26,9 @@ class PathFilterObject(object):
         self.swagger_types = {
             'predicates': 'PathFilterPredicates'
         }
-
         self.attribute_map = {
             'predicates': 'predicates'
         }
-
         self._predicates = None
 
     @property

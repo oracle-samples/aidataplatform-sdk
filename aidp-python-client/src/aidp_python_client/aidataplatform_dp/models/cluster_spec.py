@@ -36,13 +36,11 @@ class ClusterSpec(object):
             'new_cluster': 'NewClusterConfiguration',
             'libraries': 'Libraries'
         }
-
         self.attribute_map = {
             'existing_cluster_key': 'existingClusterKey',
             'new_cluster': 'newCluster',
             'libraries': 'libraries'
         }
-
         self._existing_cluster_key = None
         self._new_cluster = None
         self._libraries = None

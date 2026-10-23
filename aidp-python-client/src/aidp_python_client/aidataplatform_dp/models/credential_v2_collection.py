@@ -26,11 +26,9 @@ class CredentialV2Collection(object):
         self.swagger_types = {
             'items': 'list[CredentialV2Summary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

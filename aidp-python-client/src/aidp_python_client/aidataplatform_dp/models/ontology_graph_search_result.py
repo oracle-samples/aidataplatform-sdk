@@ -61,7 +61,6 @@ class OntologyGraphSearchResult(object):
             'target_id': 'str',
             'relationship_label': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'type': 'type',
@@ -72,7 +71,6 @@ class OntologyGraphSearchResult(object):
             'target_id': 'targetId',
             'relationship_label': 'relationshipLabel'
         }
-
         self._id = None
         self._type = None
         self._name = None

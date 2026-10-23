@@ -26,11 +26,9 @@ class ExperimentResponse(object):
         self.swagger_types = {
             'experiment': 'Experiment'
         }
-
         self.attribute_map = {
             'experiment': 'experiment'
         }
-
         self._experiment = None
 
     @property

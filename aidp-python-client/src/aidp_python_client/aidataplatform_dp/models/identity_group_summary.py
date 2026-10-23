@@ -31,12 +31,10 @@ class IdentityGroupSummary(object):
             'group_id': 'str',
             'group_name': 'str'
         }
-
         self.attribute_map = {
             'group_id': 'groupId',
             'group_name': 'groupName'
         }
-
         self._group_id = None
         self._group_name = None
 

@@ -49,14 +49,14 @@ public Builder type(Type type) {
     return this;
 }
             /**
-     * The unique ID of the Repair run.
+     * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("key")
 private Integer key;
 
         /**
-         * The unique ID of the Repair run.
+         * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
          * @param key the value to set
          * @return this builder
          **/
@@ -331,14 +331,14 @@ return this;
 
 
         /**
-     * The unique ID of the Repair run.
+     * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("key")
     private final Integer key;
 
         /**
-     * The unique ID of the Repair run.
+     * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
      * @return the value
      **/
     

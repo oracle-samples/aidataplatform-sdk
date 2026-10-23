@@ -56,14 +56,12 @@ class BaseLlmConfig(object):
             'compartment_id': 'str',
             'endpoint_url': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'model_id': 'modelId',
             'compartment_id': 'compartmentId',
             'endpoint_url': 'endpointUrl'
         }
-
         self._type = None
         self._model_id = None
         self._compartment_id = None

@@ -36,13 +36,11 @@ class ComputeConfiguration(object):
             'environment_variables': 'dict(str, str)',
             'libraries': 'ComputeConfigurationLibraries'
         }
-
         self.attribute_map = {
             'cluster_key': 'clusterKey',
             'environment_variables': 'environmentVariables',
             'libraries': 'libraries'
         }
-
         self._cluster_key = None
         self._environment_variables = None
         self._libraries = None

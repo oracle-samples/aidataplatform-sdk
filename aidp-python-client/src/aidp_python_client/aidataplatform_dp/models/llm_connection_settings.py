@@ -46,7 +46,6 @@ class LlmConnectionSettings(object):
             'max_retries': 'int',
             'default_query': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'organization': 'organization',
             'project': 'project',
@@ -54,7 +53,6 @@ class LlmConnectionSettings(object):
             'max_retries': 'maxRetries',
             'default_query': 'defaultQuery'
         }
-
         self._organization = None
         self._project = None
         self._timeout = None

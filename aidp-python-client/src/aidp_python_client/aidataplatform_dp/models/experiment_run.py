@@ -41,14 +41,12 @@ class ExperimentRun(object):
             'inputs': 'ExperimentRunInputs',
             'outputs': 'ExperimentRunOutputs'
         }
-
         self.attribute_map = {
             'info': 'info',
             'data': 'data',
             'inputs': 'inputs',
             'outputs': 'outputs'
         }
-
         self._info = None
         self._data = None
         self._inputs = None

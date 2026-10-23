@@ -36,13 +36,11 @@ class ProcessNodeColumnLinksFilter(object):
             'transformation': 'str',
             'display_name_contains': 'str'
         }
-
         self.attribute_map = {
             'process_run_stage_id': 'processRunStageId',
             'transformation': 'transformation',
             'display_name_contains': 'displayNameContains'
         }
-
         self._process_run_stage_id = None
         self._transformation = None
         self._display_name_contains = None

@@ -93,7 +93,6 @@ class RagTool(Tool):
             'input_schema': 'RagToolInputSchema',
             'tool_config': 'RagToolConfiguration'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -110,7 +109,6 @@ class RagTool(Tool):
             'input_schema': 'inputSchema',
             'tool_config': 'toolConfig'
         }
-
         self._key = None
         self._display_name = None
         self._workspace_key = None

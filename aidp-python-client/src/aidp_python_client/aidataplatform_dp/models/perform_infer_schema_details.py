@@ -74,14 +74,12 @@ class PerformInferSchemaDetails(object):
             'number_of_partitions': 'int',
             'infer_schema_properties': 'list[InferSchemaProperties]'
         }
-
         self.attribute_map = {
             'data_format': 'dataFormat',
             'location': 'location',
             'number_of_partitions': 'numberOfPartitions',
             'infer_schema_properties': 'inferSchemaProperties'
         }
-
         self._data_format = None
         self._location = None
         self._number_of_partitions = None
@@ -114,8 +112,7 @@ class PerformInferSchemaDetails(object):
         allowed_values = ["AVRO", "ORC", "PARQUET", "TEXTFILE", "JSON", "CSV", "DELTA", "ICEBERG"]
         if not value_allowed_none_or_none_sentinel(data_format, allowed_values):
             raise ValueError(
-                "Invalid value for `data_format`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `data_format`, must be None or one of {allowed_values}"
             )
         self._data_format = data_format
 

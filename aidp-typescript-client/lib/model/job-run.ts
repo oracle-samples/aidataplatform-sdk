@@ -75,6 +75,10 @@ export interface JobRun {
     */
     'repairHistory'?: Array<model.RepairHistory>;
     /**
+    * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'repairKey'?: number;
+    /**
     * Map of system parameters with their values for this job run.
     */
     'systemParameters'?: { [key: string]: string; };
@@ -135,7 +139,7 @@ export interface JobRun {
     */
     'repairedTasks'?: Array<string>;
     /**
-    * Repair mode to be used for this repair scope.
+    * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
     */
     'repairMode'?: JobRun.RepairMode;
     /**
@@ -150,6 +154,7 @@ export interface JobRun {
 }
 
 export namespace JobRun {
+
 
 
 
@@ -286,6 +291,7 @@ export namespace JobRun {
 
 
 
+
                 'lifecycleStates': obj.lifecycleStates ?
                 
                 obj.lifecycleStates.map((item)=>{return model.LifecycleState.getJsonObj(item)})
@@ -357,6 +363,7 @@ export namespace JobRun {
                 obj.repairHistory.map((item)=>{return model.RepairHistory.getDeserializedJsonObj(item)})
                 
                  : undefined,
+
 
 
 

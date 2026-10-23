@@ -36,13 +36,11 @@ class DeniedTopic(object):
             'definition': 'str',
             'examples': 'list[str]'
         }
-
         self.attribute_map = {
             'name': 'name',
             'definition': 'definition',
             'examples': 'examples'
         }
-
         self._name = None
         self._definition = None
         self._examples = None

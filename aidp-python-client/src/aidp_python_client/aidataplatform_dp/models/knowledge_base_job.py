@@ -146,7 +146,6 @@ class KnowledgeBaseJob(object):
             'lifecycle_state': 'str',
             'lifecycle_state_details': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'workflow_job_key': 'workflowJobKey',
@@ -167,7 +166,6 @@ class KnowledgeBaseJob(object):
             'lifecycle_state': 'lifecycleState',
             'lifecycle_state_details': 'lifecycleStateDetails'
         }
-
         self._key = None
         self._workflow_job_key = None
         self._display_name = None
@@ -382,8 +380,7 @@ class KnowledgeBaseJob(object):
         allowed_values = ["SCHEDULED", "ON_DEMAND"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 
@@ -414,8 +411,7 @@ class KnowledgeBaseJob(object):
         allowed_values = ["ADD_REFRESH_SOURCE", "DELETE_SOURCE"]
         if not value_allowed_none_or_none_sentinel(goal, allowed_values):
             raise ValueError(
-                "Invalid value for `goal`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `goal`, must be None or one of {allowed_values}"
             )
         self._goal = goal
 
@@ -614,8 +610,7 @@ class KnowledgeBaseJob(object):
         allowed_values = ["ACTIVE", "INACTIVE", "CREATING", "DELETING"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

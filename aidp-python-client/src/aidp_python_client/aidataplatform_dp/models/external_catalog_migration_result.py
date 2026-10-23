@@ -46,7 +46,6 @@ class ExternalCatalogMigrationResult(object):
             'failed_migration_external_catalogs': 'list[CatalogMigrationDetail]',
             'migration_failed_with_exception': 'int'
         }
-
         self.attribute_map = {
             'total_external_catalogs': 'totalExternalCatalogs',
             'new_design_external_catalog_count': 'newDesignExternalCatalogCount',
@@ -54,7 +53,6 @@ class ExternalCatalogMigrationResult(object):
             'failed_migration_external_catalogs': 'failedMigrationExternalCatalogs',
             'migration_failed_with_exception': 'migrationFailedWithException'
         }
-
         self._total_external_catalogs = None
         self._new_design_external_catalog_count = None
         self._migrated_external_catalogs = None

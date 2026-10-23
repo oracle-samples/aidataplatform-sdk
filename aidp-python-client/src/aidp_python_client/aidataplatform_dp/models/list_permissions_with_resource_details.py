@@ -94,13 +94,11 @@ class ListPermissionsWithResourceDetails(object):
             'resource_type': 'str',
             'resource_key': 'str'
         }
-
         self.attribute_map = {
             'permissions': 'permissions',
             'resource_type': 'resourceType',
             'resource_key': 'resourceKey'
         }
-
         self._permissions = None
         self._resource_type = None
         self._resource_key = None

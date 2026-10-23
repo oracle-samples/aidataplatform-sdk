@@ -312,7 +312,6 @@ class SearchAuditLogsDetails(object):
             'sort_by': 'str',
             'sort_order': 'str'
         }
-
         self.attribute_map = {
             'time_begin': 'timeBegin',
             'time_end': 'timeEnd',
@@ -325,7 +324,6 @@ class SearchAuditLogsDetails(object):
             'sort_by': 'sortBy',
             'sort_order': 'sortOrder'
         }
-
         self._time_begin = None
         self._time_end = None
         self._object_type = None
@@ -412,8 +410,7 @@ class SearchAuditLogsDetails(object):
         allowed_values = ["DATA_LAKE", "ROLE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "VIEW", "WORKSPACE", "WORKSPACE_FILE", "WORKSPACE_FOLDER", "COMPUTE", "FOLDER", "FILE", "AUTO_POPULATE", "VOLUME_FILE", "VOLUME_FOLDER", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "KNOWLEDGE_BASE_OWNERSHIP", "VECTOR_STORE_CREDENTIALS", "AUDIT_LOG", "WORKFLOW", "CREDENTIAL", "AGENT"]
         if not value_allowed_none_or_none_sentinel(object_type, allowed_values):
             raise ValueError(
-                "Invalid value for `object_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `object_type`, must be None or one of {allowed_values}"
             )
         self._object_type = object_type
 
@@ -468,8 +465,7 @@ class SearchAuditLogsDetails(object):
         allowed_values = ["CREATE", "UPDATE", "DELETE", "VIEW", "GRANT", "REVOKE", "ATTACH", "DETACH", "VIEW_LOGS", "RENAME", "TERMINATE", "MOVE", "EXECUTE", "MANAGE_ACCESS", "QUERY", "SQL_STATEMENT", "MANAGE", "READ", "WRITE", "START", "STOP", "COPY", "DEPLOY", "UNDEPLOY"]
         if not value_allowed_none_or_none_sentinel(operation, allowed_values):
             raise ValueError(
-                "Invalid value for `operation`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `operation`, must be None or one of {allowed_values}"
             )
         self._operation = operation
 
@@ -500,8 +496,7 @@ class SearchAuditLogsDetails(object):
         allowed_values = ["SUCCEEDED", "FAILED"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `status`, must be None or one of {allowed_values}"
             )
         self._status = status
 
@@ -580,8 +575,7 @@ class SearchAuditLogsDetails(object):
         allowed_values = ["startedBy", "status", "operation", "objectType", "objectName", "time"]
         if not value_allowed_none_or_none_sentinel(sort_by, allowed_values):
             raise ValueError(
-                "Invalid value for `sort_by`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `sort_by`, must be None or one of {allowed_values}"
             )
         self._sort_by = sort_by
 
@@ -612,8 +606,7 @@ class SearchAuditLogsDetails(object):
         allowed_values = ["ASC", "DESC"]
         if not value_allowed_none_or_none_sentinel(sort_order, allowed_values):
             raise ValueError(
-                "Invalid value for `sort_order`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `sort_order`, must be None or one of {allowed_values}"
             )
         self._sort_order = sort_order
 

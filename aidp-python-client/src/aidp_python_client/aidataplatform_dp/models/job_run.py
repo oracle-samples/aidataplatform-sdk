@@ -118,6 +118,10 @@ class JobRun(object):
             The value to assign to the repair_history property of this JobRun.
         :type repair_history: list[oci.aidataplatform_dp.models.RepairHistory]
 
+        :param repair_key:
+            The value to assign to the repair_key property of this JobRun.
+        :type repair_key: int
+
         :param system_parameters:
             The value to assign to the system_parameters property of this JobRun.
         :type system_parameters: dict(str, str)
@@ -217,6 +221,7 @@ class JobRun(object):
             'parameters': 'list[Parameter]',
             'unified_job_and_job_run_parameters': 'list[Parameter]',
             'repair_history': 'list[RepairHistory]',
+            'repair_key': 'int',
             'system_parameters': 'dict(str, str)',
             'start_time': 'int',
             'end_time': 'int',
@@ -236,7 +241,6 @@ class JobRun(object):
             'lifecycle_states': 'list[LifecycleState]',
             'run_as': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -259,6 +263,7 @@ class JobRun(object):
             'parameters': 'parameters',
             'unified_job_and_job_run_parameters': 'unifiedJobAndJobRunParameters',
             'repair_history': 'repairHistory',
+            'repair_key': 'repairKey',
             'system_parameters': 'systemParameters',
             'start_time': 'startTime',
             'end_time': 'endTime',
@@ -278,7 +283,6 @@ class JobRun(object):
             'lifecycle_states': 'lifecycleStates',
             'run_as': 'runAs'
         }
-
         self._key = None
         self._name = None
         self._job_key = None
@@ -300,6 +304,7 @@ class JobRun(object):
         self._parameters = None
         self._unified_job_and_job_run_parameters = None
         self._repair_history = None
+        self._repair_key = None
         self._system_parameters = None
         self._start_time = None
         self._end_time = None
@@ -800,6 +805,30 @@ class JobRun(object):
         self._repair_history = repair_history
 
     @property
+    def repair_key(self):
+        """
+        Gets the repair_key of this JobRun.
+        The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
+
+
+        :return: The repair_key of this JobRun.
+        :rtype: int
+        """
+        return self._repair_key
+
+    @repair_key.setter
+    def repair_key(self, repair_key):
+        """
+        Sets the repair_key of this JobRun.
+        The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
+
+
+        :param repair_key: The repair_key of this JobRun.
+        :type: int
+        """
+        self._repair_key = repair_key
+
+    @property
     def system_parameters(self):
         """
         Gets the system_parameters of this JobRun.
@@ -1169,7 +1198,7 @@ class JobRun(object):
     def repair_mode(self):
         """
         Gets the repair_mode of this JobRun.
-        Repair mode to be used for this repair scope.
+        repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
 
         Allowed values for this property are: "RESUME", "RERUN", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
@@ -1184,7 +1213,7 @@ class JobRun(object):
     def repair_mode(self, repair_mode):
         """
         Sets the repair_mode of this JobRun.
-        Repair mode to be used for this repair scope.
+        repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
 
 
         :param repair_mode: The repair_mode of this JobRun.

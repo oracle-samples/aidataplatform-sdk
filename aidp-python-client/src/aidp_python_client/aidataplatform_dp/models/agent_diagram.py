@@ -61,7 +61,6 @@ class AgentDiagram(object):
             'tools_map': 'dict(str, Tool)',
             'guardrails_map': 'dict(str, GuardrailsConfiguration)'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -72,7 +71,6 @@ class AgentDiagram(object):
             'tools_map': 'toolsMap',
             'guardrails_map': 'guardrailsMap'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

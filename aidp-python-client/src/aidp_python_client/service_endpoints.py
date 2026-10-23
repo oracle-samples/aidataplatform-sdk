@@ -14,6 +14,7 @@ SERVICE_ENDPOINTS = {
     "git": "https://datahub-dp.{domain}",
     "ml_ops": "https://datahub-dp.{domain}",
     "notebook": "https://datahub-dp.{domain}",
+    "private_network_profile": "https://datahub-dp.{domain}",
     "role": "https://datahub-dp.{domain}",
     "schema": "https://datahub-dp.{domain}",
     "user_setting": "https://datahub-dp.{domain}",

@@ -36,13 +36,11 @@ class PromptToolConfiguration(object):
             'prompt_text': 'str',
             'model_settings': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'llm': 'llm',
             'prompt_text': 'promptText',
             'model_settings': 'modelSettings'
         }
-
         self._llm = None
         self._prompt_text = None
         self._model_settings = None

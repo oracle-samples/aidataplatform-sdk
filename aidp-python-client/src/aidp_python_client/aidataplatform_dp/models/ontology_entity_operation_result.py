@@ -46,7 +46,6 @@ class OntologyEntityOperationResult(object):
             'iri': 'str',
             'status': 'str'
         }
-
         self.attribute_map = {
             'op_id': 'opId',
             'entity_type': 'entityType',
@@ -54,7 +53,6 @@ class OntologyEntityOperationResult(object):
             'iri': 'iri',
             'status': 'status'
         }
-
         self._op_id = None
         self._entity_type = None
         self._compact_iri = None

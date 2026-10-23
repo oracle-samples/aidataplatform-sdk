@@ -31,12 +31,10 @@ class PromptResult(object):
             'type': 'str',
             'data': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'data': 'data'
         }
-
         self._type = None
         self._data = None
 

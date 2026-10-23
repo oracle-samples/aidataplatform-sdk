@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class TaskExecutionResult  {
     @Deprecated
-    @java.beans.ConstructorProperties({"state", "startTimeMillis", "endTimeMillis", "externalId", "metrics", "properties"})
-    public TaskExecutionResult(State state, Long startTimeMillis, Long endTimeMillis, String externalId, java.util.Map<String, String> metrics, java.util.Map<String, Object> properties) {
+    @java.beans.ConstructorProperties({"state", "startTimeMillis", "endTimeMillis", "externalId", "metrics", "properties", "output"})
+    public TaskExecutionResult(State state, Long startTimeMillis, Long endTimeMillis, String externalId, java.util.Map<String, String> metrics, java.util.Map<String, Object> properties, TaskRunOutput output) {
         super();
         this.state = state;
         this.startTimeMillis = startTimeMillis;
@@ -21,6 +21,7 @@ public final class TaskExecutionResult  {
         this.externalId = externalId;
         this.metrics = metrics;
         this.properties = properties;
+        this.output = output;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -125,6 +126,16 @@ public Builder properties(java.util.Map<String, Object> properties) {
     this.properties = properties;
     return this;
 }
+        
+@com.fasterxml.jackson.annotation.JsonProperty("output")
+private TaskRunOutput output;
+
+
+
+public Builder output(TaskRunOutput output) {
+    this.output = output;
+    return this;
+}
 
 
         public TaskExecutionResult build() {
@@ -133,7 +144,8 @@ public Builder properties(java.util.Map<String, Object> properties) {
                 , this.endTimeMillis
                 , this.externalId
                 , this.metrics
-                , this.properties);            return model;
+                , this.properties
+                , this.output);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -144,6 +156,7 @@ public Builder properties(java.util.Map<String, Object> properties) {
     this.externalId(model.getExternalId());
     this.metrics(model.getMetrics());
     this.properties(model.getProperties());
+    this.output(model.getOutput());
 return this;
         }
     }
@@ -257,6 +270,16 @@ return this;
         return properties;
     }
 
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("output")
+    private final TaskRunOutput output;
+
+    
+    public TaskRunOutput getOutput() {
+        return output;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -276,6 +299,7 @@ return this;
         sb.append(", externalId=").append(String.valueOf(this.externalId));
         sb.append(", metrics=").append(String.valueOf(this.metrics));
         sb.append(", properties=").append(String.valueOf(this.properties));
+        sb.append(", output=").append(String.valueOf(this.output));
         sb.append(")");
         return sb.toString();
     }
@@ -295,7 +319,8 @@ return this;
             java.util.Objects.equals(this.endTimeMillis, other.endTimeMillis) &&
             java.util.Objects.equals(this.externalId, other.externalId) &&
             java.util.Objects.equals(this.metrics, other.metrics) &&
-            java.util.Objects.equals(this.properties, other.properties);
+            java.util.Objects.equals(this.properties, other.properties) &&
+            java.util.Objects.equals(this.output, other.output);
     }
 
     @Override
@@ -308,6 +333,7 @@ return this;
         result = (result * PRIME) + (this.externalId == null ? 43 : this.externalId.hashCode());
         result = (result * PRIME) + (this.metrics == null ? 43 : this.metrics.hashCode());
         result = (result * PRIME) + (this.properties == null ? 43 : this.properties.hashCode());
+        result = (result * PRIME) + (this.output == null ? 43 : this.output.hashCode());
         return result;
     }
 

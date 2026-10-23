@@ -36,13 +36,11 @@ class ShapeConfig(object):
             'gpus': 'int',
             'memory_in_gbs': 'int'
         }
-
         self.attribute_map = {
             'ocpus': 'ocpus',
             'gpus': 'gpus',
             'memory_in_gbs': 'memoryInGBs'
         }
-
         self._ocpus = None
         self._gpus = None
         self._memory_in_gbs = None

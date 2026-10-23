@@ -41,14 +41,12 @@ class TransitionModelVersionStageDetails(object):
             'stage': 'str',
             'archive_existing_versions': 'bool'
         }
-
         self.attribute_map = {
             'name': 'name',
             'version': 'version',
             'stage': 'stage',
             'archive_existing_versions': 'archive_existing_versions'
         }
-
         self._name = None
         self._version = None
         self._stage = None

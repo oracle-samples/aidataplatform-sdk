@@ -51,7 +51,6 @@ class OntologyGraphPreviewNodeExpansion(object):
             'next_child_cursor': 'str',
             'is_root': 'bool'
         }
-
         self.attribute_map = {
             'child_count': 'childCount',
             'has_children': 'hasChildren',
@@ -60,7 +59,6 @@ class OntologyGraphPreviewNodeExpansion(object):
             'next_child_cursor': 'nextChildCursor',
             'is_root': 'isRoot'
         }
-
         self._child_count = None
         self._has_children = None
         self._has_more_children = None

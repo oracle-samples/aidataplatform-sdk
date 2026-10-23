@@ -82,7 +82,6 @@ class Share(object):
             'lifecycle_state': 'str',
             'lifecycle_state_details': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -96,7 +95,6 @@ class Share(object):
             'lifecycle_state': 'lifecycleState',
             'lifecycle_state_details': 'lifecycleStateDetails'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

@@ -31,12 +31,10 @@ class UpdateTableFieldDetails(object):
             'field_name': 'str',
             'field_description': 'str'
         }
-
         self.attribute_map = {
             'field_name': 'fieldName',
             'field_description': 'fieldDescription'
         }
-
         self._field_name = None
         self._field_description = None
 

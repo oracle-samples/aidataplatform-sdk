@@ -21,7 +21,6 @@ SDK_PACKAGE_PARTS = ("aidp_python_client", "aidataplatform_dp")
 COMMAND_GROUP_NAME_OVERRIDES = [
     ("ml-ops", "mlops"),
 ]
-EXCLUDED_COMMAND_GROUPS = {"git"}
 WORD_PATTERN = re.compile(r"[A-Z]+(?=[A-Z][a-z]|\d|$)|[A-Z]?[a-z]+|\d+")
 PROVIDER_TOKEN_PATTERN = re.compile(r"(^|_)ai_data_platform(_|$)")
 PARAM_BLOCK_PATTERN = re.compile(
@@ -224,8 +223,6 @@ def build_command_groups(sdk_source_root: Path) -> list[dict[str, Any]]:
         class_node = class_node_from_source(client_source, client_class_name)
         tag = client_class_name.removesuffix("Client")
         group_name = command_group_name(snake_to_cli_name(client_source.stem.removesuffix("_client")))
-        if group_name in EXCLUDED_COMMAND_GROUPS:
-            continue
         commands = [
             build_command_from_method(sdk_source_root, method_node)
             for method_node in class_node.body
@@ -539,8 +536,17 @@ def single_body_model_metadata(sdk_source_root: Path, model_name: str) -> dict[s
 
     class_node = class_node_from_source(model_source, model_name)
     swagger_types, attribute_map = model_field_maps(class_node)
-    required_fields = required_model_fields(class_node, attribute_map)
-    enum_fields = model_enum_fields(class_node, attribute_map)
+    members = model_members_with_inherited(sdk_source_root, class_node)
+    required_fields = required_model_fields(members, attribute_map)
+    enum_fields = model_enum_fields(members, attribute_map)
+    own_enum_fields = model_enum_fields(
+        [node for node in class_node.body if isinstance(node, ast.FunctionDef)],
+        attribute_map,
+    )
+    for field in inherited_discriminator_fields(sdk_source_root, class_node):
+        if field not in own_enum_fields:
+            enum_fields.pop(field, None)
+    field_descriptions = model_field_descriptions(members, attribute_map)
     variants = model_variants(class_node)
     fields = []
     for python_name, type_text in sorted(swagger_types.items(), key=lambda item: attribute_map.get(item[0], item[0])):
@@ -548,6 +554,7 @@ def single_body_model_metadata(sdk_source_root: Path, model_name: str) -> dict[s
         values = enum_fields.get(name, [])
         field = {
             "name": name,
+            "description": field_descriptions.get(name, ""),
             "required": name in required_fields,
             "type": type_name_from_type(type_text),
             "itemType": item_type_name_from_type(type_text),
@@ -567,6 +574,68 @@ def single_body_model_metadata(sdk_source_root: Path, model_name: str) -> dict[s
 
 def model_source_file(sdk_source_root: Path, model_name: str) -> Path:
     return sdk_package_dir(sdk_source_root) / "models" / f"{camel_to_snake(model_name)}.py"
+
+
+def model_members_with_inherited(
+    sdk_source_root: Path,
+    class_node: ast.ClassDef,
+    inheritance_path: tuple[str, ...] = (),
+) -> list[ast.FunctionDef]:
+    # Subclass models define getters only for their own fields; inherited
+    # getters (and their [Required] markers and descriptions) live in the parent model.
+    if class_node.name in inheritance_path:
+        cycle = " -> ".join((*inheritance_path, class_node.name))
+        raise RuntimeError(f"Cyclic model inheritance detected: {cycle}")
+
+    inheritance_path = (*inheritance_path, class_node.name)
+    members = [node for node in class_node.body if isinstance(node, ast.FunctionDef)]
+    own_names = {node.name for node in members}
+    inherited_names = set()
+    for base in class_node.bases:
+        if not isinstance(base, ast.Name) or base.id == "object":
+            continue
+        base_source = model_source_file(sdk_source_root, base.id)
+        if not base_source.exists():
+            continue
+        base_node = class_node_from_source(base_source, base.id)
+        base_members = model_members_with_inherited(sdk_source_root, base_node, inheritance_path)
+        selected_names = {
+            node.name
+            for node in base_members
+            if node.name not in own_names
+            and node.name not in inherited_names
+            and node.name != "get_subtype"
+        }
+        members.extend(node for node in base_members if node.name in selected_names)
+        inherited_names.update(selected_names)
+    return members
+
+
+def inherited_discriminator_fields(sdk_source_root: Path, class_node: ast.ClassDef) -> set[str]:
+    # A parent's discriminator enum lists every variant's value, but only one is valid
+    # for a subtype; the parent's variants already record that value.
+    fields = set()
+    for base in class_node.bases:
+        if not isinstance(base, ast.Name) or base.id == "object":
+            continue
+        base_source = model_source_file(sdk_source_root, base.id)
+        if not base_source.exists():
+            continue
+        base_node = class_node_from_source(base_source, base.id)
+        get_subtype = next(
+            (
+                node
+                for node in base_node.body
+                if isinstance(node, ast.FunctionDef) and node.name == "get_subtype"
+            ),
+            None,
+        )
+        if get_subtype is not None:
+            _, field = subtype_discriminator(get_subtype)
+            if field:
+                fields.add(field)
+        fields |= inherited_discriminator_fields(sdk_source_root, base_node)
+    return fields
 
 
 def model_field_maps(class_node: ast.ClassDef) -> tuple[dict[str, str], dict[str, str]]:
@@ -601,19 +670,57 @@ def is_self_attribute(node: ast.AST, name: str) -> bool:
     )
 
 
-def required_model_fields(class_node: ast.ClassDef, attribute_map: dict[str, str]) -> set[str]:
+def required_model_fields(
+    members: list[ast.FunctionDef],
+    attribute_map: dict[str, str],
+) -> set[str]:
     required = set()
-    for node in class_node.body:
-        if isinstance(node, ast.FunctionDef) and "**[Required]**" in (ast.get_docstring(node) or ""):
+    for node in members:
+        if "**[Required]**" in (ast.get_docstring(node) or ""):
             required.add(attribute_map.get(node.name, node.name))
     return required
 
 
-def model_enum_fields(class_node: ast.ClassDef, attribute_map: dict[str, str]) -> dict[str, list[Any]]:
-    enum_fields = {}
-    for node in class_node.body:
-        if not isinstance(node, ast.FunctionDef):
+def model_field_descriptions(
+    members: list[ast.FunctionDef],
+    attribute_map: dict[str, str],
+) -> dict[str, str]:
+    descriptions = {}
+    for node in members:
+        if not is_property_getter(node):
             continue
+        description = getter_docstring_description(ast.get_docstring(node) or "")
+        if description:
+            descriptions[attribute_map.get(node.name, node.name)] = description
+    return descriptions
+
+
+def is_property_getter(function_node: ast.FunctionDef) -> bool:
+    return any(
+        isinstance(decorator, ast.Name) and decorator.id == "property"
+        for decorator in function_node.decorator_list
+    )
+
+
+def getter_docstring_description(docstring: str) -> str:
+    # The first line is the generated "Gets the <field> of this <Model>." summary;
+    # the description runs from the next line up to the enum note or ":return:" section.
+    # Enum values are already captured separately as enumValues. The SDK words the note
+    # "Allowed values for this property" for scalars and "... for items in this list" for lists.
+    lines = []
+    for line in docstring.splitlines()[1:]:
+        if line.strip().startswith((":", "Allowed values for")):
+            break
+        lines.append(line.strip())
+    return " ".join(line for line in lines if line)
+
+
+def model_enum_fields(
+    members: list[ast.FunctionDef],
+    attribute_map: dict[str, str],
+) -> dict[str, list[Any]]:
+    enum_fields = {}
+    for node in members:
         values = enum_values_from_function(node)
         if values:
             enum_fields[attribute_map.get(node.name, node.name)] = values

@@ -36,13 +36,11 @@ class UpdateAgentDeploymentMetadataDetails(object):
             'agent_card_config_detail': 'AgentCardConfigDetail',
             'update_agent_flow_agent_card_config': 'bool'
         }
-
         self.attribute_map = {
             'deployment_key': 'deploymentKey',
             'agent_card_config_detail': 'agentCardConfigDetail',
             'update_agent_flow_agent_card_config': 'updateAgentFlowAgentCardConfig'
         }
-
         self._deployment_key = None
         self._agent_card_config_detail = None
         self._update_agent_flow_agent_card_config = None

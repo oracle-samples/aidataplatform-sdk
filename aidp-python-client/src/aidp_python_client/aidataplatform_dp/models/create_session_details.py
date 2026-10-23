@@ -56,7 +56,6 @@ class CreateSessionDetails(object):
             'agent_flow_key': 'str',
             'kernel': 'Kernel'
         }
-
         self.attribute_map = {
             'id': 'id',
             'path': 'path',
@@ -66,7 +65,6 @@ class CreateSessionDetails(object):
             'agent_flow_key': 'agentFlowKey',
             'kernel': 'kernel'
         }
-
         self._id = None
         self._path = None
         self._name = None

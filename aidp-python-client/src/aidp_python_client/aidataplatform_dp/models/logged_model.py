@@ -31,12 +31,10 @@ class LoggedModel(object):
             'info': 'LoggedModelInfo',
             'data': 'object'
         }
-
         self.attribute_map = {
             'info': 'info',
             'data': 'data'
         }
-
         self._info = None
         self._data = None
 

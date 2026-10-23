@@ -31,12 +31,10 @@ class ManageViewPermissionDetails(object):
             'assign_view_permission_details': 'AssignViewPermissionDetails',
             'revoke_view_permission_details': 'RevokeViewPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_view_permission_details': 'assignViewPermissionDetails',
             'revoke_view_permission_details': 'revokeViewPermissionDetails'
         }
-
         self._assign_view_permission_details = None
         self._revoke_view_permission_details = None
 

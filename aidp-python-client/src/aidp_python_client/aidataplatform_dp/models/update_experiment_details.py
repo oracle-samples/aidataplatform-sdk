@@ -31,12 +31,10 @@ class UpdateExperimentDetails(object):
             'experiment_id': 'str',
             'new_name': 'str'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id',
             'new_name': 'new_name'
         }
-
         self._experiment_id = None
         self._new_name = None
 

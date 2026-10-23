@@ -74,7 +74,6 @@ class CreateKnowledgeBaseJobDetails(object):
             'source_key': 'str',
             'schedule': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -84,7 +83,6 @@ class CreateKnowledgeBaseJobDetails(object):
             'source_key': 'sourceKey',
             'schedule': 'schedule'
         }
-
         self._display_name = None
         self._description = None
         self._type = None
@@ -168,8 +166,7 @@ class CreateKnowledgeBaseJobDetails(object):
         allowed_values = ["SCHEDULED", "ON_DEMAND"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 
@@ -200,8 +197,7 @@ class CreateKnowledgeBaseJobDetails(object):
         allowed_values = ["ADD_REFRESH_SOURCE", "DELETE_SOURCE"]
         if not value_allowed_none_or_none_sentinel(goal, allowed_values):
             raise ValueError(
-                "Invalid value for `goal`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `goal`, must be None or one of {allowed_values}"
             )
         self._goal = goal
 

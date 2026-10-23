@@ -36,13 +36,11 @@ class UpdateModelVersionDetails(object):
             'version': 'str',
             'description': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'version': 'version',
             'description': 'description'
         }
-
         self._name = None
         self._version = None
         self._description = None

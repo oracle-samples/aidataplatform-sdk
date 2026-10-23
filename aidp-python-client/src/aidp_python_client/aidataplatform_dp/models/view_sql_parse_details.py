@@ -36,13 +36,11 @@ class ViewSqlParseDetails(object):
             'query_parse_error_message': 'str',
             'view_fields': 'list[ViewFieldDetails]'
         }
-
         self.attribute_map = {
             'is_query_valid': 'isQueryValid',
             'query_parse_error_message': 'queryParseErrorMessage',
             'view_fields': 'viewFields'
         }
-
         self._is_query_valid = None
         self._query_parse_error_message = None
         self._view_fields = None

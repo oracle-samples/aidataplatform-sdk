@@ -26,11 +26,9 @@ class RevokeRolePermissionDetails(object):
         self.swagger_types = {
             'permission_with_resource_details': 'list[PermissionWithResourceDetails]'
         }
-
         self.attribute_map = {
             'permission_with_resource_details': 'permissionWithResourceDetails'
         }
-
         self._permission_with_resource_details = None
 
     @property

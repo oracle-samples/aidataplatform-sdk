@@ -12,11 +12,13 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class SessionConfiguration  {
     @Deprecated
-    @java.beans.ConstructorProperties({"variables", "sessionRetentionConfig", "fileConfig"})
-    public SessionConfiguration(java.util.Map<String, SessionVariableDetails> variables, SessionRetentionConfiguration sessionRetentionConfig, FileConfiguration fileConfig) {
+    @java.beans.ConstructorProperties({"variables", "sessionRetentionConfig", "automaticSummarizationConfig", "longTermMemoryConfig", "fileConfig"})
+    public SessionConfiguration(java.util.Map<String, SessionVariableDetails> variables, SessionRetentionConfiguration sessionRetentionConfig, AutomaticSummarizationConfiguration automaticSummarizationConfig, LongTermMemoryConfiguration longTermMemoryConfig, FileConfiguration fileConfig) {
         super();
         this.variables = variables;
         this.sessionRetentionConfig = sessionRetentionConfig;
+        this.automaticSummarizationConfig = automaticSummarizationConfig;
+        this.longTermMemoryConfig = longTermMemoryConfig;
         this.fileConfig = fileConfig;
     }
 
@@ -51,6 +53,26 @@ public Builder sessionRetentionConfig(SessionRetentionConfiguration sessionReten
     return this;
 }
         
+@com.fasterxml.jackson.annotation.JsonProperty("automaticSummarizationConfig")
+private AutomaticSummarizationConfiguration automaticSummarizationConfig;
+
+
+
+public Builder automaticSummarizationConfig(AutomaticSummarizationConfiguration automaticSummarizationConfig) {
+    this.automaticSummarizationConfig = automaticSummarizationConfig;
+    return this;
+}
+        
+@com.fasterxml.jackson.annotation.JsonProperty("longTermMemoryConfig")
+private LongTermMemoryConfiguration longTermMemoryConfig;
+
+
+
+public Builder longTermMemoryConfig(LongTermMemoryConfiguration longTermMemoryConfig) {
+    this.longTermMemoryConfig = longTermMemoryConfig;
+    return this;
+}
+        
 @com.fasterxml.jackson.annotation.JsonProperty("fileConfig")
 private FileConfiguration fileConfig;
 
@@ -65,6 +87,8 @@ public Builder fileConfig(FileConfiguration fileConfig) {
         public SessionConfiguration build() {
             SessionConfiguration model = new SessionConfiguration(this.variables
                 , this.sessionRetentionConfig
+                , this.automaticSummarizationConfig
+                , this.longTermMemoryConfig
                 , this.fileConfig);            return model;
         }
 
@@ -72,6 +96,8 @@ public Builder fileConfig(FileConfiguration fileConfig) {
         public Builder copy(SessionConfiguration model) {
                 this.variables(model.getVariables());
     this.sessionRetentionConfig(model.getSessionRetentionConfig());
+    this.automaticSummarizationConfig(model.getAutomaticSummarizationConfig());
+    this.longTermMemoryConfig(model.getLongTermMemoryConfig());
     this.fileConfig(model.getFileConfig());
 return this;
         }
@@ -120,6 +146,26 @@ return this;
 
 
     
+    @com.fasterxml.jackson.annotation.JsonProperty("automaticSummarizationConfig")
+    private final AutomaticSummarizationConfiguration automaticSummarizationConfig;
+
+    
+    public AutomaticSummarizationConfiguration getAutomaticSummarizationConfig() {
+        return automaticSummarizationConfig;
+    }
+
+
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("longTermMemoryConfig")
+    private final LongTermMemoryConfiguration longTermMemoryConfig;
+
+    
+    public LongTermMemoryConfiguration getLongTermMemoryConfig() {
+        return longTermMemoryConfig;
+    }
+
+
+    
     @com.fasterxml.jackson.annotation.JsonProperty("fileConfig")
     private final FileConfiguration fileConfig;
 
@@ -143,6 +189,8 @@ return this;
         sb.append("SessionConfiguration(");
         sb.append("variables=").append(String.valueOf(this.variables));
         sb.append(", sessionRetentionConfig=").append(String.valueOf(this.sessionRetentionConfig));
+        sb.append(", automaticSummarizationConfig=").append(String.valueOf(this.automaticSummarizationConfig));
+        sb.append(", longTermMemoryConfig=").append(String.valueOf(this.longTermMemoryConfig));
         sb.append(", fileConfig=").append(String.valueOf(this.fileConfig));
         sb.append(")");
         return sb.toString();
@@ -160,6 +208,8 @@ return this;
         SessionConfiguration other = (SessionConfiguration) o;
         return java.util.Objects.equals(this.variables, other.variables) &&
             java.util.Objects.equals(this.sessionRetentionConfig, other.sessionRetentionConfig) &&
+            java.util.Objects.equals(this.automaticSummarizationConfig, other.automaticSummarizationConfig) &&
+            java.util.Objects.equals(this.longTermMemoryConfig, other.longTermMemoryConfig) &&
             java.util.Objects.equals(this.fileConfig, other.fileConfig);
     }
 
@@ -169,6 +219,8 @@ return this;
         int result = 1;
         result = (result * PRIME) + (this.variables == null ? 43 : this.variables.hashCode());
         result = (result * PRIME) + (this.sessionRetentionConfig == null ? 43 : this.sessionRetentionConfig.hashCode());
+        result = (result * PRIME) + (this.automaticSummarizationConfig == null ? 43 : this.automaticSummarizationConfig.hashCode());
+        result = (result * PRIME) + (this.longTermMemoryConfig == null ? 43 : this.longTermMemoryConfig.hashCode());
         result = (result * PRIME) + (this.fileConfig == null ? 43 : this.fileConfig.hashCode());
         return result;
     }

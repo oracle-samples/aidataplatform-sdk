@@ -55,7 +55,6 @@ class ListModelDeploymentActivitiesDetails(object):
             'order_by': 'list[str]',
             'page_token': 'str'
         }
-
         self.attribute_map = {
             'deployment_id': 'deployment_id',
             'status': 'status',
@@ -63,7 +62,6 @@ class ListModelDeploymentActivitiesDetails(object):
             'order_by': 'order_by',
             'page_token': 'page_token'
         }
-
         self._deployment_id = None
         self._status = None
         self._max_results = None
@@ -121,8 +119,7 @@ class ListModelDeploymentActivitiesDetails(object):
         allowed_values = ["SUCCESS", "FAILURE"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `status`, must be None or one of {allowed_values}"
             )
         self._status = status
 

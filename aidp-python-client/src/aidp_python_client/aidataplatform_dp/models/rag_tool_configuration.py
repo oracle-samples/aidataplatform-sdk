@@ -51,7 +51,6 @@ class RagToolConfiguration(object):
             'model_settings': 'dict(str, object)',
             'top_k': 'int'
         }
-
         self.attribute_map = {
             'catalog_key': 'catalogKey',
             'schema_key': 'schemaKey',
@@ -60,7 +59,6 @@ class RagToolConfiguration(object):
             'model_settings': 'modelSettings',
             'top_k': 'topK'
         }
-
         self._catalog_key = None
         self._schema_key = None
         self._knowledge_base = None

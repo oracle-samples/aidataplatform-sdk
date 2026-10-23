@@ -37,13 +37,11 @@ class ProvisionUserSchemaDetails(ExecuteDatabaseUserWorkflowsDetails):
             'user_schema_name': 'str',
             'grants': 'list[str]'
         }
-
         self.attribute_map = {
             'action_type': 'actionType',
             'user_schema_name': 'userSchemaName',
             'grants': 'grants'
         }
-
         self._action_type = None
         self._user_schema_name = None
         self._grants = None

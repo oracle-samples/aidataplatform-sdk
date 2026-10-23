@@ -33,12 +33,10 @@ class ClusterExecutionContextAvailabilityEvent(ClusterEvent):
             'type': 'str',
             'number_of_execution_contexts': 'int'
         }
-
         self.attribute_map = {
             'type': 'type',
             'number_of_execution_contexts': 'numberOfExecutionContexts'
         }
-
         self._type = None
         self._number_of_execution_contexts = None
         self._type = 'CLUSTER_EXECUTION_CONTEXT_AVAILABILITY_EVENT'

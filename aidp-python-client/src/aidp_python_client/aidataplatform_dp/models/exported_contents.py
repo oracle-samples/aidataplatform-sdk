@@ -51,14 +51,12 @@ class ExportedContents(object):
             'content': 'object',
             'format': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'path': 'path',
             'content': 'content',
             'format': 'format'
         }
-
         self._name = None
         self._path = None
         self._content = None

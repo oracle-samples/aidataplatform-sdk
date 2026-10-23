@@ -36,13 +36,11 @@ class AllowedToolDetails(object):
             'arg_overrides': 'dict(str, str)',
             'tool': 'McpToolObject'
         }
-
         self.attribute_map = {
             'instruction': 'instruction',
             'arg_overrides': 'argOverrides',
             'tool': 'tool'
         }
-
         self._instruction = None
         self._arg_overrides = None
         self._tool = None

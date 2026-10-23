@@ -117,7 +117,6 @@ class SafetyPolicy(object):
             'action': 'str',
             'threshold': 'float'
         }
-
         self.attribute_map = {
             'policy_type': 'policyType',
             'policy_name': 'policyName',
@@ -126,7 +125,6 @@ class SafetyPolicy(object):
             'action': 'action',
             'threshold': 'threshold'
         }
-
         self._policy_type = None
         self._policy_name = None
         self._policy_description = None

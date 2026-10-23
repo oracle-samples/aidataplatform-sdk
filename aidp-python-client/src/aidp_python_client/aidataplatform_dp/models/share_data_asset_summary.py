@@ -75,7 +75,6 @@ class ShareDataAssetSummary(object):
             'time_created': 'datetime',
             'time_updated': 'datetime'
         }
-
         self.attribute_map = {
             'type': 'type',
             'name': 'name',
@@ -86,7 +85,6 @@ class ShareDataAssetSummary(object):
             'time_created': 'timeCreated',
             'time_updated': 'timeUpdated'
         }
-
         self._type = None
         self._name = None
         self._created_by = None

@@ -81,7 +81,6 @@ class OntologyEntitySaveResult(object):
             'failed_operation': 'OntologyEntityFailedOperation',
             'error': 'OntologyEntitySaveError'
         }
-
         self.attribute_map = {
             'success': 'success',
             'project_id': 'projectId',
@@ -96,7 +95,6 @@ class OntologyEntitySaveResult(object):
             'failed_operation': 'failedOperation',
             'error': 'error'
         }
-
         self._success = None
         self._project_id = None
         self._base_revision = None

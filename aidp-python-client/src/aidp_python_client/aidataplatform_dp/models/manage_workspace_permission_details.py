@@ -31,12 +31,10 @@ class ManageWorkspacePermissionDetails(object):
             'assign_workspace_permission_details': 'AssignWorkspacePermissionDetails',
             'revoke_workspace_permission_details': 'RevokeWorkspacePermissionDetails'
         }
-
         self.attribute_map = {
             'assign_workspace_permission_details': 'assignWorkspacePermissionDetails',
             'revoke_workspace_permission_details': 'revokeWorkspacePermissionDetails'
         }
-
         self._assign_workspace_permission_details = None
         self._revoke_workspace_permission_details = None
 

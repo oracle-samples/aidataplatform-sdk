@@ -73,7 +73,6 @@ class ThirdPartyLlmConfig(BaseLlmConfig):
             'api_key_credstore_ref': 'CredentialV2NameAndSecretKey',
             'llm_connection_settings': 'LlmConnectionSettings'
         }
-
         self.attribute_map = {
             'type': 'type',
             'model_id': 'modelId',
@@ -83,7 +82,6 @@ class ThirdPartyLlmConfig(BaseLlmConfig):
             'api_key_credstore_ref': 'apiKeyCredstoreRef',
             'llm_connection_settings': 'llmConnectionSettings'
         }
-
         self._type = None
         self._model_id = None
         self._compartment_id = None

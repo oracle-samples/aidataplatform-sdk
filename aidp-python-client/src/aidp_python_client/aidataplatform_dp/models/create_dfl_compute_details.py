@@ -48,7 +48,6 @@ class CreateDflComputeDetails(CreateClusterDetails):
             'driver_config': 'DriverConfig',
             'node_type': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'display_name': 'displayName',
@@ -56,7 +55,6 @@ class CreateDflComputeDetails(CreateClusterDetails):
             'driver_config': 'driverConfig',
             'node_type': 'nodeType'
         }
-
         self._type = None
         self._display_name = None
         self._description = None

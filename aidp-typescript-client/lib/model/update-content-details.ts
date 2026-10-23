@@ -33,6 +33,26 @@ export interface UpdateContentDetails {
     */
     'content'?: any;
     /**
+    * UI-generated UUID that identifies one notebook upload.
+    */
+    'uploadId'?: string;
+    /**
+    * One-based upload chunk index, or -1 for the final upload chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'uploadChunkIndex'?: number;
+    /**
+    * Total request chunks, including the final chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'totalChunks'?: number;
+    /**
+    * Total decoded notebook bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+    'totalSizeBytes'?: number;
+    /**
+    * SHA-256 digest of the complete decoded notebook content.
+    */
+    'sha256'?: string;
+    /**
     * Format of content. For Notebook model, format field is always JSON. For File model, format field is either Text or Base64. 
 * For Directory model, format field is always JSON.
 * 
@@ -55,6 +75,11 @@ export namespace UpdateContentDetails {
 
 
 
+
+
+
+
+
     export enum Format {
     
     Null = "NULL",
@@ -72,10 +97,19 @@ export namespace UpdateContentDetails {
 
 
 
+                'upload_id': obj.uploadId,
+
+                'upload_chunk_index': obj.uploadChunkIndex,
+
+                'total_chunks': obj.totalChunks,
+
+                'total_size_bytes': obj.totalSizeBytes,
+
+
 
         }};
 
-        
+        delete (jsonObj as Partial<UpdateContentDetails>).uploadId;delete (jsonObj as Partial<UpdateContentDetails>).uploadChunkIndex;delete (jsonObj as Partial<UpdateContentDetails>).totalChunks;delete (jsonObj as Partial<UpdateContentDetails>).totalSizeBytes;
         
         return jsonObj;
     }
@@ -87,10 +121,19 @@ export namespace UpdateContentDetails {
 
 
 
+                'uploadId': (obj as any)["upload_id"],
+
+                'uploadChunkIndex': (obj as any)["upload_chunk_index"],
+
+                'totalChunks': (obj as any)["total_chunks"],
+
+                'totalSizeBytes': (obj as any)["total_size_bytes"],
+
+
 
          }};
 
-        
+        delete (jsonObj as any)["upload_id"];delete (jsonObj as any)["upload_chunk_index"];delete (jsonObj as any)["total_chunks"];delete (jsonObj as any)["total_size_bytes"];
         
         return jsonObj;
     }

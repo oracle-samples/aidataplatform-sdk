@@ -60,7 +60,6 @@ class CreateVolumeDetails(object):
             'volume_type': 'str',
             'storage_location': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'catalog_name': 'catalogName',
@@ -69,7 +68,6 @@ class CreateVolumeDetails(object):
             'volume_type': 'volumeType',
             'storage_location': 'storageLocation'
         }
-
         self._display_name = None
         self._catalog_name = None
         self._schema_name = None
@@ -200,8 +198,7 @@ class CreateVolumeDetails(object):
         allowed_values = ["MANAGED", "EXTERNAL"]
         if not value_allowed_none_or_none_sentinel(volume_type, allowed_values):
             raise ValueError(
-                "Invalid value for `volume_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `volume_type`, must be None or one of {allowed_values}"
             )
         self._volume_type = volume_type
 

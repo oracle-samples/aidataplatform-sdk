@@ -31,12 +31,10 @@ class LoggedModelOrder(object):
             'field_name': 'str',
             'ascending': 'bool'
         }
-
         self.attribute_map = {
             'field_name': 'field_name',
             'ascending': 'ascending'
         }
-
         self._field_name = None
         self._ascending = None
 

@@ -33,12 +33,10 @@ class McpTestToolResult(TestToolResult):
             'tool_type': 'str',
             'result': 'McpResult'
         }
-
         self.attribute_map = {
             'tool_type': 'toolType',
             'result': 'result'
         }
-
         self._tool_type = None
         self._result = None
         self._tool_type = 'MCP'

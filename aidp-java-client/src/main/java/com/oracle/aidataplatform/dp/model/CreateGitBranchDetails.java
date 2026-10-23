@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Information required to create a new Git branch.
+ * Request details for creating a Git branch in a workspace.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CreateGitBranchDetails.Builder.class)
@@ -22,14 +22,18 @@ public final class CreateGitBranchDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The name of the Git branch.
+     * Name of the new branch. The branch must not already exist locally or on
+* origin.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitBranchName")
 private String gitBranchName;
 
         /**
-         * The name of the Git branch.
+         * Name of the new branch. The branch must not already exist locally or on
+* origin.
+* 
          * @param gitBranchName the value to set
          * @return this builder
          **/
@@ -40,14 +44,18 @@ public Builder gitBranchName(String gitBranchName) {
     return this;
 }
             /**
-     * The path of the current Git folder which has to be created for the new branch.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * The path of the current Git folder which has to be created for the new branch.
+         * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -88,14 +96,18 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Name of the new branch. The branch must not already exist locally or on
+* origin.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitBranchName")
     private final String gitBranchName;
 
         /**
-     * The name of the Git branch.
+     * Name of the new branch. The branch must not already exist locally or on
+* origin.
+* 
      * @return the value
      **/
     
@@ -105,14 +117,18 @@ return this;
 
 
         /**
-     * The path of the current Git folder which has to be created for the new branch.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * The path of the current Git folder which has to be created for the new branch.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     

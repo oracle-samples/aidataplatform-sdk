@@ -58,6 +58,10 @@ class SchemaSummary(object):
     ENTITY_TYPE_SNOWFLAKE = "SNOWFLAKE"
 
     #: A constant which can be used with the entity_type property of a SchemaSummary.
+    #: This constant has a value of "GOOGLE_BIGQUERY"
+    ENTITY_TYPE_GOOGLE_BIGQUERY = "GOOGLE_BIGQUERY"
+
+    #: A constant which can be used with the entity_type property of a SchemaSummary.
     #: This constant has a value of "ORACLE_ANALYTICS"
     ENTITY_TYPE_ORACLE_ANALYTICS = "ORACLE_ANALYTICS"
 
@@ -90,8 +94,6 @@ class SchemaSummary(object):
         Initializes a new SchemaSummary object with values from keyword arguments. This class has the following subclasses and if you are using this class as input
         to a service operations then you should favor using a subclass over the base class:
 
-        * :class:`~oci.aidataplatform_dp.models.AlhSchemaSummary`
-        * :class:`~oci.aidataplatform_dp.models.ExadataSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.OracleSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.MysqlSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.Db2SchemaSummary`
@@ -99,15 +101,18 @@ class SchemaSummary(object):
         * :class:`~oci.aidataplatform_dp.models.AtpSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.KafkaTopicSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.AdwSchemaSummary`
-        * :class:`~oci.aidataplatform_dp.models.SqlServerOnAzureSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.SnowflakeSchemaSummary`
         * :class:`~oci.aidataplatform_dp.models.StandardSchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.AlhSchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.ExadataSchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.GoogleBigquerySchemaSummary`
+        * :class:`~oci.aidataplatform_dp.models.SqlServerOnAzureSchemaSummary`
 
         The following keyword arguments are supported (corresponding to the getters/setters of this class):
 
         :param entity_type:
             The value to assign to the entity_type property of this SchemaSummary.
-            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type entity_type: str
 
@@ -174,7 +179,6 @@ class SchemaSummary(object):
             'last_refresh_status': 'str',
             'time_last_refresh': 'datetime'
         }
-
         self.attribute_map = {
             'entity_type': 'entityType',
             'key': 'key',
@@ -189,7 +193,6 @@ class SchemaSummary(object):
             'last_refresh_status': 'lastRefreshStatus',
             'time_last_refresh': 'timeLastRefresh'
         }
-
         self._entity_type = None
         self._key = None
         self._display_name = None
@@ -210,12 +213,6 @@ class SchemaSummary(object):
         use the info in the hash to return the class of the subtype.
         """
         type = object_dictionary['entityType']
-
-        if type == 'ALH':
-            return 'AlhSchemaSummary'
-
-        if type == 'EXADATA':
-            return 'ExadataSchemaSummary'
 
         if type == 'ORACLE':
             return 'OracleSchemaSummary'
@@ -238,14 +235,23 @@ class SchemaSummary(object):
         if type == 'ADW':
             return 'AdwSchemaSummary'
 
-        if type == 'AZURE_SQLSERVER':
-            return 'SqlServerOnAzureSchemaSummary'
-
         if type == 'SNOWFLAKE':
             return 'SnowflakeSchemaSummary'
 
         if type == 'STANDARD':
             return 'StandardSchemaSummary'
+
+        if type == 'ALH':
+            return 'AlhSchemaSummary'
+
+        if type == 'EXADATA':
+            return 'ExadataSchemaSummary'
+
+        if type == 'GOOGLE_BIGQUERY':
+            return 'GoogleBigquerySchemaSummary'
+
+        if type == 'AZURE_SQLSERVER':
+            return 'SqlServerOnAzureSchemaSummary'
         else:
             return 'SchemaSummary'
 
@@ -255,7 +261,7 @@ class SchemaSummary(object):
         **[Required]** Gets the entity_type of this SchemaSummary.
         An enum to decide the type of the derived model.
 
-        Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -274,7 +280,7 @@ class SchemaSummary(object):
         :param entity_type: The entity_type of this SchemaSummary.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "STANDARD", "KAFKA_TOPIC", "ATP", "ORACLE", "EXADATA", "MYSQL", "DB2", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(entity_type, allowed_values):
             entity_type = 'UNKNOWN_ENUM_VALUE'
         self._entity_type = entity_type

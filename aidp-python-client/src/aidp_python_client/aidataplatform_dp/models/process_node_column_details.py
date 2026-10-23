@@ -61,7 +61,6 @@ class ProcessNodeColumnDetails(object):
             'parent_qualified_name': 'str',
             'parent_type': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'id': 'id',
@@ -72,7 +71,6 @@ class ProcessNodeColumnDetails(object):
             'parent_qualified_name': 'parentQualifiedName',
             'parent_type': 'parentType'
         }
-
         self._display_name = None
         self._id = None
         self._qualified_name = None

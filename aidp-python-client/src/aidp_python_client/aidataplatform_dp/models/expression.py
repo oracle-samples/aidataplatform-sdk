@@ -31,12 +31,10 @@ class Expression(object):
             'key': 'str',
             'value': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'value': 'value'
         }
-
         self._key = None
         self._value = None
 

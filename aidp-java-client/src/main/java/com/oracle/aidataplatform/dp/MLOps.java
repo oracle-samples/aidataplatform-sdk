@@ -229,6 +229,26 @@ public interface MLOps extends AutoCloseable {
     DeleteRegisteredModelTagResponse deleteRegisteredModelTag(DeleteRegisteredModelTagRequest request);
     
     /**
+     * (Preview) Starts an asynchronous export of the correlated inference invocation records in the requested publish-time window to a JSON file in a Volume. The window defaults to the last 30 days and must not exceed 30 days; export a longer history as consecutive windows. The export runs as a tracked asynchronous operation; a second export to the same destination while one is in progress is rejected with 409.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ExportModelDeploymentInferencesResponse exportModelDeploymentInferences(ExportModelDeploymentInferencesRequest request);
+    
+    /**
+     * (Preview) Returns one deployment log event with its full, redacted message, located by the opaque expiring locator returned from a log search.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetDeploymentLogResponse getDeploymentLog(GetDeploymentLogRequest request);
+    
+    /**
      * (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -297,6 +317,26 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     GetModelDeploymentContractResponse getModelDeploymentContract(GetModelDeploymentContractRequest request);
+    
+    /**
+     * (Preview) Returns request and response payloads for one correlated inference invocation identified by its request ID. The identifier contains forward slashes, so each slash must be percent-encoded as %2F in the path. Example `requestId`: `abc123%2Fdef456%2F789abc`.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetModelDeploymentInferenceDetailsResponse getModelDeploymentInferenceDetails(GetModelDeploymentInferenceDetailsRequest request);
+    
+    /**
+     * (Preview) Returns aggregate metrics for correlated request and response inference events within the requested timestamp range. Query parameters `timeStart` and `timeEnd` are optional; when omitted, the API uses the previous 24 hours. Any requested range must be within the most recent 14 days.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    GetModelDeploymentInferenceSummaryResponse getModelDeploymentInferenceSummary(GetModelDeploymentInferenceSummaryRequest request);
     
     /**
      * (Preview)  Returns detailed information for a model version.
@@ -389,6 +429,16 @@ public interface MLOps extends AutoCloseable {
     ListModelVersionsResponse listModelVersions(ListModelVersionsRequest request);
     
     /**
+     * (Preview) Returns the users, groups, and roles granted READ, MANAGE, or ADMIN on a registered model. Any caller who can view the model can read the list.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ListRegisteredModelPermissionsResponse listRegisteredModelPermissions(ListRegisteredModelPermissionsRequest request);
+    
+    /**
      * (Preview) Returns a list of registered models in a workspace.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -449,6 +499,16 @@ public interface MLOps extends AutoCloseable {
     LogExperimentRunParamResponse logExperimentRunParam(LogExperimentRunParamRequest request);
     
     /**
+     * (Preview) Grants or revokes READ, MANAGE, or ADMIN on a registered model's dedicated volume. The model-to-volume link is resolved on the server; no volume name is accepted from the client.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    ManageRegisteredModelPermissionResponse manageRegisteredModelPermission(ManageRegisteredModelPermissionRequest request);
+    
+    /**
      * (Preview) Renames a registered model.
      * @param request The request object containing the details to send
      * @return A response object containing details about the completed operation
@@ -497,6 +557,26 @@ public interface MLOps extends AutoCloseable {
      * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
      */
     RollForwardModelDeploymentResponse rollForwardModelDeployment(RollForwardModelDeploymentRequest request);
+    
+    /**
+     * (Preview) Returns one page of deployment lifecycle log events for the model deployment, newest first, read live from OCI Logging. No log content is persisted by the platform.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    SearchDeploymentLogsResponse searchDeploymentLogs(SearchDeploymentLogsRequest request);
+    
+    /**
+     * (Preview) Returns paginated request and response-correlated inference invocation records for a model deployment. Each response contains at most 20 rows, OCI Logging pagination is used internally, and only the first 10,000 matching rows can be retrieved within a maximum 14-day range. When no time range is provided, the previous 24 hours is used.
+     * @param request The request object containing the details to send
+     * @return A response object containing details about the completed operation
+     * @throws BmcException when an error occurs.
+     * This operation uses RetryConfiguration.SDK_DEFAULT_RETRY_CONFIGURATION as default if no retry strategy is provided.
+     * The specifics of the default retry strategy are described here https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdkconcepts.htm#javasdkconcepts_topic_Retries
+     */
+    SearchModelDeploymentInferencesResponse searchModelDeploymentInferences(SearchModelDeploymentInferencesRequest request);
     
     /**
      * (Preview) Returns a list of model deployments matching the given criteria.

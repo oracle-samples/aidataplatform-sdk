@@ -31,12 +31,10 @@ class LoggedModelCollection(object):
             'models': 'list[LoggedModel]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'models': 'models',
             'next_page_token': 'next_page_token'
         }
-
         self._models = None
         self._next_page_token = None
 

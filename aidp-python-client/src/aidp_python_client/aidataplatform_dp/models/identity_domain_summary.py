@@ -58,14 +58,12 @@ class IdentityDomainSummary(object):
             'lifecycle_state': 'str',
             'home_region_url': 'str'
         }
-
         self.attribute_map = {
             'domain_id': 'domainId',
             'domain_name': 'domainName',
             'lifecycle_state': 'lifecycleState',
             'home_region_url': 'homeRegionUrl'
         }
-
         self._domain_id = None
         self._domain_name = None
         self._lifecycle_state = None
@@ -146,8 +144,7 @@ class IdentityDomainSummary(object):
         allowed_values = ["CREATING", "ACTIVE", "DELETING", "INACTIVE"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

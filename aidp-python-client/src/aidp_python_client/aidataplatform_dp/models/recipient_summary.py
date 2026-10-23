@@ -81,7 +81,6 @@ class RecipientSummary(object):
             'updated_by': 'str',
             'time_updated': 'datetime'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -94,7 +93,6 @@ class RecipientSummary(object):
             'updated_by': 'updatedBy',
             'time_updated': 'timeUpdated'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

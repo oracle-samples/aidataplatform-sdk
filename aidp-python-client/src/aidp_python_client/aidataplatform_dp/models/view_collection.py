@@ -26,11 +26,9 @@ class ViewCollection(object):
         self.swagger_types = {
             'items': 'list[ViewSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

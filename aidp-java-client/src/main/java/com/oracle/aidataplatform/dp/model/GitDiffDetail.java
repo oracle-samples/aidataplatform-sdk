@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Unified diff details for a Git file.
+ * Unified diff content and status information for a repository-relative file.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitDiffDetail.Builder.class)
@@ -80,14 +80,16 @@ public Builder isBinary(Boolean isBinary) {
     return this;
 }
             /**
-     * Unified diff patch text.
+     * Local unified diff patch text. Binary files may have no textual patch.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("patch")
 private String patch;
 
         /**
-         * Unified diff patch text.
+         * Local unified diff patch text. Binary files may have no textual patch.
+* 
          * @param patch the value to set
          * @return this builder
          **/
@@ -98,14 +100,18 @@ public Builder patch(String patch) {
     return this;
 }
             /**
-     * Indicates whether the diff output was truncated.
+     * Whether returned diff output is marked truncated; this does not guarantee
+* enforcement of the requested maxPatchBytes.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("isTruncated")
 private Boolean isTruncated;
 
         /**
-         * Indicates whether the diff output was truncated.
+         * Whether returned diff output is marked truncated; this does not guarantee
+* enforcement of the requested maxPatchBytes.
+* 
          * @param isTruncated the value to set
          * @return this builder
          **/
@@ -223,14 +229,16 @@ return this;
 
 
         /**
-     * Unified diff patch text.
+     * Local unified diff patch text. Binary files may have no textual patch.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("patch")
     private final String patch;
 
         /**
-     * Unified diff patch text.
+     * Local unified diff patch text. Binary files may have no textual patch.
+* 
      * @return the value
      **/
     
@@ -240,14 +248,18 @@ return this;
 
 
         /**
-     * Indicates whether the diff output was truncated.
+     * Whether returned diff output is marked truncated; this does not guarantee
+* enforcement of the requested maxPatchBytes.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("isTruncated")
     private final Boolean isTruncated;
 
         /**
-     * Indicates whether the diff output was truncated.
+     * Whether returned diff output is marked truncated; this does not guarantee
+* enforcement of the requested maxPatchBytes.
+* 
      * @return the value
      **/
     

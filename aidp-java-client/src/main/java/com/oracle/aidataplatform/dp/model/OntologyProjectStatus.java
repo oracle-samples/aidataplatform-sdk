@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class OntologyProjectStatus  {
     @Deprecated
-    @java.beans.ConstructorProperties({"statusId", "projectId", "projectVersion", "publishVersion", "publishedOntologyName", "deploymentTarget", "deploymentConnection", "isDeploymentShared", "status", "comment", "importDetails", "validationReport", "compiledArtifactRef", "errorMessage", "idempotencyKey", "timeCreated", "timeUpdated"})
-    public OntologyProjectStatus(String statusId, String projectId, Integer projectVersion, Integer publishVersion, String publishedOntologyName, String deploymentTarget, String deploymentConnection, Boolean isDeploymentShared, Status status, String comment, OntologyProjectImportStatusDetails importDetails, String validationReport, String compiledArtifactRef, String errorMessage, String idempotencyKey, java.util.Date timeCreated, java.util.Date timeUpdated) {
+    @java.beans.ConstructorProperties({"statusId", "projectId", "projectVersion", "publishVersion", "publishedOntologyName", "deploymentTarget", "deploymentConnection", "isDeploymentShared", "status", "comment", "importDetails", "validationReport", "compiledArtifactRef", "errorMessage", "idempotencyKey", "timeCreated", "timeUpdated", "publishedBy"})
+    public OntologyProjectStatus(String statusId, String projectId, Integer projectVersion, Integer publishVersion, String publishedOntologyName, String deploymentTarget, String deploymentConnection, Boolean isDeploymentShared, Status status, String comment, OntologyProjectImportStatusDetails importDetails, String validationReport, String compiledArtifactRef, String errorMessage, String idempotencyKey, java.util.Date timeCreated, java.util.Date timeUpdated, String publishedBy) {
         super();
         this.statusId = statusId;
         this.projectId = projectId;
@@ -32,6 +32,7 @@ public final class OntologyProjectStatus  {
         this.idempotencyKey = idempotencyKey;
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
+        this.publishedBy = publishedBy;
     }
 
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
@@ -262,6 +263,24 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
     this.timeUpdated = timeUpdated;
     return this;
 }
+            /**
+     * Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("publishedBy")
+private String publishedBy;
+
+        /**
+         * Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+         * @param publishedBy the value to set
+         * @return this builder
+         **/
+        
+
+public Builder publishedBy(String publishedBy) {
+    this.publishedBy = publishedBy;
+    return this;
+}
 
 
         public OntologyProjectStatus build() {
@@ -281,7 +300,8 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
                 , this.errorMessage
                 , this.idempotencyKey
                 , this.timeCreated
-                , this.timeUpdated);            return model;
+                , this.timeUpdated
+                , this.publishedBy);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
@@ -303,6 +323,7 @@ public Builder timeUpdated(java.util.Date timeUpdated) {
     this.idempotencyKey(model.getIdempotencyKey());
     this.timeCreated(model.getTimeCreated());
     this.timeUpdated(model.getTimeUpdated());
+    this.publishedBy(model.getPublishedBy());
 return this;
         }
     }
@@ -459,6 +480,7 @@ return this;
         Importing("IMPORTING"),
         Imported("IMPORTED"),
         ImportFailed("IMPORT_FAILED"),
+        Discovering("DISCOVERING"),
         Archived("ARCHIVED"),
         ;
 
@@ -588,6 +610,23 @@ return this;
         return timeUpdated;
     }
 
+
+        /**
+     * Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("publishedBy")
+    private final String publishedBy;
+
+        /**
+     * Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+     * @return the value
+     **/
+    
+    public String getPublishedBy() {
+        return publishedBy;
+    }
+
     @Override
     public String toString() {
         return this.toString(true);
@@ -618,6 +657,7 @@ return this;
         sb.append(", idempotencyKey=").append(String.valueOf(this.idempotencyKey));
         sb.append(", timeCreated=").append(String.valueOf(this.timeCreated));
         sb.append(", timeUpdated=").append(String.valueOf(this.timeUpdated));
+        sb.append(", publishedBy=").append(String.valueOf(this.publishedBy));
         sb.append(")");
         return sb.toString();
     }
@@ -648,7 +688,8 @@ return this;
             java.util.Objects.equals(this.errorMessage, other.errorMessage) &&
             java.util.Objects.equals(this.idempotencyKey, other.idempotencyKey) &&
             java.util.Objects.equals(this.timeCreated, other.timeCreated) &&
-            java.util.Objects.equals(this.timeUpdated, other.timeUpdated);
+            java.util.Objects.equals(this.timeUpdated, other.timeUpdated) &&
+            java.util.Objects.equals(this.publishedBy, other.publishedBy);
     }
 
     @Override
@@ -672,6 +713,7 @@ return this;
         result = (result * PRIME) + (this.idempotencyKey == null ? 43 : this.idempotencyKey.hashCode());
         result = (result * PRIME) + (this.timeCreated == null ? 43 : this.timeCreated.hashCode());
         result = (result * PRIME) + (this.timeUpdated == null ? 43 : this.timeUpdated.hashCode());
+        result = (result * PRIME) + (this.publishedBy == null ? 43 : this.publishedBy.hashCode());
         return result;
     }
 

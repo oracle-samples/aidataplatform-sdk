@@ -31,12 +31,10 @@ class OntologyEntityCardinality(object):
             'min_cardinality': 'int',
             'max_cardinality': 'int'
         }
-
         self.attribute_map = {
             'min_cardinality': 'minCardinality',
             'max_cardinality': 'maxCardinality'
         }
-
         self._min_cardinality = None
         self._max_cardinality = None
 

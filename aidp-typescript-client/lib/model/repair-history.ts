@@ -13,7 +13,7 @@ export interface RepairHistory {
     */
     'type'?: RepairHistory.Type;
     /**
-    * The unique ID of the Repair run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
     'key'?: number;
     'state'?: model.State;

@@ -46,7 +46,6 @@ class LineageRelationship(object):
             'provider_type': 'str',
             'properties': 'dict(str, dict(str, str))'
         }
-
         self.attribute_map = {
             'from_node_id': 'fromNodeId',
             'to_node_id': 'toNodeId',
@@ -54,7 +53,6 @@ class LineageRelationship(object):
             'provider_type': 'providerType',
             'properties': 'properties'
         }
-
         self._from_node_id = None
         self._to_node_id = None
         self._type = None

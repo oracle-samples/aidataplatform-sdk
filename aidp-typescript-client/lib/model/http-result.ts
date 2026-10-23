@@ -33,9 +33,9 @@ export interface HttpResult {
     */
     'headers'?: { [key: string]: string; };
     /**
-    * Response body
+    * Response body, which may be a JSON object, array, string, number, boolean, or null.
     */
-    'body'?: { [key: string]: any; };
+    'body'?: any;
 
 }
 

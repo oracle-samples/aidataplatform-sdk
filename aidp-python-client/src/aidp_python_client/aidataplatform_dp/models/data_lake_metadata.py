@@ -41,14 +41,12 @@ class DataLakeMetadata(object):
             'is_audit_enabled': 'bool',
             'audit_retention_period': 'int'
         }
-
         self.attribute_map = {
             'audit_log_id': 'auditLogId',
             'log_group_id': 'logGroupId',
             'is_audit_enabled': 'isAuditEnabled',
             'audit_retention_period': 'auditRetentionPeriod'
         }
-
         self._audit_log_id = None
         self._log_group_id = None
         self._is_audit_enabled = None

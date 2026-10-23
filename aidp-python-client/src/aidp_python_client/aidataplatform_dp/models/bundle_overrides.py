@@ -31,12 +31,10 @@ class BundleOverrides(object):
             'compute': 'list[ComputeOverrideItem]',
             'aicompute': 'list[AiComputeOverrideItem]'
         }
-
         self.attribute_map = {
             'compute': 'compute',
             'aicompute': 'aicompute'
         }
-
         self._compute = None
         self._aicompute = None
 

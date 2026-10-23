@@ -26,11 +26,9 @@ class RecentSearchesCriteria(object):
         self.swagger_types = {
             'limit': 'int'
         }
-
         self.attribute_map = {
             'limit': 'limit'
         }
-
         self._limit = None
 
     @property

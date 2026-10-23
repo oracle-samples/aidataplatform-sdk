@@ -36,13 +36,11 @@ class RetrievedChunk(object):
             'content': 'str',
             'score': 'float'
         }
-
         self.attribute_map = {
             'document_id': 'documentId',
             'content': 'content',
             'score': 'score'
         }
-
         self._document_id = None
         self._content = None
         self._score = None

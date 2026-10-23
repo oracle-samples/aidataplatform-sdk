@@ -51,7 +51,6 @@ class CustomToolEntry(object):
             'config': 'dict(str, object)',
             'input_schema': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'tool_class_name': 'toolClassName',
             'display_name': 'displayName',
@@ -60,7 +59,6 @@ class CustomToolEntry(object):
             'config': 'config',
             'input_schema': 'inputSchema'
         }
-
         self._tool_class_name = None
         self._display_name = None
         self._description = None

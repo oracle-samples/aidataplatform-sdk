@@ -85,7 +85,6 @@ class CreateAgentDetails(object):
             'agent_card_config': 'AgentCardConfigDetail',
             'diagram': 'AgentDiagram'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -99,7 +98,6 @@ class CreateAgentDetails(object):
             'agent_card_config': 'agentCardConfig',
             'diagram': 'diagram'
         }
-
         self._display_name = None
         self._description = None
         self._path_info = None
@@ -211,8 +209,7 @@ class CreateAgentDetails(object):
         allowed_values = ["CANVAS", "CODE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

@@ -24,6 +24,7 @@ least-privilege policies where available.
 - [Git (GitClient)](#client-gitclient)
 - [ML Ops (MLOpsClient)](#client-mlopsclient)
 - [Notebook (NotebookClient)](#client-notebookclient)
+- [Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient)
 - [Role (RoleClient)](#client-roleclient)
 - [Schema (SchemaClient)](#client-schemaclient)
 - [User Setting (UserSettingClient)](#client-usersettingclient)
@@ -1012,7 +1013,7 @@ least-privilege policies where available.
 | `key` | `string` | The unique key that identifies an async operation |
 | `resourceType` | `model.AsyncOperationResourceType` | The resource type of the async operation. |
 | `actionType` | `model.AsyncOperationActionType` | The action type of the async operation. |
-| `resourceName` | `string` | The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key> |
+| `resourceName` | `string` | The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>. For Git folder creation, this is the operation resource name; the Git repository key is stored separately as system:repoKey in folder metadata. |
 | `resourceDisplayName` | `string` | The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName But for workspace/cluster it is workspace and cluster displayName field. |
 | `createdBy` | `string` | The principal Id who started the async operation |
 | `createdByName` | `string` | The principal name who started the async operation |
@@ -1057,7 +1058,7 @@ least-privilege policies where available.
 | `key` | `string` | The unique key that identifies an async operation |
 | `resourceType` | `model.AsyncOperationResourceType` | The resource type of the async operation. |
 | `actionType` | `model.AsyncOperationActionType` | The action type of the async operation. |
-| `resourceName` | `string` | The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key> |
+| `resourceName` | `string` | The fully qualified name of the Data Lake resource. Example: For table, it is <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>. For Git folder creation, this is the operation resource name; the Git repository key is stored separately as system:repoKey in folder metadata. |
 | `resourceDisplayName` | `string` | The display name of the Data Lake resource. Example: For catalog/table/schema, it is same as resourceName But for workspace/cluster it is workspace and cluster displayName field. |
 | `createdBy` | `string` | The principal Id who started the async operation |
 | `createdByName` | `string` | The principal name who started the async operation |
@@ -3743,7 +3744,7 @@ least-privilege policies where available.
 - [`updateGitRepository`](#operation-gitclient-updategitrepository)
 
 ### <a id="operation-gitclient-checkoutbranch"></a>`checkoutBranch`
-**Description:** (Preview) Checks out a remote branch into the specified workspace folder, ensuring the worktree tracks the requested branch HEAD.
+**Description:** (Preview) Asynchronously checks out the requested branch in the workspace Git folder. Checkout normally resets the local branch to origin/{branchName}, with a local-branch fallback. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Request Interface:** `requests.CheckoutBranchRequest`
 
@@ -3753,7 +3754,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `checkoutBranchDetails` | `model.CheckoutBranchDetails` | Details for the new branch. |
 
 **Optional Fields:**
@@ -3787,7 +3788,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-commitpushgitrepository"></a>`commitPushGitRepository`
-**Description:** (Preview) Stages selected workspace updates, creates a commit, and pushes it upstream so automation can sync with Git providers.
+**Description:** (Preview) Asynchronously commits and pushes the stored repository branch. For normal commits, omitting files stages all local changes. After conflicts are resolved, completes a merge or continues a rebase; rebase continuation force-pushes. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Request Interface:** `requests.CommitPushGitRepositoryRequest`
 
@@ -3797,7 +3798,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `commitPushDetails` | `model.CommitPushDetails` | Commit details. |
 
 **Optional Fields:**
@@ -3819,7 +3820,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-creategitbranch"></a>`createGitBranch`
-**Description:** (Preview) Creates a new branch in the connected repo so teams can stage changes in isolated workspaces.
+**Description:** (Preview) Asynchronously creates a branch from the current HEAD, checks it out in the stored Git folder, and pushes it to origin. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Request Interface:** `requests.CreateGitBranchRequest`
 
@@ -3829,8 +3830,8 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
-| `createGitBranchDetails` | `model.CreateGitBranchDetails` | Details for the new Workspace Object. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
+| `createGitBranchDetails` | `model.CreateGitBranchDetails` | Name of the branch to create in the stored Git folder. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -3863,7 +3864,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-getgitdiffdetail"></a>`getGitDiffDetail`
-**Description:** (Preview) Returns a unified diff patch for a specific file so editors and review panes can render inline changes.
+**Description:** (Preview) Returns a local unified diff for a repository-relative file. contextLines and maxPatchBytes are not currently applied by execution.
 
 **Request Interface:** `requests.GetGitDiffDetailRequest`
 
@@ -3873,16 +3874,16 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
-| `gitFolderPath` | `string` | The Git folder path. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
+| `gitFolderPath` | `string` | Workspace path of the Git folder, distinct from repository-relative file paths. |
 | `branchName` | `string` | Expected branch name for the folder context. |
 | `gitFilePath` | `string` | File path relative to repository root. |
 
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `contextLines` | `number` | Number of context lines to include in the diff. |
-| `maxPatchBytes` | `number` | Maximum number of bytes of diff output to return. |
+| `contextLines` | `number` | Requested diff context lines. Current execution does not apply this value. |
+| `maxPatchBytes` | `number` | Requested maximum patch bytes. Current execution does not enforce this value. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 
 **Response Interface:** `responses.GetGitDiffDetailResponse`
@@ -3899,14 +3900,14 @@ least-privilege policies where available.
 | `gitFilePath` | `string` | File path relative to repository root. |
 | `isConflict` | `boolean` | Indicates whether the file is currently in a conflicted state. |
 | `isBinary` | `boolean` | Indicates whether the file is binary. |
-| `patch` | `string` | Unified diff patch text. |
-| `isTruncated` | `boolean` | Indicates whether the diff output was truncated. |
+| `patch` | `string` | Local unified diff patch text. Binary files may have no textual patch. |
+| `isTruncated` | `boolean` | Whether returned diff output is marked truncated; this does not guarantee enforcement of the requested maxPatchBytes. |
 | `truncatedReason` | `GitDiffDetail.TruncatedReason` | Indicates the reason for the truncated diff to be returned. |
 **Return:** [Back to Git (GitClient)](#client-gitclient) • [Top](#top)
 
 
 ### <a id="operation-gitclient-getgitoperationstate"></a>`getGitOperationState`
-**Description:** (Preview) Returns the current Git worktree status—including in-progress operations or detached HEAD indicators—for the workspace folder.
+**Description:** (Preview) Returns a snapshot of Git worktree operation state and readiness for an optional operationName. CLEAN does not imply no local changes. This endpoint does not report asynchronous job progress.
 
 **Request Interface:** `requests.GetGitOperationStateRequest`
 
@@ -3916,12 +3917,12 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `operationName` | `string` | Optional operation the caller intends to perform (for example PULL, PUSH, RESET, CHECKOUT). |
+| `operationName` | `string` | Operation intent, such as PULL, PUSH, or DIFF_LIST, used to compute isAllowed. Does not execute the operation. |
 | `branchName` | `string` | Expected branch name for the folder context. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 
@@ -3937,9 +3938,9 @@ least-privilege policies where available.
 | Field | Type | Description |
 | --- | --- | --- |
 | `gitFolderPath` | `string` | Folder path used to locate the Git worktree. |
-| `state` | `GitOperationState.State` | Current Git operation state detected. |
+| `state` | `GitOperationState.State` | Detected operational state. CLEAN means no in-progress merge, rebase, or detached HEAD was detected. Conflicts are reported separately by haveConflicts; CLEAN does not imply an unchanged worktree or index. |
 | `isBlocking` | `boolean` | Whether the detected state blocks typical write operations. |
-| `isAllowed` | `boolean` | Whether the requested operation is allowed in the current state. If operationName is not provided, this indicates if the repository is in a generally safe state. |
+| `isAllowed` | `boolean` | Whether the supplied operationName is allowed by the detected state and expected branch. With no operationName, indicates general operational readiness. This is a state check, not an authorization decision or execution guarantee. |
 | `message` | `string` | Human-readable hint for UI display. |
 | `currentBranch` | `string` | Current branch name. Empty if detached HEAD. |
 | `headCommitId` | `string` | Full commit ID of HEAD. |
@@ -3950,7 +3951,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-getgitrepository"></a>`getGitRepository`
-**Description:** (Preview) Returns repository metadata, credential references, and workspace linkage for a specific AI Data Platform Git repository.
+**Description:** (Preview) Returns stored repository URL, folder, branch, and connectivity references. The authentication setting key is included only when shouldIncludeCredentialKey=true.
 
 **Request Interface:** `requests.GetGitRepositoryRequest`
 
@@ -3960,7 +3961,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -3985,12 +3986,17 @@ least-privilege policies where available.
 | `branchName` | `string` | The name of the Git branch. |
 | `gitUrl` | `string` | The Git repository url corresponding to the branch. |
 | `gitFolderPath` | `string` | The path of the current Git folder which has to be created for the new branch. |
-| `credentialKey` | `string` | The credential setting key |
+| `credentialKey` | `string` | Key of the current user's GIT_ACCOUNT user setting containing Git authentication credentials. Identified by settingType=GIT_ACCOUNT and displayName in user setting listings. Distinct from credentialStoreKey, which references a TLS CA certificate. |
+| `isPrivateConnectivityEnabled` | `boolean` | Whether this repository uses private network connectivity. |
+| `gitConnectivityProfileKey` | `string` | Key of the private network profile used for Git connectivity, returned by private network profile listings filtered by name. Required when isPrivateConnectivityEnabled is true. |
+| `gitConnectivityProfileName` | `string` | User-friendly name of the private Git connectivity profile. |
+| `credentialStoreKey` | `string` | Key of the credential-store entry containing the Git server's TLS CA certificate, identified by displayName in credential listings. Provides server certificate trust, separate from the Git authentication user setting referenced by credentialKey. Required when isPrivateConnectivityEnabled is true. |
+| `credentialStoreName` | `string` | User-friendly display name of the repository TLS CA certificate credential. |
 **Return:** [Back to Git (GitClient)](#client-gitclient) • [Top](#top)
 
 
 ### <a id="operation-gitclient-listgitbranches"></a>`listGitBranches`
-**Description:** (Preview) Returns branch summaries with optional display-name filters and pagination, so UIs can show branch pickers and search results.
+**Description:** (Preview) Lists branches on origin with pagination. Name filters and sort controls are not currently applied. Page tokens become invalid if the branch listing changes.
 
 **Request Interface:** `requests.ListGitBranchesRequest`
 
@@ -4000,7 +4006,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -4031,7 +4037,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-listgitdiffs"></a>`listGitDiffs`
-**Description:** (Preview) Returns file-level diff summaries for the workspace branch, enabling UI views of changed files or conflicts without heavy payloads.
+**Description:** (Preview) Lists local file changes with snapshot pagination. compareTo, filter, displayName, and sort controls are not currently applied; this is not an upstream comparison.
 
 **Request Interface:** `requests.ListGitDiffsRequest`
 
@@ -4041,20 +4047,20 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
-| `gitFolderPath` | `string` | The Git folder path. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
+| `gitFolderPath` | `string` | Workspace path of the Git folder, distinct from repository-relative file paths. |
 | `branchName` | `string` | Expected branch name for the folder context. |
 
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `compareTo` | `ListGitDiffsRequest.CompareTo` | Determines which reference is used for computing diffs. |
-| `filter` | `ListGitDiffsRequest.Filter` | Filter which files are returned. |
+| `compareTo` | `ListGitDiffsRequest.CompareTo` | Requested comparison reference. Results describe local file changes regardless of the supplied value. |
+| `filter` | `ListGitDiffsRequest.Filter` | Requested file-change filter. Results include all detected local file changes regardless of the supplied value. |
 | `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
-| `sortBy` | `ListGitDiffsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `sortBy` | `ListGitDiffsRequest.SortBy` | The field to sort by. You can provide only one sort order. The default order for {@code timeCreated} is descending. |
 | `displayName` | `string` | A filter to return only resources that match the given display name exactly. |
 
 **Response Interface:** `responses.ListGitDiffsResponse`
@@ -4075,7 +4081,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-mergegitrepository"></a>`mergeGitRepository`
-**Description:** (Preview) Applies the requested branch or commit onto the workspace branch to preview integration changes before pushing.
+**Description:** (Preview) Asynchronously merges origin/{remoteBranchName} into the stored repository branch and pushes it to origin on a conflict-free merge. commitId is not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Request Interface:** `requests.MergeGitRepositoryRequest`
 
@@ -4085,7 +4091,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `gitMergeDetails` | `model.GitMergeDetails` | Folder/branch details to merge. |
 
 **Optional Fields:**
@@ -4107,7 +4113,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-pullgitrepository"></a>`pullGitRepository`
-**Description:** (Preview) Performs a Git pull for the workspace branch so developers can sync local files with the latest upstream commits.
+**Description:** (Preview) Asynchronously pulls origin changes into the stored repository branch using autostash. Supplied branch, pullAction, and commitMessage overrides are not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Request Interface:** `requests.PullGitRepositoryRequest`
 
@@ -4117,7 +4123,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `gitPullDetails` | `model.GitPullDetails` | Folder/branch details to pull. |
 
 **Optional Fields:**
@@ -4139,7 +4145,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-rebasegitrepository"></a>`rebaseGitRepository`
-**Description:** (Preview) Rebases the workspace branch on top of another commit or branch to linearize history and resolve drift.
+**Description:** (Preview) Asynchronously rebases the stored repository branch onto origin/{remoteBranchName} and force-pushes it on success. commitId is not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion. The stored branch must pass its remote synchronization check before rebasing.
 
 **Request Interface:** `requests.RebaseGitRepositoryRequest`
 
@@ -4149,7 +4155,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `gitRebaseDetails` | `model.GitRebaseDetails` | Details needed to perform rebase operation. |
 
 **Optional Fields:**
@@ -4171,7 +4177,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-resetgitfolderstate"></a>`resetGitFolderState`
-**Description:** (Preview) Halts in-progress Git operations and discards local changes in the workspace folder to regain a clean state.
+**Description:** (Preview) Aborts an in-progress Git operation or discards selected local changes according to action. Single-path DISCARD runs synchronously; other requests submit a job. When present, datalake-async-operation-key identifies that job.
 
 **Request Interface:** `requests.ResetGitFolderStateRequest`
 
@@ -4181,8 +4187,8 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
-| `resetGitFolderStateDetails` | `model.ResetGitFolderStateDetails` | Merge conflict resolution details. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
+| `resetGitFolderStateDetails` | `model.ResetGitFolderStateDetails` | Abort action or local file changes to discard. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -4202,7 +4208,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-resetgitrepository"></a>`resetGitRepository`
-**Description:** (Preview) Performs a Git reset so the workspace branch matches the specified commit, discarding newer local commits.
+**Description:** (Preview) Asynchronously hard-resets the stored repository branch to origin/{branchName}, discards tracked local changes, and force-pushes the stored branch. resetMode and commitId are not applied. The aidp-async-operation-key response header identifies the job; its SUCCEEDED status confirms completion.
 
 **Request Interface:** `requests.ResetGitRepositoryRequest`
 
@@ -4212,7 +4218,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `gitResetDetails` | `model.GitResetDetails` | Details needed to perform Git reset operation. |
 
 **Optional Fields:**
@@ -4234,7 +4240,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-resolvegitconflicts"></a>`resolveGitConflicts`
-**Description:** (Preview) Accepts conflict resolution instructions—choose source or target versions—and records the resolution back to the repo.
+**Description:** (Preview) Synchronously selects LOCAL or REMOTE file versions, or stages manually resolved content with MARK_RESOLVED. Does not complete or push an in-progress merge or rebase.
 
 **Request Interface:** `requests.ResolveGitConflictsRequest`
 
@@ -4244,7 +4250,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 | `conflictResolveDetails` | `model.ConflictResolveDetails` | Conflict resolution details. |
 
 **Optional Fields:**
@@ -4276,7 +4282,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-gitclient-updategitrepository"></a>`updateGitRepository`
-**Description:** (Preview) Updates stored repository details—such as credentials or default branches—so automation stays aligned with your source control.
+**Description:** (Preview) Updates repository settings. URL changes and changed sparse checkout patterns submit asynchronous operations; credential and private connectivity reference changes may complete without an operation key. This operation does not change the default branch or relocate the folder. Omitted fields retain their stored values.
 
 **Request Interface:** `requests.UpdateGitRepositoryRequest`
 
@@ -4287,7 +4293,7 @@ least-privilege policies where available.
 | `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
 | `workspaceKey` | `string` | The key of the Workspace |
 | `updateGitRepositoryDetails` | `model.UpdateGitRepositoryDetails` | The information to be updated. |
-| `gitRepositoryKey` | `string` | The Git repository key. |
+| `gitRepositoryKey` | `string` | The opaque repository key, available as GitRepository.key or system:repoKey in the folder's JSON file-metadata HEAD response header when shouldIncludeMetadata=true. Distinct from the async operation resourceName. |
 
 **Optional Fields:**
 | Field | Type | Description |
@@ -4324,6 +4330,8 @@ least-privilege policies where available.
 - [`deleteModelVersionTag`](#operation-mlopsclient-deletemodelversiontag)
 - [`deleteRegisteredModel`](#operation-mlopsclient-deleteregisteredmodel)
 - [`deleteRegisteredModelTag`](#operation-mlopsclient-deleteregisteredmodeltag)
+- [`exportModelDeploymentInferences`](#operation-mlopsclient-exportmodeldeploymentinferences)
+- [`getDeploymentLog`](#operation-mlopsclient-getdeploymentlog)
 - [`getExperimentById`](#operation-mlopsclient-getexperimentbyid)
 - [`getExperimentByName`](#operation-mlopsclient-getexperimentbyname)
 - [`getExperimentRunById`](#operation-mlopsclient-getexperimentrunbyid)
@@ -4331,6 +4339,8 @@ least-privilege policies where available.
 - [`getModelDeployment`](#operation-mlopsclient-getmodeldeployment)
 - [`getModelDeploymentActivity`](#operation-mlopsclient-getmodeldeploymentactivity)
 - [`getModelDeploymentContract`](#operation-mlopsclient-getmodeldeploymentcontract)
+- [`getModelDeploymentInferenceDetails`](#operation-mlopsclient-getmodeldeploymentinferencedetails)
+- [`getModelDeploymentInferenceSummary`](#operation-mlopsclient-getmodeldeploymentinferencesummary)
 - [`getModelVersion`](#operation-mlopsclient-getmodelversion)
 - [`getRegisteredModel`](#operation-mlopsclient-getregisteredmodel)
 - [`getRegisteredModelSummary`](#operation-mlopsclient-getregisteredmodelsummary)
@@ -4340,17 +4350,21 @@ least-privilege policies where available.
 - [`listLoggedModels`](#operation-mlopsclient-listloggedmodels)
 - [`listModelDeploymentActivities`](#operation-mlopsclient-listmodeldeploymentactivities)
 - [`listModelVersions`](#operation-mlopsclient-listmodelversions)
+- [`listRegisteredModelPermissions`](#operation-mlopsclient-listregisteredmodelpermissions)
 - [`listRegisteredModels`](#operation-mlopsclient-listregisteredmodels)
 - [`logExperimentRunBatch`](#operation-mlopsclient-logexperimentrunbatch)
 - [`logExperimentRunInputs`](#operation-mlopsclient-logexperimentruninputs)
 - [`logExperimentRunMetric`](#operation-mlopsclient-logexperimentrunmetric)
 - [`logExperimentRunModel`](#operation-mlopsclient-logexperimentrunmodel)
 - [`logExperimentRunParam`](#operation-mlopsclient-logexperimentrunparam)
+- [`manageRegisteredModelPermission`](#operation-mlopsclient-manageregisteredmodelpermission)
 - [`renameRegisteredModel`](#operation-mlopsclient-renameregisteredmodel)
 - [`restoreExperiment`](#operation-mlopsclient-restoreexperiment)
 - [`restoreExperimentRun`](#operation-mlopsclient-restoreexperimentrun)
 - [`rollBackModelDeployment`](#operation-mlopsclient-rollbackmodeldeployment)
 - [`rollForwardModelDeployment`](#operation-mlopsclient-rollforwardmodeldeployment)
+- [`searchDeploymentLogs`](#operation-mlopsclient-searchdeploymentlogs)
+- [`searchModelDeploymentInferences`](#operation-mlopsclient-searchmodeldeploymentinferences)
 - [`searchModelDeployments`](#operation-mlopsclient-searchmodeldeployments)
 - [`setExperimentRunTag`](#operation-mlopsclient-setexperimentruntag)
 - [`setExperimentTag`](#operation-mlopsclient-setexperimenttag)
@@ -4499,6 +4513,7 @@ least-privilege policies where available.
 | `deploymentTargets` | `Array<model.DeploymentTarget>` | Deployment targets of the deployment. |
 | `workspaceKey` | `string` | Workspace key of the deployment. |
 | `computeKey` | `string` | Compute key of the deployment. |
+| `computeDeploymentId` | `string` | Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries. |
 | `status` | `model.DeploymentStatus` | Status of the deployment. |
 | `activatedTime` | `number` | Unix timestamp in milliseconds of when the deployment was activated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `activatedBy` | `string` | User that activated the model deployment. |
@@ -4911,6 +4926,73 @@ least-privilege policies where available.
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
+### <a id="operation-mlopsclient-exportmodeldeploymentinferences"></a>`exportModelDeploymentInferences`
+**Description:** (Preview) Starts an asynchronous export of the correlated inference invocation records in the requested publish-time window to a JSON file in a Volume. The window defaults to the last 30 days and must not exceed 30 days; export a longer history as consecutive windows. The export runs as a tracked asynchronous operation; a second export to the same destination while one is in progress is rejected with 409.
+
+**Request Interface:** `requests.ExportModelDeploymentInferencesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+| `exportInferenceInvocationsDetails` | `model.ExportInferenceInvocationsDetails` | Destination, window, and filters for the export. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ExportModelDeploymentInferencesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `aidpExportDestination` | `string` | The destination the export will be written to. When the requested file already exists and is_overwrite is false, a non-colliding name is chosen by appending _copy before the extension, so this can differ from the requested volume_location. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-getdeploymentlog"></a>`getDeploymentLog`
+**Description:** (Preview) Returns one deployment log event with its full, redacted message, located by the opaque expiring locator returned from a log search.
+
+**Request Interface:** `requests.GetDeploymentLogRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+| `logId` | `string` | The opaque, expiring log locator returned by a deployment log search. It binds the platform, deployment, and source event identity, and grants no permission by itself. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetDeploymentLogResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `deploymentLogDetail` | `model.DeploymentLogDetail` | The returned model.DeploymentLogDetail instance. |
+
+**Payload `DeploymentLogDetail` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `deploymentId` | `string` | The model deployment the log event belongs to. |
+| `recordId` | `string` | Stable identity of the ingested log record. |
+| `logId` | `string` | The opaque, expiring locator this event was resolved from. |
+| `timestamp` | `Date` | Displayed event time (RFC 3339 UTC). Producer event time when available; otherwise the publish time, per timestampSource. |
+| `timestampSource` | `DeploymentLogDetail.TimestampSource` | EVENT_TIME when the producer timestamp was valid; PUBLISH_TIME when the displayed value fell back to the provider publish time. |
+| `level` | `DeploymentLogDetail.Level` | Normalized severity. Unrecognized producer values are returned as UNKNOWN. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
 ### <a id="operation-mlopsclient-getexperimentbyid"></a>`getExperimentById`
 **Description:** (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
 
@@ -5078,6 +5160,7 @@ least-privilege policies where available.
 | `deploymentTargets` | `Array<model.DeploymentTarget>` | Deployment targets of the deployment. |
 | `workspaceKey` | `string` | Workspace key of the deployment. |
 | `computeKey` | `string` | Compute key of the deployment. |
+| `computeDeploymentId` | `string` | Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries. |
 | `status` | `model.DeploymentStatus` | Status of the deployment. |
 | `activatedTime` | `number` | Unix timestamp in milliseconds of when the deployment was activated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `activatedBy` | `string` | User that activated the model deployment. |
@@ -5127,7 +5210,7 @@ least-privilege policies where available.
 | `endTime` | `string` | Unix timestamp in milliseconds of when the activity ended. |
 | `user` | `string` | User that created the activity. |
 | `message` | `string` | Comment recorded with the activity. |
-| `statusMessage` | `string` | Details on the status, if it is not SUCCESS. |
+| `statusMessage` | `string` | Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -5164,6 +5247,81 @@ least-privilege policies where available.
 | `inputContract` | `string` | Model input signature (contract), captured at activation; null if the model has no signature. |
 | `outputContract` | `string` | Model output signature (contract), captured at activation; null if the model has no signature. |
 | `inputExample` | `string` | Sample request payload (input example), captured at activation; null if the model has no example. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-getmodeldeploymentinferencedetails"></a>`getModelDeploymentInferenceDetails`
+**Description:** (Preview) Returns request and response payloads for one correlated inference invocation identified by its request ID. The identifier contains forward slashes, so each slash must be percent-encoded as %2F in the path. Example `requestId`: `abc123%2Fdef456%2F789abc`.
+
+**Request Interface:** `requests.GetModelDeploymentInferenceDetailsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+| `requestId` | `string` | Request ID that identifies the inference invocation record, as returned in the requestId field of the search results. This value contains forward slashes, so each slash must be percent-encoded as %2F when the value is placed in the path. Example encoded value: abc123%2Fdef456%2F789abc. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetModelDeploymentInferenceDetailsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `inferenceInvocationDetails` | `model.InferenceInvocationDetails` | The returned model.InferenceInvocationDetails instance. |
+
+**Payload `InferenceInvocationDetails` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `requestTimestamp` | `Date` | Timestamp recorded for the inference request event. |
+| `latencyMs` | `number` | Response latency in milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `requestUri` | `string` | Inference endpoint URI. |
+| `modelVersion` | `string` | Model version associated with the invocation. |
+| `status` | `model.InferenceInvocationStatus` | Status derived from the correlated inference response event. |
+| `requestId` | `string` | Request ID of the inference invocation, used to correlate the request and response events. |
+| `requestPayload` | `any` | Request payload captured in the inference request event. |
+| `responsePayload` | `any` | Response payload captured in the inference response event. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-getmodeldeploymentinferencesummary"></a>`getModelDeploymentInferenceSummary`
+**Description:** (Preview) Returns aggregate metrics for correlated request and response inference events within the requested timestamp range. Query parameters `timeStart` and `timeEnd` are optional; when omitted, the API uses the previous 24 hours. Any requested range must be within the most recent 14 days.
+
+**Request Interface:** `requests.GetModelDeploymentInferenceSummaryRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `timeStart` | `Date` | Inclusive start of the request timestamp range. The range must be within the most recent 14 days. Example: 2026-09-01T00:00:00Z. |
+| `timeEnd` | `Date` | Inclusive end of the request timestamp range. The range must be within the most recent 14 days. Example: 2026-09-15T00:00:00Z. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetModelDeploymentInferenceSummaryResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `inferenceInvocationSummaryResponse` | `model.InferenceInvocationSummaryResponse` | The returned model.InferenceInvocationSummaryResponse instance. |
+
+**Payload `InferenceInvocationSummaryResponse` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `timeStart` | `Date` | Inclusive start time resolved for this summary query. |
+| `timeEnd` | `Date` | Inclusive end time resolved for this summary query. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -5478,6 +5636,43 @@ least-privilege policies where available.
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
+### <a id="operation-mlopsclient-listregisteredmodelpermissions"></a>`listRegisteredModelPermissions`
+**Description:** (Preview) Returns the users, groups, and roles granted READ, MANAGE, or ADMIN on a registered model. Any caller who can view the model can read the list.
+
+**Request Interface:** `requests.ListRegisteredModelPermissionsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `registeredModelKey` | `string` | The fully-qualified registered model name in the format <catalog>.<schema>.<model>. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `sortBy` | `ListRegisteredModelPermissionsRequest.SortBy` | The field to sort by. You can provide only one sort order. Default order for {@code timeCreated} is descending. Default order for {@code displayName} is ascending. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListRegisteredModelPermissionsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `registeredModelPermissionCollection` | `model.RegisteredModelPermissionCollection` | The returned model.RegisteredModelPermissionCollection instance. |
+
+**Payload `RegisteredModelPermissionCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.RegisteredModelPermissionSummary>` | List of registered model permissions. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
 ### <a id="operation-mlopsclient-listregisteredmodels"></a>`listRegisteredModels`
 **Description:** (Preview) Returns a list of registered models in a workspace.
 
@@ -5676,6 +5871,33 @@ least-privilege policies where available.
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
+### <a id="operation-mlopsclient-manageregisteredmodelpermission"></a>`manageRegisteredModelPermission`
+**Description:** (Preview) Grants or revokes READ, MANAGE, or ADMIN on a registered model's dedicated volume. The model-to-volume link is resolved on the server; no volume name is accepted from the client.
+
+**Request Interface:** `requests.ManageRegisteredModelPermissionRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `registeredModelKey` | `string` | The fully-qualified registered model name in the format <catalog>.<schema>.<model>. |
+| `manageRegisteredModelPermissionDetails` | `model.ManageRegisteredModelPermissionDetails` | The grant or revoke details for the registered model. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ManageRegisteredModelPermissionResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
 ### <a id="operation-mlopsclient-renameregisteredmodel"></a>`renameRegisteredModel`
 **Description:** (Preview) Renames a registered model.
 
@@ -5821,6 +6043,78 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-searchdeploymentlogs"></a>`searchDeploymentLogs`
+**Description:** (Preview) Returns one page of deployment lifecycle log events for the model deployment, newest first, read live from OCI Logging. No log content is persisted by the platform.
+
+**Request Interface:** `requests.SearchDeploymentLogsRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+| `searchDeploymentLogsDetails` | `model.SearchDeploymentLogsDetails` | Window, filters, and pagination for the log search. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.SearchDeploymentLogsResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `deploymentLogCollection` | `model.DeploymentLogCollection` | The returned model.DeploymentLogCollection instance. |
+
+**Payload `DeploymentLogCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `deploymentId` | `string` | The model deployment the logs belong to. |
+**Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
+
+
+### <a id="operation-mlopsclient-searchmodeldeploymentinferences"></a>`searchModelDeploymentInferences`
+**Description:** (Preview) Returns paginated request and response-correlated inference invocation records for a model deployment. Each response contains at most 20 rows, OCI Logging pagination is used internally, and only the first 10,000 matching rows can be retrieved within a maximum 14-day range. When no time range is provided, the previous 24 hours is used.
+
+**Request Interface:** `requests.SearchModelDeploymentInferencesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `deploymentId` | `string` | The unique 32-character hexadecimal ID of the model deployment. |
+| `inferenceInvocationSearchDetails` | `model.InferenceInvocationSearchDetails` | Timestamp range, optional post-correlation filters, and pagination settings. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.SearchModelDeploymentInferencesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `inferenceInvocationSearchResult` | `model.InferenceInvocationSearchResult` | The returned model.InferenceInvocationSearchResult instance. |
+
+**Payload `InferenceInvocationSearchResult` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `timeStart` | `Date` | Inclusive start time resolved for this search query. |
+| `timeEnd` | `Date` | Inclusive end time resolved for this search query. |
+| `items` | `Array<model.InferenceInvocationSummary>` | Correlated inference invocation rows for the requested page. |
+| `nextPageToken` | `string` | Opaque token for retrieving the next page. Omitted when no additional page is available. |
+| `statuses` | `Array<model.InferenceInvocationStatus>` | Available filter values: the distinct invocation statuses found across the whole requested time range. This is not narrowed by the filters in the request, so it stays stable while a caller changes filters. |
+| `requestUris` | `Array<string>` | Available filter values: the distinct inference endpoint URIs found across the whole requested time range. This is not narrowed by the filters in the request, so it stays stable while a caller changes filters. |
+| `modelVersions` | `Array<string>` | Model versions configured on the requested deployment. |
 **Return:** [Back to ML Ops (MLOpsClient)](#client-mlopsclient) • [Top](#top)
 
 
@@ -6179,6 +6473,7 @@ least-privilege policies where available.
 | `deploymentTargets` | `Array<model.DeploymentTarget>` | Deployment targets of the deployment. |
 | `workspaceKey` | `string` | Workspace key of the deployment. |
 | `computeKey` | `string` | Compute key of the deployment. |
+| `computeDeploymentId` | `string` | Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries. |
 | `status` | `model.DeploymentStatus` | Status of the deployment. |
 | `activatedTime` | `number` | Unix timestamp in milliseconds of when the deployment was activated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `activatedBy` | `string` | User that activated the model deployment. |
@@ -6410,6 +6705,11 @@ least-privilege policies where available.
 | `hash` | `string` | [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined. |
 | `hashAlgorithm` | `string` | [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href=\"https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available\" target=\"_blank\" rel=\"noopener noreferrer\">Available algorithms</a>. |
 | `description` | `string` | A user-provided description of the file. |
+| `uploadId` | `string` | Upload session UUID for a chunked create or update acknowledgement. |
+| `uploadChunkIndex` | `number` | Accepted upload chunk index. A value of -1 marks completion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalChunks` | `number` | Total upload requests, including the final upload chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalSizeBytes` | `number` | Total decoded notebook bytes for a chunked upload. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `sha256` | `string` | SHA-256 digest of the complete decoded notebook content for a chunked upload. |
 **Return:** [Back to Notebook (NotebookClient)](#client-notebookclient) • [Top](#top)
 
 
@@ -6602,6 +6902,11 @@ least-privilege policies where available.
 | `hash` | `string` | [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined. |
 | `hashAlgorithm` | `string` | [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href=\"https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available\" target=\"_blank\" rel=\"noopener noreferrer\">Available algorithms</a>. |
 | `description` | `string` | A user-provided description of the file. |
+| `uploadId` | `string` | Upload session UUID for a chunked create or update acknowledgement. |
+| `uploadChunkIndex` | `number` | Accepted upload chunk index. A value of -1 marks completion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalChunks` | `number` | Total upload requests, including the final upload chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalSizeBytes` | `number` | Total decoded notebook bytes for a chunked upload. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `sha256` | `string` | SHA-256 digest of the complete decoded notebook content for a chunked upload. |
 **Return:** [Back to Notebook (NotebookClient)](#client-notebookclient) • [Top](#top)
 
 
@@ -6733,6 +7038,11 @@ least-privilege policies where available.
 | `hash` | `string` | [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined. |
 | `hashAlgorithm` | `string` | [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href=\"https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available\" target=\"_blank\" rel=\"noopener noreferrer\">Available algorithms</a>. |
 | `description` | `string` | A user-provided description of the file. |
+| `uploadId` | `string` | Upload session UUID for a chunked create or update acknowledgement. |
+| `uploadChunkIndex` | `number` | Accepted upload chunk index. A value of -1 marks completion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalChunks` | `number` | Total upload requests, including the final upload chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalSizeBytes` | `number` | Total decoded notebook bytes for a chunked upload. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `sha256` | `string` | SHA-256 digest of the complete decoded notebook content for a chunked upload. |
 **Return:** [Back to Notebook (NotebookClient)](#client-notebookclient) • [Top](#top)
 
 
@@ -6826,7 +7136,233 @@ least-privilege policies where available.
 | `hash` | `string` | [optional] The hexdigest hash string of content, if requested, otherwise null. It cannot be null if hashAlgorithm is defined. |
 | `hashAlgorithm` | `string` | [optional] The algorithm used to produce the hash, if requested, (otherwise null). It cannot be null if hash is defined. <a href=\"https://docs.python.org/3/library/hashlib.html#hashlib.algorithms_available\" target=\"_blank\" rel=\"noopener noreferrer\">Available algorithms</a>. |
 | `description` | `string` | A user-provided description of the file. |
+| `uploadId` | `string` | Upload session UUID for a chunked create or update acknowledgement. |
+| `uploadChunkIndex` | `number` | Accepted upload chunk index. A value of -1 marks completion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalChunks` | `number` | Total upload requests, including the final upload chunk. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `totalSizeBytes` | `number` | Total decoded notebook bytes for a chunked upload. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
+| `sha256` | `string` | SHA-256 digest of the complete decoded notebook content for a chunked upload. |
 **Return:** [Back to Notebook (NotebookClient)](#client-notebookclient) • [Top](#top)
+
+
+## <a id="client-privatenetworkprofileclient"></a>PrivateNetworkProfileClient
+**Operations:**
+- [`createPrivateNetworkProfile`](#operation-privatenetworkprofileclient-createprivatenetworkprofile)
+- [`deletePrivateNetworkProfile`](#operation-privatenetworkprofileclient-deleteprivatenetworkprofile)
+- [`getPrivateNetworkProfile`](#operation-privatenetworkprofileclient-getprivatenetworkprofile)
+- [`listPrivateNetworkProfiles`](#operation-privatenetworkprofileclient-listprivatenetworkprofiles)
+- [`updatePrivateNetworkProfile`](#operation-privatenetworkprofileclient-updateprivatenetworkprofile)
+
+### <a id="operation-privatenetworkprofileclient-createprivatenetworkprofile"></a>`createPrivateNetworkProfile`
+**Description:** Creates a reusable private network profile for Git repositories in an AI data platform.
+
+**Request Interface:** `requests.CreatePrivateNetworkProfileRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `createPrivateNetworkProfileDetails` | `model.CreatePrivateNetworkProfileDetails` | Details for the private network profile. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRetryToken` | `string` | A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of running that same action again. Retry tokens expire after 24 hours, but can be invalidated before then due to conflicting operations. For example, if a resource has been deleted and removed from the system, then a retry of the original creation request might be rejected. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.CreatePrivateNetworkProfileResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `privateNetworkProfile` | `model.PrivateNetworkProfile` | The returned model.PrivateNetworkProfile instance. |
+
+**Payload `PrivateNetworkProfile` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Unique key for the Git connectivity profile. |
+| `name` | `string` | Display name of the Git connectivity profile. |
+| `description` | `string` | Optional description of the Git connectivity profile. |
+| `customerCompartmentId` | `string` | Customer compartment identifier containing the private network resources. |
+| `customerVcnId` | `string` | Customer VCN identifier used for Git connectivity. |
+| `customerSubnetId` | `string` | Customer subnet identifier used for Git connectivity. |
+| `lifecycleState` | `PrivateNetworkProfile.LifecycleState` | Current lifecycle state of the profile. |
+| `validationState` | `PrivateNetworkProfile.ValidationState` | Latest validation state of the profile. |
+| `timeLastValidated` | `Date` | Time at which the profile was last validated. |
+| `lastValidationErrorCode` | `string` | Non-sensitive code for the latest validation failure. |
+| `lastValidationErrorMessage` | `string` | Non-sensitive message for the latest validation failure. |
+| `timeCreated` | `Date` | Time at which the profile was created. |
+| `timeUpdated` | `Date` | Time at which the profile was last updated. |
+| `createdBy` | `string` | Identifier of the user who created the profile. |
+| `createdByName` | `string` | Display name of the user who created the profile. |
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient) • [Top](#top)
+
+
+### <a id="operation-privatenetworkprofileclient-deleteprivatenetworkprofile"></a>`deletePrivateNetworkProfile`
+**Description:** Deletes an unused private network profile from an AI data platform.
+
+**Request Interface:** `requests.DeletePrivateNetworkProfileRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `privateNetworkProfileKey` | `string` | The private network profile key. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.DeletePrivateNetworkProfileResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aidpAsyncOperationKey` | `string` | The key of the asynchronous operations associated with an AI Data Platform instance. Use GetAsyncOperation with this key to track the status of the request. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient) • [Top](#top)
+
+
+### <a id="operation-privatenetworkprofileclient-getprivatenetworkprofile"></a>`getPrivateNetworkProfile`
+**Description:** Returns a private network profile for the requested AI data platform.
+
+**Request Interface:** `requests.GetPrivateNetworkProfileRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `privateNetworkProfileKey` | `string` | The private network profile key. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.GetPrivateNetworkProfileResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `privateNetworkProfile` | `model.PrivateNetworkProfile` | The returned model.PrivateNetworkProfile instance. |
+
+**Payload `PrivateNetworkProfile` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Unique key for the Git connectivity profile. |
+| `name` | `string` | Display name of the Git connectivity profile. |
+| `description` | `string` | Optional description of the Git connectivity profile. |
+| `customerCompartmentId` | `string` | Customer compartment identifier containing the private network resources. |
+| `customerVcnId` | `string` | Customer VCN identifier used for Git connectivity. |
+| `customerSubnetId` | `string` | Customer subnet identifier used for Git connectivity. |
+| `lifecycleState` | `PrivateNetworkProfile.LifecycleState` | Current lifecycle state of the profile. |
+| `validationState` | `PrivateNetworkProfile.ValidationState` | Latest validation state of the profile. |
+| `timeLastValidated` | `Date` | Time at which the profile was last validated. |
+| `lastValidationErrorCode` | `string` | Non-sensitive code for the latest validation failure. |
+| `lastValidationErrorMessage` | `string` | Non-sensitive message for the latest validation failure. |
+| `timeCreated` | `Date` | Time at which the profile was created. |
+| `timeUpdated` | `Date` | Time at which the profile was last updated. |
+| `createdBy` | `string` | Identifier of the user who created the profile. |
+| `createdByName` | `string` | Display name of the user who created the profile. |
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient) • [Top](#top)
+
+
+### <a id="operation-privatenetworkprofileclient-listprivatenetworkprofiles"></a>`listPrivateNetworkProfiles`
+**Description:** Returns private network profile summaries for the requested AI data platform.
+
+**Request Interface:** `requests.ListPrivateNetworkProfilesRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `name` | `string` | An exact-name filter for private network profiles. |
+| `lifecycleState` | `string` | A filter to return only private network profiles with the given lifecycle state. |
+| `displayNameContains` | `string` | A filter to return only resources that have a display name containing the text provided. |
+| `limit` | `number` | For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `page` | `string` | For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `sortOrder` | `model.SortOrder` | The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). |
+| `sortBy` | `ListPrivateNetworkProfilesRequest.SortBy` | The field to sort by. You can provide only one sort order. The default order for {@code timeCreated} is descending. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.ListPrivateNetworkProfilesResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `opcNextPage` | `string` | For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `opcTotalItems` | `number` | For list pagination. This header provides total number of items available. For important details about how pagination works, see [List Pagination]({{DOC_SERVER_URL}}/iaas/Content/API/Concepts/usingapi.htm#nine). |
+| `privateNetworkProfileCollection` | `model.PrivateNetworkProfileCollection` | The returned model.PrivateNetworkProfileCollection instance. |
+
+**Payload `PrivateNetworkProfileCollection` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array<model.PrivateNetworkProfileSummary>` | Git connectivity profile summaries. |
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient) • [Top](#top)
+
+
+### <a id="operation-privatenetworkprofileclient-updateprivatenetworkprofile"></a>`updatePrivateNetworkProfile`
+**Description:** Updates selected fields of a reusable private network profile in an AI data platform.
+
+**Request Interface:** `requests.UpdatePrivateNetworkProfileRequest`
+
+
+**Required Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `aiDataPlatformId` | `string` | The [OCID]({{DOC_SERVER_URL}}/iaas/Content/General/Concepts/identifiers.htm) of the AI Data Platform (Data Lake) instance. |
+| `privateNetworkProfileKey` | `string` | The private network profile key. |
+| `updatePrivateNetworkProfileDetails` | `model.UpdatePrivateNetworkProfileDetails` | Fields to update on the private network profile. |
+
+**Optional Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `ifMatch` | `string` | For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match} parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
+
+**Response Interface:** `responses.UpdatePrivateNetworkProfileResponse`
+
+**Response Fields:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `etag` | `string` | For optimistic concurrency control. See {@code if-match}. |
+| `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. |
+| `privateNetworkProfile` | `model.PrivateNetworkProfile` | The returned model.PrivateNetworkProfile instance. |
+
+**Payload `PrivateNetworkProfile` Summary:**
+| Field | Type | Description |
+| --- | --- | --- |
+| `key` | `string` | Unique key for the Git connectivity profile. |
+| `name` | `string` | Display name of the Git connectivity profile. |
+| `description` | `string` | Optional description of the Git connectivity profile. |
+| `customerCompartmentId` | `string` | Customer compartment identifier containing the private network resources. |
+| `customerVcnId` | `string` | Customer VCN identifier used for Git connectivity. |
+| `customerSubnetId` | `string` | Customer subnet identifier used for Git connectivity. |
+| `lifecycleState` | `PrivateNetworkProfile.LifecycleState` | Current lifecycle state of the profile. |
+| `validationState` | `PrivateNetworkProfile.ValidationState` | Latest validation state of the profile. |
+| `timeLastValidated` | `Date` | Time at which the profile was last validated. |
+| `lastValidationErrorCode` | `string` | Non-sensitive code for the latest validation failure. |
+| `lastValidationErrorMessage` | `string` | Non-sensitive message for the latest validation failure. |
+| `timeCreated` | `Date` | Time at which the profile was created. |
+| `timeUpdated` | `Date` | Time at which the profile was last updated. |
+| `createdBy` | `string` | Identifier of the user who created the profile. |
+| `createdByName` | `string` | Display name of the user who created the profile. |
+**Return:** [Back to Private Network Profile (PrivateNetworkProfileClient)](#client-privatenetworkprofileclient) • [Top](#top)
 
 
 ## <a id="client-roleclient"></a>RoleClient
@@ -9151,6 +9687,7 @@ least-privilege policies where available.
 | `parameters` | `Array<model.Parameter>` | An optional list of parameters. |
 | `unifiedJobAndJobRunParameters` | `Array<model.Parameter>` | Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence. |
 | `repairHistory` | `Array<model.RepairHistory>` | Array of repaired runs. |
+| `repairKey` | `number` | The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `systemParameters` | `{ [key: string]: string` | Map of system parameters with their values for this job run. |
 | `startTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `endTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -9166,7 +9703,7 @@ least-privilege policies where available.
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
-| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
+| `repairMode` | `JobRun.RepairMode` | repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 | `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
@@ -9306,6 +9843,7 @@ least-privilege policies where available.
 | `parameters` | `Array<model.Parameter>` | An optional list of parameters. |
 | `unifiedJobAndJobRunParameters` | `Array<model.Parameter>` | Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence. |
 | `repairHistory` | `Array<model.RepairHistory>` | Array of repaired runs. |
+| `repairKey` | `number` | The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `systemParameters` | `{ [key: string]: string` | Map of system parameters with their values for this job run. |
 | `startTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `endTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -9321,7 +9859,7 @@ least-privilege policies where available.
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
-| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
+| `repairMode` | `JobRun.RepairMode` | repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 | `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
@@ -9532,6 +10070,7 @@ least-privilege policies where available.
 | --- | --- | --- |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldIncludeTaskRunSummaries` | `boolean` | A flag to identify if task run summaries should be included in the job run response. If omitted, the service applies its configured default behavior. |
+| `repairKey` | `number` | The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
 **Response Interface:** `responses.GetJobRunResponse`
@@ -9561,6 +10100,7 @@ least-privilege policies where available.
 | `parameters` | `Array<model.Parameter>` | An optional list of parameters. |
 | `unifiedJobAndJobRunParameters` | `Array<model.Parameter>` | Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence. |
 | `repairHistory` | `Array<model.RepairHistory>` | Array of repaired runs. |
+| `repairKey` | `number` | The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `systemParameters` | `{ [key: string]: string` | Map of system parameters with their values for this job run. |
 | `startTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `endTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -9576,7 +10116,7 @@ least-privilege policies where available.
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
-| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
+| `repairMode` | `JobRun.RepairMode` | repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 | `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
@@ -9916,7 +10456,7 @@ least-privilege policies where available.
 
 
 ### <a id="operation-workflowclient-repairjobrun"></a>`repairJobRun`
-**Description:** Repairs and reruns a job run.
+**Description:** Repairs and reruns a root job run. Nested job runs can be repaired only through their root job run repair plan.
 
 **Request Interface:** `requests.RepairJobRunRequest`
 
@@ -9967,6 +10507,7 @@ least-privilege policies where available.
 | `parameters` | `Array<model.Parameter>` | An optional list of parameters. |
 | `unifiedJobAndJobRunParameters` | `Array<model.Parameter>` | Unified List of job and job run parameters after resolving dynamic value references and parameter resolution as per precedence. |
 | `repairHistory` | `Array<model.RepairHistory>` | Array of repaired runs. |
+| `repairKey` | `number` | The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `systemParameters` | `{ [key: string]: string` | Map of system parameters with their values for this job run. |
 | `startTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `endTime` | `number` | The time at which the job execution started in epoch milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
@@ -9982,7 +10523,7 @@ least-privilege policies where available.
 | `taskRunSummaryMap` | `{ [key: string]: any` | TaskRun to TaskRunSummary map for given job run. |
 | `timeoutSeconds` | `number` | An optional value to indicate the max run duration of a job after which job will be timed out. The default is Zero indicating no timeout value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues. |
 | `repairedTasks` | `Array<string>` | A list of repaired tasks. |
-| `repairMode` | `JobRun.RepairMode` | Repair mode to be used for this repair scope. |
+| `repairMode` | `JobRun.RepairMode` | repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks. |
 | `lifecycleStates` | `Array<model.LifecycleState>` | The collection of lifecycle states. |
 | `runAs` | `string` | This points to the user or service account executing the job. |
 **Return:** [Back to Workflow (WorkflowClient)](#client-workflowclient) • [Top](#top)
@@ -10055,7 +10596,7 @@ least-privilege policies where available.
 - [`updateWorkspaceAsyncOperationStatus`](#operation-workspaceclient-updateworkspaceasyncoperationstatus)
 
 ### <a id="operation-workspaceclient-creategitfolder"></a>`createGitFolder`
-**Description:** Creates a git folder in the workspace
+**Description:** Asynchronously creates a Git folder and clones the repository. The aidp-async-operation-key header identifies the operation. Once SUCCEEDED, the folder's HEAD response with shouldIncludeMetadata=true exposes system:repoKey in the JSON file-metadata header for subsequent Git APIs.
 
 **Request Interface:** `requests.CreateGitFolderRequest`
 
@@ -10087,11 +10628,14 @@ least-privilege policies where available.
 **Payload `GitFolder` Summary:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `folderPath` | `string` | The absolute path of the Git folder user wants to create. |
+| `folderPath` | `string` | Workspace-relative path of the Git folder, without a leading slash (for example, {@code sample-repo}). The folder is located at {@code /Workspace/<folderPath>}. |
 | `gitProviderKey` | `string` | key corresponding to Git service provider in git provider table. |
 | `gitRepositoryUrl` | `string` | Git repository url used to clone. |
 | `description` | `string` | Short description about the git repository. |
 | `branchName` | `string` | Git branch name that is cloned. |
+| `isPrivateConnectivityEnabled` | `boolean` | Whether this Git folder uses private network connectivity. |
+| `gitConnectivityProfileKey` | `string` | Key of the private network profile used for Git connectivity, returned by private network profile listings filtered by name. Required when isPrivateConnectivityEnabled is true. |
+| `credentialStoreKey` | `string` | Key of the credential containing the Git server's TLS CA certificate, returned by credential listings filtered by displayName. Required when isPrivateConnectivityEnabled is true. |
 | `folderMetadata` | `{ [key: string]: any` | The metadata about the folder, like branchName. |
 **Return:** [Back to Workspace (WorkspaceClient)](#client-workspaceclient) • [Top](#top)
 
@@ -10703,7 +11247,7 @@ least-privilege policies where available.
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `shouldIncludeMetadata` | `boolean` | Path to list all metadata for a file or folder. |
+| `shouldIncludeMetadata` | `boolean` | Whether to include custom file or folder metadata. For HEAD requests, metadata is returned as JSON in the file-metadata response header. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
@@ -10738,7 +11282,7 @@ least-privilege policies where available.
 **Optional Fields:**
 | Field | Type | Description |
 | --- | --- | --- |
-| `shouldIncludeMetadata` | `boolean` | Path to list all metadata for a file or folder. |
+| `shouldIncludeMetadata` | `boolean` | Whether to include custom file or folder metadata. For HEAD requests, metadata is returned as JSON in the file-metadata response header. |
 | `opcRequestId` | `string` | Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID. The only valid characters for request IDs are letters, numbers, underscore, and dash. |
 | `shouldUpdateRecent` | `boolean` | A flag to identify if the recent list should be updated. |
 
@@ -10752,7 +11296,7 @@ least-privilege policies where available.
 | `path` | `string` | The full path of the object. |
 | `type` | `string` | Type of the object |
 | `timeUpdated` | `Date` | The date and time when Workspace Object was updated, in the format defined by <a href=\"https://tools.ietf.org/html/rfc3339\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 3339</a>. Example: {@code 2016-08-25T21:10:29.600Z} |
-| `fileMetadata` | `string` | File metadata of the file. |
+| `fileMetadata` | `string` | JSON-encoded file or folder metadata, included when shouldIncludeMetadata=true. Git folder metadata contains system:repoKey (gitRepositoryKey), system:branch (checked-out branch), and system:folderType (gitFolder). |
 | `compositeEtag` | `string` | The file composite (data + metadata) etag. |
 **Return:** [Back to Workspace Object (WorkspaceObjectClient)](#client-workspaceobjectclient) • [Top](#top)
 

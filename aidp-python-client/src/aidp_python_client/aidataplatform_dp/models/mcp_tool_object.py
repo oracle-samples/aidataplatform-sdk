@@ -44,14 +44,12 @@ class McpToolObject(McpObject):
             'description': 'str',
             'input_schema': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'object_type': 'objectType',
             'name': 'name',
             'description': 'description',
             'input_schema': 'inputSchema'
         }
-
         self._object_type = None
         self._name = None
         self._description = None

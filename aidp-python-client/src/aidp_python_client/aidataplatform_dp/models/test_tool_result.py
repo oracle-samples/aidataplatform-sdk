@@ -60,11 +60,9 @@ class TestToolResult(object):
         self.swagger_types = {
             'tool_type': 'str'
         }
-
         self.attribute_map = {
             'tool_type': 'toolType'
         }
-
         self._tool_type = None
 
     @staticmethod
@@ -122,8 +120,7 @@ class TestToolResult(object):
         allowed_values = ["SQL", "PROMPT", "RAG", "MCP", "HTTP", "CUSTOM"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
-                "Invalid value for `tool_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `tool_type`, must be None or one of {allowed_values}"
             )
         self._tool_type = tool_type
 

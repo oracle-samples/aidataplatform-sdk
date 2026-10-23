@@ -26,11 +26,9 @@ class CreateExperimentRunResponseDetails(object):
         self.swagger_types = {
             'run': 'ExperimentRun'
         }
-
         self.attribute_map = {
             'run': 'run'
         }
-
         self._run = None
 
     @property

@@ -31,12 +31,10 @@ class ExperimentRunInputs(object):
             'dataset_inputs': 'list[DatasetInput]',
             'model_inputs': 'list[ModelInput]'
         }
-
         self.attribute_map = {
             'dataset_inputs': 'dataset_inputs',
             'model_inputs': 'model_inputs'
         }
-
         self._dataset_inputs = None
         self._model_inputs = None
 

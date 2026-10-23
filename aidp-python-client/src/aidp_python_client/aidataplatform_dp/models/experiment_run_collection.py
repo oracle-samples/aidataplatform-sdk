@@ -31,12 +31,10 @@ class ExperimentRunCollection(object):
             'runs': 'list[ExperimentRun]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'runs': 'runs',
             'next_page_token': 'next_page_token'
         }
-
         self._runs = None
         self._next_page_token = None
 

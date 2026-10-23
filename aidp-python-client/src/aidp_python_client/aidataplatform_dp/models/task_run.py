@@ -141,7 +141,6 @@ class TaskRun(object):
             'parameters': 'list[Parameter]',
             'lifecycle_states': 'list[LifecycleState]'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -168,7 +167,6 @@ class TaskRun(object):
             'parameters': 'parameters',
             'lifecycle_states': 'lifecycleStates'
         }
-
         self._key = None
         self._name = None
         self._task_key = None

@@ -31,12 +31,10 @@ class DeleteRegisteredModelTagDetails(object):
             'name': 'str',
             'key': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'key': 'key'
         }
-
         self._name = None
         self._key = None
 

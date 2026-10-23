@@ -109,7 +109,6 @@ class CreateDataTableDetails(object):
             'file_format': 'str',
             'object_storage_location_path': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -123,7 +122,6 @@ class CreateDataTableDetails(object):
             'file_format': 'fileFormat',
             'object_storage_location_path': 'objectStorageLocationPath'
         }
-
         self._display_name = None
         self._description = None
         self._catalog_key = None
@@ -375,8 +373,7 @@ class CreateDataTableDetails(object):
         allowed_values = ["AVRO", "ORC", "PARQUET", "TEXTFILE", "JSON", "CSV", "DELTA", "ICEBERG"]
         if not value_allowed_none_or_none_sentinel(file_format, allowed_values):
             raise ValueError(
-                "Invalid value for `file_format`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `file_format`, must be None or one of {allowed_values}"
             )
         self._file_format = file_format
 

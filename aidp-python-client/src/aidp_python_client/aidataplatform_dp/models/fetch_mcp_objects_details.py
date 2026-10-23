@@ -88,7 +88,6 @@ class FetchMcpObjectsDetails(object):
             'page': 'str',
             'param_values': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'agent_flow_id': 'agentFlowId',
             'type': 'type',
@@ -99,7 +98,6 @@ class FetchMcpObjectsDetails(object):
             'page': 'page',
             'param_values': 'paramValues'
         }
-
         self._agent_flow_id = None
         self._type = None
         self._mcp_tool = None
@@ -160,8 +158,7 @@ class FetchMcpObjectsDetails(object):
         allowed_values = ["TOOL", "PROMPT", "RESOURCE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 
@@ -214,8 +211,7 @@ class FetchMcpObjectsDetails(object):
         allowed_values = ["ASC", "DESC"]
         if not value_allowed_none_or_none_sentinel(sort_order, allowed_values):
             raise ValueError(
-                "Invalid value for `sort_order`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `sort_order`, must be None or one of {allowed_values}"
             )
         self._sort_order = sort_order
 
@@ -246,8 +242,7 @@ class FetchMcpObjectsDetails(object):
         allowed_values = ["TIME_CREATED"]
         if not value_allowed_none_or_none_sentinel(sort_by, allowed_values):
             raise ValueError(
-                "Invalid value for `sort_by`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `sort_by`, must be None or one of {allowed_values}"
             )
         self._sort_by = sort_by
 

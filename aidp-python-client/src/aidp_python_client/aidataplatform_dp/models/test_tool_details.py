@@ -65,12 +65,10 @@ class TestToolDetails(object):
             'agent_flow_id': 'str',
             'tool_type': 'str'
         }
-
         self.attribute_map = {
             'agent_flow_id': 'agentFlowId',
             'tool_type': 'toolType'
         }
-
         self._agent_flow_id = None
         self._tool_type = None
 
@@ -153,8 +151,7 @@ class TestToolDetails(object):
         allowed_values = ["SQL", "PROMPT", "RAG", "MCP", "HTTP", "CUSTOM"]
         if not value_allowed_none_or_none_sentinel(tool_type, allowed_values):
             raise ValueError(
-                "Invalid value for `tool_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `tool_type`, must be None or one of {allowed_values}"
             )
         self._tool_type = tool_type
 

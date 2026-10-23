@@ -38,13 +38,11 @@ class OAuthAdminSetting(SettingData):
             'identity_provider_url': 'str',
             'retrieve_jks_url': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'identity_provider_url': 'identityProviderUrl',
             'retrieve_jks_url': 'retrieveJksUrl'
         }
-
         self._type = None
         self._identity_provider_url = None
         self._retrieve_jks_url = None

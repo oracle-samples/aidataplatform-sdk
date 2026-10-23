@@ -51,7 +51,6 @@ class OntologyProjectObject(object):
             'size_in_bytes': 'int',
             'time_updated': 'datetime'
         }
-
         self.attribute_map = {
             'path': 'path',
             'name': 'name',
@@ -60,7 +59,6 @@ class OntologyProjectObject(object):
             'size_in_bytes': 'sizeInBytes',
             'time_updated': 'timeUpdated'
         }
-
         self._path = None
         self._name = None
         self._object_type = None

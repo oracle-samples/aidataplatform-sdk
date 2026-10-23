@@ -55,14 +55,12 @@ class ChatMessage(object):
             'image_url': 'str',
             'file_url': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'text': 'text',
             'image_url': 'imageUrl',
             'file_url': 'fileUrl'
         }
-
         self._type = None
         self._text = None
         self._image_url = None

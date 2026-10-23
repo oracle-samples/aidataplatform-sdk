@@ -87,7 +87,6 @@ class VolumePermissionSummary(object):
             'is_inherited': 'bool',
             'resource_name': 'str'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
@@ -96,7 +95,6 @@ class VolumePermissionSummary(object):
             'is_inherited': 'isInherited',
             'resource_name': 'resourceName'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None

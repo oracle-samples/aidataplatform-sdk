@@ -28,11 +28,9 @@ class NoAuth(Auth):
         self.swagger_types = {
             'auth_type': 'str'
         }
-
         self.attribute_map = {
             'auth_type': 'authType'
         }
-
         self._auth_type = None
         self._auth_type = 'NO_AUTH'
 

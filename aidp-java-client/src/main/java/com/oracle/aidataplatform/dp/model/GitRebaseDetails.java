@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details needed to perform a Git rebase for a folder context.
+ * Remote branch and optional context for a Git rebase request.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitRebaseDetails.Builder.class)
@@ -24,14 +24,18 @@ public final class GitRebaseDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * Folder path used to locate the Git worktree.
+         * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -42,14 +46,18 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * The name of the Git branch.
+     * Requested branch name. The branch being rebased is the stored repository
+* branch; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the Git branch.
+         * Requested branch name. The branch being rebased is the stored repository
+* branch; the supplied value does not override it.
+* 
          * @param branchName the value to set
          * @return this builder
          **/
@@ -60,14 +68,16 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * Remote branch name to rebase onto (optional).
+     * Required remote branch whose origin reference is the rebase target.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("remoteBranchName")
 private String remoteBranchName;
 
         /**
-         * Remote branch name to rebase onto (optional).
+         * Required remote branch whose origin reference is the rebase target.
+* 
          * @param remoteBranchName the value to set
          * @return this builder
          **/
@@ -78,14 +88,18 @@ public Builder remoteBranchName(String remoteBranchName) {
     return this;
 }
             /**
-     * Commit ID to rebase onto (optional).
+     * Requested target commit identifier. The rebase target is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("commitId")
 private String commitId;
 
         /**
-         * Commit ID to rebase onto (optional).
+         * Requested target commit identifier. The rebase target is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
          * @param commitId the value to set
          * @return this builder
          **/
@@ -130,14 +144,18 @@ return this;
 
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -147,14 +165,18 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Requested branch name. The branch being rebased is the stored repository
+* branch; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the Git branch.
+     * Requested branch name. The branch being rebased is the stored repository
+* branch; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -164,14 +186,16 @@ return this;
 
 
         /**
-     * Remote branch name to rebase onto (optional).
+     * Required remote branch whose origin reference is the rebase target.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("remoteBranchName")
     private final String remoteBranchName;
 
         /**
-     * Remote branch name to rebase onto (optional).
+     * Required remote branch whose origin reference is the rebase target.
+* 
      * @return the value
      **/
     
@@ -181,14 +205,18 @@ return this;
 
 
         /**
-     * Commit ID to rebase onto (optional).
+     * Requested target commit identifier. The rebase target is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("commitId")
     private final String commitId;
 
         /**
-     * Commit ID to rebase onto (optional).
+     * Requested target commit identifier. The rebase target is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
      * @return the value
      **/
     

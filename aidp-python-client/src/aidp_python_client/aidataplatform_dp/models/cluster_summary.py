@@ -141,7 +141,6 @@ class ClusterSummary(object):
             'attached_sessions': 'list[AttachedSession]',
             'attached_agent_count': 'int'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -166,7 +165,6 @@ class ClusterSummary(object):
             'attached_sessions': 'attachedSessions',
             'attached_agent_count': 'attachedAgentCount'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

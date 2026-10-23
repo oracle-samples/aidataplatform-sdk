@@ -44,7 +44,7 @@ class HttpResult(object):
 
         :param body:
             The value to assign to the body property of this HttpResult.
-        :type body: dict(str, object)
+        :type body: object
 
         """
         self.swagger_types = {
@@ -54,9 +54,8 @@ class HttpResult(object):
             'is_network_error': 'bool',
             'elapsed_seconds': 'float',
             'headers': 'dict(str, str)',
-            'body': 'dict(str, object)'
+            'body': 'object'
         }
-
         self.attribute_map = {
             'status_code': 'statusCode',
             'error_code': 'errorCode',
@@ -66,7 +65,6 @@ class HttpResult(object):
             'headers': 'headers',
             'body': 'body'
         }
-
         self._status_code = None
         self._error_code = None
         self._message = None
@@ -223,11 +221,11 @@ class HttpResult(object):
     def body(self):
         """
         Gets the body of this HttpResult.
-        Response body
+        Response body, which may be a JSON object, array, string, number, boolean, or null.
 
 
         :return: The body of this HttpResult.
-        :rtype: dict(str, object)
+        :rtype: object
         """
         return self._body
 
@@ -235,11 +233,11 @@ class HttpResult(object):
     def body(self, body):
         """
         Sets the body of this HttpResult.
-        Response body
+        Response body, which may be a JSON object, array, string, number, boolean, or null.
 
 
         :param body: The body of this HttpResult.
-        :type: dict(str, object)
+        :type: object
         """
         self._body = body
 

@@ -46,7 +46,6 @@ class ListLoggedModelsDetails(object):
             'filter': 'str',
             'order_by': 'list[LoggedModelOrder]'
         }
-
         self.attribute_map = {
             'experiment_ids': 'experiment_ids',
             'max_results': 'max_results',
@@ -54,7 +53,6 @@ class ListLoggedModelsDetails(object):
             'filter': 'filter',
             'order_by': 'order_by'
         }
-
         self._experiment_ids = None
         self._max_results = None
         self._page_token = None

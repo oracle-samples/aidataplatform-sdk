@@ -41,14 +41,12 @@ class CustomResult(object):
             'is_error': 'bool',
             'tool_name': 'str'
         }
-
         self.attribute_map = {
             'content': 'content',
             'structured_content': 'structuredContent',
             'is_error': 'isError',
             'tool_name': 'toolName'
         }
-
         self._content = None
         self._structured_content = None
         self._is_error = None

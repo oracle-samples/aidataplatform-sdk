@@ -26,11 +26,9 @@ class ExperimentRunOutputs(object):
         self.swagger_types = {
             'model_outputs': 'list[ModelOutput]'
         }
-
         self.attribute_map = {
             'model_outputs': 'model_outputs'
         }
-
         self._model_outputs = None
 
     @property

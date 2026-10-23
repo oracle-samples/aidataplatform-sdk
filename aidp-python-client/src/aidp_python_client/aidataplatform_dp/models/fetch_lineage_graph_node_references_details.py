@@ -40,12 +40,10 @@ class FetchLineageGraphNodeReferencesDetails(object):
             'node_id': 'str',
             'reference_type': 'str'
         }
-
         self.attribute_map = {
             'node_id': 'nodeId',
             'reference_type': 'referenceType'
         }
-
         self._node_id = None
         self._reference_type = None
 
@@ -100,8 +98,7 @@ class FetchLineageGraphNodeReferencesDetails(object):
         allowed_values = ["CHILD", "PARENT"]
         if not value_allowed_none_or_none_sentinel(reference_type, allowed_values):
             raise ValueError(
-                "Invalid value for `reference_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `reference_type`, must be None or one of {allowed_values}"
             )
         self._reference_type = reference_type
 

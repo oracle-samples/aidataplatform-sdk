@@ -12,8 +12,8 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class JobRun  {
     @Deprecated
-    @java.beans.ConstructorProperties({"key", "name", "jobKey", "jobName", "parentJobRunKey", "rootJobRunKey", "parentTaskRunKey", "tasks", "createdBy", "createdByName", "maxConcurrentRuns", "gitConfig", "queue", "originalAttemptRunId", "state", "schedule", "clusterSpec", "clusterInstance", "parameters", "unifiedJobAndJobRunParameters", "repairHistory", "systemParameters", "startTime", "endTime", "setupDuration", "executionDuration", "cleanupDuration", "runDuration", "timeCreated", "timeUpdated", "launched", "version", "taskToTaskRunMap", "taskRunSummaryMap", "timeoutSeconds", "repairedTasks", "repairMode", "lifecycleStates", "runAs"})
-    public JobRun(String key, String name, String jobKey, String jobName, String parentJobRunKey, String rootJobRunKey, String parentTaskRunKey, java.util.List<Task> tasks, String createdBy, String createdByName, Integer maxConcurrentRuns, GitConfig gitConfig, Queue queue, String originalAttemptRunId, State state, Schedule schedule, ClusterSpec clusterSpec, ClusterInstance clusterInstance, java.util.List<Parameter> parameters, java.util.List<Parameter> unifiedJobAndJobRunParameters, java.util.List<RepairHistory> repairHistory, java.util.Map<String, String> systemParameters, Long startTime, Long endTime, Long setupDuration, Long executionDuration, Long cleanupDuration, Long runDuration, java.util.Date timeCreated, java.util.Date timeUpdated, Launched launched, Integer version, java.util.Map<String, String> taskToTaskRunMap, java.util.Map<String, Object> taskRunSummaryMap, Integer timeoutSeconds, java.util.List<String> repairedTasks, RepairMode repairMode, java.util.List<LifecycleState> lifecycleStates, String runAs) {
+    @java.beans.ConstructorProperties({"key", "name", "jobKey", "jobName", "parentJobRunKey", "rootJobRunKey", "parentTaskRunKey", "tasks", "createdBy", "createdByName", "maxConcurrentRuns", "gitConfig", "queue", "originalAttemptRunId", "state", "schedule", "clusterSpec", "clusterInstance", "parameters", "unifiedJobAndJobRunParameters", "repairHistory", "repairKey", "systemParameters", "startTime", "endTime", "setupDuration", "executionDuration", "cleanupDuration", "runDuration", "timeCreated", "timeUpdated", "launched", "version", "taskToTaskRunMap", "taskRunSummaryMap", "timeoutSeconds", "repairedTasks", "repairMode", "lifecycleStates", "runAs"})
+    public JobRun(String key, String name, String jobKey, String jobName, String parentJobRunKey, String rootJobRunKey, String parentTaskRunKey, java.util.List<Task> tasks, String createdBy, String createdByName, Integer maxConcurrentRuns, GitConfig gitConfig, Queue queue, String originalAttemptRunId, State state, Schedule schedule, ClusterSpec clusterSpec, ClusterInstance clusterInstance, java.util.List<Parameter> parameters, java.util.List<Parameter> unifiedJobAndJobRunParameters, java.util.List<RepairHistory> repairHistory, Integer repairKey, java.util.Map<String, String> systemParameters, Long startTime, Long endTime, Long setupDuration, Long executionDuration, Long cleanupDuration, Long runDuration, java.util.Date timeCreated, java.util.Date timeUpdated, Launched launched, Integer version, java.util.Map<String, String> taskToTaskRunMap, java.util.Map<String, Object> taskRunSummaryMap, Integer timeoutSeconds, java.util.List<String> repairedTasks, RepairMode repairMode, java.util.List<LifecycleState> lifecycleStates, String runAs) {
         super();
         this.key = key;
         this.name = name;
@@ -36,6 +36,7 @@ public final class JobRun  {
         this.parameters = parameters;
         this.unifiedJobAndJobRunParameters = unifiedJobAndJobRunParameters;
         this.repairHistory = repairHistory;
+        this.repairKey = repairKey;
         this.systemParameters = systemParameters;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -389,6 +390,24 @@ public Builder repairHistory(java.util.List<RepairHistory> repairHistory) {
     return this;
 }
             /**
+     * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("repairKey")
+private Integer repairKey;
+
+        /**
+         * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
+         * @param repairKey the value to set
+         * @return this builder
+         **/
+        
+
+public Builder repairKey(Integer repairKey) {
+    this.repairKey = repairKey;
+    return this;
+}
+            /**
      * Map of system parameters with their values for this job run.
      **/
     
@@ -659,14 +678,14 @@ public Builder repairedTasks(java.util.List<String> repairedTasks) {
     return this;
 }
             /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("repairMode")
 private RepairMode repairMode;
 
         /**
-         * Repair mode to be used for this repair scope.
+         * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
          * @param repairMode the value to set
          * @return this builder
          **/
@@ -736,6 +755,7 @@ public Builder runAs(String runAs) {
                 , this.parameters
                 , this.unifiedJobAndJobRunParameters
                 , this.repairHistory
+                , this.repairKey
                 , this.systemParameters
                 , this.startTime
                 , this.endTime
@@ -779,6 +799,7 @@ public Builder runAs(String runAs) {
     this.parameters(model.getParameters());
     this.unifiedJobAndJobRunParameters(model.getUnifiedJobAndJobRunParameters());
     this.repairHistory(model.getRepairHistory());
+    this.repairKey(model.getRepairKey());
     this.systemParameters(model.getSystemParameters());
     this.startTime(model.getStartTime());
     this.endTime(model.getEndTime());
@@ -1132,6 +1153,23 @@ return this;
 
 
         /**
+     * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("repairKey")
+    private final Integer repairKey;
+
+        /**
+     * The repair version represented by this JobRun. Zero represents the original execution. Nested JobRuns use the repair key allocated by the root JobRun and can therefore have gaps when they do not participate in every repair.
+     * @return the value
+     **/
+    
+    public Integer getRepairKey() {
+        return repairKey;
+    }
+
+
+        /**
      * Map of system parameters with their values for this job run.
      **/
     
@@ -1431,7 +1469,7 @@ return this;
     }
 
     /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      **/
     public enum RepairMode implements com.oracle.bmc.http.internal.BmcEnum {
         Resume("RESUME"),
@@ -1477,14 +1515,14 @@ return this;
         }
     };
         /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("repairMode")
     private final RepairMode repairMode;
 
         /**
-     * Repair mode to be used for this repair scope.
+     * repairMode is no longer supported. Select tasks explicitly, or use the default nested task selection. For a failed nested JobRun, the default selects only unsuccessful tasks. For a successful nested JobRun, the default selects all tasks.
      * @return the value
      **/
     
@@ -1560,6 +1598,7 @@ return this;
         sb.append(", parameters=").append(String.valueOf(this.parameters));
         sb.append(", unifiedJobAndJobRunParameters=").append(String.valueOf(this.unifiedJobAndJobRunParameters));
         sb.append(", repairHistory=").append(String.valueOf(this.repairHistory));
+        sb.append(", repairKey=").append(String.valueOf(this.repairKey));
         sb.append(", systemParameters=").append(String.valueOf(this.systemParameters));
         sb.append(", startTime=").append(String.valueOf(this.startTime));
         sb.append(", endTime=").append(String.valueOf(this.endTime));
@@ -1613,6 +1652,7 @@ return this;
             java.util.Objects.equals(this.parameters, other.parameters) &&
             java.util.Objects.equals(this.unifiedJobAndJobRunParameters, other.unifiedJobAndJobRunParameters) &&
             java.util.Objects.equals(this.repairHistory, other.repairHistory) &&
+            java.util.Objects.equals(this.repairKey, other.repairKey) &&
             java.util.Objects.equals(this.systemParameters, other.systemParameters) &&
             java.util.Objects.equals(this.startTime, other.startTime) &&
             java.util.Objects.equals(this.endTime, other.endTime) &&
@@ -1658,6 +1698,7 @@ return this;
         result = (result * PRIME) + (this.parameters == null ? 43 : this.parameters.hashCode());
         result = (result * PRIME) + (this.unifiedJobAndJobRunParameters == null ? 43 : this.unifiedJobAndJobRunParameters.hashCode());
         result = (result * PRIME) + (this.repairHistory == null ? 43 : this.repairHistory.hashCode());
+        result = (result * PRIME) + (this.repairKey == null ? 43 : this.repairKey.hashCode());
         result = (result * PRIME) + (this.systemParameters == null ? 43 : this.systemParameters.hashCode());
         result = (result * PRIME) + (this.startTime == null ? 43 : this.startTime.hashCode());
         result = (result * PRIME) + (this.endTime == null ? 43 : this.endTime.hashCode());

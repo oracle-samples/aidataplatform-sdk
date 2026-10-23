@@ -61,7 +61,6 @@ class ObjectSuggestSummary(object):
             'schema_key': 'str',
             'workspace_name': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'type': 'type',
@@ -72,7 +71,6 @@ class ObjectSuggestSummary(object):
             'schema_key': 'schemaKey',
             'workspace_name': 'workspaceName'
         }
-
         self._display_name = None
         self._type = None
         self._path = None

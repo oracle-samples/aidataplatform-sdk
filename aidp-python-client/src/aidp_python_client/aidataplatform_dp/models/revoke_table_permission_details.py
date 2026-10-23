@@ -81,7 +81,6 @@ class RevokeTablePermissionDetails(object):
             'row_filter_type': 'str',
             'row_filter': 'str'
         }
-
         self.attribute_map = {
             'assignees': 'assignees',
             'permissions': 'permissions',
@@ -90,7 +89,6 @@ class RevokeTablePermissionDetails(object):
             'row_filter_type': 'rowFilterType',
             'row_filter': 'rowFilter'
         }
-
         self._assignees = None
         self._permissions = None
         self._include_columns = None
@@ -148,8 +146,7 @@ class RevokeTablePermissionDetails(object):
             for value in permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `permissions`, must be None or one of {allowed_values}"
                     )
         self._permissions = permissions
 
@@ -228,8 +225,7 @@ class RevokeTablePermissionDetails(object):
         allowed_values = ["SQL"]
         if not value_allowed_none_or_none_sentinel(row_filter_type, allowed_values):
             raise ValueError(
-                "Invalid value for `row_filter_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `row_filter_type`, must be None or one of {allowed_values}"
             )
         self._row_filter_type = row_filter_type
 

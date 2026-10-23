@@ -90,7 +90,6 @@ class Session(object):
             'agent_flow_key': 'str',
             'lifecycle_state': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
@@ -101,7 +100,6 @@ class Session(object):
             'agent_flow_key': 'agentFlowKey',
             'lifecycle_state': 'lifecycleState'
         }
-
         self._id = None
         self._name = None
         self._path = None

@@ -84,7 +84,6 @@ class CreateTableDetails(object):
             'partition_keys': 'list[TableFieldDetails]',
             'table_properties': 'list[TableProperty]'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'catalog_key': 'catalogKey',
@@ -97,7 +96,6 @@ class CreateTableDetails(object):
             'partition_keys': 'partitionKeys',
             'table_properties': 'tableProperties'
         }
-
         self._display_name = None
         self._catalog_key = None
         self._schema_key = None
@@ -232,8 +230,7 @@ class CreateTableDetails(object):
         allowed_values = ["MANAGED", "EXTERNAL", "SYNONYM"]
         if not value_allowed_none_or_none_sentinel(table_type, allowed_values):
             raise ValueError(
-                "Invalid value for `table_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `table_type`, must be None or one of {allowed_values}"
             )
         self._table_type = table_type
 

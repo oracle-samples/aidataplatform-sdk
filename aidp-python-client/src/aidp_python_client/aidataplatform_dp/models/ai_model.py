@@ -104,7 +104,6 @@ class AiModel(Model):
             'vendor': 'str',
             'region_id': 'str'
         }
-
         self.attribute_map = {
             'model_type': 'modelType',
             'id': 'id',
@@ -123,7 +122,6 @@ class AiModel(Model):
             'vendor': 'vendor',
             'region_id': 'regionId'
         }
-
         self._model_type = None
         self._id = None
         self._model_name = None

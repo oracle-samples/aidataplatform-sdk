@@ -41,14 +41,12 @@ class RegisteredModelSummary(object):
             'model_deployments_count': 'int',
             'active_deployment_count': 'int'
         }
-
         self.attribute_map = {
             'registered_models_count': 'registered_models_count',
             'model_versions_count': 'model_versions_count',
             'model_deployments_count': 'model_deployments_count',
             'active_deployment_count': 'active_deployment_count'
         }
-
         self._registered_models_count = None
         self._model_versions_count = None
         self._model_deployments_count = None

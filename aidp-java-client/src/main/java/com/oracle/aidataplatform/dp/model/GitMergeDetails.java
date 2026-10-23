@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Details needed to merge into the current branch for a folder context.
+ * Remote branch and optional context for a Git merge request.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=GitMergeDetails.Builder.class)
@@ -24,14 +24,18 @@ public final class GitMergeDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * Folder path used to locate the Git worktree.
+         * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -42,14 +46,18 @@ public Builder gitFolderPath(String gitFolderPath) {
     return this;
 }
             /**
-     * The name of the Git branch.
+     * Requested destination branch name. The merge destination is the stored
+* repository branch; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the Git branch.
+         * Requested destination branch name. The merge destination is the stored
+* repository branch; the supplied value does not override it.
+* 
          * @param branchName the value to set
          * @return this builder
          **/
@@ -60,14 +68,18 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * Remote branch name, if you want to merge a different branch.
+     * Remote branch whose origin reference is merged into the stored repository
+* branch.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("remoteBranchName")
 private String remoteBranchName;
 
         /**
-         * Remote branch name, if you want to merge a different branch.
+         * Remote branch whose origin reference is merged into the stored repository
+* branch.
+* 
          * @param remoteBranchName the value to set
          * @return this builder
          **/
@@ -78,14 +90,18 @@ public Builder remoteBranchName(String remoteBranchName) {
     return this;
 }
             /**
-     * Commit ID to merge (optional).
+     * Requested source commit identifier. The merge source is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("commitId")
 private String commitId;
 
         /**
-         * Commit ID to merge (optional).
+         * Requested source commit identifier. The merge source is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
          * @param commitId the value to set
          * @return this builder
          **/
@@ -130,14 +146,18 @@ return this;
 
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * Folder path used to locate the Git worktree.
+     * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -147,14 +167,18 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Requested destination branch name. The merge destination is the stored
+* repository branch; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the Git branch.
+     * Requested destination branch name. The merge destination is the stored
+* repository branch; the supplied value does not override it.
+* 
      * @return the value
      **/
     
@@ -164,14 +188,18 @@ return this;
 
 
         /**
-     * Remote branch name, if you want to merge a different branch.
+     * Remote branch whose origin reference is merged into the stored repository
+* branch.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("remoteBranchName")
     private final String remoteBranchName;
 
         /**
-     * Remote branch name, if you want to merge a different branch.
+     * Remote branch whose origin reference is merged into the stored repository
+* branch.
+* 
      * @return the value
      **/
     
@@ -181,14 +209,18 @@ return this;
 
 
         /**
-     * Commit ID to merge (optional).
+     * Requested source commit identifier. The merge source is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("commitId")
     private final String commitId;
 
         /**
-     * Commit ID to merge (optional).
+     * Requested source commit identifier. The merge source is
+* origin/{remoteBranchName}; the supplied value does not override it.
+* 
      * @return the value
      **/
     

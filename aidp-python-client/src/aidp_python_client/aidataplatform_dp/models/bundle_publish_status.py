@@ -69,7 +69,6 @@ class BundlePublishStatus(object):
             'publish': 'BundlePublishLocation',
             'resources': 'list[BundlePublishedResource]'
         }
-
         self.attribute_map = {
             'status': 'status',
             'time_started': 'timeStarted',
@@ -78,7 +77,6 @@ class BundlePublishStatus(object):
             'publish': 'publish',
             'resources': 'resources'
         }
-
         self._status = None
         self._time_started = None
         self._time_completed = None

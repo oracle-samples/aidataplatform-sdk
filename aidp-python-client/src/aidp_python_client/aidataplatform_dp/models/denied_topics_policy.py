@@ -60,7 +60,6 @@ class DeniedTopicsPolicy(SafetyPolicy):
             'threshold': 'float',
             'topics': 'list[DeniedTopic]'
         }
-
         self.attribute_map = {
             'policy_type': 'policyType',
             'policy_name': 'policyName',
@@ -70,7 +69,6 @@ class DeniedTopicsPolicy(SafetyPolicy):
             'threshold': 'threshold',
             'topics': 'topics'
         }
-
         self._policy_type = None
         self._policy_name = None
         self._policy_description = None

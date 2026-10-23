@@ -46,7 +46,6 @@ class NewClusterConfiguration(object):
             'spark_version': 'str',
             'spark_conf': 'str'
         }
-
         self.attribute_map = {
             'num_workers': 'numWorkers',
             'auto_scale': 'autoScale',
@@ -54,7 +53,6 @@ class NewClusterConfiguration(object):
             'spark_version': 'sparkVersion',
             'spark_conf': 'sparkConf'
         }
-
         self._num_workers = None
         self._auto_scale = None
         self._cluster_name = None

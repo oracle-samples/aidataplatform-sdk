@@ -38,13 +38,11 @@ class JobDependency(Dependency):
             'key': 'str',
             'dependencies': 'list[Dependency]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'key': 'key',
             'dependencies': 'dependencies'
         }
-
         self._type = None
         self._key = None
         self._dependencies = None

@@ -61,7 +61,6 @@ class SessionChatHistorySummary(object):
             'tool_call_id': 'str',
             'metadata': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'key': 'key',
             'session_key': 'sessionKey',
@@ -72,7 +71,6 @@ class SessionChatHistorySummary(object):
             'tool_call_id': 'toolCallId',
             'metadata': 'metadata'
         }
-
         self._key = None
         self._session_key = None
         self._role = None

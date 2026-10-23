@@ -126,7 +126,6 @@ class Job(object):
             'parameters': 'list[Parameter]',
             'timeout_seconds': 'int'
         }
-
         self.attribute_map = {
             'key': 'key',
             'created_by': 'createdBy',
@@ -149,7 +148,6 @@ class Job(object):
             'parameters': 'parameters',
             'timeout_seconds': 'timeoutSeconds'
         }
-
         self._key = None
         self._created_by = None
         self._created_by_name = None

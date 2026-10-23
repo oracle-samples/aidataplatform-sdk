@@ -31,12 +31,10 @@ class ManageClusterPermissionDetails(object):
             'assign_cluster_permission_details': 'AssignClusterPermissionDetails',
             'revoke_cluster_permission_details': 'RevokeClusterPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_cluster_permission_details': 'assignClusterPermissionDetails',
             'revoke_cluster_permission_details': 'revokeClusterPermissionDetails'
         }
-
         self._assign_cluster_permission_details = None
         self._revoke_cluster_permission_details = None
 

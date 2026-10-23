@@ -26,11 +26,9 @@ class ImportComputeConfigurationDetails(object):
         self.swagger_types = {
             'yaml_paths': 'list[str]'
         }
-
         self.attribute_map = {
             'yaml_paths': 'yamlPaths'
         }
-
         self._yaml_paths = None
 
     @property

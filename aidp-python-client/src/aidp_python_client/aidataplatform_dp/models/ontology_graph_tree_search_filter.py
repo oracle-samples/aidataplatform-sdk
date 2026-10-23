@@ -36,13 +36,11 @@ class OntologyGraphTreeSearchFilter(object):
             'operator': 'str',
             'values': 'list[str]'
         }
-
         self.attribute_map = {
             'attribute': 'attribute',
             'operator': 'operator',
             'values': 'values'
         }
-
         self._attribute = None
         self._operator = None
         self._values = None

@@ -31,12 +31,10 @@ class AggregatedDataPoint(object):
             'timestamp': 'datetime',
             'value': 'float'
         }
-
         self.attribute_map = {
             'timestamp': 'timestamp',
             'value': 'value'
         }
-
         self._timestamp = None
         self._value = None
 

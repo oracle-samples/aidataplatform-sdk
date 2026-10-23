@@ -114,7 +114,6 @@ class CreateKnowledgeBaseDetails(object):
             'source_file_pattern': 'str',
             'index_details': 'KnowledgeBaseVectorIndexDetails'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -131,7 +130,6 @@ class CreateKnowledgeBaseDetails(object):
             'source_file_pattern': 'sourceFilePattern',
             'index_details': 'indexDetails'
         }
-
         self._display_name = None
         self._description = None
         self._catalog_key = None
@@ -246,8 +244,7 @@ class CreateKnowledgeBaseDetails(object):
         allowed_values = ["NATIVE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 
@@ -350,8 +347,7 @@ class CreateKnowledgeBaseDetails(object):
         allowed_values = ["TEXT"]
         if not value_allowed_none_or_none_sentinel(modality, allowed_values):
             raise ValueError(
-                "Invalid value for `modality`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `modality`, must be None or one of {allowed_values}"
             )
         self._modality = modality
 
@@ -382,8 +378,7 @@ class CreateKnowledgeBaseDetails(object):
         allowed_values = ["ADW_23_AI", "ADW_26_AI", "GEN_AI"]
         if not value_allowed_none_or_none_sentinel(embedding_model_source_type, allowed_values):
             raise ValueError(
-                "Invalid value for `embedding_model_source_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `embedding_model_source_type`, must be None or one of {allowed_values}"
             )
         self._embedding_model_source_type = embedding_model_source_type
 

@@ -42,6 +42,30 @@ class GitRepository(object):
             The value to assign to the credential_key property of this GitRepository.
         :type credential_key: str
 
+        :param sparse_checkout:
+            The value to assign to the sparse_checkout property of this GitRepository.
+        :type sparse_checkout: oci.aidataplatform_dp.models.SparseCheckoutDetails
+
+        :param is_private_connectivity_enabled:
+            The value to assign to the is_private_connectivity_enabled property of this GitRepository.
+        :type is_private_connectivity_enabled: bool
+
+        :param git_connectivity_profile_key:
+            The value to assign to the git_connectivity_profile_key property of this GitRepository.
+        :type git_connectivity_profile_key: str
+
+        :param git_connectivity_profile_name:
+            The value to assign to the git_connectivity_profile_name property of this GitRepository.
+        :type git_connectivity_profile_name: str
+
+        :param credential_store_key:
+            The value to assign to the credential_store_key property of this GitRepository.
+        :type credential_store_key: str
+
+        :param credential_store_name:
+            The value to assign to the credential_store_name property of this GitRepository.
+        :type credential_store_name: str
+
         """
         self.swagger_types = {
             'key': 'str',
@@ -49,24 +73,40 @@ class GitRepository(object):
             'branch_name': 'str',
             'git_url': 'str',
             'git_folder_path': 'str',
-            'credential_key': 'str'
+            'credential_key': 'str',
+            'sparse_checkout': 'SparseCheckoutDetails',
+            'is_private_connectivity_enabled': 'bool',
+            'git_connectivity_profile_key': 'str',
+            'git_connectivity_profile_name': 'str',
+            'credential_store_key': 'str',
+            'credential_store_name': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'workspace_key': 'workspaceKey',
             'branch_name': 'branchName',
             'git_url': 'gitUrl',
             'git_folder_path': 'gitFolderPath',
-            'credential_key': 'credentialKey'
+            'credential_key': 'credentialKey',
+            'sparse_checkout': 'sparseCheckout',
+            'is_private_connectivity_enabled': 'isPrivateConnectivityEnabled',
+            'git_connectivity_profile_key': 'gitConnectivityProfileKey',
+            'git_connectivity_profile_name': 'gitConnectivityProfileName',
+            'credential_store_key': 'credentialStoreKey',
+            'credential_store_name': 'credentialStoreName'
         }
-
         self._key = None
         self._workspace_key = None
         self._branch_name = None
         self._git_url = None
         self._git_folder_path = None
         self._credential_key = None
+        self._sparse_checkout = None
+        self._is_private_connectivity_enabled = None
+        self._git_connectivity_profile_key = None
+        self._git_connectivity_profile_name = None
+        self._credential_store_key = None
+        self._credential_store_name = None
 
     @property
     def key(self):
@@ -192,7 +232,10 @@ class GitRepository(object):
     def credential_key(self):
         """
         Gets the credential_key of this GitRepository.
-        The credential setting key
+        Key of the current user's GIT_ACCOUNT user setting containing Git authentication
+        credentials. Identified by settingType=GIT_ACCOUNT and displayName in user
+        setting listings. Distinct from credentialStoreKey, which references a TLS
+        CA certificate.
 
 
         :return: The credential_key of this GitRepository.
@@ -204,13 +247,166 @@ class GitRepository(object):
     def credential_key(self, credential_key):
         """
         Sets the credential_key of this GitRepository.
-        The credential setting key
+        Key of the current user's GIT_ACCOUNT user setting containing Git authentication
+        credentials. Identified by settingType=GIT_ACCOUNT and displayName in user
+        setting listings. Distinct from credentialStoreKey, which references a TLS
+        CA certificate.
 
 
         :param credential_key: The credential_key of this GitRepository.
         :type: str
         """
         self._credential_key = credential_key
+
+    @property
+    def sparse_checkout(self):
+        """
+        Gets the sparse_checkout of this GitRepository.
+
+        :return: The sparse_checkout of this GitRepository.
+        :rtype: oci.aidataplatform_dp.models.SparseCheckoutDetails
+        """
+        return self._sparse_checkout
+
+    @sparse_checkout.setter
+    def sparse_checkout(self, sparse_checkout):
+        """
+        Sets the sparse_checkout of this GitRepository.
+
+        :param sparse_checkout: The sparse_checkout of this GitRepository.
+        :type: oci.aidataplatform_dp.models.SparseCheckoutDetails
+        """
+        self._sparse_checkout = sparse_checkout
+
+    @property
+    def is_private_connectivity_enabled(self):
+        """
+        Gets the is_private_connectivity_enabled of this GitRepository.
+        Whether this repository uses private network connectivity.
+
+
+        :return: The is_private_connectivity_enabled of this GitRepository.
+        :rtype: bool
+        """
+        return self._is_private_connectivity_enabled
+
+    @is_private_connectivity_enabled.setter
+    def is_private_connectivity_enabled(self, is_private_connectivity_enabled):
+        """
+        Sets the is_private_connectivity_enabled of this GitRepository.
+        Whether this repository uses private network connectivity.
+
+
+        :param is_private_connectivity_enabled: The is_private_connectivity_enabled of this GitRepository.
+        :type: bool
+        """
+        self._is_private_connectivity_enabled = is_private_connectivity_enabled
+
+    @property
+    def git_connectivity_profile_key(self):
+        """
+        Gets the git_connectivity_profile_key of this GitRepository.
+        Key of the private network profile used for Git connectivity, returned by
+        private network profile listings filtered by name. Required when
+        isPrivateConnectivityEnabled is true.
+
+
+        :return: The git_connectivity_profile_key of this GitRepository.
+        :rtype: str
+        """
+        return self._git_connectivity_profile_key
+
+    @git_connectivity_profile_key.setter
+    def git_connectivity_profile_key(self, git_connectivity_profile_key):
+        """
+        Sets the git_connectivity_profile_key of this GitRepository.
+        Key of the private network profile used for Git connectivity, returned by
+        private network profile listings filtered by name. Required when
+        isPrivateConnectivityEnabled is true.
+
+
+        :param git_connectivity_profile_key: The git_connectivity_profile_key of this GitRepository.
+        :type: str
+        """
+        self._git_connectivity_profile_key = git_connectivity_profile_key
+
+    @property
+    def git_connectivity_profile_name(self):
+        """
+        Gets the git_connectivity_profile_name of this GitRepository.
+        User-friendly name of the private Git connectivity profile.
+
+
+        :return: The git_connectivity_profile_name of this GitRepository.
+        :rtype: str
+        """
+        return self._git_connectivity_profile_name
+
+    @git_connectivity_profile_name.setter
+    def git_connectivity_profile_name(self, git_connectivity_profile_name):
+        """
+        Sets the git_connectivity_profile_name of this GitRepository.
+        User-friendly name of the private Git connectivity profile.
+
+
+        :param git_connectivity_profile_name: The git_connectivity_profile_name of this GitRepository.
+        :type: str
+        """
+        self._git_connectivity_profile_name = git_connectivity_profile_name
+
+    @property
+    def credential_store_key(self):
+        """
+        Gets the credential_store_key of this GitRepository.
+        Key of the credential-store entry containing the Git server's TLS CA
+        certificate, identified by displayName in credential listings. Provides
+        server certificate trust, separate from the Git authentication user setting
+        referenced by credentialKey. Required when isPrivateConnectivityEnabled is true.
+
+
+        :return: The credential_store_key of this GitRepository.
+        :rtype: str
+        """
+        return self._credential_store_key
+
+    @credential_store_key.setter
+    def credential_store_key(self, credential_store_key):
+        """
+        Sets the credential_store_key of this GitRepository.
+        Key of the credential-store entry containing the Git server's TLS CA
+        certificate, identified by displayName in credential listings. Provides
+        server certificate trust, separate from the Git authentication user setting
+        referenced by credentialKey. Required when isPrivateConnectivityEnabled is true.
+
+
+        :param credential_store_key: The credential_store_key of this GitRepository.
+        :type: str
+        """
+        self._credential_store_key = credential_store_key
+
+    @property
+    def credential_store_name(self):
+        """
+        Gets the credential_store_name of this GitRepository.
+        User-friendly display name of the repository TLS CA certificate credential.
+
+
+        :return: The credential_store_name of this GitRepository.
+        :rtype: str
+        """
+        return self._credential_store_name
+
+    @credential_store_name.setter
+    def credential_store_name(self, credential_store_name):
+        """
+        Sets the credential_store_name of this GitRepository.
+        User-friendly display name of the repository TLS CA certificate credential.
+
+
+        :param credential_store_name: The credential_store_name of this GitRepository.
+        :type: str
+        """
+        self._credential_store_name = credential_store_name
 
     def __repr__(self):
         return formatted_flat_dict(self)

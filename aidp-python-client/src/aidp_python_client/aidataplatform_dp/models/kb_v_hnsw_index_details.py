@@ -70,14 +70,12 @@ class KbVHnswIndexDetails(object):
             'neighbors': 'int',
             'ef_construction': 'int'
         }
-
         self.attribute_map = {
             'distance': 'distance',
             'target_accuracy': 'targetAccuracy',
             'neighbors': 'neighbors',
             'ef_construction': 'efConstruction'
         }
-
         self._distance = None
         self._target_accuracy = None
         self._neighbors = None
@@ -110,8 +108,7 @@ class KbVHnswIndexDetails(object):
         allowed_values = ["COSINE", "EUCLIDEAN", "L2_SQUARED", "DOT", "MANHATTAN", "HAMMING", "JACCARD"]
         if not value_allowed_none_or_none_sentinel(distance, allowed_values):
             raise ValueError(
-                "Invalid value for `distance`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `distance`, must be None or one of {allowed_values}"
             )
         self._distance = distance
 

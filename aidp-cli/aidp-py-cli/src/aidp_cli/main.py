@@ -920,11 +920,35 @@ def field_option_value(
     inline_value: str | None,
     field: CommandField,
 ) -> tuple[Any, int]:
-    if inline_value is not None:
-        return inline_value, index + 1
     if field.type_name in {"boolean", "bool"}:
-        return True, index + 1
+        return boolean_option_value(tokens, index, option_name, inline_value)
     return command_option_value(tokens, index, option_name, inline_value)
+
+
+BOOLEAN_OPTION_VALUES = {"true": True, "false": False}
+
+
+def boolean_option_value(
+    tokens: list[str],
+    index: int,
+    option_name: str,
+    inline_value: str | None,
+) -> tuple[bool, int]:
+    # Accepts --flag=VALUE and --flag VALUE like the npm CLI, in any letter case.
+    # A bare --flag keeps meaning true for backward compatibility.
+    if inline_value is not None:
+        return parse_boolean_option(inline_value, option_name), index + 1
+    next_token = tokens[index + 1] if index + 1 < len(tokens) else ""
+    if next_token.lower() in BOOLEAN_OPTION_VALUES:
+        return BOOLEAN_OPTION_VALUES[next_token.lower()], index + 2
+    return True, index + 1
+
+
+def parse_boolean_option(value: str, option_name: str) -> bool:
+    parsed = BOOLEAN_OPTION_VALUES.get(value.lower())
+    if parsed is None:
+        raise CliError(f"{option_name} must be true or false.")
+    return parsed
 
 
 def bind_command_args(
@@ -1814,9 +1838,12 @@ def build_client(client_cls: type, args: SimpleNamespace) -> Any:
 
 
 def apply_client_overrides(client: Any) -> None:
-    base_client = getattr(client, "base_client", None)
-    if client.__class__.__name__ not in STRICT_URL_ENCODING_CLIENTS:
+    if (
+        client.__class__.__name__ not in STRICT_URL_ENCODING_CLIENTS
+        and os.getenv("AIDP_CLI_STRICT_URL_ENCODING", "").lower() != "true"
+    ):
         return
+    base_client = getattr(client, "base_client", None)
     if base_client is None:
         return
     if hasattr(base_client, "enable_strict_url_encoding"):

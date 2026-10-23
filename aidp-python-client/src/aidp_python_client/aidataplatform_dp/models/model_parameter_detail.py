@@ -36,13 +36,11 @@ class ModelParameterDetail(object):
             'name': 'str',
             'description': 'str'
         }
-
         self.attribute_map = {
             'code_gen_name': 'codeGenName',
             'name': 'name',
             'description': 'description'
         }
-
         self._code_gen_name = None
         self._name = None
         self._description = None

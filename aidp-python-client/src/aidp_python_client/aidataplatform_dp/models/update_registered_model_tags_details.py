@@ -36,13 +36,11 @@ class UpdateRegisteredModelTagsDetails(object):
             'set_tags': 'list[RegisteredModelTag]',
             'delete_tags': 'list[RegisteredModelTagKey]'
         }
-
         self.attribute_map = {
             'name': 'name',
             'set_tags': 'set_tags',
             'delete_tags': 'delete_tags'
         }
-
         self._name = None
         self._set_tags = None
         self._delete_tags = None

@@ -13,6 +13,7 @@ public enum MasterCatalogPrivilege implements com.oracle.bmc.http.internal.BmcEn
     CreateShare("CREATE_SHARE"),
     CreateRecipient("CREATE_RECIPIENT"),
     CreateCredential("CREATE_CREDENTIAL"),
+    ManageLineage("MANAGE_LINEAGE"),
     ;
 
     

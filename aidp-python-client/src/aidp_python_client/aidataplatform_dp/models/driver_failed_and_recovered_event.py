@@ -38,13 +38,11 @@ class DriverFailedAndRecoveredEvent(ClusterEvent):
             'time_driver_recovered': 'datetime',
             'failure_reason': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'time_driver_recovered': 'timeDriverRecovered',
             'failure_reason': 'failureReason'
         }
-
         self._type = None
         self._time_driver_recovered = None
         self._failure_reason = None

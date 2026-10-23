@@ -31,12 +31,10 @@ class RenameTableFieldDetails(object):
             'field_name': 'str',
             'updated_field_name': 'str'
         }
-
         self.attribute_map = {
             'field_name': 'fieldName',
             'updated_field_name': 'updatedFieldName'
         }
-
         self._field_name = None
         self._updated_field_name = None
 

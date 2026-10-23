@@ -31,12 +31,10 @@ class ManageCatalogPermissionDetails(object):
             'assign_catalog_permission_details': 'AssignCatalogPermissionDetails',
             'revoke_catalog_permission_details': 'RevokeCatalogPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_catalog_permission_details': 'assignCatalogPermissionDetails',
             'revoke_catalog_permission_details': 'revokeCatalogPermissionDetails'
         }
-
         self._assign_catalog_permission_details = None
         self._revoke_catalog_permission_details = None
 

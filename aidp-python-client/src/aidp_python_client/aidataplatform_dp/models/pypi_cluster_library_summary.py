@@ -68,7 +68,6 @@ class PypiClusterLibrarySummary(ClusterLibrarySummary):
             'python_package': 'str',
             'pip_index_url': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'time_created': 'timeCreated',
@@ -80,7 +79,6 @@ class PypiClusterLibrarySummary(ClusterLibrarySummary):
             'python_package': 'pythonPackage',
             'pip_index_url': 'pipIndexUrl'
         }
-
         self._type = None
         self._time_created = None
         self._time_updated = None

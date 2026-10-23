@@ -31,12 +31,10 @@ class RenameWorkspaceObjectDetails(object):
             'path': 'str',
             'new_name': 'str'
         }
-
         self.attribute_map = {
             'path': 'path',
             'new_name': 'newName'
         }
-
         self._path = None
         self._new_name = None
 

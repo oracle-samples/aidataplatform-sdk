@@ -58,6 +58,10 @@ class CreateCatalogDetails(object):
     SOURCE_TYPE_SNOWFLAKE = "SNOWFLAKE"
 
     #: A constant which can be used with the source_type property of a CreateCatalogDetails.
+    #: This constant has a value of "GOOGLE_BIGQUERY"
+    SOURCE_TYPE_GOOGLE_BIGQUERY = "GOOGLE_BIGQUERY"
+
+    #: A constant which can be used with the source_type property of a CreateCatalogDetails.
     #: This constant has a value of "DB2"
     SOURCE_TYPE_DB2 = "DB2"
 
@@ -85,7 +89,7 @@ class CreateCatalogDetails(object):
 
         :param source_type:
             The value to assign to the source_type property of this CreateCatalogDetails.
-            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS"
+            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS"
         :type source_type: str
 
         :param properties:
@@ -105,7 +109,6 @@ class CreateCatalogDetails(object):
             'properties': 'dict(str, str)',
             'connection_details': 'CreateConnectionDetails'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -114,7 +117,6 @@ class CreateCatalogDetails(object):
             'properties': 'properties',
             'connection_details': 'connectionDetails'
         }
-
         self._display_name = None
         self._description = None
         self._catalog_type = None
@@ -197,8 +199,7 @@ class CreateCatalogDetails(object):
         allowed_values = ["EXTERNAL", "INTERNAL"]
         if not value_allowed_none_or_none_sentinel(catalog_type, allowed_values):
             raise ValueError(
-                "Invalid value for `catalog_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `catalog_type`, must be None or one of {allowed_values}"
             )
         self._catalog_type = catalog_type
 
@@ -208,7 +209,7 @@ class CreateCatalogDetails(object):
         Gets the source_type of this CreateCatalogDetails.
         External catalog source type.
 
-        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS"
+        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS"
 
 
         :return: The source_type of this CreateCatalogDetails.
@@ -226,11 +227,10 @@ class CreateCatalogDetails(object):
         :param source_type: The source_type of this CreateCatalogDetails.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             raise ValueError(
-                "Invalid value for `source_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `source_type`, must be None or one of {allowed_values}"
             )
         self._source_type = source_type
 

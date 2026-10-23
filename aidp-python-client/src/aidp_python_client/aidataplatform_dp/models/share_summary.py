@@ -77,7 +77,6 @@ class ShareSummary(object):
             'time_updated': 'datetime',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -90,7 +89,6 @@ class ShareSummary(object):
             'time_updated': 'timeUpdated',
             'updated_by': 'updatedBy'
         }
-
         self._key = None
         self._display_name = None
         self._recipient_count = None

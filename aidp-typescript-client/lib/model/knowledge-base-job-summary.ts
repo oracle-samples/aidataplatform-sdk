@@ -37,6 +37,10 @@ export interface KnowledgeBaseJobSummary {
     */
     'type': model.KnowledgeBaseJobType;
     /**
+    * Goal of the KnowledgeBase job, when available.
+    */
+    'goal'?: model.KnowledgeBaseJobGoalType;
+    /**
     * Name of the source, \"*\" for Default job
     */
     'sources'?: string;
@@ -88,9 +92,11 @@ export namespace KnowledgeBaseJobSummary {
 
 
 
+
     export function getJsonObj(obj: KnowledgeBaseJobSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 
@@ -116,6 +122,7 @@ export namespace KnowledgeBaseJobSummary {
     export function getDeserializedJsonObj(obj: KnowledgeBaseJobSummary): object {
         const jsonObj = {...obj, ...{
             
+
 
 
 

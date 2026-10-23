@@ -36,13 +36,11 @@ class SetExperimentTagDetails(object):
             'key': 'str',
             'value': 'str'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id',
             'key': 'key',
             'value': 'value'
         }
-
         self._experiment_id = None
         self._key = None
         self._value = None

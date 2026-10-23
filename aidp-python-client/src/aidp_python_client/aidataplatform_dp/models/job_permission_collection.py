@@ -26,11 +26,9 @@ class JobPermissionCollection(object):
         self.swagger_types = {
             'items': 'list[JobPermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

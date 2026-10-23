@@ -125,7 +125,6 @@ class ModelVersion(object):
             'model_params': 'list[ModelParam]',
             'deployment_job_state': 'ModelVersionDeploymentJobState'
         }
-
         self.attribute_map = {
             'name': 'name',
             'version': 'version',
@@ -146,7 +145,6 @@ class ModelVersion(object):
             'model_params': 'model_params',
             'deployment_job_state': 'deployment_job_state'
         }
-
         self._name = None
         self._version = None
         self._creation_timestamp = None

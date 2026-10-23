@@ -83,7 +83,6 @@ class HttpToolConfiguration(object):
             'auth': 'Auth',
             'response_optimization': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'method': 'method',
             'url': 'url',
@@ -94,7 +93,6 @@ class HttpToolConfiguration(object):
             'auth': 'auth',
             'response_optimization': 'responseOptimization'
         }
-
         self._method = None
         self._url = None
         self._headers = None

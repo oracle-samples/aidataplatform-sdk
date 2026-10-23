@@ -21,7 +21,7 @@ class IfElseTask(Task):
 
         :param type:
             The value to assign to the type property of this IfElseTask.
-            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK"
+            Allowed values for this property are: "NOTEBOOK_TASK", "PYTHON_TASK", "SPARK_SUBMIT_TASK", "IF_ELSE_TASK", "JOB_TASK", "JAR_TASK", "AGENT_TASK"
         :type type: str
 
         :param task_key:
@@ -74,7 +74,6 @@ class IfElseTask(Task):
             'condition': 'str',
             'parameters': 'list[Parameter]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'task_key': 'taskKey',
@@ -87,7 +86,6 @@ class IfElseTask(Task):
             'condition': 'condition',
             'parameters': 'parameters'
         }
-
         self._type = None
         self._task_key = None
         self._depends_on = None

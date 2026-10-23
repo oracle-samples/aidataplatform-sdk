@@ -56,7 +56,6 @@ class OntologyEntityFailedOperation(object):
             'code': 'str',
             'message': 'str'
         }
-
         self.attribute_map = {
             'op_id': 'opId',
             'op': 'op',
@@ -66,7 +65,6 @@ class OntologyEntityFailedOperation(object):
             'code': 'code',
             'message': 'message'
         }
-
         self._op_id = None
         self._op = None
         self._entity_type = None

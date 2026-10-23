@@ -36,13 +36,11 @@ class UnpublishOntologyProjectDetails(object):
             'ontology_name': 'str',
             'delete_artifacts': 'bool'
         }
-
         self.attribute_map = {
             'comment': 'comment',
             'ontology_name': 'ontologyName',
             'delete_artifacts': 'deleteArtifacts'
         }
-
         self._comment = None
         self._ontology_name = None
         self._delete_artifacts = None

@@ -69,7 +69,6 @@ class NodeInput(object):
             'is_required': 'bool',
             'is_single_connection': 'bool'
         }
-
         self.attribute_map = {
             'name': 'name',
             'type': 'type',
@@ -78,7 +77,6 @@ class NodeInput(object):
             'is_required': 'isRequired',
             'is_single_connection': 'isSingleConnection'
         }
-
         self._name = None
         self._type = None
         self._port_position = None

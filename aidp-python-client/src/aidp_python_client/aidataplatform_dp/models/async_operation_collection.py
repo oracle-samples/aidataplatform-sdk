@@ -26,11 +26,9 @@ class AsyncOperationCollection(object):
         self.swagger_types = {
             'items': 'list[AsyncOperationSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

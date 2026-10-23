@@ -102,7 +102,6 @@ class DeploymentActivity(object):
             'status_message': 'str',
             'deployment_details': 'DeploymentDetails'
         }
-
         self.attribute_map = {
             'activity_id': 'activity_id',
             'operation_type': 'operation_type',
@@ -114,7 +113,6 @@ class DeploymentActivity(object):
             'status_message': 'status_message',
             'deployment_details': 'deployment_details'
         }
-
         self._activity_id = None
         self._operation_type = None
         self._status = None
@@ -309,7 +307,7 @@ class DeploymentActivity(object):
     def status_message(self):
         """
         Gets the status_message of this DeploymentActivity.
-        Details on the status, if it is not SUCCESS.
+        Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
 
 
         :return: The status_message of this DeploymentActivity.
@@ -321,7 +319,7 @@ class DeploymentActivity(object):
     def status_message(self, status_message):
         """
         Sets the status_message of this DeploymentActivity.
-        Details on the status, if it is not SUCCESS.
+        Details on the outcome: why the operation failed, or -- on a successful deployment -- any advisory about how its dependencies were resolved.
 
 
         :param status_message: The status_message of this DeploymentActivity.

@@ -45,13 +45,11 @@ class UpdateKnowledgeBaseSourceUpdateDetailsItem(object):
             'update_knowledge_base_add_source_details': 'UpdateKnowledgeBaseAddSourceDetails',
             'update_knowledge_base_delete_source_details': 'UpdateKnowledgeBaseDeleteSourceDetails'
         }
-
         self.attribute_map = {
             'action': 'action',
             'update_knowledge_base_add_source_details': 'updateKnowledgeBaseAddSourceDetails',
             'update_knowledge_base_delete_source_details': 'updateKnowledgeBaseDeleteSourceDetails'
         }
-
         self._action = None
         self._update_knowledge_base_add_source_details = None
         self._update_knowledge_base_delete_source_details = None
@@ -83,8 +81,7 @@ class UpdateKnowledgeBaseSourceUpdateDetailsItem(object):
         allowed_values = ["ADD_SOURCE", "DELETE_SOURCE"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 

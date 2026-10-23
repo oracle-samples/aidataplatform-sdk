@@ -51,7 +51,6 @@ class OntologyEntityMutationResult(object):
             'updated_entities': 'list[str]',
             'errors': 'list[OntologyEntityError]'
         }
-
         self.attribute_map = {
             'success': 'success',
             'code': 'code',
@@ -60,7 +59,6 @@ class OntologyEntityMutationResult(object):
             'updated_entities': 'updatedEntities',
             'errors': 'errors'
         }
-
         self._success = None
         self._code = None
         self._created_entities = None

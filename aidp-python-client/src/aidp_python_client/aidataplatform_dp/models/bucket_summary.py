@@ -46,7 +46,6 @@ class BucketSummary(object):
             'created_by': 'str',
             'time_created': 'datetime'
         }
-
         self.attribute_map = {
             'namespace': 'namespace',
             'name': 'name',
@@ -54,7 +53,6 @@ class BucketSummary(object):
             'created_by': 'createdBy',
             'time_created': 'timeCreated'
         }
-
         self._namespace = None
         self._name = None
         self._compartment_id = None

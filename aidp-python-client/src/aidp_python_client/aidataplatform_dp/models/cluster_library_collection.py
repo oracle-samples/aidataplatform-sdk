@@ -26,11 +26,9 @@ class ClusterLibraryCollection(object):
         self.swagger_types = {
             'items': 'list[ClusterLibrarySummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

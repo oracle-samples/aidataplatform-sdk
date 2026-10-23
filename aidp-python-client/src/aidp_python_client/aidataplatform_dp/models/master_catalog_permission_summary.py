@@ -45,6 +45,10 @@ class MasterCatalogPermissionSummary(object):
     #: This constant has a value of "CREATE_CREDENTIAL"
     GRANTEE_PERMISSIONS_CREATE_CREDENTIAL = "CREATE_CREDENTIAL"
 
+    #: A constant which can be used with the grantee_permissions property of a MasterCatalogPermissionSummary.
+    #: This constant has a value of "MANAGE_LINEAGE"
+    GRANTEE_PERMISSIONS_MANAGE_LINEAGE = "MANAGE_LINEAGE"
+
     def __init__(self, **kwargs):
         """
         Initializes a new MasterCatalogPermissionSummary object with values from keyword arguments.
@@ -65,7 +69,7 @@ class MasterCatalogPermissionSummary(object):
 
         :param grantee_permissions:
             The value to assign to the grantee_permissions property of this MasterCatalogPermissionSummary.
-            Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL"
+            Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL", "MANAGE_LINEAGE"
         :type grantee_permissions: list[str]
 
         """
@@ -75,14 +79,12 @@ class MasterCatalogPermissionSummary(object):
             'grantee_type': 'str',
             'grantee_permissions': 'list[str]'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
             'grantee_type': 'granteeType',
             'grantee_permissions': 'granteePermissions'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None
@@ -163,8 +165,7 @@ class MasterCatalogPermissionSummary(object):
         allowed_values = ["USER", "ROLE", "GROUP"]
         if not value_allowed_none_or_none_sentinel(grantee_type, allowed_values):
             raise ValueError(
-                "Invalid value for `grantee_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `grantee_type`, must be None or one of {allowed_values}"
             )
         self._grantee_type = grantee_type
 
@@ -174,7 +175,7 @@ class MasterCatalogPermissionSummary(object):
         Gets the grantee_permissions of this MasterCatalogPermissionSummary.
         The selected permissions for a Master Catalog.
 
-        Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL"
+        Allowed values for items in this list are: "CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL", "MANAGE_LINEAGE"
 
 
         :return: The grantee_permissions of this MasterCatalogPermissionSummary.
@@ -192,14 +193,13 @@ class MasterCatalogPermissionSummary(object):
         :param grantee_permissions: The grantee_permissions of this MasterCatalogPermissionSummary.
         :type: list[str]
         """
-        allowed_values = ["CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL"]
+        allowed_values = ["CREATE_CATALOG", "ADMIN", "CREATE_SHARE", "CREATE_RECIPIENT", "CREATE_CREDENTIAL", "MANAGE_LINEAGE"]
         
         if grantee_permissions and grantee_permissions is not NONE_SENTINEL:
             for value in grantee_permissions:
                 if not value_allowed_none_or_none_sentinel(value, allowed_values):
                     raise ValueError(
-                        "Invalid value for `grantee_permissions`, must be None or one of {0}"
-                        .format(allowed_values)
+                        f"Invalid value for `grantee_permissions`, must be None or one of {allowed_values}"
                     )
         self._grantee_permissions = grantee_permissions
 

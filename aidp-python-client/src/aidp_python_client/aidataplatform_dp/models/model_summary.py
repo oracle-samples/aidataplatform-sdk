@@ -56,7 +56,6 @@ class ModelSummary(object):
             'vendor': 'str',
             'model_type': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'model_name': 'modelName',
@@ -65,7 +64,6 @@ class ModelSummary(object):
             'vendor': 'vendor',
             'model_type': 'modelType'
         }
-
         self._id = None
         self._model_name = None
         self._display_name = None
@@ -220,8 +218,7 @@ class ModelSummary(object):
         allowed_values = ["GEN_AI"]
         if not value_allowed_none_or_none_sentinel(model_type, allowed_values):
             raise ValueError(
-                "Invalid value for `model_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `model_type`, must be None or one of {allowed_values}"
             )
         self._model_type = model_type
 

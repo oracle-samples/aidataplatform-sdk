@@ -117,7 +117,6 @@ class AgentDeploymentSummary(object):
             'created_by': 'str',
             'agent_card_url': 'str'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -132,7 +131,6 @@ class AgentDeploymentSummary(object):
             'created_by': 'createdBy',
             'agent_card_url': 'agentCardUrl'
         }
-
         self._display_name = None
         self._description = None
         self._key = None

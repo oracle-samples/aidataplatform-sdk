@@ -58,14 +58,12 @@ class UpdateKnowledgeBaseDetails(object):
             'update_knowledge_base_metadata_update_details': 'UpdateKnowledgeBaseMetadataUpdateDetails',
             'update_knowledge_base_source_update_details': 'UpdateKnowledgeBaseSourceUpdateDetails'
         }
-
         self.attribute_map = {
             'action': 'action',
             'index_details': 'indexDetails',
             'update_knowledge_base_metadata_update_details': 'updateKnowledgeBaseMetadataUpdateDetails',
             'update_knowledge_base_source_update_details': 'updateKnowledgeBaseSourceUpdateDetails'
         }
-
         self._action = None
         self._index_details = None
         self._update_knowledge_base_metadata_update_details = None
@@ -98,8 +96,7 @@ class UpdateKnowledgeBaseDetails(object):
         allowed_values = ["METADATA_UPDATE", "SOURCES_UPDATE", "ADD_INDEX", "DROP_INDEX"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 

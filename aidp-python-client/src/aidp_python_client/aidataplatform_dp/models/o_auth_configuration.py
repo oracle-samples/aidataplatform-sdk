@@ -36,13 +36,11 @@ class OAuthConfiguration(object):
             'audience_claim': 'list[str]',
             'jwks_uri': 'str'
         }
-
         self.attribute_map = {
             'issuer_claim': 'issuerClaim',
             'audience_claim': 'audienceClaim',
             'jwks_uri': 'jwksUri'
         }
-
         self._issuer_claim = None
         self._audience_claim = None
         self._jwks_uri = None

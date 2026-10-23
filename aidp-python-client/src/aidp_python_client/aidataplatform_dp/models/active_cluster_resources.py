@@ -46,7 +46,6 @@ class ActiveClusterResources(object):
             'active_memory_in_gbs': 'float',
             'active_gpu_memory_in_gbs': 'float'
         }
-
         self.attribute_map = {
             'active_executor_count': 'activeExecutorCount',
             'active_cores': 'activeCores',
@@ -54,7 +53,6 @@ class ActiveClusterResources(object):
             'active_memory_in_gbs': 'activeMemoryInGBs',
             'active_gpu_memory_in_gbs': 'activeGpuMemoryInGBs'
         }
-
         self._active_executor_count = None
         self._active_cores = None
         self._active_gpu_cores = None

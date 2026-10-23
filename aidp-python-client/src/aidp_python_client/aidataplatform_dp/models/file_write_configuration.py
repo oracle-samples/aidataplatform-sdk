@@ -122,7 +122,6 @@ class FileWriteConfiguration(object):
             'visibility': 'str',
             'download_link_expiry': 'str'
         }
-
         self.attribute_map = {
             'is_enabled': 'isEnabled',
             'is_download_to_catalog_enabled': 'isDownloadToCatalogEnabled',
@@ -134,7 +133,6 @@ class FileWriteConfiguration(object):
             'visibility': 'visibility',
             'download_link_expiry': 'downloadLinkExpiry'
         }
-
         self._is_enabled = None
         self._is_download_to_catalog_enabled = None
         self._allowed_file_types = None

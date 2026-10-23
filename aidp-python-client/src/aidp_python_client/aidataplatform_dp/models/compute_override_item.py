@@ -46,7 +46,6 @@ class ComputeOverrideItem(object):
             'override_value': 'str',
             'jobs': 'list[str]'
         }
-
         self.attribute_map = {
             'name': 'name',
             'variable_name': 'variableName',
@@ -54,7 +53,6 @@ class ComputeOverrideItem(object):
             'override_value': 'overrideValue',
             'jobs': 'jobs'
         }
-
         self._name = None
         self._variable_name = None
         self._default_value = None

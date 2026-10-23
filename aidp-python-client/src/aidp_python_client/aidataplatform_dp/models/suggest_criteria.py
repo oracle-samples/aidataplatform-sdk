@@ -31,12 +31,10 @@ class SuggestCriteria(object):
             'query': 'str',
             'limit': 'int'
         }
-
         self.attribute_map = {
             'query': 'query',
             'limit': 'limit'
         }
-
         self._query = None
         self._limit = None
 

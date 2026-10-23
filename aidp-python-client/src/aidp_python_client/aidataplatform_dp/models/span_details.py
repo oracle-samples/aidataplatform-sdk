@@ -71,7 +71,6 @@ class SpanDetails(object):
             'events': 'list[TraceEvent]',
             'status': 'SpanStatus'
         }
-
         self.attribute_map = {
             'parent_trace_id': 'parentTraceId',
             'span_id': 'spanId',
@@ -84,7 +83,6 @@ class SpanDetails(object):
             'events': 'events',
             'status': 'status'
         }
-
         self._parent_trace_id = None
         self._span_id = None
         self._parent_span_id = None

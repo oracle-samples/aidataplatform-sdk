@@ -281,7 +281,6 @@ class KnowledgeBase(object):
             'index_details': 'KnowledgeBaseVectorIndexDetails',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -322,7 +321,6 @@ class KnowledgeBase(object):
             'index_details': 'indexDetails',
             'system_tags': 'systemTags'
         }
-
         self._key = None
         self._display_name = None
         self._description = None
@@ -509,8 +507,7 @@ class KnowledgeBase(object):
         allowed_values = ["NATIVE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 
@@ -589,8 +586,7 @@ class KnowledgeBase(object):
         allowed_values = ["TEXT"]
         if not value_allowed_none_or_none_sentinel(modality, allowed_values):
             raise ValueError(
-                "Invalid value for `modality`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `modality`, must be None or one of {allowed_values}"
             )
         self._modality = modality
 
@@ -621,8 +617,7 @@ class KnowledgeBase(object):
         allowed_values = ["ADW_23_AI", "ADW_26_AI", "GEN_AI"]
         if not value_allowed_none_or_none_sentinel(embedding_model_source_type, allowed_values):
             raise ValueError(
-                "Invalid value for `embedding_model_source_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `embedding_model_source_type`, must be None or one of {allowed_values}"
             )
         self._embedding_model_source_type = embedding_model_source_type
 
@@ -677,8 +672,7 @@ class KnowledgeBase(object):
         allowed_values = ["ADW_23_AI", "ADW_26_AI"]
         if not value_allowed_none_or_none_sentinel(vector_db_type, allowed_values):
             raise ValueError(
-                "Invalid value for `vector_db_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `vector_db_type`, must be None or one of {allowed_values}"
             )
         self._vector_db_type = vector_db_type
 
@@ -857,8 +851,7 @@ class KnowledgeBase(object):
         allowed_values = ["HNSW", "IVF"]
         if not value_allowed_none_or_none_sentinel(index_type, allowed_values):
             raise ValueError(
-                "Invalid value for `index_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `index_type`, must be None or one of {allowed_values}"
             )
         self._index_type = index_type
 
@@ -1201,8 +1194,7 @@ class KnowledgeBase(object):
         allowed_values = ["CREATING", "ACTIVE", "UPDATING", "DELETING", "NEEDS_ATTENTION", "DELETED", "FAILED"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

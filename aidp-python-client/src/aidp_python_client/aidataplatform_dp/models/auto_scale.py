@@ -31,12 +31,10 @@ class AutoScale(object):
             'min_workers': 'int',
             'max_workers': 'int'
         }
-
         self.attribute_map = {
             'min_workers': 'minWorkers',
             'max_workers': 'maxWorkers'
         }
-
         self._min_workers = None
         self._max_workers = None
 

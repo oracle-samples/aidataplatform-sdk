@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class GitRebaseDetails(object):
     """
-    Details needed to perform a Git rebase for a folder context.
+    Remote branch and optional context for a Git rebase request.
     """
 
     def __init__(self, **kwargs):
@@ -41,14 +41,12 @@ class GitRebaseDetails(object):
             'remote_branch_name': 'str',
             'commit_id': 'str'
         }
-
         self.attribute_map = {
             'git_folder_path': 'gitFolderPath',
             'branch_name': 'branchName',
             'remote_branch_name': 'remoteBranchName',
             'commit_id': 'commitId'
         }
-
         self._git_folder_path = None
         self._branch_name = None
         self._remote_branch_name = None
@@ -58,7 +56,8 @@ class GitRebaseDetails(object):
     def git_folder_path(self):
         """
         Gets the git_folder_path of this GitRebaseDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :return: The git_folder_path of this GitRebaseDetails.
@@ -70,7 +69,8 @@ class GitRebaseDetails(object):
     def git_folder_path(self, git_folder_path):
         """
         Sets the git_folder_path of this GitRebaseDetails.
-        Folder path used to locate the Git worktree.
+        Workspace Git folder path. The effective path is taken from the repository
+        identified by gitRepositoryKey; the supplied value does not override it.
 
 
         :param git_folder_path: The git_folder_path of this GitRebaseDetails.
@@ -82,7 +82,8 @@ class GitRebaseDetails(object):
     def branch_name(self):
         """
         Gets the branch_name of this GitRebaseDetails.
-        The name of the Git branch.
+        Requested branch name. The branch being rebased is the stored repository
+        branch; the supplied value does not override it.
 
 
         :return: The branch_name of this GitRebaseDetails.
@@ -94,7 +95,8 @@ class GitRebaseDetails(object):
     def branch_name(self, branch_name):
         """
         Sets the branch_name of this GitRebaseDetails.
-        The name of the Git branch.
+        Requested branch name. The branch being rebased is the stored repository
+        branch; the supplied value does not override it.
 
 
         :param branch_name: The branch_name of this GitRebaseDetails.
@@ -106,7 +108,7 @@ class GitRebaseDetails(object):
     def remote_branch_name(self):
         """
         **[Required]** Gets the remote_branch_name of this GitRebaseDetails.
-        Remote branch name to rebase onto (optional).
+        Required remote branch whose origin reference is the rebase target.
 
 
         :return: The remote_branch_name of this GitRebaseDetails.
@@ -118,7 +120,7 @@ class GitRebaseDetails(object):
     def remote_branch_name(self, remote_branch_name):
         """
         Sets the remote_branch_name of this GitRebaseDetails.
-        Remote branch name to rebase onto (optional).
+        Required remote branch whose origin reference is the rebase target.
 
 
         :param remote_branch_name: The remote_branch_name of this GitRebaseDetails.
@@ -130,7 +132,8 @@ class GitRebaseDetails(object):
     def commit_id(self):
         """
         Gets the commit_id of this GitRebaseDetails.
-        Commit ID to rebase onto (optional).
+        Requested target commit identifier. The rebase target is
+        origin/{remoteBranchName}; the supplied value does not override it.
 
 
         :return: The commit_id of this GitRebaseDetails.
@@ -142,7 +145,8 @@ class GitRebaseDetails(object):
     def commit_id(self, commit_id):
         """
         Sets the commit_id of this GitRebaseDetails.
-        Commit ID to rebase onto (optional).
+        Requested target commit identifier. The rebase target is
+        origin/{remoteBranchName}; the supplied value does not override it.
 
 
         :param commit_id: The commit_id of this GitRebaseDetails.

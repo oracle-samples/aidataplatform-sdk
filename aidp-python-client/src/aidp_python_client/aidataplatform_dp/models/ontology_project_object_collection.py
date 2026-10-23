@@ -26,11 +26,9 @@ class OntologyProjectObjectCollection(object):
         self.swagger_types = {
             'items': 'list[OntologyProjectObject]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

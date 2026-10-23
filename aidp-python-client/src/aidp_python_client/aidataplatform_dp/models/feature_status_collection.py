@@ -26,11 +26,9 @@ class FeatureStatusCollection(object):
         self.swagger_types = {
             'items': 'list[FeatureStatusSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

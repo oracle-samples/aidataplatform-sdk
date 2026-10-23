@@ -5,15 +5,19 @@ import common = require("oci-common");
 
 
 /**
-* Information required to create a new Git branch.
+* Request details for creating a Git branch in a workspace.
 */
 export interface CreateGitBranchDetails {
     /**
-    * Git branch name that is cloned.
+    * Name of the new branch. The branch must not already exist locally or on
+* origin.
+* 
     */
     'gitBranchName': string;
     /**
-    * The path of the current Git folder which has to be created for the new branch.
+    * Workspace Git folder path. The effective path is taken from the repository
+* identified by gitRepositoryKey; the supplied value does not override it.
+* 
     */
     'gitFolderPath'?: string;
 

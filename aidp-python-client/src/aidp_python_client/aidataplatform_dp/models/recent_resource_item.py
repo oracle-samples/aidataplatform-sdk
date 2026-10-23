@@ -127,7 +127,6 @@ class RecentResourceItem(object):
             'resource_name': 'str',
             'time_accessed': 'datetime'
         }
-
         self.attribute_map = {
             'workspace_key': 'workspaceKey',
             'resource_type': 'resourceType',
@@ -135,7 +134,6 @@ class RecentResourceItem(object):
             'resource_name': 'resourceName',
             'time_accessed': 'timeAccessed'
         }
-
         self._workspace_key = None
         self._resource_type = None
         self._resource_id = None
@@ -193,8 +191,7 @@ class RecentResourceItem(object):
         allowed_values = ["NOTEBOOK", "FILE", "CATALOG", "SCHEMA", "TABLE", "VOLUME", "JOB", "JOB_RUN", "LAKE_FLOW", "AGENT_LAKE_FLOW", "CLUSTER", "AI_COMPUTE", "FOLDER", "VOLUME_DIR", "VOLUME_FILE", "VIEW", "SHARE", "RECIPIENT", "EXTRACTOR", "AGENT_FLOW"]
         if not value_allowed_none_or_none_sentinel(resource_type, allowed_values):
             raise ValueError(
-                "Invalid value for `resource_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `resource_type`, must be None or one of {allowed_values}"
             )
         self._resource_type = resource_type
 

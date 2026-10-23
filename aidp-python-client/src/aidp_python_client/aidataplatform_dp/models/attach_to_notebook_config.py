@@ -26,11 +26,9 @@ class AttachToNotebookConfig(object):
         self.swagger_types = {
             'notebook_path': 'str'
         }
-
         self.attribute_map = {
             'notebook_path': 'notebookPath'
         }
-
         self._notebook_path = None
 
     @property

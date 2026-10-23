@@ -108,7 +108,6 @@ class AgentDiagramRagToolNode(AgentDiagramNode):
             'validation_errors': 'list[ValidationError]',
             'input_schema': 'RagToolInputSchema'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -128,7 +127,6 @@ class AgentDiagramRagToolNode(AgentDiagramNode):
             'validation_errors': 'validationErrors',
             'input_schema': 'inputSchema'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

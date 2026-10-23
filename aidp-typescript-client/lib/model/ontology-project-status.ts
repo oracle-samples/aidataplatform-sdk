@@ -46,6 +46,10 @@ export interface OntologyProjectStatus {
     'idempotencyKey'?: string;
     'timeCreated'?: Date;
     'timeUpdated'?: Date;
+    /**
+    * Actor that invoked this operation, captured per attempt rather than inherited from the project. For unpublish and import rows this is whoever requested that operation. Resolved to a username when the directory lookup succeeds and falling back to the actor OCID when it does not.
+    */
+    'publishedBy'?: string;
 
 }
 
@@ -74,9 +78,11 @@ export namespace OntologyProjectStatus {
     Importing = "IMPORTING",
     Imported = "IMPORTED",
     ImportFailed = "IMPORT_FAILED",
+    Discovering = "DISCOVERING",
     Archived = "ARCHIVED"
 
 }
+
 
 
 
@@ -110,6 +116,7 @@ export namespace OntologyProjectStatus {
 
 
 
+
         }};
 
         
@@ -134,6 +141,7 @@ export namespace OntologyProjectStatus {
                 
                 
                 model.OntologyProjectImportStatusDetails.getDeserializedJsonObj(obj.importDetails) : undefined,
+
 
 
 

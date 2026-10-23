@@ -88,6 +88,8 @@ export namespace Task {
                     return model.JobTask.getJsonObj(<model.JobTask>(<object>jsonObj), true);
                 case "JAR_TASK":
                     return model.JarTask.getJsonObj(<model.JarTask>(<object>jsonObj), true);
+                case "AGENT_TASK":
+                    return model.AgentTask.getJsonObj(<model.AgentTask>(<object>jsonObj), true);
                 case "PYTHON_TASK":
                     return model.PythonTask.getJsonObj(<model.PythonTask>(<object>jsonObj), true);
                 case "NOTEBOOK_TASK":
@@ -125,6 +127,8 @@ export namespace Task {
                     return model.JobTask.getDeserializedJsonObj(<model.JobTask>(<object>jsonObj), true);
                 case "JAR_TASK":
                     return model.JarTask.getDeserializedJsonObj(<model.JarTask>(<object>jsonObj), true);
+                case "AGENT_TASK":
+                    return model.AgentTask.getDeserializedJsonObj(<model.AgentTask>(<object>jsonObj), true);
                 case "PYTHON_TASK":
                     return model.PythonTask.getDeserializedJsonObj(<model.PythonTask>(<object>jsonObj), true);
                 case "NOTEBOOK_TASK":

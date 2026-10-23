@@ -85,7 +85,6 @@ class MasterCatalog(object):
             'created_by': 'str',
             'updated_by': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -97,7 +96,6 @@ class MasterCatalog(object):
             'created_by': 'createdBy',
             'updated_by': 'updatedBy'
         }
-
         self._key = None
         self._display_name = None
         self._description = None
@@ -207,8 +205,7 @@ class MasterCatalog(object):
         allowed_values = ["ACTIVE", "CREATING", "DELETING"]
         if not value_allowed_none_or_none_sentinel(lifecycle_state, allowed_values):
             raise ValueError(
-                "Invalid value for `lifecycle_state`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `lifecycle_state`, must be None or one of {allowed_values}"
             )
         self._lifecycle_state = lifecycle_state
 

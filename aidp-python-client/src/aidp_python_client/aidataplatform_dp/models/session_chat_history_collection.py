@@ -26,11 +26,9 @@ class SessionChatHistoryCollection(object):
         self.swagger_types = {
             'items': 'list[SessionChatHistorySummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

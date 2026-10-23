@@ -56,7 +56,6 @@ class CreateViewDetails(object):
             'view_properties': 'list[ViewProperty]',
             'view_fields': 'list[ViewFieldDetails]'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'catalog_key': 'catalogKey',
@@ -66,7 +65,6 @@ class CreateViewDetails(object):
             'view_properties': 'viewProperties',
             'view_fields': 'viewFields'
         }
-
         self._display_name = None
         self._catalog_key = None
         self._schema_key = None

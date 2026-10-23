@@ -26,11 +26,9 @@ class PreviewAgentCardDetails(object):
         self.swagger_types = {
             'agent_card_config_details': 'AgentCardConfigDetail'
         }
-
         self.attribute_map = {
             'agent_card_config_details': 'agentCardConfigDetails'
         }
-
         self._agent_card_config_details = None
 
     @property

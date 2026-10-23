@@ -46,7 +46,6 @@ class OntologyGraphNode(object):
             'label': 'str',
             'description': 'str'
         }
-
         self.attribute_map = {
             'id': 'id',
             'type': 'type',
@@ -54,7 +53,6 @@ class OntologyGraphNode(object):
             'label': 'label',
             'description': 'description'
         }
-
         self._id = None
         self._type = None
         self._name = None

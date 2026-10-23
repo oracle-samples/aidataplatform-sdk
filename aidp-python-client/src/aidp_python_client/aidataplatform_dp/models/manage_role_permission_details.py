@@ -31,12 +31,10 @@ class ManageRolePermissionDetails(object):
             'assign_role_permission_details': 'AssignRolePermissionDetails',
             'revoke_role_permission_details': 'RevokeRolePermissionDetails'
         }
-
         self.attribute_map = {
             'assign_role_permission_details': 'assignRolePermissionDetails',
             'revoke_role_permission_details': 'revokeRolePermissionDetails'
         }
-
         self._assign_role_permission_details = None
         self._revoke_role_permission_details = None
 

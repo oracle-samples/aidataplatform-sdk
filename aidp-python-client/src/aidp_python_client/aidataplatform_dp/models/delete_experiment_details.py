@@ -31,12 +31,10 @@ class DeleteExperimentDetails(object):
             'experiment_id': 'str',
             'is_permanent': 'bool'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id',
             'is_permanent': 'is_permanent'
         }
-
         self._experiment_id = None
         self._is_permanent = None
 

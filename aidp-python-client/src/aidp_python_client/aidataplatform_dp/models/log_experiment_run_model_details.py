@@ -31,12 +31,10 @@ class LogExperimentRunModelDetails(object):
             'run_id': 'str',
             'model_json': 'str'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'model_json': 'model_json'
         }
-
         self._run_id = None
         self._model_json = None
 

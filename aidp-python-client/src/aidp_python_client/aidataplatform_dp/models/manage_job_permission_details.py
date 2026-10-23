@@ -31,12 +31,10 @@ class ManageJobPermissionDetails(object):
             'assign_job_permission_details': 'AssignJobPermissionDetails',
             'revoke_job_permission_details': 'RevokeJobPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_job_permission_details': 'assignJobPermissionDetails',
             'revoke_job_permission_details': 'revokeJobPermissionDetails'
         }
-
         self._assign_job_permission_details = None
         self._revoke_job_permission_details = None
 

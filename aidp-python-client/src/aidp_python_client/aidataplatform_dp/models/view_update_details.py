@@ -51,7 +51,6 @@ class ViewUpdateDetails(object):
             'add_view_properties': 'list[ViewProperty]',
             'drop_view_properties': 'list[ViewProperty]'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -60,7 +59,6 @@ class ViewUpdateDetails(object):
             'add_view_properties': 'addViewProperties',
             'drop_view_properties': 'dropViewProperties'
         }
-
         self._display_name = None
         self._description = None
         self._view_text = None

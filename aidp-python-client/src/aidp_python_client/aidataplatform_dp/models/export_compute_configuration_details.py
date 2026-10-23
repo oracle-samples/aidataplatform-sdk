@@ -41,14 +41,12 @@ class ExportComputeConfigurationDetails(object):
             'cluster_scoped_libraries': 'list[ComputeConfigurationLibraryEntry]',
             'environment_variables': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'destination_path': 'destinationPath',
             'file_name': 'fileName',
             'cluster_scoped_libraries': 'clusterScopedLibraries',
             'environment_variables': 'environmentVariables'
         }
-
         self._destination_path = None
         self._file_name = None
         self._cluster_scoped_libraries = None

@@ -49,13 +49,11 @@ class PrincipalsWithWorkspaceAccessSummary(object):
             'grantee_name': 'str',
             'grantee_type': 'str'
         }
-
         self.attribute_map = {
             'grantee': 'grantee',
             'grantee_name': 'granteeName',
             'grantee_type': 'granteeType'
         }
-
         self._grantee = None
         self._grantee_name = None
         self._grantee_type = None
@@ -135,8 +133,7 @@ class PrincipalsWithWorkspaceAccessSummary(object):
         allowed_values = ["USER", "ROLE", "GROUP"]
         if not value_allowed_none_or_none_sentinel(grantee_type, allowed_values):
             raise ValueError(
-                "Invalid value for `grantee_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `grantee_type`, must be None or one of {allowed_values}"
             )
         self._grantee_type = grantee_type
 

@@ -81,7 +81,6 @@ class AgentEdge(object):
             'time_updated': 'datetime',
             'validation_errors': 'list[ValidationError]'
         }
-
         self.attribute_map = {
             'src_node_id': 'srcNodeId',
             'dest_node_id': 'destNodeId',
@@ -96,7 +95,6 @@ class AgentEdge(object):
             'time_updated': 'timeUpdated',
             'validation_errors': 'validationErrors'
         }
-
         self._src_node_id = None
         self._dest_node_id = None
         self._src_node_output = None

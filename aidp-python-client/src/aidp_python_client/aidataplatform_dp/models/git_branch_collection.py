@@ -26,11 +26,9 @@ class GitBranchCollection(object):
         self.swagger_types = {
             'items': 'list[GitBranchSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

@@ -66,14 +66,12 @@ class UpdateExperimentRunDetails(object):
             'end_time': 'int',
             'run_name': 'str'
         }
-
         self.attribute_map = {
             'run_id': 'run_id',
             'status': 'status',
             'end_time': 'end_time',
             'run_name': 'run_name'
         }
-
         self._run_id = None
         self._status = None
         self._end_time = None
@@ -130,8 +128,7 @@ class UpdateExperimentRunDetails(object):
         allowed_values = ["RUNNING", "SCHEDULED", "FINISHED", "FAILED", "KILLED", "INTERNAL_ERROR"]
         if not value_allowed_none_or_none_sentinel(status, allowed_values):
             raise ValueError(
-                "Invalid value for `status`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `status`, must be None or one of {allowed_values}"
             )
         self._status = status
 

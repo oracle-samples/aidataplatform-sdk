@@ -26,11 +26,9 @@ class RegisteredModelTagKey(object):
         self.swagger_types = {
             'key': 'str'
         }
-
         self.attribute_map = {
             'key': 'key'
         }
-
         self._key = None
 
     @property

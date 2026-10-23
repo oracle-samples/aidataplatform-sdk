@@ -31,12 +31,10 @@ class ManageSchemaPermissionDetails(object):
             'assign_schema_permission_details': 'AssignSchemaPermissionDetails',
             'revoke_schema_permission_details': 'RevokeSchemaPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_schema_permission_details': 'assignSchemaPermissionDetails',
             'revoke_schema_permission_details': 'revokeSchemaPermissionDetails'
         }
-
         self._assign_schema_permission_details = None
         self._revoke_schema_permission_details = None
 

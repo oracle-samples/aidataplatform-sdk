@@ -29,13 +29,51 @@ export interface GitRepository {
     */
     'gitFolderPath': string;
     /**
-    * The credential setting key
+    * Key of the current user's GIT_ACCOUNT user setting containing Git authentication
+* credentials. Identified by settingType=GIT_ACCOUNT and displayName in user
+* setting listings. Distinct from credentialStoreKey, which references a TLS
+* CA certificate.
+* 
     */
     'credentialKey'?: string;
+    'sparseCheckout'?: model.SparseCheckoutDetails;
+    /**
+    * Whether this repository uses private network connectivity.
+    */
+    'isPrivateConnectivityEnabled'?: boolean;
+    /**
+    * Key of the private network profile used for Git connectivity, returned by
+* private network profile listings filtered by name. Required when
+* isPrivateConnectivityEnabled is true.
+* 
+    */
+    'gitConnectivityProfileKey'?: string;
+    /**
+    * User-friendly name of the private Git connectivity profile.
+    */
+    'gitConnectivityProfileName'?: string;
+    /**
+    * Key of the credential-store entry containing the Git server's TLS CA
+* certificate, identified by displayName in credential listings. Provides
+* server certificate trust, separate from the Git authentication user setting
+* referenced by credentialKey. Required when isPrivateConnectivityEnabled is true.
+* 
+    */
+    'credentialStoreKey'?: string;
+    /**
+    * User-friendly display name of the repository TLS CA certificate credential.
+    */
+    'credentialStoreName'?: string;
 
 }
 
 export namespace GitRepository {
+
+
+
+
+
+
 
 
 
@@ -52,6 +90,15 @@ export namespace GitRepository {
 
 
 
+                'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getJsonObj(obj.sparseCheckout) : undefined,
+
+
+
+
+
         }};
 
         
@@ -63,6 +110,15 @@ export namespace GitRepository {
         const jsonObj = {...obj, ...{
             
 
+
+
+
+
+
+                    'sparseCheckout': obj.sparseCheckout ?
+                
+                
+                model.SparseCheckoutDetails.getDeserializedJsonObj(obj.sparseCheckout) : undefined,
 
 
 

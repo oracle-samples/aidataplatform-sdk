@@ -26,11 +26,9 @@ class DataLakeClusterCollection(object):
         self.swagger_types = {
             'items': 'list[DataLakeClusterSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

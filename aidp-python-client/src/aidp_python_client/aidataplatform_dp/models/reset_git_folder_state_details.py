@@ -10,7 +10,7 @@ from oci.decorators import init_model_state_from_kwargs
 @init_model_state_from_kwargs
 class ResetGitFolderStateDetails(object):
     """
-    Action to either abort an in-progress merge/rebase or discard all local changes.
+    Abort or discard action and optional file selection for resetting Git folder state.
     """
 
     #: A constant which can be used with the action property of a ResetGitFolderStateDetails.
@@ -53,13 +53,11 @@ class ResetGitFolderStateDetails(object):
             'discard_paths': 'list[str]',
             'can_include_ignored': 'bool'
         }
-
         self.attribute_map = {
             'action': 'action',
             'discard_paths': 'discardPaths',
             'can_include_ignored': 'canIncludeIgnored'
         }
-
         self._action = None
         self._discard_paths = None
         self._can_include_ignored = None
@@ -68,7 +66,9 @@ class ResetGitFolderStateDetails(object):
     def action(self):
         """
         **[Required]** Gets the action of this ResetGitFolderStateDetails.
-        The action to perform.
+        ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+        operation. DISCARD restores selected tracked paths and removes selected new
+        files.
 
         Allowed values for this property are: "ABORT_MERGE", "ABORT_REBASE", "ABORT_PULL", "DISCARD"
 
@@ -82,7 +82,9 @@ class ResetGitFolderStateDetails(object):
     def action(self, action):
         """
         Sets the action of this ResetGitFolderStateDetails.
-        The action to perform.
+        ABORT_MERGE, ABORT_REBASE, and ABORT_PULL abort the respective in-progress
+        operation. DISCARD restores selected tracked paths and removes selected new
+        files.
 
 
         :param action: The action of this ResetGitFolderStateDetails.
@@ -91,8 +93,7 @@ class ResetGitFolderStateDetails(object):
         allowed_values = ["ABORT_MERGE", "ABORT_REBASE", "ABORT_PULL", "DISCARD"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 
@@ -100,7 +101,8 @@ class ResetGitFolderStateDetails(object):
     def discard_paths(self):
         """
         Gets the discard_paths of this ResetGitFolderStateDetails.
-        List of file paths whose changes are to be discarded and reset to original.
+        Repository-relative paths whose local changes are to be discarded. Required
+        and nonempty when action is DISCARD.
 
 
         :return: The discard_paths of this ResetGitFolderStateDetails.
@@ -112,7 +114,8 @@ class ResetGitFolderStateDetails(object):
     def discard_paths(self, discard_paths):
         """
         Sets the discard_paths of this ResetGitFolderStateDetails.
-        List of file paths whose changes are to be discarded and reset to original.
+        Repository-relative paths whose local changes are to be discarded. Required
+        and nonempty when action is DISCARD.
 
 
         :param discard_paths: The discard_paths of this ResetGitFolderStateDetails.
@@ -124,7 +127,8 @@ class ResetGitFolderStateDetails(object):
     def can_include_ignored(self):
         """
         Gets the can_include_ignored of this ResetGitFolderStateDetails.
-        If true with DISCARD, also remove ignored files (-x).
+        Requested inclusion of ignored files in a DISCARD request. The supplied value
+        does not enable ignored-file removal.
 
 
         :return: The can_include_ignored of this ResetGitFolderStateDetails.
@@ -136,7 +140,8 @@ class ResetGitFolderStateDetails(object):
     def can_include_ignored(self, can_include_ignored):
         """
         Sets the can_include_ignored of this ResetGitFolderStateDetails.
-        If true with DISCARD, also remove ignored files (-x).
+        Requested inclusion of ignored files in a DISCARD request. The supplied value
+        does not enable ignored-file removal.
 
 
         :param can_include_ignored: The can_include_ignored of this ResetGitFolderStateDetails.

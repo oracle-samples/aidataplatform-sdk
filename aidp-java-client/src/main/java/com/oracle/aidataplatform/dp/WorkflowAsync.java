@@ -274,7 +274,7 @@ public interface WorkflowAsync extends AutoCloseable {
     java.util.concurrent.Future<ManageJobPermissionResponse> manageJobPermission(ManageJobPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageJobPermissionRequest, ManageJobPermissionResponse> handler);
     
     /**
-     * Repairs and reruns a job run.
+     * Repairs and reruns a root job run. Nested job runs can be repaired only through their root job run repair plan.
      * 
      * @param request The request object containing the details to send
      * @param handler The request handler to invoke upon completion, may be null.

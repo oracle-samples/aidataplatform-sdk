@@ -40,11 +40,9 @@ class TestMcpOperation(object):
         self.swagger_types = {
             'test_type': 'str'
         }
-
         self.attribute_map = {
             'test_type': 'testType'
         }
-
         self._test_type = None
 
     @staticmethod
@@ -90,8 +88,7 @@ class TestMcpOperation(object):
         allowed_values = ["CONNECTION", "EXTERNAL_TOOL"]
         if not value_allowed_none_or_none_sentinel(test_type, allowed_values):
             raise ValueError(
-                "Invalid value for `test_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `test_type`, must be None or one of {allowed_values}"
             )
         self._test_type = test_type
 

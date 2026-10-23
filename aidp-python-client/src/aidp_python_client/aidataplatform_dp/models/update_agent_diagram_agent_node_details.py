@@ -98,7 +98,6 @@ class UpdateAgentDiagramAgentNodeDetails(UpdateAgentDiagramNodeDetails):
             'memory': 'MemoryConfiguration',
             'tools': 'list[Tool]'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -116,7 +115,6 @@ class UpdateAgentDiagramAgentNodeDetails(UpdateAgentDiagramNodeDetails):
             'memory': 'memory',
             'tools': 'tools'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

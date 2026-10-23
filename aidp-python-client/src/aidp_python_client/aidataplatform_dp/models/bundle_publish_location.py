@@ -31,12 +31,10 @@ class BundlePublishLocation(object):
             'path': 'str',
             'overwrite': 'bool'
         }
-
         self.attribute_map = {
             'path': 'path',
             'overwrite': 'overwrite'
         }
-
         self._path = None
         self._overwrite = None
 

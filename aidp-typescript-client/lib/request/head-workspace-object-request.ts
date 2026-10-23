@@ -20,7 +20,9 @@ export interface HeadWorkspaceObjectRequest extends common.BaseRequest {
  */
  'objectPath': string;
 /**
- * Path to list all metadata for a file or folder.
+ * Whether to include custom file or folder metadata. For HEAD requests,
+* metadata is returned as JSON in the file-metadata response header.
+* 
  */
  'shouldIncludeMetadata'?: boolean;
 /**

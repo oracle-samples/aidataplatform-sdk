@@ -3,7 +3,7 @@
 
 
 
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -71,7 +71,6 @@ class UploadFileWithParResult(object):
             'description': 'str',
             'system_tags': 'dict(str, dict(str, object))'
         }
-
         self.attribute_map = {
             'par_url': 'parUrl',
             'e_tag': 'eTag',
@@ -84,7 +83,9 @@ class UploadFileWithParResult(object):
             'description': 'description',
             'system_tags': 'systemTags'
         }
-
+        self._redacted_field_paths = [
+            ['par_url'],
+        ]
         self._par_url = None
         self._e_tag = None
         self._location_uri = None
@@ -341,7 +342,9 @@ class UploadFileWithParResult(object):
         self._system_tags = system_tags
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['par_url'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

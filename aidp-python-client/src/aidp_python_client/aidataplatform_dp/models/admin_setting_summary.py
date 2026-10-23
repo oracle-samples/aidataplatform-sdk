@@ -69,7 +69,6 @@ class AdminSettingSummary(object):
             'time_updated': 'datetime',
             'properties': 'dict(str, object)'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
@@ -79,7 +78,6 @@ class AdminSettingSummary(object):
             'time_updated': 'timeUpdated',
             'properties': 'properties'
         }
-
         self._key = None
         self._name = None
         self._type = None
@@ -163,8 +161,7 @@ class AdminSettingSummary(object):
         allowed_values = ["IAM_USER_CREDENTIAL", "GIT_ACCOUNT", "OAUTH"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

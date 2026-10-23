@@ -26,11 +26,9 @@ class CreateConnectionDetails(object):
         self.swagger_types = {
             'connection_properties': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'connection_properties': 'connectionProperties'
         }
-
         self._connection_properties = None
 
     @property

@@ -13,6 +13,7 @@ package com.oracle.aidataplatform.dp.model;
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = IfElseTask.class, name = "IF_ELSE_TASK"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = JobTask.class, name = "JOB_TASK"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = JarTask.class, name = "JAR_TASK"),
+    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = AgentTask.class, name = "AGENT_TASK"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = PythonTask.class, name = "PYTHON_TASK"),
     @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = NotebookTask.class, name = "NOTEBOOK_TASK")
 })
@@ -255,6 +256,7 @@ public class Task  {
         IfElseTask("IF_ELSE_TASK"),
         JobTask("JOB_TASK"),
         JarTask("JAR_TASK"),
+        AgentTask("AGENT_TASK"),
         
 
         /**

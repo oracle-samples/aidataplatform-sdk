@@ -38,7 +38,8 @@ class McpObject(object):
 
         :param object_type:
             The value to assign to the object_type property of this McpObject.
-            Allowed values for this property are: "TOOL", "PROMPT", "RESOURCE"
+            Allowed values for this property are: "TOOL", "PROMPT", "RESOURCE", 'UNKNOWN_ENUM_VALUE'.
+            Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type object_type: str
 
         :param name:
@@ -55,13 +56,11 @@ class McpObject(object):
             'name': 'str',
             'description': 'str'
         }
-
         self.attribute_map = {
             'object_type': 'objectType',
             'name': 'name',
             'description': 'description'
         }
-
         self._object_type = None
         self._name = None
         self._description = None
@@ -91,7 +90,8 @@ class McpObject(object):
         Gets the object_type of this McpObject.
         Type of object. Tool, prompt or resource hosted on an MCP.
 
-        Allowed values for this property are: "TOOL", "PROMPT", "RESOURCE"
+        Allowed values for this property are: "TOOL", "PROMPT", "RESOURCE", 'UNKNOWN_ENUM_VALUE'.
+        Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
         :return: The object_type of this McpObject.
@@ -111,10 +111,7 @@ class McpObject(object):
         """
         allowed_values = ["TOOL", "PROMPT", "RESOURCE"]
         if not value_allowed_none_or_none_sentinel(object_type, allowed_values):
-            raise ValueError(
-                "Invalid value for `object_type`, must be None or one of {0}"
-                .format(allowed_values)
-            )
+            object_type = 'UNKNOWN_ENUM_VALUE'
         self._object_type = object_type
 
     @property

@@ -82,13 +82,19 @@ public class HeadWorkspaceObjectResponse extends com.oracle.bmc.responses.BmcRes
     }
     
     /**
-     * File metadata of the file.
+     * JSON-encoded file or folder metadata, included when
+* shouldIncludeMetadata=true. Git folder metadata contains
+* system:repoKey (gitRepositoryKey), system:branch (checked-out
+* branch), and system:folderType (gitFolder).
 * 
      */
     private String fileMetadata;
 
     /**
-     * File metadata of the file.
+     * JSON-encoded file or folder metadata, included when
+* shouldIncludeMetadata=true. Git folder metadata contains
+* system:repoKey (gitRepositoryKey), system:branch (checked-out
+* branch), and system:folderType (gitFolder).
 * 
      * @return the value
      */
@@ -229,13 +235,19 @@ public class HeadWorkspaceObjectResponse extends com.oracle.bmc.responses.BmcRes
         }
 
         /**
-         * File metadata of the file.
+         * JSON-encoded file or folder metadata, included when
+* shouldIncludeMetadata=true. Git folder metadata contains
+* system:repoKey (gitRepositoryKey), system:branch (checked-out
+* branch), and system:folderType (gitFolder).
 * 
          */
         private String fileMetadata;
 
         /**
-         * File metadata of the file.
+         * JSON-encoded file or folder metadata, included when
+* shouldIncludeMetadata=true. Git folder metadata contains
+* system:repoKey (gitRepositoryKey), system:branch (checked-out
+* branch), and system:folderType (gitFolder).
 * 
          * @param fileMetadata the value to set
          * @return this builder

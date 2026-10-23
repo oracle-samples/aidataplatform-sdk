@@ -32,12 +32,10 @@ class ClusterInstance(object):
             'cluster_key': 'str',
             'spark_context_key': 'str'
         }
-
         self.attribute_map = {
             'cluster_key': 'clusterKey',
             'spark_context_key': 'sparkContextKey'
         }
-
         self._cluster_key = None
         self._spark_context_key = None
 

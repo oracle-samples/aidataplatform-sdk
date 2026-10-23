@@ -3,7 +3,7 @@
 
 
 from .setting_data import SettingData
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -73,7 +73,6 @@ class GitAccountUserSetting(SettingData):
             'username': 'str',
             'personal_access_token': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'provider_name': 'providerName',
@@ -81,7 +80,9 @@ class GitAccountUserSetting(SettingData):
             'username': 'username',
             'personal_access_token': 'personalAccessToken'
         }
-
+        self._redacted_field_paths = [
+            ['personal_access_token'],
+        ]
         self._type = None
         self._provider_name = None
         self._entity_type = None
@@ -198,7 +199,9 @@ class GitAccountUserSetting(SettingData):
         self._personal_access_token = personal_access_token
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['personal_access_token'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

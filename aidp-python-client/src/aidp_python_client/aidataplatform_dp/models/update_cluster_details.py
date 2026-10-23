@@ -60,7 +60,6 @@ class UpdateClusterDetails(object):
             'driver_config': 'DriverConfig',
             'node_type': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'display_name': 'displayName',
@@ -68,7 +67,6 @@ class UpdateClusterDetails(object):
             'driver_config': 'driverConfig',
             'node_type': 'nodeType'
         }
-
         self._type = None
         self._display_name = None
         self._description = None
@@ -118,8 +116,7 @@ class UpdateClusterDetails(object):
         allowed_values = ["USER", "AI_COMPUTE"]
         if not value_allowed_none_or_none_sentinel(type, allowed_values):
             raise ValueError(
-                "Invalid value for `type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `type`, must be None or one of {allowed_values}"
             )
         self._type = type
 

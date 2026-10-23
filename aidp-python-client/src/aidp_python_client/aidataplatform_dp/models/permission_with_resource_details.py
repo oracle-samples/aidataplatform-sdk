@@ -170,13 +170,11 @@ class PermissionWithResourceDetails(object):
             'resource_type': 'str',
             'resource_key': 'str'
         }
-
         self.attribute_map = {
             'permissions': 'permissions',
             'resource_type': 'resourceType',
             'resource_key': 'resourceKey'
         }
-
         self._permissions = None
         self._resource_type = None
         self._resource_key = None
@@ -208,8 +206,7 @@ class PermissionWithResourceDetails(object):
         allowed_values = ["USER", "ADMINISTRATOR", "READ", "USE", "MANAGE", "ADMIN", "CREATE_CATALOG", "SELECT", "INSERT", "UPDATE", "DELETE", "ALTER", "CREATE_SCHEMA", "WRITE", "CREATE_VIEW", "CREATE_VOLUME", "CREATE_TABLE", "CREATE_KNOWLEDGE_BASE", "CREATE_MODEL"]
         if not value_allowed_none_or_none_sentinel(permissions, allowed_values):
             raise ValueError(
-                "Invalid value for `permissions`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `permissions`, must be None or one of {allowed_values}"
             )
         self._permissions = permissions
 
@@ -240,8 +237,7 @@ class PermissionWithResourceDetails(object):
         allowed_values = ["WORKSPACE", "WORKFLOW", "FOLDER", "FILE", "CLUSTER", "MASTER_CATALOG", "CATALOG", "SCHEMA", "TABLE", "SHARE", "RECIPIENT", "VOLUME", "VIEW", "KNOWLEDGE_BASE"]
         if not value_allowed_none_or_none_sentinel(resource_type, allowed_values):
             raise ValueError(
-                "Invalid value for `resource_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `resource_type`, must be None or one of {allowed_values}"
             )
         self._resource_type = resource_type
 

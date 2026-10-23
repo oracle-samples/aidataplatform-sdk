@@ -26,11 +26,9 @@ class PrincipalsWithWorkspaceAccessCollection(object):
         self.swagger_types = {
             'items': 'list[PrincipalsWithWorkspaceAccessSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

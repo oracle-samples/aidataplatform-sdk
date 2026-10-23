@@ -85,6 +85,14 @@ class AsyncOperationSummary(object):
     #: This constant has a value of "MODEL_DEPLOYMENT"
     RESOURCE_TYPE_MODEL_DEPLOYMENT = "MODEL_DEPLOYMENT"
 
+    #: A constant which can be used with the resource_type property of a AsyncOperationSummary.
+    #: This constant has a value of "PRIVATE_NETWORK_PROFILE"
+    RESOURCE_TYPE_PRIVATE_NETWORK_PROFILE = "PRIVATE_NETWORK_PROFILE"
+
+    #: A constant which can be used with the resource_type property of a AsyncOperationSummary.
+    #: This constant has a value of "LINEAGE_IMPORT"
+    RESOURCE_TYPE_LINEAGE_IMPORT = "LINEAGE_IMPORT"
+
     #: A constant which can be used with the action_type property of a AsyncOperationSummary.
     #: This constant has a value of "UNKNOWN"
     ACTION_TYPE_UNKNOWN = "UNKNOWN"
@@ -104,6 +112,10 @@ class AsyncOperationSummary(object):
     #: A constant which can be used with the action_type property of a AsyncOperationSummary.
     #: This constant has a value of "TEST_CONNECTION_CATALOG"
     ACTION_TYPE_TEST_CONNECTION_CATALOG = "TEST_CONNECTION_CATALOG"
+
+    #: A constant which can be used with the action_type property of a AsyncOperationSummary.
+    #: This constant has a value of "TEST_AGENT_MEMORY_CONNECTION"
+    ACTION_TYPE_TEST_AGENT_MEMORY_CONNECTION = "TEST_AGENT_MEMORY_CONNECTION"
 
     #: A constant which can be used with the action_type property of a AsyncOperationSummary.
     #: This constant has a value of "CREATE_USER_SCHEMA_IN_CATALOG"
@@ -164,6 +176,14 @@ class AsyncOperationSummary(object):
     #: A constant which can be used with the action_type property of a AsyncOperationSummary.
     #: This constant has a value of "LOAD_MODELS_IN_CATALOG"
     ACTION_TYPE_LOAD_MODELS_IN_CATALOG = "LOAD_MODELS_IN_CATALOG"
+
+    #: A constant which can be used with the action_type property of a AsyncOperationSummary.
+    #: This constant has a value of "IMPORT_LINEAGE"
+    ACTION_TYPE_IMPORT_LINEAGE = "IMPORT_LINEAGE"
+
+    #: A constant which can be used with the action_type property of a AsyncOperationSummary.
+    #: This constant has a value of "DELETE_LINEAGE_IMPORT"
+    ACTION_TYPE_DELETE_LINEAGE_IMPORT = "DELETE_LINEAGE_IMPORT"
 
     #: A constant which can be used with the action_type property of a AsyncOperationSummary.
     #: This constant has a value of "CREATE_WORKSPACE"
@@ -329,6 +349,18 @@ class AsyncOperationSummary(object):
     #: This constant has a value of "ROLL_BACK_MODEL_DEPLOYMENT"
     ACTION_TYPE_ROLL_BACK_MODEL_DEPLOYMENT = "ROLL_BACK_MODEL_DEPLOYMENT"
 
+    #: A constant which can be used with the action_type property of a AsyncOperationSummary.
+    #: This constant has a value of "EXPORT_MODEL_DEPLOYMENT_INFERENCES"
+    ACTION_TYPE_EXPORT_MODEL_DEPLOYMENT_INFERENCES = "EXPORT_MODEL_DEPLOYMENT_INFERENCES"
+
+    #: A constant which can be used with the action_type property of a AsyncOperationSummary.
+    #: This constant has a value of "CREATE_PRIVATE_NETWORK_PROFILE"
+    ACTION_TYPE_CREATE_PRIVATE_NETWORK_PROFILE = "CREATE_PRIVATE_NETWORK_PROFILE"
+
+    #: A constant which can be used with the action_type property of a AsyncOperationSummary.
+    #: This constant has a value of "DELETE_PRIVATE_NETWORK_PROFILE"
+    ACTION_TYPE_DELETE_PRIVATE_NETWORK_PROFILE = "DELETE_PRIVATE_NETWORK_PROFILE"
+
     #: A constant which can be used with the status property of a AsyncOperationSummary.
     #: This constant has a value of "IN_PROGRESS"
     STATUS_IN_PROGRESS = "IN_PROGRESS"
@@ -356,13 +388,13 @@ class AsyncOperationSummary(object):
 
         :param resource_type:
             The value to assign to the resource_type property of this AsyncOperationSummary.
-            Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", "PRIVATE_NETWORK_PROFILE", "LINEAGE_IMPORT", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type resource_type: str
 
         :param action_type:
             The value to assign to the action_type property of this AsyncOperationSummary.
-            Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "TEST_AGENT_MEMORY_CONNECTION", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "IMPORT_LINEAGE", "DELETE_LINEAGE_IMPORT", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", "EXPORT_MODEL_DEPLOYMENT_INFERENCES", "CREATE_PRIVATE_NETWORK_PROFILE", "DELETE_PRIVATE_NETWORK_PROFILE", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type action_type: str
 
@@ -414,7 +446,6 @@ class AsyncOperationSummary(object):
             'status_details': 'str',
             'resource_display_name': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'resource_type': 'resourceType',
@@ -428,7 +459,6 @@ class AsyncOperationSummary(object):
             'status_details': 'statusDetails',
             'resource_display_name': 'resourceDisplayName'
         }
-
         self._key = None
         self._resource_type = None
         self._action_type = None
@@ -471,7 +501,7 @@ class AsyncOperationSummary(object):
         **[Required]** Gets the resource_type of this AsyncOperationSummary.
         The resource type of the async operation.
 
-        Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", "PRIVATE_NETWORK_PROFILE", "LINEAGE_IMPORT", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -490,7 +520,7 @@ class AsyncOperationSummary(object):
         :param resource_type: The resource_type of this AsyncOperationSummary.
         :type: str
         """
-        allowed_values = ["UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT"]
+        allowed_values = ["UNKNOWN", "CATALOG", "SCHEMA", "TABLE", "VIEW", "VOLUME", "VOLUME_FILE", "WORKSPACE", "WORKSPACE_OBJECT", "CLUSTER", "AI_COMPUTE", "KNOWLEDGE_BASE", "KNOWLEDGE_BASE_JOB", "KNOWLEDGE_BASE_JOB_RUN", "AGENT", "GIT_OPERATION", "BUNDLE_OPERATION", "MODEL_DEPLOYMENT", "PRIVATE_NETWORK_PROFILE", "LINEAGE_IMPORT"]
         if not value_allowed_none_or_none_sentinel(resource_type, allowed_values):
             resource_type = 'UNKNOWN_ENUM_VALUE'
         self._resource_type = resource_type
@@ -501,7 +531,7 @@ class AsyncOperationSummary(object):
         **[Required]** Gets the action_type of this AsyncOperationSummary.
         The action type of the async operation.
 
-        Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "TEST_AGENT_MEMORY_CONNECTION", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "IMPORT_LINEAGE", "DELETE_LINEAGE_IMPORT", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", "EXPORT_MODEL_DEPLOYMENT_INFERENCES", "CREATE_PRIVATE_NETWORK_PROFILE", "DELETE_PRIVATE_NETWORK_PROFILE", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -520,7 +550,7 @@ class AsyncOperationSummary(object):
         :param action_type: The action_type of this AsyncOperationSummary.
         :type: str
         """
-        allowed_values = ["UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT"]
+        allowed_values = ["UNKNOWN", "CREATE_CATALOG", "UPDATE_CATALOG", "DELETE_CATALOG", "TEST_CONNECTION_CATALOG", "TEST_AGENT_MEMORY_CONNECTION", "CREATE_USER_SCHEMA_IN_CATALOG", "CREATE_SCHEMA", "DELETE_SCHEMA", "CREATE_TABLE", "UPDATE_TABLE", "DELETE_TABLE", "CREATE_VOLUME", "DELETE_VOLUME", "COPY_VOLUME_FILE", "UPLOAD_AND_EXTRACT_ZIP", "ZIP_AND_DOWNLOAD_FOLDER", "MOVE_VOLUME_FILE", "DELETE_VOLUME_FILE", "DELETE_VOLUME_FOLDER", "LOAD_MODELS_IN_CATALOG", "IMPORT_LINEAGE", "DELETE_LINEAGE_IMPORT", "CREATE_WORKSPACE", "UPDATE_WORKSPACE", "DELETE_WORKSPACE", "CREATE_CLUSTER", "UPDATE_CLUSTER", "START_CLUSTER", "STOP_CLUSTER", "RESTART_CLUSTER", "PATCH_CLUSTER_LIBRARIES", "DELETE_CLUSTER", "MANAGE_EXTRACTED_ENTITIES", "REFRESH_ENTITY", "DOWNLOAD_CLUSTER_LOG", "MIGRATE_EXTERNAL_CATALOG", "UPDATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE", "CREATE_KNOWLEDGE_BASE", "DELETE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB", "CREATE_KNOWLEDGE_BASE_JOB_RUN", "DEPLOY_AGENT", "CREATE_GIT_FOLDER", "UPDATE_GIT_REPOSITORY", "CREATE_BUNDLE", "BUNDLE_DEPLOY", "BUNDLE_PUBLISH", "BUNDLE_PURGE", "BUNDLE_SYNC", "MARK_AS_BUNDLE", "GIT_COMMIT_PUSH", "GIT_CREATE_BRANCH", "GIT_CHECKOUT_BRANCH", "GIT_OPERATION_PULL", "GIT_OPERATION_MERGE", "GIT_OPERATION_REBASE", "GIT_OPERATION_RESET", "GIT_OPERATION_RESET_STATE", "ACTIVATE_MODEL_DEPLOYMENT", "DEACTIVATE_MODEL_DEPLOYMENT", "ROLL_FORWARD_MODEL_DEPLOYMENT", "ROLL_BACK_MODEL_DEPLOYMENT", "EXPORT_MODEL_DEPLOYMENT_INFERENCES", "CREATE_PRIVATE_NETWORK_PROFILE", "DELETE_PRIVATE_NETWORK_PROFILE"]
         if not value_allowed_none_or_none_sentinel(action_type, allowed_values):
             action_type = 'UNKNOWN_ENUM_VALUE'
         self._action_type = action_type
@@ -530,7 +560,9 @@ class AsyncOperationSummary(object):
         """
         **[Required]** Gets the resource_name of this AsyncOperationSummary.
         The fully qualified name of the Data Lake resource. Example: For table, it is
-        <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
+        <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>.
+        For Git folder creation, this is the operation resource name; the Git
+        repository key is stored separately as system:repoKey in folder metadata.
 
 
         :return: The resource_name of this AsyncOperationSummary.
@@ -543,7 +575,9 @@ class AsyncOperationSummary(object):
         """
         Sets the resource_name of this AsyncOperationSummary.
         The fully qualified name of the Data Lake resource. Example: For table, it is
-        <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>
+        <catalog_name>.<schema_name>.<table_name>. For Cluster, it is <workspace_key>.<cluster_key>.
+        For Git folder creation, this is the operation resource name; the Git
+        repository key is stored separately as system:repoKey in folder metadata.
 
 
         :param resource_name: The resource_name of this AsyncOperationSummary.

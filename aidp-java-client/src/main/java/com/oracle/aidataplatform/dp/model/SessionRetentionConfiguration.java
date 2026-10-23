@@ -12,9 +12,11 @@ package com.oracle.aidataplatform.dp.model;
 
 public final class SessionRetentionConfiguration  {
     @Deprecated
-    @java.beans.ConstructorProperties({"retentionPeriodInDays", "sessionSizeLimit", "threadCountLimit"})
-    public SessionRetentionConfiguration(Integer retentionPeriodInDays, Integer sessionSizeLimit, Integer threadCountLimit) {
+    @java.beans.ConstructorProperties({"isRetentionPolicyEnabled", "breachAction", "retentionPeriodInDays", "sessionSizeLimit", "threadCountLimit"})
+    public SessionRetentionConfiguration(Boolean isRetentionPolicyEnabled, RetentionBreachAction breachAction, Integer retentionPeriodInDays, Integer sessionSizeLimit, Integer threadCountLimit) {
         super();
+        this.isRetentionPolicyEnabled = isRetentionPolicyEnabled;
+        this.breachAction = breachAction;
         this.retentionPeriodInDays = retentionPeriodInDays;
         this.sessionSizeLimit = sessionSizeLimit;
         this.threadCountLimit = threadCountLimit;
@@ -23,6 +25,42 @@ public final class SessionRetentionConfiguration  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
+     * Whether session-message retention is enabled.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("isRetentionPolicyEnabled")
+private Boolean isRetentionPolicyEnabled;
+
+        /**
+         * Whether session-message retention is enabled.
+         * @param isRetentionPolicyEnabled the value to set
+         * @return this builder
+         **/
+        
+
+public Builder isRetentionPolicyEnabled(Boolean isRetentionPolicyEnabled) {
+    this.isRetentionPolicyEnabled = isRetentionPolicyEnabled;
+    return this;
+}
+            /**
+     * Action taken when the enabled retention condition is breached.
+     **/
+    
+@com.fasterxml.jackson.annotation.JsonProperty("breachAction")
+private RetentionBreachAction breachAction;
+
+        /**
+         * Action taken when the enabled retention condition is breached.
+         * @param breachAction the value to set
+         * @return this builder
+         **/
+        
+
+public Builder breachAction(RetentionBreachAction breachAction) {
+    this.breachAction = breachAction;
+    return this;
+}
+            /**
      * No. of days session data will be kept
      **/
     
@@ -79,14 +117,18 @@ public Builder threadCountLimit(Integer threadCountLimit) {
 
 
         public SessionRetentionConfiguration build() {
-            SessionRetentionConfiguration model = new SessionRetentionConfiguration(this.retentionPeriodInDays
+            SessionRetentionConfiguration model = new SessionRetentionConfiguration(this.isRetentionPolicyEnabled
+                , this.breachAction
+                , this.retentionPeriodInDays
                 , this.sessionSizeLimit
                 , this.threadCountLimit);            return model;
         }
 
         @com.fasterxml.jackson.annotation.JsonIgnore
         public Builder copy(SessionRetentionConfiguration model) {
-                this.retentionPeriodInDays(model.getRetentionPeriodInDays());
+                this.isRetentionPolicyEnabled(model.getIsRetentionPolicyEnabled());
+    this.breachAction(model.getBreachAction());
+    this.retentionPeriodInDays(model.getRetentionPeriodInDays());
     this.sessionSizeLimit(model.getSessionSizeLimit());
     this.threadCountLimit(model.getThreadCountLimit());
 return this;
@@ -106,6 +148,40 @@ return this;
     }
 
     
+
+
+        /**
+     * Whether session-message retention is enabled.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("isRetentionPolicyEnabled")
+    private final Boolean isRetentionPolicyEnabled;
+
+        /**
+     * Whether session-message retention is enabled.
+     * @return the value
+     **/
+    
+    public Boolean getIsRetentionPolicyEnabled() {
+        return isRetentionPolicyEnabled;
+    }
+
+    
+        /**
+     * Action taken when the enabled retention condition is breached.
+     **/
+    
+    @com.fasterxml.jackson.annotation.JsonProperty("breachAction")
+    private final RetentionBreachAction breachAction;
+
+        /**
+     * Action taken when the enabled retention condition is breached.
+     * @return the value
+     **/
+    
+    public RetentionBreachAction getBreachAction() {
+        return breachAction;
+    }
 
 
         /**
@@ -171,7 +247,9 @@ return this;
     public String toString(boolean includeByteArrayContents) {
         java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append("SessionRetentionConfiguration(");
-        sb.append("retentionPeriodInDays=").append(String.valueOf(this.retentionPeriodInDays));
+        sb.append("isRetentionPolicyEnabled=").append(String.valueOf(this.isRetentionPolicyEnabled));
+        sb.append(", breachAction=").append(String.valueOf(this.breachAction));
+        sb.append(", retentionPeriodInDays=").append(String.valueOf(this.retentionPeriodInDays));
         sb.append(", sessionSizeLimit=").append(String.valueOf(this.sessionSizeLimit));
         sb.append(", threadCountLimit=").append(String.valueOf(this.threadCountLimit));
         sb.append(")");
@@ -188,7 +266,9 @@ return this;
         }
 
         SessionRetentionConfiguration other = (SessionRetentionConfiguration) o;
-        return java.util.Objects.equals(this.retentionPeriodInDays, other.retentionPeriodInDays) &&
+        return java.util.Objects.equals(this.isRetentionPolicyEnabled, other.isRetentionPolicyEnabled) &&
+            java.util.Objects.equals(this.breachAction, other.breachAction) &&
+            java.util.Objects.equals(this.retentionPeriodInDays, other.retentionPeriodInDays) &&
             java.util.Objects.equals(this.sessionSizeLimit, other.sessionSizeLimit) &&
             java.util.Objects.equals(this.threadCountLimit, other.threadCountLimit);
     }
@@ -197,6 +277,8 @@ return this;
     public int hashCode() {
         final int PRIME = 59;
         int result = 1;
+        result = (result * PRIME) + (this.isRetentionPolicyEnabled == null ? 43 : this.isRetentionPolicyEnabled.hashCode());
+        result = (result * PRIME) + (this.breachAction == null ? 43 : this.breachAction.hashCode());
         result = (result * PRIME) + (this.retentionPeriodInDays == null ? 43 : this.retentionPeriodInDays.hashCode());
         result = (result * PRIME) + (this.sessionSizeLimit == null ? 43 : this.sessionSizeLimit.hashCode());
         result = (result * PRIME) + (this.threadCountLimit == null ? 43 : this.threadCountLimit.hashCode());

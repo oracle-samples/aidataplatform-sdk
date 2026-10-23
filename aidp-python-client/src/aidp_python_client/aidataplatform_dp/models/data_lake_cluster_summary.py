@@ -36,13 +36,11 @@ class DataLakeClusterSummary(object):
             'workspace_display_name': 'str',
             'clusters': 'list[ClusterSummary]'
         }
-
         self.attribute_map = {
             'workspace_key': 'workspaceKey',
             'workspace_display_name': 'workspaceDisplayName',
             'clusters': 'clusters'
         }
-
         self._workspace_key = None
         self._workspace_display_name = None
         self._clusters = None

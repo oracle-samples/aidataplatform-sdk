@@ -31,12 +31,10 @@ class ManageTablePermissionDetails(object):
             'assign_table_permission_details': 'AssignTablePermissionDetails',
             'revoke_table_permission_details': 'RevokeTablePermissionDetails'
         }
-
         self.attribute_map = {
             'assign_table_permission_details': 'assignTablePermissionDetails',
             'revoke_table_permission_details': 'revokeTablePermissionDetails'
         }
-
         self._assign_table_permission_details = None
         self._revoke_table_permission_details = None
 

@@ -56,7 +56,6 @@ class GroupedSearchCriteria(object):
             'filter': 'FilterTypes',
             'sort': 'list[SortDetails]'
         }
-
         self.attribute_map = {
             'group_limit': 'groupLimit',
             'query': 'query',
@@ -66,7 +65,6 @@ class GroupedSearchCriteria(object):
             'filter': 'filter',
             'sort': 'sort'
         }
-
         self._group_limit = None
         self._query = None
         self._limit = None

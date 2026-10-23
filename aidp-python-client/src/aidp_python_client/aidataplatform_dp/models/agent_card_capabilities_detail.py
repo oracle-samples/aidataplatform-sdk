@@ -26,11 +26,9 @@ class AgentCardCapabilitiesDetail(object):
         self.swagger_types = {
             'is_streaming': 'bool'
         }
-
         self.attribute_map = {
             'is_streaming': 'isStreaming'
         }
-
         self._is_streaming = None
 
     @property

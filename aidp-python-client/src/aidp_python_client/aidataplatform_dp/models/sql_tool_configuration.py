@@ -66,7 +66,6 @@ class SqlToolConfiguration(object):
             'is_row_limit_enabled': 'bool',
             'max_rows': 'int'
         }
-
         self.attribute_map = {
             'query_type': 'queryType',
             'catalog_key': 'catalogKey',
@@ -76,7 +75,6 @@ class SqlToolConfiguration(object):
             'is_row_limit_enabled': 'isRowLimitEnabled',
             'max_rows': 'maxRows'
         }
-
         self._query_type = None
         self._catalog_key = None
         self._schema_key = None

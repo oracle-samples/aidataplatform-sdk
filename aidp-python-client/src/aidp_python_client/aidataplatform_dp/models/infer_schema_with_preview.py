@@ -31,12 +31,10 @@ class InferSchemaWithPreview(object):
             'schema': 'list[InferSchemaColumn]',
             'data': 'list[dict(str, str)]'
         }
-
         self.attribute_map = {
             'schema': 'schema',
             'data': 'data'
         }
-
         self._schema = None
         self._data = None
 

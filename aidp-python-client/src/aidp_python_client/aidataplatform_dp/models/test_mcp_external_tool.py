@@ -38,13 +38,11 @@ class TestMcpExternalTool(TestMcpOperation):
             'external_tool_name': 'str',
             'param_values': 'TestToolParamValues'
         }
-
         self.attribute_map = {
             'test_type': 'testType',
             'external_tool_name': 'externalToolName',
             'param_values': 'paramValues'
         }
-
         self._test_type = None
         self._external_tool_name = None
         self._param_values = None

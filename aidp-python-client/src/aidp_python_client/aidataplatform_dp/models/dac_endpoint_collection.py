@@ -26,11 +26,9 @@ class DacEndpointCollection(object):
         self.swagger_types = {
             'items': 'list[DacEndpointSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

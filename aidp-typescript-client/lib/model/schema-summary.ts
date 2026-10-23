@@ -89,10 +89,6 @@ export namespace SchemaSummary {
         
         if (obj && "entityType" in obj && obj.entityType) {
             switch (obj.entityType) {
-                case "ALH":
-                    return model.AlhSchemaSummary.getJsonObj(<model.AlhSchemaSummary>(<object>jsonObj), true);
-                case "EXADATA":
-                    return model.ExadataSchemaSummary.getJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE":
                     return model.OracleSchemaSummary.getJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
                 case "MYSQL":
@@ -107,12 +103,18 @@ export namespace SchemaSummary {
                     return model.KafkaTopicSchemaSummary.getJsonObj(<model.KafkaTopicSchemaSummary>(<object>jsonObj), true);
                 case "ADW":
                     return model.AdwSchemaSummary.getJsonObj(<model.AdwSchemaSummary>(<object>jsonObj), true);
-                case "AZURE_SQLSERVER":
-                    return model.SqlServerOnAzureSchemaSummary.getJsonObj(<model.SqlServerOnAzureSchemaSummary>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeSchemaSummary.getJsonObj(<model.SnowflakeSchemaSummary>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchemaSummary.getJsonObj(<model.StandardSchemaSummary>(<object>jsonObj), true);
+                case "ALH":
+                    return model.AlhSchemaSummary.getJsonObj(<model.AlhSchemaSummary>(<object>jsonObj), true);
+                case "EXADATA":
+                    return model.ExadataSchemaSummary.getJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchemaSummary.getJsonObj(<model.GoogleBigquerySchemaSummary>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureSchemaSummary.getJsonObj(<model.SqlServerOnAzureSchemaSummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
 
@@ -141,10 +143,6 @@ export namespace SchemaSummary {
         
         if (obj && "entityType" in obj && obj.entityType) {
             switch (obj.entityType) {
-                case "ALH":
-                    return model.AlhSchemaSummary.getDeserializedJsonObj(<model.AlhSchemaSummary>(<object>jsonObj), true);
-                case "EXADATA":
-                    return model.ExadataSchemaSummary.getDeserializedJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
                 case "ORACLE":
                     return model.OracleSchemaSummary.getDeserializedJsonObj(<model.OracleSchemaSummary>(<object>jsonObj), true);
                 case "MYSQL":
@@ -159,12 +157,18 @@ export namespace SchemaSummary {
                     return model.KafkaTopicSchemaSummary.getDeserializedJsonObj(<model.KafkaTopicSchemaSummary>(<object>jsonObj), true);
                 case "ADW":
                     return model.AdwSchemaSummary.getDeserializedJsonObj(<model.AdwSchemaSummary>(<object>jsonObj), true);
-                case "AZURE_SQLSERVER":
-                    return model.SqlServerOnAzureSchemaSummary.getDeserializedJsonObj(<model.SqlServerOnAzureSchemaSummary>(<object>jsonObj), true);
                 case "SNOWFLAKE":
                     return model.SnowflakeSchemaSummary.getDeserializedJsonObj(<model.SnowflakeSchemaSummary>(<object>jsonObj), true);
                 case "STANDARD":
                     return model.StandardSchemaSummary.getDeserializedJsonObj(<model.StandardSchemaSummary>(<object>jsonObj), true);
+                case "ALH":
+                    return model.AlhSchemaSummary.getDeserializedJsonObj(<model.AlhSchemaSummary>(<object>jsonObj), true);
+                case "EXADATA":
+                    return model.ExadataSchemaSummary.getDeserializedJsonObj(<model.ExadataSchemaSummary>(<object>jsonObj), true);
+                case "GOOGLE_BIGQUERY":
+                    return model.GoogleBigquerySchemaSummary.getDeserializedJsonObj(<model.GoogleBigquerySchemaSummary>(<object>jsonObj), true);
+                case "AZURE_SQLSERVER":
+                    return model.SqlServerOnAzureSchemaSummary.getDeserializedJsonObj(<model.SqlServerOnAzureSchemaSummary>(<object>jsonObj), true);
                 default:
                     if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`)
         }

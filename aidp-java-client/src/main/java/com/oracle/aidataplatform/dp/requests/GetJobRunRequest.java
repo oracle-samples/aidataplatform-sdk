@@ -81,6 +81,19 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         return shouldIncludeTaskRunSummaries;
     }
         /**
+     * The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete.
+     */
+    private Integer repairKey;
+
+    
+
+        /**
+     * The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete.
+     */
+    public Integer getRepairKey() {
+        return repairKey;
+    }
+        /**
      * A flag to identify if the recent list should be updated.
      */
     private Boolean shouldUpdateRecent;
@@ -183,6 +196,21 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         }
 
             /**
+     * The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete.
+     */
+        private Integer repairKey = null;
+
+        /**
+         * The root repair version whose corresponding local history should be returned. The response repairHistory contains only the latest retained local entry at or before this key. It is empty when the current JobRun is the applicable version or a child JobRun had not participated in a repair by this key. JobRun fields and TaskRun summaries remain current and complete.
+         * @param repairKey the value to set
+         * @return this builder instance
+         */
+        public Builder repairKey(Integer repairKey) {
+            this.repairKey = repairKey;
+            return this;
+        }
+
+            /**
      * A flag to identify if the recent list should be updated.
      */
         private Boolean shouldUpdateRecent = null;
@@ -223,7 +251,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
          * @return this builder instance
          */
         public Builder copy(GetJobRunRequest o) {
-            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());jobRunKey(o.getJobRunKey());opcRequestId(o.getOpcRequestId());shouldIncludeTaskRunSummaries(o.getShouldIncludeTaskRunSummaries());shouldUpdateRecent(o.getShouldUpdateRecent());
+            aiDataPlatformId(o.getAiDataPlatformId());workspaceKey(o.getWorkspaceKey());jobRunKey(o.getJobRunKey());opcRequestId(o.getOpcRequestId());shouldIncludeTaskRunSummaries(o.getShouldIncludeTaskRunSummaries());repairKey(o.getRepairKey());shouldUpdateRecent(o.getShouldUpdateRecent());
             invocationCallback(o.getInvocationCallback());
             retryConfiguration(o.getRetryConfiguration());
             return this;
@@ -261,9 +289,10 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             request.jobRunKey = jobRunKey;
             request.opcRequestId = opcRequestId;
             request.shouldIncludeTaskRunSummaries = shouldIncludeTaskRunSummaries;
+            request.repairKey = repairKey;
             request.shouldUpdateRecent = shouldUpdateRecent;
             return request;
-            // new GetJobRunRequest(aiDataPlatformId, workspaceKey, jobRunKey, opcRequestId, shouldIncludeTaskRunSummaries, shouldUpdateRecent);
+            // new GetJobRunRequest(aiDataPlatformId, workspaceKey, jobRunKey, opcRequestId, shouldIncludeTaskRunSummaries, repairKey, shouldUpdateRecent);
         }
     }
 
@@ -278,6 +307,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             .jobRunKey(jobRunKey)
             .opcRequestId(opcRequestId)
             .shouldIncludeTaskRunSummaries(shouldIncludeTaskRunSummaries)
+            .repairKey(repairKey)
             .shouldUpdateRecent(shouldUpdateRecent);
     }
 
@@ -299,6 +329,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         sb.append(",jobRunKey=").append(String.valueOf(this.jobRunKey));
         sb.append(",opcRequestId=").append(String.valueOf(this.opcRequestId));
         sb.append(",shouldIncludeTaskRunSummaries=").append(String.valueOf(this.shouldIncludeTaskRunSummaries));
+        sb.append(",repairKey=").append(String.valueOf(this.repairKey));
         sb.append(",shouldUpdateRecent=").append(String.valueOf(this.shouldUpdateRecent));
         sb.append(")");
         return sb.toString();
@@ -320,6 +351,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
             && java.util.Objects.equals(this.jobRunKey, other.jobRunKey)
             && java.util.Objects.equals(this.opcRequestId, other.opcRequestId)
             && java.util.Objects.equals(this.shouldIncludeTaskRunSummaries, other.shouldIncludeTaskRunSummaries)
+            && java.util.Objects.equals(this.repairKey, other.repairKey)
             && java.util.Objects.equals(this.shouldUpdateRecent, other.shouldUpdateRecent);
     }
 
@@ -332,6 +364,7 @@ public class GetJobRunRequest extends com.oracle.bmc.requests.BmcRequest<java.la
         result = (result * PRIME) + (this.jobRunKey == null ? 43 : this.jobRunKey.hashCode());
         result = (result * PRIME) + (this.opcRequestId == null ? 43 : this.opcRequestId.hashCode());
         result = (result * PRIME) + (this.shouldIncludeTaskRunSummaries == null ? 43 : this.shouldIncludeTaskRunSummaries.hashCode());
+        result = (result * PRIME) + (this.repairKey == null ? 43 : this.repairKey.hashCode());
         result = (result * PRIME) + (this.shouldUpdateRecent == null ? 43 : this.shouldUpdateRecent.hashCode());
         return result;
     }

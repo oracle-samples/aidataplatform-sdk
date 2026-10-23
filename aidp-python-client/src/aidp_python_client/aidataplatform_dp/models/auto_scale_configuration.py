@@ -31,12 +31,10 @@ class AutoScaleConfiguration(object):
             'metrics': 'list[AutoScaleMetricConfiguration]',
             'cooldown_period_in_minutes': 'int'
         }
-
         self.attribute_map = {
             'metrics': 'metrics',
             'cooldown_period_in_minutes': 'cooldownPeriodInMinutes'
         }
-
         self._metrics = None
         self._cooldown_period_in_minutes = None
 

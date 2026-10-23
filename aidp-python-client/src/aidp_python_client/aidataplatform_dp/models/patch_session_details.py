@@ -56,7 +56,6 @@ class PatchSessionDetails(object):
             'cluster_id': 'str',
             'must_refresh_context': 'bool'
         }
-
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
@@ -66,7 +65,6 @@ class PatchSessionDetails(object):
             'cluster_id': 'cluster_id',
             'must_refresh_context': 'must_refresh_context'
         }
-
         self._id = None
         self._name = None
         self._path = None

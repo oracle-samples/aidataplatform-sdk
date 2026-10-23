@@ -111,7 +111,6 @@ class AgentGuardrailsSummary(object):
             'threshold': 'float',
             'categories': 'list[CategoryConfig]'
         }
-
         self.attribute_map = {
             'policy_type': 'policyType',
             'policy_name': 'policyName',
@@ -121,7 +120,6 @@ class AgentGuardrailsSummary(object):
             'threshold': 'threshold',
             'categories': 'categories'
         }
-
         self._policy_type = None
         self._policy_name = None
         self._policy_description = None
@@ -157,8 +155,7 @@ class AgentGuardrailsSummary(object):
         allowed_values = ["CONTENT_MODERATION", "PROMPT_ATTACKS_PREVENTION", "PII_DETECTION", "DENIED_TOPICS", "WORD_FILTERS", "CONTEXTUAL_GROUNDING", "CUSTOM_POLICY"]
         if not value_allowed_none_or_none_sentinel(policy_type, allowed_values):
             raise ValueError(
-                "Invalid value for `policy_type`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `policy_type`, must be None or one of {allowed_values}"
             )
         self._policy_type = policy_type
 
@@ -237,8 +234,7 @@ class AgentGuardrailsSummary(object):
         allowed_values = ["BLOCK", "INFORM", "MASK"]
         if not value_allowed_none_or_none_sentinel(action, allowed_values):
             raise ValueError(
-                "Invalid value for `action`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `action`, must be None or one of {allowed_values}"
             )
         self._action = action
 
@@ -269,8 +265,7 @@ class AgentGuardrailsSummary(object):
         allowed_values = ["USER_REQUEST", "AGENT_RESPONSE", "BOTH"]
         if not value_allowed_none_or_none_sentinel(scope, allowed_values):
             raise ValueError(
-                "Invalid value for `scope`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `scope`, must be None or one of {allowed_values}"
             )
         self._scope = scope
 

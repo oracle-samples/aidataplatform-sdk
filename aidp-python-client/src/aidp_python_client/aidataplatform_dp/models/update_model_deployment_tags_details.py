@@ -36,13 +36,11 @@ class UpdateModelDeploymentTagsDetails(object):
             'set_tags': 'list[ModelDeploymentTag]',
             'delete_tags': 'list[ModelDeploymentTagKey]'
         }
-
         self.attribute_map = {
             'deployment_id': 'deployment_id',
             'set_tags': 'set_tags',
             'delete_tags': 'delete_tags'
         }
-
         self._deployment_id = None
         self._set_tags = None
         self._delete_tags = None

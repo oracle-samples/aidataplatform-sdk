@@ -41,14 +41,12 @@ class InferSchemaColumn(object):
             'is_partition': 'bool',
             'rank': 'int'
         }
-
         self.attribute_map = {
             'field_name': 'fieldName',
             'field_type': 'fieldType',
             'is_partition': 'isPartition',
             'rank': 'rank'
         }
-
         self._field_name = None
         self._field_type = None
         self._is_partition = None

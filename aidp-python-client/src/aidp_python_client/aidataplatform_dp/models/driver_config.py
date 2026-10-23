@@ -36,13 +36,11 @@ class DriverConfig(object):
             'driver_shape': 'str',
             'driver_shape_config': 'ShapeConfig'
         }
-
         self.attribute_map = {
             'driver_node_type': 'driverNodeType',
             'driver_shape': 'driverShape',
             'driver_shape_config': 'driverShapeConfig'
         }
-
         self._driver_node_type = None
         self._driver_shape = None
         self._driver_shape_config = None

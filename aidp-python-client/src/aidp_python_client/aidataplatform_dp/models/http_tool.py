@@ -93,7 +93,6 @@ class HttpTool(Tool):
             'input_schema': 'dict(str, object)',
             'tool_config': 'HttpToolConfiguration'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -110,7 +109,6 @@ class HttpTool(Tool):
             'input_schema': 'inputSchema',
             'tool_config': 'toolConfig'
         }
-
         self._key = None
         self._display_name = None
         self._workspace_key = None

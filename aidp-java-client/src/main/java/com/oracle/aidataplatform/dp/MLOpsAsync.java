@@ -262,6 +262,30 @@ public interface MLOpsAsync extends AutoCloseable {
     java.util.concurrent.Future<DeleteRegisteredModelTagResponse> deleteRegisteredModelTag(DeleteRegisteredModelTagRequest request, com.oracle.bmc.responses.AsyncHandler<DeleteRegisteredModelTagRequest, DeleteRegisteredModelTagResponse> handler);
     
     /**
+     * (Preview) Starts an asynchronous export of the correlated inference invocation records in the requested publish-time window to a JSON file in a Volume. The window defaults to the last 30 days and must not exceed 30 days; export a longer history as consecutive windows. The export runs as a tracked asynchronous operation; a second export to the same destination while one is in progress is rejected with 409.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ExportModelDeploymentInferencesResponse> exportModelDeploymentInferences(ExportModelDeploymentInferencesRequest request, com.oracle.bmc.responses.AsyncHandler<ExportModelDeploymentInferencesRequest, ExportModelDeploymentInferencesResponse> handler);
+    
+    /**
+     * (Preview) Returns one deployment log event with its full, redacted message, located by the opaque expiring locator returned from a log search.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetDeploymentLogResponse> getDeploymentLog(GetDeploymentLogRequest request, com.oracle.bmc.responses.AsyncHandler<GetDeploymentLogRequest, GetDeploymentLogResponse> handler);
+    
+    /**
      * (Preview) Returns metadata for an experiment by ID. This method works on deleted experiments.
      * 
      * @param request The request object containing the details to send
@@ -344,6 +368,30 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<GetModelDeploymentContractResponse> getModelDeploymentContract(GetModelDeploymentContractRequest request, com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentContractRequest, GetModelDeploymentContractResponse> handler);
+    
+    /**
+     * (Preview) Returns request and response payloads for one correlated inference invocation identified by its request ID. The identifier contains forward slashes, so each slash must be percent-encoded as %2F in the path. Example `requestId`: `abc123%2Fdef456%2F789abc`.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetModelDeploymentInferenceDetailsResponse> getModelDeploymentInferenceDetails(GetModelDeploymentInferenceDetailsRequest request, com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentInferenceDetailsRequest, GetModelDeploymentInferenceDetailsResponse> handler);
+    
+    /**
+     * (Preview) Returns aggregate metrics for correlated request and response inference events within the requested timestamp range. Query parameters `timeStart` and `timeEnd` are optional; when omitted, the API uses the previous 24 hours. Any requested range must be within the most recent 14 days.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<GetModelDeploymentInferenceSummaryResponse> getModelDeploymentInferenceSummary(GetModelDeploymentInferenceSummaryRequest request, com.oracle.bmc.responses.AsyncHandler<GetModelDeploymentInferenceSummaryRequest, GetModelDeploymentInferenceSummaryResponse> handler);
     
     /**
      * (Preview)  Returns detailed information for a model version.
@@ -454,6 +502,18 @@ public interface MLOpsAsync extends AutoCloseable {
     java.util.concurrent.Future<ListModelVersionsResponse> listModelVersions(ListModelVersionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListModelVersionsRequest, ListModelVersionsResponse> handler);
     
     /**
+     * (Preview) Returns the users, groups, and roles granted READ, MANAGE, or ADMIN on a registered model. Any caller who can view the model can read the list.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ListRegisteredModelPermissionsResponse> listRegisteredModelPermissions(ListRegisteredModelPermissionsRequest request, com.oracle.bmc.responses.AsyncHandler<ListRegisteredModelPermissionsRequest, ListRegisteredModelPermissionsResponse> handler);
+    
+    /**
      * (Preview) Returns a list of registered models in a workspace.
      * 
      * @param request The request object containing the details to send
@@ -526,6 +586,18 @@ public interface MLOpsAsync extends AutoCloseable {
     java.util.concurrent.Future<LogExperimentRunParamResponse> logExperimentRunParam(LogExperimentRunParamRequest request, com.oracle.bmc.responses.AsyncHandler<LogExperimentRunParamRequest, LogExperimentRunParamResponse> handler);
     
     /**
+     * (Preview) Grants or revokes READ, MANAGE, or ADMIN on a registered model's dedicated volume. The model-to-volume link is resolved on the server; no volume name is accepted from the client.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<ManageRegisteredModelPermissionResponse> manageRegisteredModelPermission(ManageRegisteredModelPermissionRequest request, com.oracle.bmc.responses.AsyncHandler<ManageRegisteredModelPermissionRequest, ManageRegisteredModelPermissionResponse> handler);
+    
+    /**
      * (Preview) Renames a registered model.
      * 
      * @param request The request object containing the details to send
@@ -584,6 +656,30 @@ public interface MLOpsAsync extends AutoCloseable {
      *         both places as the underlying stream may only be consumed once.
      */
     java.util.concurrent.Future<RollForwardModelDeploymentResponse> rollForwardModelDeployment(RollForwardModelDeploymentRequest request, com.oracle.bmc.responses.AsyncHandler<RollForwardModelDeploymentRequest, RollForwardModelDeploymentResponse> handler);
+    
+    /**
+     * (Preview) Returns one page of deployment lifecycle log events for the model deployment, newest first, read live from OCI Logging. No log content is persisted by the platform.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<SearchDeploymentLogsResponse> searchDeploymentLogs(SearchDeploymentLogsRequest request, com.oracle.bmc.responses.AsyncHandler<SearchDeploymentLogsRequest, SearchDeploymentLogsResponse> handler);
+    
+    /**
+     * (Preview) Returns paginated request and response-correlated inference invocation records for a model deployment. Each response contains at most 20 rows, OCI Logging pagination is used internally, and only the first 10,000 matching rows can be retrieved within a maximum 14-day range. When no time range is provided, the previous 24 hours is used.
+     * 
+     * @param request The request object containing the details to send
+     * @param handler The request handler to invoke upon completion, may be null.
+     * @return A Future that can be used to get the response if no AsyncHandler was
+     *         provided. Note, if you provide an AsyncHandler and use the Future, some
+     *         types of responses (like java.io.InputStream) may not be able to be read in 
+     *         both places as the underlying stream may only be consumed once.
+     */
+    java.util.concurrent.Future<SearchModelDeploymentInferencesResponse> searchModelDeploymentInferences(SearchModelDeploymentInferencesRequest request, com.oracle.bmc.responses.AsyncHandler<SearchModelDeploymentInferencesRequest, SearchModelDeploymentInferencesResponse> handler);
     
     /**
      * (Preview) Returns a list of model deployments matching the given criteria.

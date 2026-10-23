@@ -88,7 +88,6 @@ class UpdateAgentDiagramCustomToolNodeDetails(UpdateAgentDiagramNodeDetails):
             'input_schema': 'dict(str, object)',
             'tool_config': 'CustomToolConfiguration'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -104,7 +103,6 @@ class UpdateAgentDiagramCustomToolNodeDetails(UpdateAgentDiagramNodeDetails):
             'input_schema': 'inputSchema',
             'tool_config': 'toolConfig'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

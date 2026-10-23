@@ -26,11 +26,9 @@ class UpdateExperimentRunResponseDetails(object):
         self.swagger_types = {
             'run_info': 'ExperimentRunInfo'
         }
-
         self.attribute_map = {
             'run_info': 'run_info'
         }
-
         self._run_info = None
 
     @property

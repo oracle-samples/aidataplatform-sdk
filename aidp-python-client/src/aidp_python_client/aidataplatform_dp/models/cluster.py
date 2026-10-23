@@ -216,7 +216,6 @@ class Cluster(object):
             'stopped_by': 'str',
             'stopped_by_name': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -237,7 +236,6 @@ class Cluster(object):
             'stopped_by': 'stoppedBy',
             'stopped_by_name': 'stoppedByName'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

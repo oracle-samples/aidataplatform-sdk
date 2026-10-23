@@ -26,11 +26,9 @@ class ToolPermissionCollection(object):
         self.swagger_types = {
             'items': 'list[ToolPermissionSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

@@ -37,12 +37,10 @@ class MemoryLimitConfiguration(object):
             'type': 'str',
             'config': 'MemoryLimitConfigurationDetails'
         }
-
         self.attribute_map = {
             'type': 'type',
             'config': 'config'
         }
-
         self._type = None
         self._config = None
 

@@ -101,7 +101,6 @@ class ClusterLibrarySummary(object):
             'state_message': 'str',
             'status': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'time_created': 'timeCreated',
@@ -111,7 +110,6 @@ class ClusterLibrarySummary(object):
             'state_message': 'stateMessage',
             'status': 'status'
         }
-
         self._type = None
         self._time_created = None
         self._time_updated = None

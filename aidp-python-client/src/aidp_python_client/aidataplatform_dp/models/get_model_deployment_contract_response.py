@@ -36,13 +36,11 @@ class GetModelDeploymentContractResponse(object):
             'output_contract': 'str',
             'input_example': 'str'
         }
-
         self.attribute_map = {
             'input_contract': 'input_contract',
             'output_contract': 'output_contract',
             'input_example': 'input_example'
         }
-
         self._input_contract = None
         self._output_contract = None
         self._input_example = None

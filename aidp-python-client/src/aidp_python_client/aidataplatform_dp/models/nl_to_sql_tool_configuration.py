@@ -51,7 +51,6 @@ class NlToSqlToolConfiguration(object):
             'in_context_learning': 'str',
             'additional_instructions': 'str'
         }
-
         self.attribute_map = {
             'catalog_key': 'catalogKey',
             'schema_key': 'schemaKey',
@@ -60,7 +59,6 @@ class NlToSqlToolConfiguration(object):
             'in_context_learning': 'inContextLearning',
             'additional_instructions': 'additionalInstructions'
         }
-
         self._catalog_key = None
         self._schema_key = None
         self._tables = None

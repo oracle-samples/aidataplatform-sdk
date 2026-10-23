@@ -68,7 +68,6 @@ class VolumeFileClusterLibrarySummary(ClusterLibrarySummary):
             'name': 'str',
             'path': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'time_created': 'timeCreated',
@@ -80,7 +79,6 @@ class VolumeFileClusterLibrarySummary(ClusterLibrarySummary):
             'name': 'name',
             'path': 'path'
         }
-
         self._type = None
         self._time_created = None
         self._time_updated = None

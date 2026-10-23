@@ -45,13 +45,11 @@ class ContentModerationConfig(object):
             'model_id': 'str',
             'is_enabled': 'bool'
         }
-
         self.attribute_map = {
             'mode': 'mode',
             'model_id': 'modelId',
             'is_enabled': 'isEnabled'
         }
-
         self._mode = None
         self._model_id = None
         self._is_enabled = None
@@ -83,8 +81,7 @@ class ContentModerationConfig(object):
         allowed_values = ["INFORM", "BLOCK"]
         if not value_allowed_none_or_none_sentinel(mode, allowed_values):
             raise ValueError(
-                "Invalid value for `mode`, must be None or one of {0}"
-                .format(allowed_values)
+                f"Invalid value for `mode`, must be None or one of {allowed_values}"
             )
         self._mode = mode
 

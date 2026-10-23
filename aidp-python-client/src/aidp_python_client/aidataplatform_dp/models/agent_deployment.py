@@ -137,7 +137,6 @@ class AgentDeployment(object):
             'o_auth_config': 'OAuthConfiguration',
             'agent_card_url': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -156,7 +155,6 @@ class AgentDeployment(object):
             'o_auth_config': 'oAuthConfig',
             'agent_card_url': 'agentCardUrl'
         }
-
         self._key = None
         self._display_name = None
         self._agent_key = None

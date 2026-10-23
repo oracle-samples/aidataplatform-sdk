@@ -41,14 +41,12 @@ class AdminSetting(object):
             'is_default': 'bool',
             'data': 'SettingData'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
             'is_default': 'isDefault',
             'data': 'data'
         }
-
         self._key = None
         self._name = None
         self._is_default = None

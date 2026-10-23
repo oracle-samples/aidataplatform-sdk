@@ -31,12 +31,10 @@ class ManageCredentialPermissionDetails(object):
             'assign_credential_permission_details': 'AssignCredentialPermissionDetails',
             'revoke_credential_permission_details': 'RevokeCredentialPermissionDetails'
         }
-
         self.attribute_map = {
             'assign_credential_permission_details': 'assignCredentialPermissionDetails',
             'revoke_credential_permission_details': 'revokeCredentialPermissionDetails'
         }
-
         self._assign_credential_permission_details = None
         self._revoke_credential_permission_details = None
 

@@ -3,7 +3,7 @@
 
 
 from .setting_data import SettingData
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -53,7 +53,6 @@ class IamUserCredentialUserSetting(SettingData):
             'fingerprint': 'str',
             'private_api_key': 'str'
         }
-
         self.attribute_map = {
             'type': 'type',
             'user_id': 'userId',
@@ -62,7 +61,9 @@ class IamUserCredentialUserSetting(SettingData):
             'fingerprint': 'fingerprint',
             'private_api_key': 'privateApiKey'
         }
-
+        self._redacted_field_paths = [
+            ['private_api_key'],
+        ]
         self._type = None
         self._user_id = None
         self._tenancy = None
@@ -192,7 +193,9 @@ class IamUserCredentialUserSetting(SettingData):
         self._private_api_key = private_api_key
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['private_api_key'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

@@ -53,7 +53,6 @@ class UpdateSqlToolDetails(UpdateToolDetails):
             'input_schema': 'dict(str, object)',
             'tool_config': 'SqlToolConfiguration'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
@@ -62,7 +61,6 @@ class UpdateSqlToolDetails(UpdateToolDetails):
             'input_schema': 'inputSchema',
             'tool_config': 'toolConfig'
         }
-
         self._display_name = None
         self._description = None
         self._tool_type = None

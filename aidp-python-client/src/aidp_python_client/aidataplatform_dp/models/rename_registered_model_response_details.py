@@ -26,11 +26,9 @@ class RenameRegisteredModelResponseDetails(object):
         self.swagger_types = {
             'registered_model': 'RegisteredModel'
         }
-
         self.attribute_map = {
             'registered_model': 'registered_model'
         }
-
         self._registered_model = None
 
     @property

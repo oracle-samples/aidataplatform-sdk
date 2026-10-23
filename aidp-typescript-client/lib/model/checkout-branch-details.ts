@@ -5,15 +5,18 @@ import common = require("oci-common");
 
 
 /**
-* Information required to checkout a new Git branch.
+* Branch name and workspace Git folder path for a checkout request.
 */
 export interface CheckoutBranchDetails {
     /**
-    * Git branch name that is cloned.
+    * Branch to check out. This selects the target branch rather than asserting the
+* current branch.
+* 
     */
     'branchName': string;
     /**
-    * The path of the Git folder in the context.
+    * Workspace path of the Git folder associated with gitRepositoryKey.
+* 
     */
     'gitFolderPath': string;
 

@@ -41,14 +41,12 @@ class McpToolConfiguration(object):
             'allowed_tools': 'list[AllowedToolDetails]',
             'custom_headers': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'endpoint': 'endpoint',
             'auth': 'auth',
             'allowed_tools': 'allowedTools',
             'custom_headers': 'customHeaders'
         }
-
         self._endpoint = None
         self._auth = None
         self._allowed_tools = None

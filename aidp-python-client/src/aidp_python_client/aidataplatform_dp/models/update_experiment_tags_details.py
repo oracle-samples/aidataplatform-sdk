@@ -36,13 +36,11 @@ class UpdateExperimentTagsDetails(object):
             'set_tags': 'list[ExperimentTag]',
             'delete_tags': 'list[ExperimentTagKey]'
         }
-
         self.attribute_map = {
             'experiment_id': 'experiment_id',
             'set_tags': 'set_tags',
             'delete_tags': 'delete_tags'
         }
-
         self._experiment_id = None
         self._set_tags = None
         self._delete_tags = None

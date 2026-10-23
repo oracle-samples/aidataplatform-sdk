@@ -281,7 +281,6 @@ class AuditLogSearchResultSummary(object):
             'payload': 'str',
             'error_message': 'str'
         }
-
         self.attribute_map = {
             'event_id': 'eventId',
             'time_of_log': 'timeOfLog',
@@ -294,7 +293,6 @@ class AuditLogSearchResultSummary(object):
             'payload': 'payload',
             'error_message': 'errorMessage'
         }
-
         self._event_id = None
         self._time_of_log = None
         self._object_type = None

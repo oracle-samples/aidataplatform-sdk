@@ -30,22 +30,27 @@ class RepairTaskDetails(object):
             The value to assign to the should_include_upstream property of this RepairTaskDetails.
         :type should_include_upstream: bool
 
+        :param nested_repair_job_run_details:
+            The value to assign to the nested_repair_job_run_details property of this RepairTaskDetails.
+        :type nested_repair_job_run_details: oci.aidataplatform_dp.models.RepairJobRunDetails
+
         """
         self.swagger_types = {
             'task_key': 'str',
             'should_include_downstream': 'bool',
-            'should_include_upstream': 'bool'
+            'should_include_upstream': 'bool',
+            'nested_repair_job_run_details': 'RepairJobRunDetails'
         }
-
         self.attribute_map = {
             'task_key': 'taskKey',
             'should_include_downstream': 'shouldIncludeDownstream',
-            'should_include_upstream': 'shouldIncludeUpstream'
+            'should_include_upstream': 'shouldIncludeUpstream',
+            'nested_repair_job_run_details': 'nestedRepairJobRunDetails'
         }
-
         self._task_key = None
         self._should_include_downstream = None
         self._should_include_upstream = None
+        self._nested_repair_job_run_details = None
 
     @property
     def task_key(self):
@@ -118,6 +123,26 @@ class RepairTaskDetails(object):
         :type: bool
         """
         self._should_include_upstream = should_include_upstream
+
+    @property
+    def nested_repair_job_run_details(self):
+        """
+        Gets the nested_repair_job_run_details of this RepairTaskDetails.
+
+        :return: The nested_repair_job_run_details of this RepairTaskDetails.
+        :rtype: oci.aidataplatform_dp.models.RepairJobRunDetails
+        """
+        return self._nested_repair_job_run_details
+
+    @nested_repair_job_run_details.setter
+    def nested_repair_job_run_details(self, nested_repair_job_run_details):
+        """
+        Sets the nested_repair_job_run_details of this RepairTaskDetails.
+
+        :param nested_repair_job_run_details: The nested_repair_job_run_details of this RepairTaskDetails.
+        :type: oci.aidataplatform_dp.models.RepairJobRunDetails
+        """
+        self._nested_repair_job_run_details = nested_repair_job_run_details
 
     def __repr__(self):
         return formatted_flat_dict(self)

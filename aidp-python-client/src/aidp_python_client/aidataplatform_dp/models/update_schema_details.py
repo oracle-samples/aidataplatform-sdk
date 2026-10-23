@@ -36,13 +36,11 @@ class UpdateSchemaDetails(object):
             'description': 'str',
             'properties': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'display_name': 'displayName',
             'description': 'description',
             'properties': 'properties'
         }
-
         self._display_name = None
         self._description = None
         self._properties = None

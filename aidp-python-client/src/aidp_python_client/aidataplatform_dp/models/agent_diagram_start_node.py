@@ -108,7 +108,6 @@ class AgentDiagramStartNode(AgentDiagramNode):
             'validation_errors': 'list[ValidationError]',
             'start_node_config': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'type': 'type',
             'node_type': 'nodeType',
@@ -128,7 +127,6 @@ class AgentDiagramStartNode(AgentDiagramNode):
             'validation_errors': 'validationErrors',
             'start_node_config': 'startNodeConfig'
         }
-
         self._type = None
         self._node_type = None
         self._name = None

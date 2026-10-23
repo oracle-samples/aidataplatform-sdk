@@ -31,12 +31,10 @@ class RegisteredModelCollection(object):
             'registered_models': 'list[RegisteredModel]',
             'next_page_token': 'str'
         }
-
         self.attribute_map = {
             'registered_models': 'registered_models',
             'next_page_token': 'next_page_token'
         }
-
         self._registered_models = None
         self._next_page_token = None
 

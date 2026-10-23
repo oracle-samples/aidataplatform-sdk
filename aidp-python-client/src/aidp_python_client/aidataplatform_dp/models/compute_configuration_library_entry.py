@@ -36,13 +36,11 @@ class ComputeConfigurationLibraryEntry(object):
             'pip': 'str',
             'jar': 'str'
         }
-
         self.attribute_map = {
             'path': 'path',
             'pip': 'pip',
             'jar': 'jar'
         }
-
         self._path = None
         self._pip = None
         self._jar = None

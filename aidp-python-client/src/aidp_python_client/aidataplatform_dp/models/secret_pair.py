@@ -3,7 +3,7 @@
 
 
 
-from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel  # noqa: F401
+from oci.util import formatted_flat_dict, NONE_SENTINEL, value_allowed_none_or_none_sentinel, to_dict, redact_password_field  # noqa: F401
 from oci.decorators import init_model_state_from_kwargs
 
 
@@ -31,12 +31,13 @@ class SecretPair(object):
             'secret_key': 'str',
             'secret_value': 'str'
         }
-
         self.attribute_map = {
             'secret_key': 'secretKey',
             'secret_value': 'secretValue'
         }
-
+        self._redacted_field_paths = [
+            ['secret_value'],
+        ]
         self._secret_key = None
         self._secret_value = None
 
@@ -89,7 +90,9 @@ class SecretPair(object):
         self._secret_value = secret_value
 
     def __repr__(self):
-        return formatted_flat_dict(self)
+        as_dict = to_dict(self)
+        redact_password_field(as_dict, ['secret_value'])
+        return formatted_flat_dict(as_dict)
 
     def __eq__(self, other):
         if other is None:

@@ -73,7 +73,6 @@ class UpdateSparkClusterDetails(UpdateClusterDetails):
             'auto_termination_minutes': 'int',
             'subscription': 'SubscriptionDetails'
         }
-
         self.attribute_map = {
             'type': 'type',
             'display_name': 'displayName',
@@ -86,7 +85,6 @@ class UpdateSparkClusterDetails(UpdateClusterDetails):
             'auto_termination_minutes': 'autoTerminationMinutes',
             'subscription': 'subscription'
         }
-
         self._type = None
         self._display_name = None
         self._description = None

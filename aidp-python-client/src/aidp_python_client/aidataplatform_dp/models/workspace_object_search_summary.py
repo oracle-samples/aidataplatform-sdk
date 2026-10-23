@@ -81,7 +81,6 @@ class WorkspaceObjectSearchSummary(object):
             'updated_by': 'str',
             'updated_by_name': 'str'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -96,7 +95,6 @@ class WorkspaceObjectSearchSummary(object):
             'updated_by': 'updatedBy',
             'updated_by_name': 'updatedByName'
         }
-
         self._key = None
         self._display_name = None
         self._description = None

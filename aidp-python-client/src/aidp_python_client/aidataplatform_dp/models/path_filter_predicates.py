@@ -36,13 +36,11 @@ class PathFilterPredicates(object):
             'anchor_node_columns_in': 'list[str]',
             'parent_id_in': 'list[str]'
         }
-
         self.attribute_map = {
             'pass_through_node': 'passThroughNode',
             'anchor_node_columns_in': 'anchorNodeColumnsIn',
             'parent_id_in': 'parentIdIn'
         }
-
         self._pass_through_node = None
         self._anchor_node_columns_in = None
         self._parent_id_in = None

@@ -31,12 +31,10 @@ class MoveWorkspaceObjectDetails(object):
             'from_path': 'str',
             'to_path': 'str'
         }
-
         self.attribute_map = {
             'from_path': 'fromPath',
             'to_path': 'toPath'
         }
-
         self._from_path = None
         self._to_path = None
 

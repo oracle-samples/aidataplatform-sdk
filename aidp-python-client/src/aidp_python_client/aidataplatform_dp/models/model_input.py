@@ -26,11 +26,9 @@ class ModelInput(object):
         self.swagger_types = {
             'model_id': 'str'
         }
-
         self.attribute_map = {
             'model_id': 'model_id'
         }
-
         self._model_id = None
 
     @property

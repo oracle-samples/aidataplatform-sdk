@@ -46,7 +46,6 @@ class OntologyEntitySaveDetails(object):
             'mode': 'str',
             'operations': 'list[OntologyEntitySaveOperation]'
         }
-
         self.attribute_map = {
             'project_id': 'projectId',
             'base_revision': 'baseRevision',
@@ -54,7 +53,6 @@ class OntologyEntitySaveDetails(object):
             'mode': 'mode',
             'operations': 'operations'
         }
-
         self._project_id = None
         self._base_revision = None
         self._client_mutation_id = None

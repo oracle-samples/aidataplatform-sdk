@@ -5,7 +5,7 @@ package com.oracle.aidataplatform.dp.model;
 
 
 /**
- * Information required to checkout a new Git branch.
+ * Branch name and workspace Git folder path for a checkout request.
 **/
 @jakarta.annotation.Generated(value = "OracleSDKGenerator", comments = "API Version: 20260430")
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder=CheckoutBranchDetails.Builder.class)
@@ -22,14 +22,18 @@ public final class CheckoutBranchDetails  {
     @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
                 /**
-     * The name of the Git branch.
+     * Branch to check out. This selects the target branch rather than asserting the
+* current branch.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("branchName")
 private String branchName;
 
         /**
-         * The name of the Git branch.
+         * Branch to check out. This selects the target branch rather than asserting the
+* current branch.
+* 
          * @param branchName the value to set
          * @return this builder
          **/
@@ -40,14 +44,16 @@ public Builder branchName(String branchName) {
     return this;
 }
             /**
-     * The path of the Git folder in the context.
+     * Workspace path of the Git folder associated with gitRepositoryKey.
+* 
      **/
     
 @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
 private String gitFolderPath;
 
         /**
-         * The path of the Git folder in the context.
+         * Workspace path of the Git folder associated with gitRepositoryKey.
+* 
          * @param gitFolderPath the value to set
          * @return this builder
          **/
@@ -88,14 +94,18 @@ return this;
 
 
         /**
-     * The name of the Git branch.
+     * Branch to check out. This selects the target branch rather than asserting the
+* current branch.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("branchName")
     private final String branchName;
 
         /**
-     * The name of the Git branch.
+     * Branch to check out. This selects the target branch rather than asserting the
+* current branch.
+* 
      * @return the value
      **/
     
@@ -105,14 +115,16 @@ return this;
 
 
         /**
-     * The path of the Git folder in the context.
+     * Workspace path of the Git folder associated with gitRepositoryKey.
+* 
      **/
     
     @com.fasterxml.jackson.annotation.JsonProperty("gitFolderPath")
     private final String gitFolderPath;
 
         /**
-     * The path of the Git folder in the context.
+     * Workspace path of the Git folder associated with gitRepositoryKey.
+* 
      * @return the value
      **/
     

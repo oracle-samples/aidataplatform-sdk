@@ -36,13 +36,11 @@ class AnchorAwareNeighborColumnLinks(object):
             'neighbor_links': 'list[LineageRelationship]',
             'anchor_column_links': 'list[AnchorColumnLink]'
         }
-
         self.attribute_map = {
             'nodes': 'nodes',
             'neighbor_links': 'neighborLinks',
             'anchor_column_links': 'anchorColumnLinks'
         }
-
         self._nodes = None
         self._neighbor_links = None
         self._anchor_column_links = None

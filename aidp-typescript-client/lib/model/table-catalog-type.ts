@@ -17,6 +17,7 @@ export enum TableCatalogType {
     Db2 = "DB2",
     AzureSqlserver = "AZURE_SQLSERVER",
     Snowflake = "SNOWFLAKE",
+    GoogleBigquery = "GOOGLE_BIGQUERY",
     OracleAnalytics = "ORACLE_ANALYTICS",
     
     /**

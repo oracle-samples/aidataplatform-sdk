@@ -74,6 +74,10 @@ class ModelDeployment(object):
             The value to assign to the compute_key property of this ModelDeployment.
         :type compute_key: str
 
+        :param compute_deployment_id:
+            The value to assign to the compute_deployment_id property of this ModelDeployment.
+        :type compute_deployment_id: str
+
         :param status:
             The value to assign to the status property of this ModelDeployment.
             Allowed values for this property are: "INACTIVE", "ACTIVATING", "ACTIVE", "DEACTIVATING", "UPDATING", 'UNKNOWN_ENUM_VALUE'.
@@ -131,6 +135,7 @@ class ModelDeployment(object):
             'deployment_targets': 'list[DeploymentTarget]',
             'workspace_key': 'str',
             'compute_key': 'str',
+            'compute_deployment_id': 'str',
             'status': 'str',
             'activated_time': 'int',
             'activated_by': 'str',
@@ -143,7 +148,6 @@ class ModelDeployment(object):
             'auth_type': 'str',
             'auth_details': 'DeploymentOAuthDetails'
         }
-
         self.attribute_map = {
             'deployment_id': 'deployment_id',
             'name': 'name',
@@ -152,6 +156,7 @@ class ModelDeployment(object):
             'deployment_targets': 'deployment_targets',
             'workspace_key': 'workspaceKey',
             'compute_key': 'computeKey',
+            'compute_deployment_id': 'compute_deployment_id',
             'status': 'status',
             'activated_time': 'activated_time',
             'activated_by': 'activated_by',
@@ -164,7 +169,6 @@ class ModelDeployment(object):
             'auth_type': 'authType',
             'auth_details': 'authDetails'
         }
-
         self._deployment_id = None
         self._name = None
         self._description = None
@@ -172,6 +176,7 @@ class ModelDeployment(object):
         self._deployment_targets = None
         self._workspace_key = None
         self._compute_key = None
+        self._compute_deployment_id = None
         self._status = None
         self._activated_time = None
         self._activated_by = None
@@ -351,6 +356,30 @@ class ModelDeployment(object):
         :type: str
         """
         self._compute_key = compute_key
+
+    @property
+    def compute_deployment_id(self):
+        """
+        Gets the compute_deployment_id of this ModelDeployment.
+        Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+
+
+        :return: The compute_deployment_id of this ModelDeployment.
+        :rtype: str
+        """
+        return self._compute_deployment_id
+
+    @compute_deployment_id.setter
+    def compute_deployment_id(self, compute_deployment_id):
+        """
+        Sets the compute_deployment_id of this ModelDeployment.
+        Identifier of the AI Compute deployment currently serving this model deployment, when available. Needed to scope monitoring queries.
+
+
+        :param compute_deployment_id: The compute_deployment_id of this ModelDeployment.
+        :type: str
+        """
+        self._compute_deployment_id = compute_deployment_id
 
     @property
     def status(self):

@@ -61,6 +61,10 @@ class Catalog(object):
     SOURCE_TYPE_SNOWFLAKE = "SNOWFLAKE"
 
     #: A constant which can be used with the source_type property of a Catalog.
+    #: This constant has a value of "GOOGLE_BIGQUERY"
+    SOURCE_TYPE_GOOGLE_BIGQUERY = "GOOGLE_BIGQUERY"
+
+    #: A constant which can be used with the source_type property of a Catalog.
     #: This constant has a value of "DB2"
     SOURCE_TYPE_DB2 = "DB2"
 
@@ -113,7 +117,7 @@ class Catalog(object):
 
         :param source_type:
             The value to assign to the source_type property of this Catalog.
-            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+            Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
             Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
         :type source_type: str
 
@@ -168,7 +172,6 @@ class Catalog(object):
             'updated_by': 'str',
             'properties': 'dict(str, str)'
         }
-
         self.attribute_map = {
             'key': 'key',
             'display_name': 'displayName',
@@ -185,7 +188,6 @@ class Catalog(object):
             'updated_by': 'updatedBy',
             'properties': 'properties'
         }
-
         self._key = None
         self._display_name = None
         self._description = None
@@ -333,7 +335,7 @@ class Catalog(object):
         Gets the source_type of this Catalog.
         External catalog source type.
 
-        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
+        Allowed values for this property are: "ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS", 'UNKNOWN_ENUM_VALUE'.
         Any unrecognized values returned by a service will be mapped to 'UNKNOWN_ENUM_VALUE'.
 
 
@@ -352,7 +354,7 @@ class Catalog(object):
         :param source_type: The source_type of this Catalog.
         :type: str
         """
-        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "DB2", "ORACLE_ANALYTICS"]
+        allowed_values = ["ADW", "ALH", "KAFKA", "ATP", "ORACLE", "EXADATA", "MYSQL", "AZURE_SQLSERVER", "SNOWFLAKE", "GOOGLE_BIGQUERY", "DB2", "ORACLE_ANALYTICS"]
         if not value_allowed_none_or_none_sentinel(source_type, allowed_values):
             source_type = 'UNKNOWN_ENUM_VALUE'
         self._source_type = source_type

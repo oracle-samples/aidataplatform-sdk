@@ -16,11 +16,14 @@ export interface ListGitDiffsRequest extends common.BaseRequest {
  */
  'workspaceKey': string;
 /**
- * The Git repository key.
+ * The opaque repository key, available as GitRepository.key or system:repoKey
+* in the folder's JSON file-metadata HEAD response header when
+* shouldIncludeMetadata=true. Distinct from the async operation resourceName.
+* 
  */
  'gitRepositoryKey': string;
 /**
- * The Git folder path.
+ * Workspace path of the Git folder, distinct from repository-relative file paths.
  */
  'gitFolderPath': string;
 /**
@@ -28,11 +31,15 @@ export interface ListGitDiffsRequest extends common.BaseRequest {
  */
  'branchName': string;
 /**
- * Determines which reference is used for computing diffs.
+ * Requested comparison reference. Results describe local file changes regardless
+* of the supplied value.
+* 
  */
  'compareTo'?: ListGitDiffsRequest.CompareTo;
 /**
- * Filter which files are returned.
+ * Requested file-change filter. Results include all detected local file changes
+* regardless of the supplied value.
+* 
  */
  'filter'?: ListGitDiffsRequest.Filter;
 /**
@@ -62,8 +69,8 @@ export interface ListGitDiffsRequest extends common.BaseRequest {
  */
  'sortOrder'?: model.SortOrder;
 /**
- * The field to sort by. You can provide only one sort order. Default order for {@code timeCreated}
-* is descending. Default order for {@code displayName} is ascending.
+ * The field to sort by. You can provide only one sort order. The default order for
+* {@code timeCreated} is descending.
 * 
  */
  'sortBy'?: ListGitDiffsRequest.SortBy;

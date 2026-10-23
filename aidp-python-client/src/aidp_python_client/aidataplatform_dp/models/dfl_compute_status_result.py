@@ -41,14 +41,12 @@ class DflComputeStatusResult(object):
             'enablement_status': 'str',
             'status_details': 'str'
         }
-
         self.attribute_map = {
             'is_enabled': 'isEnabled',
             'lifecycle_state': 'lifecycleState',
             'enablement_status': 'enablementStatus',
             'status_details': 'statusDetails'
         }
-
         self._is_enabled = None
         self._lifecycle_state = None
         self._enablement_status = None

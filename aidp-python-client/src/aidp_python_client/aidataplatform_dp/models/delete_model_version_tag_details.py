@@ -36,13 +36,11 @@ class DeleteModelVersionTagDetails(object):
             'version': 'str',
             'key': 'str'
         }
-
         self.attribute_map = {
             'name': 'name',
             'version': 'version',
             'key': 'key'
         }
-
         self._name = None
         self._version = None
         self._key = None

@@ -26,11 +26,9 @@ class RestoreExperimentRunDetails(object):
         self.swagger_types = {
             'run_id': 'str'
         }
-
         self.attribute_map = {
             'run_id': 'run_id'
         }
-
         self._run_id = None
 
     @property

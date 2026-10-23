@@ -26,11 +26,9 @@ class BucketCollection(object):
         self.swagger_types = {
             'items': 'list[BucketSummary]'
         }
-
         self.attribute_map = {
             'items': 'items'
         }
-
         self._items = None
 
     @property

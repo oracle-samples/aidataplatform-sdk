@@ -41,14 +41,12 @@ class GuardrailsConfiguration(object):
             'description': 'str',
             'policies': 'list[SafetyPolicy]'
         }
-
         self.attribute_map = {
             'key': 'key',
             'name': 'name',
             'description': 'description',
             'policies': 'policies'
         }
-
         self._key = None
         self._name = None
         self._description = None

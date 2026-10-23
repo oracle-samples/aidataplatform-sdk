@@ -37,13 +37,11 @@ class EmbeddingModelDetails(ExecuteDatabaseUserWorkflowsDetails):
             'onnx_model_files': 'str',
             'location_uri': 'str'
         }
-
         self.attribute_map = {
             'action_type': 'actionType',
             'onnx_model_files': 'onnxModelFiles',
             'location_uri': 'locationUri'
         }
-
         self._action_type = None
         self._onnx_model_files = None
         self._location_uri = None

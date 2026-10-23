@@ -34,25 +34,30 @@ class OntologyProjectImportStatusDetails(object):
             The value to assign to the error_message property of this OntologyProjectImportStatusDetails.
         :type error_message: str
 
+        :param discovery_job:
+            The value to assign to the discovery_job property of this OntologyProjectImportStatusDetails.
+        :type discovery_job: oci.aidataplatform_dp.models.OntologyDiscoveryJob
+
         """
         self.swagger_types = {
             'total_file_count': 'int',
             'parsed_file_count': 'int',
             'processed_file_count': 'int',
-            'error_message': 'str'
+            'error_message': 'str',
+            'discovery_job': 'OntologyDiscoveryJob'
         }
-
         self.attribute_map = {
             'total_file_count': 'totalFileCount',
             'parsed_file_count': 'parsedFileCount',
             'processed_file_count': 'processedFileCount',
-            'error_message': 'errorMessage'
+            'error_message': 'errorMessage',
+            'discovery_job': 'discoveryJob'
         }
-
         self._total_file_count = None
         self._parsed_file_count = None
         self._processed_file_count = None
         self._error_message = None
+        self._discovery_job = None
 
     @property
     def total_file_count(self):
@@ -149,6 +154,26 @@ class OntologyProjectImportStatusDetails(object):
         :type: str
         """
         self._error_message = error_message
+
+    @property
+    def discovery_job(self):
+        """
+        Gets the discovery_job of this OntologyProjectImportStatusDetails.
+
+        :return: The discovery_job of this OntologyProjectImportStatusDetails.
+        :rtype: oci.aidataplatform_dp.models.OntologyDiscoveryJob
+        """
+        return self._discovery_job
+
+    @discovery_job.setter
+    def discovery_job(self, discovery_job):
+        """
+        Sets the discovery_job of this OntologyProjectImportStatusDetails.
+
+        :param discovery_job: The discovery_job of this OntologyProjectImportStatusDetails.
+        :type: oci.aidataplatform_dp.models.OntologyDiscoveryJob
+        """
+        self._discovery_job = discovery_job
 
     def __repr__(self):
         return formatted_flat_dict(self)
